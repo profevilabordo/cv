@@ -46,6 +46,21 @@ input[type=text]{width:100%;padding:10px 14px;border-radius:10px;border:2px soli
 <div id="confettiBox"></div>
 
 <script>
+
+// Auth check - redirect to index if not authenticated
+function getDayOfYear(){
+  var now = new Date();
+  var start = new Date(now.getFullYear(), 0, 0);
+  var diff = now - start;
+  return Math.floor(diff / (1000*60*60*24));
+}
+function getTodayPassword(){
+  return "campusvvb" + (getDayOfYear() * 27);
+}
+if(sessionStorage.getItem("campus_auth") !== getTodayPassword()){
+  window.location.href = "index.html";
+}
+
 var D = null;
 
 function loadData(){
