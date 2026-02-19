@@ -1,0 +1,165 @@
+{
+  "materia": "Economía",
+  "unidad": 1,
+  "titulo": "Introducción a la Economía",
+  "emoji": "💰",
+  "color_primario": "#6366F1",
+  "color_secundario": "#8B5CF6",
+  "umbral": {
+    "preguntas_disparadoras": [
+      {"emoji": "💰", "texto": "¿Por qué algunas cosas cuestan más en un país que en otro?", "pista": "Pensá en cuando ves precios de tecnología en Argentina vs. EEUU..."},
+      {"emoji": "🏭", "texto": "¿Quién decide qué se produce y qué no?", "pista": "¿Alguna vez dejaron de fabricar algo que te gustaba?"},
+      {"emoji": "🌍", "texto": "¿La economía existía antes del dinero?", "pista": "¿Cómo hacían para conseguir lo que necesitaban?"}
+    ],
+    "situaciones_conecta": [
+      {"emoji": "🛒", "label": "Fui al súper y comparé precios"},
+      {"emoji": "📱", "label": "Ahorré para comprarme algo"},
+      {"emoji": "💸", "label": "Me pregunté por qué todo aumenta"},
+      {"emoji": "🤝", "label": "Intercambié algo con alguien"}
+    ],
+    "termometro_pregunta": "¿Cuánto sabés sobre economía antes de empezar?"
+  },
+  "mapa": {
+    "ruta_paradas": [
+      {"id": 1, "title": "Concepto de Economía", "desc": "Definición, etimología y objeto de estudio", "emoji": "📚", "color": "#6366F1"},
+      {"id": 2, "title": "Necesidades y Bienes", "desc": "Clasificación de necesidades y tipos de bienes económicos", "emoji": "🛒", "color": "#3B82F6"},
+      {"id": 3, "title": "Agentes Económicos", "desc": "Familias, empresas y Estado: roles e interacciones", "emoji": "🏛️", "color": "#10B981"},
+      {"id": 4, "title": "Sistemas Económicos", "desc": "Economía de mercado, planificada y mixta", "emoji": "⚖️", "color": "#F59E0B"},
+      {"id": 5, "title": "Pensamiento Económico", "desc": "Evolución histórica: del mercantilismo al keynesianismo", "emoji": "💡", "color": "#EC4899"}
+    ],
+    "panoramica_bloques": [
+      {"title": "Bloque A", "subtitle": "Fundamentos", "items": ["Definición de economía", "Problema económico", "Escasez y elección"], "emoji": "🧱", "color": "#6366F1"},
+      {"title": "Bloque B", "subtitle": "Agentes y mercado", "items": ["Familias", "Empresas", "Estado", "Mercado"], "emoji": "🔄", "color": "#10B981"},
+      {"title": "Bloque C", "subtitle": "Historia del pensamiento", "items": ["Mercantilismo", "Fisiocracia", "Escuela clásica", "Marxismo"], "emoji": "📜", "color": "#F59E0B"}
+    ],
+    "mapa_mental": {
+      "centro": {"title": "Economía", "emoji": "💰"},
+      "ramas": [
+        {"id": 1, "title": "¿Qué estudia?", "items": ["Recursos escasos", "Necesidades ilimitadas", "Toma de decisiones"], "color": "#6366F1", "emoji": "🔍"},
+        {"id": 2, "title": "¿Quiénes participan?", "items": ["Familias", "Empresas", "Estado"], "color": "#10B981", "emoji": "👥"},
+        {"id": 3, "title": "¿Cómo se organiza?", "items": ["Mercado", "Precios", "Oferta y demanda"], "color": "#F59E0B", "emoji": "⚙️"},
+        {"id": 4, "title": "¿De dónde viene?", "items": ["Mercantilismo", "Fisiocracia", "Clasicismo", "Keynesianismo"], "color": "#EC4899", "emoji": "📚"}
+      ]
+    }
+  },
+  "nucleo": {
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Tocá los conceptos en orden cronológico:",
+      "items": [{"id":1,"text":"Revolución Industrial","emoji":"🏭"},{"id":2,"text":"Trueque","emoji":"🤝"},{"id":3,"text":"Creación de la moneda","emoji":"🪙"},{"id":4,"text":"Comercio internacional","emoji":"🚢"},{"id":5,"text":"Mercantilismo","emoji":"👑"}],
+      "orden_correcto": [2,3,5,1,4]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá cada concepto en su categoría:",
+      "categorias": [{"name":"Microeconomía","color":"#3B82F6","emoji":"🔍"},{"name":"Macroeconomía","color":"#10B981","emoji":"🌐"}],
+      "items": [{"id":1,"text":"Oferta y demanda","categoria_correcta":0},{"id":2,"text":"Inflación","categoria_correcta":1},{"id":3,"text":"Precio de un bien","categoria_correcta":0},{"id":4,"text":"PBI","categoria_correcta":1},{"id":5,"text":"Costos de producción","categoria_correcta":0},{"id":6,"text":"Desempleo","categoria_correcta":1}]
+    },
+    "n3_completar_mapa": {
+      "consigna": "Completá los espacios en blanco:",
+      "blanks": [{"id":"a","texto_antes":"La economía estudia cómo se administran los","respuesta_correcta":"recursos escasos","pista":"recursos ___"},{"id":"b","texto_antes":"Los agentes económicos son: familias, empresas y","respuesta_correcta":"Estado","pista":"E____"},{"id":"c","texto_antes":"Los bienes pueden ser libres o","respuesta_correcta":"económicos","pista":"eco_____"}]
+    },
+    "n4_verdadero_falso": {
+      "afirmaciones": [{"texto":"Adam Smith es considerado el padre de la economía moderna","correcto":true,"explicacion":"Su obra 'La riqueza de las naciones' (1776) sentó las bases."},{"texto":"El mercantilismo promovía el libre comercio entre naciones","correcto":false,"explicacion":"El mercantilismo buscaba acumular metales preciosos y restringir importaciones."},{"texto":"La fisiocracia consideraba que la tierra era la fuente de riqueza","correcto":true,"explicacion":"Los fisiócratas creían que solo la agricultura generaba riqueza real."}]
+    },
+    "n5_relacionar_columnas": {
+      "pares": [{"izquierda":"Adam Smith","derecha":"Mano invisible","emoji":"🤚"},{"izquierda":"Karl Marx","derecha":"Lucha de clases","emoji":"⚔️"},{"izquierda":"Keynes","derecha":"Intervención estatal","emoji":"🏛️"},{"izquierda":"Quesnay","derecha":"Fisiocracia","emoji":"🌾"}]
+    },
+    "n6_palabra_intrusa": {
+      "grupos": [{"pregunta":"¿Cuál NO pertenece al grupo?","palabras":[{"text":"Oferta","es_intrusa":false},{"text":"Demanda","es_intrusa":false},{"text":"Fotosíntesis","es_intrusa":true},{"text":"Precio","es_intrusa":false}],"explicacion":"Fotosíntesis es un concepto de biología, no de economía.","emoji":"🔍"},{"pregunta":"¿Cuál NO es una escuela económica?","palabras":[{"text":"Fisiocracia","es_intrusa":false},{"text":"Mercantilismo","es_intrusa":false},{"text":"Clasicismo","es_intrusa":false},{"text":"Impresionismo","es_intrusa":true}],"explicacion":"El Impresionismo es un movimiento artístico.","emoji":"🎭"}]
+    },
+    "n7_defini_con_tus_palabras": {
+      "conceptos": [{"termino":"Escasez","pista":"¿Qué pasa cuando los recursos no alcanzan para todos?","palabras_clave":["limitado","recursos","necesidades","insuficiente","alcanza","falta"]},{"termino":"Mercado","pista":"¿Dónde se encuentran los que quieren comprar y los que quieren vender?","palabras_clave":["compra","venta","intercambio","oferta","demanda","compradores"]},{"termino":"Inflación","pista":"¿Qué pasa cuando todo cuesta más que antes?","palabras_clave":["precios","suben","aumentan","dinero","poder","compra"]}]
+    },
+    "n8_causa_efecto": {
+      "causas": [{"id":1,"text":"Aumento de la emisión monetaria","emoji":"🖨️"},{"id":2,"text":"Caída de la demanda","emoji":"📉"},{"id":3,"text":"Inversión en educación","emoji":"🎓"},{"id":4,"text":"Suba del precio del petróleo","emoji":"🛢️"}],
+      "efectos": [{"id":1,"text":"Inflación","causa_id":1,"emoji":"💸"},{"id":2,"text":"Baja del precio del bien","causa_id":2,"emoji":"🏷️"},{"id":3,"text":"Mayor productividad laboral","causa_id":3,"emoji":"📈"},{"id":4,"text":"Aumento del costo de transporte","causa_id":4,"emoji":"🚛"}]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos del método científico en economía:",
+      "pasos_en_orden_correcto": [{"id":1,"text":"Identificar el problema económico","emoji":"🔍"},{"id":2,"text":"Recopilar datos relevantes","emoji":"📊"},{"id":3,"text":"Formular una hipótesis","emoji":"💡"},{"id":4,"text":"Contrastar con la realidad","emoji":"🔬"},{"id":5,"text":"Elaborar conclusiones","emoji":"📝"}]
+    },
+    "n10_comparador": {
+      "concepto_a": {"nombre":"Mercantilismo","emoji":"👑","color":"#F59E0B"},
+      "concepto_b": {"nombre":"Fisiocracia","emoji":"🌾","color":"#10B981"}
+    }
+  },
+  "senales": {
+    "conceptos_clave": [
+      {"termino":"Escasez","definicion":"Los recursos son limitados frente a necesidades ilimitadas. Es EL problema central de la economía.","emoji":"⚠️","importancia":"Es la base de TODA la economía. Sin escasez, no habría economía.","color":"#EF4444"},
+      {"termino":"Costo de oportunidad","definicion":"Lo que dejás de obtener cuando elegís una opción sobre otra.","emoji":"🔀","importancia":"Cada decisión económica implica renunciar a algo. Siempre.","color":"#8B5CF6"},
+      {"termino":"Agentes económicos","definicion":"Familias, empresas y Estado: los tres actores que toman decisiones económicas.","emoji":"👥","importancia":"Todo lo que pasa en la economía lo generan estos tres actores.","color":"#3B82F6"},
+      {"termino":"Mercado","definicion":"Espacio (físico o virtual) donde se encuentran oferta y demanda.","emoji":"🤝","importancia":"Es el mecanismo central de asignación de recursos en el capitalismo.","color":"#10B981"}
+    ],
+    "semaforo_conceptos": [{"termino":"Escasez","emoji":"⚠️"},{"termino":"Costo de oportunidad","emoji":"🔀"},{"termino":"Agentes económicos","emoji":"👥"},{"termino":"Mercado","emoji":"🤝"},{"termino":"Oferta y demanda","emoji":"📊"}],
+    "postits_conceptos": ["Escasez","Costo de oportunidad","Agentes económicos","Mercado"]
+  },
+  "sabias": {
+    "flip_cards": [
+      {"frente":"¿Sabías que...?","dorso":"La primera moneda de la historia se acuñó en Lidia (actual Turquía) alrededor del 600 a.C. ¡Estaban hechas de electro, una aleación natural de oro y plata!","emoji":"🪙","color":"#F59E0B"},
+      {"frente":"Dato curioso","dorso":"Adam Smith, padre de la economía, nunca usó la expresión 'mano invisible' más de 3 veces en toda su obra. ¡Y es su concepto más famoso!","emoji":"🤚","color":"#8B5CF6"},
+      {"frente":"¿Lo sabías?","dorso":"Hiperinflación en Zimbabue (2008): ¡un billete de 100 TRILLONES de dólares zimbabuenses no alcanzaba para comprar un pan!","emoji":"💸","color":"#EF4444"}
+    ],
+    "linea_de_tiempo": [{"year":"600 a.C.","text":"Primeras monedas en Lidia","emoji":"🪙"},{"year":"1776","text":"Adam Smith publica 'La riqueza de las naciones'","emoji":"📕"},{"year":"1867","text":"Marx publica 'El Capital'","emoji":"📘"},{"year":"1929","text":"Crack de Wall Street","emoji":"📉"},{"year":"1936","text":"Keynes publica 'Teoría General'","emoji":"📗"}],
+    "encuesta": {
+      "pregunta": "¿Qué dato te sorprendió más?",
+      "opciones": [{"text":"La primera moneda era de oro y plata mezclados","emoji":"🪙","votos_iniciales":47},{"text":"La hiperinflación de Zimbabue","emoji":"💸","votos_iniciales":31},{"text":"Smith solo dijo 'mano invisible' 3 veces","emoji":"🤚","votos_iniciales":22}]
+    }
+  },
+  "cruces": {
+    "puentes": [
+      {"materia":"Historia","emoji":"📜","color":"#F59E0B","conexion":"El mercantilismo y la colonización de América","pregunta":"¿Cómo influyó el pensamiento económico en la conquista y explotación de recursos?","vinculo":"Unidad 2 de Historia: Expansión europea"},
+      {"materia":"Geografía","emoji":"🌍","color":"#10B981","conexion":"Distribución desigual de recursos naturales","pregunta":"¿Por qué algunos países tienen más recursos y otros menos?","vinculo":"Unidad 1 de Geografía: Espacios y recursos"},
+      {"materia":"Filosofía","emoji":"💭","color":"#8B5CF6","conexion":"Ética y justicia distributiva","pregunta":"¿Es justo que el mercado decida quién accede a los bienes?","vinculo":"Unidad 3 de Filosofía: Ética y moral"},
+      {"materia":"Matemática","emoji":"📐","color":"#3B82F6","conexion":"Gráficos de oferta y demanda, porcentajes","pregunta":"¿Cómo se calculan los índices económicos como la inflación?","vinculo":"Unidad 4 de Matemática: Funciones y gráficos"}
+    ],
+    "telarana": [
+      {"target":"Derecho","desc":"Leyes que regulan el mercado, propiedad privada, contratos","emoji":"⚖️","color":"#EF4444"},
+      {"target":"Sociología","desc":"Clases sociales, desigualdad, consumo y cultura","emoji":"👥","color":"#8B5CF6"},
+      {"target":"Política","desc":"Políticas públicas, presupuesto, impuestos","emoji":"🏛️","color":"#3B82F6"},
+      {"target":"Psicología","desc":"Comportamiento del consumidor, toma de decisiones","emoji":"🧠","color":"#EC4899"},
+      {"target":"Ecología","desc":"Economía sustentable, recursos no renovables","emoji":"🌱","color":"#10B981"},
+      {"target":"Tecnología","desc":"Innovación, automatización, economía digital","emoji":"💻","color":"#F59E0B"}
+    ]
+  },
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "El Estado debe intervenir en la economía",
+      "contexto": "Imaginá que sos parte de un tribunal económico. Leé el PDF y elegí un rol para defender tu postura con argumentos del texto.",
+      "roles": [
+        {"id":"favor","label":"A FAVOR","emoji":"🟢","color":"#10B981","desc":"Defendé la intervención del Estado con argumentos del texto"},
+        {"id":"contra","label":"EN CONTRA","emoji":"🔴","color":"#EF4444","desc":"Argumentá por qué el mercado debe regularse solo"},
+        {"id":"juez","label":"JUEZ/A","emoji":"👨‍⚖️","color":"#8B5CF6","desc":"Analizá ambas posturas y dá un veredicto equilibrado"}
+      ]
+    },
+    "tesis": {"consigna":"A partir de la lectura del PDF, formulá una tesis sobre la relación entre los sistemas económicos y el bienestar de la sociedad."},
+    "critica": {"consigna":"Releé el texto con ojo crítico y completá este análisis."}
+  },
+  "autotest": {
+    "preguntas": [
+      {"pregunta":"¿Cuál es el problema central que estudia la economía?","opciones":["La acumulación de dinero","La escasez de recursos frente a necesidades ilimitadas","El comercio internacional","La creación de empresas"],"correcta":1,"explicacion":"La economía estudia cómo administrar recursos escasos para satisfacer necesidades ilimitadas."},
+      {"pregunta":"¿Quiénes son los agentes económicos?","opciones":["Bancos, empresas y gobierno","Familias, empresas y Estado","Trabajadores, desempleados y jubilados","Productores y consumidores únicamente"],"correcta":1,"explicacion":"Los tres agentes económicos son las familias (consumo), las empresas (producción) y el Estado (regulación)."},
+      {"pregunta":"¿Qué promovía el mercantilismo?","opciones":["El libre comercio entre naciones","La agricultura como fuente de riqueza","La acumulación de metales preciosos","La intervención mínima del Estado"],"correcta":2,"explicacion":"El mercantilismo buscaba acumular oro y plata, proteger la industria nacional y exportar más de lo que se importaba."},
+      {"pregunta":"¿Qué escuela económica sostenía que la tierra era la única fuente de riqueza?","opciones":["Clasicismo","Marxismo","Mercantilismo","Fisiocracia"],"correcta":3,"explicacion":"Los fisiócratas (Quesnay) creían que solo la agricultura/naturaleza generaba riqueza real."},
+      {"pregunta":"El 'costo de oportunidad' se refiere a:","opciones":["El precio más alto del mercado","Lo que se deja de obtener al elegir una opción","El costo de producir un bien","El margen de ganancia de una empresa"],"correcta":1,"explicacion":"Cada decisión implica renunciar a la siguiente mejor alternativa: eso es el costo de oportunidad."},
+      {"pregunta":"Adam Smith es conocido por el concepto de:","opciones":["Lucha de clases","Mano invisible del mercado","Intervención estatal","Plusvalía"],"correcta":1,"explicacion":"Smith planteó que el mercado se autorregula como si una 'mano invisible' guiara las decisiones individuales hacia el bien común."}
+    ]
+  },
+  "cierre": {
+    "glosario": [
+      {"termino":"Economía","definicion":"Ciencia que estudia la administración de recursos escasos para satisfacer necesidades ilimitadas.","emoji":"💰","categoria":"Concepto base"},
+      {"termino":"Escasez","definicion":"Situación en la que los recursos disponibles son insuficientes para cubrir todas las necesidades.","emoji":"⚠️","categoria":"Concepto base"},
+      {"termino":"Costo de oportunidad","definicion":"Valor de la mejor alternativa a la que se renuncia al tomar una decisión económica.","emoji":"🔀","categoria":"Concepto base"},
+      {"termino":"Mercantilismo","definicion":"Doctrina económica (s. XVI-XVIII) que buscaba acumular metales preciosos y favorecer las exportaciones.","emoji":"👑","categoria":"Historia"},
+      {"termino":"Fisiocracia","definicion":"Escuela que consideraba a la agricultura y la naturaleza como únicas fuentes de riqueza.","emoji":"🌾","categoria":"Historia"},
+      {"termino":"Adam Smith","definicion":"Economista escocés (1723-1790), considerado padre de la economía moderna.","emoji":"📕","categoria":"Pensadores"},
+      {"termino":"Oferta y demanda","definicion":"Mecanismo de mercado que determina precios según cantidad disponible y deseada de un bien.","emoji":"📊","categoria":"Mercado"},
+      {"termino":"PBI","definicion":"Producto Bruto Interno: valor total de bienes y servicios producidos en un país en un período.","emoji":"📈","categoria":"Indicadores"}
+    ],
+    "recursos": [
+      {"tipo":"📖 Libro","title":"'La riqueza de las naciones' - Adam Smith","desc":"El clásico fundacional de la economía moderna.","nivel":"Avanzado","color":"#8B5CF6"},
+      {"tipo":"🎬 Video","title":"Economía desde cero - Canal Encuentro","desc":"Videos cortos con conceptos básicos y ejemplos argentinos.","nivel":"Introductorio","color":"#EF4444"},
+      {"tipo":"🎧 Podcast","title":"'Economía para todos' - Radio Nacional","desc":"Episodios que conectan la economía con la vida cotidiana.","nivel":"Intermedio","color":"#F59E0B"},
+      {"tipo":"🌐 Web","title":"Banco Central de la República Argentina","desc":"Datos económicos actualizados e informes.","nivel":"Intermedio","color":"#3B82F6"},
+      {"tipo":"📄 Artículo","title":"'¿Qué es la inflación?' - INDEC","desc":"Explicación oficial sobre cómo se mide la inflación.","nivel":"Introductorio","color":"#10B981"}
+    ]
+  }
+}
