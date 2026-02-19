@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus Cuaderno Vivo</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'DM Sans',sans-serif}
+html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-x:hidden}
+:root{background:#0F172A !important;color-scheme:dark}
+@keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-40px)}}
+@keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(-40px,30px)}}
+@keyframes float3{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,40px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.orbs{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.15}
+.orb1{width:400px;height:400px;background:#6366F1;top:-100px;right:-100px;animation:float1 15s ease-in-out infinite}
+.orb2{width:350px;height:350px;background:#EC4899;bottom:-50px;left:-100px;animation:float2 18s ease-in-out infinite}
+.orb3{width:300px;height:300px;background:#14B8A6;top:50%;left:50%;animation:float3 12s ease-in-out infinite}
+.container{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:40px 20px;background:#0F172A;min-height:100vh}
+.header{text-align:center;margin-bottom:48px;animation:fadeUp 0.8s ease}
+.header .logo{font-size:48px;margin-bottom:12px}
+.header h1{font-size:36px;font-weight:900;font-family:'Space Grotesk',sans-serif;letter-spacing:-2px;background:linear-gradient(135deg,#A78BFA,#EC4899,#F59E0B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.2}
+.header p{font-size:16px;color:#94A3B8;margin-top:8px;font-weight:500}
+.stats{display:flex;gap:16px;justify-content:center;margin-top:24px;flex-wrap:wrap}
+.stat{padding:8px 20px;border-radius:12px;background:#1E293B;border:1px solid rgba(255,255,255,0.1)}
+.stat span{font-size:20px;font-weight:800;font-family:'Space Grotesk',sans-serif;background:linear-gradient(135deg,#A78BFA,#6366F1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat small{display:block;font-size:11px;color:#94A3B8;font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.school{margin-bottom:40px;animation:fadeUp 0.8s ease both}
+.school-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.1)}
+.school-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px}
+.school-name{font-size:18px;font-weight:800;color:#F8FAFC;font-family:'Space Grotesk',sans-serif;letter-spacing:-0.5px;text-shadow:0 1px 8px rgba(0,0,0,0.5)}
+.school-sub{font-size:13px;color:#64748B;font-weight:500;margin-top:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.card{padding:22px;border-radius:18px;background:#1E293B;border:1px solid rgba(255,255,255,0.1);cursor:default;transition:all 0.4s ease;text-decoration:none;position:relative;overflow:hidden}
+.card.has-content{cursor:pointer}
+.card.has-content:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.3);border-color:rgba(255,255,255,0.2);background:#263347}
+.card-top{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.card-emoji{font-size:32px}
+.card-info h3{font-size:16px;font-weight:800;color:#F8FAFC;margin:0;font-family:'Space Grotesk',sans-serif;text-shadow:0 1px 6px rgba(0,0,0,0.4)}
+.card-info .curso{font-size:12px;font-weight:700;color:#CBD5E1;margin-top:2px;display:inline-block;padding:2px 10px;border-radius:6px;background:rgba(255,255,255,0.1)}
+.card .desc{font-size:12px;color:#94A3B8;line-height:1.4;margin-bottom:12px}
+.units{display:flex;gap:6px;flex-wrap:wrap}
+.unit{padding:5px 12px;border-radius:8px;font-size:11px;font-weight:700;color:#fff;text-decoration:none;transition:all 0.2s;letter-spacing:0.5px}
+.unit:hover{transform:scale(1.08);filter:brightness(1.2)}
+.unit.ready{opacity:1;cursor:pointer}
+.unit.soon{opacity:0.3;cursor:default}
+.footer{text-align:center;padding:40px 20px;border-top:1px solid rgba(255,255,255,0.05)}
+.footer p{font-size:13px;color:#475569}
+.instructions{margin-top:40px;padding:24px;border-radius:16px;background:#1E293B;border:1px solid rgba(255,255,255,0.1)}
+.instructions h3{font-size:16px;font-weight:700;color:#E2E8F0;margin-bottom:12px}
+.instructions p{font-size:13px;color:#94A3B8;line-height:1.6;margin-bottom:8px}
+.instructions code{background:rgba(99,102,241,0.15);color:#A78BFA;padding:2px 8px;border-radius:6px;font-size:12px}
+</style>
+</head>
+<body>
+<div class="orbs"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
+<div class="container">
+  <div class="header">
+    <div class="logo">📓</div>
+    <h1>Campus Cuaderno Vivo</h1>
+    <p>Plataforma de actividades interactivas</p>
+    <div class="stats">
+      <div class="stat"><span>2</span><small>Escuelas</small></div>
+      <div class="stat"><span>14</span><small>Asignaturas</small></div>
+      <div class="stat"><span>10</span><small>Secciones</small></div>
+      <div class="stat"><span>25+</span><small>Actividades</small></div>
+    </div>
+  </div>
+
+  <div id="content"></div>
+
+  <div class="instructions">
+    <h3>🚀 ¿Cómo abrir?</h3>
+    <p>1. Abrí una terminal en la carpeta del proyecto</p>
+    <p>2. Ejecutá: <code>python3 -m http.server</code></p>
+    <p>3. Abrí <code>http://localhost:8000</code> en tu navegador</p>
+  </div>
+
+  <div class="footer">
+    <p>💡 Campus Cuaderno Vivo · 10 secciones pedagógicas por unidad · Prof. Verónica</p>
+  </div>
+</div>
+
+<script>
+var escuelas = [
+  {
+    nombre: 'EETP N\u00b0602 "Gral Jos\u00e9 de San Mart\u00edn"',
+    icono: "\u{1F3EB}",
+    color: "#6366F1",
+    materias: [
+      {
+        nombre: "Fundamentos de Gesti\u00f3n",
+        curso: '4to "A"',
+        emoji: "\u{1F4CB}",
+        color: "#6366F1",
+        desc: "Bases de la administraci\u00f3n y gesti\u00f3n organizacional",
+        id: "eetp602_4a_fund_gestion",
+        archivos: ["datos/eetp602_4a_fund_gestion_u1.json", "datos/eetp602_4a_fund_gestion_u2.json", "datos/eetp602_4a_fund_gestion_u3.json"]
+      },
+      {
+        nombre: "Organizaci\u00f3n y Gesti\u00f3n",
+        curso: '5to "A"',
+        emoji: "\u{1F3E2}",
+        color: "#3B82F6",
+        desc: "Estructura, procesos y toma de decisiones",
+        id: "eetp602_5a_org_gestion",
+        archivos: ["datos/eetp602_5a_org_gestion_u1.json", "datos/eetp602_5a_org_gestion_u2.json", "datos/eetp602_5a_org_gestion_u3.json"]
+      },
+      {
+        nombre: "Procesos Productivos",
+        curso: '5to "A"',
+        emoji: "\u{1F3ED}",
+        color: "#10B981",
+        desc: "Sistemas de producci\u00f3n, cadena de valor y eficiencia",
+        id: "eetp602_5a_proc_prod",
+        archivos: ["datos/eetp602_5a_proc_prod_u1.json", "datos/eetp602_5a_proc_prod_u2.json", "datos/eetp602_5a_proc_prod_u3.json"]
+      },
+      {
+        nombre: "Marco Jur\u00eddico",
+        curso: '5to "A"',
+        emoji: "\u2696\uFE0F",
+        color: "#F59E0B",
+        desc: "Legislaci\u00f3n aplicada a las organizaciones",
+        id: "eetp602_5a_marco_jur",
+        archivos: ["datos/eetp602_5a_marco_jur_u1.json", "datos/eetp602_5a_marco_jur_u2.json", "datos/eetp602_5a_marco_jur_u3.json"]
+      },
+      {
+        nombre: "Organizaci\u00f3n y Gesti\u00f3n Comercial",
+        curso: '6to "A"',
+        emoji: "\u{1F6D2}",
+        color: "#EC4899",
+        desc: "Marketing, comercializaci\u00f3n y gesti\u00f3n de ventas",
+        id: "eetp602_6a_org_gestion_com",
+        archivos: ["datos/eetp602_6a_org_gestion_com_u1.json", "datos/eetp602_6a_org_gestion_com_u2.json", "datos/eetp602_6a_org_gestion_com_u3.json"]
+      },
+      {
+        nombre: "Econom\u00eda",
+        curso: '6to "B"',
+        emoji: "\u{1F4B0}",
+        color: "#8B5CF6",
+        desc: "Sistemas econ\u00f3micos, mercado y pensamiento econ\u00f3mico",
+        id: "eetp602_6b_economia",
+        archivos: ["datos/eetp602_6b_economia_u1.json", "datos/eetp602_6b_economia_u2.json", "datos/eetp602_6b_economia_u3.json"]
+      },
+      {
+        nombre: "Marco Jur\u00eddico",
+        curso: '6to "B"',
+        emoji: "\u{1F4DC}",
+        color: "#EF4444",
+        desc: "Derecho comercial, laboral y societario",
+        id: "eetp602_6b_marco_jur",
+        archivos: ["datos/eetp602_6b_marco_jur_u1.json", "datos/eetp602_6b_marco_jur_u2.json", "datos/eetp602_6b_marco_jur_u3.json"]
+      }
+    ]
+  },
+  {
+    nombre: 'EESO N\u00b0206 "Rosa Turner de Estrugamou"',
+    icono: "\u{1F393}",
+    color: "#EC4899",
+    materias: [
+      {
+        nombre: "Econom\u00eda",
+        curso: '3ro "A"',
+        emoji: "\u{1F4B0}",
+        color: "#6366F1",
+        desc: "Introducci\u00f3n a la econom\u00eda, agentes y sistemas econ\u00f3micos",
+        id: "eeso206_3a_economia",
+        archivos: ["datos/eeso206_3a_economia_u1.json", "datos/eeso206_3a_economia_u2.json", "datos/eeso206_3a_economia_u3.json"]
+      },
+      {
+        nombre: "Derecho",
+        curso: '4to "C"',
+        emoji: "\u2696\uFE0F",
+        color: "#F59E0B",
+        desc: "Fundamentos del derecho, normas y ciudadan\u00eda",
+        id: "eeso206_4c_derecho",
+        archivos: ["datos/eeso206_4c_derecho_u1.json", "datos/eeso206_4c_derecho_u2.json", "datos/eeso206_4c_derecho_u3.json"]
+      },
+      {
+        nombre: "Derecho",
+        curso: '4to "D"',
+        emoji: "\u2696\uFE0F",
+        color: "#14B8A6",
+        desc: "Fundamentos del derecho, normas y ciudadan\u00eda",
+        id: "eeso206_4d_derecho",
+        archivos: ["datos/eeso206_4d_derecho_u1.json", "datos/eeso206_4d_derecho_u2.json", "datos/eeso206_4d_derecho_u3.json"]
+      },
+      {
+        nombre: "Econom\u00eda",
+        curso: '4to "D"',
+        emoji: "\u{1F4CA}",
+        color: "#7C3AED",
+        desc: "Microeconom\u00eda, macroeconom\u00eda y pol\u00edticas econ\u00f3micas",
+        id: "eeso206_4d_economia",
+        archivos: ["datos/eeso206_4d_economia_u1.json", "datos/eeso206_4d_economia_u2.json", "datos/eeso206_4d_economia_u3.json"]
+      },
+      {
+        nombre: "Orientaci\u00f3n en Contextos Laborales",
+        curso: '5to "D"',
+        emoji: "\u{1F4BC}",
+        color: "#0EA5E9",
+        desc: "Mercado laboral, derechos y proyecto profesional",
+        id: "eeso206_5d_ocl",
+        archivos: ["datos/eeso206_5d_ocl_u1.json", "datos/eeso206_5d_ocl_u2.json", "datos/eeso206_5d_ocl_u3.json"]
+      },
+      {
+        nombre: "Administraci\u00f3n III",
+        curso: '5to "D"',
+        emoji: "\u{1F4C8}",
+        color: "#F97316",
+        desc: "Gesti\u00f3n avanzada, planificaci\u00f3n y control",
+        id: "eeso206_5d_admin3",
+        archivos: ["datos/eeso206_5d_admin3_u1.json", "datos/eeso206_5d_admin3_u2.json", "datos/eeso206_5d_admin3_u3.json"]
+      }
+    ]
+  }
+];
+
+var content = document.getElementById("content");
+var html = "";
+var delay = 0;
+
+escuelas.forEach(function(esc) {
+  html += '<div class="school" style="animation-delay:' + delay + 's">';
+  html += '<div class="school-header">';
+  html += '<div class="school-icon" style="background:' + esc.color + '20;border:2px solid ' + esc.color + '40">' + esc.icono + '</div>';
+  html += '<div><div class="school-name">' + esc.nombre + '</div>';
+  html += '<div class="school-sub">' + esc.materias.length + ' asignaturas</div></div></div>';
+  html += '<div class="grid">';
+
+  esc.materias.forEach(function(m, idx) {
+    var firstReady = null;
+    var unitsHtml = '';
+
+    m.archivos.forEach(function(archivo, i) {
+      if (archivo) {
+        if (!firstReady) firstReady = archivo;
+        unitsHtml += '<a href="unidad.html?datos=' + archivo + '" class="unit ready" style="background:' + m.color + '" onclick="event.stopPropagation()">U' + (i + 1) + '</a>';
+      } else {
+        unitsHtml += '<span class="unit soon" style="background:' + m.color + '">U' + (i + 1) + '</span>';
+      }
+    });
+
+    html += '<div class="card ' + (firstReady ? 'has-content' : '') + '" style="animation:fadeUp 0.6s ease ' + (delay + idx * 0.08) + 's both"' + (firstReady ? ' onclick="window.location.href=\'unidad.html?datos=' + firstReady + '\'"' : '') + '>';
+    html += '<div class="card-top">';
+    html += '<span class="card-emoji">' + m.emoji + '</span>';
+    html += '<div class="card-info"><h3>' + m.nombre + '</h3>';
+    html += '<span class="curso">' + m.curso + '</span></div></div>';
+    html += '<p class="desc">' + m.desc + '</p>';
+    html += '<div class="units">' + unitsHtml + '</div>';
+    html += '</div>';
+  });
+
+  html += '</div></div>';
+  delay += 0.3;
+});
+
+content.innerHTML = html;
+</script>
+</body>
+</html>
