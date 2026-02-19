@@ -13,7 +13,7 @@ body{min-height:100vh;background:linear-gradient(180deg,#F8FAFC 0%,#EEF2FF 50%,#
 @keyframes confetti{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:0;transform:translateY(-120px) translateX(30px) rotate(360deg)}}
 h1,h2,h3{font-family:'Space Grotesk',sans-serif}
 .hdr{text-align:center;margin-bottom:28px}
-.hdr h1{font-size:26px;font-weight:800;letter-spacing:-1px;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hdr h1{font-size:26px;font-weight:800;letter-spacing:-1px;color:#4F46E5;background:linear-gradient(135deg,var(--c1,#6366F1),var(--c2,#8B5CF6));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline}
 .tabs{display:flex;gap:4px;margin-bottom:24px;justify-content:center;flex-wrap:wrap}
 .tab{padding:7px 12px;border-radius:12px;border:none;font-size:11px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:4px;font-family:'DM Sans',sans-serif;white-space:nowrap;transition:all .3s}
 .tab.on{color:#fff;transform:scale(1.05)}.tab:not(.on){background:#fff;color:#6B7280;box-shadow:0 1px 3px rgba(0,0,0,.08)}
@@ -138,7 +138,7 @@ function render(){
   var h='<div class="hdr">';
   h+='<a href="index.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:10px;border:1px solid #E5E7EB;background:#fff;color:#6B7280;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:12px">\u2190 Volver</a><br>';
   h+='<span style="font-size:32px">\u{1F4D3}</span> ';
-  h+='<h1 style="display:inline;background:linear-gradient(135deg,'+D.color_primario+','+D.color_secundario+')">'+D.materia+'</h1>';
+  h+='<h1 style="display:inline;background:linear-gradient(135deg,'+D.color_primario+','+D.color_secundario+');-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">'+D.materia+'</h1>';
   h+='<p style="font-size:14px;color:#6B7280;margin-top:4px">'+D.emoji+' Unidad '+D.unidad+': '+D.titulo+'</p>';
   h+='</div>';
   
