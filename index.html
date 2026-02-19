@@ -42,7 +42,8 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 .card-info h3{font-size:16px;font-weight:800;color:#F8FAFC;margin:0;font-family:'Space Grotesk',sans-serif;text-shadow:0 1px 6px rgba(0,0,0,0.4)}
 .card-info .curso{font-size:12px;font-weight:700;color:#CBD5E1;margin-top:2px;display:inline-block;padding:2px 10px;border-radius:6px;background:rgba(255,255,255,0.1)}
 .card .desc{font-size:12px;color:#94A3B8;line-height:1.4;margin-bottom:12px}
-.units{display:flex;gap:6px;flex-wrap:wrap}
+.units{display:flex;flex-direction:column;gap:6px}
+.unit-row{display:flex;align-items:center;gap:6px}
 .unit{padding:5px 12px;border-radius:8px;font-size:11px;font-weight:700;color:#fff;text-decoration:none;transition:all 0.2s;letter-spacing:0.5px}
 .unit:hover{transform:scale(1.08);filter:brightness(1.2)}
 .pdf{padding:5px 8px;border-radius:8px;font-size:11px;font-weight:700;color:#94A3B8;text-decoration:none;transition:all 0.2s;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);cursor:pointer;display:inline-flex;align-items:center;gap:3px}
@@ -238,14 +239,16 @@ escuelas.forEach(function(esc) {
     var unitsHtml = '';
 
     m.archivos.forEach(function(archivo, i) {
+      var pdfFile = "pdfs/" + m.id + "_u" + (i + 1) + ".pdf";
+      unitsHtml += "<div class=\"unit-row\">";
       if (archivo) {
         if (!firstReady) firstReady = archivo;
-        unitsHtml += '<a href="unidad.html?datos=' + archivo + '" class="unit ready" style="background:' + m.color + '" onclick="event.stopPropagation()">U' + (i + 1) + '</a>';
+        unitsHtml += "<a href=\"unidad.html?datos=" + archivo + "\" class=\"unit ready\" style=\"background:" + m.color + "\" onclick=\"event.stopPropagation()\">U" + (i + 1) + "</a>";
       } else {
-        unitsHtml += '<span class="unit soon" style="background:' + m.color + '">U' + (i + 1) + '</span>';
+        unitsHtml += "<span class=\"unit soon\" style=\"background:" + m.color + "\">U" + (i + 1) + "</span>";
       }
-      var pdfFile = 'pdfs/' + m.id + '_u' + (i + 1) + '.pdf';
-      unitsHtml += '<a href="' + pdfFile + '" class="pdf" target="_blank" onclick="event.stopPropagation()" title="PDF U' + (i+1) + '">\ud83d\udcc4</a>';
+      unitsHtml += "<a href=\"" + pdfFile + "\" class=\"pdf\" target=\"_blank\" onclick=\"event.stopPropagation()\" title=\"PDF U" + (i+1) + "\">\ud83d\udcc4 PDF</a>";
+      unitsHtml += "</div>";
     });
 
     html += '<div class="card ' + (firstReady ? 'has-content' : '') + '" style="animation:fadeUp 0.6s ease ' + (delay + idx * 0.08) + 's both"' + (firstReady ? ' onclick="window.location.href=\'unidad.html?datos=' + firstReady + '\'"' : '') + '>';
