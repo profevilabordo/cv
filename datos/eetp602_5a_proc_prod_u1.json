@@ -1,0 +1,304 @@
+{
+  "materia": "Procesos Productivos",
+  "unidad": 1,
+  "titulo": "Antecedentes Históricos y Diseño de Producto",
+  "emoji": "🏭",
+  "color_primario": "#6366F1",
+  "color_secundario": "#8B5CF6",
+
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "📱",
+        "texto": "Tu celular tiene componentes de más de 30 países. ¿Cómo es posible que un solo producto necesite un proceso productivo global?",
+        "pista": "Pensá en quién extrae el cobalto, quién diseña el chip, quién ensambla el dispositivo y quién lo transporta hasta tu mano..."
+      },
+      {
+        "emoji": "🏭",
+        "texto": "¿Por qué Toyota produce autos de alta calidad con menos desperdicios que sus competidores? ¿Qué sistema inventaron?",
+        "pista": "Tiene que ver con producir solo lo necesario, cuando se necesita. Se llama 'justo a tiempo'..."
+      },
+      {
+        "emoji": "💻",
+        "texto": "Si una startup te contrata para automatizar su línea de producción, ¿qué necesitarías saber antes de empezar?",
+        "pista": "Pensá en qué tipo de producción usan (artesanal, en serie, flexible...), qué sistemas ya tienen y qué tecnología necesitan..."
+      }
+    ],
+    "situaciones_conecta": [
+      {"emoji": "🍞", "label": "Compré algo y me pregunté cómo se fabrica"},
+      {"emoji": "🤖", "label": "Vi un video de robots en una fábrica y me voló la cabeza"},
+      {"emoji": "📦", "label": "Pedí algo online y llegó al día siguiente desde otra provincia"},
+      {"emoji": "⚡", "label": "Se cortó la luz y pensé en lo que depende de la energía"}
+    ],
+    "termometro_pregunta": "¿Cuánto sabés sobre cómo se producen los bienes y servicios que usás todos los días?"
+  },
+
+  "mapa": {
+    "ruta_paradas": [
+      {"id": 1, "title": "Antecedentes y concepto", "desc": "De la subsistencia a los procesos tecno-organizacionales", "emoji": "📜", "color": "#6366F1"},
+      {"id": 2, "title": "Elementos y factores productivos", "desc": "Materia prima, trabajo, capital, tecnología, energía y retribuciones", "emoji": "🧩", "color": "#3B82F6"},
+      {"id": 3, "title": "Tipos y sistemas de producción", "desc": "Artesanal, en serie, en masa, flexible, Lean/JIT y sus sistemas", "emoji": "⚙️", "color": "#10B981"},
+      {"id": 4, "title": "Diseño de productos y servicios", "desc": "Semejanzas, diferencias y pasos del proceso de diseño", "emoji": "🎨", "color": "#F59E0B"},
+      {"id": 5, "title": "Localización de empresas", "desc": "Factores estratégicos: materia prima, clientes, energía y tecnología", "emoji": "📍", "color": "#EC4899"}
+    ],
+    "panoramica_bloques": [
+      {
+        "title": "Bloque A",
+        "subtitle": "¿Qué es producir y con qué?",
+        "items": ["Evolución histórica de la producción", "Concepto de proceso productivo y visión sistémica", "Los 5 elementos: materia prima, trabajo, capital, tecnología, energía", "Factores productivos y retribuciones"],
+        "emoji": "📜",
+        "color": "#6366F1"
+      },
+      {
+        "title": "Bloque B",
+        "subtitle": "¿Cómo se produce?",
+        "items": ["5 tipos: artesanal, en serie, en masa, flexible, Lean/JIT", "5 sistemas: por encargo, por lotes, continua, modular, híbrida", "Los 8 desperdicios (Muda) y los 5 pilares Lean", "Matriz de decisión: cuándo conviene cada modelo"],
+        "emoji": "⚙️",
+        "color": "#10B981"
+      },
+      {
+        "title": "Bloque C",
+        "subtitle": "¿Cómo se diseña y dónde se ubica?",
+        "items": ["Diseño de productos vs. diseño de servicios", "4 pasos clave del diseño", "Factores de localización empresarial", "El rol del Técnico en Informática en cada área"],
+        "emoji": "📍",
+        "color": "#F59E0B"
+      }
+    ],
+    "mapa_mental": {
+      "centro": {"title": "Procesos Productivos", "emoji": "🏭"},
+      "ramas": [
+        {
+          "id": 1, "title": "¿Qué son y cómo evolucionaron?",
+          "items": ["Transforman insumos en bienes/servicios", "De subsistencia a artesanal a industrial a digital", "Fordismo (masa) y toyotismo (flexible/JIT)", "Hoy: procesos tecno-organizacionales con IA"],
+          "color": "#6366F1", "emoji": "📜"
+        },
+        {
+          "id": 2, "title": "¿Con qué se produce?",
+          "items": ["5 elementos: materia prima, trabajo, capital, tecnología, energía", "4 factores productivos con retribuciones", "Todo funciona como sistema integrado", "Si uno falla, todo el proceso se afecta"],
+          "color": "#3B82F6", "emoji": "🧩"
+        },
+        {
+          "id": 3, "title": "¿Qué tipos y sistemas existen?",
+          "items": ["Artesanal, en serie, en masa, flexible (FMS), Lean/JIT", "Por encargo, por lotes, continua, modular, híbrida", "3 dimensiones: personalización, volumen, automatización", "Las empresas combinan varios modelos"],
+          "color": "#10B981", "emoji": "⚙️"
+        },
+        {
+          "id": 4, "title": "¿Cómo se diseña y dónde se ubica?",
+          "items": ["Productos (tangibles) vs servicios (intangibles)", "Investigación, ideación, prototipado, implementación", "Localización: materia prima, clientes, energía, talento", "Amazon, Tesla, IKEA como casos de estudio"],
+          "color": "#EC4899", "emoji": "📍"
+        }
+      ]
+    }
+  },
+
+  "nucleo": {
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená las etapas históricas de los procesos productivos:",
+      "items": [
+        {"id": 1, "text": "Sociedades primitivas: producción de subsistencia con herramientas simples", "emoji": "🦴"},
+        {"id": 2, "text": "Antigüedad: especialización laboral, oficios definidos y trabajo esclavo", "emoji": "⚔️"},
+        {"id": 3, "text": "Edad Media: producción artesanal en talleres regulados por gremios", "emoji": "🔨"},
+        {"id": 4, "text": "Revolución Industrial: máquinas, vapor y producción en serie en fábricas", "emoji": "🏭"},
+        {"id": 5, "text": "Siglos XIX-XX: fordismo (masa), toyotismo (flexible) y producción Lean/JIT", "emoji": "🚗"}
+      ],
+      "orden_correcto": [1, 2, 3, 4, 5]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá cada concepto según sea un TIPO o un SISTEMA de producción:",
+      "categorias": [
+        {"name": "Tipo de producción", "color": "#3B82F6", "emoji": "🔧"},
+        {"name": "Sistema de producción", "color": "#10B981", "emoji": "📦"}
+      ],
+      "items": [
+        {"id": 1, "text": "Producción artesanal", "categoria_correcta": 0},
+        {"id": 2, "text": "Producción por encargo", "categoria_correcta": 1},
+        {"id": 3, "text": "Producción en masa", "categoria_correcta": 0},
+        {"id": 4, "text": "Producción continua", "categoria_correcta": 1},
+        {"id": 5, "text": "Producción flexible (FMS)", "categoria_correcta": 0},
+        {"id": 6, "text": "Producción modular", "categoria_correcta": 1}
+      ]
+    },
+    "n3_completar_mapa": {
+      "consigna": "Completá los espacios en blanco:",
+      "blanks": [
+        {"id": "a", "texto_antes": "La filosofía Lean busca eliminar todo tipo de desperdicio para maximizar el valor para el", "respuesta_correcta": "cliente", "pista": "C______"},
+        {"id": "b", "texto_antes": "Las 3 dimensiones clave que definen cada modelo productivo son: personalización, volumen y", "respuesta_correcta": "automatización", "pista": "A_____________"},
+        {"id": "c", "texto_antes": "Los productos son tangibles y se pueden almacenar, mientras que los servicios son", "respuesta_correcta": "intangibles", "pista": "I__________"}
+      ]
+    },
+    "n4_verdadero_falso": {
+      "afirmaciones": [
+        {"texto": "La producción flexible (FMS) combina alta automatización con capacidad de cambiar rápidamente entre diferentes productos.", "correcto": true, "explicacion": "Correcto. Los FMS usan robots programables y máquinas CNC que pueden reconfigurarse digitalmente para producir variedad de productos."},
+        {"texto": "En la producción Lean/JIT, se acumulan grandes inventarios para anticipar la demanda.", "correcto": false, "explicacion": "Falso. Lean/JIT busca inventarios mínimos o nulos, produciendo solo lo que se necesita, cuando se necesita. Los grandes inventarios son de la producción tradicional."},
+        {"texto": "La localización de una empresa tecnológica de software depende principalmente de la proximidad a la materia prima.", "correcto": false, "explicacion": "Falso. Las empresas tech priorizan infraestructura de telecomunicaciones y disponibilidad de talento humano calificado, no materia prima física."}
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "pares": [
+        {"izquierda": "Producción artesanal", "derecha": "Personalización total, volumen muy bajo", "emoji": "🎨"},
+        {"izquierda": "Producción en masa", "derecha": "Productos idénticos, costo unitario mínimo", "emoji": "📦"},
+        {"izquierda": "Producción Lean/JIT", "derecha": "Inventario mínimo, eliminación de desperdicios", "emoji": "🎯"},
+        {"izquierda": "Producción modular", "derecha": "Componentes estandarizados, diversas configuraciones", "emoji": "🧱"}
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "grupos": [
+        {
+          "pregunta": "¿Cuál NO es uno de los 5 pilares de la filosofía Lean?",
+          "palabras": [{"text": "Valor", "es_intrusa": false}, {"text": "Flujo", "es_intrusa": false}, {"text": "Inventario", "es_intrusa": true}, {"text": "Perfección", "es_intrusa": false}],
+          "explicacion": "Los 5 pilares Lean son: Valor, Flujo, Tirón (Pull), Perfección y Personas. El inventario es algo que Lean busca minimizar como uno de los 8 desperdicios.",
+          "emoji": "🎯"
+        },
+        {
+          "pregunta": "¿Cuál NO es un sistema de producción?",
+          "palabras": [{"text": "Por encargo", "es_intrusa": false}, {"text": "Continua", "es_intrusa": false}, {"text": "Fordismo", "es_intrusa": true}, {"text": "Modular", "es_intrusa": false}],
+          "explicacion": "El fordismo es un modelo histórico de producción en masa, no un sistema de producción. Los sistemas son: por encargo, por lotes, continua, modular e híbrida.",
+          "emoji": "📦"
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "conceptos": [
+        {"termino": "Proceso productivo", "pista": "¿Qué se necesita y qué se obtiene al transformar insumos?", "palabras_clave": ["transformar", "insumos", "bienes", "servicios", "actividades", "organización"]},
+        {"termino": "Producción Lean/Just-In-Time", "pista": "¿Cuál es la filosofía de Toyota para producir sin desperdiciar?", "palabras_clave": ["desperdicio", "inventario", "necesita", "demanda", "mejora", "eficiencia"]},
+        {"termino": "Localización empresarial", "pista": "¿Por qué las empresas eligen ubicarse en un lugar específico?", "palabras_clave": ["ubicación", "estrategia", "costos", "clientes", "recursos", "transporte"]}
+      ]
+    },
+    "n8_causa_efecto": {
+      "causas": [
+        {"id": 1, "text": "Toyota necesitaba competir con recursos escasos tras la Segunda Guerra Mundial", "emoji": "🇯🇵"},
+        {"id": 2, "text": "Una empresa tiene demanda de productos muy personalizados y únicos", "emoji": "🎨"},
+        {"id": 3, "text": "Una industria necesita alto consumo energético para funcionar", "emoji": "⚡"},
+        {"id": 4, "text": "Se incorporan robots programables y máquinas CNC en una fábrica", "emoji": "🤖"}
+      ],
+      "efectos": [
+        {"id": 1, "text": "Se desarrolla Lean/JIT para eliminar desperdicios y producir inteligentemente", "causa_id": 1, "emoji": "🎯"},
+        {"id": 2, "text": "Se adopta producción artesanal o por encargo con alto costo unitario", "causa_id": 2, "emoji": "💰"},
+        {"id": 3, "text": "Se localiza cerca de fuentes de energía barata como hidroeléctricas", "causa_id": 3, "emoji": "🏭"},
+        {"id": 4, "text": "Se logra producción flexible (FMS) con cambios rápidos entre productos", "causa_id": 4, "emoji": "⚙️"}
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos clave en el diseño de un producto o servicio:",
+      "pasos_en_orden_correcto": [
+        {"id": 1, "text": "Investigación y Descubrimiento: comprender necesidades del usuario y el mercado", "emoji": "🔍"},
+        {"id": 2, "text": "Ideación y Conceptuación: generar ideas innovadoras y desarrollar conceptos", "emoji": "💡"},
+        {"id": 3, "text": "Prototipado y Validación: crear prototipos funcionales y probarlos con usuarios", "emoji": "🧪"},
+        {"id": 4, "text": "Implementación y Evolución: lanzar al mercado y optimizar continuamente", "emoji": "🚀"},
+        {"id": 5, "text": "Retroalimentación: recoger datos, medir resultados y planificar actualizaciones", "emoji": "🔄"}
+      ]
+    },
+    "n10_comparador": {
+      "concepto_a": {"nombre": "Producción Lean/JIT", "emoji": "🎯", "color": "#10B981"},
+      "concepto_b": {"nombre": "Producción en masa", "emoji": "🏭", "color": "#F59E0B"}
+    }
+  },
+
+  "senales": {
+    "conceptos_clave": [
+      {"termino": "Proceso productivo como sistema", "definicion": "Conjunto de actividades organizadas que transforman insumos en bienes o servicios. Funciona como un sistema con entradas, transformación, salidas y control.", "emoji": "⚙️", "importancia": "Es el concepto base de toda la materia. Sin entenderlo, no podés analizar ningún modelo productivo ni el rol que cumple la tecnología.", "color": "#EF4444"},
+      {"termino": "Tipos de producción", "definicion": "Cinco modelos que combinan personalización, volumen y automatización: artesanal, en serie, en masa, flexible (FMS) y Lean/JIT. Cada uno con ventajas, desventajas y tecnologías.", "emoji": "🔧", "importancia": "Entender los tipos te permite recomendar qué tecnología y sistemas informáticos necesita cada empresa según su modelo.", "color": "#8B5CF6"},
+      {"termino": "Lean/JIT y los 8 desperdicios", "definicion": "Filosofía de Toyota que busca eliminar 8 desperdicios (Muda): transporte, inventario, movimientos, esperas, sobreprocesamiento, defectos, sobreproducción y talento subutilizado.", "emoji": "🎯", "importancia": "Es la filosofía productiva más influyente del mundo. El Técnico en Informática implementa los sistemas digitales que la hacen posible.", "color": "#3B82F6"},
+      {"termino": "Localización empresarial", "definicion": "Decisión estratégica sobre dónde ubicar una empresa según proximidad a materia prima, clientes, energía, infraestructura, talento humano y regulaciones.", "emoji": "📍", "importancia": "Para empresas tech, la conectividad y el talento humano son los factores decisivos.", "color": "#10B981"}
+    ],
+    "semaforo_conceptos": [
+      {"termino": "Proceso productivo como sistema", "emoji": "⚙️"},
+      {"termino": "Elementos y factores productivos", "emoji": "🧩"},
+      {"termino": "5 tipos de producción", "emoji": "🔧"},
+      {"termino": "Lean/JIT y los 8 desperdicios", "emoji": "🎯"},
+      {"termino": "Diseño de productos vs. servicios", "emoji": "🎨"}
+    ],
+    "postits_conceptos": ["Proceso productivo como sistema", "Tipos de producción", "Lean/JIT y los 8 desperdicios", "Localización empresarial"]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {"frente": "¿Sabías que...?", "dorso": "Toyota inventó el sistema Lean/JIT inspirándose en los supermercados estadounidenses. Taiichi Ohno observó que los estantes se reponían solo cuando se vaciaban y llevó esa lógica a la fábrica: producir solo lo necesario, cuando se necesita. Hoy Apple y Dell usan el mismo principio.", "emoji": "🇯🇵", "color": "#F59E0B"},
+      {"frente": "Dato curioso", "dorso": "Los centros de datos de Google, Amazon y Microsoft se ubican en países nórdicos o cerca de fuentes de agua fría. El factor de localización clave es la energía barata y el clima frío natural que reduce los costos de refrigeración de los servidores hasta un 40%.", "emoji": "❄️", "color": "#8B5CF6"},
+      {"frente": "¿Lo sabías?", "dorso": "IKEA diseña sus muebles para que se fabriquen en paquetes planos, reduciendo costos de transporte un 50%. Las piezas estandarizadas se producen en masa, pero las combinaciones posibles son casi infinitas. Un sistema que un informático puede optimizar con configuradores 3D online.", "emoji": "🧱", "color": "#EF4444"}
+    ],
+    "linea_de_tiempo": [
+      {"year": "Prehistoria", "text": "Producción de subsistencia: herramientas de piedra para sobrevivir", "emoji": "🦴"},
+      {"year": "Siglo XVIII", "text": "Revolución Industrial: máquinas a vapor, fábricas y producción en serie", "emoji": "🏭"},
+      {"year": "1913", "text": "Henry Ford instala la primera línea de montaje móvil: nace la producción en masa", "emoji": "🚗"},
+      {"year": "1950s", "text": "Toyota crea el sistema Lean/JIT: producción flexible y mejora continua (Kaizen)", "emoji": "🇯🇵"},
+      {"year": "2000s-hoy", "text": "Industria 4.0: automatización con IA, IoT, Big Data y sistemas ERP/MES", "emoji": "🤖"}
+    ],
+    "encuesta": {
+      "pregunta": "¿Qué dato te sorprendió más?",
+      "opciones": [
+        {"text": "Toyota se inspiró en supermercados para crear el JIT", "emoji": "🇯🇵", "votos_iniciales": 40},
+        {"text": "Los data centers se ubican en zonas frías para ahorrar energía", "emoji": "❄️", "votos_iniciales": 35},
+        {"text": "IKEA reduce 50% sus costos de transporte con diseño modular", "emoji": "🧱", "votos_iniciales": 25}
+      ]
+    }
+  },
+
+  "cruces": {
+    "puentes": [
+      {"materia": "Historia", "emoji": "📜", "color": "#F59E0B", "conexion": "La Revolución Industrial y la posguerra japonesa no solo transformaron la producción, sino toda la organización social: urbanización, sindicatos, globalización.", "pregunta": "¿Cómo cambió la vida de las personas cuando pasaron de talleres artesanales a fábricas con líneas de montaje?", "vinculo": "Unidad sobre Revolución Industrial y transformaciones del siglo XX"},
+      {"materia": "Sistemas informáticos", "emoji": "💻", "color": "#10B981", "conexion": "Los sistemas SCADA, PLC, ERP y MES que controlan la producción industrial son software que un Técnico en Informática diseña, implementa y mantiene.", "pregunta": "¿Qué tipo de sistema informático necesita cada modelo de producción?", "vinculo": "Unidad sobre arquitectura de sistemas y redes industriales"},
+      {"materia": "Economía", "emoji": "📊", "color": "#8B5CF6", "conexion": "Los factores productivos y sus retribuciones (renta, salario, interés, beneficio) explican el circuito económico de producción, ingresos, consumo e inversión.", "pregunta": "¿Qué pasaría en la economía si los salarios fueran insuficientes para sostener el consumo?", "vinculo": "Unidad sobre factores de producción y circuito económico"},
+      {"materia": "Geografía", "emoji": "🌍", "color": "#3B82F6", "conexion": "La localización empresarial depende de factores geográficos: recursos naturales, redes de transporte, energía, cercanía a mercados y regulaciones.", "pregunta": "¿Por qué las Gigafactories de Tesla se ubican cerca de energía renovable y no en grandes ciudades?", "vinculo": "Unidad sobre actividades económicas y localización industrial"}
+    ],
+    "telarana": [
+      {"target": "Robótica y Automatización", "desc": "Robots industriales, cobots y CNC son el corazón de la producción flexible y en masa", "emoji": "🤖", "color": "#EF4444"},
+      {"target": "Base de datos y Big Data", "desc": "El análisis de datos permite predecir demanda, identificar desperdicios y optimizar Lean", "emoji": "📊", "color": "#8B5CF6"},
+      {"target": "Redes e IoT", "desc": "Internet de las Cosas conecta sensores, máquinas y sistemas para monitoreo en tiempo real", "emoji": "🌐", "color": "#3B82F6"},
+      {"target": "Diseño UX/UI", "desc": "Diseño de productos/servicios digitales: investigación, prototipado y validación con usuarios", "emoji": "🎨", "color": "#EC4899"},
+      {"target": "Sustentabilidad", "desc": "Eficiencia energética y eliminación de desperdicios Lean impactan en el medio ambiente", "emoji": "🌱", "color": "#10B981"},
+      {"target": "Derecho laboral", "desc": "Los modelos productivos transformaron condiciones de trabajo y derechos laborales", "emoji": "⚖️", "color": "#F59E0B"}
+    ]
+  },
+
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "La automatización total de los procesos productivos va a eliminar más empleos de los que va a crear.",
+      "contexto": "Los procesos productivos actuales incorporan robots, IA y software avanzado. Algunos dicen que esto destruirá millones de empleos; otros, que creará nuevos que hoy no imaginamos. Debatí con argumentos basados en los tipos de producción, el rol del Técnico en Informática y los casos de estudio.",
+      "roles": [
+        {"id": "favor", "label": "A FAVOR", "emoji": "🟢", "color": "#10B981", "desc": "Defendé que la automatización elimina más empleos. Usá ejemplos: fábricas automatizadas con pocos operarios, producción continua 24/7 sin humanos, los 8 desperdicios Lean incluyen talento subutilizado."},
+        {"id": "contra", "label": "EN CONTRA", "emoji": "🔴", "color": "#EF4444", "desc": "Argumentá que la tecnología crea nuevos trabajos. El Técnico en Informática no existía hace 30 años. La producción flexible necesita programadores de robots. Lean requiere analistas de datos."},
+        {"id": "juez", "label": "JUEZ/A", "emoji": "👨‍⚖️", "color": "#8B5CF6", "desc": "Evaluá ambas posturas. ¿Hay evidencia para las dos? ¿Qué formación necesitan los trabajadores del futuro? ¿Qué papel juega el Técnico en Informática? Emití un veredicto razonado."}
+      ]
+    },
+    "tesis": {
+      "consigna": "Formulá una tesis sobre: 'La elección del modelo productivo define la estrategia tecnológica de una empresa'. Usá al menos 3 tipos de producción como evidencia, explicando qué tecnología necesita cada uno (CAD, SCADA, CNC, ERP, MES, IoT). Incluí una afirmación clara, 2 evidencias del texto y una conclusión conectada con tu futuro rol como Técnico en Informática."
+    },
+    "critica": {
+      "consigna": "Releé la sección de tipos de producción y la matriz comparativa. Identificá: 2 fortalezas del enfoque, 1 debilidad o limitación, 1 pregunta sin responder, y 1 propuesta de cómo aplicar estos conceptos para analizar el proceso productivo de una empresa real de tu ciudad o región."
+    }
+  },
+
+  "emocional": {},
+
+  "autotest": {
+    "preguntas": [
+      {"pregunta": "¿Qué es un proceso productivo?", "opciones": ["Solo la fabricación física de productos en una fábrica", "El conjunto de actividades organizadas para transformar insumos en bienes o servicios", "La venta y distribución de productos al consumidor final", "La extracción de materias primas de la naturaleza"], "correcta": 1, "explicacion": "Un proceso productivo es el conjunto de actividades organizadas que transforman insumos en bienes o servicios. No se limita a fabricar: incluye planificación, tecnología, personas y organización."},
+      {"pregunta": "¿Cuál de los siguientes es un SISTEMA de producción (no un tipo)?", "opciones": ["Producción artesanal", "Producción en masa", "Producción modular", "Producción Lean/JIT"], "correcta": 2, "explicacion": "La producción modular es un SISTEMA (junto con por encargo, por lotes, continua e híbrida). Los TIPOS son: artesanal, en serie, en masa, flexible (FMS) y Lean/JIT."},
+      {"pregunta": "¿Cuál es la principal característica de Lean/Just-In-Time?", "opciones": ["Acumular grandes inventarios para anticipar la demanda", "Producir exactamente lo necesario eliminando desperdicios", "Fabricar productos idénticos en masa con líneas dedicadas", "Realizar cada producto a mano con personalización total"], "correcta": 1, "explicacion": "Lean/JIT busca eliminar desperdicios produciendo lo que se necesita, cuando se necesita. Inventarios mínimos, mejora continua (Kaizen) y calidad total. Creada por Toyota."},
+      {"pregunta": "¿Qué factor de localización es PRIORITARIO para una empresa de software?", "opciones": ["Proximidad a materia prima", "Proximidad a fuentes de energía barata", "Infraestructura de telecomunicaciones y talento humano", "Proximidad a puertos y aeropuertos"], "correcta": 2, "explicacion": "Las empresas de software priorizan conectividad y capital humano. No dependen de materia prima física ni de grandes fuentes de energía."},
+      {"pregunta": "¿Cuál es la principal diferencia entre productos y servicios?", "opciones": ["Los productos se diseñan y los servicios no", "Los productos son tangibles y almacenables; los servicios son intangibles y se producen/consumen simultáneamente", "Los servicios son más caros que los productos", "Los productos siempre se fabrican en masa"], "correcta": 1, "explicacion": "Los productos son tangibles y almacenables. Los servicios son intangibles, se producen y consumen simultáneamente y no pueden guardarse."},
+      {"pregunta": "¿Cuál NO es uno de los 8 desperdicios (Muda) que Lean busca eliminar?", "opciones": ["Sobreproducción", "Inventario excesivo", "Innovación tecnológica", "Talento subutilizado"], "correcta": 2, "explicacion": "La innovación tecnológica NO es un desperdicio. Los 8 Muda son: transporte, inventario, movimientos, esperas, sobreprocesamiento, defectos, sobreproducción y talento subutilizado."}
+    ]
+  },
+
+  "cierre": {
+    "glosario": [
+      {"termino": "Proceso productivo", "definicion": "Conjunto de actividades organizadas para transformar insumos en bienes o servicios. Funciona como un sistema con entradas, transformación, salidas y control.", "emoji": "⚙️", "categoria": "Concepto base"},
+      {"termino": "Factores productivos", "definicion": "Tierra, trabajo, capital e iniciativa empresarial. Cada uno recibe retribución: renta, salario, interés y beneficio.", "emoji": "💰", "categoria": "Concepto base"},
+      {"termino": "Producción en masa", "definicion": "Modelo que fabrica grandes cantidades de productos idénticos a costo unitario mínimo. Líneas continuas con alta automatización.", "emoji": "📦", "categoria": "Tipos de producción"},
+      {"termino": "Producción flexible (FMS)", "definicion": "Combina alta automatización con adaptabilidad usando robots programables y CNC para cambiar rápidamente entre productos.", "emoji": "🔧", "categoria": "Tipos de producción"},
+      {"termino": "Lean/JIT", "definicion": "Filosofía de Toyota que elimina desperdicios produciendo solo lo necesario. 5 pilares: Valor, Flujo, Tirón, Perfección, Personas.", "emoji": "🎯", "categoria": "Tipos de producción"},
+      {"termino": "Muda (8 desperdicios)", "definicion": "Transporte, inventario, movimientos, esperas, sobreprocesamiento, defectos, sobreproducción y talento subutilizado.", "emoji": "🗑️", "categoria": "Lean"},
+      {"termino": "Producción modular", "definicion": "Sistema que crea módulos estandarizados producidos en masa, ensamblados en diversas configuraciones. Ejemplo: IKEA.", "emoji": "🧱", "categoria": "Sistemas de producción"},
+      {"termino": "Localización empresarial", "definicion": "Decisión estratégica sobre dónde ubicarse según materia prima, clientes, energía, infraestructura, talento y regulaciones.", "emoji": "📍", "categoria": "Estrategia"}
+    ],
+    "recursos": [
+      {"tipo": "🎬 Video", "title": "Así funciona una fábrica de Tesla por dentro", "desc": "Recorrido por la Gigafactory mostrando producción automatizada, robots y sistemas de control en tiempo real.", "nivel": "Introductorio", "color": "#8B5CF6"},
+      {"tipo": "🌐 Web", "title": "Cómo se fabrica un iPhone (cadena productiva global)", "desc": "Artículo interactivo que muestra la cadena productiva de un celular desde la extracción de minerales hasta el ensamblaje.", "nivel": "Introductorio", "color": "#EF4444"},
+      {"tipo": "🎬 Video", "title": "El sistema Toyota: Lean Manufacturing explicado", "desc": "Explicación visual del sistema de producción de Toyota, los 5 pilares Lean, el JIT y la eliminación de desperdicios.", "nivel": "Intermedio", "color": "#F59E0B"},
+      {"tipo": "📖 Libro", "title": "La máquina que cambió el mundo — Womack, Jones y Roos", "desc": "El libro que popularizó Lean. Compara producción en masa con producción flexible de Toyota.", "nivel": "Avanzado", "color": "#3B82F6"},
+      {"tipo": "🎧 Podcast", "title": "Cómo la IA está transformando las fábricas", "desc": "Industria 4.0: IoT, Big Data, mantenimiento predictivo y el nuevo rol del técnico informático en la producción.", "nivel": "Intermedio", "color": "#10B981"}
+    ]
+  }
+}
