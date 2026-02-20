@@ -459,14 +459,17 @@ const { jsPDF } = window.jspdf;
 // Elimina emojis y caracteres fuera del rango latin que jsPDF no puede renderizar
 function limpiar(str) {
   if (!str && str !== 0) return '';
-  return String(str)
-    .replace(/[\u{1F000}-\u{1FFFF}]/gu, '')   // emojis suplementarios
-    .replace(/[\u2600-\u27BF]/g, '')           // símbolos misceláneos
-    .replace(/[\uFE00-\uFE0F]/g, '')           // variantes
-    .replace(/[\u{E0000}-\u{E007F}]/gu, '')    // tags
-    .replace(/\s{2,}/g, ' ')                   // espacios dobles resultantes
-    .trim();
+  let s = String(str);
+  s = s.replace(/[\u{1F000}-\u{1FFFF}]/gu, '')
+        .replace(/[\u2600-\u27BF]/g, '')
+        .replace(/[\uFE00-\uFE0F]/g, '')
+        .replace(/[\u{E0000}-\u{E007F}]/gu, '');
+  s = s.normalize('NFC');
+  s = s.replace(/\s{2,}/g, ' ').trim();
+  return s;
 }
+
+let nombreArchivoJSON = '';
 
 let datos = null;
 
@@ -491,6 +494,8 @@ function procesarArchivo(file) {
     mostrarError('El archivo debe ser .json');
     return;
   }
+  // guardar nombre sin extension para usarlo en el PDF
+  nombreArchivoJSON = file.name.replace(/\.json$/i, '');
   const reader = new FileReader();
   reader.onload = e => {
     try {
@@ -1265,7 +1270,7 @@ async function generarPDF() {
 
     // ── Guardar ────────────────────────────────────────────────────────────
     setProgreso(100, '¡Listo!');
-    const nombre = `${(datos.materia||'materia').toLowerCase().replace(/\s+/g,'_')}_u${datos.unidad||1}_cv.pdf`;
+    const nombre = (nombreArchivoJSON || (datos.materia||'materia').toLowerCase().replace(/\s+/g,'_') + '_u' + (datos.unidad||1)) + '_cv.pdf';
     pdf.save(nombre);
 
     document.getElementById('btnGenerar').disabled = false;
