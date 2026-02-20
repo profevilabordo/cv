@@ -1,165 +1,305 @@
 {
   "materia": "Economía",
   "unidad": 1,
-  "titulo": "Introducción a la Economía",
-  "emoji": "💰",
-  "color_primario": "#6366F1",
-  "color_secundario": "#8B5CF6",
+  "titulo": "Introducción a la Economía y Surgimiento del Capitalismo",
+  "emoji": "🏛️",
+  "color_primario": "#1E40AF",
+  "color_secundario": "#3B82F6",
+
   "umbral": {
     "preguntas_disparadoras": [
-      {"emoji": "💰", "texto": "¿Por qué algunas cosas cuestan más en un país que en otro?", "pista": "Pensá en cuando ves precios de tecnología en Argentina vs. EEUU..."},
-      {"emoji": "🏭", "texto": "¿Quién decide qué se produce y qué no?", "pista": "¿Alguna vez dejaron de fabricar algo que te gustaba?"},
-      {"emoji": "🌍", "texto": "¿La economía existía antes del dinero?", "pista": "¿Cómo hacían para conseguir lo que necesitaban?"}
+      {
+        "emoji": "🏝️",
+        "texto": "Cinco personas naufragan en una isla con agua dulce, árboles frutales y peces. ¿Cómo se organizarían para sobrevivir? ¿Quién decide qué hacer, cómo y para quién?",
+        "pista": "Pensá en la escasez: los recursos son limitados pero las necesidades no. Toda sociedad, desde una tribu hasta Argentina, enfrenta las mismas 3 preguntas..."
+      },
+      {
+        "emoji": "🇪🇸",
+        "texto": "España sacó toneladas de oro y plata de América durante 200 años. ¿Por qué terminó empobreciéndose en vez de volverse la nación más rica del mundo?",
+        "pista": "Tener mucho dinero no es lo mismo que ser rico. La verdadera riqueza está en otra cosa que los mercantilistas no entendieron..."
+      },
+      {
+        "emoji": "🏭",
+        "texto": "En 1780, un trabajador textil producía 1 metro de tela por día. En 1830, una máquina producía 100 metros. ¿Eso fue bueno o malo para la humanidad?",
+        "pista": "La Revolución Industrial trajo progreso increíble y sufrimiento terrible al mismo tiempo. ¿Puede algo ser las dos cosas?"
+      }
     ],
     "situaciones_conecta": [
-      {"emoji": "🛒", "label": "Fui al súper y comparé precios"},
-      {"emoji": "📱", "label": "Ahorré para comprarme algo"},
-      {"emoji": "💸", "label": "Me pregunté por qué todo aumenta"},
-      {"emoji": "🤝", "label": "Intercambié algo con alguien"}
+      {"emoji": "🤝", "label": "Me di cuenta de que no podría sobrevivir solo/a sin la ayuda de otros"},
+      {"emoji": "💸", "label": "Quise comprar algo y tuve que elegir porque no me alcanzaba para todo"},
+      {"emoji": "📰", "label": "Escuché hablar de inflación, crisis o dólar y no entendí bien"},
+      {"emoji": "⚖️", "label": "Me pareció injusto cómo se reparten las cosas en la sociedad"}
     ],
-    "termometro_pregunta": "¿Cuánto sabés sobre economía antes de empezar?"
+    "termometro_pregunta": "¿Cuánto creés que las ideas económicas del pasado siguen afectando tu vida hoy?"
   },
+
   "mapa": {
     "ruta_paradas": [
-      {"id": 1, "title": "Concepto de Economía", "desc": "Definición, etimología y objeto de estudio", "emoji": "📚", "color": "#6366F1"},
-      {"id": 2, "title": "Necesidades y Bienes", "desc": "Clasificación de necesidades y tipos de bienes económicos", "emoji": "🛒", "color": "#3B82F6"},
-      {"id": 3, "title": "Agentes Económicos", "desc": "Familias, empresas y Estado: roles e interacciones", "emoji": "🏛️", "color": "#10B981"},
-      {"id": 4, "title": "Sistemas Económicos", "desc": "Economía de mercado, planificada y mixta", "emoji": "⚖️", "color": "#F59E0B"},
-      {"id": 5, "title": "Pensamiento Económico", "desc": "Evolución histórica: del mercantilismo al keynesianismo", "emoji": "💡", "color": "#EC4899"}
+      {"id": 1, "title": "¿Qué es la economía?", "desc": "Ciencia social, escasez, elección y el ser gregario", "emoji": "📖", "color": "#1E40AF"},
+      {"id": 2, "title": "Pensar como economista", "desc": "Método científico, modelos, micro/macro, positiva/normativa", "emoji": "🔬", "color": "#3B82F6"},
+      {"id": 3, "title": "Feudalismo y sus crisis", "desc": "Mil años de economía agraria, la Peste Negra y el fin del sistema", "emoji": "🏰", "color": "#10B981"},
+      {"id": 4, "title": "Mercantilismo y fisiocracia", "desc": "Oro vs. tierra: dos respuestas opuestas al problema económico", "emoji": "⚔️", "color": "#F59E0B"},
+      {"id": 5, "title": "Smith, la Revolución Industrial y la crisis de 1873", "desc": "Mano invisible, fábricas, progreso, miseria y el primer colapso global", "emoji": "🏭", "color": "#EF4444"}
     ],
     "panoramica_bloques": [
-      {"title": "Bloque A", "subtitle": "Fundamentos", "items": ["Definición de economía", "Problema económico", "Escasez y elección"], "emoji": "🧱", "color": "#6366F1"},
-      {"title": "Bloque B", "subtitle": "Agentes y mercado", "items": ["Familias", "Empresas", "Estado", "Mercado"], "emoji": "🔄", "color": "#10B981"},
-      {"title": "Bloque C", "subtitle": "Historia del pensamiento", "items": ["Mercantilismo", "Fisiocracia", "Escuela clásica", "Marxismo"], "emoji": "📜", "color": "#F59E0B"}
+      {
+        "title": "Bloque A",
+        "subtitle": "¿Qué es la economía y cómo piensa?",
+        "items": ["El ser humano como animal gregario y la cooperación", "Definición: ciencia de la escasez y la elección", "Las 3 preguntas: qué, cómo y para quién producir", "Método científico, ceteris paribus, micro/macro, positiva/normativa"],
+        "emoji": "📖",
+        "color": "#1E40AF"
+      },
+      {
+        "title": "Bloque B",
+        "subtitle": "Del feudalismo al capitalismo: las primeras ideas",
+        "items": ["Feudalismo: estructura, autarquía, crisis del siglo XIV y Peste Negra", "Mercantilismo: oro, balanza comercial y la paradoja de España", "Fisiocracia: la tierra como riqueza, laissez-faire y el Tableau de Quesnay", "Comparación: mercantilismo vs. fisiocracia"],
+        "emoji": "🏰",
+        "color": "#10B981"
+      },
+      {
+        "title": "Bloque C",
+        "subtitle": "La Revolución Industrial y sus consecuencias",
+        "items": ["Adam Smith: división del trabajo, mano invisible, crítica al mercantilismo", "Ricardo (ventaja comparativa), Malthus (población), Mill (distribución)", "1ra y 2da Revolución Industrial: luz y sombra", "Crisis de sobreproducción de 1873: el primer colapso global del capitalismo"],
+        "emoji": "🏭",
+        "color": "#EF4444"
+      }
     ],
     "mapa_mental": {
-      "centro": {"title": "Economía", "emoji": "💰"},
+      "centro": {"title": "Economía: de las ideas a las revoluciones", "emoji": "🏛️"},
       "ramas": [
-        {"id": 1, "title": "¿Qué estudia?", "items": ["Recursos escasos", "Necesidades ilimitadas", "Toma de decisiones"], "color": "#6366F1", "emoji": "🔍"},
-        {"id": 2, "title": "¿Quiénes participan?", "items": ["Familias", "Empresas", "Estado"], "color": "#10B981", "emoji": "👥"},
-        {"id": 3, "title": "¿Cómo se organiza?", "items": ["Mercado", "Precios", "Oferta y demanda"], "color": "#F59E0B", "emoji": "⚙️"},
-        {"id": 4, "title": "¿De dónde viene?", "items": ["Mercantilismo", "Fisiocracia", "Clasicismo", "Keynesianismo"], "color": "#EC4899", "emoji": "📚"}
+        {
+          "id": 1, "title": "¿Qué es y cómo se estudia?",
+          "items": ["Ser gregario → cooperación → especialización → economía", "Escasez + necesidades ilimitadas = elegir", "3 preguntas: qué, cómo y para quién producir", "Micro/macro, positiva/normativa, método científico"],
+          "color": "#1E40AF", "emoji": "🔬"
+        },
+        {
+          "id": 2, "title": "Feudalismo → mercantilismo → fisiocracia",
+          "items": ["Feudalismo: tierra, autarquía, siervos, Peste Negra", "Mercantilismo: oro = riqueza, Estado fuerte, colonias", "Fisiocracia: tierra = riqueza, laissez-faire, Quesnay", "España: paradoja del oro sin producción"],
+          "color": "#10B981", "emoji": "🏰"
+        },
+        {
+          "id": 3, "title": "Adam Smith y los clásicos",
+          "items": ["División del trabajo: fábrica de alfileres (x240)", "Mano invisible: interés individual → bien común", "Ricardo: ventaja comparativa y comercio", "Malthus: población vs. alimentos; Mill: distribución justa"],
+          "color": "#F59E0B", "emoji": "📖"
+        },
+        {
+          "id": 4, "title": "Revoluciones Industriales y crisis de 1873",
+          "items": ["1ra: vapor, textil, ferrocarril → progreso + miseria", "2da: electricidad, petróleo, química, comunicaciones", "Crisis 1873: sobreproducción, deflación 23 años", "Consecuencias: proteccionismo, imperialismo, movimiento obrero"],
+          "color": "#EF4444", "emoji": "🏭"
+        }
       ]
     }
   },
+
   "nucleo": {
     "n1_ordenar_cronologicamente": {
-      "consigna": "Tocá los conceptos en orden cronológico:",
-      "items": [{"id":1,"text":"Revolución Industrial","emoji":"🏭"},{"id":2,"text":"Trueque","emoji":"🤝"},{"id":3,"text":"Creación de la moneda","emoji":"🪙"},{"id":4,"text":"Comercio internacional","emoji":"🚢"},{"id":5,"text":"Mercantilismo","emoji":"👑"}],
-      "orden_correcto": [2,3,5,1,4]
+      "consigna": "Ordená cronológicamente las etapas del pensamiento y los sistemas económicos:",
+      "items": [
+        {"id": 1, "text": "Aristóteles: economía como ética, justo precio y condena de la usura", "emoji": "🏛️"},
+        {"id": 2, "text": "Feudalismo: economía agraria, autarquía, siervos y señores feudales", "emoji": "🏰"},
+        {"id": 3, "text": "Mercantilismo: acumulación de oro, Estado fuerte, colonias extractivas", "emoji": "👑"},
+        {"id": 4, "text": "Fisiocracia: la tierra como única fuente de riqueza, laissez-faire", "emoji": "🌾"},
+        {"id": 5, "text": "Adam Smith: mano invisible, división del trabajo, liberalismo clásico", "emoji": "📖"}
+      ],
+      "orden_correcto": [1, 2, 3, 4, 5]
     },
     "n2_clasificador": {
-      "consigna": "Clasificá cada concepto en su categoría:",
-      "categorias": [{"name":"Microeconomía","color":"#3B82F6","emoji":"🔍"},{"name":"Macroeconomía","color":"#10B981","emoji":"🌐"}],
-      "items": [{"id":1,"text":"Oferta y demanda","categoria_correcta":0},{"id":2,"text":"Inflación","categoria_correcta":1},{"id":3,"text":"Precio de un bien","categoria_correcta":0},{"id":4,"text":"PBI","categoria_correcta":1},{"id":5,"text":"Costos de producción","categoria_correcta":0},{"id":6,"text":"Desempleo","categoria_correcta":1}]
+      "consigna": "Clasificá cada idea según pertenezca al MERCANTILISMO o a la FISIOCRACIA:",
+      "categorias": [
+        {"name": "Mercantilismo", "color": "#EF4444", "emoji": "👑"},
+        {"name": "Fisiocracia", "color": "#10B981", "emoji": "🌾"}
+      ],
+      "items": [
+        {"id": 1, "text": "La riqueza de un país se mide por su oro y plata", "categoria_correcta": 0},
+        {"id": 2, "text": "Solo la agricultura genera un verdadero excedente (producto neto)", "categoria_correcta": 1},
+        {"id": 3, "text": "El Estado debe intervenir con aranceles, subsidios y monopolios", "categoria_correcta": 0},
+        {"id": 4, "text": "Laissez faire, laissez passer: dejen hacer, dejen pasar", "categoria_correcta": 1},
+        {"id": 5, "text": "El comercio es un juego de suma cero: si uno gana, otro pierde", "categoria_correcta": 0},
+        {"id": 6, "text": "Artesanos y comerciantes son una clase 'estéril' que no crea riqueza", "categoria_correcta": 1}
+      ]
     },
     "n3_completar_mapa": {
       "consigna": "Completá los espacios en blanco:",
-      "blanks": [{"id":"a","texto_antes":"La economía estudia cómo se administran los","respuesta_correcta":"recursos escasos","pista":"recursos ___"},{"id":"b","texto_antes":"Los agentes económicos son: familias, empresas y","respuesta_correcta":"Estado","pista":"E____"},{"id":"c","texto_antes":"Los bienes pueden ser libres o","respuesta_correcta":"económicos","pista":"eco_____"}]
-    },
-    "n4_verdadero_falso": {
-      "afirmaciones": [{"texto":"Adam Smith es considerado el padre de la economía moderna","correcto":true,"explicacion":"Su obra 'La riqueza de las naciones' (1776) sentó las bases."},{"texto":"El mercantilismo promovía el libre comercio entre naciones","correcto":false,"explicacion":"El mercantilismo buscaba acumular metales preciosos y restringir importaciones."},{"texto":"La fisiocracia consideraba que la tierra era la fuente de riqueza","correcto":true,"explicacion":"Los fisiócratas creían que solo la agricultura generaba riqueza real."}]
-    },
-    "n5_relacionar_columnas": {
-      "pares": [{"izquierda":"Adam Smith","derecha":"Mano invisible","emoji":"🤚"},{"izquierda":"Karl Marx","derecha":"Lucha de clases","emoji":"⚔️"},{"izquierda":"Keynes","derecha":"Intervención estatal","emoji":"🏛️"},{"izquierda":"Quesnay","derecha":"Fisiocracia","emoji":"🌾"}]
-    },
-    "n6_palabra_intrusa": {
-      "grupos": [{"pregunta":"¿Cuál NO pertenece al grupo?","palabras":[{"text":"Oferta","es_intrusa":false},{"text":"Demanda","es_intrusa":false},{"text":"Fotosíntesis","es_intrusa":true},{"text":"Precio","es_intrusa":false}],"explicacion":"Fotosíntesis es un concepto de biología, no de economía.","emoji":"🔍"},{"pregunta":"¿Cuál NO es una escuela económica?","palabras":[{"text":"Fisiocracia","es_intrusa":false},{"text":"Mercantilismo","es_intrusa":false},{"text":"Clasicismo","es_intrusa":false},{"text":"Impresionismo","es_intrusa":true}],"explicacion":"El Impresionismo es un movimiento artístico.","emoji":"🎭"}]
-    },
-    "n7_defini_con_tus_palabras": {
-      "conceptos": [{"termino":"Escasez","pista":"¿Qué pasa cuando los recursos no alcanzan para todos?","palabras_clave":["limitado","recursos","necesidades","insuficiente","alcanza","falta"]},{"termino":"Mercado","pista":"¿Dónde se encuentran los que quieren comprar y los que quieren vender?","palabras_clave":["compra","venta","intercambio","oferta","demanda","compradores"]},{"termino":"Inflación","pista":"¿Qué pasa cuando todo cuesta más que antes?","palabras_clave":["precios","suben","aumentan","dinero","poder","compra"]}]
-    },
-    "n8_causa_efecto": {
-      "causas": [{"id":1,"text":"Aumento de la emisión monetaria","emoji":"🖨️"},{"id":2,"text":"Caída de la demanda","emoji":"📉"},{"id":3,"text":"Inversión en educación","emoji":"🎓"},{"id":4,"text":"Suba del precio del petróleo","emoji":"🛢️"}],
-      "efectos": [{"id":1,"text":"Inflación","causa_id":1,"emoji":"💸"},{"id":2,"text":"Baja del precio del bien","causa_id":2,"emoji":"🏷️"},{"id":3,"text":"Mayor productividad laboral","causa_id":3,"emoji":"📈"},{"id":4,"text":"Aumento del costo de transporte","causa_id":4,"emoji":"🚛"}]
-    },
-    "n9_ordenar_proceso": {
-      "consigna": "Ordená los pasos del método científico en economía:",
-      "pasos_en_orden_correcto": [{"id":1,"text":"Identificar el problema económico","emoji":"🔍"},{"id":2,"text":"Recopilar datos relevantes","emoji":"📊"},{"id":3,"text":"Formular una hipótesis","emoji":"💡"},{"id":4,"text":"Contrastar con la realidad","emoji":"🔬"},{"id":5,"text":"Elaborar conclusiones","emoji":"📝"}]
-    },
-    "n10_comparador": {
-      "concepto_a": {"nombre":"Mercantilismo","emoji":"👑","color":"#F59E0B"},
-      "concepto_b": {"nombre":"Fisiocracia","emoji":"🌾","color":"#10B981"}
-    }
-  },
-  "senales": {
-    "conceptos_clave": [
-      {"termino":"Escasez","definicion":"Los recursos son limitados frente a necesidades ilimitadas. Es EL problema central de la economía.","emoji":"⚠️","importancia":"Es la base de TODA la economía. Sin escasez, no habría economía.","color":"#EF4444"},
-      {"termino":"Costo de oportunidad","definicion":"Lo que dejás de obtener cuando elegís una opción sobre otra.","emoji":"🔀","importancia":"Cada decisión económica implica renunciar a algo. Siempre.","color":"#8B5CF6"},
-      {"termino":"Agentes económicos","definicion":"Familias, empresas y Estado: los tres actores que toman decisiones económicas.","emoji":"👥","importancia":"Todo lo que pasa en la economía lo generan estos tres actores.","color":"#3B82F6"},
-      {"termino":"Mercado","definicion":"Espacio (físico o virtual) donde se encuentran oferta y demanda.","emoji":"🤝","importancia":"Es el mecanismo central de asignación de recursos en el capitalismo.","color":"#10B981"}
-    ],
-    "semaforo_conceptos": [{"termino":"Escasez","emoji":"⚠️"},{"termino":"Costo de oportunidad","emoji":"🔀"},{"termino":"Agentes económicos","emoji":"👥"},{"termino":"Mercado","emoji":"🤝"},{"termino":"Oferta y demanda","emoji":"📊"}],
-    "postits_conceptos": ["Escasez","Costo de oportunidad","Agentes económicos","Mercado"]
-  },
-  "sabias": {
-    "flip_cards": [
-      {"frente":"¿Sabías que...?","dorso":"La primera moneda de la historia se acuñó en Lidia (actual Turquía) alrededor del 600 a.C. ¡Estaban hechas de electro, una aleación natural de oro y plata!","emoji":"🪙","color":"#F59E0B"},
-      {"frente":"Dato curioso","dorso":"Adam Smith, padre de la economía, nunca usó la expresión 'mano invisible' más de 3 veces en toda su obra. ¡Y es su concepto más famoso!","emoji":"🤚","color":"#8B5CF6"},
-      {"frente":"¿Lo sabías?","dorso":"Hiperinflación en Zimbabue (2008): ¡un billete de 100 TRILLONES de dólares zimbabuenses no alcanzaba para comprar un pan!","emoji":"💸","color":"#EF4444"}
-    ],
-    "linea_de_tiempo": [{"year":"600 a.C.","text":"Primeras monedas en Lidia","emoji":"🪙"},{"year":"1776","text":"Adam Smith publica 'La riqueza de las naciones'","emoji":"📕"},{"year":"1867","text":"Marx publica 'El Capital'","emoji":"📘"},{"year":"1929","text":"Crack de Wall Street","emoji":"📉"},{"year":"1936","text":"Keynes publica 'Teoría General'","emoji":"📗"}],
-    "encuesta": {
-      "pregunta": "¿Qué dato te sorprendió más?",
-      "opciones": [{"text":"La primera moneda era de oro y plata mezclados","emoji":"🪙","votos_iniciales":47},{"text":"La hiperinflación de Zimbabue","emoji":"💸","votos_iniciales":31},{"text":"Smith solo dijo 'mano invisible' 3 veces","emoji":"🤚","votos_iniciales":22}]
-    }
-  },
-  "cruces": {
-    "puentes": [
-      {"materia":"Historia","emoji":"📜","color":"#F59E0B","conexion":"El mercantilismo y la colonización de América","pregunta":"¿Cómo influyó el pensamiento económico en la conquista y explotación de recursos?","vinculo":"Unidad 2 de Historia: Expansión europea"},
-      {"materia":"Geografía","emoji":"🌍","color":"#10B981","conexion":"Distribución desigual de recursos naturales","pregunta":"¿Por qué algunos países tienen más recursos y otros menos?","vinculo":"Unidad 1 de Geografía: Espacios y recursos"},
-      {"materia":"Filosofía","emoji":"💭","color":"#8B5CF6","conexion":"Ética y justicia distributiva","pregunta":"¿Es justo que el mercado decida quién accede a los bienes?","vinculo":"Unidad 3 de Filosofía: Ética y moral"},
-      {"materia":"Matemática","emoji":"📐","color":"#3B82F6","conexion":"Gráficos de oferta y demanda, porcentajes","pregunta":"¿Cómo se calculan los índices económicos como la inflación?","vinculo":"Unidad 4 de Matemática: Funciones y gráficos"}
-    ],
-    "telarana": [
-      {"target":"Derecho","desc":"Leyes que regulan el mercado, propiedad privada, contratos","emoji":"⚖️","color":"#EF4444"},
-      {"target":"Sociología","desc":"Clases sociales, desigualdad, consumo y cultura","emoji":"👥","color":"#8B5CF6"},
-      {"target":"Política","desc":"Políticas públicas, presupuesto, impuestos","emoji":"🏛️","color":"#3B82F6"},
-      {"target":"Psicología","desc":"Comportamiento del consumidor, toma de decisiones","emoji":"🧠","color":"#EC4899"},
-      {"target":"Ecología","desc":"Economía sustentable, recursos no renovables","emoji":"🌱","color":"#10B981"},
-      {"target":"Tecnología","desc":"Innovación, automatización, economía digital","emoji":"💻","color":"#F59E0B"}
-    ]
-  },
-  "relectura": {
-    "tribunal": {
-      "titulo_debate": "El Estado debe intervenir en la economía",
-      "contexto": "Imaginá que sos parte de un tribunal económico. Leé el PDF y elegí un rol para defender tu postura con argumentos del texto.",
-      "roles": [
-        {"id":"favor","label":"A FAVOR","emoji":"🟢","color":"#10B981","desc":"Defendé la intervención del Estado con argumentos del texto"},
-        {"id":"contra","label":"EN CONTRA","emoji":"🔴","color":"#EF4444","desc":"Argumentá por qué el mercado debe regularse solo"},
-        {"id":"juez","label":"JUEZ/A","emoji":"👨‍⚖️","color":"#8B5CF6","desc":"Analizá ambas posturas y dá un veredicto equilibrado"}
+      "blanks": [
+        {"id": "a", "texto_antes": "La economía es la ciencia social que estudia cómo administrar recursos escasos para satisfacer necesidades", "respuesta_correcta": "ilimitadas", "pista": "I_________"},
+        {"id": "b", "texto_antes": "Adam Smith explicó que la productividad aumenta gracias a la división del", "respuesta_correcta": "trabajo", "pista": "T______"},
+        {"id": "c", "texto_antes": "La crisis de 1873 fue causada por una sobreproducción: las fábricas producían más de lo que la gente podía", "respuesta_correcta": "comprar", "pista": "C______"}
       ]
     },
-    "tesis": {"consigna":"A partir de la lectura del PDF, formulá una tesis sobre la relación entre los sistemas económicos y el bienestar de la sociedad."},
-    "critica": {"consigna":"Releé el texto con ojo crítico y completá este análisis."}
+    "n4_verdadero_falso": {
+      "afirmaciones": [
+        {"texto": "España se enriqueció gracias a todo el oro que extrajo de América.", "correcto": false, "explicacion": "Falso. Paradójicamente, España se empobreció. La entrada masiva de oro sin aumento de producción generó inflación brutal. Los productos españoles se encarecieron y fue más barato importar de otros países. La riqueza real no está en el oro sino en la capacidad productiva."},
+        {"texto": "Para los fisiócratas, los artesanos y comerciantes eran una clase 'estéril' que no creaba riqueza.", "correcto": true, "explicacion": "Correcto según la teoría fisiócrata. Para Quesnay, solo la tierra genera un excedente real (producto neto). Artesanos y comerciantes transforman o distribuyen, pero no crean nueva materia. Adam Smith corregiría este error al mostrar que el trabajo industrial también genera valor."},
+        {"texto": "Adam Smith defendía un capitalismo sin ningún tipo de Estado ni regulación.", "correcto": false, "explicacion": "Falso. Smith asignó al Estado 3 funciones esenciales: defensa nacional, justicia (proteger la propiedad y los contratos) y obras públicas que el sector privado no haría. Además, criticó los monopolios. No era anarquista sino partidario de un Estado limitado."}
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "pares": [
+        {"izquierda": "Adam Smith", "derecha": "Mano invisible y división del trabajo", "emoji": "📖"},
+        {"izquierda": "David Ricardo", "derecha": "Ventaja comparativa en el comercio internacional", "emoji": "🌍"},
+        {"izquierda": "Thomas Malthus", "derecha": "La población crece más rápido que los alimentos", "emoji": "📈"},
+        {"izquierda": "François Quesnay", "derecha": "Tableau Économique y producto neto de la tierra", "emoji": "🌾"}
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "grupos": [
+        {
+          "pregunta": "¿Cuál NO es una causa de la Primera Revolución Industrial en Inglaterra?",
+          "palabras": [{"text": "Revolución agrícola", "es_intrusa": false}, {"text": "Abundancia de carbón", "es_intrusa": false}, {"text": "Abundancia de oro americano", "es_intrusa": true}, {"text": "Sistema de patentes", "es_intrusa": false}],
+          "explicacion": "El oro americano fue clave para España, no para Inglaterra. Las causas de la Revolución Industrial inglesa fueron: revolución agrícola, carbón, imperio colonial, instituciones legales (patentes, propiedad) y cultura científica.",
+          "emoji": "🏭"
+        },
+        {
+          "pregunta": "¿Cuál NO es una consecuencia de la crisis de 1873?",
+          "palabras": [{"text": "Proteccionismo", "es_intrusa": false}, {"text": "Imperialismo colonial", "es_intrusa": false}, {"text": "Libre comercio global", "es_intrusa": true}, {"text": "Movimiento obrero", "es_intrusa": false}],
+          "explicacion": "La crisis de 1873 provocó exactamente lo opuesto al libre comercio: los países abandonaron el laissez-faire y adoptaron proteccionismo (aranceles altos). También impulsó el imperialismo (buscar nuevos mercados) y fortaleció al movimiento obrero.",
+          "emoji": "📉"
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "conceptos": [
+        {"termino": "Escasez económica", "pista": "¿Por qué todas las sociedades deben elegir, desde una tribu hasta Argentina?", "palabras_clave": ["recursos", "limitados", "necesidades", "ilimitadas", "elegir", "administrar"]},
+        {"termino": "Mano invisible", "pista": "¿Cómo puede el interés egoísta de cada persona beneficiar a toda la sociedad?", "palabras_clave": ["interés", "individual", "mercado", "bienestar", "competencia", "Smith"]},
+        {"termino": "Sobreproducción", "pista": "¿Qué pasa cuando las fábricas producen más de lo que la gente puede comprar?", "palabras_clave": ["producción", "demanda", "crisis", "exceso", "precios", "desempleo"]}
+      ]
+    },
+    "n8_causa_efecto": {
+      "causas": [
+        {"id": 1, "text": "La Peste Negra (1347-1351) mata entre un tercio y la mitad de la población europea", "emoji": "☠️"},
+        {"id": 2, "text": "España inunda su economía con oro americano sin aumentar su producción interna", "emoji": "🇪🇸"},
+        {"id": 3, "text": "La máquina de vapor permite producir sin depender de agua ni viento", "emoji": "💨"},
+        {"id": 4, "text": "Las fábricas producen más bienes de los que la gente puede comprar (1873)", "emoji": "🏭"}
+      ],
+      "efectos": [
+        {"id": 1, "text": "Escasez de mano de obra: los campesinos ganan poder y el feudalismo se debilita", "causa_id": 1, "emoji": "💪"},
+        {"id": 2, "text": "Inflación brutal: los precios suben y España termina importando todo", "causa_id": 2, "emoji": "📈"},
+        {"id": 3, "text": "Las fábricas pueden ubicarse en cualquier lugar: nace la producción industrial masiva", "causa_id": 3, "emoji": "🏗️"},
+        {"id": 4, "text": "Deflación, quiebras, desempleo masivo y 23 años de estancamiento global", "causa_id": 4, "emoji": "📉"}
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená las etapas del método científico en economía:",
+      "pasos_en_orden_correcto": [
+        {"id": 1, "text": "Observación: se detecta un fenómeno (ej: cuando baja el precio del cine, va más gente)", "emoji": "👁️"},
+        {"id": 2, "text": "Hipótesis: se propone una explicación (ej: existe relación entre precio y cantidad)", "emoji": "💡"},
+        {"id": 3, "text": "Predicción: se formula qué debería pasar (ej: si baja el precio, sube la demanda)", "emoji": "🔮"},
+        {"id": 4, "text": "Verificación: se comparan las predicciones con datos reales", "emoji": "📊"},
+        {"id": 5, "text": "Resultado: si se confirma es teoría; si no, se reformula la hipótesis", "emoji": "🔄"}
+      ]
+    },
+    "n10_comparador": {
+      "concepto_a": {"nombre": "Mercantilismo", "emoji": "👑", "color": "#EF4444"},
+      "concepto_b": {"nombre": "Fisiocracia", "emoji": "🌾", "color": "#10B981"}
+    }
   },
-  "autotest": {
-    "preguntas": [
-      {"pregunta":"¿Cuál es el problema central que estudia la economía?","opciones":["La acumulación de dinero","La escasez de recursos frente a necesidades ilimitadas","El comercio internacional","La creación de empresas"],"correcta":1,"explicacion":"La economía estudia cómo administrar recursos escasos para satisfacer necesidades ilimitadas."},
-      {"pregunta":"¿Quiénes son los agentes económicos?","opciones":["Bancos, empresas y gobierno","Familias, empresas y Estado","Trabajadores, desempleados y jubilados","Productores y consumidores únicamente"],"correcta":1,"explicacion":"Los tres agentes económicos son las familias (consumo), las empresas (producción) y el Estado (regulación)."},
-      {"pregunta":"¿Qué promovía el mercantilismo?","opciones":["El libre comercio entre naciones","La agricultura como fuente de riqueza","La acumulación de metales preciosos","La intervención mínima del Estado"],"correcta":2,"explicacion":"El mercantilismo buscaba acumular oro y plata, proteger la industria nacional y exportar más de lo que se importaba."},
-      {"pregunta":"¿Qué escuela económica sostenía que la tierra era la única fuente de riqueza?","opciones":["Clasicismo","Marxismo","Mercantilismo","Fisiocracia"],"correcta":3,"explicacion":"Los fisiócratas (Quesnay) creían que solo la agricultura/naturaleza generaba riqueza real."},
-      {"pregunta":"El 'costo de oportunidad' se refiere a:","opciones":["El precio más alto del mercado","Lo que se deja de obtener al elegir una opción","El costo de producir un bien","El margen de ganancia de una empresa"],"correcta":1,"explicacion":"Cada decisión implica renunciar a la siguiente mejor alternativa: eso es el costo de oportunidad."},
-      {"pregunta":"Adam Smith es conocido por el concepto de:","opciones":["Lucha de clases","Mano invisible del mercado","Intervención estatal","Plusvalía"],"correcta":1,"explicacion":"Smith planteó que el mercado se autorregula como si una 'mano invisible' guiara las decisiones individuales hacia el bien común."}
+
+  "senales": {
+    "conceptos_clave": [
+      {"termino": "Escasez y las 3 preguntas", "definicion": "Los recursos son limitados y las necesidades ilimitadas. Toda sociedad debe responder: ¿qué producir?, ¿cómo producir? y ¿para quién producir? Cada sistema económico (feudalismo, mercantilismo, capitalismo) da respuestas diferentes.", "emoji": "⚖️", "importancia": "Es el concepto fundacional de toda la economía. Si no hay escasez, no hay economía.", "color": "#EF4444"},
+      {"termino": "Evolución del pensamiento económico", "definicion": "Las ideas económicas cambiaron con la historia: Aristóteles (ética), feudalismo (tierra), mercantilismo (oro), fisiocracia (agricultura), liberalismo clásico (trabajo y mercado). Cada escuela respondió a los problemas de su época.", "emoji": "📜", "importancia": "Sin entender de dónde vienen las ideas, no podés entender los debates económicos de hoy en Argentina.", "color": "#8B5CF6"},
+      {"termino": "La mano invisible de Adam Smith", "definicion": "Metáfora que describe cómo, en un mercado libre y competitivo, la búsqueda del interés individual puede llevar al bienestar general de la sociedad. Requiere competencia, propiedad y ausencia de monopolios.", "emoji": "🤚", "importancia": "Es la idea más influyente de la historia económica. Cada vez que alguien dice 'el mercado se regula solo', está citando a Smith.", "color": "#3B82F6"},
+      {"termino": "Crisis de sobreproducción de 1873", "definicion": "Primer gran colapso global del capitalismo. Las fábricas producían más de lo que la gente podía comprar. Causó 23 años de deflación, proteccionismo, imperialismo colonial y fortalecimiento del movimiento obrero.", "emoji": "📉", "importancia": "Demostró que el capitalismo tiene inestabilidades y que el mercado no siempre se autocorrige. Los mismos problemas reaparecerían en 1929.", "color": "#10B981"}
+    ],
+    "semaforo_conceptos": [
+      {"termino": "Escasez y las 3 preguntas económicas", "emoji": "⚖️"},
+      {"termino": "Feudalismo → mercantilismo → fisiocracia", "emoji": "🏰"},
+      {"termino": "Adam Smith y la mano invisible", "emoji": "🤚"},
+      {"termino": "Revolución Industrial: luz y sombra", "emoji": "🏭"},
+      {"termino": "Crisis de 1873 y fin del laissez-faire", "emoji": "📉"}
+    ],
+    "postits_conceptos": ["Escasez y las 3 preguntas", "Evolución del pensamiento económico", "La mano invisible", "Crisis de 1873"]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {"frente": "¿Sabías que...?", "dorso": "En 1776, el mismo año que se declaró la Independencia de Estados Unidos, Adam Smith publicó 'La riqueza de las naciones'. Mientras un país nacía, también nacía la economía moderna. Smith demostró que 10 trabajadores especializados producían 48.000 alfileres por día, contra apenas 20 que haría uno solo. La productividad se multiplicaba por 240.", "emoji": "📖", "color": "#F59E0B"},
+      {"frente": "Dato curioso", "dorso": "España extrajo tanta plata de Potosí (Bolivia) que se dice que podría haberse construido un puente de plata desde América hasta España. Sin embargo, toda esa riqueza no la hizo más rica: provocó una inflación brutal (la 'revolución de los precios') y terminó comprándole manufacturas a Inglaterra y Francia. La verdadera riqueza no es el dinero, sino la capacidad de producir.", "emoji": "🇪🇸", "color": "#8B5CF6"},
+      {"frente": "¿Lo sabías?", "dorso": "La palabra 'economía' viene del griego oikos (casa) + nomos (ley): las 'reglas de la casa'. Empezó significando administrar un hogar y terminó abarcando cómo sociedades enteras organizan la producción, distribución y consumo. De gobernar una casa a gobernar el mundo.", "emoji": "🏛️", "color": "#EF4444"}
+    ],
+    "linea_de_tiempo": [
+      {"year": "Siglo IV a.C.", "text": "Aristóteles: economía como ética, valor de uso vs. valor de cambio, condena de la usura", "emoji": "🏛️"},
+      {"year": "476-1500", "text": "Feudalismo: economía agraria, autarquía, gremios. La Peste Negra (1347) debilita el sistema", "emoji": "🏰"},
+      {"year": "Siglos XVI-XVIII", "text": "Mercantilismo: oro = riqueza, Estado fuerte, colonias. Fisiocracia: tierra = riqueza, laissez-faire", "emoji": "👑"},
+      {"year": "1776", "text": "Adam Smith publica 'La riqueza de las naciones': nace el liberalismo clásico", "emoji": "📖"},
+      {"year": "1760-1840", "text": "1ra Revolución Industrial: vapor, textil, ferrocarril. Progreso y miseria conviven", "emoji": "🏭"},
+      {"year": "1873", "text": "Crisis de sobreproducción: primer colapso global del capitalismo, 23 años de estancamiento", "emoji": "📉"}
+    ],
+    "encuesta": {
+      "pregunta": "¿Qué te impactó más de la evolución del pensamiento económico?",
+      "opciones": [
+        {"text": "Que España se empobreciera con tanto oro", "emoji": "🇪🇸", "votos_iniciales": 38},
+        {"text": "Las condiciones de los niños trabajadores en la Revolución Industrial", "emoji": "🏭", "votos_iniciales": 35},
+        {"text": "Que la crisis de 1873 durara 23 años", "emoji": "📉", "votos_iniciales": 27}
+      ]
+    }
+  },
+
+  "cruces": {
+    "puentes": [
+      {"materia": "Historia", "emoji": "📜", "color": "#F59E0B", "conexion": "Todo el contenido de esta unidad ES historia: feudalismo, mercantilismo, revoluciones industriales, crisis de 1873. La economía nació como respuesta a problemas históricos concretos. Cada idea económica refleja su época.", "pregunta": "¿Por qué las ideas mercantilistas surgieron justo cuando los europeos descubrieron América y necesitaban financiar guerras?", "vinculo": "Unidad sobre Edad Moderna, expansión europea y revoluciones"},
+      {"materia": "Filosofía", "emoji": "🤔", "color": "#8B5CF6", "conexion": "Aristóteles subordinaba la economía a la ética. Smith era filósofo moral antes que economista. La tensión entre eficiencia y justicia recorre toda la historia del pensamiento económico.", "pregunta": "¿Es posible que la búsqueda del interés individual lleve al bien común, como decía Smith, o es ingenuo?", "vinculo": "Unidad sobre ética, Ilustración y pensamiento moderno"},
+      {"materia": "Geografía", "emoji": "🌍", "color": "#3B82F6", "conexion": "La localización de recursos (carbón en Inglaterra, oro en América, tierras fértiles en Argentina) determinó qué países se industrializaron y cuáles quedaron como proveedores de materias primas.", "pregunta": "¿Por qué la Revolución Industrial empezó en Inglaterra y no en Argentina, que tenía tierras fértiles?", "vinculo": "Unidad sobre recursos naturales, geografía económica y desarrollo"},
+      {"materia": "Formación Ética y Ciudadana", "emoji": "🏛️", "color": "#10B981", "conexion": "La pregunta '¿para quién producir?' es una pregunta sobre justicia. Desde Aristóteles hasta hoy, la distribución de la riqueza genera debates éticos y políticos que definen sociedades.", "pregunta": "¿Es justo que el mercado decida quién accede a salud, educación y vivienda, o debería garantizarlo el Estado?", "vinculo": "Unidad sobre justicia social, derechos y rol del Estado"}
+    ],
+    "telarana": [
+      {"target": "Sociología", "desc": "Las clases sociales del feudalismo, la burguesía mercantilista y el proletariado industrial son temas sociológicos centrales", "emoji": "👥", "color": "#EC4899"},
+      {"target": "Literatura", "desc": "Dickens, Zola y Engels describieron la miseria industrial. La literatura fue testigo y denuncia de la Revolución Industrial", "emoji": "📚", "color": "#8B5CF6"},
+      {"target": "Ciencia y Tecnología", "desc": "La máquina de vapor, el ferrocarril, la electricidad y el acero transformaron la producción y crearon el mundo moderno", "emoji": "⚡", "color": "#F59E0B"},
+      {"target": "Psicología", "desc": "La economía conductual demostró que no somos racionales: aversión a la pérdida, efecto manada, contabilidad mental", "emoji": "🧠", "color": "#3B82F6"},
+      {"target": "Ecología", "desc": "La economía clásica ignoró los límites del planeta. Hoy la sustentabilidad obliga a repensar producción y consumo", "emoji": "🌱", "color": "#10B981"},
+      {"target": "Matemática", "desc": "Modelos económicos, estadística, cálculo: la economía usa herramientas matemáticas para analizar la realidad", "emoji": "📐", "color": "#EF4444"}
     ]
   },
+
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "La mano invisible de Adam Smith funciona: el mercado libre, sin intervención del Estado, genera el mayor bienestar posible para la sociedad.",
+      "contexto": "Smith dijo que la búsqueda del interés individual lleva al bien común. Pero la Revolución Industrial trajo explotación, trabajo infantil y desigualdad brutal. La crisis de 1873 mostró que el mercado no siempre se autocorrige. ¿Tenía razón Smith o la realidad lo refutó? Usá los conceptos de mano invisible, fallos de mercado, consecuencias sociales de la industrialización y la crisis de 1873.",
+      "roles": [
+        {"id": "favor", "label": "A FAVOR", "emoji": "🟢", "color": "#10B981", "desc": "Defendé que Smith tenía razón. La mano invisible funciona cuando hay competencia real. El crecimiento económico fue innegable. Smith nunca dijo 'sin Estado': propuso Estado limitado con funciones esenciales. La Revolución Industrial sacó a millones de la pobreza feudal a largo plazo."},
+        {"id": "contra", "label": "EN CONTRA", "emoji": "🔴", "color": "#EF4444", "desc": "Argumentá que la realidad refutó a Smith. El trabajo infantil, las jornadas de 16 horas y la crisis de 1873 muestran que el mercado sin regulación genera miseria. Los monopolios y la desigualdad demuestran que el interés individual no siempre lleva al bien común."},
+        {"id": "juez", "label": "JUEZ/A", "emoji": "👨‍⚖️", "color": "#8B5CF6", "desc": "Evaluá ambas posturas con evidencia histórica. ¿La mano invisible funciona siempre, nunca o solo bajo ciertas condiciones? ¿Qué condiciones fallan en la práctica? Emití veredicto razonado."}
+      ]
+    },
+    "tesis": {
+      "consigna": "Formulá una tesis sobre: 'Las ideas económicas del pasado siguen vivas en los debates argentinos de hoy'. Elegí al menos 2 escuelas de pensamiento (mercantilismo, fisiocracia, liberalismo clásico) y mostrá cómo sus ideas se reflejan en debates actuales argentinos (proteccionismo vs. apertura, rol del Estado, distribución de la riqueza). Tu tesis debe tener afirmación clara, 2 evidencias históricas y una conclusión que conecte pasado y presente."
+    },
+    "critica": {
+      "consigna": "Releé la sección sobre las consecuencias sociales de la Revolución Industrial (luz y sombra). Identificá: 2 fortalezas del análisis (qué muestra bien), 1 debilidad o limitación (qué falta o simplifica), 1 pregunta que te quedó sin responder, y 1 conexión con algún problema actual de Argentina."
+    }
+  },
+
+  "emocional": {},
+
+  "autotest": {
+    "preguntas": [
+      {"pregunta": "¿Qué estudia la economía?", "opciones": ["Solo el dinero y las finanzas", "Cómo las sociedades administran recursos escasos para satisfacer necesidades ilimitadas", "Las leyes del comercio internacional", "Cómo hacerse rico"], "correcta": 1, "explicacion": "La economía es la ciencia social que estudia cómo se administran recursos escasos para satisfacer necesidades ilimitadas. Es la ciencia de la escasez y la elección."},
+      {"pregunta": "¿Cuál era la fuente de riqueza según los mercantilistas?", "opciones": ["La tierra y la agricultura", "La acumulación de oro y plata", "El trabajo humano y la industria", "El comercio libre entre naciones"], "correcta": 1, "explicacion": "Los mercantilistas creían que un país era rico si tenía mucho oro y plata. Buscaban superávit comercial (exportar más que importar) para acumular metales. Confundían dinero con riqueza."},
+      {"pregunta": "¿Por qué España se empobreció a pesar de tener tanto oro americano?", "opciones": ["Porque lo gastó todo en guerras y no desarrolló su capacidad productiva", "Porque lo regaló a otros países", "Porque el oro era de mala calidad", "Porque no tenía suficientes barcos"], "correcta": 0, "explicacion": "España gastó el oro en guerras y lujos. La entrada masiva de metales sin aumento de producción causó inflación brutal. Sus productos se encarecieron y terminó importando de otros países. La riqueza real está en producir, no en acumular metal."},
+      {"pregunta": "¿Qué significa la 'mano invisible' de Adam Smith?", "opciones": ["Que hay una fuerza misteriosa que controla los precios", "Que el Estado debe dirigir la economía en secreto", "Que la búsqueda del interés individual, en un mercado competitivo, puede llevar al bienestar general", "Que los ricos ayudan a los pobres sin que nadie lo note"], "correcta": 2, "explicacion": "La mano invisible es una metáfora: en un mercado libre y competitivo, cada persona buscando su propio beneficio contribuye, sin quererlo, al bien común. El panadero hace buen pan no por generosidad sino por interés, y eso nos beneficia a todos."},
+      {"pregunta": "¿Cuál fue la causa principal de la crisis de 1873?", "opciones": ["Una guerra mundial", "Una pandemia que mató a los trabajadores", "Sobreproducción: las fábricas producían más de lo que la gente podía comprar", "La falta de oro en Europa"], "correcta": 2, "explicacion": "La crisis de 1873 fue por sobreproducción: la capacidad productiva creció más rápido que la demanda. Los salarios bajos impedían a los trabajadores comprar lo que las fábricas producían. Esto causó deflación, quiebras y 23 años de estancamiento."},
+      {"pregunta": "¿Qué distingue a la microeconomía de la macroeconomía?", "opciones": ["La micro estudia países ricos y la macro países pobres", "La micro estudia agentes individuales (familias, empresas) y la macro la economía global (PIB, inflación, desempleo)", "La micro es más importante que la macro", "La micro es teoría y la macro es práctica"], "correcta": 1, "explicacion": "La microeconomía estudia el comportamiento de agentes individuales (familias, empresas, mercados específicos). La macroeconomía analiza la economía en su conjunto: PIB, inflación, desempleo, tipo de cambio, política fiscal y monetaria."}
+    ]
+  },
+
   "cierre": {
     "glosario": [
-      {"termino":"Economía","definicion":"Ciencia que estudia la administración de recursos escasos para satisfacer necesidades ilimitadas.","emoji":"💰","categoria":"Concepto base"},
-      {"termino":"Escasez","definicion":"Situación en la que los recursos disponibles son insuficientes para cubrir todas las necesidades.","emoji":"⚠️","categoria":"Concepto base"},
-      {"termino":"Costo de oportunidad","definicion":"Valor de la mejor alternativa a la que se renuncia al tomar una decisión económica.","emoji":"🔀","categoria":"Concepto base"},
-      {"termino":"Mercantilismo","definicion":"Doctrina económica (s. XVI-XVIII) que buscaba acumular metales preciosos y favorecer las exportaciones.","emoji":"👑","categoria":"Historia"},
-      {"termino":"Fisiocracia","definicion":"Escuela que consideraba a la agricultura y la naturaleza como únicas fuentes de riqueza.","emoji":"🌾","categoria":"Historia"},
-      {"termino":"Adam Smith","definicion":"Economista escocés (1723-1790), considerado padre de la economía moderna.","emoji":"📕","categoria":"Pensadores"},
-      {"termino":"Oferta y demanda","definicion":"Mecanismo de mercado que determina precios según cantidad disponible y deseada de un bien.","emoji":"📊","categoria":"Mercado"},
-      {"termino":"PBI","definicion":"Producto Bruto Interno: valor total de bienes y servicios producidos en un país en un período.","emoji":"📈","categoria":"Indicadores"}
+      {"termino": "Economía", "definicion": "Ciencia social que estudia cómo las sociedades administran recursos escasos para satisfacer necesidades ilimitadas. Ciencia de la escasez y la elección.", "emoji": "💰", "categoria": "Concepto base"},
+      {"termino": "Costo de oportunidad", "definicion": "Aquello a lo que renunciamos al tomar una decisión. No es solo dinero: incluye tiempo, oportunidades perdidas y lo que dejamos de ganar.", "emoji": "🎯", "categoria": "Concepto base"},
+      {"termino": "Feudalismo", "definicion": "Sistema socioeconómico medieval basado en la tierra, la servidumbre y relaciones jerárquicas de vasallaje. Economía agraria y autárquica que duró casi mil años.", "emoji": "🏰", "categoria": "Sistemas económicos"},
+      {"termino": "Mercantilismo", "definicion": "Doctrina (siglos XVI-XVIII) que medía la riqueza por acumulación de oro/plata. Promovía intervención estatal fuerte, colonialismo y superávit comercial.", "emoji": "👑", "categoria": "Escuelas de pensamiento"},
+      {"termino": "Fisiocracia", "definicion": "Escuela del siglo XVIII que sostenía que solo la tierra crea riqueza. Creó el primer modelo económico (Tableau Économique) y el lema 'laissez-faire'.", "emoji": "🌾", "categoria": "Escuelas de pensamiento"},
+      {"termino": "Mano invisible", "definicion": "Metáfora de Smith: en un mercado competitivo, la búsqueda del interés individual puede llevar al bienestar general. Requiere competencia real y ausencia de monopolios.", "emoji": "🤚", "categoria": "Liberalismo clásico"},
+      {"termino": "Ventaja comparativa", "definicion": "Teoría de Ricardo: un país debe especializarse en lo que produce con menor costo de oportunidad relativo, aunque sea menos eficiente en todo. Argumento clave del libre comercio.", "emoji": "🌍", "categoria": "Liberalismo clásico"},
+      {"termino": "Crisis de sobreproducción de 1873", "definicion": "Primer colapso global del capitalismo: las fábricas producían más de lo que la gente podía comprar. Causó 23 años de deflación, proteccionismo e imperialismo colonial.", "emoji": "📉", "categoria": "Historia económica"}
     ],
     "recursos": [
-      {"tipo":"📖 Libro","title":"'La riqueza de las naciones' - Adam Smith","desc":"El clásico fundacional de la economía moderna.","nivel":"Avanzado","color":"#8B5CF6"},
-      {"tipo":"🎬 Video","title":"Economía desde cero - Canal Encuentro","desc":"Videos cortos con conceptos básicos y ejemplos argentinos.","nivel":"Introductorio","color":"#EF4444"},
-      {"tipo":"🎧 Podcast","title":"'Economía para todos' - Radio Nacional","desc":"Episodios que conectan la economía con la vida cotidiana.","nivel":"Intermedio","color":"#F59E0B"},
-      {"tipo":"🌐 Web","title":"Banco Central de la República Argentina","desc":"Datos económicos actualizados e informes.","nivel":"Intermedio","color":"#3B82F6"},
-      {"tipo":"📄 Artículo","title":"'¿Qué es la inflación?' - INDEC","desc":"Explicación oficial sobre cómo se mide la inflación.","nivel":"Introductorio","color":"#10B981"}
+      {"tipo": "🎬 Video", "title": "La Revolución Industrial en 15 minutos", "desc": "Documental visual sobre las transformaciones tecnológicas, sociales y económicas que cambiaron el mundo entre 1760 y 1840.", "nivel": "Introductorio", "color": "#8B5CF6"},
+      {"tipo": "🌐 Web", "title": "Economipedia: historia del pensamiento económico", "desc": "Artículos claros sobre cada escuela económica: mercantilismo, fisiocracia, liberalismo clásico, con ejemplos y comparaciones.", "nivel": "Introductorio", "color": "#EF4444"},
+      {"tipo": "🎬 Video", "title": "Adam Smith y la mano invisible explicados", "desc": "Animación que explica la división del trabajo, la mano invisible y por qué Smith criticaba a los mercantilistas.", "nivel": "Intermedio", "color": "#F59E0B"},
+      {"tipo": "📖 Libro", "title": "La historia del pensamiento económico — Robert Heilbroner", "desc": "Recorrido accesible por los grandes economistas: Smith, Ricardo, Malthus, Mill. Cuenta las ideas como historias humanas.", "nivel": "Intermedio", "color": "#3B82F6"},
+      {"tipo": "🎧 Podcast", "title": "Crisis económicas que cambiaron el mundo", "desc": "Episodio sobre la crisis de 1873 y sus consecuencias: proteccionismo, imperialismo y el nacimiento del movimiento obrero.", "nivel": "Avanzado", "color": "#10B981"}
     ]
   }
 }
