@@ -666,13 +666,10 @@ async function generarPDF() {
     await new Promise(r => setTimeout(r, 10));
 
     cajaColor(ML, 18, PW, 50, cpRgb, 5);
-    const tituloLines = pdf.setFontSize(18) || pdf.splitTextToSize(
-      `${datos.emoji || ''} ${datos.titulo || 'Unidad'}`, PW-10
-    );
     pdf.setFontSize(18);
     pdf.setFont('helvetica','bold');
     pdf.setTextColor(255,255,255);
-    const tLines = pdf.splitTextToSize(`${datos.emoji || ''} ${datos.titulo || 'Unidad'}`, PW-10);
+    const tLines = pdf.splitTextToSize(limpiar(datos.titulo || 'Unidad'), PW-10);
     pdf.text(tLines, 210/2, 35, { align:'center' });
     texto(`${datos.materia || ''} · Unidad ${datos.unidad || ''}`, 210/2, 52,
           { size:10, color:[255,255,255], align:'center' });
@@ -757,16 +754,24 @@ async function generarPDF() {
     y += 6;
 
     (mapa.panoramica_bloques || []).forEach(b => {
-      checkY(20);
-      cajaGris(ML, y, PW, 6 + (b.items||[]).length * 5 + 4);
-      texto(`${b.emoji||''} ${b.title||''} — ${b.subtitle||''}`, ML+4, y+5, { size:9, bold:true });
-      y += 7;
+      // calcular alto real del bloque antes de dibujarlo
+      pdf.setFontSize(9); pdf.setFont('helvetica','bold');
+      const nlTit = pdf.splitTextToSize(limpiar(`${b.title||''} — ${b.subtitle||''}`), PW-8).length;
+      let altoBloque = nlTit * 4.5 + 4;
       (b.items||[]).forEach(it => {
-        texto(`• ${it}`, ML+6, y, { size:8.5, maxW:PW-8 });
-        const nl = pdf.splitTextToSize(`• ${it}`, PW-8).length;
+        pdf.setFontSize(8.5); pdf.setFont('helvetica','normal');
+        altoBloque += pdf.splitTextToSize(limpiar(`• ${it}`), PW-12).length * 4.5;
+      });
+      altoBloque += 6;
+      checkY(altoBloque + 4);
+      cajaGris(ML, y, PW, altoBloque);
+      texto(limpiar(`${b.title||''} — ${b.subtitle||''}`), ML+4, y+5, { size:9, bold:true });
+      y += nlTit * 4.5 + 4;
+      (b.items||[]).forEach(it => {
+        const nl = textoWrapped(limpiar(`• ${it}`), ML+6, y, PW-12, 8.5);
         y += nl*4.5;
       });
-      y += 5;
+      y += 8;
     });
 
     // ── NÚCLEO ─────────────────────────────────────────────────────────────
@@ -1118,19 +1123,37 @@ async function generarPDF() {
 
     const tribunal = relectura.tribunal;
     if (tribunal?.titulo_debate) {
-      checkY(40);
-      texto('Tribunal de debate:', ML, y, { size:9, bold:true, color:[...cpRgb] }); y+=4;
-      cajaGris(ML, y, PW, 6);
-      texto(`Tema: ${tribunal.titulo_debate}`, ML+4, y+4, { size:9, bold:true, maxW:PW-8 });
-      const nlT = pdf.splitTextToSize(`Tema: ${tribunal.titulo_debate}`, PW-8).length;
-      y += nlT*4.5+3;
-      const nlC = textoWrapped(tribunal.contexto||'', ML+4, y, PW-8, 8.5);
-      y += nlC*4.5+4;
+      // calcular alto del bloque tema+contexto
+      pdf.setFontSize(9); pdf.setFont('helvetica','bold');
+      const nlTema = pdf.splitTextToSize(limpiar(`Tema: ${tribunal.titulo_debate}`), PW-8).length;
+      pdf.setFontSize(8.5); pdf.setFont('helvetica','normal');
+      const nlCtx  = pdf.splitTextToSize(limpiar(tribunal.contexto||''), PW-8).length;
+      const altoBox = nlTema*4.5 + nlCtx*4.5 + 10;
+      checkY(altoBox + 10);
+      texto('Tribunal de debate:', ML, y, { size:9, bold:true, color:[...cpRgb] }); y+=5;
+      cajaGris(ML, y, PW, altoBox);
+      textoWrapped(limpiar(`Tema: ${tribunal.titulo_debate}`), ML+4, y+5, PW-8, 9, true);
+      y += nlTema*4.5 + 5;
+      const nlC2 = textoWrapped(limpiar(tribunal.contexto||''), ML+4, y, PW-8, 8.5);
+      y += nlC2*4.5 + 6;
+
+      // roles — cada uno en su propia caja con alto calculado
       (tribunal.roles||[]).forEach(rol => {
-        const nl = textoWrapped(`${rol.emoji||''} ${rol.label||''}: ${rol.desc||''}`, ML+3, y, PW-3, 8.5);
-        y += nl*4.5+2;
+        pdf.setFontSize(8.5); pdf.setFont('helvetica','normal');
+        const labelTxt = limpiar(`${rol.label||''}: ${rol.desc||''}`);
+        const nlR = pdf.splitTextToSize(labelTxt, PW-10).length;
+        const altoRol = nlR*4.5 + 8;
+        checkY(altoRol + 2);
+        cajaGris(ML, y, PW, altoRol);
+        texto(limpiar(rol.label||''), ML+4, y+5, { size:9, bold:true });
+        pdf.setFontSize(8.5); pdf.setFont('helvetica','normal'); pdf.setTextColor(55,65,81);
+        const lines = pdf.splitTextToSize(limpiar(rol.desc||''), PW-10);
+        pdf.text(lines, ML+4, y+10);
+        y += altoRol + 3;
       });
-      texto('Mis argumentos:', ML, y, { size:8.5, color:[107,114,128] }); y+=4;
+
+      y += 3;
+      texto('Mis argumentos:', ML, y, { size:8.5, color:[107,114,128] }); y+=5;
       for (let l=0; l<4; l++) { checkY(8); lineaRespuesta(ML, y, PW); y+=8; }
       y += 4;
     }
@@ -1242,7 +1265,7 @@ async function generarPDF() {
 
     // ── Guardar ────────────────────────────────────────────────────────────
     setProgreso(100, '¡Listo!');
-    const nombre = `cuaderno_${(datos.materia||'materia').toLowerCase().replace(/\s+/g,'_')}_u${datos.unidad||1}.pdf`;
+    const nombre = `${(datos.materia||'materia').toLowerCase().replace(/\s+/g,'_')}_u${datos.unidad||1}_cv.pdf`;
     pdf.save(nombre);
 
     document.getElementById('btnGenerar').disabled = false;
