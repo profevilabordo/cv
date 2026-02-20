@@ -456,6 +456,18 @@
 <script>
 const { jsPDF } = window.jspdf;
 
+// Elimina emojis y caracteres fuera del rango latin que jsPDF no puede renderizar
+function limpiar(str) {
+  if (!str && str !== 0) return '';
+  return String(str)
+    .replace(/[\u{1F000}-\u{1FFFF}]/gu, '')   // emojis suplementarios
+    .replace(/[\u2600-\u27BF]/g, '')           // símbolos misceláneos
+    .replace(/[\uFE00-\uFE0F]/g, '')           // variantes
+    .replace(/[\u{E0000}-\u{E007F}]/gu, '')    // tags
+    .replace(/\s{2,}/g, ' ')                   // espacios dobles resultantes
+    .trim();
+}
+
 let datos = null;
 
 // ── Drag & drop ────────────────────────────────────────────────────────────
@@ -613,14 +625,14 @@ async function generarPDF() {
       pdf.setFontSize(size);
       pdf.setFont('helvetica', bold ? 'bold' : 'normal');
       pdf.setTextColor(...color);
-      pdf.text(txt, x, yy, { align, maxWidth: maxW });
+      pdf.text(limpiar(txt), x, yy, { align, maxWidth: maxW });
     }
 
     function textoWrapped(txt, x, yy, maxW, size = 9, bold = false, color = [55,65,81]) {
       pdf.setFontSize(size);
       pdf.setFont('helvetica', bold ? 'bold' : 'normal');
       pdf.setTextColor(...color);
-      const lines = pdf.splitTextToSize(String(txt), maxW);
+      const lines = pdf.splitTextToSize(limpiar(txt), maxW);
       pdf.text(lines, x, yy);
       return lines.length;
     }
