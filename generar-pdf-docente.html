@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PDF Docente — Campus Cuaderno Vivo</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
+  :root {
+    --bg:#0f0f13;--surface:#18181f;--border:#2a2a35;
+    --accent:#e8c547;--accent2:#7c6af7;--text:#e8e8f0;--muted:#6b6b80;
+    --success:#4ade80;--error:#f87171;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);
+    min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:2rem 1rem;}
+  body::before{content:'';position:fixed;inset:0;
+    background:radial-gradient(ellipse 60% 40% at 20% 20%,rgba(124,106,247,0.08) 0%,transparent 60%),
+               radial-gradient(ellipse 40% 30% at 80% 80%,rgba(232,197,71,0.06) 0%,transparent 50%);
+    pointer-events:none;z-index:0;}
+  .container{width:100%;max-width:680px;position:relative;z-index:1;}
+  .header{text-align:center;margin-bottom:3rem;}
+  .badge{display:inline-flex;align-items:center;gap:.4rem;background:rgba(124,106,247,0.15);
+    border:1px solid rgba(124,106,247,0.3);color:#a89df5;font-size:.75rem;font-weight:500;
+    letter-spacing:.08em;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px;margin-bottom:1.2rem;}
+  h1{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,5vw,2.8rem);line-height:1.1;margin-bottom:.75rem;}
+  h1 em{font-style:italic;color:var(--accent);}
+  .subtitle{color:var(--muted);font-size:.95rem;line-height:1.6;max-width:440px;margin:0 auto;}
+  .drop-zone{border:1.5px dashed var(--border);border-radius:16px;padding:3rem 2rem;
+    text-align:center;cursor:pointer;transition:all .25s ease;background:var(--surface);position:relative;overflow:hidden;}
+  .drop-zone::before{content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse at center,rgba(124,106,247,0.05) 0%,transparent 70%);
+    opacity:0;transition:opacity .3s;}
+  .drop-zone:hover,.drop-zone.dragover{border-color:var(--accent2);background:#1c1c26;}
+  .drop-zone:hover::before,.drop-zone.dragover::before{opacity:1;}
+  .drop-icon{font-size:2.5rem;margin-bottom:1rem;display:block;transition:transform .3s;}
+  .drop-zone:hover .drop-icon{transform:translateY(-4px);}
+  .drop-title{font-size:1.1rem;font-weight:600;margin-bottom:.4rem;}
+  .drop-sub{color:var(--muted);font-size:.85rem;}
+  .drop-sub span{color:var(--accent2);font-weight:500;}
+  input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+  .preview-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;
+    padding:1.5rem;display:none;animation:slideUp .3s ease;}
+  @keyframes slideUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+  .preview-header{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1.2rem;}
+  .preview-emoji{font-size:2rem;width:3rem;height:3rem;display:flex;align-items:center;justify-content:center;
+    background:rgba(232,197,71,0.1);border-radius:10px;flex-shrink:0;}
+  .preview-info h2{font-size:1.1rem;font-weight:600;margin-bottom:.2rem;line-height:1.3;}
+  .preview-meta{color:var(--muted);font-size:.82rem;display:flex;gap:.6rem;flex-wrap:wrap;}
+  .preview-meta span{background:rgba(255,255,255,0.05);padding:.15rem .5rem;border-radius:4px;}
+  .info-box{background:rgba(232,197,71,0.06);border:1px solid rgba(232,197,71,0.2);
+    border-radius:10px;padding:.8rem 1rem;margin-bottom:1rem;font-size:.82rem;color:#c9ae3f;line-height:1.6;}
+  .btn-generar{width:100%;padding:1rem;background:var(--accent2);color:#fff;border:none;border-radius:12px;
+    font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;cursor:pointer;transition:all .2s;
+    display:flex;align-items:center;justify-content:center;gap:.5rem;}
+  .btn-generar:hover{background:#6a5ae0;transform:translateY(-1px);box-shadow:0 8px 24px rgba(124,106,247,0.3);}
+  .btn-generar:disabled{background:var(--border);color:var(--muted);cursor:not-allowed;transform:none;}
+  .progress-wrap{display:none;margin-top:1rem;}
+  .progress-bar-bg{height:4px;background:var(--border);border-radius:2px;overflow:hidden;margin-bottom:.5rem;}
+  .progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));
+    border-radius:2px;transition:width .3s ease;width:0%;}
+  .progress-label{font-size:.8rem;color:var(--muted);text-align:center;}
+  .msg{display:none;padding:1rem 1.25rem;border-radius:10px;font-size:.9rem;margin-top:1rem;
+    animation:slideUp .3s ease;align-items:center;gap:.6rem;}
+  .msg.ok{background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.25);color:var(--success);}
+  .msg.err{background:rgba(248,113,113,0.1);border:1px solid rgba(248,113,113,0.25);color:var(--error);}
+  .btn-reset{background:none;border:1px solid var(--border);color:var(--muted);font-family:'DM Sans',sans-serif;
+    font-size:.8rem;padding:.4rem .8rem;border-radius:6px;cursor:pointer;transition:all .2s;
+    margin-top:.8rem;width:100%;}
+  .btn-reset:hover{border-color:var(--muted);color:var(--text);}
+  footer{margin-top:3rem;text-align:center;color:var(--muted);font-size:.78rem;line-height:1.8;}
+  .spin{display:inline-block;width:16px;height:16px;border:2px solid rgba(255,255,255,0.2);
+    border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .gap{height:1rem;}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <div class="badge">🎓 Campus Cuaderno Vivo</div>
+    <h1>Hoja de ruta<br><em>docente</em></h1>
+    <p class="subtitle">PDF compacto con todo el contenido de la unidad para tener en clase. Sin espacios — máxima información en mínimas páginas.</p>
+  </header>
+
+  <div class="drop-zone" id="dropZone">
+    <input type="file" id="fileInput" accept=".json">
+    <span class="drop-icon">📂</span>
+    <div class="drop-title">Arrastrá el JSON acá</div>
+    <div class="drop-sub">o hacé clic para buscarlo · <span>solo archivos .json</span></div>
+  </div>
+
+  <div class="gap"></div>
+
+  <div class="preview-card" id="previewCard">
+    <div class="preview-header">
+      <div class="preview-emoji" id="prevEmoji">📘</div>
+      <div class="preview-info">
+        <h2 id="prevTitulo">—</h2>
+        <div class="preview-meta">
+          <span id="prevMateria">—</span>
+          <span id="prevUnidad">—</span>
+        </div>
+      </div>
+    </div>
+    <div class="info-box">
+      📋 Este PDF incluye todo el contenido sin espacios para escribir: consignas con respuestas correctas, conceptos clave, glosario completo y actividades resueltas. Es tu hoja de ruta para la clase.
+    </div>
+    <button class="btn-generar" id="btnGenerar" onclick="generarPDF()">
+      <span id="btnTexto">⬇ Generar hoja de ruta docente</span>
+    </button>
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressFill"></div></div>
+      <div class="progress-label" id="progressLabel">Preparando...</div>
+    </div>
+    <div class="msg ok" id="msgOk">✅ <span id="msgOkText">PDF generado.</span></div>
+    <div class="msg err" id="msgErr">❌ <span id="msgErrText">Error.</span></div>
+    <button class="btn-reset" onclick="resetear()">↩ Cargar otro JSON</button>
+  </div>
+
+  <footer>Campus Cuaderno Vivo · Hoja de ruta docente · generación en el navegador</footer>
+</div>
+
+<script>
+const { jsPDF } = window.jspdf;
+
+function limpiar(str) {
+  if (!str && str !== 0) return '';
+  let s = String(str);
+  s = s.replace(/[\u{1F000}-\u{1FFFF}]/gu, '')
+        .replace(/[\u2600-\u27BF]/g, '')
+        .replace(/[\uFE00-\uFE0F]/g, '')
+        .replace(/[\u{E0000}-\u{E007F}]/gu, '');
+  s = s.normalize('NFC');
+  s = s.replace(/\s{2,}/g, ' ').trim();
+  return s;
+}
+
+let datos = null;
+let nombreArchivoJSON = '';
+
+const dropZone  = document.getElementById('dropZone');
+const fileInput = document.getElementById('fileInput');
+dropZone.addEventListener('dragover', e=>{e.preventDefault();dropZone.classList.add('dragover');});
+dropZone.addEventListener('dragleave', ()=>dropZone.classList.remove('dragover'));
+dropZone.addEventListener('drop', e=>{e.preventDefault();dropZone.classList.remove('dragover');const f=e.dataTransfer.files[0];if(f)procesarArchivo(f);});
+fileInput.addEventListener('change', ()=>{if(fileInput.files[0])procesarArchivo(fileInput.files[0]);});
+
+function procesarArchivo(file) {
+  if (!file.name.endsWith('.json')) { mostrarError('El archivo debe ser .json'); return; }
+  nombreArchivoJSON = file.name.replace(/\.json$/i, '');
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      datos = JSON.parse(e.target.result);
+      document.getElementById('dropZone').style.display = 'none';
+      document.getElementById('previewCard').style.display = 'block';
+      document.getElementById('prevEmoji').textContent  = datos.emoji || '📘';
+      document.getElementById('prevTitulo').textContent = datos.titulo || 'Sin título';
+      document.getElementById('prevMateria').textContent = datos.materia || '—';
+      document.getElementById('prevUnidad').textContent  = `Unidad ${datos.unidad||'—'}`;
+    } catch { mostrarError('El archivo JSON tiene un error de formato.'); }
+  };
+  reader.readAsText(file);
+}
+
+function resetear() {
+  datos = null; fileInput.value = '';
+  document.getElementById('dropZone').style.display = 'block';
+  document.getElementById('previewCard').style.display = 'none';
+  ocultarMensajes();
+}
+
+function ocultarMensajes() {
+  document.getElementById('msgOk').style.display = 'none';
+  document.getElementById('msgErr').style.display = 'none';
+  document.getElementById('progressWrap').style.display = 'none';
+}
+
+function mostrarError(txt) {
+  const el = document.getElementById('msgErr');
+  document.getElementById('msgErrText').textContent = txt;
+  el.style.display = 'flex';
+}
+
+function setProgreso(pct, label) {
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressLabel').textContent = label;
+}
+
+// ══════════════════════════════════════════════════════
+// GENERADOR PDF DOCENTE
+// ══════════════════════════════════════════════════════
+
+function hexToRgb(h) {
+  h = h.replace('#','');
+  if (h.length===3) h=h.split('').map(c=>c+c).join('');
+  const n=parseInt(h,16);
+  return [(n>>16)&255,(n>>8)&255,n&255];
+}
+
+async function generarPDF() {
+  if (!datos) return;
+  const btn = document.getElementById('btnGenerar');
+  btn.disabled = true;
+  document.getElementById('btnTexto').innerHTML = '<span class="spin"></span> Generando...';
+  document.getElementById('progressWrap').style.display = 'block';
+  ocultarMensajes();
+
+  try {
+    await new Promise(r=>setTimeout(r,30));
+
+    const pdf = new jsPDF({ unit:'mm', format:'a4', orientation:'portrait' });
+    const CP = datos.color_primario || '#6366F1';
+    const cpRgb = hexToRgb(CP);
+
+    // márgenes ajustados para máxima densidad
+    const ML=12, MR=12, PW=210-ML-MR;
+    let y = 0;
+
+    function nuevaPagina() { pdf.addPage(); y = 10; }
+    function checkY(needed=10) { if (y+needed>287) nuevaPagina(); }
+
+    // texto simple
+    function t(txt, x, yy, size=8, bold=false, color=[40,40,40], align='left', maxW=PW) {
+      pdf.setFontSize(size); pdf.setFont('helvetica', bold?'bold':'normal');
+      pdf.setTextColor(...color);
+      pdf.text(limpiar(txt), x, yy, { align, maxWidth: maxW });
+    }
+
+    // texto con wrap, devuelve nro de lineas
+    function tw(txt, x, yy, maxW=PW, size=8, bold=false, color=[40,40,40]) {
+      pdf.setFontSize(size); pdf.setFont('helvetica', bold?'bold':'normal');
+      pdf.setTextColor(...color);
+      const lines = pdf.splitTextToSize(limpiar(txt), maxW);
+      pdf.text(lines, x, yy);
+      return lines.length;
+    }
+
+    function nLineas(txt, maxW, size=8) {
+      pdf.setFontSize(size); pdf.setFont('helvetica','normal');
+      return pdf.splitTextToSize(limpiar(txt), maxW).length;
+    }
+
+    // separador horizontal fino
+    function hr(yy, alpha=0.15) {
+      pdf.setDrawColor(...cpRgb.map(c=>Math.round(c*alpha+200*(1-alpha))));
+      pdf.setLineWidth(0.2);
+      pdf.line(ML, yy, ML+PW, yy);
+    }
+
+    // encabezado de sección compacto
+    function seccion(titulo, yy) {
+      pdf.setFillColor(...cpRgb);
+      pdf.rect(ML, yy, PW, 6, 'F');
+      t(titulo, ML+2, yy+4.3, 8, true, [255,255,255]);
+      return yy+7;
+    }
+
+    // etiqueta coloreada inline
+    function tag(txt, x, yy, bgRgb=[200,200,200]) {
+      pdf.setFontSize(6.5); pdf.setFont('helvetica','bold');
+      const w = pdf.getTextWidth(limpiar(txt))+3;
+      pdf.setFillColor(...bgRgb.map(c=>Math.min(255,c+120)));
+      pdf.setDrawColor(...bgRgb);
+      pdf.setLineWidth(0.2);
+      pdf.roundedRect(x, yy-3, w, 4, 1, 1, 'FD');
+      pdf.setTextColor(...bgRgb.map(c=>Math.max(0,c-60)));
+      pdf.text(limpiar(txt), x+1.5, yy);
+      return x+w+2;
+    }
+
+    // ── PORTADA COMPACTA ─────────────────────────────────────────────────
+    setProgreso(5,'Portada...');
+    await new Promise(r=>setTimeout(r,10));
+
+    // banda de color fina arriba
+    pdf.setFillColor(...cpRgb);
+    pdf.rect(0, 0, 210, 16, 'F');
+    t(limpiar(datos.titulo||'Unidad'), 105, 7, 13, true, [255,255,255], 'center', 180);
+    t(`${limpiar(datos.materia||'')}  ·  Unidad ${datos.unidad||''}  ·  HOJA DE RUTA DOCENTE`, 105, 13, 7, false, [255,255,255], 'center', 180);
+
+    y = 20;
+
+    // ── MAPA ─────────────────────────────────────────────────────────────
+    setProgreso(15,'Mapa...');
+    await new Promise(r=>setTimeout(r,10));
+    const mapa = datos.mapa || {};
+
+    y = seccion('MAPA DE LA UNIDAD', y);
+
+    // Ruta de paradas en una línea por parada
+    const paradas = mapa.ruta_paradas || [];
+    if (paradas.length) {
+      paradas.forEach(p => {
+        checkY(5);
+        const nl = nLineas(`P${p.id} ${p.title||''} — ${p.desc||''}`, PW-4, 7.5);
+        tw(`P${p.id}  ${limpiar(p.title||'')} — ${limpiar(p.desc||'')}`, ML+2, y, PW-4, 7.5, false, [40,40,40]);
+        y += nl*3.8;
+      });
+      y += 1;
+    }
+
+    // Bloques panorámicos en 3 columnas
+    const bloques = mapa.panoramica_bloques || [];
+    if (bloques.length) {
+      checkY(8);
+      const cw = PW/3;
+      bloques.forEach((b,i) => {
+        const xb = ML + i*cw;
+        // calcular alto
+        let alto = 5;
+        const nlTit = nLineas(`${limpiar(b.title||'')} ${limpiar(b.subtitle||'')}`, cw-4, 7.5);
+        alto += nlTit*3.8;
+        (b.items||[]).forEach(it => { alto += nLineas(`- ${it}`, cw-5, 7)*3.5; });
+        alto += 3;
+
+        pdf.setFillColor(...cpRgb.map(c=>Math.min(255,c+130)));
+        pdf.setDrawColor(...cpRgb.map(c=>Math.min(255,c+60)));
+        pdf.setLineWidth(0.2);
+        pdf.roundedRect(xb, y, cw-2, alto, 2, 2, 'FD');
+
+        let yb = y+4;
+        tw(`${limpiar(b.title||'')} — ${limpiar(b.subtitle||'')}`, xb+2, yb, cw-5, 7.5, true, cpRgb.map(c=>Math.max(0,c-80)));
+        yb += nlTit*3.8 + 1;
+        (b.items||[]).forEach(it => {
+          const nl = tw(`- ${limpiar(it)}`, xb+3, yb, cw-6, 7, false, [60,60,60]);
+          yb += nl*3.5;
+        });
+        // actualizar y con el bloque más alto (solo al finalizar los 3)
+        if (i===bloques.length-1) y += alto + 3;
+      });
+    }
+
+    // Mapa mental: ramas compactas
+    const mm = mapa.mapa_mental || {};
+    if (mm.ramas?.length) {
+      checkY(8);
+      t(`Centro: ${limpiar(mm.centro?.title||'')}`, ML, y, 7.5, true, cpRgb); y+=4;
+      (mm.ramas||[]).forEach(r => {
+        checkY(4);
+        const items = (r.items||[]).join(' · ');
+        const nl = tw(`${limpiar(r.title||'')}: ${limpiar(items)}`, ML+3, y, PW-5, 7);
+        y += nl*3.5;
+      });
+      y += 2;
+    }
+
+    // ── UMBRAL ───────────────────────────────────────────────────────────
+    setProgreso(25,'Umbral...');
+    await new Promise(r=>setTimeout(r,10));
+    const umbral = datos.umbral || {};
+    checkY(10);
+    y = seccion('UMBRAL — DISPARADORES', y);
+
+    (umbral.preguntas_disparadoras||[]).forEach((p,i) => {
+      checkY(5);
+      const nl = tw(`${i+1}. ${limpiar(p.texto||'')}`, ML+2, y, PW-4, 7.5);
+      y += nl*3.8;
+      if (p.pista) {
+        const nlp = tw(`   Pista: ${limpiar(p.pista)}`, ML+4, y, PW-6, 7, false, [120,120,120]);
+        y += nlp*3.5;
+      }
+    });
+    y += 1;
+
+    // ── NÚCLEO ───────────────────────────────────────────────────────────
+    setProgreso(38,'Nucleo...');
+    await new Promise(r=>setTimeout(r,10));
+    const nucleo = datos.nucleo || {};
+    checkY(10);
+    y = seccion('NUCLEO — ACTIVIDADES (con respuestas)', y);
+
+    // N1 Ordenar
+    const n1 = nucleo.n1_ordenar_cronologicamente;
+    if (n1?.items?.length) {
+      checkY(6);
+      t('N1 Orden correcto:', ML+1, y, 7.5, true, cpRgb); y+=4;
+      const ordenados = [...n1.items].sort((a,b)=>{
+        const oc = n1.orden_correcto||[];
+        return oc.indexOf(a.id)-oc.indexOf(b.id);
+      });
+      const linea = ordenados.map((it,i)=>`${i+1}. ${limpiar(it.text||'')}`).join('  |  ');
+      const nl = tw(linea, ML+2, y, PW-4, 7);
+      y += nl*3.8 + 1;
+    }
+
+    // N2 Clasificador
+    const n2 = nucleo.n2_clasificador;
+    if (n2?.items?.length) {
+      checkY(6);
+      t('N2 Clasificacion:', ML+1, y, 7.5, true, cpRgb); y+=4;
+      const cats = n2.categorias||[];
+      const grupos = {};
+      (n2.items||[]).forEach(it => {
+        const c = cats[it.categoria_correcta]?.name || `Cat ${it.categoria_correcta}`;
+        if (!grupos[c]) grupos[c]=[];
+        grupos[c].push(limpiar(it.text||''));
+      });
+      Object.entries(grupos).forEach(([cat,items]) => {
+        checkY(4);
+        const nl = tw(`${limpiar(cat)}: ${items.join(' / ')}`, ML+2, y, PW-4, 7);
+        y += nl*3.8;
+      });
+      y += 1;
+    }
+
+    // N3 Completar
+    const n3 = nucleo.n3_completar_mapa;
+    if (n3?.blanks?.length) {
+      checkY(6);
+      t('N3 Completar:', ML+1, y, 7.5, true, cpRgb); y+=4;
+      (n3.blanks||[]).forEach(b => {
+        checkY(4);
+        const nl = tw(`${limpiar(b.texto_antes||'')} [${limpiar(b.respuesta_correcta||'')}]`, ML+2, y, PW-4, 7);
+        y += nl*3.8;
+      });
+      y += 1;
+    }
+
+    // N4 V/F
+    const n4 = nucleo.n4_verdadero_falso;
+    if (n4?.afirmaciones?.length) {
+      checkY(6);
+      t('N4 Verdadero / Falso:', ML+1, y, 7.5, true, cpRgb); y+=4;
+      (n4.afirmaciones||[]).forEach(a => {
+        checkY(4);
+        const resp = a.correcto ? 'V' : 'F';
+        const nl = tw(`[${resp}] ${limpiar(a.texto||'')}`, ML+2, y, PW-4, 7);
+        y += nl*3.8;
+        if (a.explicacion) {
+          const nle = tw(`     > ${limpiar(a.explicacion)}`, ML+4, y, PW-6, 6.5, false, [100,100,100]);
+          y += nle*3.5;
+        }
+      });
+      y += 1;
+    }
+
+    // N5 Relacionar
+    const n5 = nucleo.n5_relacionar_columnas;
+    if (n5?.pares?.length) {
+      checkY(6);
+      t('N5 Pares correctos:', ML+1, y, 7.5, true, cpRgb); y+=4;
+      (n5.pares||[]).forEach(p => {
+        checkY(4);
+        const nl = tw(`${limpiar(p.izquierda||'')}  →  ${limpiar(p.derecha||'')}`, ML+2, y, PW-4, 7);
+        y += nl*3.8;
+      });
+      y += 1;
+    }
+
+    // N6 Intrusa
+    const n6 = nucleo.n6_palabra_intrusa;
+    if (n6?.grupos?.length) {
+      checkY(6);
+      t('N6 Intrusas:', ML+1, y, 7.5, true, cpRgb); y+=4;
+      (n6.grupos||[]).forEach(g => {
+        checkY(4);
+        const intrusa = (g.palabras||[]).find(p=>p.es_intrusa)?.text||'';
+        const nl = tw(`Intrusa: [${limpiar(intrusa)}] — ${limpiar(g.explicacion||'')}`, ML+2, y, PW-4, 7);
+        y += nl*3.8;
+      });
+      y += 1;
+    }
+
+    // N7 Palabras clave
+    const n7 = nucleo.n7_defini_con_tus_palabras;
+    if (n7?.conceptos?.length) {
+      checkY(6);
+      t('N7 Palabras clave esperadas:', ML+1, y, 7.5, true, cpRgb); y+=4;
+      (n7.conceptos||[]).forEach(c => {
+        checkY(4);
+        const nl = tw(`${limpiar(c.termino||'')}: ${(c.palabras_clave||[]).join(', ')}`, ML+2, y, PW-4, 7);
+        y += nl*3.8;
+      });
+      y += 1;
+    }
+
+    // N8 Causa-efecto
+    const n8 = nucleo.n8_causa_efecto;
+    if (n8?.causas?.length) {
+      checkY(6);
+      t('N8 Causa → Efecto:', ML+1, y, 7.5, true, cpRgb); y+=4;
+      (n8.causas||[]).forEach(ca => {
+        checkY(4);
+        const ef = (n8.efectos||[]).find(e=>e.causa_id===ca.id);
+        const nl = tw(`${limpiar(ca.text||'')}  →  ${limpiar(ef?.text||'')}`, ML+2, y, PW-4, 7);
+        y += nl*3.8;
+      });
+      y += 1;
+    }
+
+    // N9 Orden correcto
+    const n9 = nucleo.n9_ordenar_proceso;
+    if (n9?.pasos_en_orden_correcto?.length) {
+      checkY(6);
+      t('N9 Orden del proceso:', ML+1, y, 7.5, true, cpRgb); y+=4;
+      const linea9 = (n9.pasos_en_orden_correcto||[]).map((p,i)=>`${i+1}. ${limpiar(p.text||'')}`).join('  |  ');
+      const nl = tw(linea9, ML+2, y, PW-4, 7);
+      y += nl*3.8 + 1;
+    }
+
+    // N10 Comparador
+    const n10 = nucleo.n10_comparador;
+    if (n10?.concepto_a && n10?.concepto_b) {
+      checkY(6);
+      t(`N10 Comparar: ${limpiar(n10.concepto_a.nombre||'')} vs ${limpiar(n10.concepto_b.nombre||'')} (actividad abierta)`, ML+2, y, 7, false, [100,100,100]);
+      y += 4;
+    }
+
+    // ── SEÑALES ──────────────────────────────────────────────────────────
+    setProgreso(55,'Senales...');
+    await new Promise(r=>setTimeout(r,10));
+    const senales = datos.senales || {};
+    checkY(10);
+    y = seccion('SENALES — CONCEPTOS CLAVE', y);
+
+    (senales.conceptos_clave||[]).forEach(c => {
+      checkY(5);
+      t(limpiar(c.termino||''), ML+1, y, 8, true, cpRgb); y+=4;
+      const nld = tw(limpiar(c.definicion||''), ML+3, y, PW-5, 7);
+      y += nld*3.8;
+      if (c.importancia) {
+        const nli = tw(`Por que importa: ${limpiar(c.importancia)}`, ML+3, y, PW-5, 6.5, false, [100,100,100]);
+        y += nli*3.5;
+      }
+      y += 1;
+      hr(y); y += 2;
+    });
+
+    // ── SABIAS ───────────────────────────────────────────────────────────
+    setProgreso(65,'Sabias...');
+    await new Promise(r=>setTimeout(r,10));
+    const sabias = datos.sabias || {};
+    checkY(10);
+    y = seccion('DATOS CURIOSOS + LINEA DE TIEMPO', y);
+
+    (sabias.flip_cards||[]).forEach(card => {
+      checkY(4);
+      const nl = tw(`${limpiar(card.frente||'')}: ${limpiar(card.dorso||'')}`, ML+2, y, PW-4, 7);
+      y += nl*3.8;
+    });
+    y += 1;
+
+    const linea = sabias.linea_de_tiempo || [];
+    if (linea.length) {
+      checkY(5);
+      // tabla compacta: año | hecho
+      linea.forEach(evt => {
+        checkY(4);
+        t(limpiar(String(evt.year||'')), ML+1, y, 7.5, true, cpRgb);
+        const nl = tw(limpiar(evt.text||''), ML+20, y, PW-22, 7);
+        y += nl*3.8;
+      });
+      y += 1;
+    }
+
+    // ── CRUCES ───────────────────────────────────────────────────────────
+    setProgreso(73,'Cruces...');
+    await new Promise(r=>setTimeout(r,10));
+    const cruces = datos.cruces || {};
+    checkY(10);
+    y = seccion('CRUCES INTERDISCIPLINARIOS', y);
+
+    (cruces.puentes||[]).forEach(p => {
+      checkY(5);
+      t(limpiar(p.materia||''), ML+1, y, 7.5, true, cpRgb); y+=4;
+      const nl = tw(limpiar(p.conexion||''), ML+3, y, PW-5, 7);
+      y += nl*3.8;
+      if (p.pregunta) {
+        const nlp = tw(`Pregunta: ${limpiar(p.pregunta)}`, ML+3, y, PW-5, 7, false, [100,100,100]);
+        y += nlp*3.5;
+      }
+      y += 1; hr(y); y += 2;
+    });
+
+    // ── RELECTURA ────────────────────────────────────────────────────────
+    setProgreso(80,'Relectura...');
+    await new Promise(r=>setTimeout(r,10));
+    const relectura = datos.relectura || {};
+    checkY(10);
+    y = seccion('RELECTURA — DEBATE Y PENSAMIENTO CRITICO', y);
+
+    const tribunal = relectura.tribunal;
+    if (tribunal?.titulo_debate) {
+      checkY(5);
+      const nl = tw(`Debate: ${limpiar(tribunal.titulo_debate)}`, ML+1, y, 7.5, true, cpRgb);
+      y += nl*3.8 + 1;
+      if (tribunal.contexto) {
+        const nlc = tw(limpiar(tribunal.contexto), ML+2, y, PW-4, 7);
+        y += nlc*3.8 + 1;
+      }
+      (tribunal.roles||[]).forEach(rol => {
+        checkY(4);
+        const nl = tw(`${limpiar(rol.label||'')}: ${limpiar(rol.desc||'')}`, ML+3, y, PW-5, 7);
+        y += nl*3.8;
+      });
+      y += 2;
+    }
+
+    if (relectura.tesis?.consigna) {
+      checkY(5);
+      const nl = tw(`Tesis: ${limpiar(relectura.tesis.consigna)}`, ML+1, y, 7, false, [60,60,60]);
+      y += nl*3.8 + 2;
+    }
+
+    if (relectura.critica?.consigna) {
+      checkY(5);
+      const nl = tw(`Critica: ${limpiar(relectura.critica.consigna)}`, ML+1, y, 7, false, [60,60,60]);
+      y += nl*3.8 + 2;
+    }
+
+    // ── AUTOTEST ─────────────────────────────────────────────────────────
+    setProgreso(87,'Autotest...');
+    await new Promise(r=>setTimeout(r,10));
+    const autotest = datos.autotest || {};
+    checkY(10);
+    y = seccion('AUTOTEST — PREGUNTAS Y RESPUESTAS CORRECTAS', y);
+
+    (autotest.preguntas||[]).forEach((q,i) => {
+      checkY(5);
+      const letras = ['a','b','c','d'];
+      const corrIdx = q.correcta ?? 0;
+      const corrLetra = letras[corrIdx];
+      const corrTexto = (q.opciones||[])[corrIdx]||'';
+
+      const nl = tw(`${i+1}. ${limpiar(q.pregunta||'')}`, ML+1, y, 7.5, true, [40,40,40]);
+      y += nl*3.8 + 1;
+      t(`Resp: ${corrLetra}) ${limpiar(corrTexto)}`, ML+3, y, 7, false, cpRgb.map(c=>Math.max(0,c-30)));
+      y += 3.8;
+      if (q.explicacion) {
+        const nle = tw(`> ${limpiar(q.explicacion)}`, ML+4, y, PW-6, 6.5, false, [100,100,100]);
+        y += nle*3.5;
+      }
+      y += 1.5; hr(y); y += 2;
+    });
+
+    // ── GLOSARIO ─────────────────────────────────────────────────────────
+    setProgreso(93,'Glosario...');
+    await new Promise(r=>setTimeout(r,10));
+    const cierre = datos.cierre || {};
+    checkY(10);
+    y = seccion('GLOSARIO COMPLETO', y);
+
+    const glosario = cierre.glosario || [];
+    if (glosario.length) {
+      // dos columnas
+      const cw2 = (PW-4)/2;
+      const mitad = Math.ceil(glosario.length/2);
+      const col1 = glosario.slice(0, mitad);
+      const col2 = glosario.slice(mitad);
+
+      const yInicio = y;
+      // columna 1
+      let y1 = yInicio;
+      col1.forEach(g => {
+        pdf.setFontSize(7.5); pdf.setFont('helvetica','bold');
+        pdf.setTextColor(...cpRgb);
+        const lines1 = pdf.splitTextToSize(limpiar(g.termino||''), cw2-2);
+        pdf.text(lines1, ML, y1);
+        y1 += lines1.length*3.8;
+        pdf.setFontSize(7); pdf.setFont('helvetica','normal');
+        pdf.setTextColor(60,60,60);
+        const lines2 = pdf.splitTextToSize(limpiar(g.definicion||''), cw2-2);
+        pdf.text(lines2, ML, y1);
+        y1 += lines2.length*3.5 + 2;
+      });
+
+      // columna 2
+      let y2 = yInicio;
+      col2.forEach(g => {
+        pdf.setFontSize(7.5); pdf.setFont('helvetica','bold');
+        pdf.setTextColor(...cpRgb);
+        const lines1 = pdf.splitTextToSize(limpiar(g.termino||''), cw2-2);
+        pdf.text(lines1, ML+cw2+4, y2);
+        y2 += lines1.length*3.8;
+        pdf.setFontSize(7); pdf.setFont('helvetica','normal');
+        pdf.setTextColor(60,60,60);
+        const lines2 = pdf.splitTextToSize(limpiar(g.definicion||''), cw2-2);
+        pdf.text(lines2, ML+cw2+4, y2);
+        y2 += lines2.length*3.5 + 2;
+      });
+
+      // divisor vertical
+      pdf.setDrawColor(...cpRgb.map(c=>Math.min(255,c+120)));
+      pdf.setLineWidth(0.2);
+      pdf.line(ML+cw2+2, yInicio-1, ML+cw2+2, Math.max(y1,y2));
+
+      y = Math.max(y1,y2) + 3;
+    }
+
+    // ── RECURSOS ─────────────────────────────────────────────────────────
+    const recursos = cierre.recursos || [];
+    if (recursos.length) {
+      checkY(8);
+      y = seccion('RECURSOS RECOMENDADOS', y);
+      recursos.forEach(r => {
+        checkY(4);
+        const nl = tw(`${limpiar(r.tipo||'')} ${limpiar(r.title||'')} [${limpiar(r.nivel||'')}]: ${limpiar(r.desc||'')}`, ML+2, y, PW-4, 7);
+        y += nl*3.8;
+      });
+    }
+
+    // ── NUMERACIÓN ────────────────────────────────────────────────────────
+    const total = pdf.internal.getNumberOfPages();
+    for (let p=1; p<=total; p++) {
+      pdf.setPage(p);
+      pdf.setFontSize(6.5); pdf.setFont('helvetica','normal');
+      pdf.setTextColor(180,180,180);
+      pdf.text(`${limpiar(datos.materia||'')} U${datos.unidad||''} · DOCENTE · ${p}/${total}`, 105, 295, {align:'center'});
+    }
+
+    // ── GUARDAR ───────────────────────────────────────────────────────────
+    setProgreso(100,'Listo!');
+    const nombre = (nombreArchivoJSON || `${(datos.materia||'materia').toLowerCase().replace(/\s+/g,'_')}_u${datos.unidad||1}`) + '_docente.pdf';
+    pdf.save(nombre);
+
+    btn.disabled = false;
+    document.getElementById('btnTexto').innerHTML = '⬇ Generar hoja de ruta docente';
+    const ok = document.getElementById('msgOk');
+    document.getElementById('msgOkText').textContent = `Listo! Se descargo "${nombre}" (${total} paginas)`;
+    ok.style.display = 'flex';
+
+  } catch(err) {
+    console.error(err);
+    document.getElementById('btnGenerar').disabled = false;
+    document.getElementById('btnTexto').innerHTML = '⬇ Generar hoja de ruta docente';
+    mostrarError(`Error: ${err.message}`);
+  }
+}
+</script>
+</body>
+</html>
