@@ -1,0 +1,286 @@
+{
+  "materia": "Derecho",
+  "unidad": 1,
+  "titulo": "El Derecho y su Marco Normativo",
+  "emoji": "⚖️",
+  "color_primario": "#1E3A8A",
+  "color_secundario": "#3B82F6",
+
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "🏫",
+        "texto": "Si en la escuela no existieran normas, ¿cómo sería la convivencia?",
+        "pista": "Pensá en horarios, evaluaciones, respeto, organización…"
+      },
+      {
+        "emoji": "👥",
+        "texto": "¿Podríamos vivir completamente solos sin necesitar a nadie?",
+        "pista": "Recordá qué significa ser un “ser gregario”."
+      },
+      {
+        "emoji": "📜",
+        "texto": "¿Es lo mismo cumplir una norma por obligación que hacerlo por conciencia?",
+        "pista": "Compará normas jurídicas y normas morales."
+      }
+    ],
+    "situaciones_conecta": [
+      {"emoji": "🚦", "label": "Respeté un semáforo aunque no hubiera policía"},
+      {"emoji": "🤝", "label": "Cumplí una promesa porque era lo correcto"},
+      {"emoji": "📱", "label": "Acepté términos y condiciones sin leerlos"},
+      {"emoji": "⚽", "label": "Seguí reglas en un partido para que el juego funcione"}
+    ],
+    "termometro_pregunta": "¿Cuánto sabés sobre el Derecho antes de empezar esta unidad?"
+  },
+
+  "mapa": {
+    "ruta_paradas": [
+      {"id": 1, "title": "El hombre como ser gregario", "desc": "La vida en sociedad y necesidad de normas", "emoji": "👥", "color": "#6366F1"},
+      {"id": 2, "title": "Concepto de Derecho", "desc": "Definición, fines y características", "emoji": "⚖️", "color": "#3B82F6"},
+      {"id": 3, "title": "Normas morales y jurídicas", "desc": "Similitudes y diferencias", "emoji": "📚", "color": "#10B981"},
+      {"id": 4, "title": "Fuentes del Derecho", "desc": "Ley, costumbre, jurisprudencia y doctrina", "emoji": "📜", "color": "#F59E0B"},
+      {"id": 5, "title": "Principios y ramas del Derecho", "desc": "Organización del sistema jurídico", "emoji": "🏛️", "color": "#EC4899"}
+    ],
+    "panoramica_bloques": [
+      {
+        "title": "Bloque A",
+        "subtitle": "Fundamentos del Derecho",
+        "items": ["Ser gregario", "Concepto de Derecho", "Derecho natural y positivo"],
+        "emoji": "👥",
+        "color": "#6366F1"
+      },
+      {
+        "title": "Bloque B",
+        "subtitle": "Normas y Fuentes",
+        "items": ["Normas morales y jurídicas", "Ley", "Costumbre", "Jurisprudencia", "Doctrina"],
+        "emoji": "📜",
+        "color": "#10B981"
+      },
+      {
+        "title": "Bloque C",
+        "subtitle": "Estructura del sistema jurídico",
+        "items": ["Principios del Derecho", "Ramas del Derecho", "Interpretación de la ley"],
+        "emoji": "🏛️",
+        "color": "#F59E0B"
+      }
+    ],
+    "mapa_mental": {
+      "centro": {"title": "Derecho", "emoji": "⚖️"},
+      "ramas": [
+        {"id": 1, "title": "¿Qué es?", "items": ["Conjunto de normas", "Ordenamiento social justo", "Regula convivencia"], "color": "#6366F1", "emoji": "📘"},
+        {"id": 2, "title": "¿Por qué surge?", "items": ["Ser gregario", "Necesidad de orden", "Evitar caos"], "color": "#10B981", "emoji": "👥"},
+        {"id": 3, "title": "¿De dónde proviene?", "items": ["Ley", "Costumbre", "Jurisprudencia", "Doctrina"], "color": "#F59E0B", "emoji": "📜"},
+        {"id": 4, "title": "¿Cómo se aplica?", "items": ["Principios", "Interpretación", "Coerción del Estado"], "color": "#EC4899", "emoji": "🏛️"}
+      ]
+    }
+  },
+
+  "nucleo": {
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená la evolución social del ser humano:",
+      "items": [
+        {"id": 1, "text": "Estados", "emoji": "🏛️"},
+        {"id": 2, "text": "Grupos nómades", "emoji": "🏕️"},
+        {"id": 3, "text": "Ciudades", "emoji": "🏙️"},
+        {"id": 4, "text": "Clanes", "emoji": "👨‍👩‍👧‍👦"}
+      ],
+      "orden_correcto": [2, 4, 3, 1]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá según sean normas jurídicas o morales:",
+      "categorias": [
+        {"name": "Normas Jurídicas", "color": "#3B82F6", "emoji": "⚖️"},
+        {"name": "Normas Morales", "color": "#10B981", "emoji": "❤️"}
+      ],
+      "items": [
+        {"id": 1, "text": "Son coercibles", "categoria_correcta": 0},
+        {"id": 2, "text": "Dependen de la conciencia", "categoria_correcta": 1},
+        {"id": 3, "text": "Son bilaterales", "categoria_correcta": 0},
+        {"id": 4, "text": "Son autónomas", "categoria_correcta": 1},
+        {"id": 5, "text": "Impone sanción estatal", "categoria_correcta": 0},
+        {"id": 6, "text": "No tiene castigo legal", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "consigna": "Completá los espacios:",
+      "blanks": [
+        {"id": "a", "texto_antes": "El Derecho es el conjunto de normas obligatorias que regulan la vida del hombre en", "respuesta_correcta": "sociedad", "pista": "S________"},
+        {"id": "b", "texto_antes": "Las normas jurídicas son", "respuesta_correcta": "coercibles", "pista": "C_________"},
+        {"id": "c", "texto_antes": "La fuente más importante del Derecho es la", "respuesta_correcta": "ley", "pista": "L__"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "afirmaciones": [
+        {"texto": "El Derecho Natural es creado por el Estado.", "correcto": false, "explicacion": "El Derecho Natural se reconoce por la razón humana, no es creado por el Estado."},
+        {"texto": "La ley es una fuente formal del Derecho.", "correcto": true, "explicacion": "La ley es la principal fuente formal del Derecho."},
+        {"texto": "Las normas morales son coercibles.", "correcto": false, "explicacion": "Las normas morales no son coercibles porque no tienen sanción estatal."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "pares": [
+        {"izquierda": "Ley", "derecha": "Norma obligatoria dictada por autoridad competente", "emoji": "📜"},
+        {"izquierda": "Costumbre", "derecha": "Práctica repetida con convicción de obligatoriedad", "emoji": "🔁"},
+        {"izquierda": "Jurisprudencia", "derecha": "Decisiones judiciales", "emoji": "⚖️"},
+        {"izquierda": "Doctrina", "derecha": "Opinión de juristas", "emoji": "📚"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "grupos": [
+        {
+          "pregunta": "¿Cuál no es fuente del Derecho?",
+          "palabras": [
+            {"text": "Ley", "es_intrusa": false},
+            {"text": "Costumbre", "es_intrusa": false},
+            {"text": "Jurisprudencia", "es_intrusa": false},
+            {"text": "Inflación", "es_intrusa": true}
+          ],
+          "explicacion": "La inflación es un fenómeno económico, no una fuente del Derecho.",
+          "emoji": "❌"
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "conceptos": [
+        {"termino": "Derecho Natural", "pista": "¿De dónde surge y cómo se reconoce?", "palabras_clave": ["razón", "principios", "justicia", "conciencia", "eterno"]},
+        {"termino": "Derecho Positivo", "pista": "¿Quién lo crea y dónde rige?", "palabras_clave": ["Estado", "normas", "vigentes", "leyes", "autoridad"]},
+        {"termino": "Coerción", "pista": "¿Qué puede hacer el Estado cuando no cumplís una norma?", "palabras_clave": ["fuerza", "sanción", "Estado", "obligar", "cumplimiento"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "causas": [
+        {"id": 1, "text": "El hombre vive en sociedad", "emoji": "👥"},
+        {"id": 2, "text": "Incumplimiento de una ley", "emoji": "🚫"}
+      ],
+      "efectos": [
+        {"id": 1, "text": "Necesidad de normas jurídicas", "causa_id": 1, "emoji": "📜"},
+        {"id": 2, "text": "Aplicación de una sanción", "causa_id": 2, "emoji": "⚖️"}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el proceso de aplicación de la ley:",
+      "pasos_en_orden_correcto": [
+        {"id": 1, "text": "Se dicta la ley", "emoji": "📜"},
+        {"id": 2, "text": "Se publica", "emoji": "📰"},
+        {"id": 3, "text": "Entra en vigencia", "emoji": "⏳"},
+        {"id": 4, "text": "Se aplica a los ciudadanos", "emoji": "👥"}
+      ]
+    },
+
+    "n10_comparador": {
+      "concepto_a": {"nombre": "Derecho Público", "emoji": "🏛️", "color": "#F59E0B"},
+      "concepto_b": {"nombre": "Derecho Privado", "emoji": "🤝", "color": "#10B981"}
+    }
+  },
+
+  "senales": {
+    "conceptos_clave": [
+      {"termino": "Derecho", "definicion": "Conjunto de normas obligatorias que regulan la vida del hombre en sociedad.", "emoji": "⚖️", "importancia": "Sin Derecho no hay orden ni convivencia social.", "color": "#EF4444"},
+      {"termino": "Norma jurídica", "definicion": "Regla de conducta obligatoria, coercible y bilateral.", "emoji": "📜", "importancia": "Permite mantener el orden social.", "color": "#8B5CF6"},
+      {"termino": "Fuentes del Derecho", "definicion": "Procesos por los cuales surgen las normas jurídicas.", "emoji": "📚", "importancia": "Permiten identificar el origen y validez de las normas.", "color": "#3B82F6"},
+      {"termino": "Principios del Derecho", "definicion": "Ideas fundamentales que inspiran el sistema jurídico.", "emoji": "🏛️", "importancia": "Garantizan coherencia y justicia.", "color": "#10B981"}
+    ],
+    "semaforo_conceptos": [
+      {"termino": "Ser gregario", "emoji": "👥"},
+      {"termino": "Derecho natural y positivo", "emoji": "📘"},
+      {"termino": "Normas morales y jurídicas", "emoji": "⚖️"},
+      {"termino": "Fuentes del Derecho", "emoji": "📜"},
+      {"termino": "Principios jurídicos", "emoji": "🏛️"}
+    ],
+    "postits_conceptos": ["Derecho", "Norma jurídica", "Fuentes del Derecho", "Principios del Derecho"]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {"frente": "¿Sabías que...?", "dorso": "La palabra Derecho proviene del latín 'directum', que significa 'dirigido' o 'recto'.", "emoji": "📖", "color": "#F59E0B"},
+      {"frente": "Dato curioso", "dorso": "El Código Civil y Comercial argentino entró en vigencia el 1 de agosto de 2015.", "emoji": "📅", "color": "#8B5CF6"},
+      {"frente": "¿Lo sabías?", "dorso": "Antiguamente Derecho y Religión estaban unidos, pero hoy funcionan como sistemas distintos.", "emoji": "⛪", "color": "#EF4444"}
+    ],
+    "linea_de_tiempo": [
+      {"year": "Edad Antigua", "text": "Derecho vinculado a la religión", "emoji": "🏺"},
+      {"year": "Edad Media", "text": "Consolidación del Derecho canónico", "emoji": "⛪"},
+      {"year": "Siglo XIX", "text": "Codificaciones modernas", "emoji": "📜"},
+      {"year": "2015", "text": "Nuevo Código Civil y Comercial argentino", "emoji": "🇦🇷"},
+      {"year": "Actualidad", "text": "Sistema jurídico argentino vigente", "emoji": "⚖️"}
+    ],
+    "encuesta": {
+      "pregunta": "¿Qué dato te sorprendió más?",
+      "opciones": [
+        {"text": "Origen etimológico del Derecho", "emoji": "📖", "votos_iniciales": 40},
+        {"text": "Entrada en vigencia del nuevo Código Civil", "emoji": "📅", "votos_iniciales": 35},
+        {"text": "Relación histórica entre Derecho y Religión", "emoji": "⛪", "votos_iniciales": 25}
+      ]
+    }
+  },
+
+  "cruces": {
+    "puentes": [
+      {"materia": "Historia", "emoji": "📜", "color": "#F59E0B", "conexion": "Evolución de los Estados y sistemas jurídicos", "pregunta": "¿Cómo influyeron las revoluciones en la creación de derechos?", "vinculo": "Revoluciones modernas"},
+      {"materia": "Filosofía", "emoji": "🤔", "color": "#10B981", "conexion": "Derecho natural y justicia", "pregunta": "¿La ley siempre es justa?", "vinculo": "Ética y moral"},
+      {"materia": "Política", "emoji": "🏛️", "color": "#8B5CF6", "conexion": "Organización del Estado", "pregunta": "¿Quién tiene el poder de crear leyes?", "vinculo": "División de poderes"},
+      {"materia": "Sociología", "emoji": "👥", "color": "#3B82F6", "conexion": "Normas y control social", "pregunta": "¿Qué pasa cuando no hay normas claras?", "vinculo": "Instituciones sociales"}
+    ],
+    "telarana": [
+      {"target": "Ética", "desc": "Relación entre moral y Derecho", "emoji": "⚖️", "color": "#EF4444"},
+      {"target": "Economía", "desc": "Normas que regulan actividades económicas", "emoji": "💰", "color": "#8B5CF6"},
+      {"target": "Psicología", "desc": "Conducta y obediencia a normas", "emoji": "🧠", "color": "#3B82F6"},
+      {"target": "Ciencia Política", "desc": "Poder y legitimidad", "emoji": "🏛️", "color": "#EC4899"},
+      {"target": "Religión", "desc": "Origen histórico del Derecho", "emoji": "⛪", "color": "#10B981"},
+      {"target": "Comunicación", "desc": "Interpretación de normas", "emoji": "🗣️", "color": "#F59E0B"}
+    ]
+  },
+
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "¿La ley siempre es justa?",
+      "contexto": "Analizá si toda ley es necesariamente justa o si puede haber leyes injustas.",
+      "roles": [
+        {"id": "favor", "label": "A FAVOR", "emoji": "🟢", "color": "#10B981", "desc": "Defendé que la ley busca siempre el bien común."},
+        {"id": "contra", "label": "EN CONTRA", "emoji": "🔴", "color": "#EF4444", "desc": "Argumentá que pueden existir leyes injustas."},
+        {"id": "juez", "label": "JUEZ/A", "emoji": "👨‍⚖️", "color": "#8B5CF6", "desc": "Evaluá ambas posturas y emití un veredicto fundamentado."}
+      ]
+    },
+    "tesis": {"consigna": "Redactá una tesis sobre la importancia del Derecho en la convivencia social."},
+    "critica": {"consigna": "Analizá fortalezas y debilidades del sistema jurídico argentino."}
+  },
+
+  "emocional": {},
+
+  "autotest": {
+    "preguntas": [
+      {"pregunta": "¿Qué es el Derecho?", "opciones": ["Una opinión moral", "Un conjunto de normas obligatorias", "Una costumbre", "Una religión"], "correcta": 1, "explicacion": "El Derecho es un conjunto de normas obligatorias que regulan la vida en sociedad."},
+      {"pregunta": "¿Cuál es la fuente más importante del Derecho?", "opciones": ["Costumbre", "Doctrina", "Ley", "Moral"], "correcta": 2, "explicacion": "La ley es la principal fuente formal del Derecho."},
+      {"pregunta": "¿Qué característica distingue a la norma jurídica?", "opciones": ["Es voluntaria", "Es coercible", "Es secreta", "No es obligatoria"], "correcta": 1, "explicacion": "La norma jurídica es coercible porque puede imponerse mediante sanción estatal."},
+      {"pregunta": "¿Qué significa coerción?", "opciones": ["Convencer", "Acordar", "Usar la fuerza legítima del Estado", "Ignorar"], "correcta": 2, "explicacion": "La coerción implica la posibilidad de usar la fuerza estatal para hacer cumplir la ley."},
+      {"pregunta": "¿Qué rama regula las relaciones entre particulares?", "opciones": ["Derecho Público", "Derecho Privado", "Derecho Penal", "Derecho Administrativo"], "correcta": 1, "explicacion": "El Derecho Privado regula relaciones entre particulares."},
+      {"pregunta": "¿Cuál principio establece que todos somos iguales ante la ley?", "opciones": ["Legalidad", "Justicia", "Igualdad", "Solidaridad"], "correcta": 2, "explicacion": "El principio de igualdad establece que todos somos iguales ante la ley."}
+    ]
+  },
+
+  "cierre": {
+    "glosario": [
+      {"termino": "Derecho Natural", "definicion": "Principios universales reconocidos por la razón humana.", "emoji": "🌍", "categoria": "Concepto base"},
+      {"termino": "Derecho Positivo", "definicion": "Normas vigentes creadas por el Estado.", "emoji": "🏛️", "categoria": "Concepto base"},
+      {"termino": "Norma jurídica", "definicion": "Regla obligatoria con sanción estatal.", "emoji": "📜", "categoria": "Normas"},
+      {"termino": "Norma moral", "definicion": "Regla de conducta basada en la conciencia.", "emoji": "❤️", "categoria": "Normas"},
+      {"termino": "Ley", "definicion": "Norma dictada por autoridad competente.", "emoji": "📘", "categoria": "Fuentes"},
+      {"termino": "Costumbre", "definicion": "Práctica repetida con convicción de obligatoriedad.", "emoji": "🔁", "categoria": "Fuentes"},
+      {"termino": "Jurisprudencia", "definicion": "Decisiones judiciales que interpretan la ley.", "emoji": "⚖️", "categoria": "Fuentes"},
+      {"termino": "Doctrina", "definicion": "Opiniones de juristas sobre el Derecho.", "emoji": "📚", "categoria": "Fuentes"}
+    ],
+    "recursos": [
+      {"tipo": "📘 Libro", "title": "Código Civil y Comercial de la Nación", "desc": "Texto legal vigente en Argentina.", "nivel": "Intermedio", "color": "#8B5CF6"},
+      {"tipo": "🎬 Video", "title": "Introducción al Derecho argentino", "desc": "Explicación básica del sistema jurídico.", "nivel": "Introductorio", "color": "#EF4444"},
+      {"tipo": "🌐 Web", "title": "Infoleg", "desc": "Base de datos oficial de leyes argentinas.", "nivel": "Intermedio", "color": "#F59E0B"},
+      {"tipo": "🎧 Podcast", "title": "Derecho para todos", "desc": "Podcast sobre temas jurídicos actuales.", "nivel": "Introductorio", "color": "#3B82F6"},
+      {"tipo": "📄 Artículo", "title": "Principios del Derecho argentino", "desc": "Análisis doctrinario sobre principios jurídicos.", "nivel": "Avanzado", "color": "#10B981"}
+    ]
+  }
+}
