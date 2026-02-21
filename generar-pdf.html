@@ -464,6 +464,1308 @@ function limpiar(str) {
         .replace(/[\u2600-\u27BF]/g, '')
         .replace(/[\uFE00-\uFE0F]/g, '')
         .replace(/[\u{E0000}-\u{E007F}]/gu, '');
+  const mapa = {
+    '\u00E1':'a','\u00E9':'e','\u00ED':'i','\u00F3':'o','\u00FA':'u',
+    '\u00C1':'A','\u00C9':'E','\u00CD':'I','\u00D3':'O','\u00DA':'U',
+    '\u00FC':'u','\u00DC':'U','\u00F1':'n','\u00D1':'N',
+    '\u00BF':'?','\u00A1':'!','\u2019':"'",'\u201C':'"','\u201D':'"',
+    '\u2013':'-','\u2014':'-','\u2026':'...','\u00AB':'"','\u00BB':'"',
+    '\u00E0':'a','\u00E8':'e','\u00EC':'i','\u00F2':'o','\u00F9':'u',
+    '\u00E2':'a','\u00EA':'e','\u00EE':'i','\u00F4':'o','\u00FB':'u',
+    '\u00E4':'a','\u00EB':'e','\u00EF':'i','\u00F6':'o',
+    '\u00E3':'a','\u00F5':'o','\u00E7':'c','\u00C7':'C',
+  };
+  s = s.replace(/[\u0080-\u024F]/g, ch => mapa[ch] || '');
+  s = s.replace(/\s{2,}/g, ' ').trim();
+  return s;
+}
+
+let nombreArchivoJSON = '';
+
+let datos = null;
+
+// ── Drag & drop ────────────────────────────────────────────────────────────
+const dropZone  = document.getElementById('dropZone');
+const fileInput = document.getElementById('fileInput');
+
+dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+dropZone.addEventListener('drop', e => {
+  e.preventDefault();
+  dropZone.classList.remove('dragover');
+  const file = e.dataTransfer.files[0];
+  if (file) procesarArchivo(file);
+});
+fileInput.addEventListener('change', () => {
+  if (fileInput.files[0]) procesarArchivo(fileInput.files[0]);
+});
+
+function procesarArchivo(file) {
+  if (!file.name.endsWith('.json')) {
+    mostrarError('El archivo debe ser .json');
+    return;
+  }
+  // guardar nombre sin extension para usarlo en el PDF
+  nombreArchivoJSON = file.name.replace(/\.json$/i, '');
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      datos = JSON.parse(e.target.result);
+      mostrarPreview(datos);
+    } catch {
+      mostrarError('El archivo JSON tiene un error de formato.');
+    }
+  };
+  reader.readAsText(file);
+}
+
+// ── Preview ────────────────────────────────────────────────────────────────
+const SECCIONES_INFO = [
+  { key: 'umbral',     label: 'Umbral',     emoji: '🚪' },
+  { key: 'mapa',       label: 'Mapa',       emoji: '🗺️' },
+  { key: 'nucleo',     label: 'Núcleo',     emoji: '⚙️' },
+  { key: 'senales',    label: 'Señales',    emoji: '🚦' },
+  { key: 'sabias',     label: '¿Sabías?',   emoji: '🎲' },
+  { key: 'cruces',     label: 'Cruces',     emoji: '🌐' },
+  { key: 'relectura',  label: 'Relectura',  emoji: '🔁' },
+  { key: 'autotest',   label: 'Autotest',   emoji: '✅' },
+  { key: 'cierre',     label: 'Cierre',     emoji: '📚' },
+  { key: 'emocional',  label: 'Emocional',  emoji: '💛' },
+];
+
+function tieneContenido(sec) {
+  if (!sec) return false;
+  const str = JSON.stringify(sec);
+  // tiene contenido si hay algún valor no vacío además de las notas
+  return str.length > 50 && str.replace(/"_nota"[^,}]*/g,'').length > 50;
+}
+
+function mostrarPreview(d) {
+  document.getElementById('dropZone').style.display  = 'none';
+  document.getElementById('previewCard').style.display = 'block';
+  document.getElementById('prevEmoji').textContent   = d.emoji || '📘';
+  document.getElementById('prevTitulo').textContent  = d.titulo || 'Sin título';
+  document.getElementById('prevMateria').textContent = d.materia || '—';
+  document.getElementById('prevUnidad').textContent  = `Unidad ${d.unidad || '—'}`;
+
+  const grid = document.getElementById('seccionesGrid');
+  grid.innerHTML = '';
+  SECCIONES_INFO.forEach(s => {
+    const activa = tieneContenido(d[s.key]);
+    const chip = document.createElement('div');
+    chip.className = 'seccion-chip' + (activa ? ' activa' : '');
+    chip.innerHTML = `<span class="dot"></span>${s.emoji} ${s.label}`;
+    grid.appendChild(chip);
+  });
+
+  ocultarMensajes();
+}
+
+function resetear() {
+  datos = null;
+  fileInput.value = '';
+  document.getElementById('dropZone').style.display  = 'block';
+  document.getElementById('previewCard').style.display = 'none';
+  ocultarMensajes();
+}
+
+function ocultarMensajes() {
+  document.getElementById('msgOk').style.display  = 'none';
+  document.getElementById('msgErr').style.display = 'none';
+  document.getElementById('progressWrap').style.display = 'none';
+}
+
+function mostrarError(txt) {
+  const el = document.getElementById('msgErr');
+  document.getElementById('msgErrText').textContent = txt;
+  el.style.display = 'flex';
+}
+
+// ── Progreso ───────────────────────────────────────────────────────────────
+let progreso = 0;
+function setProgreso(pct, label) {
+  progreso = pct;
+  document.getElementById('progressFill').style.width  = pct + '%';
+  document.getElementById('progressLabel').textContent = label;
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+// GENERADOR PDF
+// ══════════════════════════════════════════════════════════════════════════
+
+function hexToRgb(hex) {
+  hex = hex.replace('#','');
+  if (hex.length === 3) hex = hex.split('').map(c => c+c).join('');
+  const n = parseInt(hex, 16);
+  return [(n>>16)&255, (n>>8)&255, n&255];
+}
+
+async function generarPDF() {
+  if (!datos) return;
+
+  const btn = document.getElementById('btnGenerar');
+  btn.disabled = true;
+  document.getElementById('btnTexto').innerHTML = '<span class="spin"></span> Generando...';
+  document.getElementById('progressWrap').style.display = 'block';
+  ocultarMensajes();
+  document.getElementById('progressWrap').style.display = 'block';
+
+  try {
+    await new Promise(r => setTimeout(r, 30));
+    const pdf = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+
+    const CP  = datos.color_primario  || '#6366F1';
+    const CS  = datos.color_secundario || '#8B5CF6';
+    const cpRgb = hexToRgb(CP);
+
+    const ML = 15, MR = 15, PW = 210 - ML - MR; // márgenes y ancho útil
+    let y = 0;
+
+    // ── helpers básicos ────────────────────────────────────────────────────
+
+    function nuevaPagina() {
+      pdf.addPage();
+      y = 18;
+    }
+
+    function checkY(needed = 20) {
+      if (y + needed > 280) nuevaPagina();
+    }
+
+    function texto(txt, x, yy, opts = {}) {
+      const size  = opts.size  || 9;
+      const bold  = opts.bold  || false;
+      const color = opts.color || [55,65,81];
+      const align = opts.align || 'left';
+      const maxW  = opts.maxW  || PW;
+      pdf.setFontSize(size);
+      pdf.setFont('helvetica', bold ? 'bold' : 'normal');
+      pdf.setTextColor(...color);
+      pdf.text(limpiar(txt), x, yy, { align, maxWidth: maxW });
+    }
+
+    function textoWrapped(txt, x, yy, maxW, size = 9, bold = false, color = [55,65,81]) {
+      pdf.setFontSize(size);
+      pdf.setFont('helvetica', bold ? 'bold' : 'normal');
+      pdf.setTextColor(...color);
+      const lines = pdf.splitTextToSize(limpiar(txt), maxW);
+      pdf.text(lines, x, yy);
+      return lines.length;
+    }
+
+    function cajaColor(x, yy, w, h, rgb, radius = 3) {
+      pdf.setFillColor(...rgb);
+      pdf.roundedRect(x, yy, w, h, radius, radius, 'F');
+    }
+
+    function cajaGris(x, yy, w, h) {
+      pdf.setFillColor(243,244,246);
+      pdf.setDrawColor(209,213,219);
+      pdf.setLineWidth(0.3);
+      pdf.roundedRect(x, yy, w, h, 3, 3, 'FD');
+    }
+
+    function lineaRespuesta(x, yy, w) {
+      pdf.setDrawColor(209,213,219);
+      pdf.setLineWidth(0.3);
+      pdf.line(x, yy, x+w, yy);
+    }
+
+    function encabezadoSeccion(titulo, yy) {
+      cajaColor(ML, yy, PW, 8, cpRgb, 3);
+      texto(titulo, ML+4, yy+5.5, { size:10, bold:true, color:[255,255,255] });
+      return yy + 11;
+    }
+
+    // ── PORTADA ────────────────────────────────────────────────────────────
+    setProgreso(5, 'Portada...');
+    await new Promise(r => setTimeout(r, 10));
+
+    cajaColor(ML, 18, PW, 50, cpRgb, 5);
+    pdf.setFontSize(18);
+    pdf.setFont('helvetica','bold');
+    pdf.setTextColor(255,255,255);
+    const tLines = pdf.splitTextToSize(limpiar(datos.titulo || 'Unidad'), PW-10);
+    pdf.text(tLines, 210/2, 35, { align:'center' });
+    texto(`${datos.materia || ''} · Unidad ${datos.unidad || ''}`, 210/2, 52,
+          { size:10, color:[255,255,255], align:'center' });
+    texto('Cuaderno de Actividades', 210/2, 59,
+          { size:9, color:[255,255,255], align:'center' });
+
+    y = 80;
+    // datos alumno
+    const camposAlumno = [['Nombre:', 90], ['Curso:', 145], ['Fecha:', 165]];
+    pdf.setFontSize(10); pdf.setFont('helvetica','bold');
+    pdf.setTextColor(...cpRgb);
+    camposAlumno.forEach(([label, yPos]) => {
+      pdf.text(label, ML, yPos);
+      pdf.setDrawColor(...cpRgb);
+      pdf.setLineWidth(0.4);
+      pdf.line(ML+22, yPos, ML+PW, yPos);
+      pdf.setFont('helvetica','bold');
+      pdf.setTextColor(...cpRgb);
+    });
+
+    // ── UMBRAL ─────────────────────────────────────────────────────────────
+    setProgreso(15, 'Umbral...');
+    await new Promise(r => setTimeout(r, 10));
+    nuevaPagina();
+    const umbral = datos.umbral || {};
+
+    y = encabezadoSeccion('🚪  UMBRAL — Punto de partida', y);
+    y += 3;
+
+    (umbral.preguntas_disparadoras || []).forEach((p, i) => {
+      checkY(35);
+      texto(`Pregunta ${i+1}:  ${p.emoji || ''} ${p.texto || ''}`,
+            ML, y, { size:9, bold:true, maxW: PW });
+      const wLines = pdf.setFontSize(9) || 0;
+      pdf.setFontSize(9);
+      const nl = pdf.splitTextToSize(`Pregunta ${i+1}:  ${p.emoji || ''} ${p.texto || ''}`, PW).length;
+      y += nl * 4.5 + 1;
+      if (p.pista) {
+        texto(`💡 Pista: ${p.pista}`, ML+3, y, { size:8, color:[156,163,175], maxW:PW-3 });
+        const pl = pdf.splitTextToSize(`💡 Pista: ${p.pista}`, PW-3).length;
+        y += pl*4 + 1;
+      }
+      for (let l=0; l<3; l++) { lineaRespuesta(ML, y, PW); y += 8; }
+      y += 3;
+    });
+
+    // Termómetro
+    if (umbral.termometro_pregunta) {
+      checkY(20);
+      texto('Termómetro — ¿Cuánto sabés sobre este tema?', ML, y, { size:9, bold:true, color:[...cpRgb] });
+      y += 5;
+      const opts = ['Nada', 'Poco', 'Algo', 'Bastante', 'Mucho'];
+      const w5 = PW / 5;
+      opts.forEach((op, i) => {
+        pdf.setDrawColor(209,213,219);
+        pdf.setFillColor(243,244,246);
+        pdf.setLineWidth(0.3);
+        pdf.rect(ML + i*w5, y, w5, 8, 'FD');
+        texto(op, ML + i*w5 + w5/2, y+5.5, { size:8, align:'center', maxW:w5-2 });
+      });
+      y += 12;
+    }
+
+    // ── MAPA ───────────────────────────────────────────────────────────────
+    setProgreso(25, 'Mapa...');
+    await new Promise(r => setTimeout(r, 10));
+    nuevaPagina();
+    const mapa = datos.mapa || {};
+    y = encabezadoSeccion('🗺️  MAPA — Ruta de la unidad', y);
+    y += 3;
+
+    (mapa.ruta_paradas || []).forEach(p => {
+      checkY(10);
+      texto(`${p.emoji||''} Parada ${p.id}: ${p.title||''} — ${p.desc||''}`,
+            ML, y, { size:9, maxW: PW });
+      const nl = pdf.splitTextToSize(`${p.emoji||''} Parada ${p.id}: ${p.title||''} — ${p.desc||''}`, PW).length;
+      y += nl*4.5 + 2;
+    });
+
+    y += 3;
+    texto('Bloques de contenido:', ML, y, { size:10, bold:true, color:[...cpRgb] });
+    y += 6;
+
+    (mapa.panoramica_bloques || []).forEach(b => {
+      // calcular alto real del bloque antes de dibujarlo
+      pdf.setFontSize(9); pdf.setFont('helvetica','bold');
+      const nlTit = pdf.splitTextToSize(limpiar(`${b.title||''} — ${b.subtitle||''}`), PW-8).length;
+      let altoBloque = nlTit * 4.5 + 4;
+      (b.items||[]).forEach(it => {
+        pdf.setFontSize(8.5); pdf.setFont('helvetica','normal');
+        altoBloque += pdf.splitTextToSize(limpiar(`• ${it}`), PW-12).length * 4.5;
+      });
+      altoBloque += 6;
+      checkY(altoBloque + 4);
+      cajaGris(ML, y, PW, altoBloque);
+      texto(limpiar(`${b.title||''} — ${b.subtitle||''}`), ML+4, y+5, { size:9, bold:true });
+      y += nlTit * 4.5 + 4;
+      (b.items||[]).forEach(it => {
+        const nl = textoWrapped(limpiar(`• ${it}`), ML+6, y, PW-12, 8.5);
+        y += nl*4.5;
+      });
+      y += 8;
+    });
+
+    // ── NÚCLEO ─────────────────────────────────────────────────────────────
+    setProgreso(40, 'Núcleo — actividades...');
+    await new Promise(r => setTimeout(r, 10));
+    nuevaPagina();
+    const nucleo = datos.nucleo || {};
+    y = encabezadoSeccion('⚙️  NÚCLEO — Actividades', y);
+    y += 4;
+
+    // N1
+    const n1 = nucleo.n1_ordenar_cronologicamente;
+    if (n1?.items?.length) {
+      checkY(30);
+      texto('Actividad 1 — Ordenar', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=5;
+      texto(n1.consigna||'', ML, y, { size:8.5, color:[107,114,128], maxW:PW }); y+=5;
+      const mezc = [...n1.items].sort(() => Math.random()-0.5);
+      mezc.forEach(it => {
+        checkY(7);
+        pdf.setDrawColor(209,213,219); pdf.setFillColor(255,255,255);
+        pdf.rect(ML, y-3.5, 4.5, 4.5, 'FD');
+        texto(`${it.emoji||''} ${it.text||''}`, ML+6, y, { size:8.5, maxW:PW-8 });
+        const nl = pdf.splitTextToSize(`${it.emoji||''} ${it.text||''}`, PW-8).length;
+        y += nl*4.5 + 1;
+      });
+      y += 4;
+    }
+
+    // N2 - clasificador
+    const n2 = nucleo.n2_clasificador;
+    if (n2?.items?.length) {
+      checkY(35);
+      texto('Actividad 2 — Clasificador', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=5;
+      texto(n2.consigna||'', ML, y, { size:8.5, color:[107,114,128], maxW:PW }); y+=5;
+      const cats = n2.categorias || [];
+      if (cats.length >= 2) {
+        const cw = PW/2;
+        [0,1].forEach(i => {
+          cajaColor(ML + i*cw, y, cw, 7, hexToRgb(cats[i]?.color||'#6366F1'), 2);
+          texto(cats[i]?.name||'', ML + i*cw + cw/2, y+5, { size:9, bold:true, color:[255,255,255], align:'center', maxW:cw-4 });
+        });
+        y += 10;
+      }
+      (n2.items||[]).forEach(it => {
+        checkY(7);
+        pdf.setDrawColor(209,213,219); pdf.setFillColor(255,255,255);
+        pdf.rect(ML, y-3.5, 4.5, 4.5, 'FD');
+        texto(it.text||'', ML+6, y, { size:8.5, maxW:PW-8 });
+        const nl = pdf.splitTextToSize(it.text||'', PW-8).length;
+        y += nl*4.5+1;
+      });
+      y += 4;
+    }
+
+    // N3 - completar
+    const n3 = nucleo.n3_completar_mapa;
+    if (n3?.blanks?.length) {
+      checkY(25);
+      texto('Actividad 3 — Completar los espacios', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=5;
+      (n3.blanks||[]).forEach(b => {
+        checkY(12);
+        const lineTxt = `${b.texto_antes||''} _______________ ${b.pista ? '(Pista: '+b.pista+')' : ''}`;
+        const nl = textoWrapped(lineTxt, ML, y, PW, 8.5);
+        y += nl*4.5 + 3;
+      });
+      y += 3;
+    }
+
+    // N4 - V/F
+    const n4 = nucleo.n4_verdadero_falso;
+    if (n4?.afirmaciones?.length) {
+      checkY(30);
+      texto('Actividad 4 — Verdadero o Falso', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=5;
+      cajaColor(ML, y, PW, 7, cpRgb, 2);
+      texto('N°', ML+3, y+5, { size:8, bold:true, color:[255,255,255] });
+      texto('Afirmación', ML+14, y+5, { size:8, bold:true, color:[255,255,255] });
+      texto('V', ML+PW-14, y+5, { size:8, bold:true, color:[255,255,255], align:'center' });
+      texto('F', ML+PW-5, y+5, { size:8, bold:true, color:[255,255,255], align:'center' });
+      y += 8;
+      (n4.afirmaciones||[]).forEach((a,i) => {
+        checkY(10);
+        const nl = pdf.splitTextToSize(a.texto||'', PW-28).length;
+        const rowH = nl*4.5 + 3;
+        const bg = i%2===0 ? [255,255,255] : [243,244,246];
+        pdf.setFillColor(...bg);
+        pdf.setDrawColor(209,213,219);
+        pdf.setLineWidth(0.2);
+        pdf.rect(ML, y, PW, rowH, 'FD');
+        texto(String(i+1), ML+3, y+rowH/2+1.5, { size:8.5 });
+        textoWrapped(a.texto||'', ML+14, y+4, PW-28, 8.5);
+        // checkboxes
+        pdf.setDrawColor(180,180,180); pdf.setFillColor(255,255,255);
+        pdf.rect(ML+PW-17, y+(rowH-4)/2, 4, 4, 'FD');
+        pdf.rect(ML+PW-8,  y+(rowH-4)/2, 4, 4, 'FD');
+        y += rowH;
+      });
+      y += 5;
+    }
+
+    // N5 - relacionar
+    const n5 = nucleo.n5_relacionar_columnas;
+    if (n5?.pares?.length) {
+      checkY(30);
+      texto('Actividad 5 — Relacionar columnas', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=4;
+      texto('Uní con una línea cada concepto con su definición:', ML, y, { size:8.5, color:[107,114,128] }); y+=6;
+      const derechas = [...n5.pares].map(p=>p.derecha).sort(() => Math.random()-0.5);
+      const colW = (PW-10)/2;
+      cajaColor(ML, y, colW, 6, cpRgb, 2);
+      texto('Concepto', ML+colW/2, y+4.5, { size:8, bold:true, color:[255,255,255], align:'center' });
+      cajaColor(ML+colW+10, y, colW, 6, cpRgb, 2);
+      texto('Definición', ML+colW+10+colW/2, y+4.5, { size:8, bold:true, color:[255,255,255], align:'center' });
+      y += 7;
+      (n5.pares||[]).forEach((par,i) => {
+        checkY(10);
+        const nlL = pdf.splitTextToSize(par.izquierda||'', colW-4).length;
+        const nlR = pdf.splitTextToSize(derechas[i]||'', colW-4).length;
+        const rh  = Math.max(nlL,nlR)*4.5 + 3;
+        const bg  = i%2===0 ? [255,255,255] : [243,244,246];
+        pdf.setFillColor(...bg); pdf.setDrawColor(209,213,219); pdf.setLineWidth(0.2);
+        pdf.rect(ML, y, colW, rh, 'FD');
+        pdf.rect(ML+colW+10, y, colW, rh, 'FD');
+        textoWrapped(par.izquierda||'', ML+3, y+4, colW-6, 8.5);
+        textoWrapped(derechas[i]||'',   ML+colW+13, y+4, colW-6, 8.5);
+        y += rh;
+      });
+      y += 5;
+    }
+
+    // N6 - intrusa
+    const n6 = nucleo.n6_palabra_intrusa;
+    if (n6?.grupos?.length) {
+      checkY(20);
+      texto('Actividad 6 — La palabra intrusa', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=5;
+      (n6.grupos||[]).forEach(g => {
+        checkY(15);
+        texto(g.pregunta||'', ML, y, { size:8.5, color:[107,114,128] }); y+=5;
+        const palabras = (g.palabras||[]).map(p=>'☐ '+p.text);
+        texto(palabras.join('    '), ML, y, { size:9 }); y+=7;
+      });
+      y += 3;
+    }
+
+    // N7 - definir
+    const n7 = nucleo.n7_defini_con_tus_palabras;
+    if (n7?.conceptos?.length) {
+      checkY(30);
+      texto('Actividad 7 — Definí con tus palabras', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=5;
+      (n7.conceptos||[]).forEach(c => {
+        checkY(25);
+        texto(c.termino||'', ML, y, { size:9, bold:true }); y+=4;
+        if (c.pista) { texto(`💡 ${c.pista}`, ML+3, y, { size:8, color:[156,163,175], maxW:PW-3 }); y+=5; }
+        for (let l=0; l<3; l++) { lineaRespuesta(ML, y, PW); y+=7; }
+        y += 3;
+      });
+    }
+
+    // N8 - causa-efecto
+    const n8 = nucleo.n8_causa_efecto;
+    if (n8?.causas?.length) {
+      checkY(35);
+      texto('Actividad 8 — Causa y efecto', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=4;
+      texto('Uní cada causa con su efecto:', ML, y, { size:8.5, color:[107,114,128] }); y+=6;
+      const efs = [...(n8.efectos||[])].sort(() => Math.random()-0.5);
+      const cw8 = (PW-8)/2;
+      cajaColor(ML, y, cw8, 6, cpRgb, 2);
+      texto('Causas', ML+cw8/2, y+4.5, { size:8, bold:true, color:[255,255,255], align:'center' });
+      cajaColor(ML+cw8+8, y, cw8, 6, cpRgb, 2);
+      texto('Efectos', ML+cw8+8+cw8/2, y+4.5, { size:8, bold:true, color:[255,255,255], align:'center' });
+      y += 7;
+      const maxLen = Math.max((n8.causas||[]).length, efs.length);
+      for (let i=0; i<maxLen; i++) {
+        checkY(10);
+        const ca = n8.causas[i], ef = efs[i];
+        const nlL = ca ? pdf.splitTextToSize(ca.text||'', cw8-4).length : 1;
+        const nlR = ef ? pdf.splitTextToSize(ef.text||'', cw8-4).length : 1;
+        const rh  = Math.max(nlL,nlR)*4.5 + 3;
+        const bg  = i%2===0 ? [255,255,255] : [243,244,246];
+        pdf.setFillColor(...bg); pdf.setDrawColor(209,213,219); pdf.setLineWidth(0.2);
+        if (ca) { pdf.rect(ML, y, cw8, rh, 'FD'); textoWrapped(ca.text||'', ML+3, y+4, cw8-6, 8.5); }
+        if (ef) { pdf.rect(ML+cw8+8, y, cw8, rh, 'FD'); textoWrapped(ef.text||'', ML+cw8+11, y+4, cw8-6, 8.5); }
+        y += rh;
+      }
+      y += 5;
+    }
+
+    // N9 - ordenar proceso
+    const n9 = nucleo.n9_ordenar_proceso;
+    if (n9?.pasos_en_orden_correcto?.length) {
+      checkY(30);
+      texto('Actividad 9 — Ordenar el proceso', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=4;
+      texto(n9.consigna||'', ML, y, { size:8.5, color:[107,114,128] }); y+=5;
+      const pasos = [...n9.pasos_en_orden_correcto].sort(() => Math.random()-0.5);
+      pasos.forEach(p => {
+        checkY(8);
+        pdf.setDrawColor(209,213,219); pdf.setFillColor(255,255,255);
+        pdf.rect(ML, y-3.5, 4.5, 4.5, 'FD');
+        const nl = textoWrapped(`${p.emoji||''} ${p.text||''}`, ML+6, y, PW-8, 8.5);
+        y += nl*4.5 + 2;
+      });
+      y += 4;
+    }
+
+    // N10 - comparador
+    const n10 = nucleo.n10_comparador;
+    if (n10?.concepto_a && n10?.concepto_b) {
+      checkY(45);
+      texto('Actividad 10 — Comparador', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=4;
+      texto(`Completá el cuadro comparativo:`, ML, y, { size:8.5, color:[107,114,128] }); y+=6;
+      const a = n10.concepto_a, b = n10.concepto_b;
+      const cw10 = PW/3;
+      // encabezado
+      cajaColor(ML, y, cw10, 7, [209,213,219], 2);
+      cajaColor(ML+cw10, y, cw10, 7, hexToRgb(a.color||'#3B82F6'), 2);
+      cajaColor(ML+2*cw10, y, cw10, 7, hexToRgb(b.color||'#10B981'), 2);
+      texto('', ML+cw10/2, y+5, { size:8, bold:true, color:[255,255,255], align:'center' });
+      texto(`${a.emoji||''} ${a.nombre||''}`, ML+cw10+cw10/2, y+5, { size:8, bold:true, color:[255,255,255], align:'center', maxW:cw10-4 });
+      texto(`${b.emoji||''} ${b.nombre||''}`, ML+2*cw10+cw10/2, y+5, { size:8, bold:true, color:[255,255,255], align:'center', maxW:cw10-4 });
+      y += 8;
+      ['Similitudes','Diferencias'].forEach(tipo => {
+        for (let r=0; r<2; r++) {
+          const bg = r===0 ? [255,255,255] : [243,244,246];
+          pdf.setFillColor(...bg); pdf.setDrawColor(209,213,219); pdf.setLineWidth(0.2);
+          [ML, ML+cw10, ML+2*cw10].forEach(x => pdf.rect(x, y, cw10, 12, 'FD'));
+          if (r===0) texto(tipo, ML+3, y+7, { size:8, bold:true });
+          y += 12;
+        }
+      });
+      y += 4;
+    }
+
+    // ── SEÑALES ────────────────────────────────────────────────────────────
+    setProgreso(60, 'Señales...');
+    await new Promise(r => setTimeout(r, 10));
+    nuevaPagina();
+    const senales = datos.senales || {};
+    y = encabezadoSeccion('🚦  SEÑALES — Conceptos clave', y);
+    y += 4;
+
+    (senales.conceptos_clave||[]).forEach(c => {
+      checkY(22);
+      texto(`${c.emoji||''}  ${c.termino||''}`, ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=5;
+      const nl = textoWrapped(c.definicion||'', ML+3, y, PW-3, 8.5);
+      y += nl*4.5 + 2;
+      if (c.importancia) {
+        const nl2 = textoWrapped(`★ ¿Por qué importa? ${c.importancia}`, ML+3, y, PW-3, 8, false, [156,163,175]);
+        y += nl2*4 + 3;
+      }
+    });
+
+    // Semáforo
+    const semaforo = senales.semaforo_conceptos || [];
+    if (semaforo.length) {
+      checkY(20+semaforo.length*8);
+      texto('Semáforo — ¿Cómo estás con cada concepto?', ML, y, { size:9, bold:true, color:[...cpRgb] }); y+=5;
+      cajaColor(ML, y, PW, 7, cpRgb, 2);
+      texto('Concepto', ML+4, y+5, { size:8, bold:true, color:[255,255,255] });
+      texto('🔴 No lo entendí', ML+PW*0.55, y+5, { size:7.5, bold:true, color:[255,255,255] });
+      texto('🟡 Un poco', ML+PW*0.72, y+5, { size:7.5, bold:true, color:[255,255,255] });
+      texto('🟢 Lo entendí', ML+PW*0.86, y+5, { size:7.5, bold:true, color:[255,255,255] });
+      y += 8;
+      semaforo.forEach((s,i) => {
+        const bg = i%2===0 ? [255,255,255] : [243,244,246];
+        pdf.setFillColor(...bg); pdf.setDrawColor(209,213,219); pdf.setLineWidth(0.2);
+        pdf.rect(ML, y, PW, 7, 'FD');
+        texto(`${s.emoji||''} ${s.termino||''}`, ML+4, y+5, { size:8.5 });
+        [0.57, 0.745, 0.88].forEach(px => {
+          pdf.setDrawColor(180,180,180); pdf.setFillColor(255,255,255);
+          pdf.rect(ML+PW*px, y+1.5, 4, 4, 'FD');
+        });
+        y += 7;
+      });
+      y += 5;
+    }
+
+    // Post-its
+    if (senales.postits_conceptos?.length) {
+      checkY(20);
+      texto('Post-its — Definí estos conceptos con tus palabras:', ML, y, { size:9, bold:true, color:[...cpRgb] }); y+=5;
+      (senales.postits_conceptos||[]).forEach(term => {
+        checkY(20);
+        texto(String(term), ML, y, { size:9, bold:true }); y+=4;
+        for (let l=0; l<2; l++) { lineaRespuesta(ML, y, PW); y+=7; }
+        y += 2;
+      });
+    }
+
+    // ── SABÍAS ─────────────────────────────────────────────────────────────
+    setProgreso(70, '¿Sabías que...?');
+    await new Promise(r => setTimeout(r, 10));
+    nuevaPagina();
+    const sabias = datos.sabias || {};
+    y = encabezadoSeccion('🎲  ¿SABÍAS QUE...? — Datos curiosos', y);
+    y += 4;
+
+    (sabias.flip_cards||[]).forEach(card => {
+      checkY(20);
+      cajaGris(ML, y, PW, 4);
+      texto(`${card.frente||''} ${card.emoji||''}`, ML+4, y+3, { size:9, bold:true });
+      const nl = pdf.splitTextToSize(card.dorso||'', PW-8).length;
+      const h  = nl*4.5 + 10;
+      pdf.setFillColor(243,244,246); pdf.setDrawColor(209,213,219); pdf.setLineWidth(0.3);
+      pdf.roundedRect(ML, y, PW, h, 3, 3, 'FD');
+      texto(`${card.frente||''} ${card.emoji||''}`, ML+4, y+5, { size:9, bold:true });
+      textoWrapped(card.dorso||'', ML+4, y+10, PW-8, 8.5);
+      y += h + 3;
+    });
+
+    const linea = sabias.linea_de_tiempo || [];
+    if (linea.length) {
+      checkY(15+linea.length*10);
+      texto('Línea de tiempo:', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=5;
+      linea.forEach(evt => {
+        checkY(10);
+        texto(String(evt.year||''), ML, y, { size:9, bold:true, color:[...cpRgb] });
+        const nl = textoWrapped(`${evt.emoji||''} ${evt.text||''}`, ML+20, y, PW-22, 8.5);
+        pdf.setDrawColor(...cpRgb); pdf.setLineWidth(0.3);
+        pdf.line(ML, y+3, ML, y+3+Math.max(0,(nl-1)*4.5));
+        y += nl*4.5 + 3;
+      });
+    }
+
+    // ── CRUCES ─────────────────────────────────────────────────────────────
+    setProgreso(78, 'Cruces...');
+    await new Promise(r => setTimeout(r, 10));
+    nuevaPagina();
+    const cruces = datos.cruces || {};
+    y = encabezadoSeccion('🌐  CRUCES — Conexiones interdisciplinarias', y);
+    y += 4;
+
+    (cruces.puentes||[]).forEach(p => {
+      checkY(30);
+      texto(`${p.emoji||''}  ${p.materia||''}`, ML, y, { size:9, bold:true, color:[...cpRgb] }); y+=4;
+      const nlc = textoWrapped(p.conexion||'', ML+3, y, PW-3, 8.5);
+      y += nlc*4.5 + 2;
+      texto(`❓ ${p.pregunta||''}`, ML+3, y, { size:8.5, color:[107,114,128], maxW:PW-3 });
+      const nlp = pdf.splitTextToSize(`❓ ${p.pregunta||''}`, PW-3).length;
+      y += nlp*4.5 + 2;
+      for (let l=0; l<2; l++) { lineaRespuesta(ML, y, PW); y+=7; }
+      y += 3;
+    });
+
+    // ── RELECTURA ──────────────────────────────────────────────────────────
+    setProgreso(84, 'Relectura...');
+    await new Promise(r => setTimeout(r, 10));
+    nuevaPagina();
+    const relectura = datos.relectura || {};
+    y = encabezadoSeccion('🔁  RELECTURA — Pensamiento crítico', y);
+    y += 4;
+
+    const tribunal = relectura.tribunal;
+    if (tribunal?.titulo_debate) {
+      // calcular alto del bloque tema+contexto
+      pdf.setFontSize(9); pdf.setFont('helvetica','bold');
+      const nlTema = pdf.splitTextToSize(limpiar(`Tema: ${tribunal.titulo_debate}`), PW-8).length;
+      pdf.setFontSize(8.5); pdf.setFont('helvetica','normal');
+      const nlCtx  = pdf.splitTextToSize(limpiar(tribunal.contexto||''), PW-8).length;
+      const altoBox = nlTema*4.5 + nlCtx*4.5 + 10;
+      checkY(altoBox + 10);
+      texto('Tribunal de debate:', ML, y, { size:9, bold:true, color:[...cpRgb] }); y+=5;
+      cajaGris(ML, y, PW, altoBox);
+      textoWrapped(limpiar(`Tema: ${tribunal.titulo_debate}`), ML+4, y+5, PW-8, 9, true);
+      y += nlTema*4.5 + 5;
+      const nlC2 = textoWrapped(limpiar(tribunal.contexto||''), ML+4, y, PW-8, 8.5);
+      y += nlC2*4.5 + 6;
+
+      // roles — cada uno en su propia caja con alto calculado
+      (tribunal.roles||[]).forEach(rol => {
+        pdf.setFontSize(8.5); pdf.setFont('helvetica','normal');
+        const labelTxt = limpiar(`${rol.label||''}: ${rol.desc||''}`);
+        const nlR = pdf.splitTextToSize(labelTxt, PW-10).length;
+        const altoRol = nlR*4.5 + 8;
+        checkY(altoRol + 2);
+        cajaGris(ML, y, PW, altoRol);
+        texto(limpiar(rol.label||''), ML+4, y+5, { size:9, bold:true });
+        pdf.setFontSize(8.5); pdf.setFont('helvetica','normal'); pdf.setTextColor(55,65,81);
+        const lines = pdf.splitTextToSize(limpiar(rol.desc||''), PW-10);
+        pdf.text(lines, ML+4, y+10);
+        y += altoRol + 3;
+      });
+
+      y += 3;
+      texto('Mis argumentos:', ML, y, { size:8.5, color:[107,114,128] }); y+=5;
+      for (let l=0; l<4; l++) { checkY(8); lineaRespuesta(ML, y, PW); y+=8; }
+      y += 4;
+    }
+
+    if (relectura.tesis?.consigna) {
+      checkY(40);
+      texto('Formulá tu tesis:', ML, y, { size:9, bold:true, color:[...cpRgb] }); y+=4;
+      const nl = textoWrapped(relectura.tesis.consigna, ML+3, y, PW-3, 8.5, false, [107,114,128]);
+      y += nl*4.5+4;
+      // caja para escribir
+      checkY(30);
+      pdf.setFillColor(250,250,250); pdf.setDrawColor(209,213,219); pdf.setLineWidth(0.3);
+      pdf.roundedRect(ML, y, PW, 28, 3, 3, 'FD');
+      y += 32;
+    }
+
+    if (relectura.critica?.consigna) {
+      checkY(40);
+      texto('Análisis crítico:', ML, y, { size:9, bold:true, color:[...cpRgb] }); y+=4;
+      const nl = textoWrapped(relectura.critica.consigna, ML+3, y, PW-3, 8.5, false, [107,114,128]);
+      y += nl*4.5+4;
+      checkY(30);
+      pdf.setFillColor(250,250,250); pdf.setDrawColor(209,213,219); pdf.setLineWidth(0.3);
+      pdf.roundedRect(ML, y, PW, 28, 3, 3, 'FD');
+      y += 32;
+    }
+
+    // ── AUTOTEST ───────────────────────────────────────────────────────────
+    setProgreso(90, 'Autotest...');
+    await new Promise(r => setTimeout(r, 10));
+    nuevaPagina();
+    const autotest = datos.autotest || {};
+    y = encabezadoSeccion('✅  AUTOTEST — Preguntas de repaso', y);
+    y += 5;
+
+    (autotest.preguntas||[]).forEach((q,i) => {
+      checkY(25);
+      texto(`${i+1}. ${q.pregunta||''}`, ML, y, { size:9.5, bold:true, maxW:PW }); 
+      const nlQ = pdf.splitTextToSize(`${i+1}. ${q.pregunta||''}`, PW).length;
+      y += nlQ*4.5+2;
+      (q.opciones||[]).forEach((op,j) => {
+        checkY(7);
+        pdf.setDrawColor(180,180,180); pdf.setFillColor(255,255,255);
+        pdf.circle(ML+3, y-1.2, 2, 'FD');
+        const nl = textoWrapped(`${'abcd'[j]}) ${op}`, ML+8, y, PW-10, 8.5);
+        y += nl*4.5+1;
+      });
+      y += 4;
+    });
+
+    // ── CIERRE ─────────────────────────────────────────────────────────────
+    setProgreso(95, 'Cierre y glosario...');
+    await new Promise(r => setTimeout(r, 10));
+    nuevaPagina();
+    const cierre = datos.cierre || {};
+    y = encabezadoSeccion('📚  CIERRE — Glosario y recursos', y);
+    y += 4;
+
+    (cierre.glosario||[]).forEach(g => {
+      checkY(14);
+      texto(`${g.emoji||''}  ${g.termino||''}`, ML, y, { size:9.5, bold:true, color:[...cpRgb] });
+      texto(`[${g.categoria||''}]`, ML+PW, y, { size:7.5, color:[156,163,175], align:'right' });
+      y += 5;
+      const nl = textoWrapped(g.definicion||'', ML+3, y, PW-3, 8.5);
+      y += nl*4.5+3;
+    });
+
+    // Recursos
+    if ((cierre.recursos||[]).length) {
+      checkY(20);
+      texto('Recursos recomendados:', ML, y, { size:9, bold:true, color:[...cpRgb] }); y+=5;
+      (cierre.recursos||[]).forEach(r => {
+        checkY(14);
+        texto(`${r.tipo||''}  ${r.title||''}`, ML, y, { size:9, bold:true, maxW:PW-20 });
+        texto(r.nivel||'', ML+PW, y, { size:7.5, color:[156,163,175], align:'right' });
+        y += 5;
+        const nl = textoWrapped(r.desc||'', ML+3, y, PW-3, 8.5, false, [107,114,128]);
+        y += nl*4.5+3;
+      });
+    }
+
+    // Reflexión final
+    nuevaPagina();
+    y = encabezadoSeccion('💬  REFLEXIÓN FINAL', y);
+    y += 5;
+    const reflexiones = [
+      '¿Qué fue lo más importante que aprendiste en esta unidad?',
+      '¿Qué pregunta te quedó sin responder?',
+      '¿Cómo conectás lo aprendido con tu vida cotidiana?',
+    ];
+    reflexiones.forEach(ref => {
+      checkY(30);
+      texto(ref, ML, y, { size:9, color:[107,114,128], maxW:PW }); y+=5;
+      for (let l=0; l<3; l++) { lineaRespuesta(ML, y, PW); y+=8; }
+      y += 3;
+    });
+
+    // ── Numeración de páginas ──────────────────────────────────────────────
+    const totalPags = pdf.internal.getNumberOfPages();
+    for (let p=1; p<=totalPags; p++) {
+      pdf.setPage(p);
+      pdf.setFontSize(7.5); pdf.setFont('helvetica','normal');
+      pdf.setTextColor(156,163,175);
+      pdf.text(
+        `${datos.materia||''} · Unidad ${datos.unidad||''} · Pág. ${p} / ${totalPags}`,
+        210/2, 293, { align:'center' }
+      );
+    }
+
+    // ── Guardar ────────────────────────────────────────────────────────────
+    setProgreso(100, '¡Listo!');
+    const nombre = (nombreArchivoJSON || (datos.materia||'materia').toLowerCase().replace(/\s+/g,'_') + '_u' + (datos.unidad||1)) + '_cv.pdf';
+    pdf.save(nombre);
+
+    document.getElementById('btnGenerar').disabled = false;
+    document.getElementById('btnTexto').innerHTML  = '⬇ Generar y descargar PDF';
+    const ok = document.getElementById('msgOk');
+    document.getElementById('msgOkText').textContent = `¡Listo! Se descargó "${nombre}" (${totalPags} páginas)`;
+    ok.style.display = 'flex';
+
+  } catch(err) {
+    console.error(err);
+    document.getElementById('btnGenerar').disabled = false;
+    document.getElementById('btnTexto').innerHTML  = '⬇ Generar y descargar PDF';
+    mostrarError(`Error al generar el PDF: ${err.message}`);
+  }
+}
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generador de PDF — Campus Cuaderno Vivo</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --bg: #0f0f13;
+    --surface: #18181f;
+    --border: #2a2a35;
+    --accent: #e8c547;
+    --accent2: #7c6af7;
+    --text: #e8e8f0;
+    --muted: #6b6b80;
+    --success: #4ade80;
+    --error: #f87171;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+  }
+
+  /* Fondo con textura sutil */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 20% 20%, rgba(124,106,247,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 30% at 80% 80%, rgba(232,197,71,0.06) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 680px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(124,106,247,0.15);
+    border: 1px solid rgba(124,106,247,0.3);
+    color: #a89df5;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100px;
+    margin-bottom: 1.2rem;
+  }
+
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  /* Drop zone */
+  .drop-zone {
+    border: 1.5px dashed var(--border);
+    border-radius: 16px;
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    background: var(--surface);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .drop-zone::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(124,106,247,0.05) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .drop-zone:hover, .drop-zone.dragover {
+    border-color: var(--accent2);
+    background: #1c1c26;
+  }
+
+  .drop-zone:hover::before, .drop-zone.dragover::before {
+    opacity: 1;
+  }
+
+  .drop-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+    transition: transform 0.3s;
+  }
+
+  .drop-zone:hover .drop-icon {
+    transform: translateY(-4px);
+  }
+
+  .drop-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .drop-sub {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  .drop-sub span {
+    color: var(--accent2);
+    font-weight: 500;
+  }
+
+  input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Preview card */
+  .preview-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: none;
+    animation: slideUp 0.3s ease;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .preview-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .preview-emoji {
+    font-size: 2rem;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(232,197,71,0.1);
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+
+  .preview-info h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+    line-height: 1.3;
+  }
+
+  .preview-meta {
+    color: var(--muted);
+    font-size: 0.82rem;
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .preview-meta span {
+    background: rgba(255,255,255,0.05);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  /* Secciones checklist */
+  .secciones-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .seccion-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--muted);
+    padding: 0.35rem 0.6rem;
+    background: rgba(255,255,255,0.03);
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .seccion-chip.activa {
+    color: var(--success);
+    border-color: rgba(74,222,128,0.2);
+    background: rgba(74,222,128,0.05);
+  }
+
+  .seccion-chip .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--border);
+    flex-shrink: 0;
+  }
+
+  .seccion-chip.activa .dot {
+    background: var(--success);
+  }
+
+  /* Botón generar */
+  .btn-generar {
+    width: 100%;
+    padding: 1rem;
+    background: var(--accent);
+    color: #0f0f13;
+    border: none;
+    border-radius: 12px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-generar:hover {
+    background: #f0d060;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(232,197,71,0.25);
+  }
+
+  .btn-generar:active { transform: translateY(0); }
+
+  .btn-generar:disabled {
+    background: var(--border);
+    color: var(--muted);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Progress */
+  .progress-wrap {
+    display: none;
+    margin-top: 1rem;
+  }
+
+  .progress-bar-bg {
+    height: 4px;
+    background: var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+  }
+
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+    width: 0%;
+  }
+
+  .progress-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    text-align: center;
+  }
+
+  /* Mensaje final */
+  .msg {
+    display: none;
+    padding: 1rem 1.25rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    animation: slideUp 0.3s ease;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .msg.ok {
+    background: rgba(74,222,128,0.1);
+    border: 1px solid rgba(74,222,128,0.25);
+    color: var(--success);
+  }
+
+  .msg.err {
+    background: rgba(248,113,113,0.1);
+    border: 1px solid rgba(248,113,113,0.25);
+    color: var(--error);
+  }
+
+  /* Botón cambiar archivo */
+  .btn-reset {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 0.8rem;
+    width: 100%;
+  }
+
+  .btn-reset:hover {
+    border-color: var(--muted);
+    color: var(--text);
+  }
+
+  /* Footer */
+  footer {
+    margin-top: 3rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.78rem;
+    line-height: 1.8;
+  }
+
+  footer a { color: var(--accent2); text-decoration: none; }
+
+  /* Spinner */
+  .spin {
+    display: inline-block;
+    width: 16px; height: 16px;
+    border: 2px solid rgba(0,0,0,0.2);
+    border-top-color: #0f0f13;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .gap { height: 1rem; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header class="header">
+    <div class="badge">📄 Campus Cuaderno Vivo</div>
+    <h1>Generador de<br><em>cuadernos imprimibles</em></h1>
+    <p class="subtitle">Subí el JSON de cualquier unidad y descargá el PDF listo para imprimir, con todas las actividades y espacios para que tus alumnos escriban.</p>
+  </header>
+
+  <!-- Zona de carga -->
+  <div class="drop-zone" id="dropZone">
+    <input type="file" id="fileInput" accept=".json">
+    <span class="drop-icon">📂</span>
+    <div class="drop-title">Arrastrá el JSON acá</div>
+    <div class="drop-sub">o hacé clic para buscarlo · <span>solo archivos .json</span></div>
+  </div>
+
+  <div class="gap"></div>
+
+  <!-- Preview del archivo cargado -->
+  <div class="preview-card" id="previewCard">
+
+    <div class="preview-header">
+      <div class="preview-emoji" id="prevEmoji">📘</div>
+      <div class="preview-info">
+        <h2 id="prevTitulo">—</h2>
+        <div class="preview-meta">
+          <span id="prevMateria">—</span>
+          <span id="prevUnidad">—</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="secciones-grid" id="seccionesGrid"></div>
+
+    <button class="btn-generar" id="btnGenerar" onclick="generarPDF()">
+      <span id="btnTexto">⬇ Generar y descargar PDF</span>
+    </button>
+
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-bar-bg">
+        <div class="progress-bar-fill" id="progressFill"></div>
+      </div>
+      <div class="progress-label" id="progressLabel">Preparando...</div>
+    </div>
+
+    <div class="msg ok" id="msgOk">
+      ✅ <span id="msgOkText">PDF generado correctamente.</span>
+    </div>
+    <div class="msg err" id="msgErr">
+      ❌ <span id="msgErrText">Ocurrió un error.</span>
+    </div>
+
+    <button class="btn-reset" onclick="resetear()">↩ Cargar otro JSON</button>
+  </div>
+
+  <footer>
+    Campus Cuaderno Vivo · Generación en el navegador con <a href="https://github.com/parallax/jsPDF" target="_blank">jsPDF</a><br>
+    Ningún dato sale de tu dispositivo.
+  </footer>
+
+</div>
+
+<script>
+const { jsPDF } = window.jspdf;
+
+// Elimina emojis y caracteres fuera del rango latin que jsPDF no puede renderizar
+function limpiar(str) {
+  if (!str && str !== 0) return '';
+  let s = String(str);
+  s = s.replace(/[\u{1F000}-\u{1FFFF}]/gu, '')
+        .replace(/[\u2600-\u27BF]/g, '')
+        .replace(/[\uFE00-\uFE0F]/g, '')
+        .replace(/[\u{E0000}-\u{E007F}]/gu, '');
   s = s.normalize('NFC');
   s = s.replace(/\s{2,}/g, ' ').trim();
   return s;
