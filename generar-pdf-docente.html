@@ -222,19 +222,27 @@ async function generarPDF() {
     function nuevaPagina() { pdf.addPage(); y = 10; }
     function checkY(needed=10) { if (y+needed>287) nuevaPagina(); }
 
-    // texto simple
+    // texto simple — siempre left align para evitar espaciado irregular de jsPDF
     function t(txt, x, yy, size=8, bold=false, color=[40,40,40], align='left', maxW=PW) {
       pdf.setFontSize(size); pdf.setFont('helvetica', bold?'bold':'normal');
       pdf.setTextColor(...color);
-      pdf.text(limpiar(txt), x, yy, { align, maxWidth: maxW });
+      // usar align solo para center (ej. numeracion), todo lo demas forzado left
+      if (align === 'center') {
+        pdf.text(limpiar(txt), x, yy, { align: 'center' });
+      } else {
+        pdf.text(limpiar(txt), x, yy);
+      }
     }
 
-    // texto con wrap, devuelve nro de lineas
+    // texto con wrap linea por linea — evita justificacion implicita de jsPDF
     function tw(txt, x, yy, maxW=PW, size=8, bold=false, color=[40,40,40]) {
       pdf.setFontSize(size); pdf.setFont('helvetica', bold?'bold':'normal');
       pdf.setTextColor(...color);
+      const LH = size * 0.5; // interlineado proporcional al tamano
       const lines = pdf.splitTextToSize(limpiar(txt), maxW);
-      pdf.text(lines, x, yy);
+      lines.forEach((line, i) => {
+        pdf.text(line, x, yy + i * LH);
+      });
       return lines.length;
     }
 
@@ -658,12 +666,14 @@ async function generarPDF() {
         pdf.setFontSize(7.5); pdf.setFont('helvetica','bold');
         pdf.setTextColor(...cpRgb);
         const lines1 = pdf.splitTextToSize(limpiar(g.termino||''), cw2-2);
-        pdf.text(lines1, ML, y1);
+        const lh1a = 7.5*0.5;
+        lines1.forEach((l,i) => pdf.text(l, ML, y1+i*lh1a));
         y1 += lines1.length*3.8;
         pdf.setFontSize(7); pdf.setFont('helvetica','normal');
         pdf.setTextColor(60,60,60);
         const lines2 = pdf.splitTextToSize(limpiar(g.definicion||''), cw2-2);
-        pdf.text(lines2, ML, y1);
+        const lh2a = 7*0.5;
+        lines2.forEach((l,i) => pdf.text(l, ML, y1+i*lh2a));
         y1 += lines2.length*3.5 + 2;
       });
 
@@ -673,12 +683,14 @@ async function generarPDF() {
         pdf.setFontSize(7.5); pdf.setFont('helvetica','bold');
         pdf.setTextColor(...cpRgb);
         const lines1 = pdf.splitTextToSize(limpiar(g.termino||''), cw2-2);
-        pdf.text(lines1, ML+cw2+4, y2);
+        const lh1b = 7.5*0.5;
+        lines1.forEach((l,i) => pdf.text(l, ML+cw2+4, y2+i*lh1b));
         y2 += lines1.length*3.8;
         pdf.setFontSize(7); pdf.setFont('helvetica','normal');
         pdf.setTextColor(60,60,60);
         const lines2 = pdf.splitTextToSize(limpiar(g.definicion||''), cw2-2);
-        pdf.text(lines2, ML+cw2+4, y2);
+        const lh2b = 7*0.5;
+        lines2.forEach((l,i) => pdf.text(l, ML+cw2+4, y2+i*lh2b));
         y2 += lines2.length*3.5 + 2;
       });
 
