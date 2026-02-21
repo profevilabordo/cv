@@ -241,7 +241,7 @@ async function generarPDF() {
     function t(txt, x, yy, size=8, bold=false, color=[40,40,40], align='left', maxW=PW) {
       pdf.setFontSize(size); pdf.setFont('helvetica', bold?'bold':'normal');
       pdf.setTextColor(...color);
-      // usar align solo para center (ej. numeracion), todo lo demas forzado left
+      pdf.setCharSpace(0);
       if (align === 'center') {
         pdf.text(limpiar(txt), x, yy, { align: 'center' });
       } else {
@@ -253,9 +253,11 @@ async function generarPDF() {
     function tw(txt, x, yy, maxW=PW, size=8, bold=false, color=[40,40,40]) {
       pdf.setFontSize(size); pdf.setFont('helvetica', bold?'bold':'normal');
       pdf.setTextColor(...color);
-      const LH = size * 0.5; // interlineado proporcional al tamano
+      pdf.setCharSpace(0);
+      const LH = size * 0.5;
       const lines = pdf.splitTextToSize(limpiar(txt), maxW);
       lines.forEach((line, i) => {
+        pdf.setCharSpace(0);
         pdf.text(line, x, yy + i * LH);
       });
       return lines.length;
