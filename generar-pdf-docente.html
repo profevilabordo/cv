@@ -128,11 +128,25 @@ const { jsPDF } = window.jspdf;
 function limpiar(str) {
   if (!str && str !== 0) return '';
   let s = String(str);
+  // quitar emojis
   s = s.replace(/[\u{1F000}-\u{1FFFF}]/gu, '')
         .replace(/[\u2600-\u27BF]/g, '')
         .replace(/[\uFE00-\uFE0F]/g, '')
         .replace(/[\u{E0000}-\u{E007F}]/gu, '');
-  s = s.normalize('NFC');
+  // reemplazar caracteres latinos extendidos por equivalentes ASCII
+  // que Helvetica renderiza sin espaciado irregular
+  const mapa = {
+    '\u00E1':'a','\u00E9':'e','\u00ED':'i','\u00F3':'o','\u00FA':'u',
+    '\u00C1':'A','\u00C9':'E','\u00CD':'I','\u00D3':'O','\u00DA':'U',
+    '\u00FC':'u','\u00DC':'U','\u00F1':'n','\u00D1':'N',
+    '\u00BF':'?','\u00A1':'!','\u2019':"'",'\u201C':'"','\u201D':'"',
+    '\u2013':'-','\u2014':'-','\u2026':'...','\u00AB':'"','\u00BB':'"',
+    '\u00E0':'a','\u00E8':'e','\u00EC':'i','\u00F2':'o','\u00F9':'u',
+    '\u00E2':'a','\u00EA':'e','\u00EE':'i','\u00F4':'o','\u00FB':'u',
+    '\u00E4':'a','\u00EB':'e','\u00EF':'i','\u00F6':'o',
+    '\u00E3':'a','\u00F5':'o','\u00E7':'c','\u00C7':'C',
+  };
+  s = s.replace(/[\u0080-\u024F]/g, ch => mapa[ch] || '');
   s = s.replace(/\s{2,}/g, ' ').trim();
   return s;
 }
