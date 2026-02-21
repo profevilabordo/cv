@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PDF Docente — Campus Cuaderno Vivo</title>
+<title>PDF Docente - Campus Cuaderno Vivo</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
@@ -81,7 +81,7 @@
   <header class="header">
     <div class="badge">🎓 Campus Cuaderno Vivo</div>
     <h1>Hoja de ruta<br><em>docente</em></h1>
-    <p class="subtitle">PDF compacto con todo el contenido de la unidad para tener en clase. Sin espacios — máxima información en mínimas páginas.</p>
+    <p class="subtitle">PDF compacto con todo el contenido de la unidad para tener en clase. Sin espacios - máxima información en mínimas páginas.</p>
   </header>
 
   <div class="drop-zone" id="dropZone">
@@ -145,6 +145,7 @@ function limpiar(str) {
     '\u00E2':'a','\u00EA':'e','\u00EE':'i','\u00F4':'o','\u00FB':'u',
     '\u00E4':'a','\u00EB':'e','\u00EF':'i','\u00F6':'o',
     '\u00E3':'a','\u00F5':'o','\u00E7':'c','\u00C7':'C',
+    '\u2192':' > ','\u2193':' v ','\u2190':' < ','\u00B7':'.','\u00BA':'o','\u00AA':'a',
   };
   s = s.replace(/[\u0080-\u024F]/g, ch => mapa[ch] || '');
   s = s.replace(/\s{2,}/g, ' ').trim();
@@ -236,7 +237,7 @@ async function generarPDF() {
     function nuevaPagina() { pdf.addPage(); y = 10; }
     function checkY(needed=10) { if (y+needed>287) nuevaPagina(); }
 
-    // texto simple — siempre left align para evitar espaciado irregular de jsPDF
+    // texto simple - siempre left align para evitar espaciado irregular de jsPDF
     function t(txt, x, yy, size=8, bold=false, color=[40,40,40], align='left', maxW=PW) {
       pdf.setFontSize(size); pdf.setFont('helvetica', bold?'bold':'normal');
       pdf.setTextColor(...color);
@@ -248,7 +249,7 @@ async function generarPDF() {
       }
     }
 
-    // texto con wrap linea por linea — evita justificacion implicita de jsPDF
+    // texto con wrap linea por linea - evita justificacion implicita de jsPDF
     function tw(txt, x, yy, maxW=PW, size=8, bold=false, color=[40,40,40]) {
       pdf.setFontSize(size); pdf.setFont('helvetica', bold?'bold':'normal');
       pdf.setTextColor(...color);
@@ -301,7 +302,7 @@ async function generarPDF() {
     pdf.setFillColor(...cpRgb);
     pdf.rect(0, 0, 210, 16, 'F');
     t(limpiar(datos.titulo||'Unidad'), 105, 7, 13, true, [255,255,255], 'center', 180);
-    t(`${limpiar(datos.materia||'')}  ·  Unidad ${datos.unidad||''}  ·  HOJA DE RUTA DOCENTE`, 105, 13, 7, false, [255,255,255], 'center', 180);
+    t(`${limpiar(datos.materia||'')}  -  Unidad ${datos.unidad||''}  -  HOJA DE RUTA DOCENTE`, 105, 13, 7, false, [255,255,255], 'center', 180);
 
     y = 20;
 
@@ -317,8 +318,8 @@ async function generarPDF() {
     if (paradas.length) {
       paradas.forEach(p => {
         checkY(5);
-        const nl = nLineas(`P${p.id} ${p.title||''} — ${p.desc||''}`, PW-4, 7.5);
-        tw(`P${p.id}  ${limpiar(p.title||'')} — ${limpiar(p.desc||'')}`, ML+2, y, PW-4, 7.5, false, [40,40,40]);
+        const nl = nLineas(`P${p.id} ${p.title||''} - ${p.desc||''}`, PW-4, 7.5);
+        tw(`P${p.id}  ${limpiar(p.title||'')} - ${limpiar(p.desc||'')}`, ML+2, y, PW-4, 7.5, false, [40,40,40]);
         y += nl*3.8;
       });
       y += 1;
@@ -344,7 +345,7 @@ async function generarPDF() {
         pdf.roundedRect(xb, y, cw-2, alto, 2, 2, 'FD');
 
         let yb = y+4;
-        tw(`${limpiar(b.title||'')} — ${limpiar(b.subtitle||'')}`, xb+2, yb, cw-5, 7.5, true, cpRgb.map(c=>Math.max(0,c-80)));
+        tw(`${limpiar(b.title||'')} - ${limpiar(b.subtitle||'')}`, xb+2, yb, cw-5, 7.5, true, cpRgb.map(c=>Math.max(0,c-80)));
         yb += nlTit*3.8 + 1;
         (b.items||[]).forEach(it => {
           const nl = tw(`- ${limpiar(it)}`, xb+3, yb, cw-6, 7, false, [60,60,60]);
@@ -362,7 +363,7 @@ async function generarPDF() {
       t(`Centro: ${limpiar(mm.centro?.title||'')}`, ML, y, 7.5, true, cpRgb); y+=4;
       (mm.ramas||[]).forEach(r => {
         checkY(4);
-        const items = (r.items||[]).join(' · ');
+        const items = (r.items||[]).join(' / ');
         const nl = tw(`${limpiar(r.title||'')}: ${limpiar(items)}`, ML+3, y, PW-5, 7);
         y += nl*3.5;
       });
@@ -374,7 +375,7 @@ async function generarPDF() {
     await new Promise(r=>setTimeout(r,10));
     const umbral = datos.umbral || {};
     checkY(10);
-    y = seccion('UMBRAL — DISPARADORES', y);
+    y = seccion('UMBRAL - DISPARADORES', y);
 
     (umbral.preguntas_disparadoras||[]).forEach((p,i) => {
       checkY(5);
@@ -392,7 +393,7 @@ async function generarPDF() {
     await new Promise(r=>setTimeout(r,10));
     const nucleo = datos.nucleo || {};
     checkY(10);
-    y = seccion('NUCLEO — ACTIVIDADES (con respuestas)', y);
+    y = seccion('NUCLEO - ACTIVIDADES (con respuestas)', y);
 
     // N1 Ordenar
     const n1 = nucleo.n1_ordenar_cronologicamente;
@@ -466,7 +467,7 @@ async function generarPDF() {
       t('N5 Pares correctos:', ML+1, y, 7.5, true, cpRgb); y+=4;
       (n5.pares||[]).forEach(p => {
         checkY(4);
-        const nl = tw(`${limpiar(p.izquierda||'')}  →  ${limpiar(p.derecha||'')}`, ML+2, y, PW-4, 7);
+        const nl = tw(`${limpiar(p.izquierda||'')} > ${limpiar(p.derecha||'')}`, ML+2, y, PW-4, 7);
         y += nl*3.8;
       });
       y += 1;
@@ -480,7 +481,7 @@ async function generarPDF() {
       (n6.grupos||[]).forEach(g => {
         checkY(4);
         const intrusa = (g.palabras||[]).find(p=>p.es_intrusa)?.text||'';
-        const nl = tw(`Intrusa: [${limpiar(intrusa)}] — ${limpiar(g.explicacion||'')}`, ML+2, y, PW-4, 7);
+        const nl = tw(`Intrusa: [${limpiar(intrusa)}] - ${limpiar(g.explicacion||'')}`, ML+2, y, PW-4, 7);
         y += nl*3.8;
       });
       y += 1;
@@ -503,11 +504,11 @@ async function generarPDF() {
     const n8 = nucleo.n8_causa_efecto;
     if (n8?.causas?.length) {
       checkY(6);
-      t('N8 Causa → Efecto:', ML+1, y, 7.5, true, cpRgb); y+=4;
+      t('N8 Causa > Efecto:', ML+1, y, 7.5, true, cpRgb); y+=4;
       (n8.causas||[]).forEach(ca => {
         checkY(4);
         const ef = (n8.efectos||[]).find(e=>e.causa_id===ca.id);
-        const nl = tw(`${limpiar(ca.text||'')}  →  ${limpiar(ef?.text||'')}`, ML+2, y, PW-4, 7);
+        const nl = tw(`${limpiar(ca.text||'')} > ${limpiar(ef?.text||'')}`, ML+2, y, PW-4, 7);
         y += nl*3.8;
       });
       y += 1;
@@ -536,7 +537,7 @@ async function generarPDF() {
     await new Promise(r=>setTimeout(r,10));
     const senales = datos.senales || {};
     checkY(10);
-    y = seccion('SENALES — CONCEPTOS CLAVE', y);
+    y = seccion('SENALES - CONCEPTOS CLAVE', y);
 
     (senales.conceptos_clave||[]).forEach(c => {
       checkY(5);
@@ -602,7 +603,7 @@ async function generarPDF() {
     await new Promise(r=>setTimeout(r,10));
     const relectura = datos.relectura || {};
     checkY(10);
-    y = seccion('RELECTURA — DEBATE Y PENSAMIENTO CRITICO', y);
+    y = seccion('RELECTURA - DEBATE Y PENSAMIENTO CRITICO', y);
 
     const tribunal = relectura.tribunal;
     if (tribunal?.titulo_debate) {
@@ -638,7 +639,7 @@ async function generarPDF() {
     await new Promise(r=>setTimeout(r,10));
     const autotest = datos.autotest || {};
     checkY(10);
-    y = seccion('AUTOTEST — PREGUNTAS Y RESPUESTAS CORRECTAS', y);
+    y = seccion('AUTOTEST - PREGUNTAS Y RESPUESTAS CORRECTAS', y);
 
     (autotest.preguntas||[]).forEach((q,i) => {
       checkY(5);
@@ -734,7 +735,7 @@ async function generarPDF() {
       pdf.setPage(p);
       pdf.setFontSize(6.5); pdf.setFont('helvetica','normal');
       pdf.setTextColor(180,180,180);
-      pdf.text(`${limpiar(datos.materia||'')} U${datos.unidad||''} · DOCENTE · ${p}/${total}`, 105, 295, {align:'center'});
+      pdf.text(`${limpiar(datos.materia||'')} U${datos.unidad||''} - DOCENTE - ${p}/${total}`, 105, 295, {align:'center'});
     }
 
     // ── GUARDAR ───────────────────────────────────────────────────────────
