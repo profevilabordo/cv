@@ -1,0 +1,523 @@
+{
+  "materia": "Economía",
+  "unidad": 1,
+  "titulo": "La Ciencia Económica y sus Fundamentos",
+  "emoji": "🧠",
+  "color_primario": "#6366F1",
+  "color_secundario": "#8B5CF6",
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "⏳",
+        "texto": "Si tuvieras 24 horas “extra” por semana, ¿en qué las usarías? ¿Qué dejarías de hacer igual?",
+        "pista": "Pensá que el tiempo también es un recurso escaso: elegir una cosa siempre implica renunciar a otra."
+      },
+      {
+        "emoji": "📱",
+        "texto": "¿El celular es una necesidad o un bien para satisfacer una necesidad? ¿Cuál sería la necesidad real detrás?",
+        "pista": "Separá necesidad (carencia/deseo) de bien o servicio (lo que la satisface)."
+      },
+      {
+        "emoji": "💧",
+        "texto": "¿Por qué el agua (vital) suele ser barata y un diamante (no vital) es carísimo?",
+        "pista": "La clave no es solo la utilidad: mirá la escasez y cómo afecta al valor/precio."
+      }
+    ],
+    "situaciones_conecta": [
+      { "emoji": "🛒", "label": "Fui a comprar y tuve que elegir porque no me alcanzaba" },
+      { "emoji": "📆", "label": "No me dio el tiempo para todo y tuve que priorizar" },
+      { "emoji": "🎮", "label": "Quise algo “nuevo” aunque lo mío todavía funcionaba" },
+      { "emoji": "🧾", "label": "Escuché hablar de inflación, impuestos o sueldos y me costó entenderlo" }
+    ],
+    "termometro_pregunta": "¿Cuánto sentís que tus decisiones de todos los días (tiempo y plata) tienen “economía” adentro?"
+  },
+  "mapa": {
+    "ruta_paradas": [
+      {
+        "id": 1,
+        "title": "Escasez, necesidades y elección",
+        "desc": "El problema económico básico y por qué siempre elegimos",
+        "emoji": "⚖️",
+        "color": "#6366F1"
+      },
+      {
+        "id": 2,
+        "title": "Necesidades y bienes",
+        "desc": "Qué es una necesidad, bienes/servicios y clasificaciones clave",
+        "emoji": "🧩",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 3,
+        "title": "Utilidad, valor y precio",
+        "desc": "Utilidad total/marginal y la paradoja agua–diamante",
+        "emoji": "💎",
+        "color": "#10B981"
+      },
+      {
+        "id": 4,
+        "title": "Decisiones y principios",
+        "desc": "Costo de oportunidad, costos irrecuperables, análisis marginal e incentivos",
+        "emoji": "🎯",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 5,
+        "title": "FPP y agentes económicos",
+        "desc": "Frontera de producción, eficiencia, crecimiento y flujo circular",
+        "emoji": "🏭",
+        "color": "#EC4899"
+      }
+    ],
+    "panoramica_bloques": [
+      {
+        "title": "Bloque A",
+        "subtitle": "Bases para pensar economía",
+        "items": [
+          "Economía como ciencia social",
+          "Escasez y necesidad de elegir",
+          "Micro y macro (niveles de análisis)",
+          "Método científico, modelos y ceteris paribus",
+          "Economía positiva vs normativa"
+        ],
+        "emoji": "🧠",
+        "color": "#6366F1"
+      },
+      {
+        "title": "Bloque B",
+        "subtitle": "Necesidades, bienes y valor",
+        "items": [
+          "Necesidades: características y clasificaciones",
+          "Primarias vs secundarias; pobreza absoluta vs relativa",
+          "Maslow (incluida mirada 2026)",
+          "Bienes vs servicios; bienes de consumo vs capital",
+          "Clasificaciones: públicos/privados, finales/intermedios, sustitutos/complementarios, tangibles/intangibles"
+        ],
+        "emoji": "🧩",
+        "color": "#10B981"
+      },
+      {
+        "title": "Bloque C",
+        "subtitle": "Elegir, producir y coordinar",
+        "items": [
+          "Utilidad total vs marginal; utilidad subjetiva",
+          "Valor de uso vs valor de cambio; escasez + utilidad",
+          "Costo de oportunidad (monetario + invisible)",
+          "Costos irrecuperables, análisis marginal e incentivos",
+          "FPP: eficiencia, trade-off, desplazamientos; agentes y flujo circular"
+        ],
+        "emoji": "🎯",
+        "color": "#F59E0B"
+      }
+    ],
+    "mapa_mental": {
+      "centro": { "title": "Fundamentos de la Economía", "emoji": "🧠" },
+      "ramas": [
+        {
+          "id": 1,
+          "title": "¿Qué estudia la economía?",
+          "items": [
+            "Recursos escasos y necesidades ilimitadas",
+            "Decisiones de familias, empresas y Estado",
+            "Producción, distribución y consumo",
+            "Bienestar, eficiencia y equidad"
+          ],
+          "color": "#6366F1",
+          "emoji": "📚"
+        },
+        {
+          "id": 2,
+          "title": "¿Quiénes deciden?",
+          "items": [
+            "Familias: consumen, trabajan, ahorran",
+            "Empresas: producen, contratan, invierten",
+            "Estado: regula, recauda, provee, redistribuye",
+            "Mercados: coordinan intercambio"
+          ],
+          "color": "#10B981",
+          "emoji": "👥"
+        },
+        {
+          "id": 3,
+          "title": "¿Cómo se analiza?",
+          "items": [
+            "Micro vs macro vs internacional",
+            "Método científico (observación–hipótesis–verificación)",
+            "Modelos y supuestos",
+            "Ceteris paribus para aislar variables"
+          ],
+          "color": "#F59E0B",
+          "emoji": "🔬"
+        },
+        {
+          "id": 4,
+          "title": "¿Por qué importa?",
+          "items": [
+            "Elegimos todo el tiempo (tiempo/plata)",
+            "Cada elección tiene costo de oportunidad",
+            "La escasez explica precios y conflictos",
+            "FPP muestra límites, eficiencia y crecimiento"
+          ],
+          "color": "#EC4899",
+          "emoji": "💡"
+        }
+      ]
+    }
+  },
+  "nucleo": {
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená lógicamente (de base a aplicación) los pasos para analizar un problema económico:",
+      "items": [
+        { "id": 1, "text": "Identificar el recurso escaso (tiempo, dinero, trabajo, capital, recursos naturales)", "emoji": "⛏️" },
+        { "id": 2, "text": "Definir la necesidad/deseo y los bienes/servicios posibles para satisfacerlo", "emoji": "🧩" },
+        { "id": 3, "text": "Plantear alternativas reales y supuestos (ceteris paribus)", "emoji": "🧠" },
+        { "id": 4, "text": "Calcular costos de oportunidad (monetarios e invisibles) y beneficios", "emoji": "🎯" },
+        { "id": 5, "text": "Elegir, justificar y anticipar consecuencias (micro y macro si aplica)", "emoji": "🧾" }
+      ],
+      "orden_correcto": [1, 2, 3, 4, 5]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá cada enunciado como ECONOMÍA POSITIVA (describe) o NORMATIVA (opina/proponé):",
+      "categorias": [
+        { "name": "Economía positiva", "color": "#3B82F6", "emoji": "📊" },
+        { "name": "Economía normativa", "color": "#10B981", "emoji": "🗳️" }
+      ],
+      "items": [
+        { "id": 1, "text": "Si aumenta mucho la cantidad de dinero en circulación, tienden a subir los precios.", "categoria_correcta": 0 },
+        { "id": 2, "text": "El Estado debería aumentar la inversión en educación aunque suban los impuestos.", "categoria_correcta": 1 },
+        { "id": 3, "text": "Cuando baja el precio de un bien, suele aumentar la cantidad demandada (ceteris paribus).", "categoria_correcta": 0 },
+        { "id": 4, "text": "Es injusto que el acceso a internet dependa del ingreso familiar.", "categoria_correcta": 1 },
+        { "id": 5, "text": "Si una empresa vende por debajo de sus costos durante mucho tiempo, acumulará pérdidas.", "categoria_correcta": 0 },
+        { "id": 6, "text": "Para reducir la pobreza relativa, habría que reforzar becas y transferencias.", "categoria_correcta": 1 }
+      ]
+    },
+    "n3_completar_mapa": {
+      "consigna": "Completá los espacios en blanco con la idea clave:",
+      "blanks": [
+        { "id": "a", "texto_antes": "La economía es la ciencia social que estudia cómo administrar recursos escasos para satisfacer necesidades", "respuesta_correcta": "ilimitadas", "pista": "I_________" },
+        { "id": "b", "texto_antes": "Ceteris paribus significa que analizamos un cambio manteniendo", "respuesta_correcta": "todo igual", "pista": "T___ i____" },
+        { "id": "c", "texto_antes": "El costo de oportunidad es la mejor alternativa a la que se", "respuesta_correcta": "renuncia", "pista": "R______" }
+      ]
+    },
+    "n4_verdadero_falso": {
+      "afirmaciones": [
+        {
+          "texto": "La escasez económica es lo mismo que pobreza absoluta.",
+          "correcto": false,
+          "explicacion": "Falso. La pobreza absoluta es falta de bienes mínimos para sobrevivir. La escasez económica existe incluso si no hay pobreza: aparece porque recursos limitados obligan a elegir."
+        },
+        {
+          "texto": "La utilidad de un bien es subjetiva: depende de la persona y del contexto.",
+          "correcto": true,
+          "explicacion": "Verdadero. La misma cosa puede ser muy útil para alguien y poco útil para otro, o cambiar según el momento (ej.: agua en un desierto vs en una zona húmeda)."
+        },
+        {
+          "texto": "Un costo irrecuperable (hundido) debería pesar mucho en una decisión futura para 'no perder' lo ya gastado.",
+          "correcto": false,
+          "explicacion": "Falso. Lo ya gastado no se recupera vayas por una opción u otra. La decisión debe basarse en costos y beneficios futuros, no en el pasado."
+        }
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "pares": [
+        { "izquierda": "Escasez", "derecha": "Recursos limitados frente a deseos/necesidades ilimitadas", "emoji": "⚖️" },
+        { "izquierda": "Utilidad marginal", "derecha": "Satisfacción adicional por consumir una unidad más", "emoji": "➕" },
+        { "izquierda": "Ceteris paribus", "derecha": "Supuesto de 'todo lo demás constante' para aislar variables", "emoji": "🧪" },
+        { "izquierda": "FPP", "derecha": "Combinaciones máximas posibles de dos bienes con recursos dados", "emoji": "📈" }
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "grupos": [
+        {
+          "pregunta": "¿Cuál NO es un agente económico (según el flujo circular)?",
+          "palabras": [
+            { "text": "Familias", "es_intrusa": false },
+            { "text": "Empresas", "es_intrusa": false },
+            { "text": "Estado", "es_intrusa": false },
+            { "text": "Clima", "es_intrusa": true }
+          ],
+          "explicacion": "El clima puede afectar la producción (por ejemplo, sequías), pero no es un agente que tome decisiones económicas como familias, empresas o Estado.",
+          "emoji": "👥"
+        },
+        {
+          "pregunta": "¿Cuál NO pertenece al grupo de 'principios para tomar decisiones' vistos en la unidad?",
+          "palabras": [
+            { "text": "Costo de oportunidad", "es_intrusa": false },
+            { "text": "Costes irrecuperables", "es_intrusa": false },
+            { "text": "Análisis marginal", "es_intrusa": false },
+            { "text": "Balanza comercial", "es_intrusa": true }
+          ],
+          "explicacion": "Balanza comercial es un concepto macro/internacional. Los principios de decisión del tema son costo de oportunidad, costes irrecuperables, análisis marginal e incentivos.",
+          "emoji": "🎯"
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "conceptos": [
+        {
+          "termino": "Escasez económica",
+          "pista": "¿Por qué aunque no seas pobre igual tenés que elegir todo el tiempo?",
+          "palabras_clave": ["recursos", "limitados", "necesidades", "elegir", "tiempo", "dinero"]
+        },
+        {
+          "termino": "Costo de oportunidad",
+          "pista": "Cuando elegís una opción, ¿qué pasa con la mejor alternativa que descartás?",
+          "palabras_clave": ["renuncia", "alternativa", "mejor", "decisión", "perdida", "elegir"]
+        },
+        {
+          "termino": "Ceteris paribus y modelos",
+          "pista": "¿Para qué sirven los supuestos en economía si la realidad es compleja?",
+          "palabras_clave": ["supuesto", "simplificar", "variable", "aislar", "modelo", "realidad"]
+        }
+      ]
+    },
+    "n8_causa_efecto": {
+      "causas": [
+        { "id": 1, "text": "Aumenta el precio del transporte y la familia mantiene el mismo ingreso", "emoji": "🚌" },
+        { "id": 2, "text": "Una empresa recibe un incentivo (descuento/impuesto menor) para invertir en maquinaria", "emoji": "🏭" },
+        { "id": 3, "text": "Una sequía reduce la cantidad de tierra/producto agrícola disponible", "emoji": "🌾" },
+        { "id": 4, "text": "El Estado aumenta fuertemente la emisión de dinero para financiar gasto", "emoji": "💸" }
+      ],
+      "efectos": [
+        {
+          "id": 1,
+          "text": "La familia ajusta consumo: deja de comprar algunas cosas y prioriza otras (costo de oportunidad)",
+          "causa_id": 1,
+          "emoji": "🛒"
+        },
+        {
+          "id": 2,
+          "text": "Aumenta la capacidad productiva: la FPP puede desplazarse hacia afuera por tecnología/capital",
+          "causa_id": 2,
+          "emoji": "📈"
+        },
+        {
+          "id": 3,
+          "text": "Caen las posibilidades de producción: la FPP se desplaza hacia adentro por menos recursos",
+          "causa_id": 3,
+          "emoji": "📉"
+        },
+        {
+          "id": 4,
+          "text": "Tienden a subir precios (inflación) si la producción no acompaña el aumento de dinero",
+          "causa_id": 4,
+          "emoji": "🔥"
+        }
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el proceso del método científico aplicado a un caso económico (precio del cine e inflación):",
+      "pasos_en_orden_correcto": [
+        { "id": 1, "text": "Observación: se detecta un fenómeno (ej.: baja el precio del cine y va más gente)", "emoji": "👁️" },
+        { "id": 2, "text": "Pregunta e hipótesis: se propone una explicación (ej.: precio y cantidad demandada se relacionan)", "emoji": "❓" },
+        { "id": 3, "text": "Predicción: se anticipa qué debería pasar si la hipótesis es cierta (si baja el precio, sube la demanda)", "emoji": "🔮" },
+        { "id": 4, "text": "Verificación: se contrasta con datos reales (no se hacen experimentos controlados perfectos)", "emoji": "📊" },
+        { "id": 5, "text": "Conclusión: si se confirma, se fortalece la teoría; si no, se revisa el modelo/supuestos", "emoji": "🔁" }
+      ]
+    },
+    "n10_comparador": {
+      "concepto_a": { "nombre": "Microeconomía", "emoji": "🔎", "color": "#F59E0B" },
+      "concepto_b": { "nombre": "Macroeconomía", "emoji": "🌍", "color": "#10B981" }
+    }
+  },
+  "senales": {
+    "conceptos_clave": [
+      {
+        "termino": "Escasez + elección",
+        "definicion": "La economía existe porque los recursos (tiempo, dinero, trabajo, capital, naturaleza) son limitados y las necesidades se renuevan. Por eso debemos elegir constantemente cómo asignar lo que tenemos.",
+        "emoji": "⚖️",
+        "importancia": "Sin escasez no hay decisiones difíciles, y sin decisiones no hay economía. Es la base de todo el tema.",
+        "color": "#EF4444"
+      },
+      {
+        "termino": "Necesidades, bienes y servicios",
+        "definicion": "La necesidad es una carencia/deseo; los bienes y servicios son los medios para satisfacerla. No es lo mismo 'necesitar comunicarse' que 'necesitar un modelo específico de celular'.",
+        "emoji": "🧩",
+        "importancia": "Si confundís necesidad con bien, analizás mal consumo, publicidad, pobreza relativa y políticas públicas.",
+        "color": "#8B5CF6"
+      },
+      {
+        "termino": "Utilidad, escasez y valor",
+        "definicion": "La utilidad es la capacidad de satisfacer una necesidad (subjetiva). La escasez limita la disponibilidad. El valor/precio surge de la combinación entre utilidad percibida y escasez (paradoja agua–diamante).",
+        "emoji": "💎",
+        "importancia": "Explica por qué las cosas tienen precio y por qué cambian según el contexto.",
+        "color": "#3B82F6"
+      },
+      {
+        "termino": "Costo de oportunidad y principios de decisión",
+        "definicion": "Elegir una opción implica renunciar a la mejor alternativa. Además, no se deben considerar costos hundidos; se decide con beneficios/costos futuros, análisis marginal e incentivos.",
+        "emoji": "🎯",
+        "importancia": "Es la herramienta mental más práctica de economía: te sirve para estudiar, comprar, trabajar, invertir y para entender políticas.",
+        "color": "#10B981"
+      }
+    ],
+    "semaforo_conceptos": [
+      { "termino": "Escasez física vs escasez económica", "emoji": "🚦" },
+      { "termino": "Necesidades primarias/secundarias y Maslow", "emoji": "🧱" },
+      { "termino": "Bienes: públicos/privados, sustitutos/complementarios", "emoji": "🧺" },
+      { "termino": "Utilidad marginal decreciente", "emoji": "➗" },
+      { "termino": "FPP: eficiencia y costo de oportunidad", "emoji": "📈" }
+    ],
+    "postits_conceptos": ["Escasez + elección", "Necesidades vs bienes/servicios", "Utilidad–escasez–valor", "Costo de oportunidad"]
+  },
+  "sabias": {
+    "flip_cards": [
+      {
+        "frente": "¿Sabías que…?",
+        "dorso": "La economía no trata solo de dinero: también analiza la escasez de tiempo. Aunque fueras millonario/a, seguirías eligiendo porque no podés estar en dos lugares a la vez.",
+        "emoji": "⏳",
+        "color": "#F59E0B"
+      },
+      {
+        "frente": "Dato curioso",
+        "dorso": "La paradoja agua–diamante muestra que el precio no depende solo de lo “importante” que sea algo para vivir. El agua es vital, pero si abunda suele ser barata; si es escasa (desierto) se vuelve carísima.",
+        "emoji": "💧",
+        "color": "#8B5CF6"
+      },
+      {
+        "frente": "¿Lo sabías?",
+        "dorso": "En economía se usan modelos (como mapas) para entender la realidad. Un buen modelo puede fallar si cambian las condiciones: por eso el 'ceteris paribus' es útil… pero también tiene límites.",
+        "emoji": "🗺️",
+        "color": "#EF4444"
+      }
+    ],
+    "linea_de_tiempo": [
+      { "year": "Siglo IV a.C.", "text": "Aristóteles habla de valor de uso y valor de cambio (antes de la economía moderna)", "emoji": "🏛️" },
+      { "year": "1776", "text": "Se consolida la economía como disciplina moderna con grandes debates sobre mercado y producción", "emoji": "📚" },
+      { "year": "Siglo XIX", "text": "Se desarrolla el análisis de utilidades, costos y decisiones con herramientas más formales", "emoji": "➗" },
+      { "year": "Siglo XX", "text": "Macroeconomía y política económica ganan protagonismo por crisis e inflación", "emoji": "🌍" },
+      { "year": "2026", "text": "Economía del tiempo, atención y datos: redes sociales como bienes/servicios que compiten por tu tiempo", "emoji": "📱" }
+    ],
+    "encuesta": {
+      "pregunta": "¿Qué idea te voló más la cabeza de esta unidad?",
+      "opciones": [
+        { "text": "Que la economía también es escasez de tiempo, no solo plata", "emoji": "⏳", "votos_iniciales": 41 },
+        { "text": "Que el agua puede valer distinto según la escasez (paradoja agua–diamante)", "emoji": "💧", "votos_iniciales": 34 },
+        { "text": "Que los costos hundidos no deberían decidir tu futuro", "emoji": "🧠", "votos_iniciales": 25 }
+      ]
+    }
+  },
+  "cruces": {
+    "puentes": [
+      {
+        "materia": "Matemática",
+        "emoji": "📐",
+        "color": "#F59E0B",
+        "conexion": "La FPP, tablas y gráficos (utilidad total/marginal) usan lectura e interpretación matemática.",
+        "pregunta": "¿Qué información se pierde si solo miramos números y no el contexto social?",
+        "vinculo": "Funciones, gráficos, proporcionalidad y análisis de variación"
+      },
+      {
+        "materia": "Formación Ética y Ciudadana",
+        "emoji": "⚖️",
+        "color": "#10B981",
+        "conexion": "La pregunta '¿para quién producir?' conecta economía con justicia, equidad y derechos.",
+        "pregunta": "¿Cuándo una necesidad (como internet) debería considerarse un derecho garantizado?",
+        "vinculo": "Derechos sociales, igualdad, rol del Estado"
+      },
+      {
+        "materia": "Lengua y Literatura",
+        "emoji": "📰",
+        "color": "#8B5CF6",
+        "conexion": "Distinguir economía positiva vs normativa requiere analizar lenguaje: hechos, opinión y persuasión.",
+        "pregunta": "¿Qué palabras te hacen notar que un texto intenta convencer y no solo informar?",
+        "vinculo": "Texto argumentativo, opinión vs información"
+      },
+      {
+        "materia": "Geografía",
+        "emoji": "🌍",
+        "color": "#3B82F6",
+        "conexion": "Recursos naturales, clima y ubicación influyen en escasez y en desplazamientos de la FPP (sequías, energía).",
+        "pregunta": "¿Por qué el mismo bien (agua) puede tener precios y conflictos distintos según la región?",
+        "vinculo": "Recursos, territorio, actividades económicas"
+      }
+    ],
+    "telarana": [
+      { "target": "Sociología", "desc": "Necesidades, consumo y pertenencia social explican conductas (moda, validación, exclusión).", "emoji": "👥", "color": "#EF4444" },
+      { "target": "Tecnología", "desc": "Mejoras tecnológicas desplazan la FPP hacia afuera y cambian costos/beneficios.", "emoji": "⚙️", "color": "#8B5CF6" },
+      { "target": "Psicología", "desc": "La utilidad es subjetiva y las decisiones no siempre son racionales; incentivos influyen.", "emoji": "🧠", "color": "#3B82F6" },
+      { "target": "Ambiente", "desc": "Escasez de recursos (agua, energía) afecta producción, precios y bienestar.", "emoji": "🌱", "color": "#10B981" },
+      { "target": "Historia", "desc": "La economía se fue construyendo con ideas sobre valor, producción e intercambio en distintas épocas.", "emoji": "📜", "color": "#F59E0B" },
+      { "target": "Política", "desc": "La política económica usa economía normativa y genera conflictos de intereses.", "emoji": "🏛️", "color": "#EC4899" }
+    ]
+  },
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "En 2026, el celular con internet debería considerarse una necesidad primaria garantizada (como educación y salud).",
+      "contexto": "Organizate en roles. Usá: necesidades primarias/secundarias, pobreza relativa, Maslow (pertenencia/estima), bienes públicos vs privados, y el rol del Estado. El objetivo no es 'ganar' sino argumentar con conceptos de la unidad.",
+      "roles": [
+        { "id": "favor", "label": "A FAVOR", "emoji": "🟢", "color": "#10B981", "desc": "Defendé que hoy la conectividad es condición para participar plenamente (educación, trámites, vínculos, oportunidades). Usá pobreza relativa y exclusión social." },
+        { "id": "contra", "label": "EN CONTRA", "emoji": "🔴", "color": "#EF4444", "desc": "Argumentá que sigue siendo un bien y no una necesidad garantizada: hay alternativas, costos fiscales, y riesgos de confundir deseo con derecho. Proponé criterios." },
+        { "id": "juez", "label": "JUEZ/A", "emoji": "👨‍⚖️", "color": "#8B5CF6", "desc": "Evaluá evidencia y criterios: ¿en qué condiciones podría ser derecho? ¿a quiénes? ¿cómo se financia? Emití veredicto con razones." }
+      ]
+    },
+    "tesis": {
+      "consigna": "Redactá una tesis (una oración fuerte) sobre: 'La escasez de tiempo es tan económica como la escasez de dinero'. Luego agregá 2 evidencias (una de tu vida cotidiana y otra del funcionamiento de una sociedad/país) y cerrá con una conclusión."
+    },
+    "critica": {
+      "consigna": "Releé la parte de modelos, supuestos y ceteris paribus. Identificá: 2 ventajas de usar modelos para entender la realidad, 2 límites (qué dejan afuera), 1 ejemplo donde un modelo fallaría por cambio de contexto y 1 mejora posible del modelo."
+    }
+  },
+  "emocional": {
+    "_nota": "Las actividades emocionales no necesitan contenido específico por unidad. Usan la misma estructura siempre (escala emocional, diario antes/durante/después, termómetro antes/después). El motor las genera automáticamente."
+  },
+  "autotest": {
+    "preguntas": [
+      {
+        "pregunta": "¿Por qué se dice que la economía es la ciencia de la escasez y la elección?",
+        "opciones": ["Porque siempre falta dinero en los países", "Porque los recursos son limitados y las necesidades se renuevan, obligando a elegir", "Porque solo estudia precios altos", "Porque trata únicamente de empresas"],
+        "correcta": 1,
+        "explicacion": "La economía analiza decisiones con recursos limitados (tiempo, dinero, trabajo) frente a necesidades/deseos que no se agotan."
+      },
+      {
+        "pregunta": "¿Qué diferencia a una necesidad de un bien?",
+        "opciones": ["No hay diferencia: son lo mismo", "La necesidad es la carencia/deseo; el bien o servicio es lo que la satisface", "El bien siempre es algo caro", "La necesidad siempre es algo material"],
+        "correcta": 1,
+        "explicacion": "Necesidad = carencia/deseo. Bien/servicio = medio para satisfacerla (ej.: comunicarse vs celular)."
+      },
+      {
+        "pregunta": "¿Qué afirma la ley de utilidad marginal decreciente?",
+        "opciones": ["Cuanto más consumís, más satisfacción adicional obtenés", "La utilidad es igual para todas las personas", "A medida que consumís más, la satisfacción adicional de cada unidad tiende a bajar", "La utilidad depende solo del precio"],
+        "correcta": 2,
+        "explicacion": "La utilidad marginal es la satisfacción extra por una unidad más y suele disminuir con el consumo."
+      },
+      {
+        "pregunta": "¿Cuál es el criterio correcto ante un costo irrecuperable (hundido)?",
+        "opciones": ["Decidir según lo que ya gasté para no 'perder'", "Ignorarlo y decidir según costos y beneficios futuros", "Pedir un préstamo para recuperar lo gastado", "No decidir y esperar"],
+        "correcta": 1,
+        "explicacion": "Lo pasado no se recupera. La decisión debe mirar el futuro: beneficios y costos a partir de ahora."
+      },
+      {
+        "pregunta": "En una FPP, un punto dentro de la frontera indica…",
+        "opciones": ["Producción imposible", "Producción eficiente", "Producción ineficiente con recursos desaprovechados", "Crecimiento económico"],
+        "correcta": 2,
+        "explicacion": "Dentro de la frontera hay desempleo, máquinas paradas o mala asignación: se podría producir más sin nuevos recursos."
+      },
+      {
+        "pregunta": "¿Qué ejemplo corresponde mejor a microeconomía?",
+        "opciones": ["La inflación anual del país", "La tasa de desempleo nacional", "La decisión de una panadería sobre cuántos empleados contratar", "El crecimiento del PIB"],
+        "correcta": 2,
+        "explicacion": "Microeconomía estudia decisiones de agentes individuales (familias, empresas, mercados específicos)."
+      }
+    ]
+  },
+  "cierre": {
+    "glosario": [
+      { "termino": "Economía", "definicion": "Ciencia social que estudia cómo se administran recursos escasos para satisfacer necesidades ilimitadas, mediante decisiones y asignación.", "emoji": "📚", "categoria": "Concepto base" },
+      { "termino": "Escasez económica", "definicion": "Situación en la que, por recursos limitados, no se pueden satisfacer todas las necesidades y se debe elegir.", "emoji": "⚖️", "categoria": "Concepto base" },
+      { "termino": "Necesidad", "definicion": "Sensación de carencia unida al deseo de satisfacerla; se reproduce y cambia con época, entorno y publicidad.", "emoji": "🧩", "categoria": "Concepto base" },
+      { "termino": "Bien y servicio", "definicion": "Medios para satisfacer necesidades: bienes (productos) y servicios (actividades/personas).", "emoji": "🛠️", "categoria": "Concepto base" },
+      { "termino": "Utilidad marginal", "definicion": "Satisfacción adicional por consumir una unidad más de un bien; suele ser decreciente.", "emoji": "➕", "categoria": "Procesos/decisiones" },
+      { "termino": "Valor de uso / valor de cambio", "definicion": "Valor de uso: utilidad para satisfacer una necesidad. Valor de cambio: precio en el mercado.", "emoji": "💎", "categoria": "Conceptos clave" },
+      { "termino": "Costo de oportunidad", "definicion": "La mejor alternativa a la que renunciamos al elegir una opción; incluye costos monetarios e invisibles.", "emoji": "🎯", "categoria": "Procesos/decisiones" },
+      { "termino": "FPP (Frontera de Posibilidades de Producción)", "definicion": "Gráfico de combinaciones máximas de dos bienes que se pueden producir con recursos y tecnología dados.", "emoji": "📈", "categoria": "Modelos" }
+    ],
+    "recursos": [
+      { "tipo": "🎬 Video", "title": "FPP y costo de oportunidad (explicación con gráficos)", "desc": "Video corto con ejemplos de puntos eficientes/ineficientes y desplazamientos por tecnología o recursos.", "nivel": "Introductorio", "color": "#8B5CF6" },
+      { "tipo": "🌐 Web", "title": "Economipedia – Conceptos básicos de economía", "desc": "Definiciones claras: escasez, utilidad, costo de oportunidad, micro vs macro, bienes públicos/privados.", "nivel": "Introductorio", "color": "#EF4444" },
+      { "tipo": "📄 Artículo", "title": "Necesidades, consumo y publicidad (mirada crítica)", "desc": "Lectura breve sobre cómo publicidad y entorno transforman deseos en 'necesidades' percibidas.", "nivel": "Intermedio", "color": "#F59E0B" },
+      { "tipo": "🎧 Podcast", "title": "Decisiones económicas cotidianas: tiempo, plata e incentivos", "desc": "Episodio sobre cómo los incentivos y el análisis marginal explican decisiones reales.", "nivel": "Intermedio", "color": "#3B82F6" },
+      { "tipo": "📖 Libro", "title": "Economía para no economistas (capítulos iniciales)", "desc": "Libro accesible para consolidar fundamentos: escasez, elección, costos y herramientas de análisis.", "nivel": "Avanzado", "color": "#10B981" }
+    ]
+  }
+}

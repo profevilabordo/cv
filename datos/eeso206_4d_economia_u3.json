@@ -1,0 +1,565 @@
+{
+  "materia": "Economía",
+  "unidad": 1,
+  "titulo": "La Ciencia Económica y sus Fundamentos",
+  "emoji": "⚖️",
+  "color_primario": "#6366F1",
+  "color_secundario": "#8B5CF6",
+
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "📱",
+        "texto": "Tenés $50.000 y podés comprarte zapatillas nuevas, cargar datos en el celu o ahorrar para el viaje de egresados. Solo podés elegir una cosa. ¿Qué elegís y qué perdés al elegir eso?",
+        "pista": "Cada decisión implica renunciar a algo. Eso que dejás de lado tiene un nombre económico muy específico... ¿cuál será?"
+      },
+      {
+        "emoji": "💎",
+        "texto": "El agua es indispensable para vivir y casi no tiene precio. Un diamante no sirve para sobrevivir y cuesta una fortuna. ¿Cómo puede ser que algo tan necesario valga tan poco y algo tan inútil valga tanto?",
+        "pista": "La respuesta no está solo en la utilidad del bien, sino en cuánto hay disponible de ese bien. Pensá en la relación entre abundancia y valor..."
+      },
+      {
+        "emoji": "🏭",
+        "texto": "Argentina tiene tierras fértiles, recursos naturales y gente capacitada, pero muchas veces no alcanza a producir todo lo que necesita la población. ¿Por qué no puede una economía producir todo lo que quiere?",
+        "pista": "No es un problema de voluntad. Es un problema estructural de toda economía. Pensá en los recursos que hacen falta para producir: tierra, trabajo, capital..."
+      }
+    ],
+    "situaciones_conecta": [
+      {"emoji": "🛒", "label": "Fui al super con plata justa y tuve que dejar algo en la góndola"},
+      {"emoji": "⏰", "label": "Quise estudiar y salir al mismo tiempo y tuve que elegir uno de los dos"},
+      {"emoji": "📊", "label": "Escuché en las noticias hablar de inflación o de crisis y no entendí bien de qué hablaban"},
+      {"emoji": "🤔", "label": "Me preguntaron para qué sirve estudiar si podrías estar trabajando y ganando plata ahora"}
+    ],
+    "termometro_pregunta": "¿Cuánto creés que la economía tiene que ver con tus decisiones de todos los días?"
+  },
+
+  "mapa": {
+    "ruta_paradas": [
+      {"id": 1, "title": "¿Qué es la Economía?", "desc": "Definición, escasez, necesidades ilimitadas y las 3 preguntas fundamentales", "emoji": "📖", "color": "#6366F1"},
+      {"id": 2, "title": "Pensar como economista", "desc": "Método científico, modelos, ceteris paribus, economía positiva y normativa", "emoji": "🔬", "color": "#3B82F6"},
+      {"id": 3, "title": "Bienes, necesidades y valor", "desc": "Clasificación de bienes, utilidad marginal, paradoja del agua y el diamante", "emoji": "💡", "color": "#10B981"},
+      {"id": 4, "title": "Decisiones y costo de oportunidad", "desc": "Los 4 principios económicos para tomar decisiones racionales", "emoji": "⚖️", "color": "#F59E0B"},
+      {"id": 5, "title": "FPP y Agentes Económicos", "desc": "Frontera de posibilidades de producción, familias, empresas y Estado", "emoji": "🏛️", "color": "#EC4899"}
+    ],
+    "panoramica_bloques": [
+      {
+        "title": "Bloque A",
+        "subtitle": "La economía como ciencia: objeto y método",
+        "items": ["Definición de economía: ciencia de la escasez y la elección", "Las 3 preguntas: ¿qué, cómo y para quién producir?", "Micro, macro y economía internacional", "Método científico, modelos y ceteris paribus", "Economía positiva vs. normativa y política económica"],
+        "emoji": "📖",
+        "color": "#6366F1"
+      },
+      {
+        "title": "Bloque B",
+        "subtitle": "Bienes, necesidades, utilidad y valor",
+        "items": ["Clasificación de necesidades: primarias, secundarias y pirámide de Maslow", "Recursos, bienes y servicios: tipos y características", "Escasez económica vs. escasez física", "Utilidad total, utilidad marginal y ley de utilidad decreciente", "Valor de uso, valor de cambio y paradoja del agua y el diamante"],
+        "emoji": "💡",
+        "color": "#10B981"
+      },
+      {
+        "title": "Bloque C",
+        "subtitle": "Decisiones, FPP y agentes de la economía",
+        "items": ["Los 4 principios: costo de oportunidad, costos irrecuperables, análisis marginal e incentivos", "Frontera de Posibilidades de Producción: eficiencia, escasez y crecimiento", "Familias, empresas y Estado como agentes económicos", "Flujo circular de la economía"],
+        "emoji": "🏛️",
+        "color": "#EC4899"
+      }
+    ],
+    "mapa_mental": {
+      "centro": {"title": "La Ciencia Económica y sus Fundamentos", "emoji": "⚖️"},
+      "ramas": [
+        {
+          "id": 1, "title": "¿Qué estudia la economía?",
+          "items": ["Administrar recursos escasos para satisfacer necesidades ilimitadas", "Las 3 preguntas: ¿qué, cómo y para quién producir?", "Micro: decisiones individuales / Macro: economía global", "Economía positiva (describe) vs. normativa (propone)"],
+          "color": "#6366F1", "emoji": "📖"
+        },
+        {
+          "id": 2, "title": "¿Cómo se estudia?",
+          "items": ["Método científico: observar, hipotetizar, predecir, verificar", "Modelos económicos: representaciones simplificadas de la realidad", "Ceteris paribus: aislar variables para analizar causas", "Inductivo: de lo particular a lo general / Deductivo: al revés"],
+          "color": "#3B82F6", "emoji": "🔬"
+        },
+        {
+          "id": 3, "title": "¿Qué son bienes y necesidades?",
+          "items": ["Necesidades primarias y secundarias; pirámide de Maslow", "Bienes de consumo vs. capital; públicos vs. privados; finales vs. intermedios", "Utilidad total y utilidad marginal decreciente", "Escasez + utilidad = valor (paradoja del agua y el diamante)"],
+          "color": "#10B981", "emoji": "💡"
+        },
+        {
+          "id": 4, "title": "¿Cómo se toman decisiones?",
+          "items": ["Costo de oportunidad: lo que resignás al elegir", "Costos irrecuperables: el pasado no debe influir en el futuro", "Análisis marginal: ¿conviene una unidad más?", "FPP: límite de producción con recursos dados; agentes económicos"],
+          "color": "#F59E0B", "emoji": "⚖️"
+        }
+      ]
+    }
+  },
+
+  "nucleo": {
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená estos conceptos según el orden lógico en que se encadenan para explicar el problema económico fundamental:",
+      "items": [
+        {"id": 1, "text": "Los recursos (tierra, trabajo, capital, tiempo) son limitados en toda economía", "emoji": "🌍"},
+        {"id": 2, "text": "Las necesidades humanas son ilimitadas y se renuevan constantemente", "emoji": "♾️"},
+        {"id": 3, "text": "Surge la escasez económica: no se puede satisfacer todo con lo que hay", "emoji": "⚠️"},
+        {"id": 4, "text": "Toda sociedad debe elegir: ¿qué producir, cómo y para quién?", "emoji": "⚖️"},
+        {"id": 5, "text": "Cada elección implica un costo de oportunidad: resignar la mejor alternativa no elegida", "emoji": "💸"}
+      ],
+      "orden_correcto": [1, 2, 3, 4, 5],
+      "_nota": "El orden refleja la cadena lógica del razonamiento económico"
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada afirmación o ejemplo según pertenezca a la ECONOMÍA POSITIVA o a la ECONOMÍA NORMATIVA:",
+      "categorias": [
+        {"name": "Economía Positiva", "color": "#3B82F6", "emoji": "📊"},
+        {"name": "Economía Normativa", "color": "#EC4899", "emoji": "💬"}
+      ],
+      "items": [
+        {"id": 1, "text": "Cuando el precio de un bien sube, la cantidad demandada baja (ceteris paribus)", "categoria_correcta": 0},
+        {"id": 2, "text": "El Estado debería aumentar el gasto en educación pública para reducir la desigualdad", "categoria_correcta": 1},
+        {"id": 3, "text": "En Argentina, la inflación superó el 100% anual en 2023", "categoria_correcta": 0},
+        {"id": 4, "text": "Se deberían subir los impuestos a las ganancias de las grandes empresas", "categoria_correcta": 1},
+        {"id": 5, "text": "Si una empresa vende por debajo de sus costos durante mucho tiempo, quebra", "categoria_correcta": 0},
+        {"id": 6, "text": "El gobierno debería fijar un precio máximo para los alimentos de la canasta básica", "categoria_correcta": 1}
+      ],
+      "_nota": "Positiva = verificable con datos, describe la realidad. Normativa = juicio de valor, propone cómo debería ser."
+    },
+
+    "n3_completar_mapa": {
+      "consigna": "Completá los espacios en blanco con el concepto correcto:",
+      "blanks": [
+        {"id": "a", "texto_antes": "La economía es la ciencia que estudia cómo administrar recursos escasos para satisfacer necesidades", "respuesta_correcta": "ilimitadas", "pista": "I_________"},
+        {"id": "b", "texto_antes": "La Frontera de Posibilidades de Producción muestra que, para producir más de un bien, hay que producir menos del otro, lo que implica un costo de", "respuesta_correcta": "oportunidad", "pista": "O__________"},
+        {"id": "c", "texto_antes": "La utilidad marginal es la satisfacción adicional que obtenemos al consumir una unidad más de un bien, y según la ley, esa utilidad es", "respuesta_correcta": "decreciente", "pista": "D_________"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "afirmaciones": [
+        {
+          "texto": "La escasez económica solo afecta a las personas pobres; los ricos no tienen escasez porque pueden comprar todo lo que quieren.",
+          "correcto": false,
+          "explicacion": "Falso. La escasez económica es universal: aunque los recursos fueran enormes, el tiempo es siempre limitado. Incluso los más ricos deben elegir cómo usar sus 24 horas. No pueden estar en dos lugares a la vez ni satisfacer todas sus necesidades simultáneamente. La escasez no es pobreza, sino la imposibilidad de satisfacer todo con recursos limitados."
+        },
+        {
+          "texto": "Un punto que queda por debajo de la Frontera de Posibilidades de Producción indica que la economía no está usando todos sus recursos disponibles de manera eficiente.",
+          "correcto": true,
+          "explicacion": "Correcto. Un punto dentro de la FPP (por debajo de la curva) significa producción ineficiente: hay recursos sin usar, como trabajadores desempleados, fábricas paradas o tierras sin cultivar. Solo los puntos sobre la frontera representan eficiencia productiva plena."
+        },
+        {
+          "texto": "Los costos irrecuperables deben tenerse muy en cuenta al tomar una nueva decisión, porque ya se gastó dinero y no se puede desperdiciar.",
+          "correcto": false,
+          "explicacion": "Falso. Este es uno de los errores más comunes en economía. Los costos irrecuperables son gastos del pasado que no se pueden recuperar, hagas lo que hagas. La decisión debe basarse solo en los beneficios y costos futuros, no en lo ya gastado. Si compraste una entrada y surge algo mejor, lo relevante es qué te conviene más ahora, no cuánto pagaste antes."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "pares": [
+        {"izquierda": "Microeconomía", "derecha": "Estudia las decisiones de familias, empresas y mercados específicos", "emoji": "🔍"},
+        {"izquierda": "Macroeconomía", "derecha": "Analiza el PIB, la inflación, el desempleo y las políticas fiscales de un país", "emoji": "🌐"},
+        {"izquierda": "Ceteris paribus", "derecha": "Supuesto que mantiene todo lo demás constante para aislar el efecto de una variable", "emoji": "🔬"},
+        {"izquierda": "Economía normativa", "derecha": "Propone cómo deberían ser las cosas, incluyendo juicios de valor y opiniones", "emoji": "💬"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "grupos": [
+        {
+          "pregunta": "¿Cuál de estos NO es un factor productivo clásico que entra en el proceso de producción?",
+          "palabras": [
+            {"text": "Tierra", "es_intrusa": false},
+            {"text": "Trabajo", "es_intrusa": false},
+            {"text": "Demanda", "es_intrusa": true},
+            {"text": "Capital", "es_intrusa": false}
+          ],
+          "explicacion": "La demanda es la cantidad de un bien que los consumidores quieren comprar, no un factor productivo. Los tres factores productivos clásicos son tierra (recursos naturales), trabajo (mano de obra) y capital (maquinaria, infraestructura). A veces se agrega la tecnología o el capital humano como cuarto factor.",
+          "emoji": "🏭"
+        },
+        {
+          "pregunta": "¿Cuál de estos es un ejemplo de BIEN PÚBLICO y no de bien privado?",
+          "palabras": [
+            {"text": "Un auto particular", "es_intrusa": false},
+            {"text": "Una zapatilla", "es_intrusa": false},
+            {"text": "Un departamento", "es_intrusa": false},
+            {"text": "El alumbrado de la calle", "es_intrusa": true}
+          ],
+          "explicacion": "El alumbrado de la calle es un bien público: no es rival (que yo lo use no impide que otro también lo use) y no es excluyente (no podés dejar a alguien afuera de su uso). Los bienes privados como un auto, una zapatilla o un departamento son rivales y excluyentes: si yo los uso, vos no podés.",
+          "emoji": "🌆"
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "conceptos": [
+        {
+          "termino": "Costo de oportunidad",
+          "pista": "Cuando elegís comprar algo con tu plata, ¿qué pasa con las otras cosas que también querías? ¿Qué perdés al elegir?",
+          "palabras_clave": ["renuncia", "alternativa", "elegir", "perder", "decisión", "resignar"]
+        },
+        {
+          "termino": "Utilidad marginal decreciente",
+          "pista": "Pensá en comer pizzas con mucha hambre: la primera está buenísima, la cuarta ya casi no te da satisfacción. ¿Por qué pasa eso?",
+          "palabras_clave": ["satisfacción", "adicional", "decrece", "unidad", "más", "consume"]
+        },
+        {
+          "termino": "Frontera de Posibilidades de Producción",
+          "pista": "Una economía solo puede producir hasta cierto límite con los recursos que tiene. ¿Qué pasa si quiere producir más de un bien?",
+          "palabras_clave": ["recursos", "límite", "eficiencia", "combinación", "producción", "oportunidad"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "causas": [
+        {"id": 1, "text": "Una economía sufre una sequía severa que destruye gran parte de sus tierras productivas", "emoji": "🌵"},
+        {"id": 2, "text": "Una empresa desarrolla una tecnología que permite producir el doble con los mismos trabajadores", "emoji": "🤖"},
+        {"id": 3, "text": "El gobierno sube los impuestos a las empresas para financiar más gasto público", "emoji": "🏛️"},
+        {"id": 4, "text": "La cantidad de dinero en circulación aumenta mucho más rápido que la producción de bienes", "emoji": "💸"}
+      ],
+      "efectos": [
+        {"id": 1, "text": "La Frontera de Posibilidades de Producción se desplaza hacia adentro: la economía puede producir menos", "causa_id": 1, "emoji": "📉"},
+        {"id": 2, "text": "La FPP se desplaza hacia afuera: hay crecimiento económico sin necesidad de más recursos", "causa_id": 2, "emoji": "📈"},
+        {"id": 3, "text": "Las empresas reducen inversión y contratación: decisiones micro afectan variables macro", "causa_id": 3, "emoji": "🏗️"},
+        {"id": 4, "text": "Los precios suben de manera generalizada: aparece inflación (economía positiva verificable)", "causa_id": 4, "emoji": "🔥"}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená las etapas del método científico aplicado a la economía:",
+      "pasos_en_orden_correcto": [
+        {"id": 1, "text": "OBSERVACIÓN: se detecta un fenómeno de la realidad (ej: cuando bajan las entradas al cine, va más gente)", "emoji": "👁️"},
+        {"id": 2, "text": "HIPÓTESIS: se propone una explicación (ej: existe relación entre precio y cantidad demandada)", "emoji": "💡"},
+        {"id": 3, "text": "PREDICCIÓN: se formula qué debería ocurrir (ej: si baja el precio, la demanda sube)", "emoji": "🔮"},
+        {"id": 4, "text": "VERIFICACIÓN: se comparan las predicciones con datos reales de distintos países y períodos", "emoji": "📊"},
+        {"id": 5, "text": "RESULTADO: si los datos confirman la hipótesis, se acepta como teoría; si no, se reformula", "emoji": "🔄"}
+      ]
+    },
+
+    "n10_comparador": {
+      "concepto_a": {"nombre": "Microeconomía", "emoji": "🔍", "color": "#3B82F6"},
+      "concepto_b": {"nombre": "Macroeconomía", "emoji": "🌐", "color": "#10B981"},
+      "_nota": "El alumno compara escala de análisis, actores, variables estudiadas y herramientas. No hay respuesta correcta única, es actividad abierta."
+    }
+  },
+
+  "senales": {
+    "conceptos_clave": [
+      {
+        "termino": "Escasez económica",
+        "definicion": "Los recursos son limitados (dinero, tiempo, tierra, trabajo, capital) pero las necesidades humanas son ilimitadas y siempre se renuevan. Esta tensión obliga a toda sociedad a elegir qué producir, cómo y para quién. No es lo mismo que pobreza: hasta los más ricos tienen tiempo limitado y deben elegir.",
+        "emoji": "⏳",
+        "importancia": "Sin este concepto, la economía no existiría como ciencia. Todo lo demás —costo de oportunidad, FPP, política económica— parte de acá.",
+        "color": "#EF4444"
+      },
+      {
+        "termino": "Costo de oportunidad",
+        "definicion": "Es aquello a lo que renunciás al tomar una decisión. Incluye costos monetarios (lo que gastás) y costos invisibles (lo que dejás de ganar o hacer). Cada vez que elegís algo, el costo real es la mejor alternativa que descartaste.",
+        "emoji": "⚖️",
+        "importancia": "Es el concepto más subestimado y más poderoso de la economía. Entenderlo cambia cómo tomás cada decisión: estudiar, trabajar, invertir, gastar tiempo.",
+        "color": "#8B5CF6"
+      },
+      {
+        "termino": "Frontera de Posibilidades de Producción (FPP)",
+        "definicion": "Representación gráfica de todas las combinaciones posibles de dos bienes que una economía puede producir usando eficientemente todos sus recursos. Los puntos sobre la curva son eficientes; los de adentro son ineficientes (recursos ociosos); los de afuera son inalcanzables con los recursos actuales.",
+        "emoji": "📈",
+        "importancia": "La FPP visualiza de un golpe los conceptos de escasez, eficiencia, costo de oportunidad y crecimiento económico. Sin entenderla, no podés analizar ninguna política de producción.",
+        "color": "#3B82F6"
+      },
+      {
+        "termino": "Utilidad marginal decreciente",
+        "definicion": "La satisfacción adicional que obtenés al consumir una unidad más de un bien va disminuyendo con cada unidad consumida. La primera pizza cuando tenés hambre da mucha satisfacción; la cuarta, casi ninguna. Esto explica por qué no compramos cantidades infinitas de nada.",
+        "emoji": "📉",
+        "importancia": "Explica la ley de demanda, la paradoja del agua y el diamante, y fundamenta toda la teoría del comportamiento del consumidor.",
+        "color": "#10B981"
+      }
+    ],
+    "semaforo_conceptos": [
+      {"termino": "Escasez económica y las 3 preguntas fundamentales", "emoji": "⏳"},
+      {"termino": "Costo de oportunidad (monetario e invisible)", "emoji": "⚖️"},
+      {"termino": "Frontera de Posibilidades de Producción (FPP)", "emoji": "📈"},
+      {"termino": "Utilidad total vs. utilidad marginal decreciente", "emoji": "🍕"},
+      {"termino": "Agentes económicos y flujo circular", "emoji": "🏛️"}
+    ],
+    "postits_conceptos": ["Escasez económica", "Costo de oportunidad", "FPP", "Utilidad marginal"]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {
+        "frente": "¿Sabías que...?",
+        "dorso": "La palabra 'economía' viene del griego oikos (casa) + nomos (administración): literalmente significa 'administrar el hogar'. Hace 2.500 años, Aristóteles ya diferenciaba la economía (administrar los recursos del hogar con ética) de la crematística (acumular riqueza sin límite). El debate entre eficiencia y justicia que ves hoy en Argentina existía en la Grecia antigua.",
+        "emoji": "🏛️",
+        "color": "#F59E0B"
+      },
+      {
+        "frente": "Dato curioso",
+        "dorso": "Durante el confinamiento por COVID-19 en 2020, en pocas horas desaparecieron del mercado papel higiénico, harina y fideos. Esto no fue porque hubiera escasez real de esos productos: fue porque millones de personas, asustadas, cambiaron su comportamiento simultáneamente. La pirámide de Maslow entró en acción: cuando se amenaza el nivel 1 (necesidades básicas), dejamos de pensar en los niveles superiores y entramos en modo supervivencia.",
+        "emoji": "🦠",
+        "color": "#8B5CF6"
+      },
+      {
+        "frente": "¿Lo sabías?",
+        "dorso": "Un diamante cuesta una fortuna y el agua casi nada, aunque el agua sea indispensable para vivir y el diamante no. Esta es la famosa 'paradoja del agua y el diamante' que Adam Smith no supo resolver. La respuesta llegó un siglo después: el valor no depende solo de la utilidad, sino de la escasez relativa. El agua es tan abundante que su utilidad marginal (la de un vaso más) es bajísima. El diamante es tan escaso que cada unidad adicional sigue siendo muy valiosa.",
+        "emoji": "💎",
+        "color": "#EF4444"
+      }
+    ],
+    "linea_de_tiempo": [
+      {"year": "Siglo IV a.C.", "text": "Aristóteles: primeras reflexiones sobre economía, valor de uso y condena de la acumulación sin límite", "emoji": "🏛️"},
+      {"year": "Siglos XVI-XVII", "text": "Mercantilismo: los Estados europeos creen que la riqueza es el oro acumulado y regulan el comercio para acumularlo", "emoji": "👑"},
+      {"year": "1776", "text": "Adam Smith publica 'La riqueza de las naciones': nace la economía moderna como ciencia; presenta la 'mano invisible'", "emoji": "📖"},
+      {"year": "Fines del siglo XIX", "text": "Revolución marginalista: Jevons, Menger y Walras explican el valor por la utilidad marginal y resuelven la paradoja del agua y el diamante", "emoji": "📐"},
+      {"year": "1936", "text": "Keynes publica 'Teoría general': nace la macroeconomía moderna; el Estado puede intervenir para estabilizar la economía", "emoji": "📊"}
+    ],
+    "encuesta": {
+      "pregunta": "¿Qué dato te pareció más sorprendente?",
+      "opciones": [
+        {"text": "Que 'economía' signifique 'administrar el hogar' desde la Antigua Grecia", "emoji": "🏛️", "votos_iniciales": 32},
+        {"text": "Que el pánico del COVID-19 vacíe estantes sin que haya escasez real", "emoji": "🦠", "votos_iniciales": 41},
+        {"text": "Que Smith no pudo explicar por qué el agua vale menos que un diamante", "emoji": "💎", "votos_iniciales": 27}
+      ]
+    }
+  },
+
+  "cruces": {
+    "puentes": [
+      {
+        "materia": "Matemática",
+        "emoji": "📐",
+        "color": "#F59E0B",
+        "conexion": "La FPP es un modelo gráfico: implica leer e interpretar curvas en un sistema de coordenadas, calcular pendientes y entender qué significa cada punto en el plano. La utilidad marginal decreciente se puede modelar con funciones. El análisis costo-beneficio usa operaciones aritméticas y comparación de valores.",
+        "pregunta": "Si la FPP entre alimentos y ropa es una curva cóncava (no una línea recta), ¿qué nos dice eso sobre cómo cambia el costo de oportunidad a medida que producimos más de un bien?",
+        "vinculo": "Funciones, gráficos, interpretación de curvas y variación"
+      },
+      {
+        "materia": "Historia",
+        "emoji": "📜",
+        "color": "#10B981",
+        "conexion": "La economía nació en respuesta a problemas históricos concretos: el surgimiento del mercantilismo con las colonias americanas, el liberalismo de Smith con la Revolución Industrial, la macroeconomía keynesiana con la Gran Depresión de 1929. En Argentina, las crisis de 1890, 2001 y 2018 son experimentos naturales que los economistas estudian para validar teorías.",
+        "pregunta": "¿Por qué las grandes crisis económicas (1929, 2001) generan siempre cambios profundos en las teorías económicas dominantes? ¿La economía aprende de la historia?",
+        "vinculo": "Historia económica argentina y mundial, grandes crisis del capitalismo"
+      },
+      {
+        "materia": "Filosofía",
+        "emoji": "🤔",
+        "color": "#8B5CF6",
+        "conexion": "Aristóteles ya planteaba que la economía debía estar subordinada a la ética: no todo lo que es eficiente es justo. La tensión entre economía positiva (describir lo que es) y normativa (decir lo que debería ser) es un problema filosófico. ¿Tiene la economía valores? ¿Puede ser neutral? ¿Quién decide para quién se produce?",
+        "pregunta": "Si la economía positiva describe y la normativa prescribe, ¿puede un economista ser completamente 'neutral' al analizar la realidad, o siempre hay valores implícitos en lo que elige estudiar?",
+        "vinculo": "Ética, epistemología y filosofía de las ciencias sociales"
+      },
+      {
+        "materia": "Psicología",
+        "emoji": "🧠",
+        "color": "#3B82F6",
+        "conexion": "La pirámide de Maslow es el puente directo: la economía asume que las personas satisfacen necesidades de menor a mayor jerarquía, exactamente como lo describe Maslow. Además, la economía conductual (Kahneman, Nobel 2002) demostró que las personas no siempre son racionales: sufrimos aversión a la pérdida, efecto ancla y sesgo del costo irrecuperable.",
+        "pregunta": "Si las personas cometemos sistemáticamente los errores que describe la economía conductual (como no ignorar los costos irrecuperables), ¿tiene sentido construir teorías económicas que asumen comportamiento racional?",
+        "vinculo": "Motivación, necesidades humanas, toma de decisiones y sesgos cognitivos"
+      }
+    ],
+    "telarana": [
+      {"target": "Sociología", "desc": "La pregunta '¿para quién producir?' es una pregunta sobre distribución del ingreso, clases sociales y desigualdad", "emoji": "👥", "color": "#EF4444"},
+      {"target": "Ciencias Políticas", "desc": "La política económica (impuestos, gasto público, regulaciones) es la aplicación de la economía normativa por parte del Estado", "emoji": "🗳️", "color": "#8B5CF6"},
+      {"target": "Geografía", "desc": "La disponibilidad de recursos naturales (tierra fértil, petróleo, agua) determina la FPP inicial de cada país", "emoji": "🌍", "color": "#3B82F6"},
+      {"target": "Estadística", "desc": "Los modelos económicos se verifican con datos: series históricas, regresiones y pruebas de hipótesis son herramientas clave", "emoji": "📊", "color": "#EC4899"},
+      {"target": "Ecología", "desc": "Los recursos naturales son la base de toda FPP. El agotamiento ambiental desplaza la frontera hacia adentro de manera irreversible", "emoji": "🌱", "color": "#10B981"},
+      {"target": "Derecho", "desc": "El Estado regula la economía mediante leyes: contratos, propiedad, defensa del consumidor y regulación de mercados son marcos legales", "emoji": "⚖️", "color": "#F59E0B"}
+    ]
+  },
+
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "El Estado no debería intervenir en la economía: el mercado libre y la mano invisible generan mayor bienestar que cualquier regulación estatal.",
+      "contexto": "Esta es la tensión central de la economía política desde Adam Smith hasta hoy. Argentina es un caso extremo: tuvo períodos de fuerte intervención estatal (controles de precios, subsidios, empresas públicas) y períodos de liberalización. ¿Cuándo conviene cada uno? Usá los conceptos de economía positiva y normativa, fallas de mercado, política económica, bienes públicos y el rol de los agentes económicos para fundamentar tu posición.",
+      "roles": [
+        {
+          "id": "favor",
+          "label": "A FAVOR del mercado libre",
+          "emoji": "🟢",
+          "color": "#10B981",
+          "desc": "Defendé que el mercado libre genera los mejores resultados. El sistema de precios coordina decisiones de millones de personas sin que nadie lo dirija. Los controles de precios generan desabastecimiento; los subsidios, deficit. La historia argentina muestra que más Estado no siempre significa más bienestar. Usá ejemplos de economía positiva (hechos verificables) para apoyar tu postura."
+        },
+        {
+          "id": "contra",
+          "label": "A FAVOR de la intervención estatal",
+          "emoji": "🔴",
+          "color": "#EF4444",
+          "desc": "Argumentá que el mercado libre falla en varios casos: bienes públicos (que el sector privado no provee), externalidades negativas (contaminación), monopolios, distribución desigual del ingreso. El Estado es necesario para corregir estas fallas. En Argentina, la desigualdad extrema y la informalidad muestran los límites del mercado sin regulación."
+        },
+        {
+          "id": "juez",
+          "label": "JUEZ/A",
+          "emoji": "👨‍⚖️",
+          "color": "#8B5CF6",
+          "desc": "Evaluá con evidencia: ¿en qué casos el mercado funciona mejor y en cuáles falla? ¿Qué dice la economía positiva sobre la intervención estatal en Argentina? ¿Dónde termina la descripción y empieza el juicio de valor (economía normativa)? Emitís un veredicto razonado que no sea ni extremo ni tibio: fundamentá cada punto."
+        }
+      ]
+    },
+    "tesis": {
+      "consigna": "Formulá una tesis respondiendo a esta pregunta: '¿La economía es una ciencia o un conjunto de opiniones políticas disfrazadas de números?' Tu tesis debe: (1) tomar una posición clara, (2) distinguir con ejemplos concretos entre economía positiva y normativa, (3) usar al menos un ejemplo del método científico aplicado a la economía y (4) concluir con las implicancias de tu posición para la forma en que los ciudadanos debemos leer las noticias económicas."
+    },
+    "critica": {
+      "consigna": "Releé la sección sobre los 4 principios económicos para tomar decisiones (costo de oportunidad, costos irrecuperables, análisis marginal e incentivos). Identificá: (1) un ejemplo propio de cada principio aplicado a la vida de un estudiante de 4to año de Economía en Argentina, (2) una limitación o crítica al modelo del 'individuo racional' que está implícito en estos principios, (3) una pregunta que te quedó sin responder sobre cómo se toman las decisiones reales en contextos de incertidumbre y alta inflación, y (4) una propuesta de cómo mejorarías estos principios para que sean más realistas."
+    }
+  },
+
+  "emocional": {},
+
+  "autotest": {
+    "preguntas": [
+      {
+        "pregunta": "¿Cuál es la definición más precisa de economía como ciencia?",
+        "opciones": [
+          "La disciplina que estudia cómo ganar dinero y generar riqueza personal",
+          "La ciencia social que estudia cómo administrar recursos escasos para satisfacer necesidades ilimitadas",
+          "La técnica para calcular precios e inflación en un país",
+          "El estudio del funcionamiento de los bancos y las finanzas internacionales"
+        ],
+        "correcta": 1,
+        "explicacion": "La economía es la ciencia de la escasez y la elección: estudia cómo individuos, empresas y gobiernos asignan recursos limitados para satisfacer necesidades que siempre son mayores que los recursos disponibles. No es solo sobre dinero ni sobre finanzas."
+      },
+      {
+        "pregunta": "Una fábrica tiene capacidad para producir 100 unidades pero solo produce 60 porque la mitad de sus máquinas están apagadas. En términos de la FPP, este punto se ubica:",
+        "opciones": [
+          "Sobre la Frontera de Posibilidades de Producción (es eficiente)",
+          "Fuera de la Frontera de Posibilidades de Producción (es inalcanzable)",
+          "Dentro de la Frontera de Posibilidades de Producción (es ineficiente)",
+          "Sobre la frontera, pero en un punto de crecimiento económico"
+        ],
+        "correcta": 2,
+        "explicacion": "Si hay recursos ociosos (máquinas apagadas, trabajadores desempleados, tierras sin cultivar), la economía está produciendo por debajo de su capacidad. Ese punto queda dentro de la FPP y representa producción ineficiente. Para ser eficiente, debería usar todos sus recursos y estar sobre la curva."
+      },
+      {
+        "pregunta": "Compraste una entrada de recital por $8.000. El día del evento te invitan a una fiesta mucho mejor y gratis. Desde la perspectiva del análisis económico correcto, ¿qué deberías hacer?",
+        "opciones": [
+          "Ir al recital, porque ya gastaste los $8.000 y no podés desperdiciarlos",
+          "Evaluar solo qué te va a dar más satisfacción ahora (recital vs. fiesta), ignorando los $8.000 ya gastados",
+          "Ir a los dos para maximizar el uso del dinero que gastaste",
+          "Vender la entrada para recuperar algo del dinero antes de decidir"
+        ],
+        "correcta": 1,
+        "explicacion": "Los $8.000 son un costo irrecuperable: los gastaste y no vuelven, vayas o no al recital. La decisión correcta es ignorarlos y preguntarte solo: ¿cuál opción me da más beneficio ahora? Si la fiesta es mejor, eso es lo que importa. Quedarte en el recital solo por el dinero ya gastado es la 'trampa del costo irrecuperable'."
+      },
+      {
+        "pregunta": "La afirmación 'En Argentina, cuando la emisión monetaria supera el crecimiento económico, aparece inflación' es un ejemplo de:",
+        "opciones": [
+          "Economía normativa, porque propone una política económica específica",
+          "Economía positiva, porque describe una relación verificable con datos",
+          "Un modelo irreal, porque en Argentina la inflación tiene causas políticas, no económicas",
+          "Macroeconomía normativa, porque involucra al gobierno y al banco central"
+        ],
+        "correcta": 1,
+        "explicacion": "Es economía positiva: describe una relación causa-efecto que puede verificarse empíricamente con datos históricos de distintos países y períodos. No dice que sea buena o mala, ni propone qué debería hacerse. Cuando una afirmación puede confirmarse o refutarse con evidencia, es positiva."
+      },
+      {
+        "pregunta": "El agua es esencial para vivir y cuesta casi nada. Los diamantes no son necesarios para vivir y cuestan fortunas. ¿Qué explica esta paradoja?",
+        "opciones": [
+          "Los diamantes tienen más valor de uso que el agua, por eso cuestan más",
+          "El agua no tiene valor económico porque es un bien público y gratuito",
+          "El valor depende de escasez + utilidad marginal: el agua es tan abundante que su utilidad marginal es baja, mientras el diamante es escaso",
+          "Es una falla del mercado que el Estado debería corregir fijando precios justos"
+        ],
+        "correcta": 2,
+        "explicacion": "Esta es la famosa paradoja del agua y el diamante que Smith no pudo resolver. La clave es la utilidad marginal: la utilidad de un vaso más de agua cuando ya tenés mucha es casi nula (son abundantes). La utilidad de un diamante más cuando son escasísimos sigue siendo alta. Escasez + utilidad marginal = valor de mercado."
+      },
+      {
+        "pregunta": "¿Cuál de estas situaciones representa correctamente el concepto de costo de oportunidad?",
+        "opciones": [
+          "El costo de fabricar una unidad más en una fábrica (costo marginal de producción)",
+          "El impuesto que el Estado cobra sobre las ganancias de una empresa",
+          "La satisfacción perdida por no haber elegido la mejor alternativa disponible al tomar una decisión",
+          "El precio que fija el mercado para un bien cuando la oferta es menor que la demanda"
+        ],
+        "correcta": 2,
+        "explicacion": "El costo de oportunidad es lo que resignás al elegir algo: la mejor opción que descartaste. Si decidís estudiar economía en lugar de trabajar, el costo de oportunidad no es solo la matrícula, sino también el sueldo que dejás de ganar (costo invisible). Incluye costos monetarios y no monetarios."
+      }
+    ]
+  },
+
+  "cierre": {
+    "glosario": [
+      {
+        "termino": "Economía",
+        "definicion": "Ciencia social que estudia cómo las sociedades administran recursos escasos para satisfacer necesidades ilimitadas. Es la ciencia de la escasez y la elección.",
+        "emoji": "📖",
+        "categoria": "Concepto fundacional"
+      },
+      {
+        "termino": "Costo de oportunidad",
+        "definicion": "Aquello a lo que se renuncia al tomar una decisión. Incluye costos monetarios (dinero gastado) y costos invisibles (lo que se deja de ganar o hacer). Es la mejor alternativa descartada.",
+        "emoji": "⚖️",
+        "categoria": "Toma de decisiones"
+      },
+      {
+        "termino": "Frontera de Posibilidades de Producción (FPP)",
+        "definicion": "Representación gráfica de todas las combinaciones posibles de dos bienes que una economía puede producir usando eficientemente todos sus recursos. Los puntos sobre la curva son eficientes; dentro, ineficientes; fuera, inalcanzables.",
+        "emoji": "📈",
+        "categoria": "Herramienta analítica"
+      },
+      {
+        "termino": "Utilidad marginal",
+        "definicion": "Satisfacción adicional que se obtiene al consumir una unidad más de un bien. Según la ley de utilidad marginal decreciente, esta satisfacción disminuye a medida que se consume más del mismo bien.",
+        "emoji": "📉",
+        "categoria": "Teoría del consumidor"
+      },
+      {
+        "termino": "Ceteris paribus",
+        "definicion": "Expresión latina que significa 'todo lo demás constante'. Es el supuesto que permite aislar el efecto de una variable sobre otra en un modelo económico, sin que interfieran otros factores.",
+        "emoji": "🔬",
+        "categoria": "Metodología"
+      },
+      {
+        "termino": "Agentes económicos",
+        "definicion": "Las familias (consumidores), empresas (productores) y Estado (regulador) son los tres grandes actores que toman decisiones económicas y se relacionan entre sí en el flujo circular de la economía.",
+        "emoji": "🏛️",
+        "categoria": "Actores del sistema"
+      },
+      {
+        "termino": "Economía positiva vs. normativa",
+        "definicion": "La economía positiva describe y explica la realidad con datos verificables (ej: 'si sube el precio, baja la demanda'). La normativa propone cómo deberían ser las cosas e incluye juicios de valor (ej: 'el Estado debería regular los alquileres').",
+        "emoji": "💬",
+        "categoria": "Clasificación"
+      },
+      {
+        "termino": "Costos irrecuperables",
+        "definicion": "Gastos del pasado que no se pueden recuperar, independientemente de la decisión futura. El principio económico dice que no deben influir en las decisiones presentes: solo importa el beneficio y costo futuro de cada alternativa.",
+        "emoji": "🚫",
+        "categoria": "Toma de decisiones"
+      }
+    ],
+    "recursos": [
+      {
+        "tipo": "🎬 Video",
+        "title": "¿Qué es la economía? — Explicado con ejemplos cotidianos",
+        "desc": "Canal Economía para todos en YouTube: explica escasez, costo de oportunidad y decisiones con situaciones de la vida real de jóvenes argentinos.",
+        "nivel": "Introductorio",
+        "color": "#8B5CF6"
+      },
+      {
+        "tipo": "🌐 Web",
+        "title": "Economipedia — Diccionario económico en español",
+        "desc": "economipedia.com: definiciones claras de todos los conceptos de la unidad (FPP, utilidad marginal, ceteris paribus) con ejemplos y videos cortos.",
+        "nivel": "Introductorio",
+        "color": "#EF4444"
+      },
+      {
+        "tipo": "🎬 Video",
+        "title": "La paradoja del agua y el diamante — Historia del pensamiento económico",
+        "desc": "Explica por qué Smith no pudo resolver la paradoja y cómo la revolución marginalista del siglo XIX encontró la respuesta con la utilidad marginal.",
+        "nivel": "Intermedio",
+        "color": "#F59E0B"
+      },
+      {
+        "tipo": "📖 Libro",
+        "title": "Economía — Paul Samuelson y William Nordhaus (capítulos 1 y 2)",
+        "desc": "El manual clásico de economía: los primeros capítulos explican el problema económico fundamental, la FPP y los agentes económicos con rigor y claridad.",
+        "nivel": "Intermedio",
+        "color": "#3B82F6"
+      },
+      {
+        "tipo": "🎧 Podcast",
+        "title": "Economía a secas — NPR Planet Money (ediciones en español disponibles)",
+        "desc": "Episodios cortos (20-30 minutos) que explican conceptos económicos con historias reales. Ideal para entender cómo la teoría de la unidad aparece en noticias cotidianas.",
+        "nivel": "Avanzado",
+        "color": "#10B981"
+      }
+    ]
+  }
+}
