@@ -54,12 +54,19 @@ function getDayOfYear(){
   var diff = now - start;
   return Math.floor(diff / (1000*60*60*24));
 }
+function getDayOfYear(){
+  var now = new Date();
+  var start = new Date(now.getFullYear(), 0, 0);
+  var diff = now - start;
+  return Math.floor(diff / (1000*60*60*24));
+}
 function getTodayPassword(){
   return "campusvvb" + (getDayOfYear() * 27);
 }
 var auth = sessionStorage.getItem("campus_auth");
 if(auth !== getTodayPassword() && auth !== "123456_static"){
-
+  window.location.href = "index.html";
+}
 var D = null;
 
 function loadData(){
