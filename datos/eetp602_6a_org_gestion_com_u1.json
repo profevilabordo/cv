@@ -1,22 +1,4 @@
 {
-  "unidad": {
-    "id": "ogc-6a-u1",
-    "materia": "Organización y Gestión Comercial",
-    "curso": "6to A – Técnicos en Informática",
-    "institucion": "EETP N°602 \"Gral. José de San Martín\"",
-    "profesora": "Verónica Vila Bordó",
-    "numero": 1,
-    "titulo": "La Compra Estratégica",
-    "descripcion": "En esta unidad vamos a explorar el mundo de las compras en las empresas: qué son, cómo se organizan, cómo se planifican y cómo se valúan los inventarios con los métodos PEPS, UEPS y PPP.",
-    "emoji": "🛒",
-    "color_primario": "#EC4899",
-    "color_secundario": "#8B5CF6",
-    "bloques": [
-      { "id": "bloque1", "titulo": "Bloque 1: La Función de Compras", "temas": 4 },
-      { "id": "bloque2", "titulo": "Bloque 2: Gestión de Inventarios", "temas": 3 },
-      { "id": "bloque3", "titulo": "Bloque 3: Métodos de Valuación", "temas": 3 }
-    ]
-  },
   "secciones": {
     "umbral": {
       "id": "umbral",
@@ -50,25 +32,66 @@
         }
       ],
       "situaciones_conecta": [
-        { "emoji": "🛒", "label": "Fui al súper y comparé precios entre marcas" },
-        { "emoji": "📱", "label": "Vi que el mismo producto costaba distinto en dos locales" },
-        { "emoji": "🏪", "label": "Noté que algunas góndolas estaban vacías por falta de stock" },
-        { "emoji": "📋", "label": "Escuché que una empresa quebró por mal manejo de inventario" }
+        {
+          "emoji": "🛒",
+          "label": "Fui al súper y comparé precios entre marcas"
+        },
+        {
+          "emoji": "📱",
+          "label": "Vi que el mismo producto costaba distinto en dos locales"
+        },
+        {
+          "emoji": "🏪",
+          "label": "Noté que algunas góndolas estaban vacías por falta de stock"
+        },
+        {
+          "emoji": "📋",
+          "label": "Escuché que una empresa quebró por mal manejo de inventario"
+        }
       ],
       "termometro_pregunta": "¿Cuánto sabés sobre cómo las empresas gestionan sus compras?"
     },
-
     "mapa": {
       "id": "mapa",
       "nombre": "Mapa",
       "icono": "🗺️",
       "subtitulo": "Recorrido de la unidad",
       "ruta_paradas": [
-        { "id": 1, "title": "La Compra: Concepto y Funciones", "desc": "Qué es comprar estratégicamente y para qué sirve", "emoji": "🛒", "color": "#6366F1" },
-        { "id": 2, "title": "El Área de Compras", "desc": "Organización interna y relaciones con otras áreas", "emoji": "🏢", "color": "#3B82F6" },
-        { "id": 3, "title": "Planeamiento y Presupuesto", "desc": "Anticipar necesidades y controlar el gasto", "emoji": "📅", "color": "#10B981" },
-        { "id": 4, "title": "Abastecimiento e Inventarios", "desc": "El flujo constante de recursos y su control", "emoji": "📦", "color": "#F59E0B" },
-        { "id": 5, "title": "Métodos de Valuación", "desc": "PEPS, UEPS y PPP: cómo valorar el stock", "emoji": "⚖️", "color": "#EC4899" }
+        {
+          "id": 1,
+          "title": "La Compra: Concepto y Funciones",
+          "desc": "Qué es comprar estratégicamente y para qué sirve",
+          "emoji": "🛒",
+          "color": "#6366F1"
+        },
+        {
+          "id": 2,
+          "title": "El Área de Compras",
+          "desc": "Organización interna y relaciones con otras áreas",
+          "emoji": "🏢",
+          "color": "#3B82F6"
+        },
+        {
+          "id": 3,
+          "title": "Planeamiento y Presupuesto",
+          "desc": "Anticipar necesidades y controlar el gasto",
+          "emoji": "📅",
+          "color": "#10B981"
+        },
+        {
+          "id": 4,
+          "title": "Abastecimiento e Inventarios",
+          "desc": "El flujo constante de recursos y su control",
+          "emoji": "📦",
+          "color": "#F59E0B"
+        },
+        {
+          "id": 5,
+          "title": "Métodos de Valuación",
+          "desc": "PEPS, UEPS y PPP: cómo valorar el stock",
+          "emoji": "⚖️",
+          "color": "#EC4899"
+        }
       ],
       "panoramica_bloques": [
         {
@@ -77,7 +100,13 @@
           "subtitle": "Concepto, importancia y organización",
           "emoji": "🛒",
           "color": "#6366F1",
-          "items": ["Concepto de compra estratégica", "Funciones clave del departamento", "Organización interna", "Relaciones con otras áreas", "Políticas e información de compras"]
+          "items": [
+            "Concepto de compra estratégica",
+            "Funciones clave del departamento",
+            "Organización interna",
+            "Relaciones con otras áreas",
+            "Políticas e información de compras"
+          ]
         },
         {
           "id": "B",
@@ -85,7 +114,12 @@
           "subtitle": "Abastecimiento, stock y control",
           "emoji": "📦",
           "color": "#10B981",
-          "items": ["Planeamiento y presupuesto de compras", "Procesamiento de transacciones", "Abastecimiento e inventarios", "Fichas de stock"]
+          "items": [
+            "Planeamiento y presupuesto de compras",
+            "Procesamiento de transacciones",
+            "Abastecimiento e inventarios",
+            "Fichas de stock"
+          ]
         },
         {
           "id": "C",
@@ -93,44 +127,71 @@
           "subtitle": "PEPS, UEPS y PPP aplicados",
           "emoji": "⚖️",
           "color": "#EC4899",
-          "items": ["Método PEPS (Primeras Entradas, Primeras Salidas)", "Método UEPS (Últimas Entradas, Primeras Salidas)", "Método PPP (Precio Promedio Ponderado)", "Comparación entre métodos"]
+          "items": [
+            "Método PEPS (Primeras Entradas, Primeras Salidas)",
+            "Método UEPS (Últimas Entradas, Primeras Salidas)",
+            "Método PPP (Precio Promedio Ponderado)",
+            "Comparación entre métodos"
+          ]
         }
       ],
       "mapa_mental": {
-        "centro": { "title": "La Compra Estratégica", "emoji": "🛒" },
+        "centro": {
+          "title": "La Compra Estratégica",
+          "emoji": "🛒"
+        },
         "ramas": [
           {
             "id": "r1",
             "title": "¿Qué es?",
             "emoji": "❓",
             "color": "#6366F1",
-            "items": ["Proceso estratégico de adquisición", "Satisface necesidades organizacionales", "Busca calidad, cantidad, precio y plazo", "Base de la cadena de suministro"]
+            "items": [
+              "Proceso estratégico de adquisición",
+              "Satisface necesidades organizacionales",
+              "Busca calidad, cantidad, precio y plazo",
+              "Base de la cadena de suministro"
+            ]
           },
           {
             "id": "r2",
             "title": "¿Quiénes intervienen?",
             "emoji": "👥",
             "color": "#10B981",
-            "items": ["Responsables de categoría", "Analistas de mercado", "Negociadores", "Área de producción, ventas y finanzas"]
+            "items": [
+              "Responsables de categoría",
+              "Analistas de mercado",
+              "Negociadores",
+              "Área de producción, ventas y finanzas"
+            ]
           },
           {
             "id": "r3",
             "title": "¿Cómo se hace?",
             "emoji": "⚙️",
             "color": "#F59E0B",
-            "items": ["Detección de la necesidad", "Selección del proveedor", "Seguimiento y recepción", "Almacenamiento y registro"]
+            "items": [
+              "Detección de la necesidad",
+              "Selección del proveedor",
+              "Seguimiento y recepción",
+              "Almacenamiento y registro"
+            ]
           },
           {
             "id": "r4",
             "title": "¿Por qué importa?",
             "emoji": "💡",
             "color": "#EC4899",
-            "items": ["Reduce costos innecesarios", "Garantiza continuidad operativa", "Genera ventaja competitiva", "Impacta directamente en la rentabilidad"]
+            "items": [
+              "Reduce costos innecesarios",
+              "Garantiza continuidad operativa",
+              "Genera ventaja competitiva",
+              "Impacta directamente en la rentabilidad"
+            ]
           }
         ]
       }
     },
-
     "nucleo": {
       "id": "nucleo",
       "nombre": "Núcleo",
@@ -138,27 +199,85 @@
       "n1_ordenar_cronologicamente": {
         "consigna": "Ordená las etapas del proceso de compra en el orden correcto, de la primera a la última:",
         "items": [
-          { "id": 3, "text": "Seguimiento y recepción del pedido", "emoji": "🔍" },
-          { "id": 1, "text": "Detección de la necesidad", "emoji": "🚨" },
-          { "id": 5, "text": "Registro contable y actualización de inventario", "emoji": "📒" },
-          { "id": 2, "text": "Selección del proveedor", "emoji": "🤝" },
-          { "id": 4, "text": "Almacenamiento de la mercadería", "emoji": "📦" }
+          {
+            "id": 3,
+            "text": "Seguimiento y recepción del pedido",
+            "emoji": "🔍"
+          },
+          {
+            "id": 1,
+            "text": "Detección de la necesidad",
+            "emoji": "🚨"
+          },
+          {
+            "id": 5,
+            "text": "Registro contable y actualización de inventario",
+            "emoji": "📒"
+          },
+          {
+            "id": 2,
+            "text": "Selección del proveedor",
+            "emoji": "🤝"
+          },
+          {
+            "id": 4,
+            "text": "Almacenamiento de la mercadería",
+            "emoji": "📦"
+          }
         ],
-        "orden_correcto": [1, 2, 3, 4, 5]
+        "orden_correcto": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
       },
       "n2_clasificador": {
         "consigna": "Clasificá cada función en el área que le corresponde dentro de la empresa:",
         "categorias": [
-          { "name": "Departamento de Compras", "emoji": "🛒", "color": "#6366F1" },
-          { "name": "Otras Áreas", "emoji": "🏢", "color": "#10B981" }
+          {
+            "name": "Departamento de Compras",
+            "emoji": "🛒",
+            "color": "#6366F1"
+          },
+          {
+            "name": "Otras Áreas",
+            "emoji": "🏢",
+            "color": "#10B981"
+          }
         ],
         "items": [
-          { "id": 1, "text": "Seleccionar y evaluar proveedores", "categoria_correcta": 0 },
-          { "id": 2, "text": "Fabricar el producto final", "categoria_correcta": 1 },
-          { "id": 3, "text": "Negociar contratos de compra", "categoria_correcta": 0 },
-          { "id": 4, "text": "Gestionar pagos a proveedores", "categoria_correcta": 1 },
-          { "id": 5, "text": "Controlar la calidad de los insumos recibidos", "categoria_correcta": 0 },
-          { "id": 6, "text": "Coordinar la entrega al cliente final", "categoria_correcta": 1 }
+          {
+            "id": 1,
+            "text": "Seleccionar y evaluar proveedores",
+            "categoria_correcta": 0
+          },
+          {
+            "id": 2,
+            "text": "Fabricar el producto final",
+            "categoria_correcta": 1
+          },
+          {
+            "id": 3,
+            "text": "Negociar contratos de compra",
+            "categoria_correcta": 0
+          },
+          {
+            "id": 4,
+            "text": "Gestionar pagos a proveedores",
+            "categoria_correcta": 1
+          },
+          {
+            "id": 5,
+            "text": "Controlar la calidad de los insumos recibidos",
+            "categoria_correcta": 0
+          },
+          {
+            "id": 6,
+            "text": "Coordinar la entrega al cliente final",
+            "categoria_correcta": 1
+          }
         ]
       },
       "n3_completar_mapa": {
@@ -207,10 +326,30 @@
       },
       "n5_relacionar_columnas": {
         "pares": [
-          { "id": 1, "izquierda": "PEPS", "derecha": "Primeras entradas, primeras salidas", "emoji": "⬆️" },
-          { "id": 2, "izquierda": "UEPS", "derecha": "Últimas entradas, primeras salidas", "emoji": "⬇️" },
-          { "id": 3, "izquierda": "PPP", "derecha": "Promedio ponderado de todos los costos", "emoji": "⚖️" },
-          { "id": 4, "izquierda": "Ficha de stock", "derecha": "Registro de entradas, salidas y saldo", "emoji": "📋" }
+          {
+            "id": 1,
+            "izquierda": "PEPS",
+            "derecha": "Primeras entradas, primeras salidas",
+            "emoji": "⬆️"
+          },
+          {
+            "id": 2,
+            "izquierda": "UEPS",
+            "derecha": "Últimas entradas, primeras salidas",
+            "emoji": "⬇️"
+          },
+          {
+            "id": 3,
+            "izquierda": "PPP",
+            "derecha": "Promedio ponderado de todos los costos",
+            "emoji": "⚖️"
+          },
+          {
+            "id": 4,
+            "izquierda": "Ficha de stock",
+            "derecha": "Registro de entradas, salidas y saldo",
+            "emoji": "📋"
+          }
         ]
       },
       "n6_palabra_intrusa": {
@@ -220,10 +359,22 @@
             "pregunta": "¿Cuál NO es una función del departamento de compras?",
             "emoji": "🛒",
             "palabras": [
-              { "text": "Selección de proveedores", "es_intrusa": false },
-              { "text": "Gestión documental", "es_intrusa": false },
-              { "text": "Diseño del producto", "es_intrusa": true },
-              { "text": "Análisis de mercado", "es_intrusa": false }
+              {
+                "text": "Selección de proveedores",
+                "es_intrusa": false
+              },
+              {
+                "text": "Gestión documental",
+                "es_intrusa": false
+              },
+              {
+                "text": "Diseño del producto",
+                "es_intrusa": true
+              },
+              {
+                "text": "Análisis de mercado",
+                "es_intrusa": false
+              }
             ],
             "explicacion": "Diseñar el producto es función del área de producción o I+D, no de compras."
           },
@@ -232,10 +383,22 @@
             "pregunta": "¿Cuál NO es un método de valuación de inventarios?",
             "emoji": "📦",
             "palabras": [
-              { "text": "PEPS", "es_intrusa": false },
-              { "text": "UEPS", "es_intrusa": false },
-              { "text": "PPP", "es_intrusa": false },
-              { "text": "FIFO lineal", "es_intrusa": true }
+              {
+                "text": "PEPS",
+                "es_intrusa": false
+              },
+              {
+                "text": "UEPS",
+                "es_intrusa": false
+              },
+              {
+                "text": "PPP",
+                "es_intrusa": false
+              },
+              {
+                "text": "FIFO lineal",
+                "es_intrusa": true
+              }
             ],
             "explicacion": "FIFO lineal no es un método contable reconocido. PEPS equivale a FIFO, pero no existe una variante llamada FIFO lineal."
           }
@@ -247,52 +410,142 @@
             "id": 1,
             "termino": "Abastecimiento",
             "pista": "¿Qué proceso asegura que la empresa siempre tenga lo que necesita para funcionar?",
-            "palabras_clave": ["recursos", "continuo", "flujo", "bienes", "servicios", "necesidades", "adquirir", "suministro"]
+            "palabras_clave": [
+              "recursos",
+              "continuo",
+              "flujo",
+              "bienes",
+              "servicios",
+              "necesidades",
+              "adquirir",
+              "suministro"
+            ]
           },
           {
             "id": 2,
             "termino": "Política de compras",
             "pista": "¿Qué son las reglas que guían cómo se realizan las compras en una empresa?",
-            "palabras_clave": ["reglas", "normas", "criterios", "directrices", "transparencia", "proveedores", "selección", "ética"]
+            "palabras_clave": [
+              "reglas",
+              "normas",
+              "criterios",
+              "directrices",
+              "transparencia",
+              "proveedores",
+              "selección",
+              "ética"
+            ]
           },
           {
             "id": 3,
             "termino": "Valuación de inventarios",
             "pista": "¿Qué proceso permite asignar un valor monetario a los bienes que tiene la empresa almacenados?",
-            "palabras_clave": ["valor", "monetario", "costo", "existencias", "stock", "inventario", "financiero", "método"]
+            "palabras_clave": [
+              "valor",
+              "monetario",
+              "costo",
+              "existencias",
+              "stock",
+              "inventario",
+              "financiero",
+              "método"
+            ]
           }
         ]
       },
       "n8_causa_efecto": {
         "causas": [
-          { "id": 1, "text": "La empresa no planifica sus compras", "emoji": "❌" },
-          { "id": 2, "text": "Se aplica el método UEPS en inflación", "emoji": "📈" },
-          { "id": 3, "text": "Se elige un proveedor sin evaluarlo", "emoji": "🤦" },
-          { "id": 4, "text": "Se implementa un buen sistema de fichas de stock", "emoji": "📋" }
+          {
+            "id": 1,
+            "text": "La empresa no planifica sus compras",
+            "emoji": "❌"
+          },
+          {
+            "id": 2,
+            "text": "Se aplica el método UEPS en inflación",
+            "emoji": "📈"
+          },
+          {
+            "id": 3,
+            "text": "Se elige un proveedor sin evaluarlo",
+            "emoji": "🤦"
+          },
+          {
+            "id": 4,
+            "text": "Se implementa un buen sistema de fichas de stock",
+            "emoji": "📋"
+          }
         ],
         "efectos": [
-          { "id": 1, "causa_id": 1, "text": "Se generan faltantes o excesos de mercadería", "emoji": "📦" },
-          { "id": 2, "causa_id": 2, "text": "El costo de ventas es mayor y el inventario final queda a precios más bajos", "emoji": "💸" },
-          { "id": 3, "causa_id": 3, "text": "Se reciben insumos de baja calidad o con demoras", "emoji": "⚠️" },
-          { "id": 4, "causa_id": 4, "text": "Se tiene control exacto del movimiento de productos", "emoji": "✅" }
+          {
+            "id": 1,
+            "causa_id": 1,
+            "text": "Se generan faltantes o excesos de mercadería",
+            "emoji": "📦"
+          },
+          {
+            "id": 2,
+            "causa_id": 2,
+            "text": "El costo de ventas es mayor y el inventario final queda a precios más bajos",
+            "emoji": "💸"
+          },
+          {
+            "id": 3,
+            "causa_id": 3,
+            "text": "Se reciben insumos de baja calidad o con demoras",
+            "emoji": "⚠️"
+          },
+          {
+            "id": 4,
+            "causa_id": 4,
+            "text": "Se tiene control exacto del movimiento de productos",
+            "emoji": "✅"
+          }
         ]
       },
       "n9_ordenar_proceso": {
         "consigna": "Ordená los pasos del cálculo con el método PEPS cuando hay una venta:",
         "pasos_en_orden_correcto": [
-          { "id": 1, "text": "Identificar cuántas unidades hay disponibles y a qué costos", "emoji": "🔍" },
-          { "id": 2, "text": "Tomar las unidades más antiguas (primeras que entraron)", "emoji": "📅" },
-          { "id": 3, "text": "Calcular el costo total de las unidades vendidas", "emoji": "🧮" },
-          { "id": 4, "text": "Registrar el costo de venta en la ficha de stock", "emoji": "📝" },
-          { "id": 5, "text": "Actualizar el saldo restante con los lotes que quedaron", "emoji": "✅" }
+          {
+            "id": 1,
+            "text": "Identificar cuántas unidades hay disponibles y a qué costos",
+            "emoji": "🔍"
+          },
+          {
+            "id": 2,
+            "text": "Tomar las unidades más antiguas (primeras que entraron)",
+            "emoji": "📅"
+          },
+          {
+            "id": 3,
+            "text": "Calcular el costo total de las unidades vendidas",
+            "emoji": "🧮"
+          },
+          {
+            "id": 4,
+            "text": "Registrar el costo de venta en la ficha de stock",
+            "emoji": "📝"
+          },
+          {
+            "id": 5,
+            "text": "Actualizar el saldo restante con los lotes que quedaron",
+            "emoji": "✅"
+          }
         ]
       },
       "n10_comparador": {
-        "concepto_a": { "nombre": "PEPS", "emoji": "⬆️", "color": "#6366F1" },
-        "concepto_b": { "nombre": "UEPS", "emoji": "⬇️", "color": "#EF4444" }
+        "concepto_a": {
+          "nombre": "PEPS",
+          "emoji": "⬆️",
+          "color": "#6366F1"
+        },
+        "concepto_b": {
+          "nombre": "UEPS",
+          "emoji": "⬇️",
+          "color": "#EF4444"
+        }
       }
     },
-
     "senales": {
       "id": "senales",
       "nombre": "Señales",
@@ -328,15 +581,34 @@
         }
       ],
       "semaforo_conceptos": [
-        { "termino": "Compra estratégica", "emoji": "🛒" },
-        { "termino": "Método PEPS", "emoji": "⬆️" },
-        { "termino": "Método UEPS", "emoji": "⬇️" },
-        { "termino": "Método PPP", "emoji": "⚖️" },
-        { "termino": "Ficha de stock", "emoji": "📋" }
+        {
+          "termino": "Compra estratégica",
+          "emoji": "🛒"
+        },
+        {
+          "termino": "Método PEPS",
+          "emoji": "⬆️"
+        },
+        {
+          "termino": "Método UEPS",
+          "emoji": "⬇️"
+        },
+        {
+          "termino": "Método PPP",
+          "emoji": "⚖️"
+        },
+        {
+          "termino": "Ficha de stock",
+          "emoji": "📋"
+        }
       ],
-      "postits_conceptos": ["Compra estratégica", "Método PEPS", "Método UEPS", "Método PPP"]
+      "postits_conceptos": [
+        "Compra estratégica",
+        "Método PEPS",
+        "Método UEPS",
+        "Método PPP"
+      ]
     },
-
     "sabias": {
       "id": "sabias",
       "nombre": "Sabías",
@@ -362,22 +634,53 @@
         }
       ],
       "linea_de_tiempo": [
-        { "year": "1920s", "text": "Las grandes fábricas estadounidenses formalizan los primeros departamentos de compras industriales", "emoji": "🏭" },
-        { "year": "1950s", "text": "Toyota desarrolla el sistema de producción JIT, transformando la gestión de inventarios mundialmente", "emoji": "🚗" },
-        { "year": "1970s", "text": "Se estandarizan los métodos PEPS, UEPS y PPP como herramientas contables internacionales", "emoji": "📊" },
-        { "year": "2000s", "text": "El e-procurement permite gestionar compras empresariales completamente online y en tiempo real", "emoji": "💻" },
-        { "year": "2020s", "text": "La pandemia demuestra la fragilidad de las cadenas de suministro globales: las empresas replantean sus estrategias de compra", "emoji": "🌍" }
+        {
+          "year": "1920s",
+          "text": "Las grandes fábricas estadounidenses formalizan los primeros departamentos de compras industriales",
+          "emoji": "🏭"
+        },
+        {
+          "year": "1950s",
+          "text": "Toyota desarrolla el sistema de producción JIT, transformando la gestión de inventarios mundialmente",
+          "emoji": "🚗"
+        },
+        {
+          "year": "1970s",
+          "text": "Se estandarizan los métodos PEPS, UEPS y PPP como herramientas contables internacionales",
+          "emoji": "📊"
+        },
+        {
+          "year": "2000s",
+          "text": "El e-procurement permite gestionar compras empresariales completamente online y en tiempo real",
+          "emoji": "💻"
+        },
+        {
+          "year": "2020s",
+          "text": "La pandemia demuestra la fragilidad de las cadenas de suministro globales: las empresas replantean sus estrategias de compra",
+          "emoji": "🌍"
+        }
       ],
       "encuesta": {
         "pregunta": "¿Qué dato te sorprendió más?",
         "opciones": [
-          { "emoji": "🏭", "text": "El poder de negociación de Walmart", "votos_iniciales": 48 },
-          { "emoji": "🚗", "text": "El sistema Just-in-Time de Toyota", "votos_iniciales": 35 },
-          { "emoji": "📊", "text": "Que el método UEPS está prohibido en Argentina", "votos_iniciales": 27 }
+          {
+            "emoji": "🏭",
+            "text": "El poder de negociación de Walmart",
+            "votos_iniciales": 48
+          },
+          {
+            "emoji": "🚗",
+            "text": "El sistema Just-in-Time de Toyota",
+            "votos_iniciales": 35
+          },
+          {
+            "emoji": "📊",
+            "text": "Que el método UEPS está prohibido en Argentina",
+            "votos_iniciales": 27
+          }
         ]
       }
     },
-
     "cruces": {
       "id": "cruces",
       "nombre": "Cruces",
@@ -417,15 +720,44 @@
         }
       ],
       "telarana": [
-        { "target": "Economía", "emoji": "💰", "color": "#6366F1", "desc": "Los precios, la inflación y la oferta y demanda determinan las estrategias de compra" },
-        { "target": "Derecho", "emoji": "⚖️", "color": "#F59E0B", "desc": "Los contratos con proveedores tienen validez legal y están regulados por el Código Civil y Comercial" },
-        { "target": "Informática", "emoji": "💻", "color": "#10B981", "desc": "Los sistemas ERP y software de gestión automatizan el control de inventarios y compras" },
-        { "target": "Logística", "emoji": "🚚", "color": "#EC4899", "desc": "El transporte y almacenamiento de mercadería es parte clave de la cadena de abastecimiento" },
-        { "target": "Estadística", "emoji": "📈", "color": "#8B5CF6", "desc": "Los pronósticos de demanda usan datos estadísticos para anticipar las necesidades de compra" },
-        { "target": "Ética", "emoji": "🤝", "color": "#14B8A6", "desc": "Las políticas de compras incluyen criterios éticos, sociales y ambientales para elegir proveedores" }
+        {
+          "target": "Economía",
+          "emoji": "💰",
+          "color": "#6366F1",
+          "desc": "Los precios, la inflación y la oferta y demanda determinan las estrategias de compra"
+        },
+        {
+          "target": "Derecho",
+          "emoji": "⚖️",
+          "color": "#F59E0B",
+          "desc": "Los contratos con proveedores tienen validez legal y están regulados por el Código Civil y Comercial"
+        },
+        {
+          "target": "Informática",
+          "emoji": "💻",
+          "color": "#10B981",
+          "desc": "Los sistemas ERP y software de gestión automatizan el control de inventarios y compras"
+        },
+        {
+          "target": "Logística",
+          "emoji": "🚚",
+          "color": "#EC4899",
+          "desc": "El transporte y almacenamiento de mercadería es parte clave de la cadena de abastecimiento"
+        },
+        {
+          "target": "Estadística",
+          "emoji": "📈",
+          "color": "#8B5CF6",
+          "desc": "Los pronósticos de demanda usan datos estadísticos para anticipar las necesidades de compra"
+        },
+        {
+          "target": "Ética",
+          "emoji": "🤝",
+          "color": "#14B8A6",
+          "desc": "Las políticas de compras incluyen criterios éticos, sociales y ambientales para elegir proveedores"
+        }
       ]
     },
-
     "relectura": {
       "id": "relectura",
       "nombre": "Relectura",
@@ -434,9 +766,27 @@
         "titulo_debate": "¿Las empresas deberían priorizar el precio más bajo al elegir un proveedor, aunque eso implique sacrificar calidad?",
         "contexto": "Este debate aparece en toda empresa que quiere ser competitiva. Por un lado, reducir costos mejora la rentabilidad. Por otro, la baja calidad puede destruir la reputación del producto y perder clientes. Elegí un rol y argumentá con ejemplos reales o hipotéticos.",
         "roles": [
-          { "id": "a", "label": "A favor del precio bajo", "emoji": "💰", "color": "#10B981", "desc": "Argumentá que optimizar costos es esencial para sobrevivir en mercados competitivos." },
-          { "id": "b", "label": "A favor de la calidad", "emoji": "🌟", "color": "#6366F1", "desc": "Argumentá que invertir en calidad genera fidelidad y diferenciación a largo plazo." },
-          { "id": "c", "label": "Mediador", "emoji": "⚖️", "color": "#F59E0B", "desc": "Proponé criterios equilibrados para elegir proveedores considerando precio, calidad y confiabilidad." }
+          {
+            "id": "a",
+            "label": "A favor del precio bajo",
+            "emoji": "💰",
+            "color": "#10B981",
+            "desc": "Argumentá que optimizar costos es esencial para sobrevivir en mercados competitivos."
+          },
+          {
+            "id": "b",
+            "label": "A favor de la calidad",
+            "emoji": "🌟",
+            "color": "#6366F1",
+            "desc": "Argumentá que invertir en calidad genera fidelidad y diferenciación a largo plazo."
+          },
+          {
+            "id": "c",
+            "label": "Mediador",
+            "emoji": "⚖️",
+            "color": "#F59E0B",
+            "desc": "Proponé criterios equilibrados para elegir proveedores considerando precio, calidad y confiabilidad."
+          }
         ]
       },
       "tesis": {
@@ -446,7 +796,6 @@
         "consigna": "Analizá críticamente la siguiente afirmación: 'Una empresa que compra en grandes volúmenes siempre tiene ventaja sobre las demás'. Identificá sus fortalezas, sus debilidades, una pregunta que te genera y una propuesta alternativa o complementaria."
       }
     },
-
     "autotest": {
       "id": "autotest",
       "nombre": "Autotest",
@@ -526,7 +875,6 @@
         }
       ]
     },
-
     "cierre": {
       "id": "cierre",
       "nombre": "Cierre",
@@ -619,5 +967,34 @@
         }
       ]
     }
-  }
+  },
+  "id": "ogc-6a-u1",
+  "materia": "Organización y Gestión Comercial",
+  "curso": "6to A – Técnicos en Informática",
+  "institucion": "EETP N°602 \"Gral. José de San Martín\"",
+  "profesora": "Verónica Vila Bordó",
+  "numero": 1,
+  "titulo": "La Compra Estratégica",
+  "descripcion": "En esta unidad vamos a explorar el mundo de las compras en las empresas: qué son, cómo se organizan, cómo se planifican y cómo se valúan los inventarios con los métodos PEPS, UEPS y PPP.",
+  "emoji": "🛒",
+  "color_primario": "#EC4899",
+  "color_secundario": "#8B5CF6",
+  "bloques": [
+    {
+      "id": "bloque1",
+      "titulo": "Bloque 1: La Función de Compras",
+      "temas": 4
+    },
+    {
+      "id": "bloque2",
+      "titulo": "Bloque 2: Gestión de Inventarios",
+      "temas": 3
+    },
+    {
+      "id": "bloque3",
+      "titulo": "Bloque 3: Métodos de Valuación",
+      "temas": 3
+    }
+  ],
+  "unidad": 1
 }
