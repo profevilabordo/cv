@@ -3,251 +3,422 @@
   "unidad": 1,
   "titulo": "Las Organizaciones",
   "emoji": "🏢",
-  "color_primario": "#6366F1",
-  "color_secundario": "#8B5CF6",
+  "color_primario": "#1E3A5F",
+  "color_secundario": "#3B82F6",
+
   "umbral": {
     "preguntas_disparadoras": [
-      {"emoji": "💻", "texto": "¿Por qué Globant (empresa argentina de software) es diferente a un almacén de barrio, aunque ambos son organizaciones?", "pista": "Pensá en el tamaño, los recursos, la tecnología y el tipo de objetivo que persigue cada una…"},
-      {"emoji": "🏫", "texto": "¿Qué pasaría si en tu escuela no hubiera horarios, ni división en cursos, ni directivos? ¿Podrían aprender igual?", "pista": "Pensá en qué elementos hacen que la escuela funcione como organización: reglas, roles, coordinación…"},
-      {"emoji": "🌐", "texto": "Wikipedia es gratis y no tiene publicidades. ¿Cómo hace para funcionar como organización?", "pista": "No todas las organizaciones buscan ganar plata. Pensá en voluntarios, donaciones y propósito…"}
+      {
+        "emoji": "🛒",
+        "texto": "Cuando entrás a MercadoLibre y comprás algo, interactuás con miles de personas que no conocés: vendedores, transportistas, programadores, atención al cliente. ¿Cómo hace esa empresa para que todo funcione sin caos total?",
+        "pista": "Pensá en qué tienen en común todas esas personas que trabajan ahí. ¿Qué las une? ¿Qué pasa si cada una hace lo que quiere sin coordinarse con nadie?"
+      },
+      {
+        "emoji": "🎮",
+        "texto": "Valve, la empresa que creó Steam, no tiene jefes ni jerarquías. Sus empleados eligen en qué proyectos trabajar y mueven sus escritorios con rueditas para juntarse con quienes quieran. ¿Eso es una organización o simplemente un grupo de personas?",
+        "pista": "Una organización necesita objetivos comunes y coordinación. ¿Los tienen? ¿Puede funcionar algo sin estructura formal?"
+      },
+      {
+        "emoji": "🌐",
+        "texto": "Wikipedia tiene más de 60 millones de artículos escritos por voluntarios que no cobran nada. No tiene publicidades ni dueños que ganen dinero. ¿Por qué funciona como organización si nadie cobra?",
+        "pista": "No toda organización necesita dinero como motor. ¿Qué otro motor puede unir a miles de personas alrededor del mundo?"
+      }
     ],
     "situaciones_conecta": [
-      {"emoji": "🛒", "label": "Compré algo por MercadoLibre y esperé el envío"},
-      {"emoji": "🎮", "label": "Jugué online con un equipo y nos organizamos para ganar"},
-      {"emoji": "🏫", "label": "En la escuela cada profe tiene su materia y su horario"},
-      {"emoji": "👥", "label": "Armamos un grupo de WhatsApp para un trabajo práctico"}
+      {"emoji": "🏫", "label": "Fui a la escuela y me di cuenta de que hay reglas, roles y objetivos que la hacen funcionar"},
+      {"emoji": "💼", "label": "Pensé en dónde voy a trabajar cuando me reciba y cómo será esa empresa"},
+      {"emoji": "📱", "label": "Usé una app o plataforma y me pregunté quién está detrás haciéndola funcionar"},
+      {"emoji": "🤝", "label": "Trabajé en grupo con otros y sentí la diferencia entre coordinarse bien o hacerlo mal"}
     ],
-    "termometro_pregunta": "¿Cuánto sabés sobre cómo funcionan las organizaciones?"
+    "termometro_pregunta": "¿Cuánto sabés sobre cómo funcionan las organizaciones por dentro?"
   },
+
   "mapa": {
     "ruta_paradas": [
-      {"id": 1, "title": "Concepto y origen", "desc": "Qué es una organización y por qué surgen", "emoji": "📖", "color": "#6366F1"},
-      {"id": 2, "title": "Tipos y propósitos", "desc": "Clasificación según finalidad y tipos de propósitos", "emoji": "🏷️", "color": "#3B82F6"},
-      {"id": 3, "title": "Elementos básicos", "desc": "Los 6 elementos que toda organización necesita", "emoji": "🧩", "color": "#10B981"},
-      {"id": 4, "title": "Características", "desc": "Las 12 características que definen a las organizaciones", "emoji": "📋", "color": "#F59E0B"},
-      {"id": 5, "title": "La organización como sistema", "desc": "Modelo input-proceso-output y entorno", "emoji": "⚙️", "color": "#EC4899"}
+      {"id": 1, "title": "¿Qué es una organización?", "desc": "Concepto, elementos básicos y origen histórico", "emoji": "🏢", "color": "#1E3A5F"},
+      {"id": 2, "title": "Tipos y propósitos", "desc": "Clasificaciones, misión, visión y para qué existe cada organización", "emoji": "🎯", "color": "#3B82F6"},
+      {"id": 3, "title": "Características", "desc": "Las 12 características que definen a toda organización", "emoji": "📋", "color": "#10B981"},
+      {"id": 4, "title": "La organización como sistema", "desc": "Modelo input-proceso-output, entorno y subsistemas", "emoji": "⚙️", "color": "#F59E0B"},
+      {"id": 5, "title": "Clasificación de empresas", "desc": "Por tamaño, capital, forma jurídica, ámbito y sector", "emoji": "🏭", "color": "#EC4899"}
     ],
     "panoramica_bloques": [
-      {"title": "Bloque A", "subtitle": "¿Qué son y por qué existen?", "items": ["Definición de organización", "Origen histórico", "Evolución a lo largo del tiempo"], "emoji": "📖", "color": "#6366F1"},
-      {"title": "Bloque B", "subtitle": "¿Cómo se clasifican y qué las compone?", "items": ["Con y sin fines de lucro", "Propósito, misión y visión", "Los 6 elementos básicos", "Las 12 características"], "emoji": "🧩", "color": "#10B981"},
-      {"title": "Bloque C", "subtitle": "¿Cómo funcionan como sistemas?", "items": ["Sistemas abiertos vs cerrados", "Modelo input-proceso-output", "Entorno y subsistemas", "Adaptación al cambio"], "emoji": "⚙️", "color": "#F59E0B"}
+      {
+        "title": "Bloque A",
+        "subtitle": "¿Qué son y de dónde vienen las organizaciones?",
+        "items": ["Definición de organización: personas + coordinación + objetivos + recursos", "Los 6 elementos básicos: personas, objetivos, tareas, recursos, normas, comunicación", "Origen histórico: de las tribus prehistóricas a las startups tecnológicas", "Tipos según finalidad: con fines de lucro y sin fines de lucro"],
+        "emoji": "🏢",
+        "color": "#1E3A5F"
+      },
+      {
+        "title": "Bloque B",
+        "subtitle": "¿Cómo son y cómo funcionan las organizaciones?",
+        "items": ["Propósito, misión y visión: la razón de ser de cada organización", "Las 12 características: sistemas sociales, trascendencia, sinergia, división del trabajo", "La organización como sistema abierto: inputs, proceso, outputs y feedback", "Entorno específico y general: los factores que las afectan desde afuera"],
+        "emoji": "⚙️",
+        "color": "#10B981"
+      },
+      {
+        "title": "Bloque C",
+        "subtitle": "¿Cómo se clasifican las empresas?",
+        "items": ["Por tamaño: micro, pequeña, mediana, grande", "Por propiedad del capital: pública, privada, mixta", "Por forma jurídica: unipersonal, SRL, SA, cooperativa", "Por ámbito (local a global) y sector económico (primario, secundario, terciario)"],
+        "emoji": "🏭",
+        "color": "#EC4899"
+      }
     ],
     "mapa_mental": {
       "centro": {"title": "Las Organizaciones", "emoji": "🏢"},
       "ramas": [
-        {"id": 1, "title": "¿Qué son?", "items": ["Conjunto de personas coordinadas", "Buscan objetivos comunes", "Usan recursos", "Desarrollan actividades específicas"], "color": "#6366F1", "emoji": "❓"},
-        {"id": 2, "title": "¿Qué tipos hay?", "items": ["Con fines de lucro", "Sin fines de lucro", "Propósitos económicos, sociales, culturales, deportivos"], "color": "#10B981", "emoji": "🏷️"},
-        {"id": 3, "title": "¿Cómo funcionan?", "items": ["Como sistemas abiertos", "Reciben inputs del entorno", "Transforman y generan outputs", "Se adaptan con feedback"], "color": "#F59E0B", "emoji": "⚙️"},
-        {"id": 4, "title": "¿Por qué importan?", "items": ["Son universales", "Generan sinergia", "Trascienden en el tiempo", "Influyen en sus miembros"], "color": "#EC4899", "emoji": "💡"}
+        {
+          "id": 1, "title": "¿Qué son?",
+          "items": ["Conjunto de personas coordinadas", "Objetivos comunes que las unen", "Recursos: humanos, materiales, tecnológicos", "Normas y comunicación que las estructuran"],
+          "color": "#1E3A5F", "emoji": "📖"
+        },
+        {
+          "id": 2, "title": "¿Para qué existen?",
+          "items": ["Propósito: razón de ser fundamental", "Misión: qué hacen y para quién", "Visión: hacia dónde quieren llegar", "Con o sin fines de lucro"],
+          "color": "#10B981", "emoji": "🎯"
+        },
+        {
+          "id": 3, "title": "¿Cómo funcionan?",
+          "items": ["Sistema abierto: inputs → proceso → outputs", "Feedback del entorno para adaptarse", "Subsistemas interdependientes (producción, RRHH, finanzas)", "Entorno específico y general"],
+          "color": "#F59E0B", "emoji": "⚙️"
+        },
+        {
+          "id": 4, "title": "¿Cómo se clasifican?",
+          "items": ["Por tamaño: micro a grande", "Por capital: pública, privada, mixta", "Por forma jurídica: SRL, SA, cooperativa", "Por sector: primario, secundario, terciario"],
+          "color": "#EC4899", "emoji": "🏭"
+        }
       ]
     }
   },
+
   "nucleo": {
     "n1_ordenar_cronologicamente": {
-      "consigna": "Ordená las etapas de la evolución histórica de las organizaciones:",
+      "consigna": "Ordená cronológicamente las formas de organización humana desde la prehistoria hasta hoy:",
       "items": [
-        {"id": 1, "text": "Tribus y clanes para cazar y sobrevivir", "emoji": "🦴"},
-        {"id": 2, "text": "Imperios, ejércitos y gremios de artesanos", "emoji": "⚔️"},
-        {"id": 3, "text": "Iglesia, feudos y gremios de comerciantes", "emoji": "⛪"},
-        {"id": 4, "text": "Fábricas, empresas modernas y sindicatos", "emoji": "🏭"},
-        {"id": 5, "text": "Startups tecnológicas y organizaciones virtuales", "emoji": "💻"}
+        {"id": 1, "text": "Tribus y clanes prehistóricos: cazar, recolectar y sobrevivir juntos", "emoji": "🏕️"},
+        {"id": 2, "text": "Imperios y ejércitos de la Antigüedad: organización para conquistar y gobernar", "emoji": "🏛️"},
+        {"id": 3, "text": "Iglesia, feudos y gremios de la Edad Media: organización religiosa y artesanal", "emoji": "⛪"},
+        {"id": 4, "text": "Fábricas y empresas modernas de la Revolución Industrial: producción masiva", "emoji": "🏭"},
+        {"id": 5, "text": "Startups tecnológicas y organizaciones virtuales de la Era Digital", "emoji": "💻"}
       ],
-      "orden_correcto": [1, 2, 3, 4, 5]
+      "orden_correcto": [1, 2, 3, 4, 5],
+      "_nota": "orden_correcto indica el orden correcto de los IDs."
     },
+
     "n2_clasificador": {
-      "consigna": "Clasificá cada organización según su finalidad:",
+      "consigna": "Clasificá cada ejemplo según sea una organización CON FINES DE LUCRO o SIN FINES DE LUCRO:",
       "categorias": [
         {"name": "Con fines de lucro", "color": "#3B82F6", "emoji": "💰"},
         {"name": "Sin fines de lucro", "color": "#10B981", "emoji": "🤝"}
       ],
       "items": [
-        {"id": 1, "text": "MercadoLibre", "categoria_correcta": 0},
-        {"id": 2, "text": "Cruz Roja", "categoria_correcta": 1},
-        {"id": 3, "text": "Globant", "categoria_correcta": 0},
-        {"id": 4, "text": "Wikipedia", "categoria_correcta": 1},
-        {"id": 5, "text": "Startup tecnológica", "categoria_correcta": 0},
-        {"id": 6, "text": "Comedor comunitario", "categoria_correcta": 1}
-      ]
+        {"id": 1, "text": "Globant: empresa argentina que desarrolla software para clientes del mundo", "categoria_correcta": 0},
+        {"id": 2, "text": "Wikipedia: plataforma de conocimiento libre sostenida por donaciones", "categoria_correcta": 1},
+        {"id": 3, "text": "MercadoLibre: plataforma de comercio electrónico que cotiza en bolsa", "categoria_correcta": 0},
+        {"id": 4, "text": "Cruz Roja: organización humanitaria que asiste en emergencias", "categoria_correcta": 1},
+        {"id": 5, "text": "Consultora IT: empresa que vende servicios tecnológicos a otras empresas", "categoria_correcta": 0},
+        {"id": 6, "text": "Comedor comunitario: espacio donde voluntarios dan de comer a quienes lo necesitan", "categoria_correcta": 1}
+      ],
+      "_nota": "categoria_correcta: 0 = primera categoría, 1 = segunda categoría"
     },
+
     "n3_completar_mapa": {
-      "consigna": "Completá los espacios en blanco:",
+      "consigna": "Completá los espacios en blanco con la palabra o frase correcta:",
       "blanks": [
-        {"id": "a", "texto_antes": "Una organización es un conjunto de personas que se coordinan para alcanzar objetivos comunes, utilizando", "respuesta_correcta": "recursos", "pista": "R______"},
-        {"id": "b", "texto_antes": "Las organizaciones son sistemas abiertos porque intercambian recursos e información con el", "respuesta_correcta": "entorno", "pista": "E______"},
-        {"id": "c", "texto_antes": "El resultado del trabajo conjunto es mayor que la suma de los esfuerzos individuales. Esto se llama", "respuesta_correcta": "sinergia", "pista": "S______"}
-      ]
+        {"id": "a", "texto_antes": "Una organización es un conjunto de personas que se coordinan de manera ordenada para alcanzar objetivos", "respuesta_correcta": "comunes", "pista": "C______"},
+        {"id": "b", "texto_antes": "Las organizaciones son sistemas abiertos porque reciben inputs, procesan internamente y generan outputs hacia el", "respuesta_correcta": "entorno", "pista": "E______"},
+        {"id": "c", "texto_antes": "Cuando el resultado del trabajo conjunto es mayor que la suma de los esfuerzos individuales, se produce", "respuesta_correcta": "sinergia", "pista": "S______"}
+      ],
+      "_nota": "texto_antes es la oración incompleta."
     },
+
     "n4_verdadero_falso": {
       "afirmaciones": [
-        {"texto": "Las organizaciones son sistemas abiertos porque intercambian recursos e información con el entorno.", "correcto": true, "explicacion": "Correcto. Las organizaciones reciben inputs del entorno, los procesan y generan outputs, adaptándose constantemente gracias al feedback."},
-        {"texto": "Una organización sin fines de lucro no maneja dinero.", "correcto": false, "explicacion": "Falso. 'Sin fines de lucro' no significa que no manejan dinero, sino que si sobra plata, se reinvierte en la misión y no se reparte entre dueños."},
-        {"texto": "Los 6 elementos básicos de una organización son interdependientes: si falta uno, toda la organización se resiente.", "correcto": true, "explicacion": "Correcto. Personas, objetivos, actividades, recursos, normas y comunicación son todos necesarios para que una organización funcione."}
+        {"texto": "Una organización sin fines de lucro no maneja dinero ni tiene presupuesto.", "correcto": false, "explicacion": "Falso. 'Sin fines de lucro' no significa que no manejan dinero. Significa que si sobra dinero, se reinvierte en la misión de la organización en lugar de repartirse entre dueños. Wikipedia, por ejemplo, recibe millones en donaciones que usa para mantener sus servidores."},
+        {"texto": "Las organizaciones son sistemas abiertos porque interactúan con el entorno: reciben inputs, generan outputs y reciben feedback.", "correcto": true, "explicacion": "Correcto. A diferencia de un sistema cerrado (como un reloj mecánico), las organizaciones dependen del entorno para obtener recursos, entregan productos o servicios hacia afuera, y se adaptan según lo que ese entorno les devuelve como retroalimentación."},
+        {"texto": "Si cada área de una empresa hace bien su trabajo de forma independiente, la organización funcionará perfectamente.", "correcto": false, "explicacion": "Falso. Las áreas son interdependientes, no independientes. Si el equipo de desarrollo lanza funcionalidades sin avisar a soporte, el resultado será quejas sin resolver y clientes enojados, aunque cada área haya hecho 'bien' su trabajo. La coordinación entre subsistemas es clave."}
       ]
     },
+
     "n5_relacionar_columnas": {
       "pares": [
-        {"izquierda": "Propósito", "derecha": "Razón de ser de la organización", "emoji": "🎯"},
-        {"izquierda": "Misión", "derecha": "Qué hacemos, para quién y cómo", "emoji": "📝"},
-        {"izquierda": "Visión", "derecha": "Dónde queremos estar en el futuro", "emoji": "🔭"},
-        {"izquierda": "Feedback", "derecha": "Información del entorno sobre los outputs", "emoji": "🔄"}
+        {"izquierda": "Propósito organizacional", "derecha": "La razón de ser fundamental: ¿para qué existe la organización?", "emoji": "🎯"},
+        {"izquierda": "Sinergia", "derecha": "El resultado del trabajo conjunto supera la suma de los esfuerzos individuales", "emoji": "✨"},
+        {"izquierda": "Sistema abierto", "derecha": "Organización que interactúa con el entorno, recibe inputs y genera outputs", "emoji": "🔄"},
+        {"izquierda": "Persona jurídica", "derecha": "La organización puede firmar contratos, comprar, vender y tener responsabilidades legales", "emoji": "⚖️"}
       ]
     },
+
     "n6_palabra_intrusa": {
       "grupos": [
         {
           "pregunta": "¿Cuál NO es un elemento básico de las organizaciones?",
           "palabras": [
             {"text": "Personas", "es_intrusa": false},
-            {"text": "Objetivos", "es_intrusa": false},
-            {"text": "Sinergia", "es_intrusa": true},
+            {"text": "Objetivos comunes", "es_intrusa": false},
+            {"text": "Ganancia económica", "es_intrusa": true},
             {"text": "Comunicación", "es_intrusa": false}
           ],
-          "explicacion": "Sinergia es una CARACTERÍSTICA de las organizaciones, no uno de los 6 elementos básicos (personas, objetivos, actividades, recursos, normas y comunicación).",
-          "emoji": "🧩"
+          "explicacion": "La ganancia económica NO es un elemento básico de toda organización. Una ONG, una escuela pública o una cooperativa no buscan ganancia pero son organizaciones igual. Los 6 elementos básicos son: personas, objetivos, tareas, recursos, normas y comunicación.",
+          "emoji": "🏢"
         },
         {
-          "pregunta": "¿Cuál NO es un tipo de input organizacional?",
+          "pregunta": "¿Cuál NO es un tipo de input que recibe una organización?",
           "palabras": [
             {"text": "Recursos humanos", "es_intrusa": false},
             {"text": "Recursos financieros", "es_intrusa": false},
             {"text": "Recursos tecnológicos", "es_intrusa": false},
-            {"text": "Publicidad en redes", "es_intrusa": true}
+            {"text": "Outputs de clientes", "es_intrusa": true}
           ],
-          "explicacion": "La publicidad en redes es un OUTPUT (algo que la organización genera hacia afuera), no un input que recibe del entorno.",
-          "emoji": "📥"
+          "explicacion": "Los 'outputs de clientes' no son un tipo de input. Los inputs son entradas que la organización recibe: personas, dinero, tecnología, materiales, información y energía. Lo que viene de los clientes en respuesta al producto es FEEDBACK (retroalimentación), no un input directo.",
+          "emoji": "⚙️"
         }
       ]
     },
+
     "n7_defini_con_tus_palabras": {
       "conceptos": [
-        {"termino": "Organización", "pista": "¿Qué necesita un grupo de personas para ser considerado una organización?", "palabras_clave": ["personas", "objetivos", "coordinación", "recursos", "actividades"]},
-        {"termino": "Sistema abierto", "pista": "¿Qué relación tiene una organización con lo que pasa afuera de ella?", "palabras_clave": ["entorno", "intercambio", "inputs", "outputs", "adaptación", "feedback"]},
-        {"termino": "Sinergia", "pista": "¿Qué pasa cuando un equipo trabaja bien coordinado comparado con trabajar cada uno por su lado?", "palabras_clave": ["conjunto", "mayor", "suma", "coordinación", "resultado", "equipo"]}
+        {"termino": "Organización", "pista": "¿Qué tienen en común tu escuela, MercadoLibre y un comedor comunitario para ser los tres una organización?", "palabras_clave": ["personas", "objetivos", "coordinación", "recursos", "comunes", "estructura"]},
+        {"termino": "Sistema abierto", "pista": "¿Por qué una empresa NO es como un reloj mecánico que funciona solo con sus piezas internas?", "palabras_clave": ["entorno", "inputs", "outputs", "feedback", "adapta", "interacción"]},
+        {"termino": "Sinergia", "pista": "¿Por qué 5 personas bien coordinadas producen más que 5 personas trabajando solas?", "palabras_clave": ["conjunto", "mayor", "coordinación", "individual", "resultado", "suma"]}
       ]
     },
+
     "n8_causa_efecto": {
       "causas": [
-        {"id": 1, "text": "Una organización no se adapta a los cambios tecnológicos", "emoji": "🚫"},
-        {"id": 2, "text": "Los 6 elementos básicos funcionan de forma coordinada", "emoji": "🧩"},
-        {"id": 3, "text": "RRHH contrata mal al personal", "emoji": "👎"},
-        {"id": 4, "text": "La organización recibe feedback negativo de sus clientes", "emoji": "📉"}
+        {"id": 1, "text": "Kodak ignoró la fotografía digital para proteger su negocio de rollos fotográficos", "emoji": "📷"},
+        {"id": 2, "text": "WhatsApp automatizó casi todos sus procesos internos con tecnología", "emoji": "🤖"},
+        {"id": 3, "text": "El área de RRHH de una empresa contrata mal al personal técnico", "emoji": "👤"},
+        {"id": 4, "text": "Netflix se adaptó constantemente: pasó de DVDs a streaming y luego a producción propia", "emoji": "🎬"}
       ],
       "efectos": [
-        {"id": 1, "text": "Pierde mercado y puede desaparecer (como Blockbuster o Kodak)", "causa_id": 1, "emoji": "💀"},
-        {"id": 2, "text": "La organización funciona con eficiencia y logra sus objetivos", "causa_id": 2, "emoji": "✅"},
-        {"id": 3, "text": "Producción baja su calidad, ventas caen y toda la organización se ve afectada", "causa_id": 3, "emoji": "📉"},
-        {"id": 4, "text": "Ajusta sus procesos internos para mejorar productos o servicios", "causa_id": 4, "emoji": "🔄"}
+        {"id": 1, "text": "En 2012 se declaró en bancarrota, mientras Instagram (13 empleados) era comprada por 1.000 millones", "causa_id": 1, "emoji": "📉"},
+        {"id": 2, "text": "Logró tener 450 millones de usuarios con solo 55 empleados al momento de su venta", "causa_id": 2, "emoji": "📈"},
+        {"id": 3, "text": "Producción no entrega calidad → Comercial no vende → Finanzas sin ingresos: toda la organización se resiente", "causa_id": 3, "emoji": "⚠️"},
+        {"id": 4, "text": "Se convirtió en el líder mundial del entretenimiento digital y produce contenido propio premiado", "causa_id": 4, "emoji": "🏆"}
       ]
     },
+
     "n9_ordenar_proceso": {
-      "consigna": "Ordená los pasos del modelo input-proceso-output en una empresa de software:",
+      "consigna": "Ordená los pasos del proceso de transformación en una empresa de desarrollo de software:",
       "pasos_en_orden_correcto": [
-        {"id": 1, "text": "Recibir inputs: programadores, computadoras, requerimientos del cliente", "emoji": "📥"},
-        {"id": 2, "text": "Reunión con el cliente para entender sus necesidades", "emoji": "🤝"},
-        {"id": 3, "text": "Diseño de arquitectura y programación del código", "emoji": "💻"},
-        {"id": 4, "text": "Testing, corrección de errores y deploy de la aplicación", "emoji": "🧪"},
-        {"id": 5, "text": "Recibir feedback del entorno y ajustar el producto", "emoji": "🔄"}
+        {"id": 1, "text": "Reunión con el cliente para entender sus necesidades y requerimientos", "emoji": "🤝"},
+        {"id": 2, "text": "Diseño de la arquitectura: planificación de la estructura del sistema", "emoji": "📐"},
+        {"id": 3, "text": "Programación del código: desarrollo de las funcionalidades", "emoji": "💻"},
+        {"id": 4, "text": "Testing y corrección: pruebas exhaustivas y eliminación de errores", "emoji": "🔍"},
+        {"id": 5, "text": "Deploy (puesta en producción): lanzamiento de la aplicación al cliente", "emoji": "🚀"}
       ]
     },
+
     "n10_comparador": {
-      "concepto_a": {"nombre": "Sistema cerrado", "emoji": "🔒", "color": "#F59E0B"},
-      "concepto_b": {"nombre": "Sistema abierto", "emoji": "🔓", "color": "#10B981"}
+      "concepto_a": {"nombre": "Empresa privada con fines de lucro", "emoji": "💰", "color": "#3B82F6"},
+      "concepto_b": {"nombre": "Organización sin fines de lucro", "emoji": "🤝", "color": "#10B981"},
+      "_nota": "El alumno completa similitudes y diferencias. Actividad abierta."
     }
   },
+
   "senales": {
     "conceptos_clave": [
-      {"termino": "Organización", "definicion": "Conjunto de personas que se coordinan de manera ordenada para alcanzar objetivos comunes, utilizando recursos y desarrollando actividades específicas.", "emoji": "🏢", "importancia": "Sin entender qué es una organización, no podés analizar ninguna empresa, escuela, ONG ni emprendimiento. Es el concepto madre de toda la materia.", "color": "#EF4444"},
-      {"termino": "Sistema abierto", "definicion": "Un sistema que intercambia recursos, información y energía con su entorno. Las organizaciones reciben inputs, los procesan, generan outputs y se adaptan según el feedback.", "emoji": "🔄", "importancia": "Si no entendés que las organizaciones dependen del entorno, no podés explicar por qué algunas triunfan y otras desaparecen.", "color": "#8B5CF6"},
-      {"termino": "Propósito organizacional", "definicion": "El motivo fundamental por el cual una organización existe. Es diferente del objetivo: el propósito es amplio y estable, mientras que los objetivos son metas concretas que cambian.", "emoji": "🎯", "importancia": "El propósito define la identidad de la organización. Si se pierde o no se adapta (como Kodak), la organización puede desaparecer.", "color": "#3B82F6"},
-      {"termino": "Sinergia", "definicion": "El efecto multiplicador que se logra cuando las partes de una organización trabajan coordinadamente. El resultado conjunto es mayor que la suma de los esfuerzos individuales (1+1=3).", "emoji": "🚀", "importancia": "La sinergia es lo que justifica la existencia de las organizaciones. Sin ella, no tendría sentido agruparse.", "color": "#10B981"}
+      {
+        "termino": "Organización",
+        "definicion": "Conjunto de personas que se coordinan de manera ordenada para alcanzar objetivos comunes, utilizando recursos y desarrollando actividades específicas. No puede existir sin personas, coordinación, objetivos, recursos, normas y comunicación.",
+        "emoji": "🏢",
+        "importancia": "Sin entender qué es una organización, no podés entender ningún otro concepto de gestión. Es el punto de partida de todo.",
+        "color": "#EF4444"
+      },
+      {
+        "termino": "Sistema abierto",
+        "definicion": "Las organizaciones son sistemas que interactúan constantemente con su entorno: reciben inputs (recursos, información), los transforman internamente y generan outputs (productos, servicios). Reciben feedback y se adaptan según ese retorno.",
+        "emoji": "🔄",
+        "importancia": "Si no entendés que las organizaciones son sistemas abiertos, no podés explicar por qué algunas triunfan y otras quiebran al enfrentarse a cambios del entorno.",
+        "color": "#8B5CF6"
+      },
+      {
+        "termino": "Propósito organizacional",
+        "definicion": "El motivo fundamental por el cual una organización existe. Responde '¿para qué existe?' y es más amplio y estable que los objetivos concretos. Da sentido a todas las acciones y orienta la toma de decisiones.",
+        "emoji": "🎯",
+        "importancia": "Kodak quebró porque confundió su propósito (vender rollos) con su razón de ser real (capturar momentos). El propósito bien definido es lo que decide si una organización sobrevive al cambio.",
+        "color": "#3B82F6"
+      },
+      {
+        "termino": "Sinergia",
+        "definicion": "El efecto por el cual el resultado del trabajo conjunto de una organización es mayor que la suma de los esfuerzos individuales. Se logra con buena coordinación, objetivos claros y confianza entre los miembros.",
+        "emoji": "✨",
+        "importancia": "La sinergia es la razón de existir de las organizaciones. Si no hay sinergia, no tiene sentido organizarse: cada uno trabaja mejor solo.",
+        "color": "#10B981"
+      }
     ],
     "semaforo_conceptos": [
-      {"termino": "Organización", "emoji": "🏢"},
-      {"termino": "Sistema abierto", "emoji": "🔄"},
-      {"termino": "Propósito organizacional", "emoji": "🎯"},
-      {"termino": "Sinergia", "emoji": "🚀"},
-      {"termino": "Modelo input-proceso-output", "emoji": "⚙️"}
+      {"termino": "Definición y elementos básicos de organización", "emoji": "🏢"},
+      {"termino": "Propósito, misión y visión", "emoji": "🎯"},
+      {"termino": "Las 12 características de las organizaciones", "emoji": "📋"},
+      {"termino": "Modelo input-proceso-output (sistema abierto)", "emoji": "🔄"},
+      {"termino": "Clasificación de empresas (tamaño, capital, sector)", "emoji": "🏭"}
     ],
     "postits_conceptos": ["Organización", "Sistema abierto", "Propósito organizacional", "Sinergia"]
   },
+
   "sabias": {
     "flip_cards": [
-      {"frente": "¿Sabías que…?", "dorso": "Kongō Gumi fue la empresa más antigua del mundo: fundada en Japón en el año 578 d.C. para construir templos budistas. Operó durante 1.428 años y quebró recién en 2006 por endeudarse durante la burbuja inmobiliaria.", "emoji": "🏯", "color": "#F59E0B"},
-      {"frente": "Dato curioso", "dorso": "Robin Dunbar descubrió que los humanos solo podemos mantener relaciones estables con unas 150 personas (el 'Número de Dunbar'). Por eso muchas empresas tech se reorganizan al llegar a ese número de integrantes.", "emoji": "🧠", "color": "#8B5CF6"},
-      {"frente": "¿Lo sabías?", "dorso": "Cuando Facebook compró WhatsApp en 2014, la app tenía 450 millones de usuarios pero solo 55 empleados. Es el ejemplo perfecto de cómo la tecnología puede reemplazar grandes estructuras organizacionales.", "emoji": "📱", "color": "#EF4444"}
+      {
+        "frente": "¿Sabías que...?",
+        "dorso": "La empresa más antigua del mundo fue fundada en el año 578 d.C. en Japón: Kongō Gumi, que construía templos budistas. Operó durante 1.428 años y pasó por 40 generaciones de la misma familia, sobreviviendo guerras y terremotos. Quebró en 2006 por deudas de la burbuja inmobiliaria de los años 80. 14 siglos de historia terminaron por no adaptarse al contexto económico.",
+        "emoji": "⛩️",
+        "color": "#F59E0B"
+      },
+      {
+        "frente": "Dato curioso",
+        "dorso": "El antropólogo Robin Dunbar descubrió que los humanos solo podemos mantener relaciones sociales estables con aproximadamente 150 personas. Por eso las tribus prehistóricas tenían ~150 miembros, las compañías militares romanas tenían ~150 soldados, y muchas empresas tech se dividen en equipos más pequeños al llegar a ese número. WhatsApp, cuando fue comprado por Facebook, tenía solo 55 empleados pero 450 millones de usuarios. ¿Cómo? Automatizaron casi todo.",
+        "emoji": "🧠",
+        "color": "#8B5CF6"
+      },
+      {
+        "frente": "¿Lo sabías?",
+        "dorso": "Valve, la empresa creadora de Steam y Half-Life, no tiene jefes ni jerarquías. Sus empleados eligen en qué proyectos trabajar, mueven sus escritorios con rueditas para agruparse con quien quieran y se evalúan entre pares. Es una de las empresas de videojuegos más exitosas del mundo. Pero también tiene problemas: a veces los proyectos se estancan porque nadie tiene autoridad para tomar una decisión final.",
+        "emoji": "🎮",
+        "color": "#EF4444"
+      }
     ],
     "linea_de_tiempo": [
-      {"year": "Prehistoria", "text": "Tribus y clanes: primeras organizaciones humanas", "emoji": "🦴"},
-      {"year": "578 d.C.", "text": "Se funda Kongō Gumi en Japón, la empresa más longeva", "emoji": "🏯"},
-      {"year": "1800s", "text": "Revolución Industrial: nacen las fábricas modernas", "emoji": "🏭"},
-      {"year": "1975", "text": "Kodak inventa la cámara digital pero no se adapta", "emoji": "📷"},
-      {"year": "2004-hoy", "text": "Era digital: Facebook, MercadoLibre, Globant", "emoji": "💻"}
+      {"year": "Prehistoria", "text": "Primeras organizaciones humanas: tribus que cazan, recolectan y se protegen juntas", "emoji": "🏕️"},
+      {"year": "Antigüedad", "text": "Imperios, ejércitos y gremios de artesanos: organización para gobernar y producir", "emoji": "🏛️"},
+      {"year": "Edad Media", "text": "Iglesia Católica, feudos y gremios comerciales: economía organizada en torno a la tierra y la fe", "emoji": "⛪"},
+      {"year": "Siglo XIX", "text": "Revolución Industrial: nacen las fábricas modernas, los sindicatos y las empresas por acciones", "emoji": "🏭"},
+      {"year": "1990-hoy", "text": "Era Digital: startups tecnológicas, empresas globales, organizaciones virtuales y trabajo remoto", "emoji": "💻"}
     ],
     "encuesta": {
-      "pregunta": "¿Qué dato te sorprendió más?",
+      "pregunta": "¿Qué dato sobre organizaciones te pareció más sorprendente?",
       "opciones": [
-        {"text": "Kongō Gumi funcionó 1.428 años y quebró por una mala decisión", "emoji": "🏯", "votos_iniciales": 45},
-        {"text": "Solo podemos mantener relaciones estables con 150 personas", "emoji": "🧠", "votos_iniciales": 30},
-        {"text": "WhatsApp tenía 450 millones de usuarios con solo 55 empleados", "emoji": "📱", "votos_iniciales": 25}
+        {"text": "Que Kongō Gumi funcionó 1.428 años y luego quebró por deudas", "emoji": "⛩️", "votos_iniciales": 42},
+        {"text": "Que Valve no tiene jefes y sigue siendo muy exitosa", "emoji": "🎮", "votos_iniciales": 35},
+        {"text": "Que WhatsApp tenía solo 55 empleados con 450 millones de usuarios", "emoji": "📱", "votos_iniciales": 23}
       ]
     }
   },
+
   "cruces": {
     "puentes": [
-      {"materia": "Historia", "emoji": "📜", "color": "#F59E0B", "conexion": "La evolución de las organizaciones se entiende mejor con el contexto histórico: feudalismo, Revolución Industrial, globalización.", "pregunta": "¿Cómo influyó la Revolución Industrial en la forma de organizar el trabajo?", "vinculo": "Unidad sobre Revolución Industrial"},
-      {"materia": "Informática", "emoji": "💻", "color": "#10B981", "conexion": "Las organizaciones tech como Globant aplican todos los conceptos de esta unidad. El desarrollo de software es un proceso de transformación con inputs, outputs y feedback.", "pregunta": "¿Cómo se aplica el modelo input-proceso-output en el desarrollo de una app?", "vinculo": "Proyectos de desarrollo de software"},
-      {"materia": "Economía", "emoji": "📊", "color": "#8B5CF6", "conexion": "Los conceptos de recursos, eficiencia y división del trabajo vienen de la economía clásica. Adam Smith ya hablaba de especialización.", "pregunta": "¿Por qué la división del trabajo aumenta la productividad?", "vinculo": "Unidad sobre factores de producción"},
-      {"materia": "Formación Ética", "emoji": "⚖️", "color": "#3B82F6", "conexion": "Las organizaciones son personas jurídicas con derechos y obligaciones. La ética organizacional y la responsabilidad social son temas centrales.", "pregunta": "¿Qué responsabilidad tiene una empresa con la comunidad donde opera?", "vinculo": "Unidad sobre derechos y ciudadanía"}
+      {
+        "materia": "Sistemas de Información",
+        "emoji": "💻",
+        "color": "#F59E0B",
+        "conexion": "Como futuros técnicos en informática, van a desarrollar sistemas PARA organizaciones o trabajar DENTRO de ellas. El modelo input-proceso-output es la base de cualquier sistema informático: datos de entrada, procesamiento y salida de resultados.",
+        "pregunta": "¿Cómo se relaciona el modelo input-proceso-output de las organizaciones con la arquitectura de un sistema de gestión empresarial (ERP)?",
+        "vinculo": "Unidad sobre arquitectura de sistemas y bases de datos"
+      },
+      {
+        "materia": "Historia",
+        "emoji": "📜",
+        "color": "#10B981",
+        "conexion": "La evolución de las organizaciones ES historia: de las tribus a los imperios, de los gremios medievales a las fábricas industriales y las corporaciones digitales. Cada forma de organización refleja el momento histórico que la produce.",
+        "pregunta": "¿Por qué la Revolución Industrial creó un tipo nuevo de organización (la fábrica) que antes no existía? ¿Qué cambió en la historia para que eso fuera posible?",
+        "vinculo": "Unidad sobre Revolución Industrial y transformaciones del siglo XIX"
+      },
+      {
+        "materia": "Ciudadanía y Participación",
+        "emoji": "🏛️",
+        "color": "#8B5CF6",
+        "conexion": "Las organizaciones públicas (hospitales, escuelas, municipios) son organizaciones que el Estado crea para garantizar derechos. Entender cómo funcionan ayuda a comprender qué puede exigirse como ciudadanos y cómo participar en ellas.",
+        "pregunta": "¿Por qué una escuela pública como la EETP N°602 tiene características distintas a una empresa privada, aunque ambas sean organizaciones?",
+        "vinculo": "Unidad sobre Estado, instituciones y derechos ciudadanos"
+      },
+      {
+        "materia": "Matemática",
+        "emoji": "📐",
+        "color": "#3B82F6",
+        "conexion": "La clasificación de empresas por tamaño usa rangos numéricos (hasta 10, entre 11-50, entre 51-200, más de 200 empleados). Los indicadores organizacionales (ventas, empleados, facturación) son datos cuantitativos que se analizan matemáticamente.",
+        "pregunta": "Si una empresa tiene 48 empleados y contrata 5 más, ¿cambia su clasificación por tamaño? ¿Qué implicaciones legales e impositivas puede tener ese cambio?",
+        "vinculo": "Unidad sobre estadística, porcentajes e interpretación de datos"
+      }
     ],
     "telarana": [
-      {"target": "Sociología", "desc": "Las organizaciones son sistemas sociales que moldean el comportamiento de sus miembros", "emoji": "👥", "color": "#EF4444"},
-      {"target": "Psicología", "desc": "La cultura organizacional influye en las emociones y motivación de las personas", "emoji": "🧠", "color": "#8B5CF6"},
-      {"target": "Derecho", "desc": "Las organizaciones son personas jurídicas con responsabilidades legales", "emoji": "⚖️", "color": "#3B82F6"},
-      {"target": "Ingeniería", "desc": "El enfoque de sistemas (inputs, procesos, outputs) viene de la ingeniería de sistemas", "emoji": "🔧", "color": "#EC4899"},
-      {"target": "Biología", "desc": "La idea de sistemas abiertos y adaptación tiene paralelismos con organismos vivos", "emoji": "🧬", "color": "#10B981"},
-      {"target": "Matemática", "desc": "La eficiencia organizacional se mide con indicadores y fórmulas de optimización", "emoji": "📐", "color": "#F59E0B"}
+      {"target": "Sociología", "desc": "Las organizaciones son grupos sociales con jerarquías, normas y cultura propia que moldean el comportamiento de sus miembros", "emoji": "👥", "color": "#EF4444"},
+      {"target": "Psicología", "desc": "La motivación, el liderazgo y la dinámica de grupos son factores psicológicos clave en el funcionamiento organizacional", "emoji": "🧠", "color": "#8B5CF6"},
+      {"target": "Economía", "desc": "Las empresas como agentes económicos, la relación entre propósito y mercado, y la clasificación por sector económico conectan directamente", "emoji": "📊", "color": "#3B82F6"},
+      {"target": "Derecho", "desc": "Las formas jurídicas (SA, SRL, cooperativa) y la personería jurídica de las organizaciones son conceptos legales fundamentales", "emoji": "⚖️", "color": "#EC4899"},
+      {"target": "Ecología", "desc": "Las organizaciones impactan el ambiente y el entorno general incluye factores ambientales que las obligan a cambiar", "emoji": "🌱", "color": "#10B981"},
+      {"target": "Geografía", "desc": "La clasificación por ámbito (local, regional, nacional, global) y la localización de las organizaciones tiene dimensión geográfica", "emoji": "🌍", "color": "#F59E0B"}
     ]
   },
+
   "relectura": {
     "tribunal": {
-      "titulo_debate": "Las organizaciones sin fines de lucro son más importantes para la sociedad que las empresas con fines de lucro.",
-      "contexto": "Pensá en organizaciones como Wikipedia, Cruz Roja o comedores comunitarios frente a empresas como MercadoLibre, Globant o Google. ¿Cuáles aportan más a la sociedad?",
+      "titulo_debate": "Las organizaciones sin estructura jerárquica (sin jefes ni cargos formales) funcionan mejor que las organizaciones tradicionales con organigramas y jerarquías.",
+      "contexto": "Empresas como Valve (sin jefes, escritorios con rueditas) muestran que se puede ser exitoso sin jerarquías. Pero también existen problemas: proyectos que se estancan por falta de autoridad para decidir. Las organizaciones tradicionales tienen estructura clara pero pueden ser rígidas y burocráticas. ¿Cuál modelo es mejor? Usá los conceptos de coordinación, división del trabajo, sinergia, adaptación y los elementos básicos de las organizaciones.",
       "roles": [
-        {"id": "favor", "label": "A FAVOR", "emoji": "🟢", "color": "#10B981", "desc": "Defendé que las organizaciones sin fines de lucro son más importantes porque priorizan el bienestar social."},
-        {"id": "contra", "label": "EN CONTRA", "emoji": "🔴", "color": "#EF4444", "desc": "Argumentá que las empresas con fines de lucro también generan empleo, innovación y desarrollo."},
-        {"id": "juez", "label": "JUEZ/A", "emoji": "👨‍⚖️", "color": "#8B5CF6", "desc": "Evaluá los argumentos de ambas partes y emití tu veredicto fundamentado."}
+        {"id": "favor", "label": "A FAVOR", "emoji": "🟢", "color": "#10B981", "desc": "Defendé que las organizaciones horizontales (sin jerarquías) son superiores. Argumentá con: mayor motivación de los empleados, más creatividad e innovación, mejor adaptación al cambio, casos reales como Valve o proyectos open source como Linux. Mostrá que la coordinación puede existir sin jefes formales."},
+        {"id": "contra", "label": "EN CONTRA", "emoji": "🔴", "color": "#EF4444", "desc": "Argumentá que las jerarquías son necesarias en la mayoría de los casos. Mostrá que sin autoridad clara se generan conflictos y estancamientos, que la sinergia requiere coordinación formal, y que las organizaciones grandes (hospitales, fábricas, escuelas) no pueden funcionar sin estructura clara de roles y responsabilidades."},
+        {"id": "juez", "label": "JUEZ/A", "emoji": "👨‍⚖️", "color": "#8B5CF6", "desc": "Evaluá ambas posturas. ¿Existen contextos donde una estructura horizontal funciona mejor y otros donde la jerarquía es necesaria? ¿Qué variables determinan qué estructura es más adecuada (tamaño, tipo de trabajo, objetivos)? Emitá un veredicto razonado con ejemplos concretos."}
       ]
     },
-    "tesis": {"consigna": "Formulá una tesis sobre: 'Las organizaciones que no se adaptan al entorno desaparecen'. Usá los casos de Kodak, Blockbuster, Netflix y Amazon."},
-    "critica": {"consigna": "Releé la sección sobre las 12 características de las organizaciones y analizala críticamente. Identificá fortalezas, debilidades, preguntas y propuestas."}
+    "tesis": {
+      "consigna": "Formulá una tesis sobre: 'Las organizaciones que no se adaptan al entorno están condenadas a desaparecer'. Elegí al menos 2 ejemplos concretos (podés usar Kodak, Blockbuster, Netflix, Uber, Linux u otros) y mostrá cómo el concepto de sistema abierto y feedback explica el éxito o fracaso de esas organizaciones. Tu tesis debe tener una afirmación clara, 2 evidencias con ejemplos reales y una conclusión que conecte con tu futuro como técnico en informática."
+    },
+    "critica": {
+      "consigna": "Releé la sección sobre 'La organización como sistema adaptativo' (Blockbuster vs. Netflix, taxis vs. Uber). Identificá: 2 fortalezas del análisis (qué explica bien), 1 limitación (qué simplifica o no considera), 1 pregunta que te quedó sin responder, y 1 conexión con alguna organización tecnológica argentina actual que conozcas."
+    }
   },
+
+  "emocional": {},
+
   "autotest": {
     "preguntas": [
-      {"pregunta": "¿Cuál es la definición correcta de organización?", "opciones": ["Un grupo de amigos que se juntan a charlar", "Un conjunto de personas coordinadas para alcanzar objetivos comunes, usando recursos y actividades específicas", "Cualquier grupo de personas reunidas en un lugar", "Una empresa que busca ganar dinero"], "correcta": 1, "explicacion": "Una organización requiere personas coordinadas, objetivos comunes, recursos y actividades específicas. No alcanza con juntarse ni se limita solo a empresas."},
-      {"pregunta": "¿Qué significa que una organización sea 'sin fines de lucro'?", "opciones": ["Que no maneja dinero", "Que sus empleados trabajan gratis", "Que si sobra dinero, se reinvierte en la misión y no se reparte entre dueños", "Que no puede vender productos ni servicios"], "correcta": 2, "explicacion": "Sin fines de lucro NO significa que no manejan dinero. Significa que las ganancias se reinvierten en cumplir la misión."},
-      {"pregunta": "¿Cuántos elementos básicos tiene toda organización?", "opciones": ["4: personas, objetivos, recursos y actividades", "6: personas, objetivos, actividades, recursos, normas y comunicación", "3: personas, dinero y tecnología", "12: los mismos que las características"], "correcta": 1, "explicacion": "Toda organización tiene 6 elementos básicos interdependientes: personas, objetivos, actividades, recursos, normas y comunicación."},
-      {"pregunta": "¿Por qué se dice que las organizaciones son sistemas abiertos?", "opciones": ["Porque cualquier persona puede entrar", "Porque no tienen reglas estrictas", "Porque intercambian recursos, información y energía con el entorno", "Porque están abiertas las 24 horas"], "correcta": 2, "explicacion": "Las organizaciones son sistemas abiertos porque reciben inputs del entorno, los procesan, generan outputs y se adaptan según el feedback."},
-      {"pregunta": "¿Cuál es la diferencia principal entre propósito y objetivo?", "opciones": ["Son sinónimos", "El propósito es la razón de ser (amplio y estable), el objetivo es una meta específica (concreta y cambiante)", "El objetivo es más importante que el propósito", "El propósito se mide con números y el objetivo no"], "correcta": 1, "explicacion": "El propósito es la razón fundamental de existencia (amplio, estable). El objetivo es una meta concreta y medible (cambiante)."},
-      {"pregunta": "En el modelo input-proceso-output, ¿qué es el feedback?", "opciones": ["Los recursos que la organización recibe del entorno", "El proceso interno de transformación", "Los productos o servicios que entrega", "La información que recibe del entorno sobre sus outputs, para ajustar el proceso"], "correcta": 3, "explicacion": "El feedback es la información que la organización recibe del entorno sobre sus outputs. Es crucial para detectar errores, mejorar y adaptarse."}
+      {
+        "pregunta": "¿Cuál de estos elementos NO forma parte de los 6 elementos básicos de toda organización?",
+        "opciones": ["Personas", "Objetivos comunes", "Ganancia económica", "Comunicación"],
+        "correcta": 2,
+        "explicacion": "La ganancia económica NO es un elemento básico. Los 6 elementos son: personas, objetivos comunes, actividades/tareas, recursos, normas y reglas, y comunicación. Una ONG, una escuela o una cooperativa no buscan ganancia pero tienen todos los demás elementos."
+      },
+      {
+        "pregunta": "¿Qué diferencia a una organización 'sin fines de lucro' de una 'con fines de lucro'?",
+        "opciones": ["Las sin fines de lucro no manejan dinero", "En las sin fines de lucro, el excedente se reinvierte en la misión en lugar de repartirse entre dueños", "Las sin fines de lucro son siempre más pequeñas", "Las sin fines de lucro no tienen empleados pagos"],
+        "correcta": 1,
+        "explicacion": "La diferencia clave es el destino del excedente. 'Sin fines de lucro' no significa que no manejan dinero: Wikipedia recibe millones en donaciones. Significa que si sobra dinero, se reinvierte en la misión (conocimiento libre, ayuda social) en lugar de repartirse entre dueños o accionistas."
+      },
+      {
+        "pregunta": "¿Por qué las organizaciones son consideradas 'sistemas abiertos'?",
+        "opciones": ["Porque cualquier persona puede entrar a trabajar en ellas", "Porque no tienen secretos y comparten toda su información", "Porque intercambian recursos, información y resultados con su entorno y se adaptan según el feedback", "Porque tienen puertas y ventanas abiertas al público"],
+        "correcta": 2,
+        "explicacion": "Un sistema abierto es el que interactúa con su entorno. Las organizaciones reciben inputs (recursos, información, personas), los transforman internamente y generan outputs (productos, servicios). El feedback del entorno (ventas, quejas, opiniones) les permite ajustar y adaptarse."
+      },
+      {
+        "pregunta": "Una startup tech recibe inversión, contrata programadores y lanza una app. ¿Qué es el dinero de la inversión en el modelo input-proceso-output?",
+        "opciones": ["Un output", "Un feedback", "Un input (recurso financiero)", "Un subsistema"],
+        "correcta": 2,
+        "explicacion": "El dinero de inversión es un INPUT de tipo financiero. Es un recurso que entra desde el entorno hacia la organización. Los outputs serían la app terminada. El feedback sería lo que los usuarios opinan de la app. El proceso es todo lo que ocurre adentro (diseño, programación, testing)."
+      },
+      {
+        "pregunta": "YPF tiene capital tanto del Estado como de inversores privados. Según su propiedad del capital, ¿cómo se clasifica?",
+        "opciones": ["Empresa pública", "Empresa privada", "Empresa mixta", "Empresa multinacional"],
+        "correcta": 2,
+        "explicacion": "YPF es una empresa mixta porque su capital está compartido entre el Estado (que es accionista mayoritario) y accionistas privados. Las empresas públicas son 100% del Estado (ANSES, hospitales públicos) y las privadas son 100% de particulares (Rappi, Globant)."
+      },
+      {
+        "pregunta": "Kodak inventó la primera cámara digital en 1975 pero se resistió a adoptarla para proteger su negocio de rollos. ¿Qué característica organizacional falló principalmente?",
+        "opciones": ["División del trabajo", "Estructura dinámica y adaptación al entorno", "Personificación jurídica", "División del trabajo y sinergia"],
+        "correcta": 1,
+        "explicacion": "Falló la característica de 'estructura dinámica': las organizaciones deben evolucionar para adaptarse a los cambios del entorno. Kodak no se adaptó al cambio tecnológico (era digital), y como consecuencia quebró en 2012, el mismo año que Instagram (13 empleados) fue vendida por 1.000 millones de dólares."
+      }
     ]
   },
+
   "cierre": {
     "glosario": [
-      {"termino": "Organización", "definicion": "Conjunto de personas coordinadas para alcanzar objetivos comunes, utilizando recursos y desarrollando actividades específicas.", "emoji": "🏢", "categoria": "Concepto base"},
-      {"termino": "Sistema abierto", "definicion": "Sistema que intercambia recursos, información y energía con su entorno, y se adapta constantemente según el feedback.", "emoji": "🔄", "categoria": "Concepto base"},
-      {"termino": "Sinergia", "definicion": "Efecto multiplicador donde el resultado del trabajo conjunto es mayor que la suma de los esfuerzos individuales (1+1=3).", "emoji": "🚀", "categoria": "Característica"},
-      {"termino": "Propósito", "definicion": "Motivo fundamental por el cual una organización existe. Es amplio, de largo plazo y relativamente estable.", "emoji": "🎯", "categoria": "Concepto base"},
-      {"termino": "Misión", "definicion": "Describe qué hace la organización, para quién y cómo. Es más concreta que el propósito.", "emoji": "📝", "categoria": "Concepto base"},
-      {"termino": "Visión", "definicion": "Describe dónde quiere estar la organización en el futuro. Es la meta aspiracional a largo plazo.", "emoji": "🔭", "categoria": "Concepto base"},
-      {"termino": "Feedback", "definicion": "Retroalimentación: información que la organización recibe del entorno sobre sus productos o servicios, para ajustar procesos.", "emoji": "🔁", "categoria": "Proceso"},
-      {"termino": "Persona jurídica", "definicion": "Entidad legal que permite a la organización firmar contratos, comprar, vender y tener responsabilidades legales.", "emoji": "⚖️", "categoria": "Característica"}
+      {"termino": "Organización", "definicion": "Conjunto de personas que se coordinan de manera ordenada para alcanzar objetivos comunes, utilizando recursos y desarrollando actividades específicas.", "emoji": "🏢", "categoria": "Concepto base"},
+      {"termino": "Sistema abierto", "definicion": "Tipo de sistema que interactúa con su entorno: recibe inputs, los transforma y genera outputs. Las organizaciones son sistemas abiertos porque dependen del entorno y se adaptan a él.", "emoji": "🔄", "categoria": "Concepto base"},
+      {"termino": "Propósito organizacional", "definicion": "El motivo fundamental por el cual una organización existe. Es más amplio y estable que los objetivos concretos y da sentido a todas las acciones.", "emoji": "🎯", "categoria": "Concepto base"},
+      {"termino": "Sinergia", "definicion": "Efecto por el cual el resultado del trabajo conjunto es mayor que la suma de los esfuerzos individuales. Se logra con buena coordinación, objetivos claros y comunicación efectiva.", "emoji": "✨", "categoria": "Características"},
+      {"termino": "Input", "definicion": "Recursos que una organización recibe del entorno para poder funcionar: humanos, materiales, financieros, tecnológicos, informativos y energía.", "emoji": "📥", "categoria": "Modelo sistémico"},
+      {"termino": "Output", "definicion": "Productos o servicios que una organización genera y entrega al entorno como resultado de su proceso de transformación interna.", "emoji": "📤", "categoria": "Modelo sistémico"},
+      {"termino": "Feedback", "definicion": "Información que la organización recibe del entorno sobre sus outputs. Puede ser positivo (ventas crecen, buenas reseñas) o negativo (quejas, caída de ventas). Sirve para ajustar el proceso.", "emoji": "🔁", "categoria": "Modelo sistémico"},
+      {"termino": "Persona jurídica", "definicion": "Condición legal por la cual una organización puede actuar como sujeto de derechos y obligaciones: firmar contratos, comprar, vender y ser demandada, aunque no sea una persona física.", "emoji": "⚖️", "categoria": "Aspectos legales"}
     ],
     "recursos": [
-      {"tipo": "🎬 Video", "title": "¿Qué es una organización? Explicado fácil", "desc": "Video introductorio con ejemplos cotidianos sobre qué es una organización.", "nivel": "Introductorio", "color": "#8B5CF6"},
-      {"tipo": "🌐 Web", "title": "Globant: Quiénes somos", "desc": "Sitio oficial de Globant con su misión, visión y valores como ejemplo real.", "nivel": "Introductorio", "color": "#EF4444"},
-      {"tipo": "🎬 Video", "title": "La historia de Kodak: cómo una empresa líder desapareció", "desc": "Documental corto sobre la caída de Kodak y la importancia de adaptarse.", "nivel": "Intermedio", "color": "#F59E0B"},
-      {"tipo": "📖 Libro", "title": "Administración - Robbins y Coulter (Cap. 1)", "desc": "Capítulo introductorio del manual clásico sobre organizaciones y sistemas.", "nivel": "Intermedio", "color": "#3B82F6"},
-      {"tipo": "🎧 Podcast", "title": "Cómo nacen las startups tecnológicas", "desc": "Podcast en español sobre cómo las startups aplican principios organizacionales.", "nivel": "Avanzado", "color": "#10B981"}
+      {"tipo": "🎬 Video", "title": "¿Qué es una empresa? Tipos y clasificación explicados", "desc": "Video educativo que explica de forma visual los tipos de organizaciones, sus elementos y clasificaciones con ejemplos argentinos y globales.", "nivel": "Introductorio", "color": "#8B5CF6"},
+      {"tipo": "🌐 Web", "title": "Economipedia: Organización empresarial", "desc": "Artículos claros sobre conceptos de gestión: organización, tipos, sistemas abiertos y cerrados, con ejemplos y esquemas visuales.", "nivel": "Introductorio", "color": "#EF4444"},
+      {"tipo": "🎬 Video", "title": "TED: Cómo las grandes organizaciones piensan diferente — Simon Sinek", "desc": "Conferencia sobre el 'círculo dorado' y por qué el propósito (el 'por qué') es más importante que el 'qué' o el 'cómo' en una organización.", "nivel": "Intermedio", "color": "#F59E0B"},
+      {"tipo": "📖 Libro", "title": "Introducción a la Administración — Idalberto Chiavenato", "desc": "Manual universitario clásico que explica las organizaciones como sistemas, sus características y clasificaciones con teorías y ejemplos detallados.", "nivel": "Avanzado", "color": "#3B82F6"},
+      {"tipo": "🎧 Podcast", "title": "How I Built This — Guy Raz (NPR)", "desc": "Historias reales de fundadores de empresas como Airbnb, Instagram y Duolingo sobre cómo construyeron sus organizaciones desde cero. Disponible con subtítulos.", "nivel": "Intermedio", "color": "#10B981"}
     ]
   }
 }
