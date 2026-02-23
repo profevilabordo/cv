@@ -1,0 +1,450 @@
+{
+  "materia": "Orientación en Contextos Laborales",
+  "unidad": 1,
+  "titulo": "De la escuela al trabajo",
+  "emoji": "💼",
+  "color_primario": "#6366F1",
+  "color_secundario": "#8B5CF6",
+
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "🤔",
+        "texto": "Si mañana tuvieras que conseguir tu primer trabajo, ¿por dónde empezarías? ¿Tenés un CV? ¿Sabés cómo buscarlo?",
+        "pista": "Pensá en todo lo que sabés hacer, dónde lo aprendiste y cómo se lo contarías a alguien que no te conoce..."
+      },
+      {
+        "emoji": "📱",
+        "texto": "Tus abuelos trabajaron toda su vida en el mismo lugar. Tus padres quizás cambiaron algunas veces. ¿Cómo creés que va a ser tu trayectoria laboral?",
+        "pista": "El mundo cambia a velocidad vertiginosa. Las profesiones de hoy no son las de ayer, y las de mañana quizás todavía no existen..."
+      },
+      {
+        "emoji": "💡",
+        "texto": "¿Hay alguna diferencia entre un trabajo que te gusta y uno que te pagan bien? ¿Qué preferirías y por qué?",
+        "pista": "El trabajo puede ser sustento económico, realización personal o contribución a la sociedad. ¿Puede ser las tres cosas al mismo tiempo?"
+      }
+    ],
+    "situaciones_conecta": [
+      {"emoji": "📄", "label": "Alguien me pidió mi CV y no supe bien qué era o cómo hacerlo"},
+      {"emoji": "🧑‍💻", "label": "Vi una oferta de trabajo interesante y no supe cómo postularme"},
+      {"emoji": "😬", "label": "Tuve que hablar de mí mismo/a frente a alguien y me trabé"},
+      {"emoji": "🎯", "label": "Me pregunté para qué sirve lo que aprendo en la escuela"}
+    ],
+    "termometro_pregunta": "¿Qué tan preparado/a te sentís para dar el salto al mundo laboral?"
+  },
+
+  "mapa": {
+    "ruta_paradas": [
+      {"id": 1, "title": "¿Qué es el trabajo?", "desc": "Concepto, perspectivas y por qué importa en tu vida", "emoji": "💼", "color": "#6366F1"},
+      {"id": 2, "title": "El trabajo en el mundo actual", "desc": "Revolución digital, nuevas formas de trabajar y habilidades del futuro", "emoji": "🌐", "color": "#3B82F6"},
+      {"id": 3, "title": "Cómo buscar trabajo", "desc": "Las 5 etapas del proceso de búsqueda laboral", "emoji": "🔍", "color": "#10B981"},
+      {"id": 4, "title": "CV y carta de presentación", "desc": "Tus herramientas clave para conseguir una entrevista", "emoji": "📄", "color": "#F59E0B"},
+      {"id": 5, "title": "La entrevista laboral", "desc": "Cómo prepararte y destacar en tu gran momento", "emoji": "🤝", "color": "#EC4899"}
+    ],
+    "panoramica_bloques": [
+      {
+        "title": "Bloque A",
+        "subtitle": "El trabajo: qué es y cómo cambió",
+        "items": ["Concepto de trabajo: actividad física e intelectual que crea valor", "Tres perspectivas: sustento económico, realización personal, contribución social", "Características del trabajo moderno: flexibilidad, tecnología, habilidades blandas", "La revolución digital y las nuevas formas de trabajar (remoto, freelance, gig)"],
+        "emoji": "💼",
+        "color": "#6366F1"
+      },
+      {
+        "title": "Bloque B",
+        "subtitle": "Búsqueda laboral: herramientas y estrategias",
+        "items": ["Las 5 etapas: investigar, CV, carta, entrevista, celebrar/aprender", "El CV: tipos (cronológico, funcional, mixto) y sus secciones clave", "La carta de presentación: respondiendo a una oferta vs. espontánea", "Errores comunes y buenas prácticas en cada herramienta"],
+        "emoji": "🔍",
+        "color": "#10B981"
+      },
+      {
+        "title": "Bloque C",
+        "subtitle": "La entrevista: tu gran momento",
+        "items": ["Preparación: investigar empresa, practicar respuestas, armar kit", "Lo que sí y lo que no tenés que hacer en una entrevista", "Preguntas frecuentes y cómo responderlas (método STAR)", "Habilidades del futuro: pensamiento crítico, creatividad, inteligencia emocional"],
+        "emoji": "🤝",
+        "color": "#F59E0B"
+      }
+    ],
+    "mapa_mental": {
+      "centro": {"title": "De la escuela al trabajo", "emoji": "💼"},
+      "ramas": [
+        {
+          "id": 1, "title": "¿Qué es el trabajo?",
+          "items": ["Actividad física o intelectual que crea valor", "Fuente de sustento económico", "Camino de realización personal", "Contribución a la sociedad"],
+          "color": "#6366F1", "emoji": "💡"
+        },
+        {
+          "id": 2, "title": "¿Cómo es el trabajo hoy?",
+          "items": ["Trabajo remoto y freelance", "Economía gig: tareas por encargo", "Inteligencia artificial y automatización", "Aprendizaje continuo como clave"],
+          "color": "#10B981", "emoji": "🌐"
+        },
+        {
+          "id": 3, "title": "¿Cómo consigo trabajo?",
+          "items": ["CV: tu carta de presentación profesional", "Carta: respondiendo a oferta o espontánea", "Entrevista: preparación y actitud", "5 etapas: investigar, postularse, entrevistar"],
+          "color": "#F59E0B", "emoji": "🔍"
+        },
+        {
+          "id": 4, "title": "¿Qué necesito para destacar?",
+          "items": ["Pensamiento crítico y resolución de problemas", "Comunicación y trabajo en equipo", "Alfabetización digital", "Adaptabilidad e inteligencia emocional"],
+          "color": "#EC4899", "emoji": "🌟"
+        }
+      ]
+    }
+  },
+
+  "nucleo": {
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená las etapas del proceso de búsqueda laboral en el orden correcto:",
+      "items": [
+        {"id": 1, "text": "Investigás el mercado: buscás qué trabajos existen y qué requisitos piden", "emoji": "🔍"},
+        {"id": 2, "text": "Preparás tu CV con estudios, experiencias y habilidades", "emoji": "📄"},
+        {"id": 3, "text": "Redactás una carta de presentación personalizada para el puesto", "emoji": "✉️"},
+        {"id": 4, "text": "Te preparás para la entrevista: investigás la empresa y practicás respuestas", "emoji": "🎯"},
+        {"id": 5, "text": "Celebrás si te ofrecen el trabajo, o aprendés de la experiencia si no", "emoji": "🎉"}
+      ],
+      "orden_correcto": [1, 2, 3, 4, 5]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada elemento según corresponda al CV o a la CARTA DE PRESENTACIÓN:",
+      "categorias": [
+        {"name": "Currículum Vitae (CV)", "color": "#6366F1", "emoji": "📄"},
+        {"name": "Carta de Presentación", "color": "#10B981", "emoji": "✉️"}
+      ],
+      "items": [
+        {"id": 1, "text": "Lista tus estudios, experiencias y habilidades de forma objetiva", "categoria_correcta": 0},
+        {"id": 2, "text": "Explicás por qué sos la persona ideal para ese trabajo específico", "categoria_correcta": 1},
+        {"id": 3, "text": "Incluye secciones como datos personales, formación y referencias", "categoria_correcta": 0},
+        {"id": 4, "text": "Es tu oportunidad de conectar emocionalmente con el empleador", "categoria_correcta": 1},
+        {"id": 5, "text": "No debe superar 1 o 2 páginas y usa verbos de acción cuantificables", "categoria_correcta": 0},
+        {"id": 6, "text": "Se personaliza para cada puesto e investiga los valores de la empresa", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "consigna": "Completá los espacios en blanco con el concepto correcto:",
+      "blanks": [
+        {"id": "a", "texto_antes": "El trabajo es cualquier actividad, física o intelectual, que realizamos para transformar nuestro entorno, crear valor y satisfacer necesidades tanto personales como", "respuesta_correcta": "colectivas", "pista": "C________"},
+        {"id": "b", "texto_antes": "Las habilidades blandas como comunicación, trabajo en equipo y creatividad también se llaman", "respuesta_correcta": "soft skills", "pista": "S___ s____"},
+        {"id": "c", "texto_antes": "El método STAR (Situación, Tarea, Acción, Resultado) se usa para responder preguntas en una", "respuesta_correcta": "entrevista", "pista": "E________"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "afirmaciones": [
+        {"texto": "El mismo CV sirve para postularse a cualquier trabajo sin necesidad de adaptarlo.", "correcto": false, "explicacion": "Falso. Cada CV debería adaptarse al puesto que se busca, destacando las habilidades y experiencias más relevantes para ese trabajo específico. Un CV genérico pierde potencia frente a un reclutador."},
+        {"texto": "Una carta de presentación espontánea se envía a empresas que te interesan aunque no tengan una vacante publicada.", "correcto": true, "explicacion": "Correcto. La autocandidatura o carta espontánea es una herramienta proactiva: te postulás antes de que exista una oferta pública. Tiene la ventaja de que hay menos competencia y demuestra iniciativa."},
+        {"texto": "En una entrevista laboral, lo más importante es hablar todo el tiempo para demostrar que sabés mucho.", "correcto": false, "explicacion": "Falso. Escuchar atentamente es tan importante como hablar. Interrumpir al entrevistador o hablar sin parar transmite falta de habilidades de comunicación. La entrevista es un intercambio, no un monólogo."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "pares": [
+        {"izquierda": "CV Cronológico", "derecha": "Lista la experiencia de la más reciente a la más antigua", "emoji": "📅"},
+        {"izquierda": "CV Funcional", "derecha": "Se enfoca en habilidades y logros, ocultando gaps en el historial", "emoji": "💡"},
+        {"izquierda": "Economía Gig", "derecha": "Tareas específicas y de corta duración, como servicios de entrega", "emoji": "🛵"},
+        {"izquierda": "Método STAR", "derecha": "Situación, Tarea, Acción y Resultado para responder en entrevistas", "emoji": "⭐"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "grupos": [
+        {
+          "pregunta": "¿Cuál NO es una sección que debe tener un CV profesional?",
+          "palabras": [
+            {"text": "Formación académica", "es_intrusa": false},
+            {"text": "Habilidades y competencias", "es_intrusa": false},
+            {"text": "Opiniones políticas personales", "es_intrusa": true},
+            {"text": "Experiencia laboral", "es_intrusa": false}
+          ],
+          "explicacion": "Las opiniones políticas no deben incluirse en un CV ya que pueden generar prejuicios y son irrelevantes para evaluar tu capacidad profesional. Un CV debe ser objetivo y enfocado en tus competencias.",
+          "emoji": "📄"
+        },
+        {
+          "pregunta": "¿Cuál NO es una habilidad blanda (soft skill) valorada en el trabajo moderno?",
+          "palabras": [
+            {"text": "Inteligencia emocional", "es_intrusa": false},
+            {"text": "Trabajo en equipo", "es_intrusa": false},
+            {"text": "Dominar Excel", "es_intrusa": true},
+            {"text": "Adaptabilidad", "es_intrusa": false}
+          ],
+          "explicacion": "Dominar Excel es una habilidad técnica (hard skill), no una soft skill. Las habilidades blandas son capacidades interpersonales y actitudinales como la comunicación, el liderazgo o la empatía, no el dominio de herramientas específicas.",
+          "emoji": "🧠"
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "conceptos": [
+        {"termino": "Currículum Vitae (CV)", "pista": "¿Qué información tiene que incluir y para qué sirve en una búsqueda laboral?", "palabras_clave": ["documento", "experiencia", "habilidades", "presentación", "empleo", "profesional"]},
+        {"termino": "Trabajo remoto", "pista": "¿Cómo cambia la relación entre el trabajador y su lugar de trabajo gracias a la tecnología?", "palabras_clave": ["distancia", "tecnología", "internet", "ubicación", "colaborar", "flexible"]},
+        {"termino": "Habilidades blandas", "pista": "¿Qué tipo de capacidades son estas y por qué son tan valoradas en el trabajo actual?", "palabras_clave": ["comunicación", "equipo", "actitud", "interpersonal", "adaptación", "soft skills"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "causas": [
+        {"id": 1, "text": "La digitalización transforma todas las industrias y sectores productivos", "emoji": "💻"},
+        {"id": 2, "text": "Un reclutador ve un CV con errores ortográficos y datos desactualizados", "emoji": "❌"},
+        {"id": 3, "text": "Un candidato llega tarde y mira el celular durante la entrevista", "emoji": "📱"},
+        {"id": 4, "text": "Alguien envía una carta de presentación espontánea a una empresa que admira", "emoji": "✉️"}
+      ],
+      "efectos": [
+        {"id": 1, "text": "Surgen nuevas profesiones y desaparecen otras; se necesita aprendizaje continuo", "causa_id": 1, "emoji": "🔄"},
+        {"id": 2, "text": "El candidato genera una primera impresión negativa y queda descartado", "causa_id": 2, "emoji": "👎"},
+        {"id": 3, "text": "Transmite falta de profesionalismo y pocas chances de ser contratado", "causa_id": 3, "emoji": "😬"},
+        {"id": 4, "text": "Su perfil queda registrado y puede ser convocado para futuras vacantes", "causa_id": 4, "emoji": "🌟"}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos para preparar una entrevista laboral exitosa:",
+      "pasos_en_orden_correcto": [
+        {"id": 1, "text": "Investigás sobre la empresa: su web, redes, valores y proyectos recientes", "emoji": "🔍"},
+        {"id": 2, "text": "Practicás respuestas a preguntas frecuentes: 'Contame de vos', fortalezas y debilidades", "emoji": "🗣️"},
+        {"id": 3, "text": "Preparás ejemplos concretos de situaciones donde demostraste tus habilidades", "emoji": "💡"},
+        {"id": 4, "text": "Armás tu kit: CV impreso, carta, bloc de notas y certificados relevantes", "emoji": "🎒"},
+        {"id": 5, "text": "Llegás 10 minutos antes, bien vestido y con el celular en silencio", "emoji": "⏰"}
+      ]
+    },
+
+    "n10_comparador": {
+      "concepto_a": {"nombre": "Carta respondiendo a una oferta", "emoji": "📢", "color": "#6366F1"},
+      "concepto_b": {"nombre": "Carta espontánea (autocandidatura)", "emoji": "💌", "color": "#10B981"}
+    }
+  },
+
+  "senales": {
+    "conceptos_clave": [
+      {
+        "termino": "Concepto de trabajo",
+        "definicion": "El trabajo es cualquier actividad, física o intelectual, que realizamos para transformar nuestro entorno, crear valor y satisfacer necesidades personales y colectivas. Va mucho más allá de ganar dinero: es parte fundamental de nuestra identidad.",
+        "emoji": "💼",
+        "importancia": "Sin entender qué es el trabajo y sus distintas dimensiones, no podés tomar decisiones conscientes sobre tu futuro profesional.",
+        "color": "#EF4444"
+      },
+      {
+        "termino": "Currículum Vitae (CV)",
+        "definicion": "Documento que resume tu trayectoria académica, experiencias y habilidades. Es la primera impresión que das a un empleador y debe estar claro, ordenado y adaptado a cada puesto al que aplicás.",
+        "emoji": "📄",
+        "importancia": "Es tu puerta de entrada al mercado laboral. Sin un buen CV, no llegás a la entrevista. Es la herramienta más importante de tu búsqueda.",
+        "color": "#8B5CF6"
+      },
+      {
+        "termino": "Habilidades blandas (soft skills)",
+        "definicion": "Capacidades interpersonales y actitudinales como comunicación efectiva, trabajo en equipo, creatividad, adaptabilidad e inteligencia emocional. Se distinguen de las habilidades técnicas porque no dependen de un conocimiento específico.",
+        "emoji": "🧠",
+        "importancia": "En el mundo laboral actual, las soft skills son tan o más valoradas que los conocimientos técnicos. Son las que determinan si te quedás en un trabajo.",
+        "color": "#3B82F6"
+      },
+      {
+        "termino": "Entrevista laboral",
+        "definicion": "Encuentro entre el candidato y el empleador para evaluar si el perfil se ajusta al puesto. Requiere preparación previa: investigar la empresa, practicar respuestas y demostrar actitud profesional.",
+        "emoji": "🤝",
+        "importancia": "Es el momento decisivo de toda búsqueda laboral. Podés tener el mejor CV del mundo, pero si no sabés comunicarte en la entrevista, no conseguís el trabajo.",
+        "color": "#10B981"
+      }
+    ],
+    "semaforo_conceptos": [
+      {"termino": "Concepto de trabajo y sus perspectivas", "emoji": "💼"},
+      {"termino": "Currículum Vitae: tipos y secciones", "emoji": "📄"},
+      {"termino": "Carta de presentación: oferta vs. espontánea", "emoji": "✉️"},
+      {"termino": "Habilidades blandas del trabajo moderno", "emoji": "🧠"},
+      {"termino": "Preparación y desarrollo de la entrevista laboral", "emoji": "🤝"}
+    ],
+    "postits_conceptos": ["Concepto de trabajo", "Currículum Vitae", "Habilidades blandas", "Entrevista laboral"]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {
+        "frente": "¿Sabías que...?",
+        "dorso": "El 80% de los empleos se consiguen a través del 'mercado oculto': puestos que nunca se publican abiertamente. Se cubren por recomendaciones, redes de contacto o cartas espontáneas. Esto significa que postularte solo a avisos publicados te hace competir por el 20% restante.",
+        "emoji": "🔍",
+        "color": "#F59E0B"
+      },
+      {
+        "frente": "Dato curioso",
+        "dorso": "Un reclutador tarda en promedio entre 6 y 10 segundos en decidir si descarta o sigue leyendo un CV. Eso es menos de lo que tardás en desbloquear tu celular. Por eso, el orden, el diseño y el perfil profesional en las primeras líneas son absolutamente cruciales.",
+        "emoji": "⏱️",
+        "color": "#8B5CF6"
+      },
+      {
+        "frente": "¿Lo sabías?",
+        "dorso": "Según el Foro Económico Mundial, el 65% de los chicos que hoy están en la escuela primaria van a trabajar en profesiones que todavía no existen. La inteligencia artificial, la biotecnología y la economía verde van a crear trabajos que hoy no podemos ni imaginar.",
+        "emoji": "🚀",
+        "color": "#EF4444"
+      }
+    ],
+    "linea_de_tiempo": [
+      {"year": "Siglo XX temprano", "text": "Modelo fordista: empleo fijo, de por vida, en una sola empresa y con horarios rígidos", "emoji": "🏭"},
+      {"year": "1970s-1980s", "text": "Globalización: las empresas se expanden más allá de las fronteras y el mercado laboral se complejiza", "emoji": "🌍"},
+      {"year": "1990s-2000s", "text": "Internet transforma el trabajo: aparecen el email, el trabajo remoto y los primeros freelancers digitales", "emoji": "💻"},
+      {"year": "2008-2010", "text": "Crisis global y auge de la economía gig: plataformas como Uber o Fiverr cambian el modelo laboral", "emoji": "📱"},
+      {"year": "2020-actualidad", "text": "Pandemia normaliza el trabajo remoto; IA comienza a redefinir roles y habilidades requeridas", "emoji": "🤖"}
+    ],
+    "encuesta": {
+      "pregunta": "¿Qué dato te sorprendió más?",
+      "opciones": [
+        {"text": "Que el 80% de los empleos no se publican", "emoji": "🔍", "votos_iniciales": 48},
+        {"text": "Que los reclutadores leen el CV en 6 segundos", "emoji": "⏱️", "votos_iniciales": 35},
+        {"text": "Que el 65% de los trabajos futuros no existen aún", "emoji": "🚀", "votos_iniciales": 27}
+      ]
+    }
+  },
+
+  "cruces": {
+    "puentes": [
+      {
+        "materia": "Lengua y Literatura",
+        "emoji": "📝",
+        "color": "#F59E0B",
+        "conexion": "Redactar un CV y una carta de presentación son actos de escritura con propósito, audiencia y estructura definida. La ortografía, el registro formal y la capacidad de sintetizar ideas son habilidades lingüísticas aplicadas directamente al mundo laboral.",
+        "pregunta": "¿Cómo cambia el lenguaje que usás según si le escribís a un amigo, a un profesor o a un empleador?",
+        "vinculo": "Unidad sobre géneros textuales, escritura formal y comunicación con propósito"
+      },
+      {
+        "materia": "Tecnología e Informática",
+        "emoji": "💻",
+        "color": "#10B981",
+        "conexion": "La revolución digital transformó el mundo del trabajo. Herramientas como procesadores de texto (para el CV), plataformas de búsqueda laboral (LinkedIn, Computrabajo), y el trabajo remoto son aplicaciones directas de las tecnologías que se aprenden en esta materia.",
+        "pregunta": "¿Qué herramientas digitales ya usás hoy que también sirven en el mundo laboral?",
+        "vinculo": "Unidad sobre herramientas digitales, internet y alfabetización tecnológica"
+      },
+      {
+        "materia": "Psicología",
+        "emoji": "🧠",
+        "color": "#8B5CF6",
+        "conexion": "La inteligencia emocional, el autoconocimiento (fortalezas y debilidades) y el manejo del estrés en una entrevista son conceptos psicológicos fundamentales para el éxito laboral. La pregunta '¿Dónde te ves en 5 años?' implica construcción de identidad y proyecto de vida.",
+        "pregunta": "¿Cómo influye tu autoestima y tu autoconocimiento en cómo te presentás ante un empleador?",
+        "vinculo": "Unidad sobre identidad, proyecto de vida y habilidades socioemocionales"
+      },
+      {
+        "materia": "Formación Ética y Ciudadana",
+        "emoji": "🏛️",
+        "color": "#3B82F6",
+        "conexion": "El mundo del trabajo plantea preguntas éticas: ¿Es justo el sistema laboral argentino? ¿Qué derechos tenés como trabajador? ¿Qué responsabilidades tienen las empresas? La economía gig, por ejemplo, genera debate sobre precarización y derechos laborales.",
+        "pregunta": "¿Debería el Estado regular las plataformas como Uber o Rappi para proteger a sus trabajadores?",
+        "vinculo": "Unidad sobre derechos y obligaciones ciudadanas, Estado y justicia social"
+      }
+    ],
+    "telarana": [
+      {"target": "Sociología", "desc": "El trabajo define clases sociales, roles de género y estructuras de poder en la sociedad", "emoji": "👥", "color": "#EF4444"},
+      {"target": "Historia", "desc": "La Revolución Industrial, el movimiento obrero y la evolución del trabajo hasta hoy son procesos históricos clave", "emoji": "📜", "color": "#8B5CF6"},
+      {"target": "Economía", "desc": "El mercado laboral, el salario, el desempleo y la productividad son conceptos económicos que afectan tu vida", "emoji": "💰", "color": "#3B82F6"},
+      {"target": "Geografía", "desc": "El trabajo remoto disuelve fronteras: hoy podés trabajar para una empresa en España desde Venado Tuerto", "emoji": "🌍", "color": "#EC4899"},
+      {"target": "Matemática", "desc": "Cuantificar logros en el CV ('aumenté ventas un 15%') requiere pensar en porcentajes, métricas y resultados", "emoji": "📊", "color": "#10B981"},
+      {"target": "Arte y Diseño", "desc": "El diseño del CV, su legibilidad y su estética visual impactan directamente en la primera impresión del reclutador", "emoji": "🎨", "color": "#F59E0B"}
+    ]
+  },
+
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "En el mundo laboral actual, las habilidades blandas (soft skills) son más importantes que los conocimientos técnicos para conseguir y mantener un trabajo.",
+      "contexto": "La revolución digital hace que los conocimientos técnicos queden obsoletos cada vez más rápido, mientras que las soft skills son duraderas. Pero sin conocimientos específicos, ¿podés realmente hacer tu trabajo? Usá ejemplos de la unidad, datos del mercado laboral argentino y tu propia experiencia para argumentar.",
+      "roles": [
+        {"id": "favor", "label": "A FAVOR", "emoji": "🟢", "color": "#10B981", "desc": "Defendé que las soft skills son más importantes. La tecnología puede reemplazar habilidades técnicas pero no la inteligencia emocional, la creatividad o el trabajo en equipo. Mostrá ejemplos de trabajos donde la actitud fue decisiva para conseguir o perder el puesto."},
+        {"id": "contra", "label": "EN CONTRA", "emoji": "🔴", "color": "#EF4444", "desc": "Argumentá que sin conocimientos técnicos sólidos, las soft skills no alcanzan. Un programador simpático que no sabe programar no consigue trabajo. Un médico empático que no conoce medicina es peligroso. Los títulos y la formación siguen siendo la base del mercado laboral."},
+        {"id": "juez", "label": "JUEZ/A", "emoji": "👨‍⚖️", "color": "#8B5CF6", "desc": "Evaluá ambas posturas. ¿Existe una jerarquía entre soft y hard skills, o son complementarias? ¿Depende del tipo de trabajo o sector? Emití un veredicto fundado con evidencia de la unidad."}
+      ]
+    },
+    "tesis": {
+      "consigna": "Formulá una tesis sobre: 'El paso de la escuela al trabajo implica mucho más que conseguir un empleo'. Usando al menos 2 conceptos de la unidad (habilidades blandas, trabajo moderno, identidad profesional, CV, entrevista), argumentá por qué esta transición es un proceso de construcción de identidad y no solo un trámite administrativo. Tu tesis debe incluir: una afirmación clara, 2 evidencias del material estudiado y una reflexión personal sobre tu propio futuro laboral."
+    },
+    "critica": {
+      "consigna": "Releé la sección 'Habilidades Esenciales para el Futuro' del material de la unidad. Identificá: 2 fortalezas del planteo (¿qué muestra bien?), 1 limitación o aspecto que simplifica la realidad (¿qué falta o podría ser más complejo?), 1 pregunta que te quedó sin responder, y 1 conexión con el mercado laboral actual argentino, donde hay alta informalidad y desempleo juvenil."
+    }
+  },
+
+  "emocional": {},
+
+  "autotest": {
+    "preguntas": [
+      {
+        "pregunta": "¿Cuál de estas opciones define mejor el concepto de trabajo?",
+        "opciones": [
+          "Cualquier actividad por la que recibís dinero a cambio",
+          "Actividad física o intelectual que crea valor y satisface necesidades personales y colectivas",
+          "Lo que hacés de lunes a viernes de 9 a 17 horas",
+          "Una obligación impuesta por la sociedad para sobrevivir"
+        ],
+        "correcta": 1,
+        "explicacion": "El trabajo es cualquier actividad, física o intelectual, que transforma el entorno, crea valor y satisface necesidades. Va mucho más allá del dinero: incluye voluntariado, arte, cuidado de personas y muchas otras formas."
+      },
+      {
+        "pregunta": "¿Cuál es la diferencia principal entre un CV Cronológico y un CV Funcional?",
+        "opciones": [
+          "El cronológico usa fotos y el funcional no",
+          "El funcional es más largo y detallado que el cronológico",
+          "El cronológico lista la experiencia por fechas; el funcional se enfoca en habilidades y logros",
+          "El cronológico es para jóvenes y el funcional para adultos"
+        ],
+        "correcta": 2,
+        "explicacion": "El CV cronológico ordena la experiencia de la más reciente a la más antigua. El funcional prioriza habilidades y logros sobre la línea de tiempo, ideal cuando hay períodos sin trabajo o se quiere cambiar de rubro."
+      },
+      {
+        "pregunta": "¿Qué es la 'economía gig'?",
+        "opciones": [
+          "Un sistema económico donde el Estado controla el trabajo",
+          "Trabajos cortos o por encargo a través de plataformas, como servicios de entrega o transporte",
+          "La economía de los países más desarrollados del mundo",
+          "Un modelo donde las empresas contratan empleados de por vida"
+        ],
+        "correcta": 1,
+        "explicacion": "La economía gig incluye tareas específicas y de corta duración realizadas a través de plataformas digitales. Ejemplos: Rappi, Uber, Fiverr. Ofrece flexibilidad pero también genera debates sobre derechos laborales."
+      },
+      {
+        "pregunta": "¿Qué información NO debe incluirse en un CV profesional?",
+        "opciones": [
+          "Perfil profesional con objetivos laborales",
+          "Estado civil, DNI y foto informal",
+          "Experiencia laboral con fechas y logros cuantificables",
+          "Habilidades técnicas y blandas relevantes al puesto"
+        ],
+        "correcta": 1,
+        "explicacion": "El estado civil, el DNI y las fotos informales no deben incluirse en un CV. Son datos innecesarios que pueden generar prejuicios y quitan espacio a información relevante. El CV debe tener entre 1 y 2 páginas máximo."
+      },
+      {
+        "pregunta": "¿Qué es el método STAR y para qué se usa?",
+        "opciones": [
+          "Una técnica para diseñar un CV visualmente atractivo",
+          "Un sistema de evaluación que usan los reclutadores para calificar candidatos",
+          "Una forma de estructurar respuestas en entrevistas: Situación, Tarea, Acción y Resultado",
+          "Una plataforma argentina de búsqueda de empleo online"
+        ],
+        "correcta": 2,
+        "explicacion": "STAR es un método para responder preguntas en entrevistas ('¿Cuál fue tu mayor logro?'). Se describe la Situación, la Tarea, la Acción que tomaste y el Resultado obtenido. Permite dar respuestas concretas y verificables."
+      },
+      {
+        "pregunta": "¿Cuál es la ventaja principal de una carta de presentación espontánea frente a una que responde a una oferta publicada?",
+        "opciones": [
+          "Es más corta y fácil de escribir que la carta de respuesta",
+          "No necesita datos de la empresa porque es genérica",
+          "Hay menos competencia porque te postulás antes de que el puesto sea público",
+          "Garantiza una entrevista porque la empresa no tiene otras opciones"
+        ],
+        "correcta": 2,
+        "explicacion": "La carta espontánea (autocandidatura) se envía sin que exista una vacante publicada. Su gran ventaja es que competís con muchos menos candidatos y demostrás proactividad e iniciativa, cualidades muy valoradas por los empleadores."
+      }
+    ]
+  },
+
+  "cierre": {
+    "glosario": [
+      {"termino": "Trabajo", "definicion": "Actividad física o intelectual que transforma el entorno, crea valor y satisface necesidades personales y colectivas. Puede verse como sustento económico, realización personal o contribución a la sociedad.", "emoji": "💼", "categoria": "Concepto base"},
+      {"termino": "Soft skills", "definicion": "Habilidades blandas o interpersonales: comunicación, trabajo en equipo, creatividad, inteligencia emocional y adaptabilidad. Son capacidades actitudinales que complementan los conocimientos técnicos.", "emoji": "🧠", "categoria": "Concepto base"},
+      {"termino": "Currículum Vitae (CV)", "definicion": "Documento que resume la trayectoria académica, experiencia laboral y habilidades de una persona. Es la principal herramienta de presentación ante un empleador.", "emoji": "📄", "categoria": "Herramientas laborales"},
+      {"termino": "Carta de presentación", "definicion": "Texto que acompaña al CV para explicar por qué el candidato es ideal para un puesto específico. Puede ser en respuesta a una oferta publicada o de forma espontánea.", "emoji": "✉️", "categoria": "Herramientas laborales"},
+      {"termino": "Economía Gig", "definicion": "Modalidad laboral basada en trabajos cortos o por encargo a través de plataformas digitales. Caracterizada por la flexibilidad pero también por la informalidad laboral.", "emoji": "🛵", "categoria": "Trabajo moderno"},
+      {"termino": "Trabajo remoto", "definicion": "Modalidad en la que el trabajador desempeña sus funciones desde fuera de la oficina, generalmente desde su hogar, usando tecnología para colaborar con su equipo.", "emoji": "💻", "categoria": "Trabajo moderno"},
+      {"termino": "Método STAR", "definicion": "Técnica para responder preguntas en entrevistas laborales: se describe la Situación, la Tarea asignada, la Acción tomada y el Resultado obtenido.", "emoji": "⭐", "categoria": "Procesos"},
+      {"termino": "Autocandidatura", "definicion": "Estrategia de búsqueda laboral que consiste en enviar el CV y una carta de presentación espontánea a empresas de interés, sin que exista una vacante publicada.", "emoji": "💌", "categoria": "Procesos"}
+    ],
+    "recursos": [
+      {"tipo": "🌐 Web", "title": "LinkedIn – Red profesional para buscar trabajo", "desc": "Plataforma digital para construir tu perfil profesional, conectar con empresas y postularte a empleos. Es el CV online más usado en el mundo laboral actual.", "nivel": "Introductorio", "color": "#8B5CF6"},
+      {"tipo": "🌐 Web", "title": "Computrabajo Argentina", "desc": "Portal líder de búsqueda de empleo en Argentina. Podés explorar ofertas, ver qué habilidades piden las empresas y entender el mercado laboral local.", "nivel": "Introductorio", "color": "#EF4444"},
+      {"tipo": "🎬 Video", "title": "Cómo hacer un CV en 2024 – Paso a paso", "desc": "Tutorial en español que explica cómo armar un CV profesional desde cero, con consejos sobre formato, contenido y errores comunes a evitar.", "nivel": "Introductorio", "color": "#F59E0B"},
+      {"tipo": "🎬 Video", "title": "El futuro del trabajo – Foro Económico Mundial", "desc": "Video sobre las habilidades más demandadas en el mercado laboral del futuro: IA, pensamiento crítico, creatividad y adaptabilidad.", "nivel": "Intermedio", "color": "#3B82F6"},
+      {"tipo": "🎧 Podcast", "title": "Primer empleo – episodios de Radio Nacional Argentina", "desc": "Serie de episodios con consejos prácticos para jóvenes que buscan su primer trabajo en Argentina: entrevistas, derechos laborales y testimonios reales.", "nivel": "Intermedio", "color": "#10B981"}
+    ]
+  }
+}
