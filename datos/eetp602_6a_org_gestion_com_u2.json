@@ -1,1115 +1,362 @@
 {
-  "unidad": {
-    "id": "ogc-6a-u2",
-    "materia": "Organización y Gestión Comercial",
-    "curso": "6to A — Técnicos en Informática",
-    "institucion": "EETP N°602 \"Gral. José de San Martín\"",
-    "profesora": "Verónica Vila Bordó",
-    "numero": 2,
-    "titulo": "Finanzas Personales & Nociones de Matemática Financiera",
-    "descripcion": "En esta unidad vamos a recorrer juntos dos grandes bloques de contenido que van a cambiar la forma en la que ven el dinero y las decisiones económicas del día a día. Primero, las finanzas personales: cómo administrar lo que tenemos, planificar gastos, ahorrar con inteligencia y endeudarnos de manera responsable. Después, las nociones de matemática financiera, donde los números cobran sentido real aplicados a plazos fijos, préstamos, tarjetas de crédito y la inflación en Argentina.",
-    "bloques": [
+  "materia": "Organización y Gestión Comercial",
+  "unidad": 2,
+  "titulo": "Finanzas Personales & Matemática Financiera",
+  "emoji": "💰",
+  "color_primario": "#6366F1",
+  "color_secundario": "#EC4899",
+
+  "umbral": {
+    "preguntas_disparadoras": [
       {
-        "id": "bloque1",
-        "titulo": "Bloque 1: Finanzas Personales",
-        "temas": 7
+        "emoji": "💸",
+        "texto": "¿Te pasó alguna vez llegar a fin de mes sin saber en qué se fue la plata?",
+        "pista": "La mayoría de las personas no registra sus gastos. Los gastos hormiga (cafés, apps, snacks) suman mucho más de lo que parecen..."
       },
       {
-        "id": "bloque2",
-        "titulo": "Bloque 2: Matemática Financiera",
-        "temas": 8
+        "emoji": "💳",
+        "texto": "Si comprás algo en 12 cuotas con tarjeta, ¿creés que pagás lo mismo que al contado?",
+        "pista": "Una tarjeta con TEA 210% puede hacerte pagar un 52% más que el precio original. ¿Cuánto pagás realmente?"
       },
       {
-        "id": "bloque3",
-        "titulo": "Bloque 3: Profundización — Matemática Financiera Aplicada",
-        "temas": 5
+        "emoji": "🏦",
+        "texto": "Un plazo fijo te paga 8% mensual, pero la inflación es 10% mensual. ¿Estás ganando o perdiendo dinero?",
+        "pista": "Tasa real = tasa nominal - inflación. Si el resultado es negativo, perdés poder de compra aunque el banco te pague intereses..."
       }
     ],
-    "secciones": {
+    "situaciones_conecta": [
+      {"emoji": "💸", "label": "Cobré y a los pocos días no me quedaba nada"},
+      {"emoji": "💳", "label": "Pagué el mínimo de la tarjeta y la deuda no bajó"},
+      {"emoji": "🎯", "label": "Quise ahorrar para algo pero nunca llegué"},
+      {"emoji": "📱", "label": "Vi una cuota y me pareció barata sin pensar en el total"}
+    ],
+    "termometro_pregunta": "¿Cuánto sabés sobre cómo manejar tu dinero de forma inteligente?"
+  },
 
-      "umbral": {
-        "id": "umbral",
-        "nombre": "Umbral",
-        "icono": "🚪",
-        "subtitulo": "El punto de partida",
-        "pregunta_disparadora": "¿Alguna vez llegaste a fin de mes sin entender bien a dónde se fue el dinero?",
-        "introduccion": "Todos tomamos decisiones con el dinero todos los días: cargar la SUBE, comprar algo en el kiosco, guardar o no guardar una parte de lo que recibimos. Pero muy pocos aprendemos a hacerlo de manera consciente y planificada. Esta unidad te va a dar las herramientas para entender cómo funciona el dinero, tanto en tu vida cotidiana como en el sistema financiero. Al final, vas a poder leer una publicidad bancaria, calcular cuánto te cuesta realmente un préstamo y saber si un plazo fijo te conviene o no.",
-        "frase_motivadora": {
-          "texto": "La educación financiera no te garantiza ser rico, pero sí te garantiza no tomar decisiones pobres.",
-          "autor": "Verónica Vila Bordó"
-        },
-        "propositos": [
-          "Comprender qué son las finanzas personales y por qué importan",
-          "Aplicar herramientas de planificación económica en la vida cotidiana",
-          "Entender el funcionamiento del interés simple y compuesto",
-          "Analizar productos financieros reales: plazos fijos, préstamos y tarjetas",
-          "Interpretar tasas nominales y reales en el contexto inflacionario argentino"
-        ],
-        "advertencia": "Este bloque no requiere conocimientos avanzados de matemática. Vamos a trabajar con fórmulas sencillas, ejemplos concretos y calculadora. Lo importante es entender la lógica detrás de los números."
+  "mapa": {
+    "ruta_paradas": [
+      {"id": 1, "title": "Finanzas Personales", "desc": "Ganar, gastar, ahorrar y proteger: los 4 pilares", "emoji": "💰", "color": "#6366F1"},
+      {"id": 2, "title": "Presupuesto y Necesidades vs. Deseos", "desc": "Planificar, priorizar y la regla 50/30/20", "emoji": "📋", "color": "#3B82F6"},
+      {"id": 3, "title": "Ahorro, Deudas y Metas", "desc": "Hábitos, crédito responsable y metas SMART", "emoji": "🎯", "color": "#10B981"},
+      {"id": 4, "title": "Interés Simple y Compuesto", "desc": "Fórmulas, diferencias y el efecto exponencial", "emoji": "📈", "color": "#F59E0B"},
+      {"id": 5, "title": "Tasas, Inflación y Decisiones Reales", "desc": "TNA, TEA, CFT, tasa real y casos argentinos", "emoji": "🏦", "color": "#EC4899"}
+    ],
+    "panoramica_bloques": [
+      {
+        "title": "Bloque 1",
+        "subtitle": "Finanzas Personales",
+        "items": ["¿Qué son las finanzas personales?", "Ingresos y gastos: activos, pasivos, fijos, variables, hormiga", "Presupuesto personal y regla 50/30/20", "Necesidades vs. deseos", "El ahorro como hábito: pagáte a vos primero", "Las deudas: buenas y malas", "Metas financieras SMART: corto, mediano y largo plazo"],
+        "emoji": "💰",
+        "color": "#6366F1"
       },
-
-      "mapa": {
-        "id": "mapa",
-        "nombre": "Mapa",
-        "icono": "🗺️",
-        "subtitulo": "Hoja de ruta de la unidad",
-        "descripcion": "Cada tema se construye sobre el anterior, así que es importante no saltear ninguno. El recorrido va de lo más cercano a tu realidad hasta las herramientas matemáticas que te permiten tomar decisiones financieras con precisión.",
-        "bloques": [
-          {
-            "id": "bloque1",
-            "numero": 1,
-            "titulo": "Finanzas Personales",
-            "color": "#4A6CF7",
-            "temas": [
-              { "numero": 1, "titulo": "¿Qué son las finanzas personales?", "subtitulo": "Administrar lo que tenés para lograr lo que querés" },
-              { "numero": 2, "titulo": "Ingresos y Gastos", "subtitulo": "De dónde viene y a dónde va el dinero" },
-              { "numero": 3, "titulo": "El Presupuesto Personal", "subtitulo": "Planificar para no quedar en rojo" },
-              { "numero": 4, "titulo": "Necesidades vs. Deseos", "subtitulo": "Aprender a distinguir y priorizar" },
-              { "numero": 5, "titulo": "El Ahorro como Hábito", "subtitulo": "Por qué guardar una parte antes de gastar" },
-              { "numero": 6, "titulo": "Las Deudas: ¿Amigas o Enemigas?", "subtitulo": "Crédito responsable e irresponsable" },
-              { "numero": 7, "titulo": "Metas Financieras", "subtitulo": "Corto, mediano y largo plazo" }
-            ]
-          },
-          {
-            "id": "bloque2",
-            "numero": 2,
-            "titulo": "Matemática Financiera",
-            "color": "#2D3E8F",
-            "temas": [
-              { "numero": 1, "titulo": "El Valor del Dinero en el Tiempo", "subtitulo": "¿Por qué el dinero de hoy no es igual al de mañana?" },
-              { "numero": 2, "titulo": "El Interés: Concepto y Variables", "subtitulo": "Capital, tasa, tiempo y monto" },
-              { "numero": 3, "titulo": "Interés Simple", "subtitulo": "Cálculo, fórmulas y aplicaciones prácticas" },
-              { "numero": 4, "titulo": "Interés Compuesto", "subtitulo": "Capitalización y el efecto del interés sobre interés" },
-              { "numero": 5, "titulo": "Comparación entre Regímenes", "subtitulo": "¿Cuándo conviene cada uno?" },
-              { "numero": 6, "titulo": "Tasas de Interés en la Vida Cotidiana", "subtitulo": "TNA, TEA, tasas reales y nominales" },
-              { "numero": 7, "titulo": "Aplicaciones Financieras Actuales", "subtitulo": "Plazos fijos, préstamos y tarjetas de crédito" },
-              { "numero": 8, "titulo": "La Inflación y el Interés", "subtitulo": "Tasa real vs. tasa nominal en contexto argentino" }
-            ]
-          }
-        ]
+      {
+        "title": "Bloque 2",
+        "subtitle": "Matemática Financiera",
+        "items": ["Valor del dinero en el tiempo", "Capital, tasa, tiempo y monto", "Interés simple: I = C × i × n", "Interés compuesto: M = C × (1+i)^n", "Comparación entre regímenes", "TNA, TEA, tasa nominal y tasa real", "Aplicaciones: plazo fijo, préstamos, tarjetas", "Inflación y ecuación de Fisher"],
+        "emoji": "📐",
+        "color": "#F59E0B"
       },
-
-      "nucleo": {
-        "id": "nucleo",
-        "nombre": "Núcleo",
-        "icono": "📚",
-        "subtitulo": "Contenido central de la unidad",
-        "bloques": [
-          {
-            "id": "bloque1",
-            "titulo": "Bloque 1: Finanzas Personales",
-            "temas": [
-              {
-                "id": "b1t1",
-                "numero": 1,
-                "titulo": "¿Qué son las finanzas personales?",
-                "subtitulo": "Administrar lo que tenés para lograr lo que querés",
-                "contenido": "Cuando hablamos de finanzas personales, nos referimos al conjunto de decisiones y acciones que cada persona toma respecto de su dinero a lo largo de la vida. No es algo exclusivo de empresarios o contadores: cada vez que decidís comprarte unas zapatillas, cargar la SUBE o ahorrar para el viaje de egresados, estás haciendo finanzas personales. La diferencia está en si lo hacés de manera consciente y planificada, o si simplemente dejás que las cosas pasen.",
-                "pilares": [
-                  { "nombre": "Ganar", "descripcion": "Comprender de dónde provienen tus ingresos y cómo podrías aumentarlos." },
-                  { "nombre": "Gastar", "descripcion": "Decidir en qué, cuánto y cuándo usar tu dinero de forma inteligente." },
-                  { "nombre": "Ahorrar", "descripcion": "Reservar una parte de tus ingresos antes de gastar, como hábito." },
-                  { "nombre": "Proteger", "descripcion": "Cuidar lo que tenés, evitar deudas tóxicas y planificar ante imprevistos." }
-                ],
-                "idea_clave": "Las finanzas personales son un 80% comportamiento y un 20% conocimiento técnico.",
-                "autor_cita": "Dave Ramsey",
-                "conclusion": "La clave es la toma de decisiones informadas. No se trata de privarse de todo, sino de entender las consecuencias de cada elección económica."
-              },
-              {
-                "id": "b1t2",
-                "numero": 2,
-                "titulo": "Ingresos y Gastos",
-                "subtitulo": "De dónde viene y a dónde va el dinero",
-                "contenido": "Todo el sistema de finanzas personales se sostiene sobre dos conceptos fundamentales: los ingresos (el dinero que entra) y los gastos (el dinero que sale). La mayoría de las personas no tiene del todo claro cuánto gana realmente ni en qué gasta cada mes.",
-                "tipos_ingresos": [
-                  { "tipo": "Activos", "descripcion": "Los que obtenés trabajando: sueldo, changas, freelance." },
-                  { "tipo": "Pasivos", "descripcion": "Los que generan dinero sin trabajo constante: alquileres, inversiones, regalías." },
-                  { "tipo": "Extraordinarios", "descripcion": "Plata que llega de forma esporádica: un regalo, una venta puntual, un premio." }
-                ],
-                "tipos_gastos": [
-                  { "tipo": "Fijos", "descripcion": "Se repiten todos los meses con un valor similar: alquiler, cuota del celular, transporte." },
-                  { "tipo": "Variables", "descripcion": "Cambian según el mes: salidas, ropa, entretenimiento." },
-                  { "tipo": "Hormiga", "descripcion": "Pequeños gastos que pasan desapercibidos pero, acumulados, suman mucho: snacks, apps, cafecitos." }
-                ],
-                "conceptos_clave": [
-                  { "termino": "Déficit", "definicion": "Cuando los gastos superan a los ingresos: gastamos más de lo que ganamos." },
-                  { "termino": "Superávit", "definicion": "Cuando los ingresos superan a los gastos: nos permite ahorrar o invertir." }
-                ],
-                "herramienta": "El registro de gastos: durante una semana o un mes, anotar absolutamente todo lo que se gasta, en un cuaderno, planilla o app del celular."
-              },
-              {
-                "id": "b1t3",
-                "numero": 3,
-                "titulo": "El Presupuesto Personal",
-                "subtitulo": "Planificar para no quedar en rojo",
-                "contenido": "El presupuesto personal es la herramienta más poderosa de las finanzas personales. Es un plan que detalla cuánto esperás ganar y cuánto pensás gastar en un período determinado (generalmente un mes). No es una restricción: es un mapa que te ayuda a llegar adonde querés sin perderte en el camino.",
-                "pasos": [
-                  { "numero": 1, "titulo": "Estimar los ingresos", "descripcion": "Calculá cuánto dinero vas a recibir este mes. Si tus ingresos son irregulares, usá un promedio de los últimos tres meses." },
-                  { "numero": 2, "titulo": "Listar los gastos", "descripcion": "Anotá todos los gastos que esperás tener: fijos primero, luego variables. No te olvides de los gastos hormiga." },
-                  { "numero": 3, "titulo": "Hacer la cuenta", "descripcion": "Restá los gastos a los ingresos. Si el resultado es positivo, ¡genial! Si es negativo, ajustá recortando gastos o buscando más ingresos." }
-                ],
-                "regla_50_30_20": {
-                  "descripcion": "Un método popular para distribuir los ingresos:",
-                  "categorias": [
-                    { "porcentaje": 50, "nombre": "Necesidades", "descripcion": "Gastos esenciales como vivienda, transporte, alimentación y servicios." },
-                    { "porcentaje": 30, "nombre": "Deseos", "descripcion": "Entretenimiento, salidas, ropa que no es urgente, suscripciones." },
-                    { "porcentaje": 20, "nombre": "Ahorro", "descripcion": "Dinero que se reserva para metas futuras o imprevistos." }
-                  ]
-                },
-                "contexto_argentino": "En Argentina, con la inflación, el presupuesto se vuelve aún más importante porque los precios cambian rápidamente. Revisarlo y ajustarlo cada mes no es opcional: es necesario."
-              },
-              {
-                "id": "b1t4",
-                "numero": 4,
-                "titulo": "Necesidades vs. Deseos",
-                "subtitulo": "Aprender a distinguir y priorizar",
-                "contenido": "No todo lo que queremos es algo que necesitamos. Poder distinguir entre necesidades y deseos es fundamental para tomar buenas decisiones con el dinero.",
-                "categorias": [
-                  {
-                    "nombre": "Necesidades",
-                    "descripcion": "Cosas imprescindibles para vivir con dignidad: alimentación, vivienda, salud, educación, transporte básico, vestimenta adecuada.",
-                    "ejemplos": ["Alimentación", "Vivienda", "Salud", "Educación", "Transporte básico"]
-                  },
-                  {
-                    "nombre": "Deseos",
-                    "descripcion": "Cosas que nos gustaría tener pero que podemos postergar sin que nuestra vida corra riesgo.",
-                    "ejemplos": ["La última consola", "Zapatillas de marca", "Salidas frecuentes", "Suscripciones a streaming premium"]
-                  }
-                ],
-                "pregunta_clave": "¿Realmente lo necesito o simplemente lo quiero?",
-                "conclusion": "Los deseos se satisfacen después de cubrir las necesidades y el ahorro, no antes. Es una cuestión de prioridades."
-              },
-              {
-                "id": "b1t5",
-                "numero": 5,
-                "titulo": "El Ahorro como Hábito",
-                "subtitulo": "Por qué guardar una parte antes de gastar",
-                "contenido": "El ahorro no depende de cuánto ganés, sino de la disciplina y la constancia. Hay personas con ingresos altos que no ahorran ni un peso, y otras con ingresos modestos que logran juntar para sus metas. La diferencia está en el hábito.",
-                "principio_clave": "Pagáte a vos primero: cuando recibís dinero, lo primero que tenés que hacer es separar una parte para ahorro, y después recién distribuir el resto en gastos.",
-                "pasos": [
-                  { "numero": 1, "titulo": "Definí un porcentaje", "descripcion": "Empezá con algo alcanzable: un 10% de lo que recibís. Si podés más, mejor; pero lo importante es ser constante." },
-                  { "numero": 2, "titulo": "Separálo apenas cobrés", "descripcion": "No esperes a fin de mes. Apenas entra el dinero, apartá tu porcentaje de ahorro. Si es posible, automatizalo." },
-                  { "numero": 3, "titulo": "No lo toques", "descripcion": "El dinero ahorrado tiene un destino específico: tus metas. Si lo gastás ante la primera tentación, no funciona como ahorro." },
-                  { "numero": 4, "titulo": "Hacelo crecer", "descripcion": "El dinero guardado debajo del colchón pierde valor. Buscá opciones para que al menos compense la inflación." }
-                ],
-                "frase": "El ahorro no es lo que te sobra después de gastar, sino que el gasto es lo que te sobra después de ahorrar."
-              },
-              {
-                "id": "b1t6",
-                "numero": 6,
-                "titulo": "Las Deudas: ¿Amigas o Enemigas?",
-                "subtitulo": "Crédito responsable e irresponsable",
-                "contenido": "No todas las deudas son malas. Lo que importa es por qué te endeudás, a qué tasa y si podés pagarla. Un préstamo para estudiar o para iniciar un emprendimiento puede ser una inversión inteligente; financiar unas vacaciones con la tarjeta en 12 cuotas con intereses altísimos, probablemente no tanto.",
-                "tipos": [
-                  {
-                    "tipo": "Deuda buena",
-                    "descripcion": "Se toma para adquirir algo que genera valor a futuro: educación, herramientas de trabajo, una vivienda. Tiene una tasa razonable y un plan de pago que podés cumplir sin asfixiarte."
-                  },
-                  {
-                    "tipo": "Deuda mala",
-                    "descripcion": "Se contrae para financiar consumo que pierde valor rápidamente (ropa, electrónica, salidas) a tasas altísimas. Cuando los intereses se acumulan, puede convertirse en una trampa muy difícil de salir."
-                  }
-                ],
-                "regla_de_oro": "Antes de endeudarte, preguntáte: ¿Puedo pagar las cuotas sin dejar de cubrir mis necesidades básicas ni mi ahorro? Si la respuesta es no, esperá.",
-                "condiciones_endeudamiento_responsable": [
-                  "Conocer la tasa de interés",
-                  "Tener un plan de pago realista",
-                  "No comprometer más del 30% de tus ingresos en cuotas"
-                ],
-                "dato_tarjeta": "Si pagás siempre el mínimo de una tarjeta, lo que compraste puede terminar costándote el doble o el triple."
-              },
-              {
-                "id": "b1t7",
-                "numero": 7,
-                "titulo": "Metas Financieras",
-                "subtitulo": "Corto, mediano y largo plazo",
-                "contenido": "Ahorrar sin un objetivo concreto es difícil de sostener. Las metas financieras le dan sentido al esfuerzo: son eso por lo cual vale la pena postergar un gasto hoy para lograr algo más importante mañana.",
-                "horizontes": [
-                  {
-                    "plazo": "Corto plazo",
-                    "tiempo": "Hasta 1 año",
-                    "ejemplos": ["Comprarte auriculares", "Juntar para una salida", "Armar un fondo de emergencia básico"],
-                    "descripcion": "Son metas que te dan motivación rápida."
-                  },
-                  {
-                    "plazo": "Mediano plazo",
-                    "tiempo": "De 1 a 5 años",
-                    "ejemplos": ["El viaje de egresados", "Una notebook para la facultad", "Un curso de programación pago"],
-                    "descripcion": "Requieren más disciplina y planificación."
-                  },
-                  {
-                    "plazo": "Largo plazo",
-                    "tiempo": "Más de 5 años",
-                    "ejemplos": ["Un auto", "Un departamento", "Independencia financiera"],
-                    "descripcion": "Son las más ambiciosas y las que más beneficio traen de una planificación temprana."
-                  }
-                ],
-                "metodo_smart": {
-                  "descripcion": "Para que una meta funcione de verdad, tiene que cumplir con el método SMART:",
-                  "criterios": [
-                    { "letra": "S", "nombre": "Específica", "pregunta": "¿Qué exactamente?" },
-                    { "letra": "M", "nombre": "Medible", "pregunta": "¿Cuánta plata necesitás?" },
-                    { "letra": "A", "nombre": "Alcanzable", "pregunta": "¿Es realista con tus ingresos?" },
-                    { "letra": "R", "nombre": "Relevante", "pregunta": "¿Te importa de verdad?" },
-                    { "letra": "T", "nombre": "Temporal", "pregunta": "¿Para cuándo?" }
-                  ],
-                  "ejemplo": "No es lo mismo decir 'quiero ahorrar' que 'quiero juntar $150.000 en 6 meses para comprarme una silla gamer ahorrando $25.000 por mes'."
-                }
-              }
-            ]
-          },
-          {
-            "id": "bloque2",
-            "titulo": "Bloque 2: Matemática Financiera",
-            "temas": [
-              {
-                "id": "b2t1",
-                "numero": 1,
-                "titulo": "El Valor del Dinero en el Tiempo",
-                "subtitulo": "¿Por qué el dinero de hoy no es igual al de mañana?",
-                "contenido": "Si te ofrecieran $100.000 hoy o $100.000 dentro de un año, ¿qué elegirías? La respuesta obvia es hoy. Hay tres razones fundamentales que explican este principio central de las finanzas:",
-                "razones": [
-                  {
-                    "numero": 1,
-                    "titulo": "La inflación",
-                    "descripcion": "Los precios suben con el tiempo. Lo que hoy comprás con $100.000, dentro de un año probablemente cueste más. En Argentina, donde la inflación es muy alta, este efecto es especialmente visible."
-                  },
-                  {
-                    "numero": 2,
-                    "titulo": "El costo de oportunidad",
-                    "descripcion": "Si tenés el dinero hoy, podés invertirlo o usarlo para generar más dinero: un plazo fijo, un emprendimiento, comprar mercadería para revender. Ese rendimiento potencial se pierde si el dinero llega recién dentro de un año."
-                  },
-                  {
-                    "numero": 3,
-                    "titulo": "El riesgo e incertidumbre",
-                    "descripcion": "El futuro es incierto. Un peso prometido para dentro de un año puede no llegar por múltiples razones. Un peso en mano hoy es más seguro que uno prometido para el futuro."
-                  }
-                ],
-                "conclusion": "El dinero tiene un valor temporal. Un peso hoy vale más que un peso mañana. Todo el edificio de la matemática financiera se construye sobre esta idea."
-              },
-              {
-                "id": "b2t2",
-                "numero": 2,
-                "titulo": "El Interés: Concepto y Variables",
-                "subtitulo": "Capital, tasa, tiempo y monto",
-                "contenido": "El interés es el precio que se paga por usar dinero ajeno (o la ganancia que se obtiene por prestarlo). Es la compensación por el paso del tiempo y los riesgos involucrados.",
-                "variables": [
-                  {
-                    "simbolo": "C",
-                    "nombre": "Capital",
-                    "descripcion": "La cantidad de dinero inicial sobre la cual se calculan los intereses. También se llama valor presente o principal.",
-                    "ejemplo": "Depositás $50.000 en un plazo fijo → $50.000 es tu capital."
-                  },
-                  {
-                    "simbolo": "i",
-                    "nombre": "Tasa de interés",
-                    "descripcion": "El porcentaje que se aplica al capital por cada período. Puede expresarse de forma mensual, anual, diaria, etc.",
-                    "ejemplo": "Una tasa del 5% mensual significa que por cada $100, ganás $5 al mes."
-                  },
-                  {
-                    "simbolo": "n",
-                    "nombre": "Tiempo",
-                    "descripcion": "La cantidad de períodos durante los cuales el capital genera intereses. Siempre debe estar en la misma unidad que la tasa.",
-                    "ejemplo": "Si la tasa es mensual, el tiempo debe expresarse en meses."
-                  },
-                  {
-                    "simbolo": "M",
-                    "nombre": "Monto",
-                    "descripcion": "El resultado final: el capital original más los intereses generados. M = C + I.",
-                    "ejemplo": "Es lo que efectivamente recibís (o debés) al final del período."
-                  }
-                ],
-                "advertencia": "La tasa y el tiempo siempre deben expresarse en la misma unidad temporal. Mezclar unidades es el error más común."
-              },
-              {
-                "id": "b2t3",
-                "numero": 3,
-                "titulo": "Interés Simple",
-                "subtitulo": "Cálculo, fórmulas y aplicaciones prácticas",
-                "contenido": "En el régimen de interés simple, los intereses se calculan siempre sobre el capital original. No importa cuánto tiempo pase: la base de cálculo nunca cambia. Los intereses que se generan en un período no se suman al capital para el cálculo del siguiente.",
-                "formulas": [
-                  { "nombre": "Interés", "formula": "I = C × i × n" },
-                  { "nombre": "Monto", "formula": "M = C + I = C × (1 + i × n)" }
-                ],
-                "ejemplo": {
-                  "descripcion": "Prestás $80.000 a un amigo a una tasa de 3% mensual simple durante 4 meses.",
-                  "calculo_interes": "I = 80.000 × 0,03 × 4 = $9.600",
-                  "calculo_monto": "M = 80.000 + 9.600 = $89.600",
-                  "observacion": "El interés mensual es siempre el mismo: $2.400, porque se calcula siempre sobre los $80.000 originales."
-                },
-                "usos": "El interés simple se usa en operaciones de corto plazo: descubiertos bancarios, algunos préstamos entre particulares y ciertas operaciones comerciales."
-              },
-              {
-                "id": "b2t4",
-                "numero": 4,
-                "titulo": "Interés Compuesto",
-                "subtitulo": "Capitalización y el efecto del interés sobre interés",
-                "contenido": "El interés compuesto es el mecanismo por el cual los intereses generados en un período se suman al capital y, a partir del período siguiente, también generan intereses. Es el famoso interés sobre interés.",
-                "formulas": [
-                  { "nombre": "Monto", "formula": "M = C × (1 + i)^n" },
-                  { "nombre": "Interés total", "formula": "I = M - C" }
-                ],
-                "ejemplo_comparativo": {
-                  "descripcion": "Los mismos datos: $80.000 al 3% mensual durante 4 meses, pero con capitalización:",
-                  "tabla": [
-                    { "mes": 1, "capital_inicial": 80000, "interes_mes": 2400, "capital_final": 82400, "interes_acumulado": 2400 },
-                    { "mes": 2, "capital_inicial": 82400, "interes_mes": 2472, "capital_final": 84872, "interes_acumulado": 4872 },
-                    { "mes": 3, "capital_inicial": 84872, "interes_mes": 2546, "capital_final": 87418, "interes_acumulado": 7418 },
-                    { "mes": 4, "capital_inicial": 87418, "interes_mes": 2623, "capital_final": 90041, "interes_acumulado": 10041 }
-                  ],
-                  "comparacion": "Con interés simple: $9.600. Con interés compuesto: $10.041. La diferencia de $441 parece chica en 4 meses, pero a medida que el tiempo crece, el efecto se vuelve exponencial."
-                },
-                "frase": "El interés compuesto es la octava maravilla del mundo. Quien lo entiende, lo gana; quien no lo entiende, lo paga.",
-                "conclusion": "Este mecanismo trabaja a tu favor cuando ahorrás o invertís, y en tu contra cuando te endeudás."
-              },
-              {
-                "id": "b2t5",
-                "numero": 5,
-                "titulo": "Comparación entre Regímenes",
-                "subtitulo": "¿Cuándo conviene cada uno?",
-                "contenido": "El interés simple crece de forma lineal (en línea recta), mientras que el compuesto crece de forma exponencial (cada vez más rápido). A mayor plazo, mayor es la diferencia entre ambos.",
-                "comparacion": [
-                  {
-                    "caso": "Si sos deudor",
-                    "regimen_conveniente": "Interés Simple",
-                    "razon": "Genera menos intereses, así que tu deuda crece más lento. En la práctica, rara vez te lo ofrecen, pero es lo que buscás como tomador de crédito."
-                  },
-                  {
-                    "caso": "Si sos inversor o ahorrista",
-                    "regimen_conveniente": "Interés Compuesto",
-                    "razon": "Tus intereses generan más intereses, y tu dinero crece más rápido. Cuanto antes empecés, más aprovechás el efecto exponencial."
-                  }
-                ],
-                "conclusion_practica": "Como ahorristas, queremos interés compuesto a nuestro favor. Como deudores, queremos tasas lo más bajas posible y plazos cortos, porque el compuesto trabaja en nuestra contra."
-              },
-              {
-                "id": "b2t6",
-                "numero": 6,
-                "titulo": "Tasas de Interés en la Vida Cotidiana",
-                "subtitulo": "TNA, TEA, tasas reales y nominales",
-                "contenido": "Cuando ves una publicidad de un banco que dice TNA 75% o la cuota de la tarjeta dice TEA 120%, ¿sabés qué significan esos números? Las tasas de interés tienen distintas formas de expresarse.",
-                "tipos_tasa": [
-                  {
-                    "sigla": "TNA",
-                    "nombre": "Tasa Nominal Anual",
-                    "descripcion": "La tasa que te publicitan. Es proporcional, no contempla capitalización. Se usa para calcular la tasa del período.",
-                    "ejemplo": "TNA 72% ÷ 12 meses = 6% mensual."
-                  },
-                  {
-                    "sigla": "TEA",
-                    "nombre": "Tasa Efectiva Anual",
-                    "descripcion": "Lo que realmente ganás o pagás en un año, incluyendo la capitalización. Siempre es mayor que la TNA.",
-                    "formula": "TEA = (1 + TNA/m)^m - 1"
-                  },
-                  {
-                    "nombre": "Tasa nominal",
-                    "descripcion": "La tasa de referencia, sin considerar la capitalización. Útil para comparar rápidamente, pero no refleja el costo o rendimiento real."
-                  },
-                  {
-                    "nombre": "Tasa real",
-                    "descripcion": "La tasa que resulta de descontar la inflación. Si un plazo fijo rinde 7% mensual pero la inflación es 8%, tu tasa real es negativa: estás perdiendo poder de compra, aunque nominalmente ganaste."
-                  }
-                ],
-                "contexto_argentino": "En Argentina, la diferencia entre tasa nominal y tasa real es crucial. Siempre preguntáte: ¿estoy ganando más que la inflación, o solo parece que gano?"
-              },
-              {
-                "id": "b2t7",
-                "numero": 7,
-                "titulo": "Aplicaciones Financieras Actuales",
-                "subtitulo": "Plazos fijos, préstamos y tarjetas de crédito",
-                "contenido": "Toda la teoría cobra sentido real cuando la aplicamos a las operaciones financieras con las que convivimos todos los días.",
-                "productos": [
-                  {
-                    "nombre": "Plazo Fijo",
-                    "descripcion": "Depositás dinero en un banco por un período mínimo (generalmente 30 días) y al final recibís el capital más los intereses. Usa interés compuesto si renovás automáticamente.",
-                    "tipos": ["Plazo fijo tradicional", "Plazo fijo UVA (ajustado por inflación)"],
-                    "ventaja": "Es seguro y simple.",
-                    "riesgo": "Si la inflación supera la tasa, perdés poder de compra."
-                  },
-                  {
-                    "nombre": "Préstamos personales",
-                    "descripcion": "El banco te presta dinero y vos devolvés en cuotas que incluyen capital + intereses. Generalmente usan sistema francés (cuotas iguales, más intereses al inicio).",
-                    "dato_clave": "El CFT (Costo Financiero Total) incluye comisiones e impuestos y es el dato más importante.",
-                    "ventaja": "Accedés a dinero que no tenés.",
-                    "riesgo": "Comprometés ingresos futuros."
-                  },
-                  {
-                    "nombre": "Tarjetas de crédito",
-                    "descripcion": "Comprás hoy y pagás después. Si pagás el total antes del vencimiento, no hay interés. Si pagás el mínimo, el resto genera intereses compuestos altísimos (frecuentemente TEA superiores al 200%).",
-                    "ventaja": "Flexibilidad y financiación sin interés en 1 pago.",
-                    "riesgo": "Espiral de deuda si solo pagás el mínimo."
-                  }
-                ],
-                "dato_clave": "Antes de contratar cualquier producto financiero, pedí siempre el CFT (Costo Financiero Total). Es el único número que refleja el costo real de la operación, incluyendo intereses, comisiones, seguros e impuestos."
-              },
-              {
-                "id": "b2t8",
-                "numero": 8,
-                "titulo": "La Inflación y el Interés",
-                "subtitulo": "Tasa real vs. tasa nominal en contexto argentino",
-                "contenido": "Ningún análisis financiero en Argentina está completo sin hablar de inflación. La inflación es el aumento sostenido y generalizado de los precios en una economía. Cuando la inflación es alta, el dinero pierde poder de compra rápidamente.",
-                "ecuacion_fisher": {
-                  "nombre": "Ecuación de Fisher",
-                  "formula_exacta": "(1 + i_real) = (1 + i_nominal) / (1 + π)",
-                  "formula_simplificada": "i_real ≈ i_nominal - π",
-                  "descripcion": "Donde π es la tasa de inflación del período."
-                },
-                "casos": [
-                  {
-                    "tipo": "Tasa real positiva ✅",
-                    "descripcion": "Si un plazo fijo rinde 8% mensual y la inflación es 5% mensual, tu tasa real es aproximadamente +3%. Estás ganando poder de compra."
-                  },
-                  {
-                    "tipo": "Tasa real negativa ❌",
-                    "descripcion": "Si el plazo fijo rinde 6% mensual pero la inflación es 10% mensual, tu tasa real es -4%. Estás perdiendo plata aunque el banco te pague intereses."
-                  }
-                ],
-                "contexto_argentino": "Durante muchos períodos recientes en Argentina la tasa real fue negativa, lo que explica por qué muchos argentinos buscan refugio en el dólar, en inversiones indexadas (UVA, CER) o en activos reales.",
-                "efecto_sobre_deudores": "Si tomaste un préstamo a tasa fija y la inflación sube mucho, en términos reales tu deuda se licúa (vale menos). Por eso en contextos inflacionarios los bancos suelen cobrar tasas muy altas o ajustables.",
-                "consejo_final": "Cada vez que evalúes una inversión o una deuda, no mires solo la tasa nominal. Siempre calculá la tasa real descontando la inflación. Es la única forma de saber si realmente estás ganando o perdiendo."
-              }
-            ]
-          }
-        ]
-      },
-
-      "senales": {
-        "id": "senales",
-        "nombre": "Señales",
-        "icono": "🚦",
-        "subtitulo": "Conceptos clave para no perderse",
-        "items": [
-          { "termino": "Finanzas personales", "definicion": "Conjunto de decisiones y acciones que cada persona toma respecto de su dinero a lo largo de la vida." },
-          { "termino": "Ingreso activo", "definicion": "Dinero que obtenés a cambio de tu trabajo o tiempo." },
-          { "termino": "Ingreso pasivo", "definicion": "Dinero que genera valor sin requerir tu trabajo constante." },
-          { "termino": "Gasto hormiga", "definicion": "Pequeños gastos que pasan desapercibidos pero que acumulados impactan significativamente en el presupuesto." },
-          { "termino": "Déficit", "definicion": "Situación en la que los gastos superan a los ingresos." },
-          { "termino": "Superávit", "definicion": "Situación en la que los ingresos superan a los gastos." },
-          { "termino": "Regla 50/30/20", "definicion": "Método de distribución del ingreso: 50% necesidades, 30% deseos, 20% ahorro." },
-          { "termino": "Meta SMART", "definicion": "Meta financiera que es Específica, Medible, Alcanzable, Relevante y Temporal." },
-          { "termino": "Capital (C)", "definicion": "Monto de dinero inicial sobre el que se calculan los intereses. También llamado valor presente o principal." },
-          { "termino": "Tasa de interés (i)", "definicion": "Porcentaje que se aplica al capital por período. Debe expresarse en la misma unidad temporal que el tiempo." },
-          { "termino": "Monto (M)", "definicion": "Resultado final de una operación financiera: capital + intereses acumulados." },
-          { "termino": "Interés simple", "definicion": "Régimen donde los intereses se calculan siempre sobre el capital original, sin capitalización." },
-          { "termino": "Interés compuesto", "definicion": "Régimen donde los intereses generados se suman al capital y también generan intereses en períodos siguientes." },
-          { "termino": "Capitalización", "definicion": "Proceso por el cual los intereses se incorporan al capital para generar nuevos intereses." },
-          { "termino": "TNA", "definicion": "Tasa Nominal Anual. La tasa que publicitan los bancos. No contempla capitalización." },
-          { "termino": "TEA", "definicion": "Tasa Efectiva Anual. Lo que realmente ganás o pagás en un año, incluyendo capitalización. Siempre es mayor que la TNA." },
-          { "termino": "Tasa real", "definicion": "Tasa que resulta de descontar la inflación a la tasa nominal. Indica si realmente se gana o pierde poder de compra." },
-          { "termino": "CFT", "definicion": "Costo Financiero Total. Incluye intereses, comisiones, seguros e impuestos. Es el dato más importante al contratar un producto financiero." },
-          { "termino": "Inflación", "definicion": "Aumento sostenido y generalizado de los precios en una economía, que reduce el poder adquisitivo del dinero." },
-          { "termino": "Ecuación de Fisher", "definicion": "Fórmula que relaciona tasa nominal, tasa real e inflación: i_real ≈ i_nominal - π." }
-        ]
-      },
-
-      "sabias": {
-        "id": "sabias",
-        "nombre": "¿Sabías que...?",
-        "icono": "💡",
-        "subtitulo": "Datos que sorprenden",
-        "items": [
-          {
-            "dato": "Albert Einstein supuestamente llamó al interés compuesto 'la fuerza más poderosa del universo' o 'la octava maravilla del mundo'.",
-            "reflexion": "Si empezás a ahorrar a los 18 años con interés compuesto, la diferencia respecto a empezar a los 30 es abismal."
-          },
-          {
-            "dato": "El pago mínimo de una tarjeta de crédito está diseñado para que sigas endeudado el mayor tiempo posible.",
-            "reflexion": "Pagando solo el mínimo, una deuda puede triplicarse en pocos años gracias al interés compuesto actuando en tu contra."
-          },
-          {
-            "dato": "En Argentina, durante varios períodos recientes, las tasas de interés de los plazos fijos fueron menores a la inflación, lo que significa que quien ahorraba en pesos perdía poder de compra.",
-            "reflexion": "Por eso muchos argentinos dolarizaban sus ahorros o buscaban activos que ajusten por inflación."
-          },
-          {
-            "dato": "La regla 50/30/20 fue popularizada por la senadora Elizabeth Warren en su libro 'All Your Worth' (2005).",
-            "reflexion": "Aunque fue pensada para ingresos estables, es una buena guía de partida incluso con ingresos variables."
-          },
-          {
-            "dato": "El CFT (Costo Financiero Total) es el único número que por ley los bancos argentinos deben publicar en toda publicidad de créditos.",
-            "reflexion": "Si una publicidad muestra solo la TNA pero no el CFT, algo están ocultando."
-          },
-          {
-            "dato": "Los llamados 'gastos hormiga' pueden representar entre el 10% y el 20% del ingreso mensual de una persona sin que ella lo perciba.",
-            "reflexion": "Registrar los gastos durante solo una semana suele ser una experiencia reveladora."
-          }
-        ]
-      },
-
-      "cruces": {
-        "id": "cruces",
-        "nombre": "Cruces",
-        "icono": "🔗",
-        "subtitulo": "Conexiones con otras materias y saberes",
-        "conexiones": [
-          {
-            "materia": "Matemática",
-            "relacion": "Las fórmulas de interés simple y compuesto aplican directamente álgebra y operaciones con potencias. La ecuación de Fisher involucra razonamiento proporcional."
-          },
-          {
-            "materia": "Economía",
-            "relacion": "La inflación, el costo de oportunidad y el valor del dinero en el tiempo son conceptos macroeconómicos que tienen impacto directo en las decisiones financieras personales."
-          },
-          {
-            "materia": "Informática y Programación",
-            "relacion": "Como técnicos en informática, pueden programar simuladores de interés compuesto, planillas de presupuesto automatizadas y calculadoras de tasa real. La tecnología que dominan es la mejor aliada de las finanzas personales."
-          },
-          {
-            "materia": "Administración",
-            "relacion": "El presupuesto personal es la versión individual del presupuesto empresarial. Las mismas lógicas de planificación, control y ajuste aplican en ambos contextos."
-          },
-          {
-            "materia": "Derecho",
-            "relacion": "Los contratos de préstamo, los derechos del consumidor financiero y la regulación del CFT son aspectos legales directamente vinculados a esta unidad."
-          },
-          {
-            "materia": "Historia",
-            "relacion": "El concepto de interés tiene miles de años de historia. En la antigua Mesopotamia ya existían préstamos con tasas de interés registradas en tablillas de arcilla."
-          }
-        ]
-      },
-
-      "relectura": {
-        "id": "relectura",
-        "nombre": "Relectura",
-        "icono": "🔁",
-        "subtitulo": "Volvé a mirar con otros ojos",
-        "introduccion": "Ahora que terminaste de leer la unidad, te proponemos releer algunos fragmentos clave con una mirada más crítica.",
-        "textos": [
-          {
-            "fragmento": "Las finanzas personales son un 80% comportamiento y un 20% conocimiento técnico.",
-            "autor": "Dave Ramsey",
-            "pregunta_reflexion": "¿Qué comportamientos concretos de tu vida cotidiana crees que más influyen en tu situación económica actual o futura? ¿Cuáles cambiarías?"
-          },
-          {
-            "fragmento": "El ahorro no es lo que te sobra después de gastar, sino que el gasto es lo que te sobra después de ahorrar.",
-            "pregunta_reflexion": "¿Cómo cambiaría tu manejo del dinero si aplicaras este principio desde hoy? ¿Qué dificultades encontrarías?"
-          },
-          {
-            "fragmento": "Quien lo entiende (al interés compuesto), lo gana; quien no lo entiende, lo paga.",
-            "pregunta_reflexion": "Pensá en alguien que conocés que esté pagando intereses compuestos sin saberlo (tarjeta de crédito, cuotas). ¿Cómo le explicarías lo que está pasando con su deuda?"
-          },
-          {
-            "fragmento": "Cada vez que evalúes una inversión o una deuda, no mires solo la tasa nominal. Siempre calculá la tasa real descontando la inflación.",
-            "pregunta_reflexion": "¿Por qué creés que los bancos y las financieras publican la TNA y no directamente la tasa real? ¿Es esto ético?"
-          }
-        ]
-      },
-
-      "autotest": {
-        "id": "autotest",
-        "nombre": "Autotest",
-        "icono": "✅",
-        "subtitulo": "¿Cuánto aprendiste?",
-        "instrucciones": "Respondé las siguientes preguntas para evaluar tu comprensión de la unidad. Podés volver al núcleo si necesitás repasar algún concepto.",
-        "preguntas": [
-          {
-            "id": "q1",
-            "numero": 1,
-            "tipo": "opcion_multiple",
-            "pregunta": "¿Cuál de las siguientes NO es una característica de una meta financiera SMART?",
-            "opciones": [
-              { "id": "a", "texto": "Específica" },
-              { "id": "b", "texto": "Motivadora" },
-              { "id": "c", "texto": "Medible" },
-              { "id": "d", "texto": "Temporal" }
-            ],
-            "respuesta_correcta": "b",
-            "explicacion": "El método SMART está compuesto por: Específica, Medible, Alcanzable, Relevante y Temporal. 'Motivadora' no forma parte del acrónimo, aunque una meta relevante suele serlo."
-          },
-          {
-            "id": "q2",
-            "numero": 2,
-            "tipo": "opcion_multiple",
-            "pregunta": "Si depositás $100.000 a una tasa de interés simple del 4% mensual durante 3 meses, ¿cuánto interés total ganás?",
-            "opciones": [
-              { "id": "a", "texto": "$4.000" },
-              { "id": "b", "texto": "$12.000" },
-              { "id": "c", "texto": "$12.486" },
-              { "id": "d", "texto": "$124.864" }
-            ],
-            "respuesta_correcta": "b",
-            "explicacion": "I = C × i × n = 100.000 × 0,04 × 3 = $12.000. En interés simple, el interés es siempre sobre el capital original."
-          },
-          {
-            "id": "q3",
-            "numero": 3,
-            "tipo": "opcion_multiple",
-            "pregunta": "¿Cuál es la diferencia principal entre interés simple e interés compuesto?",
-            "opciones": [
-              { "id": "a", "texto": "El simple usa tasas mensuales y el compuesto tasas anuales." },
-              { "id": "b", "texto": "En el compuesto, los intereses generados se suman al capital y también generan intereses." },
-              { "id": "c", "texto": "El simple siempre genera más intereses que el compuesto." },
-              { "id": "d", "texto": "En el simple, la tasa cambia cada período." }
-            ],
-            "respuesta_correcta": "b",
-            "explicacion": "La capitalización es la clave del interés compuesto: los intereses de cada período se incorporan al capital y generan nuevos intereses en el siguiente período."
-          },
-          {
-            "id": "q4",
-            "numero": 4,
-            "tipo": "opcion_multiple",
-            "pregunta": "Un plazo fijo rinde una TNA del 72% anual. ¿Cuál es la tasa mensual equivalente?",
-            "opciones": [
-              { "id": "a", "texto": "72%" },
-              { "id": "b", "texto": "6%" },
-              { "id": "c", "texto": "0,72%" },
-              { "id": "d", "texto": "864%" }
-            ],
-            "respuesta_correcta": "b",
-            "explicacion": "Tasa mensual = TNA ÷ 12 = 72% ÷ 12 = 6% mensual."
-          },
-          {
-            "id": "q5",
-            "numero": 5,
-            "tipo": "opcion_multiple",
-            "pregunta": "Si un plazo fijo paga una tasa nominal del 5% mensual y la inflación del mes es del 7%, ¿qué ocurre con el poder adquisitivo de tu dinero?",
-            "opciones": [
-              { "id": "a", "texto": "Aumenta, porque el banco te pagó intereses." },
-              { "id": "b", "texto": "Se mantiene igual." },
-              { "id": "c", "texto": "Disminuye, porque la tasa real es negativa." },
-              { "id": "d", "texto": "Depende del tipo de plazo fijo." }
-            ],
-            "respuesta_correcta": "c",
-            "explicacion": "Tasa real ≈ tasa nominal - inflación = 5% - 7% = -2%. La tasa real es negativa, lo que significa que aunque ganaste intereses nominales, perdiste poder de compra."
-          },
-          {
-            "id": "q6",
-            "numero": 6,
-            "tipo": "opcion_multiple",
-            "pregunta": "¿Cuál es el dato más importante que debés pedir antes de tomar un préstamo personal?",
-            "opciones": [
-              { "id": "a", "texto": "La TNA" },
-              { "id": "b", "texto": "El número de cuotas" },
-              { "id": "c", "texto": "El CFT (Costo Financiero Total)" },
-              { "id": "d", "texto": "El nombre del banco" }
-            ],
-            "respuesta_correcta": "c",
-            "explicacion": "El CFT es el único número que refleja el costo real total de la operación, incluyendo intereses, comisiones, seguros e impuestos. La TNA sola puede ser engañosa."
-          },
-          {
-            "id": "q7",
-            "numero": 7,
-            "tipo": "verdadero_falso",
-            "pregunta": "Según la regla 50/30/20, si ganás $200.000 mensuales, deberías destinar $60.000 al ahorro.",
-            "respuesta_correcta": false,
-            "explicacion": "Falso. El 20% de $200.000 = $40.000 para ahorro. $60.000 representaría el 30%, que corresponde a deseos."
-          },
-          {
-            "id": "q8",
-            "numero": 8,
-            "tipo": "verdadero_falso",
-            "pregunta": "La TEA siempre es mayor que la TNA para la misma operación financiera.",
-            "respuesta_correcta": true,
-            "explicacion": "Verdadero. La TEA incluye el efecto de la capitalización, lo que la hace siempre mayor que la TNA equivalente."
-          },
-          {
-            "id": "q9",
-            "numero": 9,
-            "tipo": "calculo",
-            "pregunta": "Calculá el monto final de invertir $50.000 a una tasa de interés compuesto del 5% mensual durante 3 meses.",
-            "formula": "M = C × (1 + i)^n",
-            "respuesta_correcta": 57881.25,
-            "desarrollo": "M = 50.000 × (1 + 0,05)^3 = 50.000 × (1,05)^3 = 50.000 × 1,157625 = $57.881,25",
-            "tolerancia": 10
-          },
-          {
-            "id": "q10",
-            "numero": 10,
-            "tipo": "opcion_multiple",
-            "pregunta": "¿Cuál de estas afirmaciones sobre las deudas es correcta?",
-            "opciones": [
-              { "id": "a", "texto": "Toda deuda es mala y debe evitarse." },
-              { "id": "b", "texto": "Una deuda para financiar educación o herramientas de trabajo puede ser una inversión inteligente." },
-              { "id": "c", "texto": "El pago mínimo de la tarjeta es la mejor opción porque conserva liquidez." },
-              { "id": "d", "texto": "Endeudarse hasta el 60% de los ingresos es responsable si la tasa es baja." }
-            ],
-            "respuesta_correcta": "b",
-            "explicacion": "No toda deuda es mala. La deuda que genera valor futuro (educación, herramientas de trabajo, vivienda) puede ser una inversión inteligente. La clave está en la tasa, el destino y la capacidad de pago."
-          }
-        ]
-      },
-
-      "bloque3": {
-        "id": "bloque3",
-        "nombre": "Bloque 3",
-        "icono": "🔬",
-        "subtitulo": "Profundización — Matemática Financiera Aplicada",
-        "descripcion": "Casos reales · Simulación · Decisiones con datos. Este bloque va más lejos que la teoría: te pone en situaciones reales donde tenés que tomar decisiones con números concretos.",
-        "temas": [
-          {
-            "id": "b3t1",
-            "numero": 1,
-            "titulo": "El Verdadero Costo de la Tarjeta",
-            "subtitulo": "Un caso real que genera shock... y aprendizaje",
-            "contenido": "Comprás una notebook de $500.000 con tarjeta de crédito y pagás solo el mínimo. La tarjeta tiene una TEA del 210%. ¿Cuánto terminás pagando?",
-            "calculo_tem": {
-              "formula": "i_mensual = (1 + TEA)^(1/12) - 1",
-              "desarrollo": "(1 + 2,10)^(1/12) - 1 = (3,10)^(0,0833) - 1 ≈ 10% mensual",
-              "resultado": "10% mensual"
-            },
-            "evolucion_deuda": [
-              { "momento": "Compra", "capital": 500000, "interes_acumulado": 0, "total": 500000 },
-              { "momento": "6 meses", "capital": 780000, "interes_acumulado": 280000, "total": 780000 },
-              { "momento": "12 meses", "capital": 1050000, "interes_acumulado": 550000, "total": 1050000 },
-              { "momento": "24 meses", "capital": 1550000, "interes_acumulado": 1050000, "total": 1550000 }
-            ],
-            "conclusion": "En 2 años, la notebook de $500.000 costó $1.550.000. Se pagó el TRIPLE.",
-            "regla_practica": "Usá la tarjeta como medio de pago, no como fuente de financiamiento. Pagá el total antes del vencimiento y el costo es $0 en intereses."
-          },
-          {
-            "id": "b3t2",
-            "numero": 2,
-            "titulo": "El Sistema Francés",
-            "subtitulo": "Cómo se compone una cuota: capital + interés",
-            "contenido": "En el Sistema Francés todas las cuotas son del mismo monto, pero la composición interna cambia: al principio pagás mucho interés y poco capital; al final, poco interés y mucho capital.",
-            "formula": "Cuota = C × i × (1+i)^n / [(1+i)^n - 1]",
-            "ejemplo": {
-              "capital": 300000,
-              "tasa_mensual": 0.08,
-              "cuotas": 6,
-              "cuota_fija": 64772,
-              "tabla": [
-                { "mes": 1, "capital_inicial": 300000, "interes": 24000, "amortizacion": 40772, "cuota": 64772, "saldo_final": 259228 },
-                { "mes": 2, "capital_inicial": 259228, "interes": 20738, "amortizacion": 44034, "cuota": 64772, "saldo_final": 215194 },
-                { "mes": 3, "capital_inicial": 215194, "interes": 17216, "amortizacion": 47556, "cuota": 64772, "saldo_final": 167637 },
-                { "mes": 4, "capital_inicial": 167637, "interes": 13411, "amortizacion": 51361, "cuota": 64772, "saldo_final": 116277 },
-                { "mes": 5, "capital_inicial": 116277, "interes": 9302, "amortizacion": 55470, "cuota": 64772, "saldo_final": 60807 },
-                { "mes": 6, "capital_inicial": 60807, "interes": 4865, "amortizacion": 59907, "cuota": 64772, "saldo_final": 0 }
-              ],
-              "total_intereses": 89532,
-              "total_pagado": 388632
-            },
-            "patron_clave": "El interés decrece cuota a cuota mientras la amortización de capital aumenta. La cuota siempre es la misma.",
-            "actividad": "Reproducí esta tabla en Excel. Luego cambiá la tasa a 5% y 12% y observá cómo varía el total de intereses pagados."
-          },
-          {
-            "id": "b3t3",
-            "numero": 3,
-            "titulo": "El CFT: el número que importa",
-            "subtitulo": "La diferencia entre tasa publicada y costo real",
-            "contenido": "Los bancos publican la TNA en letras grandes y el CFT en letra pequeña. El CFT siempre es mayor y revela el costo real.",
-            "conversion_cft": {
-              "formula": "TEM_CFT = (1 + CFT)^(1/12) - 1",
-              "nota": "Esta conversión es compuesta, no proporcional. No dividir CFT/12."
-            },
-            "componentes_cft": [
-              "Intereses: el costo base del dinero prestado",
-              "Gastos de otorgamiento: comisión por procesar el crédito",
-              "Seguro de vida / desempleo: obligatorio en muchos productos",
-              "Impuestos (IVA, sellos): cargas fiscales sobre la operación",
-              "Gastos de mantenimiento: en tarjetas, costo mensual de la cuenta"
-            ],
-            "regla_de_oro": "Nunca compares dos préstamos por la TNA. Compará siempre por el CFT.",
-            "actividad": "Buscá ofertas de préstamos en dos bancos. Registrá TNA y CFT de cada uno. ¿Cuál conviene más realmente?"
-          },
-          {
-            "id": "b3t4",
-            "numero": 4,
-            "titulo": "Tasa Real en Inflación Alta",
-            "subtitulo": "¿Ganás o perdés poder adquisitivo realmente?",
-            "contenido": "En contextos de inflación alta, la tasa nominal puede ser engañosa. Para saber si realmente ganás, necesitás calcular la tasa real.",
-            "ecuacion_fisher": {
-              "formula_exacta": "1 + i_real = (1 + i_nominal) / (1 + π)",
-              "formula_simplificada": "i_real ≈ i_nominal - π"
-            },
-            "conversion_inflacion": {
-              "formula": "π_mensual = (1 + π_anual)^(1/12) - 1",
-              "nota": "No dividir la inflación anual por 12. Usar la equivalencia compuesta."
-            },
-            "escenarios": [
-              { "caso": "Plazo fijo conservador", "nominal": "8%", "inflacion": "5%", "real": "+3%", "resultado": "Ganás poder de compra" },
-              { "caso": "Plazo fijo en inflación alta", "nominal": "9%", "inflacion": "12%", "real": "-3%", "resultado": "Perdés poder de compra" },
-              { "caso": "Caja de ahorro", "nominal": "2%", "inflacion": "12%", "real": "-10%", "resultado": "Perdés mucho" },
-              { "caso": "Plazo fijo UVA", "nominal": "Ajusta por CER", "inflacion": "cualquiera", "real": "~0% + extra", "resultado": "Mantiene valor" }
-            ],
-            "actividad": "Buscá la tasa de plazo fijo vigente en el BCRA. Comparala con el último dato de inflación del INDEC. Calculá la tasa real: ¿conviene hoy?"
-          },
-          {
-            "id": "b3t5",
-            "numero": 5,
-            "titulo": "Análisis Comparativo de Decisiones",
-            "subtitulo": "Cuotas vs. contado · Invertir vs. consumir",
-            "contenido": "El verdadero poder de la matemática financiera está en comparar alternativas. No se trata de saber si podés pagar algo, sino de entender cuál decisión te deja en mejor posición financiera.",
-            "casos": [
-              {
-                "caso": "A — Cuotas vs. contado",
-                "descripcion": "Bicicleta $200.000 contado o 12 cuotas de $23.000",
-                "contado": { "total": 200000, "ahorro": 76000 },
-                "cuotas": { "total": 276000, "sobrecosto_porcentaje": 38 },
-                "conclusion": "En cuotas pagás 38% más. Si podés pagar de contado, casi siempre conviene."
-              },
-              {
-                "caso": "B — Invertir vs. consumir",
-                "descripcion": "$500.000 recibidos: ¿gastar o invertir al 8% mensual por 12 meses?",
-                "formula": "M = $500.000 × (1,08)^12 = $500.000 × 2,518 = $1.259.024",
-                "diferencia": 759024,
-                "conclusion": "El interés compuesto generó $759.024 adicionales sin ningún esfuerzo."
-              },
-              {
-                "caso": "C — ¿Tomás el préstamo o esperás?",
-                "descripcion": "Necesitás $300.000. Podés esperar 6 meses o tomar préstamo al 10% mensual.",
-                "costo_prestamo": "Intereses totales ≈ $102.000 (+34% sobre el capital)",
-                "conclusion": "No hay respuesta única: depende del valor del proyecto y del tiempo disponible. Lo importante es cuantificar ambas alternativas."
-              }
-            ]
-          }
-        ],
-        "simulacion_obligatoria": {
-          "simulacion1": {
-            "nombre": "Excel — Comparador de Regímenes",
-            "descripcion": "Construí una planilla con columnas de interés simple e interés compuesto para los mismos datos. Incluí gráfico de líneas comparativo.",
-            "datos_sugeridos": { "capital": 100000, "tasa_mensual": "5%", "periodos": 24 }
-          },
-          "simulacion2": {
-            "nombre": "Calculadora de Préstamo (Python o HTML)",
-            "descripcion": "Programá una calculadora que reciba capital, tasa y cuotas, y devuelva la cuota fija, la tabla de amortización completa y el total de intereses pagados."
-          }
-        }
-      },
-
-      "tp_integrador": {
-        "id": "tp_integrador",
-        "nombre": "TP Integrador",
-        "icono": "🏍️",
-        "subtitulo": "Simulación: Tomás quiere comprarse una moto",
-        "descripcion": "Aplicá todo lo aprendido en el Bloque 3 para ayudar a Tomás a tomar la mejor decisión financiera de su vida. Este trabajo integra: sistema francés, CFT, valor actual, tasa real e inflación.",
-        "caso": {
-          "nombre": "El caso de Tomás",
-          "contexto": "Tomás tiene 22 años y quiere comprarse una moto Honda CB 190 que cuesta $2.800.000 al contado. Tiene ahorrados $800.000 y analiza 3 opciones para financiar el resto ($2.000.000).",
-          "precio_contado": 2800000,
-          "ahorro": 800000,
-          "monto_a_financiar": 2000000,
-          "ingresos_mensuales": 180000,
-          "opciones": [
-            {
-              "id": "A",
-              "entidad": "Banco Provincia",
-              "cuotas": 24,
-              "tna": 0.75,
-              "cft": 0.98,
-              "seguro_mensual": 8500,
-              "tem_tna": 0.0625,
-              "tem_cft": 0.058576
-            },
-            {
-              "id": "B",
-              "entidad": "Concesionaria",
-              "cuotas": 18,
-              "tna": 0.95,
-              "cft": 1.42,
-              "seguro_mensual": 0,
-              "tem_tna": 0.079167,
-              "tem_cft": 0.076427
-            },
-            {
-              "id": "C",
-              "entidad": "Fintech (app)",
-              "cuotas": 12,
-              "tna": 0.55,
-              "cft": 0.89,
-              "seguro_mensual": 12000,
-              "tem_tna": 0.045833,
-              "tem_cft": 0.054480
-            }
-          ]
-        },
-        "nota_docente_criterio_tasas": "Consigna 1 usa TNA (proporcional TNA/12). Consignas 2 y 4 usan CFT con conversión compuesta (1+CFT)^(1/12)-1. Esta distinción es intencional y pedagógica.",
-        "consignas": [
-          {
-            "id": "c1",
-            "numero": 1,
-            "titulo": "Sistema Francés",
-            "nivel": "Básico",
-            "opcion": "A",
-            "tasa_usar": "TNA",
-            "enunciado": "Calculá la TEM equivalente a la TNA 75%. Luego calculá la cuota mensual usando la fórmula del sistema francés. Construí la tabla de amortización para las primeras 6 cuotas.",
-            "resolucion": {
-              "paso1_tem": {
-                "formula": "TEM = TNA / 12 = 0,75 / 12",
-                "resultado": 0.0625,
-                "resultado_porcentaje": "6,25% mensual"
-              },
-              "paso2_cuota": {
-                "formula": "A = P × i × (1+i)^n / [(1+i)^n - 1]",
-                "datos": { "P": 2000000, "i": 0.0625, "n": 24 },
-                "desarrollo": "(1,0625)^24 = 4,2840 | Numerador: 2.000.000 × 0,0625 × 4,2840 = 535.503 | Denominador: 3,2840",
-                "cuota_sin_seguro": 163058.19,
-                "seguro": 8500,
-                "cuota_total": 171558.19
-              },
-              "paso3_tabla_amortizacion": [
-                { "cuota": 1, "saldo_inicial": 2000000.00, "interes": 125000.00, "amortizacion": 38058.19, "cuota_total": 163058.19, "saldo_final": 1961941.81 },
-                { "cuota": 2, "saldo_inicial": 1961941.81, "interes": 122621.36, "amortizacion": 40436.82, "cuota_total": 163058.19, "saldo_final": 1921504.99 },
-                { "cuota": 3, "saldo_inicial": 1921504.99, "interes": 120094.06, "amortizacion": 42964.12, "cuota_total": 163058.19, "saldo_final": 1878540.87 },
-                { "cuota": 4, "saldo_inicial": 1878540.87, "interes": 117408.80, "amortizacion": 45649.38, "cuota_total": 163058.19, "saldo_final": 1832891.49 },
-                { "cuota": 5, "saldo_inicial": 1832891.49, "interes": 114555.72, "amortizacion": 48502.47, "cuota_total": 163058.19, "saldo_final": 1784389.02 },
-                { "cuota": 6, "saldo_inicial": 1784389.02, "interes": 111524.31, "amortizacion": 51533.87, "cuota_total": 163058.19, "saldo_final": 1732855.15 }
-              ],
-              "patron_esperado": "El interés cae de $125.000 a $111.524. La amortización sube de $38.058 a $51.534. La cuota siempre es $163.058,19."
-            },
-            "puntaje": { "tem": 2, "formula_cuota": 3, "tabla": 5, "total": 10 }
-          },
-          {
-            "id": "c2",
-            "numero": 2,
-            "titulo": "Comparación de CFT",
-            "nivel": "Intermedio",
-            "tasa_usar": "CFT con conversión compuesta",
-            "enunciado": "Calculá el costo total de cada opción (cuotas × número de cuotas + seguros). ¿Cuál es la opción más barata en términos absolutos? ¿Coincide con la que tiene menor TNA? Explicá por qué sí o por qué no.",
-            "resolucion": {
-              "paso1_tem_cft": {
-                "formula": "TEM_CFT = (1 + CFT)^(1/12) - 1",
-                "nota": "Conversión compuesta. NO dividir CFT/12.",
-                "resultados": {
-                  "A": { "cft": 0.98, "tem": 0.058576, "tem_porcentaje": "5,8576%" },
-                  "B": { "cft": 1.42, "tem": 0.076427, "tem_porcentaje": "7,6427%" },
-                  "C": { "cft": 0.89, "tem": 0.054480, "tem_porcentaje": "5,4480%" }
-                }
-              },
-              "paso2_cuotas_cft": {
-                "A": { "cuota_base": 157267.42, "seguro": 8500, "cuota_total": 165767.42 },
-                "B": { "cuota_base": 208143.22, "seguro": 0, "cuota_total": 208143.22 },
-                "C": { "cuota_base": 231388.38, "seguro": 12000, "cuota_total": 243388.38 }
-              },
-              "paso3_costo_total": {
-                "formula": "CT = (cuota + seguro) × n",
-                "A": { "calculo": "165.767,42 × 24", "total": 3978418 },
-                "B": { "calculo": "208.143,22 × 18", "total": 3746578 },
-                "C": { "calculo": "243.388,38 × 12", "total": 2920661 },
-                "mas_barata": "C",
-                "diferencia_C_vs_A": 1057757
-              },
-              "paso4_analisis": "La menor TNA también es C (55%) y también es la más barata. Coinciden, pero la razón principal es el plazo corto (12 cuotas) + TEM efectiva menor. Contraejemplo: si C tuviera 36 cuotas al 55%, superaría a A en costo total."
-            },
-            "puntaje": { "calculo_3_opciones": 6, "explicacion_conceptual": 4, "total": 10 }
-          },
-          {
-            "id": "c3",
-            "numero": 3,
-            "titulo": "Valor Actual",
-            "nivel": "Avanzado",
-            "enunciado": "Tomás recibe una oferta: puede recibir $2.000.000 hoy de un familiar, o $3.500.000 dentro de 18 meses. Si la tasa de mercado es 8% mensual, ¿cuál opción conviene financieramente? Calculá el VA de los $3.500.000 y comparalo.",
-            "resolucion": {
-              "datos": { "VF": 3500000, "i": 0.08, "n": 18 },
-              "paso1_formula": "VA = VF / (1 + i)^n",
-              "paso2_calculo_factor": {
-                "desarrollo": "(1,08)^6 = 1,5869 | (1,08)^12 = 2,5182 | (1,08)^18 = 2,5182 × 1,5869 = 3,9960",
-                "resultado": 3.9960
-              },
-              "paso3_va": {
-                "calculo": "3.500.000 / 3,9960",
-                "resultado": 875876
-              },
-              "comparacion": {
-                "hoy": 2000000,
-                "futuro_en_va": 875876,
-                "diferencia": 1124124,
-                "decision": "Conviene recibir $2.000.000 hoy",
-                "argumento_extra": "Si invierte $2.000.000 al 8% mensual por 18 meses obtiene $2.000.000 × 3,996 = $7.992.000"
-              }
-            },
-            "puntaje": { "planteamiento_formula": 3, "calculo": 4, "conclusion_justificada": 3, "total": 10 }
-          },
-          {
-            "id": "c4",
-            "numero": 4,
-            "titulo": "Tasa Real",
-            "nivel": "Avanzado",
-            "tasa_usar": "CFT con Fisher exacto",
-            "enunciado": "Si la inflación proyectada para los próximos 24 meses es del 85% anual, calculá la tasa real de cada opción de financiamiento. ¿En cuál de las 3 opciones la deuda se 'licúa' más rápido? ¿Qué significa eso para Tomás?",
-            "resolucion": {
-              "paso1_inflacion_mensual": {
-                "formula": "π_mensual = (1 + 0,85)^(1/12) - 1",
-                "desarrollo": "(1,85)^(0,08333) - 1",
-                "resultado": 0.052602,
-                "resultado_porcentaje": "5,2602% mensual",
-                "error_frecuente": "Dividir 85%/12 = 7,08% es la tasa proporcional, NO la equivalente mensual compuesta."
-              },
-              "paso2_fisher": {
-                "formula": "i_real = (1 + i_CFT) / (1 + π_mensual) - 1",
-                "nota": "Se usa TEM del CFT porque representa el costo real del financiamiento.",
-                "resultados": {
-                  "A": { "tem_cft": 0.058576, "calculo": "(1,058576 / 1,052602) - 1", "tasa_real": 0.005675, "porcentaje": "+0,5675% mensual" },
-                  "B": { "tem_cft": 0.076427, "calculo": "(1,076427 / 1,052602) - 1", "tasa_real": 0.022634, "porcentaje": "+2,2634% mensual" },
-                  "C": { "tem_cft": 0.054480, "calculo": "(1,054480 / 1,052602) - 1", "tasa_real": 0.001784, "porcentaje": "+0,1784% mensual" }
-                }
-              },
-              "paso3_licuamiento": {
-                "aclaracion": "Las tres opciones tienen tasa real positiva. No hay licuamiento puro (tasa real negativa) en ninguna.",
-                "menor_tasa_real": "C (+0,1784%)",
-                "conclusion": "La Opción C es la que menos crece en términos reales: la inflación casi empata con el costo del préstamo. La B es la peor porque su deuda crece 2,26% real por mes.",
-                "significado_para_tomas": "Si el sueldo de Tomás sube aunque sea un poco con la inflación, las cuotas de la Opción C le representarán casi el mismo esfuerzo mes a mes."
-              }
-            },
-            "puntaje": { "conversion_inflacion": 3, "fisher_3_opciones": 4, "explicacion_licuamiento": 3, "total": 10 }
-          },
-          {
-            "id": "c5",
-            "numero": 5,
-            "titulo": "Decisión Final",
-            "nivel": "Desafío",
-            "enunciado": "Con toda la información analizada, redactá un informe de no más de 15 líneas recomendando a Tomás qué opción elegir. Justificá con números. Considerá: costo total, tasa real, cuota mensual vs. ingresos estimados de Tomás ($180.000/mes) y el impacto de la inflación.",
-            "resolucion": {
-              "tabla_resumen": {
-                "A": { "costo_total": 3978418, "cuota_total": 165767, "pct_ingreso": 92.1, "tasa_real": 0.5675 },
-                "B": { "costo_total": 3746578, "cuota_total": 208143, "pct_ingreso": 115.6, "tasa_real": 2.2634 },
-                "C": { "costo_total": 2920661, "cuota_total": 243388, "pct_ingreso": 135.2, "tasa_real": 0.1784 }
-              },
-              "viabilidad": "Ninguna opción es viable con $180.000 de ingreso. A exige 92%, B 116%, C 135% del sueldo.",
-              "opcion_por_costo": "C es la más barata ($2.920.661) y la de menor tasa real (+0,18% mensual).",
-              "opcion_por_cuota": "A tiene la cuota más baja ($165.767), la más cercana al ingreso de Tomás.",
-              "informe_modelo": "Tomás debería evaluar primero su capacidad de pago: con ingresos de $180.000/mes, las cuotas estimadas (usando CFT) son A ≈ $165.767, B ≈ $208.143 y C ≈ $243.388, todas por encima del ingreso. Ninguna opción es financieramente saludable: lo llevaría a mora o endeudamiento. Si aun así debiera elegir solo por costo, la Opción C es la más barata ($2.920.661) y la que menor tasa real tiene (+0,178% mensual). Sin embargo, su cuota es la más alta e inviable con sus ingresos actuales. Recomendación: postergar la compra, aumentar el anticipo/ahorro o buscar una moto más barata; si consigue subir ingresos, recién ahí comparar C (por costo) vs A (por cuota más baja).",
-              "estructura_informe_esperada": [
-                "Recomendación clara con opción justificada",
-                "Mínimo 2 argumentos numéricos de consignas anteriores",
-                "Advertencia sobre viabilidad con % de ingresos",
-                "Reflexión sobre inflación o tasa real"
-              ]
-            },
-            "puntaje": { "recomendacion_justificada": 3, "argumentos_numericos": 3, "viabilidad_pago": 2, "reflexion_inflacion": 2, "total": 10 },
-            "bonus": {
-              "descripcion": "Simulación Excel con 3 tablas de amortización completas (A=24, B=18, C=12 filas) y gráfico del saldo vs mes para las 3 opciones.",
-              "criterios": [
-                { "item": "Tabla Opción A completa", "puntos": 1 },
-                { "item": "Tabla Opción B completa", "puntos": 1 },
-                { "item": "Tabla Opción C completa", "puntos": 1 },
-                { "item": "Gráfico comparativo saldo vs mes", "puntos": 1 },
-                { "item": "Celdas de input editables (capital, TNA, n)", "puntos": 1 }
-              ],
-              "total_bonus": 5
-            }
-          }
-        ],
-        "puntaje_total": {
-          "base": 50,
-          "bonus": 5,
-          "escala": "Nota = (Puntos obtenidos / 50) × 10"
-        }
-      },
-
-      "cierre": {
-        "id": "cierre",
-        "nombre": "Cierre",
-        "icono": "🎯",
-        "subtitulo": "Tu futuro financiero empieza hoy",
-        "mensaje_final": "Terminamos la Unidad 2, pero en realidad esto es un punto de partida. Todo lo que aprendieron acá —desde armar un presupuesto hasta calcular una tasa real— son herramientas que van a usar el resto de sus vidas, mucho más allá de la escuela.",
-        "mensaje_tecnico": "Como técnicos en informática, tienen una ventaja enorme: saben usar planillas de cálculo, pueden programar simuladores, entienden la lógica matemática. Usen esas habilidades para tomar el control de sus finanzas. Armen una planilla de presupuesto, simulen plazos fijos, calculen el costo real de una cuota con tarjeta.",
-        "pilares_accion": [
-          { "icono": "🧠", "titulo": "Aprendé", "descripcion": "Nunca dejes de informarte sobre economía y finanzas. El mundo cambia rápido y las reglas del juego también." },
-          { "icono": "📋", "titulo": "Planificá", "descripcion": "Armá tu presupuesto, fijá metas claras y revisá tus números cada mes. La planificación es poder." },
-          { "icono": "💪", "titulo": "Actuá", "descripcion": "El mejor plan no sirve si no se ejecuta. Empezá hoy, con lo que tengas, por más chico que sea." },
-          { "icono": "🔄", "titulo": "Ajustá", "descripcion": "Las circunstancias cambian. Tu plan financiero debe ser flexible y adaptarse a la realidad." }
-        ],
-        "resumen_conceptos": {
-          "bloque1": ["Concepto de finanzas personales", "Ingresos y gastos", "Presupuesto y regla 50/30/20", "Necesidades vs. deseos", "Ahorro como hábito", "Deudas buenas y malas", "Metas SMART"],
-          "bloque2": ["Valor del dinero en el tiempo", "Variables: C, i, n, M", "Interés simple: I = C×i×n", "Interés compuesto: M = C×(1+i)^n", "Comparación simple vs. compuesto", "Tasas: TNA, TEA, nominal, real", "Aplicaciones: plazo fijo, préstamos, tarjetas", "Inflación y tasa real"]
-        },
-        "frase_cierre": {
-          "texto": "La educación financiera no te garantiza ser rico, pero sí te garantiza no tomar decisiones pobres.",
-          "autor": "Verónica Vila Bordó"
-        }
+      {
+        "title": "Bloque 3",
+        "subtitle": "Profundización Aplicada",
+        "items": ["Caso real: trampa de la tarjeta con TEA 210%", "Sistema Francés de amortización", "CFT: Costo Financiero Total", "Valor Actual (VA)", "Tasa real en contexto inflacionario argentino", "Trabajo integrador: caso Tomás y la moto"],
+        "emoji": "🏦",
+        "color": "#EC4899"
       }
-
+    ],
+    "mapa_mental": {
+      "centro": {"title": "Finanzas & Matemática Financiera", "emoji": "💰"},
+      "ramas": [
+        {
+          "id": 1,
+          "title": "¿Qué son las finanzas personales?",
+          "items": ["Ganar: ingresos activos y pasivos", "Gastar: gastos fijos, variables y hormiga", "Ahorrar: pagáte a vos primero (10%)", "Proteger: evitar deudas tóxicas"],
+          "color": "#6366F1",
+          "emoji": "💰"
+        },
+        {
+          "id": 2,
+          "title": "¿Cómo se planifica?",
+          "items": ["Presupuesto: estimar, listar, calcular", "Regla 50/30/20: necesidades, deseos, ahorro", "Metas SMART: específica, medible, alcanzable", "Corto (1 año), mediano (1-5), largo (+5)"],
+          "color": "#10B981",
+          "emoji": "📋"
+        },
+        {
+          "id": 3,
+          "title": "¿Cómo funciona el interés?",
+          "items": ["Simple: I = C × i × n (siempre sobre capital original)", "Compuesto: M = C × (1+i)^n (interés sobre interés)", "Simple crece lineal, compuesto exponencial", "TNA → tasa del período ÷ 12"],
+          "color": "#F59E0B",
+          "emoji": "📈"
+        },
+        {
+          "id": 4,
+          "title": "¿Por qué importa la inflación?",
+          "items": ["Tasa real = tasa nominal - inflación", "Fórmula de Fisher: (1+r) = (1+i)/(1+π)", "Tasa real negativa = perdés poder de compra", "Las deudas a tasa fija se 'licúan' en inflación"],
+          "color": "#EC4899",
+          "emoji": "🏦"
+        }
+      ]
     }
+  },
+
+  "nucleo": {
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los pasos para armar un presupuesto personal correctamente:",
+      "items": [
+        {"id": 3, "text": "Hacer la cuenta: restar gastos a ingresos", "emoji": "🧮"},
+        {"id": 1, "text": "Estimar los ingresos del mes", "emoji": "💰"},
+        {"id": 5, "text": "Ajustar: recortar gastos o buscar más ingresos si el resultado es negativo", "emoji": "✂️"},
+        {"id": 2, "text": "Listar todos los gastos: fijos primero, luego variables y hormiga", "emoji": "📋"},
+        {"id": 4, "text": "Revisar y comparar con lo que realmente se gastó", "emoji": "🔍"}
+      ],
+      "orden_correcto": [1, 2, 3, 4, 5]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá cada concepto según pertenezca a INTERÉS SIMPLE o INTERÉS COMPUESTO:",
+      "categorias": [
+        {"name": "Interés Simple", "color": "#3B82F6", "emoji": "📏"},
+        {"name": "Interés Compuesto", "color": "#EC4899", "emoji": "📈"}
+      ],
+      "items": [
+        {"id": 1, "text": "Los intereses siempre se calculan sobre el capital original", "categoria_correcta": 0},
+        {"id": 2, "text": "Los intereses generados se suman al capital del período siguiente", "categoria_correcta": 1},
+        {"id": 3, "text": "El crecimiento es lineal: el interés mensual siempre es el mismo", "categoria_correcta": 0},
+        {"id": 4, "text": "El crecimiento es exponencial: cada vez se generan más intereses", "categoria_correcta": 1},
+        {"id": 5, "text": "Fórmula: I = C × i × n", "categoria_correcta": 0},
+        {"id": 6, "text": "Fórmula: M = C × (1 + i)^n", "categoria_correcta": 1}
+      ]
+    },
+    "n3_completar_mapa": {
+      "consigna": "Completá los espacios en blanco:",
+      "blanks": [
+        {"id": "a", "texto_antes": "La regla 50/30/20 propone destinar el 20% de los ingresos al", "respuesta_correcta": "ahorro", "pista": "A_____"},
+        {"id": "b", "texto_antes": "El CFT (Costo Financiero Total) incluye intereses, seguros, comisiones e", "respuesta_correcta": "impuestos", "pista": "I_________"},
+        {"id": "c", "texto_antes": "Si la tasa nominal es menor que la inflación, la tasa real es", "respuesta_correcta": "negativa", "pista": "N_______"}
+      ]
+    },
+    "n4_verdadero_falso": {
+      "afirmaciones": [
+        {"texto": "Si pagás siempre el mínimo de la tarjeta de crédito, cancelás la deuda más rápido.", "correcto": false, "explicacion": "Falso. Pagar solo el mínimo es una trampa: el resto de la deuda sigue generando intereses compuestos altísimos. Lo que compraste puede terminar costándote el doble o el triple."},
+        {"texto": "Un plazo fijo que rinde 8% mensual cuando la inflación es 10% mensual genera una tasa real negativa.", "correcto": true, "explicacion": "Correcto. La tasa real ≈ 8% - 10% = -2%. Aunque el banco te paga intereses, perdés poder de compra. Tener el dinero en el banco no alcanza para mantener su valor."},
+        {"texto": "Las deudas siempre son malas y hay que evitarlas a toda costa.", "correcto": false, "explicacion": "Falso. Existen deudas 'buenas' (para estudiar, emprender, comprar una herramienta de trabajo) con tasas razonables y plan de pago viable. Lo importante es el propósito, la tasa y si podés pagarla sin sacrificar necesidades básicas."}
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "pares": [
+        {"izquierda": "TNA", "derecha": "Tasa Nominal Anual: la que publicitan los bancos", "emoji": "📢"},
+        {"izquierda": "TEA", "derecha": "Tasa Efectiva Anual: incluye capitalización, siempre mayor", "emoji": "📈"},
+        {"izquierda": "CFT", "derecha": "Costo Financiero Total: incluye todo, el más honesto", "emoji": "🔍"},
+        {"izquierda": "Ecuación de Fisher", "derecha": "Relaciona tasa nominal, inflación y tasa real", "emoji": "🧮"}
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "grupos": [
+        {
+          "pregunta": "¿Cuál NO es un tipo de ingreso?",
+          "palabras": [
+            {"text": "Ingreso activo", "es_intrusa": false},
+            {"text": "Ingreso pasivo", "es_intrusa": false},
+            {"text": "Ingreso extraordinario", "es_intrusa": false},
+            {"text": "Gasto fijo", "es_intrusa": true}
+          ],
+          "explicacion": "Un gasto fijo es dinero que sale, no que entra. Los ingresos son activos (trabajo), pasivos (alquileres, inversiones) y extraordinarios (premios, ventas puntuales).",
+          "emoji": "💰"
+        },
+        {
+          "pregunta": "¿Cuál NO es una característica de una meta SMART?",
+          "palabras": [
+            {"text": "Específica", "es_intrusa": false},
+            {"text": "Medible", "es_intrusa": false},
+            {"text": "Impulsiva", "es_intrusa": true},
+            {"text": "Temporal", "es_intrusa": false}
+          ],
+          "explicacion": "Las metas SMART son: Específicas, Medibles, Alcanzables, Relevantes y Temporales. 'Impulsiva' es lo opuesto a una buena meta financiera.",
+          "emoji": "🎯"
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "conceptos": [
+        {"termino": "Interés compuesto", "pista": "¿Por qué Einstein lo llamó 'la fuerza más poderosa del universo'?", "palabras_clave": ["interés", "capital", "capitalización", "exponencial", "crece", "acumula", "período", "reinvierte"]},
+        {"termino": "Tasa real", "pista": "¿Qué obtenés cuando le restás la inflación a la tasa nominal?", "palabras_clave": ["inflación", "nominal", "poder", "compra", "Fisher", "real", "descuento", "pérdida"]},
+        {"termino": "Presupuesto personal", "pista": "¿Para qué sirve planificar cuánto vas a ganar y cuánto vas a gastar?", "palabras_clave": ["planificar", "ingresos", "gastos", "plan", "control", "mensual", "metas", "superávit"]}
+      ]
+    },
+    "n8_causa_efecto": {
+      "causas": [
+        {"id": 1, "text": "Solo pagás el mínimo de la tarjeta de crédito cada mes", "emoji": "💳"},
+        {"id": 2, "text": "Separás el 10% de tus ingresos apenas cobrás (antes de gastar)", "emoji": "🐷"},
+        {"id": 3, "text": "La inflación mensual supera la tasa del plazo fijo", "emoji": "📉"},
+        {"id": 4, "text": "Tomás un préstamo a tasa fija cuando la inflación proyectada es muy alta", "emoji": "🏦"}
+      ],
+      "efectos": [
+        {"id": 1, "causa_id": 1, "text": "La deuda crece por intereses compuestos y puede duplicarse o triplicarse", "emoji": "⚠️"},
+        {"id": 2, "causa_id": 2, "text": "Acumulás un fondo de emergencia y alcanzás metas financieras concretas", "emoji": "✅"},
+        {"id": 3, "causa_id": 3, "text": "Tu tasa real es negativa: perdés poder de compra aunque cobres intereses", "emoji": "📊"},
+        {"id": 4, "causa_id": 4, "text": "La deuda se 'licúa': devolvés pesos que valen menos que los que recibiste", "emoji": "💧"}
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos para calcular cuánto terminás pagando por un producto financiado con tarjeta:",
+      "pasos_en_orden_correcto": [
+        {"id": 1, "text": "Identificar la TEA que cobra la tarjeta", "emoji": "🔍"},
+        {"id": 2, "text": "Convertir la TEA a TEM: TEM = (1 + TEA)^(1/12) - 1", "emoji": "🧮"},
+        {"id": 3, "text": "Calcular la cuota mensual usando sistema francés", "emoji": "📋"},
+        {"id": 4, "text": "Multiplicar cuota por cantidad de cuotas para obtener el total pagado", "emoji": "✖️"},
+        {"id": 5, "text": "Comparar el total con el precio de contado y calcular el sobrecosto", "emoji": "⚖️"}
+      ]
+    },
+    "n10_comparador": {
+      "concepto_a": {"nombre": "Deuda buena", "emoji": "✅", "color": "#10B981"},
+      "concepto_b": {"nombre": "Deuda mala", "emoji": "⚠️", "color": "#EF4444"}
+    }
+  },
+
+  "senales": {
+    "conceptos_clave": [
+      {
+        "termino": "El valor del dinero en el tiempo",
+        "definicion": "Un peso hoy vale más que un peso mañana por tres razones: la inflación erosiona el poder adquisitivo, el costo de oportunidad (ese dinero podría estar generando rendimiento) y el riesgo e incertidumbre del futuro.",
+        "emoji": "⏳",
+        "importancia": "Es el fundamento de toda la matemática financiera. Sin entenderlo, no podés comparar opciones de ahorro, inversión ni crédito.",
+        "color": "#6366F1"
+      },
+      {
+        "termino": "Interés compuesto",
+        "definicion": "Mecanismo por el cual los intereses generados se suman al capital y también generan intereses. Fórmula: M = C × (1+i)^n. Crece de forma exponencial a diferencia del interés simple que crece linealmente.",
+        "emoji": "📈",
+        "importancia": "Trabaja a tu favor cuando ahorrás o invertís, y en tu contra cuando te endeudás. Cuanto antes empecés a ahorrar, más lo aprovechás.",
+        "color": "#EC4899"
+      },
+      {
+        "termino": "Tasa real vs. tasa nominal",
+        "definicion": "La tasa nominal es la que te publicitan. La tasa real descuenta la inflación: (1+r) = (1+i)/(1+π). Si la inflación supera la tasa nominal, la tasa real es negativa y perdés poder de compra.",
+        "emoji": "🔍",
+        "importancia": "En Argentina, ignorar la tasa real lleva a tomar decisiones que parecen ganadoras pero en realidad son pérdidas. Es el concepto más importante para el contexto argentino.",
+        "color": "#F59E0B"
+      },
+      {
+        "termino": "CFT: Costo Financiero Total",
+        "definicion": "Indicador que incluye tasa de interés, seguros, comisiones e impuestos. La ley argentina obliga a los bancos a publicarlo. Siempre es mayor que la TNA o la TEA. Es el único número que refleja el costo real de un crédito.",
+        "emoji": "💡",
+        "importancia": "Sin mirar el CFT, no podés comparar créditos honestamente. Una tarjeta con TNA 140% puede tener CFT 248%. La diferencia puede ser de más del 30%.",
+        "color": "#10B981"
+      }
+    ],
+    "semaforo_conceptos": [
+      {"termino": "Valor del dinero en el tiempo", "emoji": "⏳"},
+      {"termino": "Interés simple vs. compuesto", "emoji": "📈"},
+      {"termino": "TNA, TEA y CFT", "emoji": "🏦"},
+      {"termino": "Tasa real e inflación", "emoji": "📉"},
+      {"termino": "Presupuesto y regla 50/30/20", "emoji": "💰"}
+    ],
+    "postits_conceptos": ["Valor del dinero en el tiempo", "Interés compuesto", "Tasa real vs. nominal", "CFT"]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {
+        "frente": "Einstein y el interés compuesto",
+        "dorso": "Se le atribuye a Albert Einstein haber dicho que el interés compuesto es 'la octava maravilla del mundo. Quien lo entiende, lo gana; quien no lo entiende, lo paga'. Si invertís $100.000 al 5% mensual compuesto, en 5 años tenés más de $1.800.000. En interés simple solo tendrías $400.000. La diferencia: $1.400.000 generados solo por capitalizar intereses.",
+        "emoji": "🧠",
+        "color": "#6366F1"
+      },
+      {
+        "frente": "El pago mínimo: la trampa perfecta",
+        "dorso": "Si comprás algo en $300.000 con tarjeta (TEA 210%) y solo pagás el mínimo cada mes, podés tardar más de 10 años en cancelar la deuda y terminar pagando más de $900.000. Lo que costó $300.000 termina costando $900.000. Los bancos diseñaron el pago mínimo para que esto ocurra exactamente así.",
+        "emoji": "💳",
+        "color": "#EF4444"
+      },
+      {
+        "frente": "¿Sabías que los argentinos inventaron el plazo fijo UVA?",
+        "dorso": "En 2016, el Banco Central creó el plazo fijo UVA (Unidad de Valor Adquisitivo), que ajusta el capital por inflación. A diferencia del plazo fijo tradicional donde podés perder poder de compra, el UVA garantiza que siempre te devuelvan el equivalente a lo que depositaste más un interés real. Es una solución argentina al problema de ahorrar en un país con alta inflación crónica.",
+        "emoji": "🇦🇷",
+        "color": "#F59E0B"
+      }
+    ],
+    "linea_de_tiempo": [
+      {"year": "Siglo XVII", "text": "Los primeros bancos europeos formalizan el interés compuesto en operaciones de comercio marítimo", "emoji": "⛵"},
+      {"year": "1776", "text": "Adam Smith en 'La riqueza de las naciones' analiza el rol del crédito y el interés en la economía", "emoji": "📖"},
+      {"year": "1930s", "text": "Las tarjetas de crédito comienzan a popularizarse en EEUU, democratizando el acceso al crédito", "emoji": "💳"},
+      {"year": "1991", "text": "La Convertibilidad argentina fija el peso al dólar; el ahorro en pesos se percibe como seguro", "emoji": "🇦🇷"},
+      {"year": "2016", "text": "Argentina lanza el plazo fijo UVA, ajustado por inflación, como herramienta de ahorro real", "emoji": "🏦"},
+      {"year": "2024", "text": "Las fintechs y billeteras virtuales ofrecen cuentas remuneradas con capitalización diaria accesibles desde el celular", "emoji": "📱"}
+    ],
+    "encuesta": {
+      "pregunta": "¿Qué dato te impactó más?",
+      "opciones": [
+        {"text": "El pago mínimo puede triplicar lo que pagás", "emoji": "💳", "votos_iniciales": 52},
+        {"text": "El interés compuesto hace crecer $100k a $1.8M en 5 años", "emoji": "📈", "votos_iniciales": 31},
+        {"text": "Argentina inventó el plazo fijo ajustado por inflación", "emoji": "🇦🇷", "votos_iniciales": 17}
+      ]
+    }
+  },
+
+  "cruces": {
+    "puentes": [
+      {"materia": "Matemática", "emoji": "🔢", "color": "#6366F1", "conexion": "Las fórmulas de interés simple (I = C×i×n) y compuesto (M = C×(1+i)^n) aplican álgebra y potenciación. La ecuación de Fisher y la conversión TNA→TEM usan raíces y fracciones.", "pregunta": "¿Por qué la misma tasa anual da resultados muy distintos según el período de capitalización?", "vinculo": "Potencias, raíces y álgebra aplicada"},
+      {"materia": "Informática", "emoji": "💻", "color": "#10B981", "conexion": "Las planillas de cálculo (Excel, Google Sheets) tienen funciones financieras integradas: PAGO() para cuotas, VA() para valor actual, TASA() para calcular tasas. Como técnicos en informática, pueden programar sus propias calculadoras.", "pregunta": "¿Cómo podés programar en Python o Excel un simulador que calcule automáticamente el costo total de un préstamo?", "vinculo": "Funciones financieras en Excel y programación aplicada"},
+      {"materia": "Economía", "emoji": "📊", "color": "#F59E0B", "conexion": "La inflación, el tipo de cambio y las tasas del BCRA son variables macroeconómicas que impactan directamente en las decisiones financieras personales. La tasa real conecta la micro con la macro.", "pregunta": "¿Cómo afecta una suba de tasas del Banco Central a alguien que quiere sacar un crédito hipotecario?", "vinculo": "Política monetaria, inflación y tasas de interés"},
+      {"materia": "Derecho", "emoji": "⚖️", "color": "#EC4899", "conexion": "La ley argentina obliga a los bancos a publicar el CFT. La Ley de Defensa del Consumidor protege en operaciones crediticias. Los contratos de préstamo son instrumentos legales con consecuencias jurídicas.", "pregunta": "¿Cuáles son tus derechos como consumidor si un banco no te informa correctamente el CFT?", "vinculo": "Ley de Defensa del Consumidor y regulación bancaria"}
+    ],
+    "telarana": [
+      {"target": "Psicología", "desc": "El sesgo del presente (valorar más lo inmediato) y la aversión a la pérdida explican por qué nos cuesta ahorrar y nos endeudamos impulsivamente", "emoji": "🧠", "color": "#8B5CF6"},
+      {"target": "Sociología", "desc": "Las desigualdades de acceso al crédito y al sistema financiero reproducen brechas sociales. No todos tienen las mismas oportunidades de ahorro e inversión", "emoji": "👥", "color": "#EC4899"},
+      {"target": "Historia", "desc": "Las crisis financieras argentinas (1989, 2001, 2018) muestran cómo las decisiones macro afectan el ahorro y las deudas de cada familia", "emoji": "📜", "color": "#F59E0B"},
+      {"target": "Estadística", "desc": "La inflación se mide con el IPC (Índice de Precios al Consumidor) usando técnicas estadísticas. Los modelos de riesgo crediticio también usan estadística", "emoji": "📊", "color": "#3B82F6"},
+      {"target": "Filosofía", "desc": "El costo de oportunidad implica elegir: toda decisión financiera tiene una dimensión ética. ¿Consumo hoy o ahorro para mañana? ¿Individual o colectivo?", "emoji": "🤔", "color": "#6366F1"},
+      {"target": "Geografía", "desc": "Los sistemas financieros varían por país. En países con inflación crónica (Argentina, Venezuela) las estrategias de ahorro son muy distintas a las de países estables", "emoji": "🌍", "color": "#10B981"}
+    ]
+  },
+
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "En Argentina, con alta inflación, tiene sentido endeudarse en pesos a tasa fija para comprar bienes durables en cuotas.",
+      "contexto": "En contextos de alta inflación, las deudas a tasa fija se 'licúan': devolvés pesos que valen menos que los que recibiste. Pero también pagás tasas altísimas (TEA 200%+) y comprometés ingresos futuros. ¿Es una estrategia inteligente o una trampa? Usá los conceptos de tasa real, Fisher, CFT y poder adquisitivo.",
+      "roles": [
+        {"id": "favor", "label": "A favor de endeudarse", "emoji": "💳", "color": "#10B981", "desc": "Argumentá que en inflación alta conviene endeudarse en pesos: la deuda se licúa, el bien conserva valor y esperás más poder adquisitivo en el futuro."},
+        {"id": "contra", "label": "En contra de endeudarse", "emoji": "🚫", "color": "#EF4444", "desc": "Argumentá que las tasas argentinas (TEA 200%+) hacen que el sobrecosto supere cualquier beneficio y que es mejor ahorrar primero."},
+        {"id": "juez", "label": "Analista financiero/a", "emoji": "📊", "color": "#6366F1", "desc": "Presentá un análisis con números: calculá la tasa real de una deuda típica argentina y determiná en qué condiciones conviene o no endeudarse."}
+      ]
+    },
+    "tesis": {
+      "consigna": "Formulá una tesis respondiendo: ¿La educación financiera debería ser obligatoria en la escuela secundaria argentina? Usá al menos 2 argumentos basados en lo que aprendiste en la unidad (presupuesto, interés compuesto, tasas, inflación) y conectá con la realidad de un egresado técnico que ingresa al mundo laboral."
+    },
+    "critica": {
+      "consigna": "Analizá críticamente la frase: 'El ahorro en pesos no tiene sentido en Argentina porque la inflación siempre gana'. Identificá qué tiene de verdad, qué simplifica o ignora, qué pregunta te genera y qué herramienta financiera refutaría o matizaría esa afirmación."
+    }
+  },
+
+  "emocional": {},
+
+  "autotest": {
+    "preguntas": [
+      {"pregunta": "¿Qué son los gastos hormiga?", "opciones": ["Gastos muy grandes e inesperados", "Gastos pequeños y frecuentes que acumulados suman mucho", "Los gastos básicos de alimentación", "Los gastos fijos que se repiten cada mes"], "correcta": 1, "explicacion": "Los gastos hormiga son pequeños desembolsos cotidianos (un café, una app, un snack) que pasan desapercibidos pero, acumulados en el mes, pueden representar una parte importante del presupuesto."},
+      {"pregunta": "Calculá el interés simple de $50.000 al 4% mensual durante 3 meses.", "opciones": ["$6.000", "$8.000", "$2.000", "$12.000"], "correcta": 0, "explicacion": "I = C × i × n = 50.000 × 0,04 × 3 = $6.000. En interés simple, el interés mensual es siempre el mismo ($2.000) porque se calcula sobre el capital original."},
+      {"pregunta": "¿Qué diferencia al interés compuesto del simple?", "opciones": ["El compuesto siempre tiene tasas más altas", "En el compuesto, los intereses generados se suman al capital y generan más intereses", "El simple es para préstamos y el compuesto para ahorros", "No hay diferencia si el plazo es corto"], "correcta": 1, "explicacion": "En interés compuesto, los intereses del período anterior se capitalizan: se suman al capital. Eso hace que la base de cálculo crezca cada período, generando un crecimiento exponencial."},
+      {"pregunta": "La TNA de un banco es 72%. ¿Cuál es la tasa mensual equivalente?", "opciones": ["72%", "7,2%", "6%", "0,6%"], "correcta": 2, "explicacion": "La tasa mensual se obtiene dividiendo la TNA por 12: 72% ÷ 12 = 6% mensual. Esta es la tasa del período que se usa para calcular intereses mensuales."},
+      {"pregunta": "Un plazo fijo rinde 7% mensual. La inflación mensual es 9%. ¿Cuál es la tasa real aproximada?", "opciones": ["+2%", "-2%", "+16%", "-0,5%"], "correcta": 1, "explicacion": "Tasa real ≈ tasa nominal - inflación = 7% - 9% = -2%. La tasa real es negativa: aunque recibís intereses, perdés poder de compra porque los precios suben más rápido que tu rendimiento."},
+      {"pregunta": "¿Qué incluye el CFT que no incluye la TNA?", "opciones": ["Solo el capital del préstamo", "Seguros, comisiones e impuestos además de la tasa de interés", "La inflación proyectada", "El valor de cuota mensual"], "correcta": 1, "explicacion": "El CFT (Costo Financiero Total) incluye todo: tasa de interés, seguros de vida y desempleo, gastos de otorgamiento, comisiones e impuestos. Por eso siempre es mayor que la TNA y es el indicador más honesto del costo real de un crédito."}
+    ]
+  },
+
+  "cierre": {
+    "glosario": [
+      {"termino": "Finanzas personales", "definicion": "Conjunto de decisiones y acciones que cada persona toma respecto de su dinero: ganar, gastar, ahorrar y proteger.", "emoji": "💰", "categoria": "Concepto base"},
+      {"termino": "Presupuesto personal", "definicion": "Plan que detalla cuánto se espera ganar y cuánto se planea gastar en un período. Herramienta central para el control financiero.", "emoji": "📋", "categoria": "Herramienta"},
+      {"termino": "Interés simple", "definicion": "Régimen donde los intereses siempre se calculan sobre el capital original. Fórmula: I = C × i × n. Crecimiento lineal.", "emoji": "📏", "categoria": "Matemática financiera"},
+      {"termino": "Interés compuesto", "definicion": "Régimen donde los intereses se capitalizan: se suman al capital y generan nuevos intereses. Fórmula: M = C × (1+i)^n. Crecimiento exponencial.", "emoji": "📈", "categoria": "Matemática financiera"},
+      {"termino": "TNA", "definicion": "Tasa Nominal Anual. La tasa que los bancos publicitan. No incluye capitalización. Se divide por 12 para obtener la tasa mensual.", "emoji": "📢", "categoria": "Tasas"},
+      {"termino": "TEA", "definicion": "Tasa Efectiva Anual. Lo que realmente ganás o pagás en un año, incluyendo capitalización. Siempre mayor que la TNA.", "emoji": "📊", "categoria": "Tasas"},
+      {"termino": "CFT", "definicion": "Costo Financiero Total. Incluye intereses, seguros, comisiones e impuestos. El indicador más completo del costo de un crédito. La ley obliga a los bancos a publicarlo.", "emoji": "🔍", "categoria": "Crédito"},
+      {"termino": "Ecuación de Fisher", "definicion": "Relaciona tasa nominal, inflación y tasa real: (1+r) = (1+i)/(1+π). Si la inflación supera a la tasa nominal, la tasa real es negativa.", "emoji": "🧮", "categoria": "Matemática financiera"}
+    ],
+    "recursos": [
+      {"tipo": "🎬 Video", "title": "El interés compuesto explicado con ejemplos reales", "desc": "Video en español que muestra con números concretos cómo el interés compuesto multiplica ahorros y deudas a lo largo del tiempo.", "nivel": "Introductorio", "color": "#6366F1"},
+      {"tipo": "🌐 Web", "title": "Calculadora de préstamos del BCRA", "desc": "La herramienta oficial del Banco Central argentino para simular cuotas, ver el CFT y comparar distintos productos financieros del mercado local.", "nivel": "Introductorio", "color": "#10B981"},
+      {"tipo": "📖 Libro", "title": "Padre Rico, Padre Pobre — Robert Kiyosaki", "desc": "Libro de finanzas personales más vendido del mundo. Accesible, polémico y lleno de ideas sobre activos, pasivos e independencia financiera.", "nivel": "Introductorio", "color": "#F59E0B"},
+      {"tipo": "🎬 Video", "title": "¿Cómo funciona la inflación en Argentina? — Eco explicado", "desc": "Canal argentino que explica con claridad y humor los conceptos económicos que afectan el día a día: inflación, tasas, dólar y más.", "nivel": "Intermedio", "color": "#EC4899"},
+      {"tipo": "📄 Artículo", "title": "BCRA: ¿Qué es el CFT y por qué importa?", "desc": "Explicación oficial del Banco Central sobre el Costo Financiero Total y cómo usarlo para comparar productos financieros antes de endeudarse.", "nivel": "Intermedio", "color": "#8B5CF6"}
+    ]
   }
 }
