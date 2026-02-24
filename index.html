@@ -48,6 +48,22 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 .unit:hover{transform:scale(1.08);filter:brightness(1.2)}
 .pdf{padding:5px 8px;border-radius:8px;font-size:11px;font-weight:700;color:#94A3B8;text-decoration:none;transition:all 0.2s;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);cursor:pointer;display:inline-flex;align-items:center;gap:3px}
 .pdf:hover{background:rgba(255,255,255,0.12);color:#F8FAFC;transform:scale(1.08)}
+
+/* Modal PDF */
+.pdf-modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:8000;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);animation:fadeUp 0.2s ease}
+.pdf-modal-box{background:#1E293B;border:1px solid rgba(255,255,255,0.15);border-radius:24px;padding:32px 28px;max-width:360px;width:90%;animation:fadeUp 0.25s ease}
+.pdf-modal-box h3{font-size:18px;font-weight:800;color:#F8FAFC;font-family:'Space Grotesk',sans-serif;margin-bottom:6px;text-align:center}
+.pdf-modal-box .pdf-unit-label{text-align:center;font-size:13px;color:#64748B;margin-bottom:24px}
+.pdf-choice{display:flex;flex-direction:column;gap:10px}
+.pdf-btn{display:flex;align-items:center;gap:14px;padding:16px 20px;border-radius:16px;border:2px solid rgba(255,255,255,0.1);background:#0F172A;cursor:pointer;transition:all 0.25s;text-decoration:none;color:#F8FAFC}
+.pdf-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
+.pdf-btn-alumno:hover{border-color:#6366F1;background:#6366F120}
+.pdf-btn-docente:hover{border-color:#EC4899;background:#EC489920}
+.pdf-btn-icon{font-size:28px}
+.pdf-btn-text strong{display:block;font-size:14px;font-weight:800;font-family:'Space Grotesk',sans-serif}
+.pdf-btn-text span{font-size:12px;color:#94A3B8}
+.pdf-modal-close{display:block;width:100%;margin-top:14px;padding:10px;border-radius:12px;border:none;background:rgba(255,255,255,0.06);color:#64748B;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.pdf-modal-close:hover{background:rgba(255,255,255,0.1);color:#94A3B8}
 .unit.ready{opacity:1;cursor:pointer}
 .unit.soon{opacity:0.3;cursor:default}
 .footer{text-align:center;padding:40px 20px;border-top:1px solid rgba(255,255,255,0.05)}
@@ -69,6 +85,24 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 .tool-card h3{font-size:15px;font-weight:800;color:#F8FAFC;font-family:'Space Grotesk',sans-serif;margin-bottom:6px}
 .tool-card p{font-size:12px;color:#94A3B8;line-height:1.5;margin-bottom:14px}
 .tool-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:4px 10px;border-radius:8px;background:rgba(232,197,71,0.12);color:#e8c547;border:1px solid rgba(232,197,71,0.25);letter-spacing:0.3px}
+/* Modal Generar PDF */
+@keyframes modalIn{from{opacity:0;transform:translateY(16px) scale(0.97)}to{opacity:1;transform:translateY(0) scale(1)}}
+.pdf-modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.72);z-index:8000;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(5px)}
+.pdf-modal-box{background:#1E293B;border:1px solid rgba(255,255,255,0.13);border-radius:24px;padding:32px 28px;max-width:360px;width:90%;animation:modalIn 0.25s ease}
+.pdf-modal-box .pm-icon{font-size:40px;text-align:center;display:block;margin-bottom:10px}
+.pdf-modal-box h3{font-size:17px;font-weight:800;color:#F8FAFC;font-family:'Space Grotesk',sans-serif;text-align:center;margin-bottom:4px}
+.pdf-modal-box .pm-sub{text-align:center;font-size:12px;color:#64748B;margin-bottom:22px;line-height:1.5}
+.pm-choice{display:flex;flex-direction:column;gap:10px}
+.pm-btn{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:16px;border:2px solid rgba(255,255,255,0.1);background:#0F172A;cursor:pointer;transition:all 0.22s;text-decoration:none;color:#F8FAFC;font-family:'DM Sans',sans-serif;font-size:14px}
+.pm-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.35)}
+.pm-btn-alumno:hover{border-color:#6366F1;background:rgba(99,102,241,0.12)}
+.pm-btn-docente:hover{border-color:#EC4899;background:rgba(236,72,153,0.12)}
+.pm-btn-icon{font-size:30px;flex-shrink:0}
+.pm-btn strong{display:block;font-size:14px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:2px}
+.pm-btn span{font-size:11px;color:#94A3B8;line-height:1.4}
+.pm-close{display:block;width:100%;margin-top:12px;padding:10px;border-radius:12px;border:none;background:rgba(255,255,255,0.05);color:#64748B;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
+.pm-close:hover{background:rgba(255,255,255,0.1);color:#94A3B8}
+
 .login-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#0F172A;z-index:9999;display:flex;align-items:center;justify-content:center}
 .login-box{background:#1E293B;border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:40px 36px;max-width:380px;width:90%;text-align:center;animation:fadeUp 0.6s ease}
 .login-box .lgo{font-size:48px;margin-bottom:16px}
@@ -85,6 +119,26 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 </style>
 </head>
 <body>
+
+<!-- Modal Generar PDF -->
+<div id="pdfModalOverlay" style="display:none" class="pdf-modal-overlay" onclick="cerrarModalPDF(event)">
+  <div class="pdf-modal-box">
+    <span class="pm-icon">⚙️</span>
+    <h3>Generar PDF</h3>
+    <p class="pm-sub" id="pdfModalLabel">Unidad</p>
+    <div class="pm-choice">
+      <button class="pm-btn pm-btn-alumno" id="pdfBtnAlumno" onclick="irAlGenerador('alumno')">
+        <span class="pm-btn-icon">🎒</span>
+        <div><strong>Para alumno</strong><span>Con espacios para completar</span></div>
+      </button>
+      <button class="pm-btn pm-btn-docente" id="pdfBtnDocente" onclick="irAlGenerador('docente')">
+        <span class="pm-btn-icon">🎓</span>
+        <div><strong>Para docente</strong><span>Hoja de ruta compacta con respuestas</span></div>
+      </button>
+    </div>
+    <button class="pm-close" onclick="cerrarModalPDF()">Cancelar</button>
+  </div>
+</div>
 
 <div class="login-overlay" id="loginOverlay">
   <div class="login-box">
@@ -303,6 +357,7 @@ escuelas.forEach(function(esc) {
 
     m.archivos.forEach(function(archivo, i) {
       var pdfFile = "pdfs/" + m.id + "_u" + (i + 1) + ".pdf";
+      var uLabel = m.nombre + " — U" + (i + 1);
       unitsHtml += "<div class=\"unit-row\">";
       if (archivo) {
         if (!firstReady) firstReady = archivo;
@@ -310,7 +365,10 @@ escuelas.forEach(function(esc) {
       } else {
         unitsHtml += "<span class=\"unit soon\" style=\"background:" + m.color + "\">U" + (i + 1) + "</span>";
       }
-      unitsHtml += "<a href=\"" + pdfFile + "\" class=\"pdf\" target=\"_blank\" onclick=\"event.stopPropagation()\" title=\"PDF U" + (i+1) + "\">\ud83d\udcc4 PDF</a>";
+      unitsHtml += "<a href=\"" + pdfFile + "\" class=\"pdf\" target=\"_blank\" onclick=\"event.stopPropagation()\" title=\"PDF descargable U" + (i+1) + "\">\ud83d\udcc4 PDF</a>";
+      if (archivo) {
+        unitsHtml += "<button class=\"pdf pdf-gen-btn\" onclick=\"event.stopPropagation();abrirModalPDF('" + archivo + "','" + uLabel.replace(/'/g, "\\'") + "')\" title=\"Generar PDF desde contenido\">\u2699\uFE0F Generar</button>";
+      }
       unitsHtml += "</div>";
     });
 
@@ -330,6 +388,25 @@ escuelas.forEach(function(esc) {
 
 content.innerHTML = html;
 
+
+var _pdfArchivoActual = "";
+
+function abrirModalPDF(archivo, label) {
+  _pdfArchivoActual = archivo;
+  document.getElementById("pdfModalLabel").textContent = label;
+  document.getElementById("pdfModalOverlay").style.display = "flex";
+}
+
+function cerrarModalPDF(e) {
+  if (e && e.target !== document.getElementById("pdfModalOverlay")) return;
+  document.getElementById("pdfModalOverlay").style.display = "none";
+}
+
+function irAlGenerador(tipo) {
+  document.getElementById("pdfModalOverlay").style.display = "none";
+  var pagina = tipo === "docente" ? "generar-pdf-docente.html" : "generar-pdf.html";
+  window.open(pagina + "?datos=" + encodeURIComponent(_pdfArchivoActual), "_blank");
+}
 
 function getDayOfYear(){
   var now = new Date();
@@ -362,18 +439,19 @@ function checkLogin(){
     }, 3000);
     return;
   }
-  sessionStorage.setItem("campus_auth", token);
   document.getElementById("loginOverlay").style.display = "none";
+  sessionStorage.setItem("campus_auth", token);
 }
 
 document.getElementById("loginInput").addEventListener("keypress", function(e){
   if(e.key === "Enter") checkLogin();
 });
 
-if(sessionStorage.getItem("campus_auth") === getTodayPassword()
-   || sessionStorage.getItem("campus_auth") === "123456_static"){
+var savedAuth = sessionStorage.getItem("campus_auth");
+if(savedAuth === getTodayPassword() || savedAuth === "123456_static"){
   document.getElementById("loginOverlay").style.display = "none";
 }
+
 </script>
 </body>
 </html>
