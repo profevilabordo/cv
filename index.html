@@ -391,9 +391,15 @@ content.innerHTML = html;
 
 var _pdfArchivoActual = "";
 
+function esDocente(){
+  return sessionStorage.getItem("campus_auth") === "123456_static";
+}
+
 function abrirModalPDF(archivo, label) {
   _pdfArchivoActual = archivo;
   document.getElementById("pdfModalLabel").textContent = label;
+  // Mostrar opción docente solo si ingresó con clave estática
+  document.getElementById("pdfBtnDocente").style.display = esDocente() ? "flex" : "none";
   document.getElementById("pdfModalOverlay").style.display = "flex";
 }
 
@@ -405,6 +411,7 @@ function cerrarModalPDF(e) {
 function irAlGenerador(tipo) {
   document.getElementById("pdfModalOverlay").style.display = "none";
   var pagina = tipo === "docente" ? "generar-pdf-docente.html" : "generar-pdf.html";
+  // Pasar el JSON directamente por URL, sin necesidad de subirlo
   window.open(pagina + "?datos=" + encodeURIComponent(_pdfArchivoActual), "_blank");
 }
 
@@ -426,8 +433,8 @@ function checkLogin(){
   var input = document.getElementById("loginInput").value.trim().toLowerCase();
   var correct = getTodayPassword();
   var token;
-  if(input === "1126"){
-    token = "1126_static";
+  if(input === "123456"){
+    token = "123456_static";
   } else if(input === correct){
     token = correct;
   } else {
