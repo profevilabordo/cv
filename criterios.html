@@ -3,21 +3,15 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Criterios de evaluación · Campus Cuaderno Vivo</title>
+  <title>Criterios de Evaluación · Campus Cuaderno Vivo</title>
+
   <style>
     :root{
       --bg0:#070a12;
       --bg1:#0b1220;
-      --card:#0f1b2e;
-      --card2:#0d1728;
       --stroke:rgba(255,255,255,.10);
-      --stroke2:rgba(255,255,255,.14);
       --text:#e9eef7;
       --muted:rgba(233,238,247,.72);
-      --muted2:rgba(233,238,247,.55);
-      --shadow: 0 20px 60px rgba(0,0,0,.55);
-      --radius:18px;
-
       --grad1:#7c3aed;
       --grad2:#ec4899;
       --grad3:#fb923c;
@@ -26,125 +20,271 @@
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
       background:
         radial-gradient(900px 600px at 50% -10%, rgba(124,58,237,.25), transparent 55%),
-        radial-gradient(900px 600px at 85% 15%, rgba(236,72,153,.18), transparent 55%),
-        radial-gradient(900px 600px at 15% 25%, rgba(251,146,60,.14), transparent 60%),
         linear-gradient(180deg, var(--bg1), var(--bg0));
       color:var(--text);
-      min-height:100vh;
     }
 
     .wrap{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 28px 16px 60px;
+      max-width:1000px;
+      margin:auto;
+      padding:22px 18px 60px;
+    }
+
+    /* Barra superior (solo pantalla) */
+    .actions{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:flex-end;
+      margin: 6px 0 18px;
+    }
+    .btn{
+      appearance:none;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(15,27,46,.65);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      cursor:pointer;
+      font-weight:600;
+      font-size: 14px;
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+    }
+    .btn:hover{ border-color: rgba(255,255,255,.28); }
+    .btn-primary{
+      background: linear-gradient(90deg, rgba(124,58,237,.35), rgba(236,72,153,.28), rgba(251,146,60,.22));
+      border-color: rgba(255,255,255,.22);
     }
 
     .hero{
       text-align:center;
-      margin-bottom:20px;
+      margin-bottom:18px;
     }
 
     .hero h1{
-      font-size:32px;
+      font-size:34px;
       background: linear-gradient(90deg, var(--grad1), var(--grad2), var(--grad3));
       -webkit-background-clip:text;
+      background-clip:text;
       color:transparent;
       margin:0;
+      line-height:1.1;
     }
 
     .card{
-      border-radius: var(--radius);
-      border: 1px solid var(--stroke);
-      background: linear-gradient(180deg, rgba(15,27,46,.80), rgba(13,23,40,.70));
-      box-shadow: var(--shadow);
-      padding:20px;
+      background:linear-gradient(180deg, rgba(15,27,46,.86), rgba(13,23,40,.82));
+      border:1px solid var(--stroke);
+      border-radius:18px;
+      padding:22px;
       margin-bottom:18px;
     }
 
     .card h2{
-      margin-top:0;
+      margin:0 0 10px;
       font-size:18px;
+      letter-spacing:.2px;
     }
 
-    .box{
+    .p{
+      color:var(--muted);
+      line-height:1.6;
+      margin: 10px 0 0;
+      font-size: 14px;
+    }
+
+    .list{
+      padding-left:20px;
+      line-height:1.6;
+      color:var(--muted);
+      margin: 8px 0 0;
+      font-size: 14px;
+    }
+
+    .table{
+      width:100%;
+      border-collapse:collapse;
+      margin-top:14px;
+      font-size:14px;
+      overflow:hidden;
+      border-radius:14px;
+    }
+    .table th,
+    .table td{
       border:1px solid rgba(255,255,255,.15);
-      border-radius:16px;
+      padding:10px;
+      text-align:left;
+    }
+    .table th{
+      background:rgba(255,255,255,.08);
+      color: rgba(233,238,247,.9);
+    }
+
+    .formal-box{
+      border:1px solid rgba(255,255,255,.25);
       padding:18px;
-      background:rgba(10,18,32,.45);
+      border-radius:16px;
+      background:rgba(10,18,32,.58);
       line-height:1.6;
       font-size:14px;
-    }
-
-    .box h3{
-      margin-top:0;
-      font-size:16px;
-      color:var(--text);
-    }
-
-    .box ul{
-      padding-left:18px;
-      margin-top:8px;
-    }
-
-    .firma-section{
-      margin-top:24px;
-    }
-
-    .firma-grid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:30px;
-      margin-top:30px;
-    }
-
-    @media (min-width:700px){
-      .firma-grid{
-        grid-template-columns:1fr 1fr 1fr;
-      }
-    }
-
-    .firma{
-      text-align:center;
-      font-size:13px;
-      color:var(--muted);
-    }
-
-    .linea{
-      margin-top:40px;
-      border-top:1px solid rgba(255,255,255,.5);
-      padding-top:8px;
-      color:var(--text);
-      font-weight:500;
+      color: rgba(233,238,247,.82);
     }
 
     .consigna{
       margin-top:14px;
-      padding:14px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.15);
-      background:rgba(124,58,237,.10);
-      font-size:14px;
+      padding:12px;
+      border-radius:12px;
+      background:rgba(124,58,237,.15);
+      border:1px solid rgba(255,255,255,.2);
+      color: rgba(233,238,247,.9);
     }
 
+    .firmas{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:26px;
+    }
+    @media(min-width:700px){
+      .firmas{ grid-template-columns:1fr 1fr 1fr; }
+    }
+    .firma{
+      text-align:center;
+      font-size:13px;
+      color: rgba(233,238,247,.75);
+    }
+    .linea{
+      margin-top:46px;
+      border-top:1px solid rgba(233,238,247,.95);
+      padding-top:8px;
+      color: rgba(233,238,247,.95);
+      font-weight:600;
+    }
+
+    /* =========================
+       IMPRESIÓN / PDF A4
+       ========================= */
+    @page{
+      size: A4;
+      margin: 14mm 14mm 16mm 14mm; /* márgenes prolijos */
+    }
+
+    @media print{
+      body{
+        background: #ffffff !important;
+        color: #111827 !important;
+      }
+      .wrap{
+        max-width: none;
+        padding: 0;
+      }
+      .actions{ display:none !important; } /* ocultar botones */
+      .hero h1{
+        color: #111827 !important;
+        background: none !important;
+        -webkit-text-fill-color: #111827 !important;
+      }
+      .card{
+        background: #ffffff !important;
+        color: #111827 !important;
+        border: 1px solid #d1d5db !important;
+        box-shadow:none !important;
+        page-break-inside: avoid;
+      }
+      .p, .list, .formal-box{
+        color:#111827 !important;
+      }
+      .formal-box{
+        background: #ffffff !important;
+        border: 1px solid #d1d5db !important;
+      }
+      .consigna{
+        background:#f3f4f6 !important;
+        border: 1px solid #d1d5db !important;
+        color:#111827 !important;
+      }
+      .table th, .table td{
+        border: 1px solid #d1d5db !important;
+      }
+      .table th{
+        background: #f3f4f6 !important;
+        color:#111827 !important;
+      }
+      /* Asegura que el cuadro de firmas no se corte */
+      .firmas{ page-break-inside: avoid; }
+    }
   </style>
 </head>
 
 <body>
   <div class="wrap">
 
+    <!-- Botones (solo pantalla) -->
+    <div class="actions">
+      <button class="btn" type="button" onclick="window.scrollTo({top:0, behavior:'smooth'})">⬆️ Ir arriba</button>
+      <button class="btn btn-primary" type="button" onclick="downloadPdfA4()">🖨️ Descargar PDF (A4)</button>
+    </div>
+
+    <!-- PARTE 1 (estilo moderno) -->
     <div class="hero">
       <h1>Criterios de Evaluación</h1>
     </div>
 
-    <!-- CUADRO FORMAL PARA COPIAR -->
+    <div class="card">
+      <h2>¿En qué se centra la evaluación?</h2>
+      <ul class="list">
+        <li>Desarrollar las actividades propuestas.</li>
+        <li>Resolver problemas.</li>
+        <li>Llevar a cabo proyectos de aplicación.</li>
+      </ul>
+
+      <p class="p">
+        Para la evaluación del alumno se tendrán en cuenta dos aspectos:
+        <br>• El trabajo en clase.
+        <br>• Las calificaciones de los trabajos prácticos realizados así como de las pruebas escritas o prácticas que la profesora crea conveniente realizar.
+      </p>
+
+      <p class="p">
+        La evaluación del trabajo de clase se hará considerando:
+        <br>• La actitud y participación en el trabajo de grupo.
+        <br>• La calificación de los discos de trabajo.
+      </p>
+
+      <h2 style="margin-top:16px;">Ponderación</h2>
+      <table class="table" aria-label="Tabla de ponderaciones">
+        <tr>
+          <th>Concepto</th>
+          <th>Ponderación (%)</th>
+        </tr>
+        <tr>
+          <td>Actitud en el aula</td>
+          <td>10%</td>
+        </tr>
+        <tr>
+          <td>Trabajo de clase (cuaderno y trabajos en formato digital)</td>
+          <td>30%</td>
+        </tr>
+        <tr>
+          <td>Trabajos prácticos</td>
+          <td>30%</td>
+        </tr>
+        <tr>
+          <td>Pruebas escritas o prácticas</td>
+          <td>30%</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- PARTE 2 (cuadro formal para copiar + firmas) -->
     <div class="card">
       <h2>Documento para copiar en la carpeta</h2>
 
-      <div class="box">
-        <h3>CRITERIOS DE EVALUACIÓN</h3>
+      <div class="formal-box">
+        <strong>CRITERIOS DE EVALUACIÓN</strong><br><br>
 
         La evaluación se va a centrar en la observación y medición de la capacidad del alumno tanto trabajando en grupo como individualmente para:
 
@@ -155,25 +295,21 @@
         </ul>
 
         Para la evaluación del alumno se tendrán en cuenta dos aspectos:
-
         <ul>
           <li>El trabajo en clase.</li>
           <li>Las calificaciones de los trabajos prácticos realizados así como de las pruebas escritas o prácticas que la profesora crea conveniente realizar.</li>
         </ul>
 
         La evaluación del trabajo de clase se hará considerando:
-
         <ul>
           <li>La actitud y participación en el trabajo de grupo.</li>
           <li>La calificación de los discos de trabajo.</li>
         </ul>
 
-        La calificación global será individual y personalizada y se valorarán los siguientes aspectos ponderados:
+        La calificación global será individual y personalizada y se valorarán los siguientes aspectos ponderados con el tanto por ciento expresado al margen:
 
         <br><br>
-
         <strong>Concepto — Ponderación (%)</strong>
-
         <ul>
           <li>Actitud en el aula — 10%</li>
           <li>Trabajo de clase (cuaderno y trabajos en formato digital) — 30%</li>
@@ -181,32 +317,27 @@
           <li>Pruebas escritas o prácticas — 30%</li>
         </ul>
 
-        <h3 style="margin-top:20px;">INSTRUMENTOS DE EVALUACIÓN</h3>
-
-        Los instrumentos que se van a utilizar para evaluar el proceso de aprendizaje de los alumnos son:
-
+        <strong>INSTRUMENTOS DE EVALUACIÓN</strong><br><br>
+        Los instrumentos que se van a utilizar para evaluar el proceso de aprendizaje de los alumnos son adecuados a los criterios de evaluación y a los objetivos y contenidos de esta unidad, los siguientes:
         <ul>
-          <li>La observación sistemática de las actitudes personales del alumno/a, de su forma de organizar el trabajo, de las estrategias que utiliza y de cómo resuelve las dificultades.</li>
-          <li>La revisión y análisis de los trabajos producidos durante el desarrollo de la unidad.</li>
-          <li>Evaluaciones escritas o prácticas que integren los contenidos trabajados.</li>
+          <li>La observación sistemática de las actitudes personales del alumno/a, de su forma de organizar el trabajo, de las estrategias que utiliza, de cómo resuelve las dificultades que se encuentra, etc.</li>
+          <li>La revisión y análisis de los trabajos de los alumnos permite comprobar los materiales que han ido “produciendo” a lo largo del desarrollo de la unidad.</li>
+          <li>Evaluaciones escritas o prácticas que integren los contenidos en donde se fue avanzando con la materia.</li>
         </ul>
 
         <div class="consigna">
           <strong>Consigna:</strong> Copia este documento en la carpeta, en la primera hoja de clases.
         </div>
 
-        <!-- FIRMAS -->
-        <div class="firma-section">
-          <div class="firma-grid">
-            <div class="firma">
-              <div class="linea">Firma Padre / Madre o Tutor</div>
-            </div>
-            <div class="firma">
-              <div class="linea">Firma del Alumno/a</div>
-            </div>
-            <div class="firma">
-              <div class="linea">Firma del Docente</div>
-            </div>
+        <div class="firmas">
+          <div class="firma">
+            <div class="linea">Firma Padre / Madre o Tutor</div>
+          </div>
+          <div class="firma">
+            <div class="linea">Firma del Alumno/a</div>
+          </div>
+          <div class="firma">
+            <div class="linea">Firma del Docente</div>
           </div>
         </div>
 
@@ -214,5 +345,13 @@
     </div>
 
   </div>
+
+  <script>
+    // Abre el diálogo de impresión configurado con @page A4.
+    // En el diálogo, elegí "Guardar como PDF".
+    function downloadPdfA4(){
+      window.print();
+    }
+  </script>
 </body>
 </html>
