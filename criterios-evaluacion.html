@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Criterios de Evaluación — Campus Cuaderno Vivo</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'DM Sans',sans-serif}
+html,body{min-height:100vh;background:#0F172A;color:#E2E8F0;overflow-x:hidden}
+@keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-40px)}}
+@keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(-40px,30px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.orbs{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.12}
+.orb1{width:400px;height:400px;background:#6366F1;top:-100px;right:-100px;animation:float1 15s ease-in-out infinite}
+.orb2{width:350px;height:350px;background:#14B8A6;bottom:-50px;left:-100px;animation:float2 18s ease-in-out infinite}
+.container{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:40px 20px}
+.back{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:12px;border:1px solid rgba(255,255,255,0.1);background:#1E293B;color:#94A3B8;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:32px;transition:all 0.2s}
+.back:hover{color:#F8FAFC;border-color:rgba(255,255,255,0.2);background:#263347}
+.header{text-align:center;margin-bottom:48px;animation:fadeUp 0.6s ease}
+.header .icon{font-size:52px;margin-bottom:12px}
+.header h1{font-size:32px;font-weight:900;font-family:'Space Grotesk',sans-serif;letter-spacing:-1.5px;background:linear-gradient(135deg,#A78BFA,#6366F1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header p{font-size:15px;color:#94A3B8;margin-top:8px}
+.section{margin-bottom:36px;animation:fadeUp 0.6s ease both}
+.section-label{font-size:11px;font-weight:800;color:#64748B;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;padding-left:2px}
+.card{background:#1E293B;border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:24px 26px;margin-bottom:14px}
+.card-title{font-size:17px;font-weight:800;color:#F8FAFC;margin-bottom:16px;font-family:'Space Grotesk',sans-serif;display:flex;align-items:center;gap:10px}
+.bullet-list{display:flex;flex-direction:column;gap:8px}
+.bullet-item{display:flex;align-items:flex-start;gap:12px;padding:11px 14px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05)}
+.bullet-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.bullet-item p{font-size:14px;color:#CBD5E1;line-height:1.5}
+.tabla{width:100%;border-collapse:collapse;margin-top:4px}
+.tabla thead tr{border-bottom:2px solid rgba(255,255,255,0.1)}
+.tabla th{padding:10px 14px;text-align:left;font-size:12px;font-weight:800;color:#64748B;text-transform:uppercase;letter-spacing:1px}
+.tabla th:last-child{text-align:right}
+.tabla tbody tr{border-bottom:1px solid rgba(255,255,255,0.05)}
+.tabla tbody tr:last-child{border-bottom:none}
+.tabla tbody tr:hover{background:rgba(255,255,255,0.03)}
+.tabla td{padding:13px 14px;font-size:14px;color:#CBD5E1}
+.tabla td:last-child{text-align:right}
+.pct-badge{display:inline-flex;align-items:center;justify-content:center;padding:4px 14px;border-radius:20px;font-size:13px;font-weight:800;font-family:'Space Grotesk',sans-serif}
+.bar-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.bar-label{font-size:13px;color:#CBD5E1;width:240px;flex-shrink:0}
+.bar-wrap{flex:1;height:8px;background:rgba(255,255,255,0.06);border-radius:8px;overflow:hidden}
+.bar-fill{height:100%;border-radius:8px}
+.bar-pct{font-size:13px;font-weight:800;font-family:'Space Grotesk',sans-serif;width:36px;text-align:right;flex-shrink:0}
+.footer{text-align:center;padding:28px 0 10px;border-top:1px solid rgba(255,255,255,0.06);margin-top:8px;font-size:13px;color:#475569}
+@media(max-width:560px){.bar-label{width:140px;font-size:12px}.tabla td,.tabla th{padding:10px}}
+</style>
+</head>
+<body>
+<div class="orbs"><div class="orb orb1"></div><div class="orb orb2"></div></div>
+<div class="container">
+  <a href="index.html" class="back">← Volver al campus</a>
+
+  <div class="header">
+    <div class="icon">📋</div>
+    <h1>Criterios de Evaluación</h1>
+    <p>¿Cómo se evalúa en esta materia?</p>
+  </div>
+
+  <!-- CRITERIOS -->
+  <div class="section" style="animation-delay:0.05s">
+    <div class="section-label">📌 Criterios generales</div>
+    <div class="card">
+      <div class="card-title"><span>🎯</span> ¿Qué se evalúa?</div>
+      <p style="font-size:14px;color:#94A3B8;margin-bottom:16px;line-height:1.6">La evaluación se centra en la observación y medición de la capacidad del alumno, tanto trabajando en grupo como individualmente, para:</p>
+      <div class="bullet-list">
+        <div class="bullet-item"><div class="bullet-dot" style="background:#A78BFA"></div><p>Desarrollar las actividades propuestas.</p></div>
+        <div class="bullet-item"><div class="bullet-dot" style="background:#A78BFA"></div><p>Resolver problemas.</p></div>
+        <div class="bullet-item"><div class="bullet-dot" style="background:#A78BFA"></div><p>Llevar a cabo proyectos de aplicación.</p></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span>📐</span> Aspectos que se consideran</div>
+      <p style="font-size:14px;color:#94A3B8;margin-bottom:16px;line-height:1.6">Para la evaluación del alumno se tienen en cuenta dos aspectos principales:</p>
+      <div class="bullet-list">
+        <div class="bullet-item"><div class="bullet-dot" style="background:#6366F1"></div><p><strong style="color:#F8FAFC">El trabajo en clase</strong> — actitud y participación en el trabajo de grupo, y calificación de los discos de trabajo.</p></div>
+        <div class="bullet-item"><div class="bullet-dot" style="background:#6366F1"></div><p><strong style="color:#F8FAFC">Los trabajos prácticos y pruebas</strong> — calificaciones de los trabajos prácticos realizados, así como de las pruebas escritas o prácticas que la profesora crea conveniente realizar.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PONDERACIÓN -->
+  <div class="section" style="animation-delay:0.15s">
+    <div class="section-label">⚖️ Calificación global — Ponderación</div>
+    <div class="card">
+      <div class="card-title"><span>📊</span> La calificación es individual y personalizada</div>
+      <div style="margin-bottom:24px">
+        <div class="bar-row">
+          <span class="bar-label">Actitud en el aula</span>
+          <div class="bar-wrap"><div class="bar-fill" style="width:10%;background:linear-gradient(90deg,#F59E0B,#FCD34D)"></div></div>
+          <span class="bar-pct" style="color:#F59E0B">10%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Trabajo de clase</span>
+          <div class="bar-wrap"><div class="bar-fill" style="width:30%;background:linear-gradient(90deg,#6366F1,#A78BFA)"></div></div>
+          <span class="bar-pct" style="color:#A78BFA">30%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Trabajos prácticos</span>
+          <div class="bar-wrap"><div class="bar-fill" style="width:30%;background:linear-gradient(90deg,#10B981,#34D399)"></div></div>
+          <span class="bar-pct" style="color:#34D399">30%</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label">Pruebas escritas o prácticas</span>
+          <div class="bar-wrap"><div class="bar-fill" style="width:30%;background:linear-gradient(90deg,#EC4899,#F9A8D4)"></div></div>
+          <span class="bar-pct" style="color:#EC4899">30%</span>
+        </div>
+      </div>
+      <table class="tabla">
+        <thead><tr><th>Concepto</th><th>Ponderación</th></tr></thead>
+        <tbody>
+          <tr><td>Actitud en el aula</td><td><span class="pct-badge" style="background:#F59E0B18;color:#F59E0B;border:1px solid #F59E0B30">10%</span></td></tr>
+          <tr><td>Trabajo de clase <span style="font-size:12px;color:#64748B">(cuaderno y trabajos en formato digital)</span></td><td><span class="pct-badge" style="background:#6366F118;color:#A78BFA;border:1px solid #6366F130">30%</span></td></tr>
+          <tr><td>Trabajos prácticos</td><td><span class="pct-badge" style="background:#10B98118;color:#34D399;border:1px solid #10B98130">30%</span></td></tr>
+          <tr><td>Pruebas escritas o prácticas</td><td><span class="pct-badge" style="background:#EC489918;color:#F9A8D4;border:1px solid #EC489930">30%</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- INSTRUMENTOS -->
+  <div class="section" style="animation-delay:0.25s">
+    <div class="section-label">🔧 Instrumentos de evaluación</div>
+    <div class="card">
+      <div class="card-title"><span>🔍</span> ¿Con qué herramientas se evalúa?</div>
+      <p style="font-size:14px;color:#94A3B8;margin-bottom:16px;line-height:1.6">Los instrumentos son adecuados a los criterios de evaluación y a los objetivos y contenidos de cada unidad:</p>
+      <div class="bullet-list">
+        <div class="bullet-item"><div class="bullet-dot" style="background:#14B8A6"></div><p><strong style="color:#F8FAFC">Observación sistemática</strong> — actitudes personales, forma de organizar el trabajo, estrategias que utiliza y cómo resuelve las dificultades.</p></div>
+        <div class="bullet-item"><div class="bullet-dot" style="background:#14B8A6"></div><p><strong style="color:#F8FAFC">Revisión y análisis de trabajos</strong> — materiales que los alumnos fueron produciendo a lo largo del desarrollo de la unidad.</p></div>
+        <div class="bullet-item"><div class="bullet-dot" style="background:#14B8A6"></div><p><strong style="color:#F8FAFC">Evaluaciones escritas o prácticas</strong> — integran los contenidos en donde se fue avanzando con la materia.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">💡 Campus Cuaderno Vivo · Prof. Verónica</div>
+</div>
+</body>
+</html>
