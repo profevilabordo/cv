@@ -18,19 +18,15 @@
       --shadow: 0 20px 60px rgba(0,0,0,.55);
       --radius:18px;
 
-      --grad1:#7c3aed;  /* violeta */
-      --grad2:#ec4899;  /* fucsia  */
-      --grad3:#fb923c;  /* naranja */
-      --chip:#1f2f4a;
-      --ok:#22c55e;
-      --warn:#f59e0b;
-      --info:#38bdf8;
+      --grad1:#7c3aed;
+      --grad2:#ec4899;
+      --grad3:#fb923c;
     }
 
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       background:
         radial-gradient(900px 600px at 50% -10%, rgba(124,58,237,.25), transparent 55%),
         radial-gradient(900px 600px at 85% 15%, rgba(236,72,153,.18), transparent 55%),
@@ -46,102 +42,17 @@
       padding: 28px 16px 60px;
     }
 
-    .topbar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding: 14px 16px;
-      border:1px solid var(--stroke);
-      background: rgba(8,12,22,.55);
-      backdrop-filter: blur(10px);
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.35);
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      min-width: 0;
-    }
-
-    .badge-icon{
-      width:40px;height:40px;
-      display:grid;place-items:center;
-      border-radius: 14px;
-      border:1px solid var(--stroke2);
-      background: linear-gradient(135deg, rgba(124,58,237,.18), rgba(236,72,153,.14), rgba(251,146,60,.10));
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
-      flex: 0 0 auto;
-    }
-
-    .brand h1{
-      margin:0;
-      font-size: 18px;
-      letter-spacing:.2px;
-      line-height: 1.15;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .brand p{
-      margin:2px 0 0;
-      color:var(--muted2);
-      font-size: 12px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .pill{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      padding: 10px 12px;
-      border-radius: 999px;
-      border:1px solid var(--stroke);
-      background: rgba(15,27,46,.55);
-      color:var(--muted);
-      font-size: 12px;
-      flex: 0 0 auto;
-    }
-    .dot{
-      width:9px;height:9px;border-radius:999px;
-      background: linear-gradient(90deg, var(--grad1), var(--grad2), var(--grad3));
-      box-shadow: 0 0 0 4px rgba(255,255,255,.05);
-    }
-
     .hero{
-      padding: 26px 4px 18px;
       text-align:center;
+      margin-bottom:20px;
     }
 
-    .hero h2{
-      margin: 10px 0 6px;
-      font-size: 34px;
-      letter-spacing:.2px;
-      line-height: 1.05;
+    .hero h1{
+      font-size:32px;
       background: linear-gradient(90deg, var(--grad1), var(--grad2), var(--grad3));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero .sub{
-      margin: 0 auto;
-      max-width: 820px;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.45;
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin-top: 18px;
+      -webkit-background-clip:text;
+      color:transparent;
+      margin:0;
     }
 
     .card{
@@ -149,359 +60,159 @@
       border: 1px solid var(--stroke);
       background: linear-gradient(180deg, rgba(15,27,46,.80), rgba(13,23,40,.70));
       box-shadow: var(--shadow);
-      overflow:hidden;
+      padding:20px;
+      margin-bottom:18px;
     }
 
-    .card-head{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding: 16px 16px 12px;
-      border-bottom: 1px solid rgba(255,255,255,.06);
+    .card h2{
+      margin-top:0;
+      font-size:18px;
     }
 
-    .card-title{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      min-width:0;
+    .box{
+      border:1px solid rgba(255,255,255,.15);
+      border-radius:16px;
+      padding:18px;
+      background:rgba(10,18,32,.45);
+      line-height:1.6;
+      font-size:14px;
     }
 
-    .tag{
-      font-size: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(31,47,74,.55);
-      color: var(--muted);
-      flex: 0 0 auto;
+    .box h3{
+      margin-top:0;
+      font-size:16px;
+      color:var(--text);
     }
 
-    .card h3{
-      margin:0;
-      font-size: 16px;
-      letter-spacing:.2px;
-      white-space: nowrap;
-      overflow:hidden;
-      text-overflow: ellipsis;
+    .box ul{
+      padding-left:18px;
+      margin-top:8px;
     }
 
-    .card-body{
-      padding: 14px 16px 16px;
-      color: var(--muted);
-      line-height: 1.55;
-      font-size: 14px;
+    .firma-section{
+      margin-top:24px;
     }
 
-    .list{
-      margin: 10px 0 0;
-      padding:0;
-      list-style: none;
+    .firma-grid{
       display:grid;
-      gap: 10px;
+      grid-template-columns:1fr;
+      gap:30px;
+      margin-top:30px;
     }
 
-    .li{
-      display:flex;
-      gap: 10px;
-      align-items:flex-start;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.08);
-      background: rgba(10,18,32,.35);
+    @media (min-width:700px){
+      .firma-grid{
+        grid-template-columns:1fr 1fr 1fr;
+      }
     }
 
-    .bullet{
-      width: 26px; height: 26px;
-      border-radius: 10px;
-      display:grid;
-      place-items:center;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.05);
-      flex:0 0 auto;
-      margin-top: 1px;
-      color: var(--text);
-      font-size: 14px;
-    }
-
-    .li strong{
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .grid-2{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin-top: 14px;
-    }
-
-    @media (min-width: 880px){
-      .cards{ gap: 16px; }
-      .grid-2{ grid-template-columns: 1.05fr .95fr; }
-    }
-
-    .table{
-      width:100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      overflow:hidden;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(10,18,32,.35);
-    }
-    .table thead th{
-      text-align:left;
-      padding: 12px 12px;
-      font-size: 12px;
-      letter-spacing:.3px;
-      color: rgba(233,238,247,.78);
-      background: rgba(31,47,74,.40);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .table tbody td{
-      padding: 12px 12px;
-      font-size: 14px;
-      color: var(--muted);
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-    .table tbody tr:last-child td{ border-bottom: none; }
-    .table tbody td:last-child{
-      text-align:right;
-      color: var(--text);
-      font-variant-numeric: tabular-nums;
-    }
-
-    .meter{
-      display:flex;
-      align-items:center;
-      gap:10px;
-    }
-    .bar{
-      height: 10px;
-      width: 100%;
-      border-radius: 999px;
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.08);
-      overflow:hidden;
-    }
-    .bar > span{
-      display:block;
-      height:100%;
-      width: var(--w,50%);
-      background: linear-gradient(90deg, var(--grad1), var(--grad2), var(--grad3));
-      border-radius: 999px;
-    }
-
-    .note{
-      margin-top: 12px;
-      padding: 12px 12px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(15,27,46,.45);
-      color: rgba(233,238,247,.72);
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-    .footer{
-      margin-top: 16px;
-      color: rgba(233,238,247,.45);
-      font-size: 12px;
+    .firma{
       text-align:center;
+      font-size:13px;
+      color:var(--muted);
     }
 
-    /* Small polish for mobile */
-    @media (max-width: 420px){
-      .hero h2{ font-size: 28px; }
-      .pill{ display:none; }
+    .linea{
+      margin-top:40px;
+      border-top:1px solid rgba(255,255,255,.5);
+      padding-top:8px;
+      color:var(--text);
+      font-weight:500;
     }
+
+    .consigna{
+      margin-top:14px;
+      padding:14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.15);
+      background:rgba(124,58,237,.10);
+      font-size:14px;
+    }
+
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <div class="topbar">
-      <div class="brand">
-        <div class="badge-icon" aria-hidden="true">📒</div>
-        <div style="min-width:0">
-          <h1>Campus Cuaderno Vivo</h1>
-          <p>Plataforma de actividades interactivas</p>
-        </div>
-      </div>
-
-      <div class="pill" title="Sección institucional">
-        <span class="dot" aria-hidden="true"></span>
-        Evaluación · Criterios e instrumentos
-      </div>
-    </div>
 
     <div class="hero">
-      <div class="badge-icon" style="margin:0 auto; width:52px;height:52px;border-radius:18px;">📝</div>
-      <h2>Criterios de Evaluación</h2>
-      <p class="sub">
-        La evaluación se centra en la observación y medición de la capacidad del alumno,
-        tanto trabajando en grupo como individualmente.
-      </p>
+      <h1>Criterios de Evaluación</h1>
     </div>
 
-    <div class="cards">
+    <!-- CUADRO FORMAL PARA COPIAR -->
+    <div class="card">
+      <h2>Documento para copiar en la carpeta</h2>
 
-      <!-- CARD 1: CRITERIOS -->
-      <section class="card" aria-label="Criterios de evaluación">
-        <div class="card-head">
-          <div class="card-title">
-            <span class="tag">CRITERIOS</span>
-            <h3>¿En qué se va a enfocar la evaluación?</h3>
+      <div class="box">
+        <h3>CRITERIOS DE EVALUACIÓN</h3>
+
+        La evaluación se va a centrar en la observación y medición de la capacidad del alumno tanto trabajando en grupo como individualmente para:
+
+        <ul>
+          <li>Desarrollar las actividades propuestas.</li>
+          <li>Resolver problemas.</li>
+          <li>Llevar a cabo proyectos de aplicación.</li>
+        </ul>
+
+        Para la evaluación del alumno se tendrán en cuenta dos aspectos:
+
+        <ul>
+          <li>El trabajo en clase.</li>
+          <li>Las calificaciones de los trabajos prácticos realizados así como de las pruebas escritas o prácticas que la profesora crea conveniente realizar.</li>
+        </ul>
+
+        La evaluación del trabajo de clase se hará considerando:
+
+        <ul>
+          <li>La actitud y participación en el trabajo de grupo.</li>
+          <li>La calificación de los discos de trabajo.</li>
+        </ul>
+
+        La calificación global será individual y personalizada y se valorarán los siguientes aspectos ponderados:
+
+        <br><br>
+
+        <strong>Concepto — Ponderación (%)</strong>
+
+        <ul>
+          <li>Actitud en el aula — 10%</li>
+          <li>Trabajo de clase (cuaderno y trabajos en formato digital) — 30%</li>
+          <li>Trabajos prácticos — 30%</li>
+          <li>Pruebas escritas o prácticas — 30%</li>
+        </ul>
+
+        <h3 style="margin-top:20px;">INSTRUMENTOS DE EVALUACIÓN</h3>
+
+        Los instrumentos que se van a utilizar para evaluar el proceso de aprendizaje de los alumnos son:
+
+        <ul>
+          <li>La observación sistemática de las actitudes personales del alumno/a, de su forma de organizar el trabajo, de las estrategias que utiliza y de cómo resuelve las dificultades.</li>
+          <li>La revisión y análisis de los trabajos producidos durante el desarrollo de la unidad.</li>
+          <li>Evaluaciones escritas o prácticas que integren los contenidos trabajados.</li>
+        </ul>
+
+        <div class="consigna">
+          <strong>Consigna:</strong> Copia este documento en la carpeta, en la primera hoja de clases.
+        </div>
+
+        <!-- FIRMAS -->
+        <div class="firma-section">
+          <div class="firma-grid">
+            <div class="firma">
+              <div class="linea">Firma Padre / Madre o Tutor</div>
+            </div>
+            <div class="firma">
+              <div class="linea">Firma del Alumno/a</div>
+            </div>
+            <div class="firma">
+              <div class="linea">Firma del Docente</div>
+            </div>
           </div>
         </div>
 
-        <div class="card-body">
-          <ul class="list">
-            <li class="li">
-              <div class="bullet">✅</div>
-              <div><strong>Desarrollar</strong> las actividades propuestas.</div>
-            </li>
-            <li class="li">
-              <div class="bullet">🧩</div>
-              <div><strong>Resolver</strong> problemas.</div>
-            </li>
-            <li class="li">
-              <div class="bullet">🚀</div>
-              <div><strong>Llevar a cabo</strong> proyectos de aplicación.</div>
-            </li>
-          </ul>
-
-          <div class="note">
-            <strong>Para la evaluación del alumno se tendrán en cuenta dos aspectos:</strong><br/>
-            • El trabajo en clase.<br/>
-            • Las calificaciones de los trabajos prácticos realizados, así como de las pruebas escritas o prácticas que la profesora crea conveniente realizar.
-          </div>
-
-          <div class="note">
-            <strong>La evaluación del trabajo de clase se hará considerando:</strong><br/>
-            • La actitud y participación en el trabajo de grupo.<br/>
-            • La calificación de los discos de trabajo.
-          </div>
-        </div>
-      </section>
-
-      <!-- CARD 2: PONDERACIÓN + INSTRUMENTOS (2 columnas en desktop) -->
-      <section class="grid-2" aria-label="Ponderación e instrumentos">
-
-        <!-- PONDERACIÓN -->
-        <article class="card" aria-label="Ponderación">
-          <div class="card-head">
-            <div class="card-title">
-              <span class="tag">PONDERACIÓN</span>
-              <h3>Calificación global</h3>
-            </div>
-          </div>
-
-          <div class="card-body">
-            <p style="margin:0 0 10px;color:var(--muted);">
-              La calificación global será <strong style="color:var(--text)">individual y personalizada</strong> y se valorarán los siguientes aspectos ponderados:
-            </p>
-
-            <table class="table" role="table" aria-label="Tabla de ponderaciones">
-              <thead>
-                <tr>
-                  <th>Concepto</th>
-                  <th style="text-align:right;">Ponderación (%)</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    <div class="meter">
-                      <span style="min-width:140px;color:var(--text);">Actitud en el aula</span>
-                      <div class="bar" aria-hidden="true"><span style="--w:10%"></span></div>
-                    </div>
-                  </td>
-                  <td>10</td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="meter">
-                      <span style="min-width:140px;color:var(--text);">Trabajo de clase (cuaderno y trabajos en formato digital)</span>
-                      <div class="bar" aria-hidden="true"><span style="--w:30%"></span></div>
-                    </div>
-                  </td>
-                  <td>30</td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="meter">
-                      <span style="min-width:140px;color:var(--text);">Trabajos prácticos</span>
-                      <div class="bar" aria-hidden="true"><span style="--w:30%"></span></div>
-                    </div>
-                  </td>
-                  <td>30</td>
-                </tr>
-                <tr>
-                  <td>
-                    <div class="meter">
-                      <span style="min-width:140px;color:var(--text);">Pruebas escritas o prácticas</span>
-                      <div class="bar" aria-hidden="true"><span style="--w:30%"></span></div>
-                    </div>
-                  </td>
-                  <td>30</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
-
-        <!-- INSTRUMENTOS -->
-        <article class="card" aria-label="Instrumentos de evaluación">
-          <div class="card-head">
-            <div class="card-title">
-              <span class="tag">INSTRUMENTOS</span>
-              <h3>¿Cómo se va a evaluar?</h3>
-            </div>
-          </div>
-
-          <div class="card-body">
-            <p style="margin:0 0 10px;color:var(--muted);">
-              Los instrumentos que se van a utilizar para evaluar el proceso de aprendizaje de los alumnos son adecuados a los criterios de evaluación y a los objetivos y contenidos de esta unidad:
-            </p>
-
-            <ul class="list">
-              <li class="li">
-                <div class="bullet" style="color:var(--info);">👀</div>
-                <div>
-                  <strong>Observación sistemática</strong> de las actitudes personales del alumno/a, de su forma de organizar el trabajo, de las estrategias que utiliza, de cómo resuelve las dificultades que se encuentra, etc.
-                </div>
-              </li>
-
-              <li class="li">
-                <div class="bullet" style="color:var(--ok);">📂</div>
-                <div>
-                  <strong>Revisión y análisis</strong> de los trabajos de los alumnos, para comprobar los materiales que han ido “produciendo” a lo largo del desarrollo de la unidad.
-                </div>
-              </li>
-
-              <li class="li">
-                <div class="bullet" style="color:var(--warn);">🧾</div>
-                <div>
-                  <strong>Evaluaciones escritas o prácticas</strong> que integren los contenidos en donde se fue avanzando con la materia.
-                </div>
-              </li>
-            </ul>
-
-            <div class="note">
-              Tip: si querés, este bloque puede ir como sección fija en tu campus para que los estudiantes siempre sepan <strong>qué se espera</strong> y <strong>cómo se califica</strong>.
-            </div>
-          </div>
-        </article>
-
-      </section>
-
-      <div class="footer">
-        © Campus · Cuaderno Vivo — Documento informativo para estudiantes
       </div>
     </div>
+
   </div>
 </body>
 </html>
