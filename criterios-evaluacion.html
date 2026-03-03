@@ -135,8 +135,121 @@ html,body{min-height:100vh;background:#0F172A;color:#E2E8F0;overflow-x:hidden}
       </div>
     </div>
   </div>
+<!-- AGREGAR ESTO dentro del .container, antes del div class="footer" -->
 
+  <!-- CONSTANCIA PARA IMPRIMIR -->
+  <div class="section" style="animation-delay:0.35s">
+    <div class="section-label">🖨️ Constancia para el cuaderno</div>
+    <div class="card">
+      <div class="card-title"><span>📎</span> Copia este cuadro en la primer hoja de clases</div>
+
+      <!-- CUADRO IMPRIMIBLE -->
+      <div id="cuadroImprimir" style="background:#fff;color:#111;border-radius:14px;padding:28px 30px;font-family:'DM Sans',sans-serif">
+
+        <div style="text-align:center;margin-bottom:20px;border-bottom:2px solid #111;padding-bottom:14px">
+          <p style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:#555;margin-bottom:6px">Campus Cuaderno Vivo</p>
+          <p style="font-size:19px;font-weight:900;font-family:'Space Grotesk',sans-serif;letter-spacing:-0.5px">Criterios de Evaluación</p>
+        </div>
+
+        <p style="font-size:13px;color:#333;margin-bottom:14px;line-height:1.6">
+          La evaluación se centra en la observación y medición de la capacidad del alumno, tanto trabajando en grupo como individualmente, para: <strong>desarrollar las actividades propuestas</strong>, <strong>resolver problemas</strong> y <strong>llevar a cabo proyectos de aplicación</strong>.
+        </p>
+
+        <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#555;margin-bottom:10px">Para la evaluación se consideran:</p>
+        <ul style="font-size:13px;color:#333;padding-left:18px;margin-bottom:18px;line-height:1.8">
+          <li>La actitud y participación en el trabajo de grupo.</li>
+          <li>La calificación de los discos de trabajo.</li>
+          <li>Los trabajos prácticos realizados.</li>
+          <li>Las pruebas escritas o prácticas que la profesora crea conveniente realizar.</li>
+        </ul>
+
+        <!-- Tabla ponderación -->
+        <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#555;margin-bottom:10px">Calificación global — Ponderación:</p>
+        <table style="width:100%;border-collapse:collapse;font-size:13px;margin-bottom:20px">
+          <thead>
+            <tr style="background:#111;color:#fff">
+              <th style="padding:8px 12px;text-align:left;font-weight:700">Concepto</th>
+              <th style="padding:8px 12px;text-align:center;font-weight:700">Ponderación</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #ddd">
+              <td style="padding:8px 12px">Actitud en el aula</td>
+              <td style="padding:8px 12px;text-align:center;font-weight:700">10%</td>
+            </tr>
+            <tr style="background:#f9f9f9;border-bottom:1px solid #ddd">
+              <td style="padding:8px 12px">Trabajo de clase <span style="color:#777;font-size:12px">(cuaderno y trabajos en formato digital)</span></td>
+              <td style="padding:8px 12px;text-align:center;font-weight:700">30%</td>
+            </tr>
+            <tr style="border-bottom:1px solid #ddd">
+              <td style="padding:8px 12px">Trabajos prácticos</td>
+              <td style="padding:8px 12px;text-align:center;font-weight:700">30%</td>
+            </tr>
+            <tr style="background:#f9f9f9">
+              <td style="padding:8px 12px">Pruebas escritas o prácticas</td>
+              <td style="padding:8px 12px;text-align:center;font-weight:700">30%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#555;margin-bottom:10px">Instrumentos de evaluación:</p>
+        <ul style="font-size:13px;color:#333;padding-left:18px;margin-bottom:28px;line-height:1.8">
+          <li><strong>Observación sistemática</strong> — actitudes, organización del trabajo y resolución de dificultades.</li>
+          <li><strong>Revisión y análisis de trabajos</strong> — materiales producidos a lo largo de cada unidad.</li>
+          <li><strong>Evaluaciones escritas o prácticas</strong> — que integran los contenidos trabajados.</li>
+        </ul>
+
+        <!-- Firmas -->
+        <div style="border-top:2px solid #111;padding-top:20px">
+          <p style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:#555;margin-bottom:20px">Firmas de recepción y conformidad:</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px">
+            <div style="text-align:center">
+              <div style="height:48px;border-bottom:1.5px solid #111;margin-bottom:8px"></div>
+              <p style="font-size:12px;font-weight:700;color:#333">Padre / Madre / Tutor</p>
+              <p style="font-size:11px;color:#777;margin-top:2px">Aclaración: _______________</p>
+            </div>
+            <div style="text-align:center">
+              <div style="height:48px;border-bottom:1.5px solid #111;margin-bottom:8px"></div>
+              <p style="font-size:12px;font-weight:700;color:#333">Alumno/a</p>
+              <p style="font-size:11px;color:#777;margin-top:2px">Aclaración: _______________</p>
+            </div>
+            <div style="text-align:center">
+              <div style="height:48px;border-bottom:1.5px solid #111;margin-bottom:8px"></div>
+              <p style="font-size:12px;font-weight:700;color:#333">Docente</p>
+              <p style="font-size:11px;color:#777;margin-top:2px">Aclaración: _______________</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- fin cuadroImprimir -->
+
+      <!-- Botón imprimir -->
+      <button onclick="imprimirCuadro()" style="display:flex;align-items:center;gap:8px;margin:18px auto 0;padding:12px 28px;border-radius:14px;border:none;background:linear-gradient(135deg,#6366F1,#8B5CF6);color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;box-shadow:0 4px 15px rgba(99,102,241,0.3);transition:all 0.2s">
+        🖨️ Imprimir este cuadro
+      </button>
+
+    </div>
+  </div>
   <div class="footer">💡 Campus Cuaderno Vivo · Prof. Verónica</div>
 </div>
+  <script>
+function imprimirCuadro(){
+  var contenido = document.getElementById('cuadroImprimir').innerHTML;
+  var ventana = window.open('', '_blank', 'width=800,height=700');
+  ventana.document.write(`
+    <!DOCTYPE html><html><head><meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=Space+Grotesk:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+      *{margin:0;padding:0;box-sizing:border-box;font-family:'DM Sans',sans-serif}
+      body{padding:30px;max-width:700px;margin:0 auto;color:#111}
+      @media print{body{padding:10px}}
+    </style>
+    </head><body>${contenido}</body></html>
+  `);
+  ventana.document.close();
+  ventana.focus();
+  setTimeout(function(){ ventana.print(); }, 500);
+}
+</script>
 </body>
 </html>
