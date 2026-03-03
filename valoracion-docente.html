@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu voz también cuenta — Campus Cuaderno Vivo</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'DM Sans',sans-serif}
+html,body{min-height:100vh;background:#0F172A;color:#E2E8F0;overflow-x:hidden}
+@keyframes float1{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-40px)}}
+@keyframes float2{0%,100%{transform:translate(0,0)}50%{transform:translate(-40px,30px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+.orbs{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.12}
+.orb1{width:400px;height:400px;background:#EC4899;top:-100px;right:-80px;animation:float1 15s ease-in-out infinite}
+.orb2{width:350px;height:350px;background:#8B5CF6;bottom:-50px;left:-100px;animation:float2 18s ease-in-out infinite}
+.container{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:40px 20px}
+
+.back{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:12px;border:1px solid rgba(255,255,255,0.1);background:#1E293B;color:#94A3B8;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:32px;transition:all 0.2s}
+.back:hover{color:#F8FAFC;border-color:rgba(255,255,255,0.2);background:#263347}
+
+.header{text-align:center;margin-bottom:40px;animation:fadeUp 0.6s ease}
+.header .icon{font-size:56px;margin-bottom:12px;display:block;animation:pulse 3s ease-in-out infinite}
+.header h1{font-size:30px;font-weight:900;font-family:'Space Grotesk',sans-serif;letter-spacing:-1.5px;background:linear-gradient(135deg,#F9A8D4,#EC4899,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.header p{font-size:14px;color:#94A3B8;margin-top:8px;line-height:1.6}
+.anon-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;border-radius:20px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25);color:#34D399;font-size:12px;font-weight:700;margin-top:14px}
+
+/* Sección */
+.seccion{margin-bottom:28px;animation:fadeUp 0.6s ease both}
+.seccion-label{font-size:11px;font-weight:800;color:#64748B;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;padding-left:2px}
+.card{background:#1E293B;border:1px solid rgba(255,255,255,0.08);border-radius:18px;overflow:hidden;margin-bottom:0}
+.card-header{padding:18px 22px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.card-header h3{font-size:16px;font-weight:800;color:#F8FAFC;font-family:'Space Grotesk',sans-serif}
+
+/* Escala header */
+.scale-header{display:grid;grid-template-columns:1fr repeat(5,36px);gap:8px;align-items:center;padding:10px 22px;border-bottom:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02)}
+.scale-header span{font-size:11px;font-weight:700;color:#64748B;text-align:center}
+.scale-header .scale-legend{display:flex;justify-content:space-between;grid-column:2/7;font-size:10px;color:#475569;padding:0 2px}
+
+/* Fila de pregunta */
+.pregunta-row{display:grid;grid-template-columns:1fr repeat(5,36px);gap:8px;align-items:center;padding:12px 22px;border-bottom:1px solid rgba(255,255,255,0.04);transition:background 0.15s}
+.pregunta-row:last-child{border-bottom:none}
+.pregunta-row:hover{background:rgba(255,255,255,0.02)}
+.pregunta-row.obligatoria .pregunta-texto::after{content:" *";color:#EC4899;font-size:12px}
+.pregunta-texto{font-size:13px;color:#CBD5E1;line-height:1.4;padding-right:8px}
+.star-cell{display:flex;justify-content:center}
+.star-btn{width:30px;height:30px;background:none;border:none;cursor:pointer;font-size:20px;opacity:0.25;transition:all 0.15s;display:flex;align-items:center;justify-content:center;padding:0;line-height:1}
+.star-btn.on{opacity:1;transform:scale(1.15)}
+.star-btn:hover{opacity:0.8;transform:scale(1.1)}
+
+/* Separador de sección dentro de card */
+.card-divider{height:1px;background:rgba(255,255,255,0.08);margin:0}
+
+/* Textos libres */
+.open-section{padding:22px}
+.open-section h4{font-size:14px;font-weight:700;color:#F8FAFC;margin-bottom:10px;font-family:'Space Grotesk',sans-serif}
+.txa{width:100%;padding:14px 16px;border-radius:12px;border:2px solid rgba(255,255,255,0.08);background:#0F172A;color:#E2E8F0;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;resize:vertical;min-height:80px;box-sizing:border-box;transition:border-color 0.2s;line-height:1.5;margin-bottom:14px}
+.txa:focus{border-color:#8B5CF6}
+.txa::placeholder{color:#475569}
+
+/* Submit */
+.submit-wrap{margin-top:24px;text-align:center}
+.submit-btn{padding:14px 40px;border-radius:16px;border:none;background:linear-gradient(135deg,#EC4899,#8B5CF6);color:#fff;font-size:16px;font-weight:800;cursor:pointer;font-family:'Space Grotesk',sans-serif;letter-spacing:-0.3px;transition:all 0.3s;box-shadow:0 4px 20px rgba(236,72,153,0.3)}
+.submit-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 8px 28px rgba(236,72,153,0.4)}
+.submit-btn:disabled{opacity:0.35;cursor:not-allowed;transform:none;box-shadow:none}
+.submit-note{font-size:12px;color:#475569;margin-top:10px}
+.required-note{font-size:12px;color:#94A3B8;margin-bottom:16px;text-align:right}
+
+/* Gracias */
+.thanks{display:none;text-align:center;padding:60px 20px;animation:fadeUp 0.6s ease}
+.thanks .big{font-size:72px;margin-bottom:20px;display:block;animation:pulse 2s ease-in-out infinite}
+.thanks h2{font-size:28px;font-weight:900;font-family:'Space Grotesk',sans-serif;background:linear-gradient(135deg,#F9A8D4,#EC4899,#A78BFA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:12px}
+.thanks p{font-size:15px;color:#94A3B8;line-height:1.6;max-width:400px;margin:0 auto 24px}
+
+@media(max-width:500px){
+  .pregunta-row{grid-template-columns:1fr repeat(5,28px);gap:4px;padding:10px 14px}
+  .star-btn{width:24px;height:24px;font-size:16px}
+  .scale-header{padding:8px 14px;grid-template-columns:1fr repeat(5,28px);gap:4px}
+  .card-header,.open-section{padding:16px}
+}
+</style>
+</head>
+<body>
+<div class="orbs"><div class="orb orb1"></div><div class="orb orb2"></div></div>
+
+<div class="container" id="formWrap">
+  <a href="index.html" class="back">← Volver al campus</a>
+
+  <div class="header">
+    <span class="icon">⭐</span>
+    <h1>Tu voz también cuenta</h1>
+    <p>Esta encuesta es completamente anónima.<br>Tu opinión sincera ayuda a mejorar la clase para todos.</p>
+    <span class="anon-badge">🔒 100% anónima — no se guarda ningún dato personal</span>
+  </div>
+
+  <p class="required-note">* Pregunta obligatoria</p>
+
+  <!-- BLOQUE 1: SOBRE TU PROFESORA -->
+  <div class="seccion" style="animation-delay:0.1s">
+    <div class="seccion-label">👩‍🏫 Sobre tu profesora</div>
+    <div class="card">
+      <div class="card-header">
+        <h3>Calificá cada aspecto del 1 al 5</h3>
+      </div>
+      <div class="scale-header">
+        <span></span>
+        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+      </div>
+
+      <div class="pregunta-row obligatoria" id="p1">
+        <span class="pregunta-texto">Da a conocer el programa de estudio y los criterios de evaluación</span>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p1',1)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p1',2)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p1',3)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p1',4)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p1',5)">★</button></div>
+      </div>
+      <div class="pregunta-row" id="p2">
+        <span class="pregunta-texto">Sus explicaciones son claras</span>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p2',1)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p2',2)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p2',3)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p2',4)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p2',5)">★</button></div>
+      </div>
+      <div class="pregunta-row" id="p3">
+        <span class="pregunta-texto">Sus clases son dinámicas, amenas y distendidas</span>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p3',1)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p3',2)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p3',3)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p3',4)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p3',5)">★</button></div>
+      </div>
+      <div class="pregunta-row" id="p4">
+        <span class="pregunta-texto">Demuestra buen dominio de la materia que explica</span>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p4',1)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p4',2)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p4',3)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p4',4)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p4',5)">★</button></div>
+      </div>
+      <div class="pregunta-row" id="p5">
+        <span class="pregunta-texto">Expone la materia con dinamismo y entusiasmo</span>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p5',1)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p5',2)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p5',3)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p5',4)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p5',5)">★</button></div>
+      </div>
+      <div class="pregunta-row" id="p6">
+        <span class="pregunta-texto">Hace resúmenes que favorecen la comprensión y retención</span>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p6',1)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p6',2)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p6',3)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p6',4)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p6',5)">★</button></div>
+      </div>
+      <div class="pregunta-row" id="p7">
+        <span class="pregunta-texto">Habla con expresividad y variando el tono</span>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p7',1)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p7',2)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p7',3)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p7',4)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p7',5)">★</button></div>
+      </div>
+      <div class="pregunta-row" id="p8">
+        <span class="pregunta-texto">Desarrolla adecuadamente todos los temas de la asignatura</span>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p8',1)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p8',2)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p8',3)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p8',4)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p8',5)">★</button></div>
+      </div>
+      <div class="pregunta-row" id="p9">
+        <span class="pregunta-texto">Sus explicaciones me han ayudado a entender los contenidos</span>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p9',1)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p9',2)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p9',3)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p9',4)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p9',5)">★</button></div>
+      </div>
+      <div class="pregunta-row" id="p10">
+        <span class="pregunta-texto">Transmite interés y pasión por la asignatura</span>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p10',1)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p10',2)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p10',3)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p10',4)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p10',5)">★</button></div>
+      </div>
+      <div class="pregunta-row obligatoria" id="p11">
+        <span class="pregunta-texto">Me gustaría volver a tener esta profesora</span>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p11',1)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p11',2)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p11',3)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p11',4)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p11',5)">★</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BLOQUE 2: INTERACCIÓN CON EL GRUPO -->
+  <div class="seccion" style="animation-delay:0.2s">
+    <div class="seccion-label">🤝 Sobre la interacción con el grupo</div>
+    <div class="card">
+      <div class="card-header">
+        <h3>Calificá cada aspecto del 1 al 5</h3>
+      </div>
+      <div class="scale-header">
+        <span></span>
+        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+      </div>
+
+      <div class="pregunta-row" id="p12">
+        <span class="pregunta-texto">El clima en el aula es distendido</span>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p12',1)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p12',2)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p12',3)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p12',4)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p12',5)">★</button></div>
+      </div>
+      <div class="pregunta-row" id="p13">
+        <span class="pregunta-texto">Fomenta la participación de los alumnos</span>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p13',1)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p13',2)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p13',3)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p13',4)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p13',5)">★</button></div>
+      </div>
+      <div class="pregunta-row" id="p14">
+        <span class="pregunta-texto">Resuelve dudas y contesta todas las preguntas</span>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p14',1)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p14',2)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p14',3)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p14',4)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p14',5)">★</button></div>
+      </div>
+      <div class="pregunta-row" id="p15">
+        <span class="pregunta-texto">Se muestra dispuesta a ayudar a los alumnos con dificultades</span>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p15',1)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p15',2)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p15',3)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p15',4)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p15',5)">★</button></div>
+      </div>
+      <div class="pregunta-row" id="p16">
+        <span class="pregunta-texto">Trata de obtener lo mejor de cada alumno</span>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p16',1)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p16',2)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p16',3)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p16',4)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p16',5)">★</button></div>
+      </div>
+      <div class="pregunta-row" id="p17">
+        <span class="pregunta-texto">Me ha motivado a trabajar al máximo</span>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p17',1)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p17',2)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p17',3)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p17',4)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p17',5)">★</button></div>
+      </div>
+      <div class="pregunta-row" id="p18">
+        <span class="pregunta-texto">Tiene verdadero interés en que sus alumnos aprendan</span>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p18',1)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p18',2)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p18',3)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p18',4)">★</button></div>
+        <div class="star-cell"><button class="star-btn" onclick="setStars('p18',5)">★</button></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESPUESTAS ABIERTAS -->
+  <div class="seccion" style="animation-delay:0.3s">
+    <div class="seccion-label">💬 Respuestas abiertas</div>
+    <div class="card">
+      <div class="open-section">
+        <h4>Recomendaciones o sugerencias</h4>
+        <textarea class="txa" id="txt1" placeholder="¿Qué le sugerirías a tu profesora para mejorar la clase?"></textarea>
+        <h4>Otros comentarios</h4>
+        <textarea class="txa" id="txt2" placeholder="¿Algo más que quieras decir?"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBMIT -->
+  <div class="submit-wrap">
+    <button class="submit-btn" id="submitBtn" onclick="enviar()" disabled>Enviar encuesta →</button>
+    <p class="submit-note">🔒 Tus respuestas son anónimas. Nadie sabe quién respondió qué.</p>
+    <p class="submit-note" id="submitMsg" style="color:#EC4899;display:none">Completá las preguntas obligatorias (*) para poder enviar.</p>
+  </div>
+</div>
+
+<!-- PANTALLA GRACIAS -->
+<div class="thanks" id="thanksScreen">
+  <span class="big">🙏</span>
+  <h2>¡Gracias por responder!</h2>
+  <p>Tu opinión es muy valiosa y ayuda a mejorar la clase. Esta encuesta es anónima — nadie sabe quién respondió qué.</p>
+  <a href="index.html" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:14px;background:linear-gradient(135deg,#EC4899,#8B5CF6);color:#fff;text-decoration:none;font-weight:700;font-size:14px">← Volver al campus</a>
+</div>
+
+<script>
+var R = {};
+var OBLIGATORIAS = ['p1','p11'];
+
+function setStars(id, v){
+  R[id] = v;
+  var row = document.getElementById(id);
+  var btns = row.querySelectorAll('.star-btn');
+  btns.forEach(function(b, i){ b.classList.toggle('on', i < v); });
+  checkReady();
+}
+
+function checkReady(){
+  var ok = OBLIGATORIAS.every(function(id){ return R[id] !== undefined; });
+  document.getElementById('submitBtn').disabled = !ok;
+}
+
+function enviar(){
+  var ok = OBLIGATORIAS.every(function(id){ return R[id] !== undefined; });
+  if(!ok){
+    document.getElementById('submitMsg').style.display = 'block';
+    return;
+  }
+  document.getElementById('formWrap').style.display = 'none';
+  document.getElementById('thanksScreen').style.display = 'block';
+  window.scrollTo(0,0);
+}
+</script>
+</body>
+</html>
