@@ -441,7 +441,7 @@ function getTodayPassword(){
 function checkLogin(){
   var input = document.getElementById("loginInput").value.trim().toLowerCase();
   var correct = getTodayPassword();
-  var docentePass = "profevero2025"; // Clave estática para docentes
+  var docentePass = "1126"; // Clave estática ************
   
   if(input === correct || input === docentePass){
     document.getElementById("loginOverlay").style.display = "none";
