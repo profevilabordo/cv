@@ -476,5 +476,111 @@ if(sessionStorage.getItem("campus_auth") === getTodayPassword()){
 }
 
 </script>
+  <!-- 
+==============================================
+  BOTÓN DE INSTALACIÓN PWA
+  Pegá esto en index.html en dos partes:
+
+  PARTE 1: el div del botón → dentro del <body>, 
+  por ejemplo justo antes del </body>
+
+  PARTE 2: el script → reemplaza el bloque 
+  de script que ya tenés, o pegalo antes del </body>
+==============================================
+-->
+
+
+<!-- ====== PARTE 1: El botón (pegalo antes del </body>) ====== -->
+
+<div id="pwa-banner" style="
+  display:none;
+  position:fixed;
+  bottom:24px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:9998;
+  background:linear-gradient(135deg,#6366F1,#8B5CF6);
+  color:#fff;
+  padding:14px 24px;
+  border-radius:18px;
+  box-shadow:0 8px 30px rgba(99,102,241,0.5);
+  display:none;
+  align-items:center;
+  gap:12px;
+  font-family:'DM Sans',sans-serif;
+  font-size:15px;
+  font-weight:700;
+  cursor:pointer;
+  white-space:nowrap;
+  animation: slideUp 0.4s ease;
+">
+  <span style="font-size:22px">📲</span>
+  <div>
+    <div style="font-size:15px;font-weight:800">Instalá la app</div>
+    <div style="font-size:11px;font-weight:500;opacity:0.85">Accedé desde tu pantalla de inicio</div>
+  </div>
+  <button id="pwa-install-btn" style="
+    background:rgba(255,255,255,0.25);
+    border:2px solid rgba(255,255,255,0.6);
+    color:#fff;
+    padding:8px 18px;
+    border-radius:12px;
+    font-size:14px;
+    font-weight:800;
+    cursor:pointer;
+    font-family:'DM Sans',sans-serif;
+  ">Instalar</button>
+  <button onclick="document.getElementById('pwa-banner').style.display='none'" style="
+    background:none;
+    border:none;
+    color:rgba(255,255,255,0.7);
+    font-size:20px;
+    cursor:pointer;
+    padding:0 4px;
+    line-height:1;
+  ">×</button>
+</div>
+
+<style>
+@keyframes slideUp {
+  from { opacity:0; transform:translateX(-50%) translateY(20px); }
+  to   { opacity:1; transform:translateX(-50%) translateY(0); }
+}
+</style>
+
+
+<!-- ====== PARTE 2: Script (pegalo antes del </body>) ====== -->
+
+<script>
+// PWA Install Banner
+let deferredPrompt = null;
+const banner = document.getElementById('pwa-banner');
+const installBtn = document.getElementById('pwa-install-btn');
+
+// El navegador dispara este evento cuando la app se puede instalar
+window.addEventListener('beforeinstallprompt', function(e) {
+  e.preventDefault();
+  deferredPrompt = e;
+  // Mostrar el banner
+  banner.style.display = 'flex';
+});
+
+// Al tocar "Instalar"
+installBtn.addEventListener('click', function() {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  deferredPrompt.userChoice.then(function(result) {
+    if (result.outcome === 'accepted') {
+      banner.style.display = 'none';
+    }
+    deferredPrompt = null;
+  });
+});
+
+// Si ya está instalada, ocultar el banner
+window.addEventListener('appinstalled', function() {
+  banner.style.display = 'none';
+});
+</script>
 </body>
 </html>
