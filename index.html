@@ -115,6 +115,10 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 .login-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(99,102,241,0.4)}
 .login-error{color:#EF4444;font-size:13px;font-weight:600;margin-top:12px;display:none;animation:fadeUp 0.3s}
 .login-hint{color:#475569;font-size:11px;margin-top:16px}
+.login-contact{margin-top:20px;padding:12px 16px;border-radius:12px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.2)}
+.login-contact p{font-size:11px;color:#94A3B8;margin:0;line-height:1.5}
+.login-contact a{color:#A78BFA;font-weight:600;text-decoration:none;transition:color 0.2s}
+.login-contact a:hover{color:#C4B5FD}
 .nav-links{display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap}
 .nav-link{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:14px;text-decoration:none;font-size:14px;font-weight:700;background:#1E293B;border:1px solid rgba(255,255,255,0.12);color:#CBD5E1;transition:all 0.3s ease}
 .nav-link:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(99,102,241,0.25);border-color:rgba(99,102,241,0.5);color:#fff;background:#263347}
@@ -147,13 +151,16 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 
 <div class="login-overlay" id="loginOverlay">
   <div class="login-box">
-    <div class="lgo">&#x1F4D3;</div>
+    <div class="lgo">📓</div>
     <h2>Campus Cuaderno Vivo</h2>
-    <p>Ingres&#225; la clave del d&#237;a para acceder</p>
+    <p>Ingresá la clave del día para acceder</p>
     <input type="text" class="login-input" id="loginInput" placeholder="Clave de acceso..." autocomplete="off" autofocus>
-    <button class="login-btn" onclick="checkLogin()">Entrar &#x1F680;</button>
-    <p class="login-error" id="loginError">&#x274C; Clave incorrecta. Pedile la clave a tu profe.</p>
-    <p class="login-hint">&#x1F512; La clave cambia todos los d&#237;as</p>
+    <button class="login-btn" onclick="checkLogin()">Entrar 🚀</button>
+    <p class="login-error" id="loginError">❌ Clave incorrecta. Pedile la clave a tu profe.</p>
+    <p class="login-hint">🔒 La clave cambia todos los días</p>
+    <div class="login-contact">
+      <p>💬 ¿Problemas para acceder? Contactá a la profesora:<br><a href="mailto:profevilabordo@gmail.com">profevilabordo@gmail.com</a></p>
+    </div>
   </div>
 </div>
 
@@ -167,7 +174,7 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
       <a href="criterios-evaluacion.html" class="nav-link">
         📋 Criterios de evaluación
       </a>
-      <a href="encuesta.html" class="nav-link">
+      <a href="encuesta.html" class="nav-link nav-link-survey">
         ⭐ Tu voz también cuenta — Evaluación docente
       </a>
     </div>
@@ -352,6 +359,26 @@ var escuelas = [
   }
 ];
 
+var currentPdfInfo = null;
+
+function abrirModalPDF(materia, unidadNum, archivo) {
+  currentPdfInfo = { materia: materia, unidad: unidadNum, archivo: archivo };
+  document.getElementById('pdfModalLabel').textContent = materia + ' — Unidad ' + unidadNum;
+  document.getElementById('pdfModalOverlay').style.display = 'flex';
+}
+
+function cerrarModalPDF(event) {
+  if (event && event.target !== event.currentTarget) return;
+  document.getElementById('pdfModalOverlay').style.display = 'none';
+  currentPdfInfo = null;
+}
+
+function irAlGenerador(tipo) {
+  if (!currentPdfInfo) return;
+  var url = tipo === 'alumno' ? 'generar-pdf.html' : 'generar-pdf-docente.html';
+  window.location.href = url + '?datos=' + currentPdfInfo.archivo;
+}
+
 var content = document.getElementById("content");
 var html = "";
 var delay = 0;
@@ -369,8 +396,6 @@ escuelas.forEach(function(esc) {
     var unitsHtml = '';
 
     m.archivos.forEach(function(archivo, i) {
-      var pdfFile = "pdfs/" + m.id + "_u" + (i + 1) + ".pdf";
-      var uLabel = m.nombre + " — U" + (i + 1);
       unitsHtml += "<div class=\"unit-row\">";
       if (archivo) {
         if (!firstReady) firstReady = archivo;
@@ -378,10 +403,7 @@ escuelas.forEach(function(esc) {
       } else {
         unitsHtml += "<span class=\"unit soon\" style=\"background:" + m.color + "\">U" + (i + 1) + "</span>";
       }
-      unitsHtml += "<a href=\"" + pdfFile + "\" class=\"pdf\" target=\"_blank\" onclick=\"event.stopPropagation()\" title=\"PDF descargable U" + (i+1) + "\">\ud83d\udcc4 PDF</a>";
-      if (archivo) {
-        unitsHtml += "<button class=\"pdf pdf-gen-btn\" onclick=\"event.stopPropagation();abrirModalPDF('" + archivo + "','" + uLabel.replace(/'/g, "\\'") + "')\" title=\"Generar PDF desde contenido\">\u2699\uFE0F Generar</button>";
-      }
+      unitsHtml += "<a href=\"javascript:void(0)\" class=\"pdf\" onclick=\"event.stopPropagation();abrirModalPDF('" + m.nombre.replace(/'/g, "\\'") + "', " + (i+1) + ", '" + archivo + "')\" title=\"PDF U" + (i+1) + "\">\ud83d\udcc4 PDF</a>";
       unitsHtml += "</div>";
     });
 
@@ -402,32 +424,6 @@ escuelas.forEach(function(esc) {
 content.innerHTML = html;
 
 
-var _pdfArchivoActual = "";
-
-function esDocente(){
-  return sessionStorage.getItem("campus_auth") === "123456_static";
-}
-
-function abrirModalPDF(archivo, label) {
-  _pdfArchivoActual = archivo;
-  document.getElementById("pdfModalLabel").textContent = label;
-  // Mostrar opción docente solo si ingresó con clave estática
-  document.getElementById("pdfBtnDocente").style.display = esDocente() ? "flex" : "none";
-  document.getElementById("pdfModalOverlay").style.display = "flex";
-}
-
-function cerrarModalPDF(e) {
-  if (e && e.target !== document.getElementById("pdfModalOverlay")) return;
-  document.getElementById("pdfModalOverlay").style.display = "none";
-}
-
-function irAlGenerador(tipo) {
-  document.getElementById("pdfModalOverlay").style.display = "none";
-  var pagina = tipo === "docente" ? "generar-pdf-docente.html" : "generar-pdf.html";
-  // Pasar el JSON directamente por URL, sin necesidad de subirlo
-  window.open(pagina + "?datos=" + encodeURIComponent(_pdfArchivoActual), "_blank");
-}
-
 function getDayOfYear(){
   var now = new Date();
   var start = new Date(now.getFullYear(), 0, 0);
@@ -445,11 +441,9 @@ function getTodayPassword(){
 function checkLogin(){
   var input = document.getElementById("loginInput").value.trim().toLowerCase();
   var correct = getTodayPassword();
-  var token;
-  if(input === "123456"){
-    token = "123456_static";
-  } else if(input === correct){
-    token = correct;
+  if(input === correct){
+    document.getElementById("loginOverlay").style.display = "none";
+    sessionStorage.setItem("campus_auth", correct);
   } else {
     document.getElementById("loginError").style.display = "block";
     document.getElementById("loginInput").style.borderColor = "#EF4444";
@@ -457,18 +451,14 @@ function checkLogin(){
       document.getElementById("loginError").style.display = "none";
       document.getElementById("loginInput").style.borderColor = "rgba(255,255,255,0.1)";
     }, 3000);
-    return;
   }
-  document.getElementById("loginOverlay").style.display = "none";
-  sessionStorage.setItem("campus_auth", token);
 }
 
 document.getElementById("loginInput").addEventListener("keypress", function(e){
   if(e.key === "Enter") checkLogin();
 });
 
-var savedAuth = sessionStorage.getItem("campus_auth");
-if(savedAuth === getTodayPassword() || savedAuth === "123456_static"){
+if(sessionStorage.getItem("campus_auth") === getTodayPassword()){
   document.getElementById("loginOverlay").style.display = "none";
 }
 
