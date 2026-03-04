@@ -364,6 +364,11 @@ var currentPdfInfo = null;
 function abrirModalPDF(materia, unidadNum, archivo) {
   currentPdfInfo = { materia: materia, unidad: unidadNum, archivo: archivo };
   document.getElementById('pdfModalLabel').textContent = materia + ' — Unidad ' + unidadNum;
+  
+  // Mostrar botón docente solo si es docente
+  var isDocente = sessionStorage.getItem("is_docente") === "true";
+  document.getElementById('pdfBtnDocente').style.display = isDocente ? 'flex' : 'none';
+  
   document.getElementById('pdfModalOverlay').style.display = 'flex';
 }
 
@@ -396,6 +401,7 @@ escuelas.forEach(function(esc) {
     var unitsHtml = '';
 
     m.archivos.forEach(function(archivo, i) {
+      var pdfContenidos = "pdfs/" + m.id + "_u" + (i + 1) + ".pdf";
       unitsHtml += "<div class=\"unit-row\">";
       if (archivo) {
         if (!firstReady) firstReady = archivo;
@@ -403,7 +409,8 @@ escuelas.forEach(function(esc) {
       } else {
         unitsHtml += "<span class=\"unit soon\" style=\"background:" + m.color + "\">U" + (i + 1) + "</span>";
       }
-      unitsHtml += "<a href=\"javascript:void(0)\" class=\"pdf\" onclick=\"event.stopPropagation();abrirModalPDF('" + m.nombre.replace(/'/g, "\\'") + "', " + (i+1) + ", '" + archivo + "')\" title=\"PDF U" + (i+1) + "\">\ud83d\udcc4 PDF</a>";
+      unitsHtml += "<a href=\"" + pdfContenidos + "\" class=\"pdf\" target=\"_blank\" onclick=\"event.stopPropagation()\" title=\"PDF de contenidos U" + (i+1) + "\">📄 PDF</a>";
+      unitsHtml += "<a href=\"javascript:void(0)\" class=\"pdf\" onclick=\"event.stopPropagation();abrirModalPDF('" + m.nombre.replace(/'/g, "\\'") + "', " + (i+1) + ", '" + archivo + "')\" title=\"Generar PDF U" + (i+1) + "\">⚙️ Generar</a>";
       unitsHtml += "</div>";
     });
 
@@ -441,11 +448,15 @@ function getTodayPassword(){
 function checkLogin(){
   var input = document.getElementById("loginInput").value.trim().toLowerCase();
   var correct = getTodayPassword();
-  var docentePass = "1126"; // Clave estática ************
+  var docentePass = "profevero2025"; // Clave estática para docentes
   
   if(input === correct || input === docentePass){
     document.getElementById("loginOverlay").style.display = "none";
     sessionStorage.setItem("campus_auth", correct);
+    // Marcar si es docente
+    if(input === docentePass){
+      sessionStorage.setItem("is_docente", "true");
+    }
   } else {
     document.getElementById("loginError").style.display = "block";
     document.getElementById("loginInput").style.borderColor = "#EF4444";
