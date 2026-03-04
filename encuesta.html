@@ -8,46 +8,55 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'DM Sans',sans-serif}
-body{min-height:100vh;background:linear-gradient(180deg,#F8FAFC 0%,#EEF2FF 50%,#FFF7ED 100%);padding:20px 16px}
+body{min-height:100vh;background:#1a2332;padding:20px 16px;color:#e2e8f0}
 @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
 @keyframes confetti{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:0;transform:translateY(-120px) translateX(30px) rotate(360deg)}}
 h1,h2,h3{font-family:'Space Grotesk',sans-serif}
-.container{max-width:700px;margin:0 auto;animation:fadeIn 0.6s ease}
-.header{text-align:center;margin-bottom:32px;padding:24px;border-radius:20px;background:linear-gradient(135deg,#6366F1,#8B5CF6);box-shadow:0 8px 24px rgba(99,102,241,0.25)}
-.header h1{font-size:32px;font-weight:900;color:#fff;margin-bottom:8px;letter-spacing:-1px}
-.header p{font-size:15px;color:rgba(255,255,255,0.9);line-height:1.5}
-.bloque{background:#fff;border-radius:18px;padding:24px;margin-bottom:20px;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid #E5E7EB}
-.bloque-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid #F3F4F6}
-.bloque-icon{font-size:28px}
-.bloque-title{font-size:18px;font-weight:800;color:#1F2937}
-.bloque-desc{font-size:13px;color:#6B7280;margin-top:2px}
-.pregunta{margin-bottom:24px}
-.pregunta-text{font-size:15px;font-weight:600;color:#374151;margin-bottom:12px;line-height:1.4}
-.pregunta-text.required::after{content:" *";color:#EF4444;font-weight:700}
-.escala{display:flex;justify-content:space-between;gap:8px}
-.escala-btn{flex:1;padding:12px 8px;border-radius:12px;border:2px solid #E5E7EB;background:#fff;cursor:pointer;text-align:center;font-size:13px;font-weight:600;color:#6B7280;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:4px}
-.escala-btn:hover{border-color:#C7D2FE;background:#F5F3FF}
-.escala-btn.selected{border-color:#6366F1;background:linear-gradient(135deg,#EEF2FF,#E0E7FF);color:#4338CA;transform:scale(1.05)}
-.escala-num{font-size:18px;font-weight:800;font-family:'Space Grotesk',sans-serif}
-.escala-label{font-size:10px;text-transform:uppercase;letter-spacing:0.5px}
-textarea{width:100%;padding:14px;border-radius:12px;border:2px solid #E5E7EB;font-size:14px;font-family:'DM Sans',sans-serif;resize:vertical;min-height:100px;outline:none;transition:border-color 0.2s}
-textarea:focus{border-color:#C7D2FE;background:#FAFBFF}
-.btn-enviar{width:100%;padding:16px;border-radius:14px;border:none;background:linear-gradient(135deg,#6366F1,#8B5CF6);color:#fff;font-size:16px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:24px;box-shadow:0 6px 20px rgba(99,102,241,0.3);transition:all 0.3s}
-.btn-enviar:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(99,102,241,0.4)}
-.btn-enviar:disabled{background:#D1D5DB;cursor:not-allowed;box-shadow:none;transform:none}
-.progress{position:sticky;top:0;background:#fff;padding:12px 20px;border-radius:12px;margin-bottom:20px;box-shadow:0 2px 12px rgba(0,0,0,0.08);z-index:10}
-.progress-bar{height:6px;border-radius:6px;background:#E5E7EB;overflow:hidden}
-.progress-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,#6366F1,#8B5CF6);transition:width 0.3s ease}
-.progress-text{font-size:12px;color:#6B7280;margin-top:6px;text-align:center;font-weight:600}
-.exito{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,0.95);display:none;align-items:center;justify-content:center;z-index:9999;animation:fadeIn 0.3s}
-.exito-box{background:#fff;border-radius:24px;padding:48px 36px;max-width:420px;width:90%;text-align:center;animation:fadeIn 0.5s ease 0.1s both}
+.container{max-width:800px;margin:0 auto;animation:fadeIn 0.6s ease}
+.header{text-align:center;margin-bottom:32px;padding:32px 24px}
+.header-icon{font-size:48px;margin-bottom:12px}
+.header h1{font-size:36px;font-weight:900;background:linear-gradient(135deg,#ec4899,#f472b6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;letter-spacing:-1px}
+.header p{font-size:15px;color:#94a3b8;line-height:1.6;max-width:600px;margin:0 auto}
+.bloque{background:#243447;border-radius:20px;padding:28px;margin-bottom:24px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 24px rgba(0,0,0,0.2)}
+.bloque-header{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:20px;border-bottom:2px solid rgba(255,255,255,0.08)}
+.bloque-icon{font-size:32px}
+.bloque-title{font-size:20px;font-weight:800;color:#f8fafc;letter-spacing:-0.5px}
+.bloque-desc{font-size:13px;color:#94a3b8;margin-top:4px;font-weight:500}
+.pregunta{margin-bottom:28px}
+.pregunta-text{font-size:16px;font-weight:600;color:#e2e8f0;margin-bottom:14px;line-height:1.5}
+.pregunta-text.required::after{content:" *";color:#f472b6;font-weight:700}
+.escala{display:flex;justify-content:flex-start;gap:4px}
+.escala-btn{flex:1;padding:10px 4px;border-radius:10px;border:2px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.03);cursor:pointer;text-align:center;font-weight:600;transition:all 0.25s;display:flex;flex-direction:column;align-items:center;gap:4px;max-width:50px}
+.escala-btn:hover{border-color:rgba(139,92,246,0.5);background:rgba(139,92,246,0.1);transform:translateY(-2px)}
+.escala-btn.selected{border-color:#8b5cf6;background:linear-gradient(135deg,rgba(139,92,246,0.2),rgba(236,72,153,0.2));transform:scale(1.08);box-shadow:0 4px 16px rgba(139,92,246,0.3)}
+.escala-num{font-size:13px;font-weight:700;font-family:'Space Grotesk',sans-serif;background:linear-gradient(135deg,#94a3b8,#cbd5e1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.escala-btn.selected .escala-num{background:linear-gradient(135deg,#c4b5fd,#f9a8d4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-size:15px}
+.escala-label{font-size:9px;text-transform:uppercase;letter-spacing:0.5px;color:#94a3b8;font-weight:700}
+.escala-btn.selected .escala-label{color:#c4b5fd}
+textarea{width:100%;padding:16px;border-radius:14px;border:2px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.03);color:#e2e8f0;font-size:14px;font-family:'DM Sans',sans-serif;resize:vertical;min-height:110px;outline:none;transition:all 0.2s}
+textarea:focus{border-color:#8b5cf6;background:rgba(139,92,246,0.08)}
+textarea::placeholder{color:#64748b}
+.btn-enviar{width:100%;padding:18px;border-radius:16px;border:none;background:linear-gradient(135deg,#8b5cf6,#ec4899);color:#fff;font-size:17px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:32px;box-shadow:0 8px 24px rgba(139,92,246,0.35);transition:all 0.3s;letter-spacing:0.3px}
+.btn-enviar:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(139,92,246,0.45)}
+.btn-enviar:disabled{background:#475569;cursor:not-allowed;box-shadow:none;transform:none;opacity:0.5}
+.progress{position:sticky;top:20px;background:#243447;padding:16px 24px;border-radius:16px;margin-bottom:24px;border:1px solid rgba(255,255,255,0.08);box-shadow:0 4px 20px rgba(0,0,0,0.3);z-index:10}
+.progress-bar{height:8px;border-radius:8px;background:rgba(255,255,255,0.08);overflow:hidden}
+.progress-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,#8b5cf6,#ec4899);transition:width 0.4s ease;box-shadow:0 0 16px rgba(139,92,246,0.5)}
+.progress-text{font-size:12px;color:#94a3b8;margin-top:8px;text-align:center;font-weight:600}
+.exito{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,0.97);display:none;align-items:center;justify-content:center;z-index:9999;animation:fadeIn 0.3s;backdrop-filter:blur(8px)}
+.exito-box{background:#243447;border-radius:24px;padding:48px 36px;max-width:440px;width:90%;text-align:center;animation:fadeIn 0.5s ease 0.1s both;border:1px solid rgba(255,255,255,0.1);box-shadow:0 20px 60px rgba(0,0,0,0.5)}
 .exito-emoji{font-size:72px;margin-bottom:20px;animation:pulse 0.6s ease}
-.exito h2{font-size:28px;font-weight:900;color:#10B981;margin-bottom:12px}
-.exito p{font-size:15px;color:#6B7280;line-height:1.6}
+.exito h2{font-size:28px;font-weight:900;color:#a78bfa;margin-bottom:12px;letter-spacing:-0.5px}
+.exito p{font-size:15px;color:#94a3b8;line-height:1.6}
+.exito a{color:#ec4899;font-weight:700;text-decoration:none;transition:color 0.2s}
+.exito a:hover{color:#f472b6}
 #confetti{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:10000}
 .confetti-piece{position:absolute;width:8px;height:8px;background:#FF6B6B;animation:confetti 1.5s ease-out forwards}
-.footer{text-align:center;padding:24px;color:#9CA3AF;font-size:12px}
+.footer{text-align:center;padding:32px 24px;color:#64748b;font-size:12px}
+.badge-stat{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:12px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.3);margin:0 4px 8px}
+.badge-stat span{font-size:18px;font-weight:900;color:#c4b5fd;font-family:'Space Grotesk',sans-serif}
+.badge-stat small{font-size:11px;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px;font-weight:700}
 </style>
 </head>
 <body>
@@ -56,8 +65,14 @@ textarea:focus{border-color:#C7D2FE;background:#FAFBFF}
 
 <div class="container">
   <div class="header">
-    <h1>💬 Tu voz cuenta</h1>
+    <div class="header-icon">📓</div>
+    <h1>Tu voz también cuenta — Evaluación docente</h1>
     <p>Esta encuesta es <strong>100% anónima</strong>. Tu opinión sincera me ayuda a mejorar como docente. Gracias por tomarte este tiempo.</p>
+    <div style="margin-top:20px">
+      <span class="badge-stat"><span>26</span><small>Preguntas</small></span>
+      <span class="badge-stat"><span>5</span><small>Bloques</small></span>
+      <span class="badge-stat"><span>🔒</span><small>Anónima</small></span>
+    </div>
   </div>
 
   <div class="progress">
