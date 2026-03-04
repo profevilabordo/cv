@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tu voz cuenta · Encuesta Anónima</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'DM Sans',sans-serif}
+body{min-height:100vh;background:linear-gradient(180deg,#F8FAFC 0%,#EEF2FF 50%,#FFF7ED 100%);padding:20px 16px}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes confetti{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:0;transform:translateY(-120px) translateX(30px) rotate(360deg)}}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif}
+.container{max-width:700px;margin:0 auto;animation:fadeIn 0.6s ease}
+.header{text-align:center;margin-bottom:32px;padding:24px;border-radius:20px;background:linear-gradient(135deg,#6366F1,#8B5CF6);box-shadow:0 8px 24px rgba(99,102,241,0.25)}
+.header h1{font-size:32px;font-weight:900;color:#fff;margin-bottom:8px;letter-spacing:-1px}
+.header p{font-size:15px;color:rgba(255,255,255,0.9);line-height:1.5}
+.bloque{background:#fff;border-radius:18px;padding:24px;margin-bottom:20px;box-shadow:0 2px 12px rgba(0,0,0,0.06);border:1px solid #E5E7EB}
+.bloque-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:16px;border-bottom:2px solid #F3F4F6}
+.bloque-icon{font-size:28px}
+.bloque-title{font-size:18px;font-weight:800;color:#1F2937}
+.bloque-desc{font-size:13px;color:#6B7280;margin-top:2px}
+.pregunta{margin-bottom:24px}
+.pregunta-text{font-size:15px;font-weight:600;color:#374151;margin-bottom:12px;line-height:1.4}
+.pregunta-text.required::after{content:" *";color:#EF4444;font-weight:700}
+.escala{display:flex;justify-content:space-between;gap:8px}
+.escala-btn{flex:1;padding:12px 8px;border-radius:12px;border:2px solid #E5E7EB;background:#fff;cursor:pointer;text-align:center;font-size:13px;font-weight:600;color:#6B7280;transition:all 0.2s;display:flex;flex-direction:column;align-items:center;gap:4px}
+.escala-btn:hover{border-color:#C7D2FE;background:#F5F3FF}
+.escala-btn.selected{border-color:#6366F1;background:linear-gradient(135deg,#EEF2FF,#E0E7FF);color:#4338CA;transform:scale(1.05)}
+.escala-num{font-size:18px;font-weight:800;font-family:'Space Grotesk',sans-serif}
+.escala-label{font-size:10px;text-transform:uppercase;letter-spacing:0.5px}
+textarea{width:100%;padding:14px;border-radius:12px;border:2px solid #E5E7EB;font-size:14px;font-family:'DM Sans',sans-serif;resize:vertical;min-height:100px;outline:none;transition:border-color 0.2s}
+textarea:focus{border-color:#C7D2FE;background:#FAFBFF}
+.btn-enviar{width:100%;padding:16px;border-radius:14px;border:none;background:linear-gradient(135deg,#6366F1,#8B5CF6);color:#fff;font-size:16px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:24px;box-shadow:0 6px 20px rgba(99,102,241,0.3);transition:all 0.3s}
+.btn-enviar:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(99,102,241,0.4)}
+.btn-enviar:disabled{background:#D1D5DB;cursor:not-allowed;box-shadow:none;transform:none}
+.progress{position:sticky;top:0;background:#fff;padding:12px 20px;border-radius:12px;margin-bottom:20px;box-shadow:0 2px 12px rgba(0,0,0,0.08);z-index:10}
+.progress-bar{height:6px;border-radius:6px;background:#E5E7EB;overflow:hidden}
+.progress-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,#6366F1,#8B5CF6);transition:width 0.3s ease}
+.progress-text{font-size:12px;color:#6B7280;margin-top:6px;text-align:center;font-weight:600}
+.exito{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,0.95);display:none;align-items:center;justify-content:center;z-index:9999;animation:fadeIn 0.3s}
+.exito-box{background:#fff;border-radius:24px;padding:48px 36px;max-width:420px;width:90%;text-align:center;animation:fadeIn 0.5s ease 0.1s both}
+.exito-emoji{font-size:72px;margin-bottom:20px;animation:pulse 0.6s ease}
+.exito h2{font-size:28px;font-weight:900;color:#10B981;margin-bottom:12px}
+.exito p{font-size:15px;color:#6B7280;line-height:1.6}
+#confetti{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:10000}
+.confetti-piece{position:absolute;width:8px;height:8px;background:#FF6B6B;animation:confetti 1.5s ease-out forwards}
+.footer{text-align:center;padding:24px;color:#9CA3AF;font-size:12px}
+</style>
+</head>
+<body>
+
+<div id="confetti"></div>
+
+<div class="container">
+  <div class="header">
+    <h1>💬 Tu voz cuenta</h1>
+    <p>Esta encuesta es <strong>100% anónima</strong>. Tu opinión sincera me ayuda a mejorar como docente. Gracias por tomarte este tiempo.</p>
+  </div>
+
+  <div class="progress">
+    <div class="progress-bar"><div class="progress-fill" id="progressBar" style="width:0%"></div></div>
+    <div class="progress-text" id="progressText">0% completado (0/26 preguntas)</div>
+  </div>
+
+  <form id="encuestaForm">
+    
+    <!-- BLOQUE 1: Sobre tu profesora -->
+    <div class="bloque">
+      <div class="bloque-header">
+        <div class="bloque-icon">👩‍🏫</div>
+        <div>
+          <div class="bloque-title">Bloque 1 — Sobre tu profesora</div>
+          <div class="bloque-desc">9 preguntas · Escala 1 a 5</div>
+        </div>
+      </div>
+      
+      <div class="pregunta">
+        <div class="pregunta-text required">1. Da a conocer el programa de estudio y los criterios de evaluación</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="1228374290" data-val="1"><span class="escala-num">1</span><span class="escala-label">Nunca</span></button>
+          <button type="button" class="escala-btn" data-q="1228374290" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="1228374290" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="1228374290" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="1228374290" data-val="5"><span class="escala-num">5</span><span class="escala-label">Siempre</span></button>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">2. Sus explicaciones son claras y fáciles de entender</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="947136967" data-val="1"><span class="escala-num">1</span><span class="escala-label">Nunca</span></button>
+          <button type="button" class="escala-btn" data-q="947136967" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="947136967" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="947136967" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="947136967" data-val="5"><span class="escala-num">5</span><span class="escala-label">Siempre</span></button>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">3. Demuestra buen dominio de la materia que explica</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="399079835" data-val="1"><span class="escala-num">1</span><span class="escala-label">Nunca</span></button>
+          <button type="button" class="escala-btn" data-q="399079835" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="399079835" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="399079835" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="399079835" data-val="5"><span class="escala-num">5</span><span class="escala-label">Siempre</span></button>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">4. Expone la materia con dinamismo y entusiasmo</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="591685950" data-val="1"><span class="escala-num">1</span><span class="escala-label">Nunca</span></button>
+          <button type="button" class="escala-btn" data-q="591685950" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="591685950" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="591685950" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="591685950" data-val="5"><span class="escala-num">5</span><span class="escala-label">Siempre</span></button>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">5. Hace resúmenes que favorecen la comprensión y retención</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="811320397" data-val="1"><span class="escala-num">1</span><span class="escala-label">Nunca</span></button>
+          <button type="button" class="escala-btn" data-q="811320397" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="811320397" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="811320397" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="811320397" data-val="5"><span class="escala-num">5</span><span class="escala-label">Siempre</span></button>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">6. Desarrolla adecuadamente todos los temas de la asignatura</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="1705298133" data-val="1"><span class="escala-num">1</span><span class="escala-label">Nunca</span></button>
+          <button type="button" class="escala-btn" data-q="1705298133" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="1705298133" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="1705298133" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="1705298133" data-val="5"><span class="escala-num">5</span><span class="escala-label">Siempre</span></button>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">7. Sus explicaciones me ayudaron a entender los contenidos</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="1962384511" data-val="1"><span class="escala-num">1</span><span class="escala-label">Nunca</span></button>
+          <button type="button" class="escala-btn" data-q="1962384511" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="1962384511" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="1962384511" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="1962384511" data-val="5"><span class="escala-num">5</span><span class="escala-label">Siempre</span></button>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">8. Transmite interés y pasión por la asignatura</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="1837849403" data-val="1"><span class="escala-num">1</span><span class="escala-label">Nunca</span></button>
+          <button type="button" class="escala-btn" data-q="1837849403" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="1837849403" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="1837849403" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="1837849403" data-val="5"><span class="escala-num">5</span><span class="escala-label">Siempre</span></button>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text required">9. Me gustaría volver a tener esta profesora</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="1060470444" data-val="1"><span class="escala-num">1</span><span class="escala-label">No</span></button>
+          <button type="button" class="escala-btn" data-q="1060470444" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="1060470444" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="1060470444" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="1060470444" data-val="5"><span class="escala-num">5</span><span class="escala-label">Sí</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOQUE 2: Interacción -->
+    <div class="bloque">
+      <div class="bloque-header">
+        <div class="bloque-icon">🤝</div>
+        <div>
+          <div class="bloque-title">Bloque 2 — Sobre la interacción con el grupo</div>
+          <div class="bloque-desc">8 preguntas · Escala 1 a 5</div>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">10. El clima en el aula es distendido y agradable</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="761551745" data-val="1"><span class="escala-num">1</span></button>
+          <button type="button" class="escala-btn" data-q="761551745" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="761551745" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="761551745" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="761551745" data-val="5"><span class="escala-num">5</span></button>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">11. Fomenta la participación de los alumnos</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="297123301" data-val="1"><span class="escala-num">1</span></button>
+          <button type="button" class="escala-btn" data-q="297123301" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="297123301" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="297123301" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="297123301" data-val="5"><span class="escala-num">5</span></button>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">12. Resuelve dudas y contesta las preguntas</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="93372961" data-val="1"><span class="escala-num">1</span></button>
+          <button type="button" class="escala-btn" data-q="93372961" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="93372961" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="93372961" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="93372961" data-val="5"><span class="escala-num">5</span></button>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">13. Se muestra dispuesta a ayudar a quienes tienen dificultades</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="227162066" data-val="1"><span class="escala-num">1</span></button>
+          <button type="button" class="escala-btn" data-q="227162066" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="227162066" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="227162066" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="227162066" data-val="5"><span class="escala-num">5</span></button>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">14. Trata de obtener lo mejor de cada alumno</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="615928500" data-val="1"><span class="escala-num">1</span></button>
+          <button type="button" class="escala-btn" data-q="615928500" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="615928500" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="615928500" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="615928500" data-val="5"><span class="escala-num">5</span></button>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">15. Me ha motivado a trabajar al máximo</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="318721047" data-val="1"><span class="escala-num">1</span></button>
+          <button type="button" class="escala-btn" data-q="318721047" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="318721047" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="318721047" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="318721047" data-val="5"><span class="escala-num">5</span></button>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">16. Tiene verdadero interés en que sus alumnos aprendan</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="1937817096" data-val="1"><span class="escala-num">1</span></button>
+          <button type="button" class="escala-btn" data-q="1937817096" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="1937817096" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="1937817096" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="1937817096" data-val="5"><span class="escala-num">5</span></button>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">17. El trato es respetuoso y justo con todos</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="1811599798" data-val="1"><span class="escala-num">1</span></button>
+          <button type="button" class="escala-btn" data-q="1811599798" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="1811599798" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="1811599798" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="1811599798" data-val="5"><span class="escala-num">5</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOQUE 3: Plataforma -->
+    <div class="bloque">
+      <div class="bloque-header">
+        <div class="bloque-icon">💻</div>
+        <div>
+          <div class="bloque-title">Bloque 3 — Sobre la plataforma</div>
+          <div class="bloque-desc">3 preguntas · Escala 1 a 5</div>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">18. La plataforma me resulta fácil de navegar y usar</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="649577768" data-val="1"><span class="escala-num">1</span></button>
+          <button type="button" class="escala-btn" data-q="649577768" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="649577768" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="649577768" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="649577768" data-val="5"><span class="escala-num">5</span></button>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">19. Las actividades de la plataforma me resultaron útiles para aprender</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="753537242" data-val="1"><span class="escala-num">1</span></button>
+          <button type="button" class="escala-btn" data-q="753537242" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="753537242" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="753537242" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="753537242" data-val="5"><span class="escala-num">5</span></button>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">20. El formato digital aportó algo a mi forma de trabajar los contenidos</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="2041921645" data-val="1"><span class="escala-num">1</span></button>
+          <button type="button" class="escala-btn" data-q="2041921645" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="2041921645" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="2041921645" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="2041921645" data-val="5"><span class="escala-num">5</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOQUE 4: Aprendizaje -->
+    <div class="bloque">
+      <div class="bloque-header">
+        <div class="bloque-icon">📈</div>
+        <div>
+          <div class="bloque-title">Bloque 4 — Sobre tu aprendizaje</div>
+          <div class="bloque-desc">3 preguntas · Escala 1 a 5</div>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">21. Siento que aprendí cosas nuevas e interesantes este año</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="658862388" data-val="1"><span class="escala-num">1</span></button>
+          <button type="button" class="escala-btn" data-q="658862388" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="658862388" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="658862388" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="658862388" data-val="5"><span class="escala-num">5</span></button>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">22. Puedo relacionar lo que aprendí con situaciones de la vida cotidiana</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="952120183" data-val="1"><span class="escala-num">1</span></button>
+          <button type="button" class="escala-btn" data-q="952120183" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="952120183" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="952120183" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="952120183" data-val="5"><span class="escala-num">5</span></button>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">23. Los temas de la materia me resultaron relevantes</div>
+        <div class="escala">
+          <button type="button" class="escala-btn" data-q="1598107175" data-val="1"><span class="escala-num">1</span></button>
+          <button type="button" class="escala-btn" data-q="1598107175" data-val="2"><span class="escala-num">2</span></button>
+          <button type="button" class="escala-btn" data-q="1598107175" data-val="3"><span class="escala-num">3</span></button>
+          <button type="button" class="escala-btn" data-q="1598107175" data-val="4"><span class="escala-num">4</span></button>
+          <button type="button" class="escala-btn" data-q="1598107175" data-val="5"><span class="escala-num">5</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOQUE 5: Preguntas abiertas -->
+    <div class="bloque">
+      <div class="bloque-header">
+        <div class="bloque-icon">💬</div>
+        <div>
+          <div class="bloque-title">Bloque 5 — Preguntas abiertas</div>
+          <div class="bloque-desc">3 preguntas · Texto libre</div>
+        </div>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">24. ¿Qué cambiarías de la clase?</div>
+        <textarea id="q24" placeholder="Escribí tu respuesta..."></textarea>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">25. ¿Qué está bueno y no cambiarías?</div>
+        <textarea id="q25" placeholder="Escribí tu respuesta..."></textarea>
+      </div>
+
+      <div class="pregunta">
+        <div class="pregunta-text">26. ¿Algo más que quieras decirle a tu profesora?</div>
+        <textarea id="q26" placeholder="Escribí tu respuesta..."></textarea>
+      </div>
+    </div>
+
+    <button type="submit" class="btn-enviar" id="btnEnviar">Enviar encuesta 🚀</button>
+  </form>
+</div>
+
+<div class="exito" id="exitoModal">
+  <div class="exito-box">
+    <div class="exito-emoji">🎉</div>
+    <h2>¡Gracias por tu opinión!</h2>
+    <p>Tu encuesta fue enviada exitosamente. Tus respuestas son anónimas y me ayudan a mejorar como docente.</p>
+    <p style="margin-top:16px"><a href="index.html" style="color:#6366F1;font-weight:600;text-decoration:none">← Volver al campus</a></p>
+  </div>
+</div>
+
+<div class="footer">
+  💡 Campus Cuaderno Vivo · Encuesta 100% anónima
+</div>
+
+<script>
+// IDs de las preguntas
+var respuestas = {};
+var totalPreguntas = 26;
+var preguntasObligatorias = ['1228374290', '1060470444'];
+
+// Actualizar progreso
+function actualizarProgreso() {
+  var respondidas = Object.keys(respuestas).length;
+  var progreso = Math.round((respondidas / totalPreguntas) * 100);
+  document.getElementById('progressBar').style.width = progreso + '%';
+  document.getElementById('progressText').textContent = progreso + '% completado (' + respondidas + '/' + totalPreguntas + ' preguntas)';
+  
+  // Habilitar botón solo si hay al menos algunas respuestas
+  var hayObligatorias = preguntasObligatorias.every(function(id) { return respuestas[id]; });
+  document.getElementById('btnEnviar').disabled = !hayObligatorias || respondidas < 15;
+}
+
+// Click en botones de escala
+document.querySelectorAll('.escala-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var qId = this.getAttribute('data-q');
+    var val = this.getAttribute('data-val');
+    
+    // Deseleccionar otros botones del mismo grupo
+    document.querySelectorAll('[data-q="' + qId + '"]').forEach(function(b) {
+      b.classList.remove('selected');
+    });
+    
+    // Seleccionar este
+    this.classList.add('selected');
+    respuestas[qId] = val;
+    actualizarProgreso();
+  });
+});
+
+// Monitorear textareas
+['q24', 'q25', 'q26'].forEach(function(id, idx) {
+  document.getElementById(id).addEventListener('input', function() {
+    var val = this.value.trim();
+    if (val.length > 0) {
+      respuestas['428166933_' + idx] = val;
+    } else {
+      delete respuestas['428166933_' + idx];
+    }
+    actualizarProgreso();
+  });
+});
+
+// Envío del formulario
+document.getElementById('encuestaForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Crear URL de Google Forms
+  var baseUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSc-ZJ8VtgLloIqCX3RhpT2f-I0jbMXP-870yPWxMizbx0g5yg/formResponse';
+  var params = new URLSearchParams();
+  
+  // Agregar respuestas de escala
+  for (var qId in respuestas) {
+    if (!qId.includes('_')) {
+      params.append('entry.' + qId, respuestas[qId]);
+    }
+  }
+  
+  // Agregar respuestas abiertas
+  var textAbierto = [];
+  if (document.getElementById('q24').value.trim()) {
+    textAbierto.push('24. ¿Qué cambiarías de la clase?\n' + document.getElementById('q24').value.trim());
+  }
+  if (document.getElementById('q25').value.trim()) {
+    textAbierto.push('25. ¿Qué está bueno y no cambiarías?\n' + document.getElementById('q25').value.trim());
+  }
+  if (document.getElementById('q26').value.trim()) {
+    textAbierto.push('26. ¿Algo más que quieras decirle a tu profesora?\n' + document.getElementById('q26').value.trim());
+  }
+  
+  if (textAbierto.length > 0) {
+    params.append('entry.428166933', textAbierto.join('\n\n'));
+  }
+  
+  // Enviar mediante iframe oculto
+  var iframe = document.createElement('iframe');
+  iframe.style.display = 'none';
+  iframe.name = 'hiddenFrame';
+  document.body.appendChild(iframe);
+  
+  var form = document.createElement('form');
+  form.target = 'hiddenFrame';
+  form.method = 'POST';
+  form.action = baseUrl;
+  
+  params.forEach(function(value, key) {
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = key;
+    input.value = value;
+    form.appendChild(input);
+  });
+  
+  document.body.appendChild(form);
+  form.submit();
+  
+  // Mostrar confetti y modal de éxito
+  lanzarConfetti();
+  setTimeout(function() {
+    document.getElementById('exitoModal').style.display = 'flex';
+  }, 500);
+});
+
+function lanzarConfetti() {
+  var container = document.getElementById('confetti');
+  var colors = ['#FF6B6B', '#4ECDC4', '#FFE66D', '#A78BFA', '#F472B6', '#34D399'];
+  
+  for (var i = 0; i < 50; i++) {
+    var piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.left = Math.random() * 100 + '%';
+    piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+    piece.style.animationDelay = Math.random() * 0.3 + 's';
+    piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+    container.appendChild(piece);
+  }
+  
+  setTimeout(function() {
+    container.innerHTML = '';
+  }, 2000);
+}
+
+actualizarProgreso();
+</script>
+
+</body>
+</html>
