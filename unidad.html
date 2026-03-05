@@ -130,9 +130,7 @@ function getCheckedCount(){
 function marcarSeccion(tabKey){
   var nombre = TAB_LABELS[TAB_KEYS.indexOf(tabKey)];
   if(isChecked(tabKey)) return;
-  var ok = confirm("¿Marcás la sección " + nombre + " como completada?
-
-⚠️ Esta acción no se puede deshacer.");
+  var ok = confirm("¿Marcás la sección " + nombre + " como completada?\n\n⚠️ Esta acción no se puede deshacer.");
   if(!ok) return;
   localStorage.setItem(getCheckKey(tabKey), "1");
   // Guardar en Supabase si está activo
@@ -158,7 +156,7 @@ function actualizarBarra(){
     var active = (i === CT);
     var cls = done ? "pb-dot done" : active ? "pb-dot active" : "pb-dot";
     var label = TAB_EMOJIS[i] + " " + TAB_LABELS[i];
-    dotsHtml += "<div class="" + cls + "" title="" + label + "">" + (done ? "✓" : "") + "</div>";
+    dotsHtml += '<div class="' + cls + '" title="' + label + '">' + (done ? '✓' : '') + '</div>';
   }
   document.getElementById("pbDots").innerHTML = dotsHtml;
 }
@@ -166,11 +164,11 @@ function actualizarBarra(){
 function renderCheckBtn(tabKey){
   var nombre = TAB_LABELS[TAB_KEYS.indexOf(tabKey)];
   if(isChecked(tabKey)){
-    return "<div class="check-section-done">✅ " + nombre + " completada</div>";
+    return '<div class="check-section-done">\u2705 ' + nombre + ' completada</div>';
   }
-  return "<button class="check-section-btn" onclick="marcarSeccion('" + tabKey + "')">"+
-    "<span style="font-size:20px">☑️</span> Marcar " + nombre + " como completada"+
-    "</button>";
+  return '<button class="check-section-btn" onclick="marcarSeccion(\'' + tabKey + '\')">' +
+    '<span style="font-size:20px">\u2611\ufe0f</span> Marcar ' + nombre + ' como completada' +
+    '</button>';
 }
 var TABS=[
 {k:"umbral",i:"\u{1F6AA}",l:"UMBRAL",c:"#F59E0B",g:"linear-gradient(135deg,#F59E0B,#D97706)"},
