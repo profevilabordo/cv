@@ -104,8 +104,10 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
       <h2>Campus Cuaderno Vivo</h2>
       <p class="step-label">Paso 1 de 2</p>
       <p>Ingres&#225; la clave del d&#237;a</p>
-      <input type="text" class="login-input" id="loginInput" placeholder="Clave de acceso..." autocomplete="off" autofocus>
+      <input type="text" class="login-input" id="loginInput" placeholder="Clave de acceso..." autocomplete="off" autofocus oninput="checkClaveDocente()">
       <button class="login-btn" onclick="checkStep1()">Continuar &#x2192;</button>
+      <!-- Botón panel: oculto, aparece solo con clave 1126 -->
+      <a href="panel-docente.html" id="btnPanel" style="display:none;margin-top:12px;width:100%;padding:12px;border-radius:14px;border:2px solid #6366F1;background:#6366F110;color:#A78BFA;font-size:14px;font-weight:700;text-decoration:none;text-align:center;letter-spacing:0">⚙️ Ir al Panel Docente</a>
       <p class="login-error" id="loginError1">&#x274C; Clave incorrecta. Pedile la clave a tu profe.</p>
       <p class="login-hint">&#x1F511; La clave cambia todos los d&#237;as</p>
     </div>
@@ -165,6 +167,12 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
         <h3>PDF docente — Hoja de ruta</h3>
         <p>Todo el contenido compacto: respuestas correctas, conceptos clave, glosario y actividades resueltas. Tu hoja de ruta para la clase.</p>
         <span class="tool-badge">⬇ JSON → PDF sin espacios</span>
+      </a>
+      <a href="panel-docente.html" class="tool-card">
+        <span class="tool-icon">⚙️</span>
+        <h3>Panel docente — Seguimiento</h3>
+        <p>Ves quién entró, qué secciones completó y las notas del autotest. Filtrá por curso y materia.</p>
+        <span class="tool-badge">📊 Progreso en tiempo real</span>
       </a>
     </div>
   </div>
@@ -316,50 +324,66 @@ var escuelas = [
   }
 ];
 
-var content = document.getElementById("content");
-var html = "";
-var delay = 0;
 
-escuelas.forEach(function(esc) {
-  html += '<div class="school" style="animation-delay:' + delay + 's">';
-  html += '<div class="school-header">';
-  html += '<div class="school-icon" style="background:' + esc.color + '20;border:2px solid ' + esc.color + '40">' + esc.icono + '</div>';
-  html += '<div><div class="school-name">' + esc.nombre + '</div>';
-  html += '<div class="school-sub">' + esc.materias.length + ' asignaturas</div></div></div>';
-  html += '<div class="grid">';
+// Variable global: modo docente activo
+var modoDocente = sessionStorage.getItem("campus_docente") === "1";
 
-  esc.materias.forEach(function(m, idx) {
-    var firstReady = null;
-    var unitsHtml = '';
+function buildCards() {
+  var html = "";
+  var delay = 0;
 
-    m.archivos.forEach(function(archivo, i) {
-      var pdfFile = "pdfs/" + m.id + "_u" + (i + 1) + ".pdf";
-      unitsHtml += "<div class=\"unit-row\">";
-      if (archivo) {
-        if (!firstReady) firstReady = archivo;
-        unitsHtml += "<a href=\"unidad.html?datos=" + archivo + "\" class=\"unit ready\" style=\"background:" + m.color + "\" onclick=\"event.stopPropagation()\">U" + (i + 1) + "</a>";
-      } else {
-        unitsHtml += "<span class=\"unit soon\" style=\"background:" + m.color + "\">U" + (i + 1) + "</span>";
-      }
-      unitsHtml += "<a href=\"" + pdfFile + "\" class=\"pdf\" target=\"_blank\" onclick=\"event.stopPropagation()\" title=\"PDF U" + (i+1) + "\">\ud83d\udcc4 PDF</a>";
-      unitsHtml += "</div>";
+  escuelas.forEach(function(esc) {
+    html += '<div class="school" style="animation-delay:' + delay + 's">';
+    html += '<div class="school-header">';
+    html += '<div class="school-icon" style="background:' + esc.color + '20;border:2px solid ' + esc.color + '40">' + esc.icono + '</div>';
+    html += '<div><div class="school-name">' + esc.nombre + '</div>';
+    html += '<div class="school-sub">' + esc.materias.length + ' asignaturas</div></div></div>';
+    html += '<div class="grid">';
+
+    esc.materias.forEach(function(m, idx) {
+      var firstReady = null;
+      var unitsHtml = '';
+
+      m.archivos.forEach(function(archivo, i) {
+        var pdfFile = "pdfs/" + m.id + "_u" + (i + 1) + ".pdf";
+        unitsHtml += "<div class=\"unit-row\">";
+        if (archivo) {
+          if (!firstReady) firstReady = archivo;
+          unitsHtml += "<a href=\"unidad.html?datos=" + archivo + "\" class=\"unit ready\" style=\"background:" + m.color + "\" onclick=\"event.stopPropagation()\">U" + (i + 1) + "</a>";
+        } else {
+          unitsHtml += "<span class=\"unit soon\" style=\"background:" + m.color + "\">U" + (i + 1) + "</span>";
+        }
+        // PDF estático — siempre visible (igual que antes)
+        unitsHtml += "<a href=\"" + pdfFile + "\" class=\"pdf\" target=\"_blank\" onclick=\"event.stopPropagation()\" title=\"PDF U" + (i+1) + "\">\ud83d\udcc4 PDF</a>";
+        // Generar PDF alumno — siempre visible
+        if (archivo) {
+          unitsHtml += "<a href=\"generar-pdf.html?datos=" + archivo + "\" class=\"pdf\" target=\"_blank\" onclick=\"event.stopPropagation()\" title=\"Generar PDF\">\u2699\uFE0F</a>";
+        }
+        // Generar PDF docente — solo con clave 1126
+        if (modoDocente && archivo) {
+          unitsHtml += "<a href=\"generar-pdf-docente.html?datos=" + archivo + "\" class=\"pdf\" target=\"_blank\" onclick=\"event.stopPropagation()\" title=\"PDF docente\" style=\"color:#A78BFA;border-color:#6366F140\">\ud83c\udf93</a>";
+        }
+        unitsHtml += "</div>";
+      });
+
+      html += '<div class="card ' + (firstReady ? 'has-content' : '') + '" style="animation:fadeUp 0.6s ease ' + (delay + idx * 0.08) + 's both"' + (firstReady ? ' onclick="window.location.href=\'unidad.html?datos=' + firstReady + '\'"' : '') + '>';
+      html += '<div class="card-top">';
+      html += '<span class="card-emoji">' + m.emoji + '</span>';
+      html += '<div class="card-info"><h3>' + m.nombre + '</h3>';
+      html += '<span class="curso">' + m.curso + '</span></div></div>';
+      html += '<p class="desc">' + m.desc + '</p>';
+      html += '<div class="units">' + unitsHtml + '</div>';
+      html += '</div>';
     });
 
-    html += '<div class="card ' + (firstReady ? 'has-content' : '') + '" style="animation:fadeUp 0.6s ease ' + (delay + idx * 0.08) + 's both"' + (firstReady ? ' onclick="window.location.href=\'unidad.html?datos=' + firstReady + '\'"' : '') + '>';
-    html += '<div class="card-top">';
-    html += '<span class="card-emoji">' + m.emoji + '</span>';
-    html += '<div class="card-info"><h3>' + m.nombre + '</h3>';
-    html += '<span class="curso">' + m.curso + '</span></div></div>';
-    html += '<p class="desc">' + m.desc + '</p>';
-    html += '<div class="units">' + unitsHtml + '</div>';
-    html += '</div>';
+    html += '</div></div>';
+    delay += 0.3;
   });
 
-  html += '</div></div>';
-  delay += 0.3;
-});
+  document.getElementById("content").innerHTML = html;
+}
 
-content.innerHTML = html;
+buildCards();
 
 
 function getDayOfYear(){
@@ -377,16 +401,34 @@ function getTodayPassword(){
 }
 
 // ── CONFIGURACIÓN SUPABASE ──────────────────────────────
-var SUPABASE_URL = "https://ygafevogfxwupmgwksto.supabase.co";
-var SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlnYWZldm9nZnh3dXBtZ3drc3RvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MDA5NDMsImV4cCI6MjA4ODI3Njk0M30.5LoSWrwtFCR4qoQnmNY6UZB1SuiVpx-G9N1AG6cOev8";
+var SUPABASE_URL = "https://TU_PROYECTO.supabase.co";
+var SUPABASE_KEY = "TU_ANON_KEY";
 // ───────────────────────────────────────────────────────
+
+var CLAVE_DOCENTE = "1126";
+
+// Muestra/oculta el botón del panel y los botones PDF según clave 1126
+function checkClaveDocente(){
+  var input = document.getElementById("loginInput").value.trim();
+  var btn = document.getElementById("btnPanel");
+  if(input === CLAVE_DOCENTE){
+    modoDocente = true;
+    sessionStorage.setItem("campus_docente", "1");
+    btn.style.display = "block";
+    buildCards();
+  } else {
+    modoDocente = false;
+    sessionStorage.removeItem("campus_docente");
+    btn.style.display = "none";
+    buildCards();
+  }
+}
 
 // PASO 1: Clave del día
 function checkStep1(){
   var input = document.getElementById("loginInput").value.trim().toLowerCase();
   var correct = getTodayPassword();
   if(input === correct){
-    // Clave del día OK → mostrar paso 2
     document.getElementById("step1").style.display = "none";
     document.getElementById("step2").style.display = "block";
     setTimeout(function(){ document.getElementById("loginInputPersonal").focus(); }, 100);
