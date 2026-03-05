@@ -39,9 +39,32 @@ input[type=text]{width:100%;padding:10px 14px;border-radius:10px;border:2px soli
 .bar{height:6px;border-radius:6px;background:#E5E7EB;overflow:hidden}.barfill{height:100%;border-radius:6px;transition:width .5s}
 .fb{margin-top:12px;padding:12px 16px;border-radius:12px;animation:fadeIn .3s}
 .foot{margin-top:28px;padding:20px;border-radius:16px;background:#F9FAFB;border:1px dashed #D1D5DB;text-align:center;font-size:13px;color:#6B7280}
+
+/* BARRA DE PROGRESO FIJA */
+#progressBar{position:fixed;top:0;left:0;right:0;z-index:1000;background:#fff;border-bottom:1px solid #E5E7EB;padding:8px 12px;display:flex;align-items:center;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+#progressBar .pb-label{font-size:11px;font-weight:700;color:#6B7280;white-space:nowrap}
+#progressBar .pb-track{flex:1;height:8px;background:#F3F4F6;border-radius:8px;overflow:hidden}
+#progressBar .pb-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,#6366F1,#10B981);transition:width .4s ease}
+#progressBar .pb-count{font-size:13px;font-weight:800;color:#6366F1;white-space:nowrap;min-width:36px;text-align:right}
+#progressBar .pb-dots{display:flex;gap:3px;align-items:center}
+#progressBar .pb-dot{width:16px;height:16px;border-radius:50%;border:2px solid #E5E7EB;background:#fff;font-size:8px;display:flex;align-items:center;justify-content:center;transition:all .3s;flex-shrink:0;cursor:default;title:attr(data-title)}
+#progressBar .pb-dot.done{background:#10B981;border-color:#10B981;color:#fff}
+#progressBar .pb-dot.active{border-color:#6366F1;background:#EEF2FF}
+body{padding-top:52px}
+.check-section-btn{display:flex;align-items:center;justify-content:center;gap:10px;margin:24px auto 0;padding:14px 28px;border-radius:14px;border:2px solid #10B981;background:#ECFDF5;color:#065F46;font-size:15px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .3s;width:100%;max-width:400px;box-sizing:border-box}
+.check-section-btn:hover{background:#D1FAE5;transform:translateY(-1px);box-shadow:0 4px 12px rgba(16,185,129,.2)}
+.check-section-done{display:flex;align-items:center;justify-content:center;gap:8px;margin:24px auto 0;padding:12px 28px;border-radius:14px;background:#065F4610;color:#065F46;font-size:14px;font-weight:700;width:100%;max-width:400px;border:2px solid #10B98140;box-sizing:border-box}
 </style>
 </head>
 <body>
+<!-- BARRA DE PROGRESO FIJA -->
+<div id="progressBar" style="display:none">
+  <span class="pb-label">📓</span>
+  <div class="pb-dots" id="pbDots"></div>
+  <div class="pb-track"><div class="pb-fill" id="pbFill" style="width:0%"></div></div>
+  <span class="pb-count" id="pbCount">0/10</span>
+</div>
+
 <div id="app"><p style="text-align:center;padding:60px;color:#6B7280">Cargando...</p></div>
 <div id="confettiBox"></div>
 
@@ -54,17 +77,11 @@ function getDayOfYear(){
   var diff = now - start;
   return Math.floor(diff / (1000*60*60*24));
 }
-function getDayOfYear(){
-  var now = new Date();
-  var start = new Date(now.getFullYear(), 0, 0);
-  var diff = now - start;
-  return Math.floor(diff / (1000*60*60*24));
-}
 function getTodayPassword(){
   return "campusvvb" + (getDayOfYear() * 27);
 }
 var auth = sessionStorage.getItem("campus_auth");
-if(auth !== getTodayPassword() && auth !== "123456_static"){
+if(auth !== getTodayPassword()){
   window.location.href = "index.html";
 }
 var D = null;
@@ -77,7 +94,7 @@ function loadData(){
       if(!r.ok) throw new Error("No se encontr\u00f3 " + archivo);
       return r.json(); 
     })
-    .then(function(data){ D = data; render(); })
+    .then(function(data){ D = data; render(); actualizarBarra(); })
     .catch(function(e){
       document.getElementById("app").innerHTML = '<div style="text-align:center;padding:40px">'
         +'<p style="font-size:48px;margin-bottom:16px">\u26a0\ufe0f</p>'
@@ -91,6 +108,70 @@ function loadData(){
 }
 
 var CT=0, S={};
+
+// ===== CHECKLIST DE SECCIONES =====
+var TAB_KEYS=["umbral","mapa","nucleo","senales","sabias","cruces","relectura","emocional","autotest","cierre"];
+var TAB_LABELS=["Umbral","Mapa","Núcleo","Señales","Sabías","Cruces","Relectura","Emocional","Autotest","Cierre"];
+var TAB_EMOJIS=["🚪","🗺️","⚛️","🚦","✨","🔀","📖","🫶","📝","🔚"];
+
+function getCheckKey(tabKey){
+  if(!D) return null;
+  return "campus_check_" + (D.id||D.materia+"_u"+D.unidad) + "_" + tabKey;
+}
+
+function isChecked(tabKey){
+  return localStorage.getItem(getCheckKey(tabKey)) === "1";
+}
+
+function getCheckedCount(){
+  return TAB_KEYS.filter(function(k){ return isChecked(k); }).length;
+}
+
+function marcarSeccion(tabKey){
+  var nombre = TAB_LABELS[TAB_KEYS.indexOf(tabKey)];
+  if(isChecked(tabKey)) return;
+  var ok = confirm("¿Marcás la sección " + nombre + " como completada?
+
+⚠️ Esta acción no se puede deshacer.");
+  if(!ok) return;
+  localStorage.setItem(getCheckKey(tabKey), "1");
+  // Guardar en Supabase si está activo
+  if(typeof SUPABASE_ACTIVO !== "undefined" && SUPABASE_ACTIVO){
+    trackProgreso(tabKey);
+  }
+  actualizarBarra();
+  render(); // re-render para mostrar el estado done
+}
+
+function actualizarBarra(){
+  if(!D) return;
+  var count = getCheckedCount();
+  var pct = count / TAB_KEYS.length * 100;
+  document.getElementById("pbFill").style.width = pct + "%";
+  document.getElementById("pbCount").textContent = count + "/10";
+  document.getElementById("progressBar").style.display = "flex";
+
+  // Puntos
+  var dotsHtml = "";
+  for(var i=0;i<TAB_KEYS.length;i++){
+    var done = isChecked(TAB_KEYS[i]);
+    var active = (i === CT);
+    var cls = done ? "pb-dot done" : active ? "pb-dot active" : "pb-dot";
+    var label = TAB_EMOJIS[i] + " " + TAB_LABELS[i];
+    dotsHtml += "<div class="" + cls + "" title="" + label + "">" + (done ? "✓" : "") + "</div>";
+  }
+  document.getElementById("pbDots").innerHTML = dotsHtml;
+}
+
+function renderCheckBtn(tabKey){
+  var nombre = TAB_LABELS[TAB_KEYS.indexOf(tabKey)];
+  if(isChecked(tabKey)){
+    return "<div class="check-section-done">✅ " + nombre + " completada</div>";
+  }
+  return "<button class="check-section-btn" onclick="marcarSeccion('" + tabKey + "')">"+
+    "<span style="font-size:20px">☑️</span> Marcar " + nombre + " como completada"+
+    "</button>";
+}
 var TABS=[
 {k:"umbral",i:"\u{1F6AA}",l:"UMBRAL",c:"#F59E0B",g:"linear-gradient(135deg,#F59E0B,#D97706)"},
 {k:"mapa",i:"\u{1F5FA}\uFE0F",l:"MAPA",c:"#0EA5E9",g:"linear-gradient(135deg,#0EA5E9,#0284C7)"},
@@ -152,7 +233,9 @@ function render(){
   for(var i=0;i<TABS.length;i++){
     var tb=TABS[i];
     var isOn=i===CT;
-    h+='<button class="tab '+(isOn?"on":"")+'" onclick="switchTab('+i+')" style="'+(isOn?'background:'+tb.g+';box-shadow:0 4px 15px '+tb.c+'40':'')+'">'+tb.i+' '+tb.l+'</button>';
+    var isDone=isChecked(tb.k);
+    var dotHtml=isDone?' <span style="width:7px;height:7px;border-radius:50%;background:#10B981;display:inline-block;vertical-align:middle;margin-left:2px"></span>':'';
+    h+='<button class="tab '+(isOn?"on":"")+'" onclick="switchTab('+i+')" style="'+(isOn?'background:'+tb.g+';box-shadow:0 4px 15px '+tb.c+'40':'')+'">'+tb.i+' '+tb.l+dotHtml+'</button>';
   }
   h+='</div>';
   
@@ -160,6 +243,7 @@ function render(){
   h+='<div class="foot">\u{1F4A1} <strong>Campus Cuaderno Vivo</strong> \u2014 '+D.materia+' \u00b7 Unidad '+D.unidad+'</div>';
   
   document.getElementById("app").innerHTML=h;
+  actualizarBarra();
 }
 
 function renderSection(){
@@ -185,7 +269,8 @@ function rUmbral(){
     +actWrap("u1","\u{1F525} Preguntas Disparadoras","Toc\u00e1 para revelar pistas","Activar","#F59E0B",rU1(),true)
     +actWrap("u2","\u{1F517} Conect\u00e1 con tu Vida","Eleg\u00ed una situaci\u00f3n","Conectar","#8B5CF6",rU2())
     +actWrap("u3","\u{1F321}\uFE0F Term\u00f3metro de Saberes","\u00bfCu\u00e1nto sab\u00e9s?","Diagnosticar","#EF4444",rU3())
-    +'</div>';
+    +'</div>'
+    +renderCheckBtn("umbral");
 }
 function rU1(){
   var items=D.umbral.preguntas_disparadoras;
@@ -238,7 +323,8 @@ function rMapa(){
     +actWrap("m1","\u{1F6E4}\uFE0F Ruta Visual","Recorr\u00e9 la unidad","Explorar","#0EA5E9",rM1(),true)
     +actWrap("m2","\u{1F3D4}\uFE0F Vista Panor\u00e1mica","Bloques tem\u00e1ticos","Anticipar","#10B981",rM2())
     +actWrap("m3","\u{1F9E0} Mapa Mental","Nodo central con ramas","Conectar","#8B5CF6",rM3())
-    +'</div>';
+    +'</div>'
+    +renderCheckBtn("mapa");
 }
 function rM1(){
   if(!S.m1)S.m1={a:null,v:{}};
@@ -323,7 +409,8 @@ function rNucleo(){
     +actWrap("n8","\u26A1 8. Causa\u2192Efecto","Conect\u00e1 causas","Aplicar","#EC4899",rN8())
     +actWrap("n9","\u{1F522} 9. Proceso","Orden\u00e1 los pasos","Estructurar","#14B8A6",rN9())
     +actWrap("n10","\u2696\uFE0F 10. Comparar","Similitudes y diferencias","Comparar","#7C3AED",rN10())
-    +'</div>';
+    +'</div>'
+    +renderCheckBtn("nucleo");
 }
 
 function rN1(){
@@ -588,7 +675,8 @@ function rSenales(){
     +actWrap("s1","\u{1F511} Tarjetas Clave","Definici\u00f3n + importancia","Identificar","#F97316",rS1(),true)
     +actWrap("s2","\u{1F6A6} Sem\u00e1foro","Autoevalu\u00e1","Evaluar","#EF4444",rS2())
     +actWrap("s3","\u{1F4CC} Post-its","Escrib\u00ed con tus palabras","Reformular","#F59E0B",rS3())
-    +'</div>';
+    +'</div>'
+    +renderCheckBtn("senales");
 }
 function rS1(){
   var cs=D.senales.conceptos_clave, h='';
@@ -646,7 +734,8 @@ function rSabias(){
     +actWrap("sb1","\u{1F0CF} Flip Cards","Toc\u00e1 para descubrir","Descubrir","#EC4899",rSB1(),true)
     +actWrap("sb2","\u{1F4C5} L\u00ednea de Tiempo","Hitos hist\u00f3ricos","Explorar","#8B5CF6",rSB2())
     +actWrap("sb3","\u{1F5F3}\uFE0F Encuesta","\u00bfQu\u00e9 te sorprendi\u00f3?","Reflexionar","#F59E0B",rSB3())
-    +'</div>';
+    +'</div>'
+    +renderCheckBtn("sabias");
 }
 function rSB1(){
   var cards=D.sabias.flip_cards, h='';
@@ -704,7 +793,8 @@ function rCruces(){
     +'<div class="sb">'
     +actWrap("c1","\u{1F309} Puentes","Conexiones interdisciplinarias","Conectar","#14B8A6",rC1(),true)
     +actWrap("c2","\u{1F578}\uFE0F Telara\u00f1a","Relaciones con otras ciencias","Relacionar","#8B5CF6",rC2())
-    +'</div>';
+    +'</div>'
+    +renderCheckBtn("cruces");
 }
 function rC1(){
   var ps=D.cruces.puentes;
@@ -747,7 +837,8 @@ function rRelectura(){
     +actWrap("r1","\u2696\uFE0F Tribunal","Eleg\u00ed un rol y argument\u00e1","Juzgar","#7C3AED",rR1(),true)
     +actWrap("r2","\u{1F3AF} Tesis","Formul\u00e1 una tesis","Crear","#EC4899",rR2())
     +actWrap("r3","\u{1F52C} Cr\u00edtica","Analiz\u00e1 fortalezas y debilidades","Criticar","#EF4444",rR3())
-    +'</div>';
+    +'</div>'
+    +renderCheckBtn("relectura");
 }
 function rR1(){
   var d=D.relectura.tribunal;
@@ -815,7 +906,8 @@ function rEmocional(){
     +'<div class="sb">'
     +actWrap("e1","\u{1F3AD} Escala Emocional","\u00bfC\u00f3mo te sent\u00eds?","Sentir","#EC4899",rE1(),true)
     +actWrap("e2","\u{1F4D4} Diario","Antes, durante, despu\u00e9s","Reflexionar","#8B5CF6",rE2())
-    +'</div>';
+    +'</div>'
+    +renderCheckBtn("emocional");
 }
 function rE1(){
   if(!S.e1) S.e1={sel:null,ref:""};
@@ -856,7 +948,8 @@ function rAutotest(){
   return secHeader("\u{1F4DD}","AUTOTEST","Test con nota autom\u00e1tica",TABS[8].g)
     +'<div class="sb">'
     +actWrap("at","\u{1F4DD} Test de la Unidad","6 preguntas","Evaluar","#F59E0B",rAT(),true)
-    +'</div>';
+    +'</div>'
+    +renderCheckBtn("autotest");
 }
 function rAT(){
   var d=D.autotest.preguntas, tq=d.length;
@@ -910,7 +1003,8 @@ function rCierre(){
     +actWrap("ci1","\u{1F4AD} Reflexi\u00f3n Final","\u00bfQu\u00e9 aprend\u00ed?","Reflexionar","#6366F1",rCI1(),true)
     +actWrap("ci2","\u{1F4D6} Glosario","T\u00e9rminos clave","Consultar","#10B981",rCI2())
     +actWrap("ci3","\u{1F517} Recursos","Para profundizar","Explorar","#8B5CF6",rCI3())
-    +'</div>';
+    +'</div>'
+    +renderCheckBtn("cierre");
 }
 function rCI1(){
   if(!S.ci1) S.ci1={a:"",s:"",ap:""};
@@ -974,10 +1068,14 @@ loadData();
 var SUPABASE_URL = "https://TU_PROYECTO.supabase.co";
 var SUPABASE_KEY = "TU_ANON_KEY";
 
+// Si Supabase no está configurado, el tracking funciona solo con localStorage (sin overlay)
+var SUPABASE_ACTIVO = SUPABASE_URL.indexOf("TU_PROYECTO") === -1;
+
 // ----- LOGIN DEL ALUMNO -----
-// Se muestra una sola vez; queda guardado en localStorage
+// Solo se muestra si Supabase está configurado Y el alumno no tiene clave guardada
 (function initAlumnoLogin(){
-  if(localStorage.getItem("campus_alumno_codigo")) return;
+  if(!SUPABASE_ACTIVO) return;           // sin Supabase → no pedir clave
+  if(localStorage.getItem("campus_alumno_codigo")) return; // ya identificado → no pedir de nuevo
 
   var overlay = document.createElement("div");
   overlay.id = "alumnoLoginOverlay";
@@ -1046,6 +1144,7 @@ async function registrarSesion(codigo){
   var ultimaSesion = localStorage.getItem("campus_ultima_sesion");
   if(ultimaSesion === hoy) return; // solo 1 sesión por día
   localStorage.setItem("campus_ultima_sesion", hoy);
+  if(!SUPABASE_ACTIVO) return; // sin Supabase configurado, solo localStorage
 
   try {
     await fetch(SUPABASE_URL + "/rest/v1/sesiones", {
@@ -1065,15 +1164,17 @@ async function registrarSesion(codigo){
 // Ejemplo: trackProgreso("nucleo") — se llama automáticamente al cambiar de tab
 async function trackProgreso(seccion, nota){
   var codigo = localStorage.getItem("campus_alumno_codigo");
-  if(!codigo || !D) return;
+  if(!D) return;
 
-  // Guardar en localStorage primero (siempre disponible)
+  // Guardar en localStorage siempre (funciona offline y sin Supabase)
   var lsKey = "campus_prog_" + D.id + "_" + seccion;
   var yaGuardado = localStorage.getItem(lsKey);
-  if(yaGuardado && nota === undefined) return; // no duplicar secciones sin nota
+  if(yaGuardado && nota === undefined) return;
   localStorage.setItem(lsKey, JSON.stringify({fecha: new Date().toISOString(), nota: nota||null}));
 
-  // Enviar a Supabase
+  // Enviar a Supabase solo si está configurado y el alumno está identificado
+  if(!SUPABASE_ACTIVO || !codigo) return;
+
   try {
     var payload = {
       alumno_codigo: codigo,
