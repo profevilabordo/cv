@@ -484,8 +484,8 @@ function getTodayPassword(){
 }
 
 // ===== SUPABASE CONFIG =====
-var SUPABASE_URL = "https://ygafevogfxwupmgwksto.supabase.co";
-var SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlnYWZldm9nZnh3dXBtZ3drc3RvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MDA5NDMsImV4cCI6MjA4ODI3Njk0M30.5LoSWrwtFCR4qoQnmNY6UZB1SuiVpx-G9N1AG6cOev8";
+var SUPABASE_URL = "https://TU_PROYECTO.supabase.co";
+var SUPABASE_KEY = "TU_ANON_KEY";
 var SUPABASE_ACTIVO = SUPABASE_URL.indexOf("TU_PROYECTO") === -1;
 
 // ===== PASO 1: CLAVE DEL DÍA =====
@@ -504,6 +504,7 @@ function checkLogin(){
     document.getElementById("loginOverlay").style.display = "none";
     sessionStorage.setItem("campus_auth", correct);
     sessionStorage.setItem("is_docente", "true");
+    mostrarSaludoDocente();
     return;
   }
 
@@ -581,12 +582,24 @@ function mostrarSaludo(nombre){
   var el = document.getElementById("saludoAlumno");
   var nm = document.getElementById("saludoNombre");
   if(!el || !nm) return;
-  nm.textContent = "¡Hola, " + nombre.split(" ")[0] + "! 👋 Tu progreso se guarda automáticamente";
+  nm.textContent = "¡Hola, " + nombre.split(" ")[0] + "! \u{1F44B} Tu progreso se guarda automáticamente";
+  el.style.display = "inline-flex";
+}
+
+function mostrarSaludoDocente(){
+  var el = document.getElementById("saludoAlumno");
+  var nm = document.getElementById("saludoNombre");
+  if(!el || !nm) return;
+  nm.textContent = "\u{1F468}\u200D\u{1F3EB} ¡Hola, profe! Bienvenida al campus";
   el.style.display = "inline-flex";
 }
 
 function cerrarSesionAlumno(){
-  if(!confirm("¿Cerrar sesión? El próximo alumno tendrá que ingresar su clave.")) return;
+  var esDocente = sessionStorage.getItem("is_docente") === "true";
+  var msg = esDocente
+    ? "¿Salir del modo docente?"
+    : "¿Cerrar sesión? El próximo alumno tendrá que ingresar su clave.";
+  if(!confirm(msg)) return;
   localStorage.removeItem("campus_alumno_codigo");
   localStorage.removeItem("campus_alumno_nombre");
   localStorage.removeItem("campus_alumno_curso");
@@ -608,8 +621,10 @@ document.getElementById("loginInput").addEventListener("keypress", function(e){
 
   if(auth === getTodayPassword()){
     document.getElementById("loginOverlay").style.display = "none";
-    // Si tiene nombre guardado, mostrar saludo
-    if(nombre){
+    var esDocente = sessionStorage.getItem("is_docente") === "true";
+    if(esDocente){
+      mostrarSaludoDocente();
+    } else if(nombre){
       mostrarSaludo(nombre);
     }
   }
