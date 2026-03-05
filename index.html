@@ -160,17 +160,33 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 
 <div class="login-overlay" id="loginOverlay">
   <div class="login-box">
-    <div class="lgo">📓</div>
-    <h2>Campus Cuaderno Vivo</h2>
-    <p>Ingresá la clave del día para acceder</p>
-    <input type="text" class="login-input" id="loginInput" placeholder="Clave de acceso..." autocomplete="off" autofocus oninput="togglePanelBtn()">
-    <button class="login-btn" onclick="checkLogin()">Entrar 🚀</button>
-    <a href="panel-docente.html" id="btnPanel" style="display:none;margin-top:12px;width:100%;padding:12px;border-radius:14px;border:2px solid #6366F1;background:#6366F110;color:#A78BFA;font-size:14px;font-weight:700;text-decoration:none;text-align:center;box-sizing:border-box">⚙️ Ir al Panel Docente</a>
-    <p class="login-error" id="loginError">❌ Clave incorrecta. Pedile la clave a tu profe.</p>
-    <p class="login-hint">🔒 La clave cambia todos los días</p>
-    <div class="login-contact">
-      <p>💬 ¿Problemas para acceder? Contactá a la profesora:<br><a href="/cdn-cgi/l/email-protection#a9d9dbc6cfccdfc0c5c8cbc6dbcdc6e9cec4c8c0c587cac6c4"><span class="__cf_email__" data-cfemail="374745585152415e5b56555845535877505a565e5b1954585a">[email&#160;protected]</span></a></p>
+
+    <!-- PASO 1: Clave del día -->
+    <div id="loginStep1">
+      <div class="lgo">📓</div>
+      <h2>Campus Cuaderno Vivo</h2>
+      <p>Ingresá la clave del día para acceder</p>
+      <input type="text" class="login-input" id="loginInput" placeholder="Clave de acceso..." autocomplete="off" autofocus oninput="togglePanelBtn()">
+      <button class="login-btn" onclick="checkLogin()">Entrar 🚀</button>
+      <a href="panel-docente.html" id="btnPanel" style="display:none;margin-top:12px;width:100%;padding:12px;border-radius:14px;border:2px solid #6366F1;background:#6366F110;color:#A78BFA;font-size:14px;font-weight:700;text-decoration:none;text-align:center;box-sizing:border-box">⚙️ Ir al Panel Docente</a>
+      <p class="login-error" id="loginError">❌ Clave incorrecta. Pedile la clave a tu profe.</p>
+      <p class="login-hint">🔒 La clave cambia todos los días</p>
+      <div class="login-contact">
+        <p>💬 ¿Problemas para acceder? Contactá a la profesora:<br><a href="/cdn-cgi/l/email-protection#a9d9dbc6cfccdfc0c5c8cbc6dbcdc6e9cec4c8c0c587cac6c4"><span class="__cf_email__" data-cfemail="374745585152415e5b56555845535877505a565e5b1954585a">[email&#160;protected]</span></a></p>
+      </div>
     </div>
+
+    <!-- PASO 2: Clave de ciudad (alumno) -->
+    <div id="loginStep2" style="display:none">
+      <div class="lgo">🌍</div>
+      <h2>¿Quién sos?</h2>
+      <p>Ingresá tu clave personal para que guardemos tu progreso</p>
+      <input type="text" class="login-input" id="ciudadInput" placeholder="tu clave..." autocomplete="off">
+      <button class="login-btn" onclick="checkCiudad()">Continuar ✨</button>
+      <p class="login-error" id="ciudadError">❌ Clave no encontrada. Pedile a tu profe que la verifique.</p>
+      <p class="login-hint" style="cursor:pointer;color:#6366F1;text-decoration:underline" onclick="saltearIdentificacion()">Continuar sin identificarme</p>
+    </div>
+
   </div>
 </div>
 
@@ -180,6 +196,12 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
     <div class="logo">📓</div>
     <h1>Campus Cuaderno Vivo</h1>
     <p>Plataforma de actividades interactivas</p>
+    <!-- Saludo alumno identificado -->
+    <div id="saludoAlumno" style="display:none;margin:10px auto 0;padding:10px 20px;border-radius:14px;background:#1E293B;border:1px solid rgba(99,102,241,0.3);align-items:center;gap:12px;max-width:400px">
+      <span style="font-size:22px">👋</span>
+      <span id="saludoNombre" style="font-size:14px;font-weight:700;color:#F8FAFC;flex:1"></span>
+      <button onclick="cerrarSesionAlumno()" style="padding:6px 14px;border-radius:10px;border:1px solid rgba(239,68,68,0.4);background:rgba(239,68,68,0.1);color:#F87171;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s" onmouseover="this.style.background='rgba(239,68,68,0.2)'" onmouseout="this.style.background='rgba(239,68,68,0.1)'">Salir 🚪</button>
+    </div>
     <div class="nav-links">
       <a href="criterios-evaluacion.html" class="nav-link">
         📋 Criterios de evaluación
@@ -461,6 +483,12 @@ function getTodayPassword(){
   return "campusvvb" + code;
 }
 
+// ===== SUPABASE CONFIG =====
+var SUPABASE_URL = "https://ygafevogfxwupmgwksto.supabase.co";
+var SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlnYWZldm9nZnh3dXBtZ3drc3RvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MDA5NDMsImV4cCI6MjA4ODI3Njk0M30.5LoSWrwtFCR4qoQnmNY6UZB1SuiVpx-G9N1AG6cOev8";
+var SUPABASE_ACTIVO = SUPABASE_URL.indexOf("TU_PROYECTO") === -1;
+
+// ===== PASO 1: CLAVE DEL DÍA =====
 function togglePanelBtn(){
   var input = document.getElementById("loginInput").value.trim();
   document.getElementById("btnPanel").style.display = input === "1126" ? "block" : "none";
@@ -469,32 +497,129 @@ function togglePanelBtn(){
 function checkLogin(){
   var input = document.getElementById("loginInput").value.trim().toLowerCase();
   var correct = getTodayPassword();
-  var docentePass = "1126"; // Clave estática para docentes
-  
-  if(input === correct || input === docentePass){
+  var docentePass = "1126";
+
+  if(input === docentePass){
+    // Docente: entra directo sin paso 2
     document.getElementById("loginOverlay").style.display = "none";
     sessionStorage.setItem("campus_auth", correct);
-    // Marcar si es docente
-    if(input === docentePass){
-      sessionStorage.setItem("is_docente", "true");
-    }
-  } else {
-    document.getElementById("loginError").style.display = "block";
-    document.getElementById("loginInput").style.borderColor = "#EF4444";
-    setTimeout(function(){
-      document.getElementById("loginError").style.display = "none";
-      document.getElementById("loginInput").style.borderColor = "rgba(255,255,255,0.1)";
-    }, 3000);
+    sessionStorage.setItem("is_docente", "true");
+    return;
   }
+
+  if(input === correct){
+    // Alumno: pasa al paso 2
+    sessionStorage.setItem("campus_auth", correct);
+    if(SUPABASE_ACTIVO){
+      // Mostrar paso 2
+      document.getElementById("loginStep1").style.display = "none";
+      document.getElementById("loginStep2").style.display = "block";
+      setTimeout(function(){ document.getElementById("ciudadInput").focus(); }, 100);
+    } else {
+      // Sin Supabase: entra directo
+      document.getElementById("loginOverlay").style.display = "none";
+    }
+    return;
+  }
+
+  // Error
+  document.getElementById("loginError").style.display = "block";
+  document.getElementById("loginInput").style.borderColor = "#EF4444";
+  setTimeout(function(){
+    document.getElementById("loginError").style.display = "none";
+    document.getElementById("loginInput").style.borderColor = "rgba(255,255,255,0.1)";
+  }, 3000);
 }
 
+// ===== PASO 2: CLAVE DE CIUDAD =====
+async function checkCiudad(){
+  var codigo = document.getElementById("ciudadInput").value.trim().toLowerCase().replace(/\s/g,"");
+  if(!codigo) return;
+
+  var btn = document.querySelector("#loginStep2 .login-btn");
+  btn.textContent = "Verificando...";
+  btn.disabled = true;
+
+  try {
+    var r = await fetch(SUPABASE_URL + "/rest/v1/alumnos?codigo=eq." + codigo + "&select=*", {
+      headers: { "apikey": SUPABASE_KEY, "Authorization": "Bearer " + SUPABASE_KEY }
+    });
+    var data = await r.json();
+
+    if(data && data.length > 0){
+      var alumno = data[0];
+      localStorage.setItem("campus_alumno_codigo", alumno.codigo);
+      localStorage.setItem("campus_alumno_nombre", alumno.nombre);
+      localStorage.setItem("campus_alumno_curso", alumno.curso);
+      document.getElementById("loginOverlay").style.display = "none";
+      mostrarSaludo(alumno.nombre);
+    } else {
+      document.getElementById("ciudadError").style.display = "block";
+      document.getElementById("ciudadInput").style.borderColor = "#EF4444";
+      setTimeout(function(){
+        document.getElementById("ciudadError").style.display = "none";
+        document.getElementById("ciudadInput").style.borderColor = "rgba(255,255,255,0.1)";
+      }, 3000);
+    }
+  } catch(e){
+    // Sin conexión: entra igual
+    document.getElementById("loginOverlay").style.display = "none";
+  }
+
+  btn.textContent = "Continuar ✨";
+  btn.disabled = false;
+}
+
+function saltearIdentificacion(){
+  localStorage.removeItem("campus_alumno_codigo");
+  localStorage.removeItem("campus_alumno_nombre");
+  document.getElementById("loginOverlay").style.display = "none";
+}
+
+// ===== SALUDO Y CIERRE DE SESIÓN =====
+function mostrarSaludo(nombre){
+  var el = document.getElementById("saludoAlumno");
+  var nm = document.getElementById("saludoNombre");
+  if(!el || !nm) return;
+  nm.textContent = "¡Hola, " + nombre.split(" ")[0] + "! 👋 Tu progreso se guarda automáticamente";
+  el.style.display = "inline-flex";
+}
+
+function cerrarSesionAlumno(){
+  if(!confirm("¿Cerrar sesión? El próximo alumno tendrá que ingresar su clave.")) return;
+  localStorage.removeItem("campus_alumno_codigo");
+  localStorage.removeItem("campus_alumno_nombre");
+  localStorage.removeItem("campus_alumno_curso");
+  localStorage.removeItem("campus_ultima_sesion");
+  sessionStorage.removeItem("campus_auth");
+  sessionStorage.removeItem("is_docente");
+  location.reload();
+}
+
+// ===== EVENTOS TECLADO =====
 document.getElementById("loginInput").addEventListener("keypress", function(e){
   if(e.key === "Enter") checkLogin();
 });
 
-if(sessionStorage.getItem("campus_auth") === getTodayPassword()){
-  document.getElementById("loginOverlay").style.display = "none";
-}
+// ===== AUTO-LOGIN SI YA TIENE SESIÓN =====
+(function initSession(){
+  var auth = sessionStorage.getItem("campus_auth");
+  var nombre = localStorage.getItem("campus_alumno_nombre");
+
+  if(auth === getTodayPassword()){
+    document.getElementById("loginOverlay").style.display = "none";
+    // Si tiene nombre guardado, mostrar saludo
+    if(nombre){
+      mostrarSaludo(nombre);
+    }
+  }
+
+  // Listener para el campo ciudad
+  setTimeout(function(){
+    var ci = document.getElementById("ciudadInput");
+    if(ci) ci.addEventListener("keypress", function(e){ if(e.key==="Enter") checkCiudad(); });
+  }, 200);
+})();
 
 </script>
   <!-- 
@@ -591,4 +716,13 @@ installBtn.addEventListener('click', function() {
   if (!deferredPrompt) return;
   deferredPrompt.prompt();
   deferredPrompt.userChoice.then(function(result) {
-    if (result.outcome === 'a
+    if (result.outcome === 'accepted') {
+      console.log('PWA instalada');
+    }
+    deferredPrompt = null;
+    banner.style.display = 'none';
+  });
+});
+</script>
+</body>
+</html>
