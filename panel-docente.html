@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel Docente — Campus Cuaderno Vivo</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'DM Sans',sans-serif}
+body{background:#0F172A;color:#E2E8F0;min-height:100vh}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* LOGIN */
+.login-overlay{position:fixed;inset:0;background:#0F172A;z-index:999;display:flex;align-items:center;justify-content:center}
+.login-box{background:#1E293B;border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:40px;max-width:360px;width:90%;text-align:center;animation:fadeUp .5s ease}
+.login-box h2{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:800;color:#F8FAFC;margin-bottom:6px}
+.login-box p{font-size:13px;color:#64748B;margin-bottom:24px}
+.login-input{width:100%;padding:13px 16px;border-radius:12px;border:2px solid rgba(255,255,255,0.1);background:#0F172A;color:#F8FAFC;font-size:15px;outline:none;text-align:center;letter-spacing:2px;transition:border-color .3s;box-sizing:border-box}
+.login-input:focus{border-color:#6366F1}
+.login-btn{width:100%;padding:13px;border-radius:12px;border:none;background:linear-gradient(135deg,#6366F1,#8B5CF6);color:#fff;font-size:15px;font-weight:700;cursor:pointer;margin-top:12px;transition:all .3s}
+.login-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(99,102,241,.4)}
+.login-error{color:#EF4444;font-size:12px;margin-top:10px;display:none}
+
+/* LAYOUT */
+.topbar{background:#1E293B;border-bottom:1px solid rgba(255,255,255,0.07);padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.topbar-left{display:flex;align-items:center;gap:12px}
+.topbar h1{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:800;color:#F8FAFC}
+.topbar small{font-size:12px;color:#64748B}
+.back-btn{padding:7px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:transparent;color:#94A3B8;font-size:13px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all .2s}
+.back-btn:hover{background:rgba(255,255,255,0.05);color:#F8FAFC}
+
+.container{max-width:1100px;margin:0 auto;padding:28px 20px}
+
+/* STATS TOP */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:28px}
+.stat-card{background:#1E293B;border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:20px 22px}
+.stat-card .val{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:800;background:linear-gradient(135deg,#A78BFA,#6366F1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-card .lbl{font-size:12px;color:#64748B;font-weight:600;text-transform:uppercase;letter-spacing:.8px;margin-top:4px}
+
+/* TABS */
+.tabs{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap}
+.tab{padding:9px 20px;border-radius:12px;border:none;font-size:13px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .25s}
+.tab.on{background:linear-gradient(135deg,#6366F1,#8B5CF6);color:#fff;box-shadow:0 4px 15px rgba(99,102,241,.3)}
+.tab:not(.on){background:#1E293B;color:#94A3B8;border:1px solid rgba(255,255,255,0.08)}
+
+/* TABLA */
+.table-wrap{background:#1E293B;border-radius:16px;border:1px solid rgba(255,255,255,0.07);overflow:hidden}
+.table-wrap table{width:100%;border-collapse:collapse}
+.table-wrap th{padding:12px 16px;text-align:left;font-size:11px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:.8px;background:#0F172A;border-bottom:1px solid rgba(255,255,255,0.07)}
+.table-wrap td{padding:12px 16px;font-size:13px;color:#E2E8F0;border-bottom:1px solid rgba(255,255,255,0.04)}
+.table-wrap tr:last-child td{border-bottom:none}
+.table-wrap tr:hover td{background:rgba(255,255,255,0.02)}
+
+/* BADGES */
+.badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:8px;font-size:11px;font-weight:700}
+.badge-green{background:#065F4620;color:#34D399;border:1px solid #065F4640}
+.badge-yellow{background:#92400E20;color:#FBBF24;border:1px solid #92400E40}
+.badge-red{background:#7F1D1D20;color:#F87171;border:1px solid #7F1D1D40}
+.badge-blue{background:#1E3A5F20;color:#60A5FA;border:1px solid #1E3A5F40}
+
+/* ALUMNO DETAIL */
+.alumno-card{background:#1E293B;border-radius:16px;border:1px solid rgba(255,255,255,0.07);padding:20px;margin-bottom:14px;animation:fadeUp .3s ease}
+.alumno-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.alumno-name{font-size:16px;font-weight:700;color:#F8FAFC}
+.alumno-meta{font-size:12px;color:#64748B;margin-top:2px}
+.progress-bars{display:flex;flex-direction:column;gap:8px}
+.prog-row{display:flex;align-items:center;gap:10px}
+.prog-label{font-size:12px;color:#94A3B8;width:80px;flex-shrink:0}
+.prog-bar{flex:1;height:6px;background:#0F172A;border-radius:6px;overflow:hidden}
+.prog-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,#6366F1,#8B5CF6);transition:width .5s}
+.prog-val{font-size:11px;color:#64748B;width:30px;text-align:right}
+
+/* SEARCH */
+.search-row{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+.search-input{flex:1;min-width:200px;padding:10px 16px;border-radius:12px;border:1px solid rgba(255,255,255,0.1);background:#1E293B;color:#F8FAFC;font-size:14px;outline:none;transition:border-color .3s}
+.search-input:focus{border-color:#6366F1}
+.filter-select{padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,0.1);background:#1E293B;color:#94A3B8;font-size:13px;outline:none;cursor:pointer}
+
+/* MANAGE ALUMNOS */
+.add-form{background:#1E293B;border-radius:16px;border:1px solid rgba(255,255,255,0.07);padding:20px;margin-bottom:20px}
+.add-form h3{font-size:15px;font-weight:700;color:#F8FAFC;margin-bottom:14px}
+.form-row{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:10px;align-items:end}
+.form-group label{display:block;font-size:11px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px}
+.form-input{width:100%;padding:10px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:#0F172A;color:#F8FAFC;font-size:14px;outline:none;transition:border-color .3s;box-sizing:border-box}
+.form-input:focus{border-color:#6366F1}
+.add-btn{padding:10px 20px;border-radius:10px;border:none;background:linear-gradient(135deg,#6366F1,#8B5CF6);color:#fff;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;transition:all .25s}
+.add-btn:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(99,102,241,.3)}
+.del-btn{background:none;border:none;color:#EF4444;cursor:pointer;font-size:16px;padding:4px 8px;border-radius:8px;transition:background .2s}
+.del-btn:hover{background:#EF444415}
+
+.empty-state{text-align:center;padding:40px;color:#64748B;font-size:14px}
+.loading{text-align:center;padding:40px;color:#64748B}
+.refresh-btn{padding:8px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:transparent;color:#94A3B8;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s}
+.refresh-btn:hover{border-color:#6366F1;color:#A78BFA}
+
+.nota-circle{width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:800}
+
+@media(max-width:600px){
+  .form-row{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login-overlay" id="loginOverlay">
+  <div class="login-box">
+    <div style="font-size:40px;margin-bottom:12px">🎓</div>
+    <h2>Panel Docente</h2>
+    <p>Ingresá tu clave de docente para acceder</p>
+    <input type="password" class="login-input" id="loginInput" placeholder="Clave docente..." autocomplete="off" autofocus>
+    <button class="login-btn" onclick="checkLogin()">Acceder</button>
+    <p class="login-error" id="loginError">❌ Clave incorrecta</p>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="appPanel" style="display:none">
+  <div class="topbar">
+    <div class="topbar-left">
+      <span style="font-size:24px">📓</span>
+      <div>
+        <h1>Panel Docente</h1>
+        <small>Campus Cuaderno Vivo</small>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <button class="refresh-btn" onclick="loadAllData()">↻ Actualizar</button>
+      <a href="index.html" class="back-btn">← Campus</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- STATS -->
+    <div class="stats-grid" id="statsGrid">
+      <div class="stat-card"><div class="val" id="statAlumnos">—</div><div class="lbl">Alumnos registrados</div></div>
+      <div class="stat-card"><div class="val" id="statSesiones">—</div><div class="lbl">Sesiones totales</div></div>
+      <div class="stat-card"><div class="val" id="statActividades">—</div><div class="lbl">Actividades completadas</div></div>
+      <div class="stat-card"><div class="val" id="statPromedio">—</div><div class="lbl">Promedio autotests</div></div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab on" onclick="switchTab(0,this)">👥 Alumnos</button>
+      <button class="tab" onclick="switchTab(1,this)">📊 Progreso</button>
+      <button class="tab" onclick="switchTab(2,this)">📝 Autotests</button>
+      <button class="tab" onclick="switchTab(3,this)">⚙️ Gestionar claves</button>
+    </div>
+
+    <div id="tabContent"></div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// CONFIGURACIÓN — reemplazá con tus datos de Supabase
+// ============================================================
+var SUPABASE_URL = "https://TU_PROYECTO.supabase.co";
+var SUPABASE_KEY = "TU_ANON_KEY";
+// ============================================================
+
+var CLAVE_DOCENTE = "profevero2025"; // ← cambiá esto por tu clave
+
+var allAlumnos = [];
+var allProgreso = [];
+var allSesiones = [];
+var currentTab = 0;
+
+// ----- AUTH -----
+function checkLogin(){
+  var val = document.getElementById("loginInput").value.trim();
+  if(val === CLAVE_DOCENTE){
+    document.getElementById("loginOverlay").style.display = "none";
+    document.getElementById("appPanel").style.display = "block";
+    sessionStorage.setItem("docente_auth","ok");
+    loadAllData();
+  } else {
+    document.getElementById("loginError").style.display = "block";
+    setTimeout(function(){ document.getElementById("loginError").style.display = "none"; }, 2500);
+  }
+}
+document.getElementById("loginInput").addEventListener("keypress", function(e){ if(e.key==="Enter") checkLogin(); });
+if(sessionStorage.getItem("docente_auth")==="ok"){
+  document.getElementById("loginOverlay").style.display = "none";
+  document.getElementById("appPanel").style.display = "block";
+  loadAllData();
+}
+
+// ----- API -----
+async function sb(table, params){
+  var url = SUPABASE_URL + "/rest/v1/" + table + "?" + (params||"select=*&order=created_at.desc");
+  var r = await fetch(url, {
+    headers: {
+      "apikey": SUPABASE_KEY,
+      "Authorization": "Bearer " + SUPABASE_KEY,
+      "Content-Type": "application/json"
+    }
+  });
+  return r.json();
+}
+
+async function sbInsert(table, data){
+  var r = await fetch(SUPABASE_URL + "/rest/v1/" + table, {
+    method: "POST",
+    headers: {
+      "apikey": SUPABASE_KEY,
+      "Authorization": "Bearer " + SUPABASE_KEY,
+      "Content-Type": "application/json",
+      "Prefer": "return=representation"
+    },
+    body: JSON.stringify(data)
+  });
+  return r.json();
+}
+
+async function sbDelete(table, eq){
+  await fetch(SUPABASE_URL + "/rest/v1/" + table + "?" + eq, {
+    method: "DELETE",
+    headers: {
+      "apikey": SUPABASE_KEY,
+      "Authorization": "Bearer " + SUPABASE_KEY
+    }
+  });
+}
+
+// ----- LOAD -----
+async function loadAllData(){
+  document.getElementById("tabContent").innerHTML = '<div class="loading">Cargando datos... ⏳</div>';
+  try {
+    allAlumnos = await sb("alumnos", "select=*&order=nombre.asc");
+    allProgreso = await sb("progreso", "select=*&order=fecha.desc");
+    allSesiones = await sb("sesiones", "select=*");
+    updateStats();
+    renderTab();
+  } catch(e){
+    document.getElementById("tabContent").innerHTML = '<div class="empty-state">⚠️ No se pudo conectar con Supabase.<br>Verificá la URL y la API key en el archivo.</div>';
+  }
+}
+
+function updateStats(){
+  document.getElementById("statAlumnos").textContent = allAlumnos.length;
+  document.getElementById("statSesiones").textContent = allSesiones.length;
+  document.getElementById("statActividades").textContent = allProgreso.filter(function(p){return !p.nota}).length;
+  var notas = allProgreso.filter(function(p){return p.nota !== null && p.nota !== undefined});
+  document.getElementById("statPromedio").textContent = notas.length ? Math.round(notas.reduce(function(s,p){return s+p.nota},0)/notas.length) + "%" : "—";
+}
+
+function switchTab(idx, btn){
+  currentTab = idx;
+  document.querySelectorAll(".tab").forEach(function(t){t.classList.remove("on")});
+  btn.classList.add("on");
+  renderTab();
+}
+
+function renderTab(){
+  if(currentTab===0) renderAlumnos();
+  else if(currentTab===1) renderProgreso();
+  else if(currentTab===2) renderAutotests();
+  else renderGestionar();
+}
+
+// ----- TAB 0: ALUMNOS -----
+function renderAlumnos(){
+  var h = '<div class="search-row">';
+  h += '<input class="search-input" type="text" placeholder="🔍 Buscar alumno..." id="searchAlumno" oninput="renderAlumnos()">';
+  h += '<select class="filter-select" id="filterCurso" onchange="renderAlumnos()">';
+  h += '<option value="">Todos los cursos</option>';
+  var cursos = [...new Set(allAlumnos.map(function(a){return a.curso}))].sort();
+  cursos.forEach(function(c){ h += '<option>'+c+'</option>'; });
+  h += '</select></div>';
+
+  var q = (document.getElementById("searchAlumno")||{value:""}).value.toLowerCase();
+  var fc = (document.getElementById("filterCurso")||{value:""}).value;
+  var filtered = allAlumnos.filter(function(a){
+    var matchQ = !q || a.nombre.toLowerCase().includes(q) || a.codigo.toLowerCase().includes(q);
+    var matchC = !fc || a.curso === fc;
+    return matchQ && matchC;
+  });
+
+  if(!filtered.length){ h += '<div class="empty-state">No se encontraron alumnos</div>'; document.getElementById("tabContent").innerHTML=h; return; }
+
+  h += '<div class="table-wrap"><table>';
+  h += '<thead><tr><th>Alumno</th><th>Curso</th><th>Clave</th><th>Ingresos</th><th>Actividades</th><th>Última visita</th></tr></thead><tbody>';
+  filtered.forEach(function(a){
+    var sesiones = allSesiones.filter(function(s){return s.alumno_codigo===a.codigo}).length;
+    var actividades = allProgreso.filter(function(p){return p.alumno_codigo===a.codigo}).length;
+    var ultimas = allSesiones.filter(function(s){return s.alumno_codigo===a.codigo}).sort(function(x,y){return new Date(y.fecha)-new Date(x.fecha)});
+    var ultima = ultimas.length ? new Date(ultimas[0].fecha).toLocaleDateString("es-AR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}) : "—";
+    h += '<tr>';
+    h += '<td><strong>'+a.nombre+'</strong></td>';
+    h += '<td><span class="badge badge-blue">'+a.curso+'</span></td>';
+    h += '<td><code style="background:#0F172A;padding:3px 8px;border-radius:6px;font-size:12px;color:#A78BFA">'+a.codigo+'</code></td>';
+    h += '<td>'+sesiones+'</td>';
+    h += '<td>'+actividades+'</td>';
+    h += '<td style="font-size:12px;color:#64748B">'+ultima+'</td>';
+    h += '</tr>';
+  });
+  h += '</tbody></table></div>';
+  document.getElementById("tabContent").innerHTML = h;
+}
+
+// ----- TAB 1: PROGRESO -----
+var SECCIONES = ["umbral","mapa","nucleo","senales","sabias","cruces","relectura","emocional","autotest","cierre"];
+function renderProgreso(){
+  // Obtener valores actuales de los filtros
+  var fc = (document.getElementById("filterCursoP")||{value:""}).value;
+  var fm = (document.getElementById("filterMateriaP")||{value:""}).value;
+
+  // Construir fila de filtros
+  var h = '<div class="search-row">';
+
+  // Filtro curso
+  h += '<select class="filter-select" id="filterCursoP" onchange="renderProgreso()">';
+  h += '<option value="">Todos los cursos</option>';
+  var cursos = [...new Set(allAlumnos.map(function(a){return a.curso}))].sort();
+  cursos.forEach(function(c){ h += '<option'+(fc===c?' selected':'')+'>'+c+'</option>'; });
+  h += '</select>';
+
+  // Filtro materia (se arma desde el progreso registrado)
+  var todasMaterias = [...new Set(allProgreso.map(function(p){return p.materia}))].sort();
+  h += '<select class="filter-select" id="filterMateriaP" onchange="renderProgreso()">';
+  h += '<option value="">Todas las materias</option>';
+  todasMaterias.forEach(function(m){ h += '<option'+(fm===m?' selected':'')+'>'+m+'</option>'; });
+  h += '</select>';
+
+  h += '</div>';
+
+  // Filtrar alumnos por curso
+  var filtAlumnos = fc ? allAlumnos.filter(function(a){return a.curso===fc}) : allAlumnos;
+
+  // Si hay filtro de materia, quedarse solo con alumnos que tienen progreso en esa materia
+  if(fm){
+    filtAlumnos = filtAlumnos.filter(function(a){
+      return allProgreso.some(function(p){ return p.alumno_codigo===a.codigo && p.materia===fm; });
+    });
+  }
+
+  if(!filtAlumnos.length){
+    h += '<div class="empty-state">No hay alumnos que coincidan con los filtros</div>';
+    document.getElementById("tabContent").innerHTML = h;
+    return;
+  }
+
+  // Mostrar chip de filtro activo
+  if(fm){
+    h += '<div style="margin-bottom:14px;display:flex;align-items:center;gap:8px">';
+    h += '<span style="font-size:12px;color:#64748B">Mostrando:</span>';
+    h += '<span style="background:#6366F120;color:#A78BFA;border:1px solid #6366F140;padding:4px 12px;border-radius:8px;font-size:12px;font-weight:700">📚 '+fm+'</span>';
+    h += '</div>';
+  }
+
+  filtAlumnos.forEach(function(a){
+    var progAlumno = allProgreso.filter(function(p){ return p.alumno_codigo===a.codigo; });
+    // Si hay filtro de materia, mostrar solo esa materia
+    var materias = fm ? [fm] : [...new Set(progAlumno.map(function(p){return p.materia}))];
+
+    h += '<div class="alumno-card">';
+    h += '<div class="alumno-header"><div>';
+    h += '<div class="alumno-name">'+a.nombre+'</div>';
+    h += '<div class="alumno-meta">'+a.curso;
+    if(!fm) h += ' · '+progAlumno.length+' actividades totales';
+    h += '</div></div></div>';
+
+    if(!progAlumno.length){
+      h += '<p style="font-size:13px;color:#64748B">Aún no completó actividades</p>';
+      h += '</div>'; return;
+    }
+
+    h += '<div class="progress-bars">';
+    var tieneDatos = false;
+    materias.forEach(function(m){
+      var progMateria = progAlumno.filter(function(p){return p.materia===m;});
+      if(!progMateria.length) return;
+      tieneDatos = true;
+      // Etiqueta de materia si hay más de una (o si no hay filtro)
+      if(!fm && materias.length > 1){
+        h += '<div style="font-size:11px;font-weight:700;color:#6366F1;text-transform:uppercase;letter-spacing:.6px;margin:8px 0 4px">'+m+'</div>';
+      }
+      var unidades = [...new Set(progMateria.map(function(p){return p.unidad}))].sort();
+      unidades.forEach(function(u){
+        var secs = progMateria.filter(function(p){return p.unidad===u;}).map(function(p){return p.seccion;});
+        var pct = Math.round(secs.length / SECCIONES.length * 100);
+        var barColor = pct >= 70 ? '#10B981' : pct >= 40 ? '#F59E0B' : '#6366F1';
+        h += '<div class="prog-row">';
+        h += '<div class="prog-label" style="width:100px;font-size:12px">'+(fm ? '' : '')+u.toUpperCase()+'</div>';
+        h += '<div class="prog-bar"><div class="prog-fill" style="width:'+pct+'%;background:'+barColor+'"></div></div>';
+        h += '<div class="prog-val" style="color:'+barColor+';font-weight:700">'+pct+'%</div>';
+        h += '</div>';
+      });
+    });
+    if(!tieneDatos) h += '<p style="font-size:13px;color:#64748B">Sin actividad en esta materia aún</p>';
+    h += '</div></div>';
+  });
+
+  document.getElementById("tabContent").innerHTML = h;
+}
+
+// ----- TAB 2: AUTOTESTS -----
+function renderAutotests(){
+  var fc = (document.getElementById("filterCursoA")||{value:""}).value;
+  var fm = (document.getElementById("filterMateriaA")||{value:""}).value;
+
+  var h = '<div class="search-row">';
+
+  // Filtro curso
+  h += '<select class="filter-select" id="filterCursoA" onchange="renderAutotests()">';
+  h += '<option value="">Todos los cursos</option>';
+  var cursos = [...new Set(allAlumnos.map(function(a){return a.curso}))].sort();
+  cursos.forEach(function(c){ h += '<option'+(fc===c?' selected':'')+'>'+c+'</option>'; });
+  h += '</select>';
+
+  // Filtro materia
+  var notas = allProgreso.filter(function(p){return p.nota !== null && p.nota !== undefined;});
+  var todasMaterias = [...new Set(notas.map(function(p){return p.materia}))].sort();
+  h += '<select class="filter-select" id="filterMateriaA" onchange="renderAutotests()">';
+  h += '<option value="">Todas las materias</option>';
+  todasMaterias.forEach(function(m){ h += '<option'+(fm===m?' selected':'')+'>'+m+'</option>'; });
+  h += '</select>';
+
+  h += '</div>';
+
+  // Aplicar filtros
+  var filtradas = notas.filter(function(p){
+    var alumno = allAlumnos.find(function(a){return a.codigo===p.alumno_codigo;}) || {};
+    var matchCurso = !fc || alumno.curso === fc;
+    var matchMateria = !fm || p.materia === fm;
+    return matchCurso && matchMateria;
+  });
+
+  // Chips de filtros activos
+  if(fc || fm){
+    h += '<div style="margin-bottom:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap">';
+    h += '<span style="font-size:12px;color:#64748B">Filtrando por:</span>';
+    if(fc) h += '<span style="background:#6366F120;color:#A78BFA;border:1px solid #6366F140;padding:4px 12px;border-radius:8px;font-size:12px;font-weight:700">🏫 '+fc+'</span>';
+    if(fm) h += '<span style="background:#6366F120;color:#A78BFA;border:1px solid #6366F140;padding:4px 12px;border-radius:8px;font-size:12px;font-weight:700">📚 '+fm+'</span>';
+    h += '<span style="font-size:12px;color:#64748B">· '+filtradas.length+' resultado(s)</span>';
+    h += '</div>';
+  }
+
+  h += '<div class="table-wrap"><table>';
+  h += '<thead><tr><th>Alumno</th><th>Curso</th><th>Materia</th><th>Unidad</th><th>Nota</th><th>Fecha</th></tr></thead><tbody>';
+
+  if(!filtradas.length){
+    h += '<tr><td colspan="6" style="text-align:center;color:#64748B;padding:30px">No hay autotests que coincidan con los filtros</td></tr>';
+  }
+
+  filtradas.forEach(function(p){
+    var alumno = allAlumnos.find(function(a){return a.codigo===p.alumno_codigo;}) || {nombre:"—",curso:"—"};
+    var color = p.nota >= 70 ? "#10B981" : p.nota >= 50 ? "#F59E0B" : "#EF4444";
+    var fecha = new Date(p.fecha).toLocaleDateString("es-AR",{day:"2-digit",month:"2-digit",year:"2-digit"});
+    h += '<tr>';
+    h += '<td><strong>'+alumno.nombre+'</strong></td>';
+    h += '<td><span class="badge badge-blue">'+alumno.curso+'</span></td>';
+    h += '<td>'+p.materia+'</td>';
+    h += '<td>'+p.unidad.toUpperCase()+'</td>';
+    h += '<td><span style="background:'+color+'20;color:'+color+';padding:4px 12px;border-radius:8px;font-size:13px;font-weight:800">'+p.nota+'%</span></td>';
+    h += '<td style="font-size:12px;color:#64748B">'+fecha+'</td>';
+    h += '</tr>';
+  });
+
+  h += '</tbody></table></div>';
+  document.getElementById("tabContent").innerHTML = h;
+}
+
+// ----- TAB 3: GESTIONAR -----
+function renderGestionar(){
+  var h = '<div class="add-form"><h3>➕ Agregar alumno</h3>';
+  h += '<div class="form-row">';
+  h += '<div class="form-group"><label>Nombre</label><input class="form-input" id="newNombre" placeholder="Ej: Lucía Martínez"></div>';
+  h += '<div class="form-group"><label>Curso</label><input class="form-input" id="newCurso" placeholder="Ej: 4to A"></div>';
+  h += '<div class="form-group"><label>Clave (ciudad)</label><input class="form-input" id="newCodigo" placeholder="Ej: tokyo"></div>';
+  h += '<button class="add-btn" onclick="agregarAlumno()">Agregar</button>';
+  h += '</div><p id="addMsg" style="font-size:12px;color:#34D399;margin-top:10px;display:none">✓ Alumno agregado</p></div>';
+
+  h += '<div class="table-wrap"><table>';
+  h += '<thead><tr><th>Nombre</th><th>Curso</th><th>Clave</th><th>Registrado</th><th></th></tr></thead><tbody>';
+  if(!allAlumnos.length){ h += '<tr><td colspan="5" style="text-align:center;color:#64748B;padding:24px">No hay alumnos cargados aún</td></tr>'; }
+  allAlumnos.forEach(function(a){
+    var fecha = new Date(a.created_at).toLocaleDateString("es-AR",{day:"2-digit",month:"2-digit",year:"2-digit"});
+    h += '<tr>';
+    h += '<td><strong>'+a.nombre+'</strong></td>';
+    h += '<td>'+a.curso+'</td>';
+    h += '<td><code style="background:#0F172A;padding:3px 8px;border-radius:6px;font-size:12px;color:#A78BFA">'+a.codigo+'</code></td>';
+    h += '<td style="font-size:12px;color:#64748B">'+fecha+'</td>';
+    h += '<td><button class="del-btn" onclick="eliminarAlumno(\''+a.codigo+'\',\''+a.nombre+'\')" title="Eliminar">🗑</button></td>';
+    h += '</tr>';
+  });
+  h += '</tbody></table></div>';
+  document.getElementById("tabContent").innerHTML = h;
+}
+
+async function agregarAlumno(){
+  var nombre = document.getElementById("newNombre").value.trim();
+  var curso = document.getElementById("newCurso").value.trim();
+  var codigo = document.getElementById("newCodigo").value.trim().toLowerCase().replace(/\s/g,"");
+  if(!nombre||!curso||!codigo){ alert("Completá todos los campos"); return; }
+  if(allAlumnos.find(function(a){return a.codigo===codigo})){ alert("Esa clave ya existe"); return; }
+  await sbInsert("alumnos", {nombre:nombre, curso:curso, codigo:codigo});
+  document.getElementById("newNombre").value="";
+  document.getElementById("newCurso").value="";
+  document.getElementById("newCodigo").value="";
+  var msg = document.getElementById("addMsg");
+  if(msg){ msg.style.display="block"; setTimeout(function(){msg.style.display="none"},2000); }
+  await loadAllData();
+}
+
+async function eliminarAlumno(codigo, nombre){
+  if(!confirm("¿Eliminar a "+nombre+"? Se borrará todo su progreso.")){return;}
+  await sbDelete("sesiones","alumno_codigo=eq."+codigo);
+  await sbDelete("progreso","alumno_codigo=eq."+codigo);
+  await sbDelete("alumnos","codigo=eq."+codigo);
+  await loadAllData();
+}
+</script>
+</body>
+</html>
