@@ -160,7 +160,7 @@ var SUPABASE_URL = "https://ygafevogfxwupmgwksto.supabase.co";
 var SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlnYWZldm9nZnh3dXBtZ3drc3RvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MDA5NDMsImV4cCI6MjA4ODI3Njk0M30.5LoSWrwtFCR4qoQnmNY6UZB1SuiVpx-G9N1AG6cOev8";
 // ============================================================
 
-var CLAVE_DOCENTE = "1126"; // ← cambiá esto por tu clave
+var CLAVE_DOCENTE = "1126";
 
 var allAlumnos = [];
 var allProgreso = [];
@@ -302,6 +302,11 @@ function renderAlumnos(){
 
 // ----- TAB 1: PROGRESO -----
 var SECCIONES = ["umbral","mapa","nucleo","senales","sabias","cruces","relectura","emocional","autotest","cierre"];
+var SECCIONES_LABELS = {
+  "umbral":"🚪 Umbral","mapa":"🗺️ Mapa","nucleo":"⚛️ Núcleo","senales":"🚦 Señales",
+  "sabias":"✨ Sabías","cruces":"🔀 Cruces","relectura":"📖 Relectura",
+  "emocional":"🫶 Emocional","autotest":"📝 Autotest","cierre":"🔚 Cierre"
+};
 function renderProgreso(){
   // Obtener valores actuales de los filtros
   var fc = (document.getElementById("filterCursoP")||{value:""}).value;
@@ -382,10 +387,22 @@ function renderProgreso(){
         var secs = progMateria.filter(function(p){return p.unidad===u;}).map(function(p){return p.seccion;});
         var pct = Math.round(secs.length / SECCIONES.length * 100);
         var barColor = pct >= 70 ? '#10B981' : pct >= 40 ? '#F59E0B' : '#6366F1';
+        h += '<div style="margin-bottom:12px">';
         h += '<div class="prog-row">';
-        h += '<div class="prog-label" style="width:100px;font-size:12px">'+(fm ? '' : '')+u.toUpperCase()+'</div>';
+        h += '<div class="prog-label" style="width:100px;font-size:12px">'+u.toUpperCase()+'</div>';
         h += '<div class="prog-bar"><div class="prog-fill" style="width:'+pct+'%;background:'+barColor+'"></div></div>';
-        h += '<div class="prog-val" style="color:'+barColor+';font-weight:700">'+pct+'%</div>';
+        h += '<div class="prog-val" style="color:'+barColor+';font-weight:700">'+secs.length+'/10</div>';
+        h += '</div>';
+        h += '<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;padding-left:4px">';
+        SECCIONES.forEach(function(sec){
+          var done = secs.indexOf(sec) >= 0;
+          h += '<span style="font-size:11px;padding:3px 8px;border-radius:6px;font-weight:600;';
+          h += done
+            ? 'background:#10B98120;color:#34D399;border:1px solid #10B98140'
+            : 'background:#0F172A;color:#475569;border:1px solid #1E293B';
+          h += '">'+(done?'✅':'⬜')+' '+(SECCIONES_LABELS[sec]||sec)+'</span>';
+        });
+        h += '</div>';
         h += '</div>';
       });
     });
