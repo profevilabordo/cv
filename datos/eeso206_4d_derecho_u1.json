@@ -1308,79 +1308,53 @@
   },
 
   "cruces": {
-    "puentes": [
-      {
-        "emoji": "📚",
-        "materia": "Historia",
-        "color": "#F59E0B",
-        "conexion": "La evolución del Derecho está directamente ligada a la evolución de las sociedades humanas, desde las primeras civilizaciones hasta los Estados modernos.",
-        "pregunta": "¿Cómo influyó la Revolución Francesa en la concepción moderna de los derechos?",
-        "vinculo": "Revoluciones y cambios sociales"
-      },
-      {
-        "emoji": "🗣️",
-        "materia": "Filosofía",
-        "color": "#8B5CF6",
-        "conexion": "Los principios del Derecho (justicia, igualdad, buena fe) son conceptos filosóficos que han sido debatidos por pensadores durante siglos.",
-        "pregunta": "¿Qué relación hay entre ética filosófica y normas jurídicas?",
-        "vinculo": "Ética y moral"
-      },
-      {
-        "emoji": "👥",
-        "materia": "Sociología",
-        "color": "#10B981",
-        "conexion": "El Derecho es producto de la sociedad y refleja sus valores, costumbres y necesidades de organización social.",
-        "pregunta": "¿Cómo influyen los cambios sociales en la evolución de las leyes?",
-        "vinculo": "Estructura y cambio social"
-      },
-      {
-        "emoji": "🏛️",
-        "materia": "Política y Ciudadanía",
-        "color": "#EF4444",
-        "conexion": "El Derecho Constitucional organiza el poder político del Estado y establece los derechos y deberes de los ciudadanos.",
-        "pregunta": "¿Cómo se relaciona la división de poderes con el sistema jurídico?",
-        "vinculo": "Organización del Estado y derechos"
-      }
-    ],
-    "telarana": [
-      {
-        "emoji": "📚",
-        "target": "Historia",
-        "color": "#F59E0B",
-        "desc": "Evolución de los sistemas jurídicos a través del tiempo"
-      },
-      {
-        "emoji": "🌍",
-        "target": "Geografía",
-        "color": "#14B8A6",
-        "desc": "Sistemas legales varían según países y culturas"
-      },
-      {
-        "emoji": "💭",
-        "target": "Filosofía",
-        "color": "#8B5CF6",
-        "desc": "Fundamentos éticos y morales del Derecho"
-      },
-      {
-        "emoji": "📊",
-        "target": "Economía",
-        "color": "#3B82F6",
-        "desc": "Derecho comercial y regulación económica"
-      },
-      {
-        "emoji": "👥",
-        "target": "Sociología",
-        "color": "#10B981",
-        "desc": "Normas sociales y su conversión en leyes"
-      },
-      {
-        "emoji": "🗣️",
-        "target": "Lengua",
-        "color": "#EC4899",
-        "desc": "Interpretación literal y semántica de las leyes"
-      }
-    ]
-  },
+  "consigna_general": "Elegí un tema de cada bloque que te haya interesado y preparalo para explicárselo a un compañero. Podés usar esquemas, dibujos, ejemplos... ¡lo que quieras!",
+  
+  "bloques": [
+    {
+      "id": "a",
+      "emoji": "👥",
+      "titulo": "BLOQUE A: El hombre gregario y el Derecho",
+      "color": "#6366F1",
+      "temas_sugeridos": [
+        "El ser humano como ser gregario",
+        "Evolución social: de nómades a Estados",
+        "Derecho Natural vs. Derecho Positivo",
+        "Diferencia entre normas jurídicas y morales",
+        "Coerción: la fuerza del Derecho"
+      ],
+      "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+    },
+    {
+      "id": "b",
+      "emoji": "📚",
+      "titulo": "BLOQUE B: Objeto y fuentes del Derecho",
+      "color": "#3B82F6",
+      "temas_sugeridos": [
+        "Para qué sirve el Derecho",
+        "La ley como fuente principal",
+        "Las 4 fuentes del Derecho",
+        "Características de la ley",
+        "Principios del Derecho (igualdad, justicia, etc.)"
+      ],
+      "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+    },
+    {
+      "id": "c",
+      "emoji": "⚖️",
+      "titulo": "BLOQUE C: Ramas del Derecho",
+      "color": "#10B981",
+      "temas_sugeridos": [
+        "Derecho Público vs. Derecho Privado",
+        "Las ramas del Derecho Público",
+        "Las ramas del Derecho Privado",
+        "Formas de interpretar la ley",
+        "El Código Civil y Comercial"
+      ],
+      "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+    }
+  ]
+},
 
   "relectura": {
     "tribunal": {
@@ -1579,3 +1553,4 @@
     ]
   }
 }
+
