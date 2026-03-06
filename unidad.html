@@ -94,7 +94,13 @@ function loadData(){
       if(!r.ok) throw new Error("No se encontr\u00f3 " + archivo);
       return r.json(); 
     })
-    .then(function(data){ D = data; render(); actualizarBarra(); })
+    .then(function(data){ 
+      D = data; 
+      render(); 
+      actualizarBarra(); 
+      // Sincronizar progreso desde Supabase
+      sincronizarProgresoDesdeSupabase();
+    })
     .catch(function(e){
       document.getElementById("app").innerHTML = '<div style="text-align:center;padding:40px">'
         +'<p style="font-size:48px;margin-bottom:16px">\u26a0\ufe0f</p>'
@@ -1230,6 +1236,52 @@ async function trackProgreso(seccion, nota){
       body: JSON.stringify(payload)
     });
   } catch(e){ console.warn("No se pudo guardar en Supabase, queda en localStorage"); }
+}
+
+// ----- SINCRONIZAR PROGRESO DESDE SUPABASE -----
+// Lee el progreso guardado en Supabase y lo copia a localStorage
+async function sincronizarProgresoDesdeSupabase(){
+  if(!SUPABASE_ACTIVO || !D) return;
+  
+  var codigo = localStorage.getItem("campus_alumno_codigo");
+  if(!codigo) return;
+
+  try {
+    var url = SUPABASE_URL + "/rest/v1/progreso?alumno_codigo=eq." + codigo + 
+              "&materia=eq." + encodeURIComponent(D.materia) + 
+              "&unidad=eq.u" + D.unidad + 
+              "&select=*";
+    
+    var response = await fetch(url, {
+      headers: {
+        "apikey": SUPABASE_KEY,
+        "Authorization": "Bearer " + SUPABASE_KEY
+      }
+    });
+
+    var registros = await response.json();
+    
+    // Copiar cada registro de Supabase a localStorage
+    registros.forEach(function(reg){
+      if(reg.completada){
+        var lsKey = "campus_prog_" + D.id + "_" + reg.seccion;
+        localStorage.setItem(lsKey, JSON.stringify({
+          fecha: reg.created_at || new Date().toISOString(),
+          nota: reg.nota || null
+        }));
+        
+        // También marcar en el sistema de checklist
+        var checkKey = "campus_check_" + D.id + "_" + reg.seccion;
+        localStorage.setItem(checkKey, "1");
+      }
+    });
+    
+    // Actualizar la barra de progreso después de sincronizar
+    actualizarBarra();
+    
+  } catch(e){ 
+    console.warn("No se pudo sincronizar desde Supabase:", e); 
+  }
 }
 
 // ----- MOSTRAR PROGRESO DEL ALUMNO -----
