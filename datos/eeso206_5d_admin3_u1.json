@@ -1,0 +1,574 @@
+{
+  "materia": "Administración III",
+  "unidad": 1,
+  "titulo": "La Administración en las Organizaciones",
+  "emoji": "💼",
+  "color_primario": "#8B5CF6",
+  "color_secundario": "#A78BFA",
+  
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "👥",
+        "texto": "¿Por qué creés que las empresas más exitosas invierten tanto en su gente y no solo en tecnología o maquinarias?",
+        "pista": "Pensá en lo que hace única a una empresa: podés copiar un producto, pero ¿podés copiar un equipo motivado y capacitado?"
+      },
+      {
+        "emoji": "🎯",
+        "texto": "Si tuvieras que elegir entre dos trabajos con el mismo sueldo, ¿qué te haría quedarte en uno u otro?",
+        "pista": "No siempre es el dinero lo que retiene talento. Hay algo más que hace que la gente se quede o se vaya..."
+      },
+      {
+        "emoji": "🚀",
+        "texto": "¿Creés que un administrador solo 'da órdenes' o hace algo más complejo?",
+        "pista": "Planificar, organizar, dirigir y controlar son solo el principio. El verdadero desafío es gestionar personas."
+      }
+    ],
+    "situaciones_conecta": [
+      {"emoji": "💡", "label": "Vi cómo alguien motivado trabajaba mejor que tres desmotivados juntos"},
+      {"emoji": "📊", "label": "Noté que las empresas con buen clima laboral funcionan mejor"},
+      {"emoji": "🤝", "label": "Viví una situación donde el reconocimiento cambió mi actitud"},
+      {"emoji": "⚙️", "label": "Me di cuenta de que organizar bien el trabajo ahorra tiempo y esfuerzo"}
+    ],
+    "termometro_pregunta": "¿Cuánto sabés sobre cómo se administra realmente el capital humano en una organización?"
+  },
+  
+  "mapa": {
+    "ruta_paradas": [
+      {"id": 1, "title": "El Capital Humano", "desc": "Por qué las personas son el activo más valioso", "emoji": "👥", "color": "#8B5CF6"},
+      {"id": 2, "title": "Selección y Reclutamiento", "desc": "Cómo atraer y elegir el talento adecuado", "emoji": "🔍", "color": "#A78BFA"},
+      {"id": 3, "title": "Capacitación y Desarrollo", "desc": "Invertir en el crecimiento del equipo", "emoji": "📚", "color": "#C4B5FD"},
+      {"id": 4, "title": "Evaluación y Motivación", "desc": "Medir desempeño y mantener el compromiso", "emoji": "⭐", "color": "#DDD6FE"},
+      {"id": 5, "title": "El Rol del Administrador", "desc": "Planificar, organizar, dirigir y controlar", "emoji": "👨‍💼", "color": "#EDE9FE"}
+    ],
+    "panoramica_bloques": [
+      {
+        "title": "Bloque A",
+        "subtitle": "Capital Humano como Ventaja",
+        "items": ["¿Qué es el capital humano?", "Factores clave para el éxito", "Impacto en la organización", "Selección y reclutamiento interno/externo"],
+        "emoji": "💎",
+        "color": "#8B5CF6"
+      },
+      {
+        "title": "Bloque B",
+        "subtitle": "Desarrollo y Evaluación",
+        "items": ["Capacitación técnica y habilidades blandas", "Crecimiento profesional y planes de carrera", "Evaluación 360° y KPIs", "Planes de desarrollo individual (PDI)"],
+        "emoji": "📈",
+        "color": "#A78BFA"
+      },
+      {
+        "title": "Bloque C",
+        "subtitle": "Administración Efectiva",
+        "items": ["Planificación estratégica", "Organización del trabajo", "Dirección de equipos y motivación", "Control de rendimiento y feedback"],
+        "emoji": "⚙️",
+        "color": "#C4B5FD"
+      }
+    ],
+    "mapa_mental": {
+      "centro": {"title": "Gestión del Capital Humano", "emoji": "💼"},
+      "ramas": [
+        {
+          "id": 1,
+          "title": "¿Qué es?",
+          "items": [
+            "Conjunto de conocimientos, habilidades y experiencias",
+            "Activo más valioso de la empresa",
+            "Difícil de replicar, ventaja competitiva",
+            "Requiere inversión en capacitación"
+          ],
+          "color": "#8B5CF6",
+          "emoji": "💡"
+        },
+        {
+          "id": 2,
+          "title": "¿Cómo se atrae?",
+          "items": [
+            "Reclutamiento interno (promociones)",
+            "Reclutamiento externo (nuevas perspectivas)",
+            "Métodos de selección (entrevistas, pruebas)",
+            "Evaluación por competencias"
+          ],
+          "color": "#A78BFA",
+          "emoji": "🔍"
+        },
+        {
+          "id": 3,
+          "title": "¿Cómo se desarrolla?",
+          "items": [
+            "Capacitación técnica y habilidades blandas",
+            "Planes de carrera y promoción interna",
+            "Evaluación de desempeño periódica",
+            "Metas SMART y PDI"
+          ],
+          "color": "#C4B5FD",
+          "emoji": "🎯"
+        },
+        {
+          "id": 4,
+          "title": "¿Cómo se retiene?",
+          "items": [
+            "Reconocimiento y sistemas de incentivos",
+            "Programas de bienestar laboral",
+            "Clima organizacional positivo",
+            "Cultura de innovación y colaboración"
+          ],
+          "color": "#DDD6FE",
+          "emoji": "🤝"
+        }
+      ]
+    }
+  },
+  
+  "nucleo": {
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená cronológicamente las etapas del ciclo de gestión del capital humano",
+      "paginas_referencia": "3-8",
+      "items": [
+        {"id": 0, "text": "Reclutamiento y selección del talento", "emoji": "🔍"},
+        {"id": 1, "text": "Capacitación y desarrollo de habilidades", "emoji": "📚"},
+        {"id": 2, "text": "Evaluación del desempeño", "emoji": "📊"},
+        {"id": 3, "text": "Reconocimiento y retención del talento", "emoji": "🏆"},
+        {"id": 4, "text": "Planes de desarrollo individual y mejora continua", "emoji": "🎯"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+    
+    "n2_clasificador": {
+      "consigna": "Clasificá cada elemento según corresponda",
+      "paginas_referencia": "4-5",
+      "categorias": [
+        {"name": "Reclutamiento Interno", "emoji": "🏢", "color": "#8B5CF6"},
+        {"name": "Reclutamiento Externo", "emoji": "🌐", "color": "#EC4899"}
+      ],
+      "items": [
+        {"id": 0, "text": "Reduce costos de contratación", "categoria_correcta": 0},
+        {"id": 1, "text": "Incorpora nuevas perspectivas", "categoria_correcta": 1},
+        {"id": 2, "text": "Menor tiempo de adaptación", "categoria_correcta": 0},
+        {"id": 3, "text": "Fomenta la diversidad", "categoria_correcta": 1},
+        {"id": 4, "text": "Motiva al personal existente", "categoria_correcta": 0},
+        {"id": 5, "text": "Aporta habilidades frescas", "categoria_correcta": 1}
+      ]
+    },
+    
+    "n3_completar_mapa": {
+      "consigna": "Completá las oraciones con la palabra correcta",
+      "paginas_referencia": "3, 6, 12",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "El capital humano es el conjunto de conocimientos, habilidades y _____ que poseen los empleados",
+          "respuesta_correcta": "experiencias",
+          "pista": "E___________"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "La Evaluación _____ permite obtener feedback desde múltiples perspectivas: superiores, pares y subordinados",
+          "respuesta_correcta": "360",
+          "pista": "3__"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "Los _____ son indicadores clave de rendimiento esenciales para medir la efectividad del personal",
+          "respuesta_correcta": "KPIs",
+          "pista": "K___"
+        }
+      ]
+    },
+    
+    "n4_verdadero_falso": {
+      "consigna": "Evaluá si cada afirmación es verdadera o falsa",
+      "paginas_referencia": "3-8",
+      "afirmaciones": [
+        {
+          "id": 0,
+          "texto": "El capital humano es fácil de replicar por la competencia",
+          "correcto": false,
+          "explicacion": "Falso. El capital humano es etéreo y difícil de replicar. A diferencia de la tecnología o maquinarias que se pueden copiar, el conocimiento, experiencia y cultura de un equipo son únicos y constituyen una verdadera ventaja competitiva."
+        },
+        {
+          "id": 1,
+          "texto": "El reclutamiento interno tiene como ventaja principal la incorporación de nuevas perspectivas",
+          "correcto": false,
+          "explicacion": "Falso. Esa es la ventaja del reclutamiento EXTERNO. El reclutamiento interno tiene otras ventajas: reduce costos, menor tiempo de adaptación (ya conocen la cultura) y motiva al personal existente al ver oportunidades de ascenso."
+        },
+        {
+          "id": 2,
+          "texto": "Las metas SMART deben ser Específicas, Medibles, Alcanzables, Relevantes y con Plazo Definido",
+          "correcto": true,
+          "explicacion": "Verdadero. SMART es un acrónimo que asegura que las metas sean claras y efectivas: Específicas (concretas), Medibles (cuantificables), Alcanzables (realistas), Relevantes (importantes) y con Plazo Definido (tiempo límite)."
+        }
+      ]
+    },
+    
+    "n5_relacionar_columnas": {
+      "consigna": "Conectá cada concepto con su definición",
+      "paginas_referencia": "5-7",
+      "pares": [
+        {
+          "izquierda": "Capacitación Técnica",
+          "derecha": "Manejo de herramientas, software y procesos específicos del puesto",
+          "emoji": "💻"
+        },
+        {
+          "izquierda": "Habilidades Blandas",
+          "derecha": "Comunicación, liderazgo, trabajo en equipo y resolución de conflictos",
+          "emoji": "🤝"
+        },
+        {
+          "izquierda": "PDI",
+          "derecha": "Plan de Desarrollo Individual basado en evaluación de desempeño",
+          "emoji": "📋"
+        },
+        {
+          "izquierda": "Evaluación 360°",
+          "derecha": "Feedback desde superiores, pares, subordinados y autoevaluación",
+          "emoji": "🔄"
+        }
+      ]
+    },
+    
+    "n6_palabra_intrusa": {
+      "consigna": "Encontrá la palabra intrusa en cada grupo",
+      "paginas_referencia": "3-12",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🎯",
+          "pregunta": "¿Cuál NO es un factor clave del capital humano?",
+          "paginas": "3",
+          "palabras": [
+            {"text": "Formación y desarrollo", "es_intrusa": false},
+            {"text": "Motivación y compromiso", "es_intrusa": false},
+            {"text": "Salario elevado", "es_intrusa": true},
+            {"text": "Capacidad de innovación", "es_intrusa": false}
+          ],
+          "explicacion": "El salario elevado NO es un factor clave del capital humano como activo estratégico. Los factores clave son: formación y desarrollo (adaptación a cambios), motivación y compromiso (mayor productividad), capacidad de innovación (nuevas ideas) y cultura organizacional (colaboración)."
+        },
+        {
+          "id": 1,
+          "emoji": "📊",
+          "pregunta": "¿Cuál NO es una función del administrador?",
+          "paginas": "10-11",
+          "palabras": [
+            {"text": "Planificación", "es_intrusa": false},
+            {"text": "Organización", "es_intrusa": false},
+            {"text": "Producción", "es_intrusa": true},
+            {"text": "Control", "es_intrusa": false}
+          ],
+          "explicacion": "Producción NO es una de las cuatro funciones clásicas del administrador. Las funciones son: Planificación (definir objetivos), Organización (estructurar el trabajo), Dirección (coordinar y motivar equipos) y Control (evaluar desempeño y corregir desvíos)."
+        }
+      ]
+    },
+    
+    "n7_defini_con_tus_palabras": {
+      "consigna": "Definí cada concepto con tus propias palabras",
+      "paginas_referencia": "3, 6, 7",
+      "conceptos": [
+        {
+          "termino": "Capital Humano",
+          "pista": "Pensá en: conocimientos + habilidades + experiencias + valor",
+          "palabras_clave": ["conocimientos", "habilidades", "experiencias", "competencias", "empleados", "valor", "incalculable"]
+        },
+        {
+          "termino": "Evaluación 360°",
+          "pista": "Pensá en: múltiples + perspectivas + feedback + completo",
+          "palabras_clave": ["perspectivas", "superiores", "pares", "subordinados", "autoevaluación", "múltiples", "feedback"]
+        },
+        {
+          "termino": "Cultura Organizacional",
+          "pista": "Pensá en: valores + normas + comportamientos + identidad",
+          "palabras_clave": ["valores", "normas", "creencias", "comportamientos", "identidad", "empresa", "compartidos"]
+        }
+      ]
+    },
+    
+    "n8_causa_efecto": {
+      "consigna": "Conectá cada causa con su efecto",
+      "paginas_referencia": "3-9",
+      "causas": [
+        {"id": 0, "emoji": "📚", "text": "Inversión en capacitación del personal"},
+        {"id": 1, "emoji": "🏆", "text": "Sistema de reconocimiento bien diseñado"},
+        {"id": 2, "emoji": "❌", "text": "Alta rotación de personal"},
+        {"id": 3, "emoji": "🔄", "text": "Feedback continuo y reuniones periódicas"}
+      ],
+      "efectos": [
+        {"id": 0, "emoji": "⚡", "text": "Mayor eficiencia y adaptación rápida a cambios", "causa_id": 0},
+        {"id": 1, "emoji": "💪", "text": "Reduce rotación y fortalece compromiso organizacional", "causa_id": 1},
+        {"id": 2, "emoji": "💰", "text": "Aumento de costos y pérdida de conocimiento", "causa_id": 2},
+        {"id": 3, "emoji": "🎯", "text": "Empleados orientados y comprometidos con su crecimiento", "causa_id": 3}
+      ]
+    },
+    
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená las etapas del ciclo de mejora continua en RRHH",
+      "paginas_referencia": "5-6",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "emoji": "📊", "text": "Evaluar el desempeño del personal"},
+        {"id": 1, "emoji": "🔍", "text": "Detectar necesidades específicas y brechas de competencias"},
+        {"id": 2, "emoji": "📚", "text": "Capacitar al personal en las áreas identificadas"},
+        {"id": 3, "emoji": "🔄", "text": "Volver a evaluar para medir el progreso"},
+        {"id": 4, "emoji": "🎯", "text": "Ajustar planes de desarrollo individual (PDI)"}
+      ]
+    },
+    
+    "n10_comparador": {
+      "consigna": "Compará ambos conceptos identificando similitudes y diferencias",
+      "paginas_referencia": "7",
+      "concepto_a": {
+        "nombre": "Incentivos Monetarios",
+        "emoji": "💰",
+        "color": "#10B981"
+      },
+      "concepto_b": {
+        "nombre": "Incentivos No Monetarios",
+        "emoji": "🏆",
+        "color": "#8B5CF6"
+      }
+    }
+  },
+  
+  "senales": {
+    "conceptos_clave": [
+      {
+        "termino": "Capital Humano",
+        "definicion": "Conjunto de conocimientos, habilidades, experiencias y competencias que poseen los empleados, añadiendo un valor incalculable a la organización. Es etéreo, difícil de replicar y factor determinante para la competitividad.",
+        "importancia": "Sin capital humano de calidad, una empresa no puede innovar, adaptarse ni competir. Es el tesoro más valioso porque, a diferencia de las máquinas, las personas piensan, crean y mejoran constantemente.",
+        "emoji": "💎",
+        "color": "#8B5CF6"
+      },
+      {
+        "termino": "Evaluación 360°",
+        "definicion": "Metodología que permite obtener una visión completa del desempeño evaluando desde múltiples perspectivas: superiores, pares, subordinados y autoevaluación. Reduce sesgos y aumenta la objetividad.",
+        "importancia": "Sin evaluación 360°, solo tenés una visión parcial del desempeño. Esta herramienta identifica con precisión fortalezas y áreas de mejora desde distintos ángulos, ofreciendo un panorama holístico indispensable para el desarrollo.",
+        "emoji": "🔄",
+        "color": "#A78BFA"
+      },
+      {
+        "termino": "Cultura Organizacional",
+        "definicion": "Conjunto de valores, normas, creencias y comportamientos compartidos que definen la identidad de una empresa. No se impone, se construye día a día a través de las acciones de sus miembros.",
+        "importancia": "La cultura organizacional es el ADN de la empresa. Determina cómo se trabaja, cómo se toman decisiones y cómo se trata a las personas. Sin una cultura sólida, no hay cohesión ni identidad corporativa.",
+        "emoji": "🏢",
+        "color": "#C4B5FD"
+      },
+      {
+        "termino": "Metas SMART",
+        "definicion": "Objetivos que son Específicos, Medibles, Alcanzables, Relevantes y con Plazo Definido. Son clave para guiar el proceso de mejora continua y asegurar un avance constante en el desarrollo profesional.",
+        "importancia": "Sin metas SMART, los objetivos son vagos y difíciles de alcanzar. Esta metodología garantiza claridad, seguimiento efectivo y resultados medibles, esenciales para el crecimiento profesional.",
+        "emoji": "🎯",
+        "color": "#DDD6FE"
+      }
+    ],
+    "semaforo_conceptos": [
+      {"termino": "Capital humano como ventaja competitiva", "emoji": "💎"},
+      {"termino": "Reclutamiento interno vs. externo", "emoji": "🔍"},
+      {"termino": "Evaluación 360° y KPIs", "emoji": "📊"},
+      {"termino": "Cultura organizacional", "emoji": "🏢"},
+      {"termino": "Funciones del administrador (planificar, organizar, dirigir, controlar)", "emoji": "⚙️"}
+    ],
+    "postits_conceptos": [
+      "Capital Humano",
+      "Evaluación 360°",
+      "Cultura Organizacional",
+      "Metas SMART"
+    ]
+  },
+  
+  "sabias": {
+    "flip_cards": [
+      {"frente": "¿Sabías que Google invierte el 20% del tiempo de sus empleados en proyectos propios?", "dorso": "Google permite que sus empleados dediquen el 20% de su tiempo laboral a proyectos personales que les apasionen. Esta política no solo motiva e impulsa la creatividad, sino que ha generado productos exitosos como Gmail y Google News. Es un ejemplo perfecto de cómo la inversión en capital humano y la cultura de innovación generan resultados extraordinarios.", "emoji": "🚀", "color": "#8B5CF6"},
+      {"frente": "El costo de reemplazar a un empleado puede ser hasta 2x su salario anual", "dorso": "Estudios demuestran que reemplazar a un empleado puede costar entre 1.5 y 2 veces su salario anual cuando se consideran todos los factores: reclutamiento, selección, capacitación del nuevo empleado, pérdida de productividad durante la transición y el conocimiento que se va. Por eso retener talento es mucho más rentable que contratar constantemente.", "emoji": "💰", "color": "#A78BFA"},
+      {"frente": "Las empresas con buen clima laboral son 21% más productivas", "dorso": "Investigaciones de Gallup muestran que las organizaciones con empleados comprometidos y un clima laboral positivo son hasta un 21% más productivas y rentables. Además, tienen 41% menos ausentismo y 59% menos rotación de personal. Invertir en bienestar no es un gasto, es una inversión estratégica que se refleja directamente en resultados.", "emoji": "📈", "color": "#C4B5FD"}
+    ],
+    "linea_de_tiempo": [
+      {"year": "1911", "text": "Frederick Taylor publica 'Principios de la Administración Científica'", "emoji": "📚"},
+      {"year": "1943", "text": "Abraham Maslow presenta su pirámide de necesidades", "emoji": "🔺"},
+      {"year": "1959", "text": "Frederick Herzberg desarrolla la Teoría de los Dos Factores (motivación)", "emoji": "💡"},
+      {"year": "1985", "text": "Se populariza el concepto de 'Evaluación 360°' en empresas", "emoji": "🔄"},
+      {"year": "1990s", "text": "El término 'Capital Humano' se consolida en la gestión empresarial", "emoji": "💎"},
+      {"year": "2000s", "text": "Auge de People Analytics y herramientas digitales de RRHH", "emoji": "📊"}
+    ],
+    "encuesta": {
+      "pregunta": "¿Qué dato te sorprendió más?",
+      "opciones": [
+        {"text": "Que Google da 20% del tiempo para proyectos propios", "emoji": "🚀", "votos_iniciales": 45},
+        {"text": "Que reemplazar un empleado cuesta 2x su salario", "emoji": "💰", "votos_iniciales": 38},
+        {"text": "Que buen clima laboral aumenta 21% la productividad", "emoji": "📈", "votos_iniciales": 17}
+      ]
+    }
+  },
+  
+  "cruces": {
+    "puentes": [
+      {"materia": "Psicología", "emoji": "🧠", "color": "#EC4899", "conexion": "Las teorías de motivación (Maslow, Herzberg) son fundamentales en Recursos Humanos. Entender qué mueve a las personas es clave para diseñar sistemas de reconocimiento y mantener equipos comprometidos.", "pregunta": "¿Cómo influyen las necesidades psicológicas de los empleados en su desempeño laboral?", "vinculo": "Psicología organizacional, motivación, necesidades humanas"},
+      {"materia": "Economía", "emoji": "💰", "color": "#10B981", "conexion": "El capital humano es un concepto económico clave. Invertir en capacitación tiene un retorno medible: mayor productividad, menor rotación y mejor rentabilidad. Es una decisión económica estratégica.", "pregunta": "¿Cómo se mide el retorno de inversión (ROI) en capacitación y desarrollo de personal?", "vinculo": "Inversión, productividad, análisis costo-beneficio"},
+      {"materia": "Sociología", "emoji": "👥", "color": "#3B82F6", "conexion": "La cultura organizacional y el clima laboral son fenómenos sociológicos. Las normas, valores y comportamientos compartidos moldean la identidad grupal y la forma de trabajar juntos.", "pregunta": "¿Cómo se construye una cultura organizacional sólida que una a las personas?", "vinculo": "Cultura, normas sociales, identidad grupal"},
+      {"materia": "Comunicación", "emoji": "💬", "color": "#F59E0B", "conexion": "La comunicación efectiva es la herramienta principal del liderazgo. Canales claros, feedback constructivo y escucha activa son fundamentales para dirigir equipos y resolver conflictos.", "pregunta": "¿Qué técnicas de comunicación son más efectivas para dar feedback y motivar equipos?", "vinculo": "Comunicación organizacional, liderazgo, feedback"}
+    ],
+    "telarana": [
+      {"target": "Derecho Laboral", "desc": "Las leyes laborales regulan contratos, licencias, derechos y obligaciones de empleados y empleadores", "emoji": "⚖️", "color": "#DC2626"},
+      {"target": "Tecnología", "desc": "Software de RRHH, People Analytics y automatización optimizan la gestión del talento", "emoji": "💻", "color": "#6366F1"},
+      {"target": "Matemática/Estadística", "desc": "Los KPIs, métricas de desempeño y análisis de datos permiten tomar decisiones basadas en evidencia", "emoji": "📊", "color": "#059669"},
+      {"target": "Filosofía/Ética", "desc": "Los valores organizacionales y la responsabilidad social empresarial tienen base ética", "emoji": "🤔", "color": "#7C3AED"},
+      {"target": "Historia", "desc": "La evolución del pensamiento administrativo (Taylor, Fayol, teorías modernas) explica las prácticas actuales", "emoji": "📜", "color": "#D97706"},
+      {"target": "Pedagogía", "desc": "Las técnicas de capacitación y desarrollo se basan en principios del aprendizaje adulto", "emoji": "🎓", "color": "#DB2777"}
+    ]
+  },
+  
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "Las empresas deberían invertir más en salarios altos que en programas de bienestar, capacitación y reconocimiento",
+      "contexto": "Van a debatir sobre qué retiene más talento: ¿el dinero o el ambiente laboral? Cada grupo defenderá una postura con argumentos del material leído sobre motivación, cultura organizacional e incentivos.",
+      "roles": [
+        {"id": "favor", "label": "A FAVOR", "emoji": "🟢", "color": "#10B981", "desc": "Defienden que el salario es lo más importante. Argumentan que sin dinero suficiente ningún programa de bienestar funciona, que la gente trabaja por necesidad económica y que los salarios competitivos atraen mejor talento."},
+        {"id": "contra", "label": "EN CONTRA", "emoji": "🔴", "color": "#EF4444", "desc": "Sostienen que el dinero solo no retiene talento. Defienden que la motivación intrínseca (reconocimiento, desarrollo, cultura positiva) es más poderosa a largo plazo. Citan teorías de Herzberg y ejemplos de empresas exitosas."},
+        {"id": "juez", "label": "JURADO", "emoji": "👨‍⚖️", "color": "#8B5CF6", "desc": "Escuchan ambas posturas y evalúan cuál presenta mejores argumentos basados en el material sobre capital humano, motivación y casos reales. Formulan preguntas críticas a ambos bandos."}
+      ]
+    },
+    "tesis": {
+      "consigna": "Redactá una tesis sobre: 'El capital humano es el verdadero diferencial competitivo de las empresas modernas'. Usá ejemplos concretos del material leído (factores clave, impacto en la organización, casos de éxito). Tu tesis debe tener: 1) Una posición clara (a favor o en contra), 2) Al menos tres argumentos con ejemplos del PDF, 3) Consideración de la postura contraria, 4) Conclusión que sintetice tu posición."
+    },
+    "critica": {
+      "consigna": "Realizá un análisis crítico del material sobre Cultura Organizacional y Liderazgo Positivo. Identificá: 1) Fortalezas del enfoque presentado (¿qué está bien explicado?), 2) Debilidades o vacíos (¿qué falta? ¿qué queda poco claro? Por ejemplo, ¿cómo se implementa realmente?), 3) Preguntas que te surgen (¿qué te gustaría profundizar?), 4) Tu propuesta: ¿Cómo mejorarías o completarías este tema para que sea más aplicable en la realidad argentina?"
+    }
+  },
+  
+  "emocional": {
+    "mensaje_inicial": "¿Cómo te sentís con lo que aprendiste hasta acá?",
+    "reflexiones": []
+  },
+  
+  "autotest": {
+    "preguntas": [
+      {
+        "pregunta": "¿Qué es el capital humano?",
+        "opciones": [
+          "El dinero que la empresa invierte en salarios",
+          "El conjunto de conocimientos, habilidades y experiencias de los empleados",
+          "El capital social de la empresa",
+          "Los recursos materiales de la organización"
+        ],
+        "correcta": 1,
+        "explicacion": "El capital humano es el conjunto de conocimientos, habilidades, experiencias y competencias que poseen los empleados, añadiendo un valor incalculable a la organización. Es el activo más valioso y difícil de replicar."
+      },
+      {
+        "pregunta": "¿Cuál es la principal ventaja del reclutamiento interno?",
+        "opciones": [
+          "Incorpora nuevas perspectivas y habilidades frescas",
+          "Reduce costos y el tiempo de adaptación es menor",
+          "Aumenta la diversidad del equipo",
+          "Garantiza mayor creatividad"
+        ],
+        "correcta": 1,
+        "explicacion": "El reclutamiento interno reduce costos de contratación y capacitación, el tiempo de adaptación es menor porque ya conocen la cultura y procesos, y motiva al personal existente al ver oportunidades de ascenso."
+      },
+      {
+        "pregunta": "¿Qué significa SMART en la planificación de metas?",
+        "opciones": [
+          "Sistema de Metas Administrativas y Responsables del Trabajo",
+          "Específicas, Medibles, Alcanzables, Relevantes y con Plazo Definido",
+          "Simples, Motivadoras, Ambiciosas, Realistas y Tangibles",
+          "Sistema de Medición Anual de Resultados del Trabajo"
+        ],
+        "correcta": 1,
+        "explicacion": "SMART es un acrónimo en inglés: Specific (Específicas), Measurable (Medibles), Achievable (Alcanzables), Relevant (Relevantes) y Time-bound (con Plazo Definido). Asegura que las metas sean claras y efectivas."
+      },
+      {
+        "pregunta": "¿Qué evalúa la metodología 360°?",
+        "opciones": [
+          "Solo la opinión del jefe directo",
+          "El desempeño desde múltiples perspectivas: superiores, pares, subordinados y autoevaluación",
+          "Únicamente la autoevaluación del empleado",
+          "Solo los resultados numéricos de ventas"
+        ],
+        "correcta": 1,
+        "explicacion": "La Evaluación 360° obtiene feedback desde múltiples perspectivas: superiores jerárquicos, pares, subordinados directos y autoevaluación personal. Esto reduce sesgos, aumenta la objetividad y da un panorama holístico del desempeño."
+      },
+      {
+        "pregunta": "¿Cuál NO es una función administrativa clásica?",
+        "opciones": [
+          "Planificación",
+          "Organización",
+          "Producción",
+          "Control"
+        ],
+        "correcta": 2,
+        "explicacion": "Las cuatro funciones administrativas clásicas son: Planificación (definir objetivos), Organización (estructurar el trabajo), Dirección (coordinar y motivar) y Control (evaluar y corregir). Producción es una función operativa, no administrativa."
+      },
+      {
+        "pregunta": "Según el material, ¿qué tipo de incentivos incluyen bonos y aumentos salariales?",
+        "opciones": [
+          "Incentivos no monetarios",
+          "Incentivos emocionales",
+          "Incentivos monetarios",
+          "Incentivos simbólicos"
+        ],
+        "correcta": 2,
+        "explicacion": "Los incentivos monetarios incluyen bonos por desempeño, aumentos salariales, comisiones por objetivos y participación en ganancias. Los no monetarios incluyen reconocimiento público, días libres, flexibilidad horaria, etc."
+      },
+      {
+        "pregunta": "¿Qué son los KPIs?",
+        "opciones": [
+          "Sistemas de control de personal",
+          "Indicadores clave de rendimiento para medir efectividad",
+          "Programas de capacitación",
+          "Métodos de reclutamiento"
+        ],
+        "correcta": 1,
+        "explicacion": "KPIs (Key Performance Indicators) son indicadores clave de rendimiento esenciales para medir la efectividad del personal. Transforman aspectos cualitativos en métricas tangibles, permitiendo decisiones basadas en datos."
+      },
+      {
+        "pregunta": "¿Qué define la cultura organizacional?",
+        "opciones": [
+          "Solo los valores escritos en la misión de la empresa",
+          "El conjunto de valores, normas, creencias y comportamientos compartidos",
+          "Únicamente las reglas formales de la empresa",
+          "Los productos y servicios que ofrece la organización"
+        ],
+        "correcta": 1,
+        "explicacion": "La cultura organizacional es el conjunto de valores, normas, creencias y comportamientos compartidos que definen la identidad de una empresa. No se impone, se construye día a día a través de las acciones de sus miembros."
+      },
+      {
+        "pregunta": "¿Cuál es un ejemplo de capacitación en habilidades blandas?",
+        "opciones": [
+          "Aprender a usar un nuevo software",
+          "Taller de comunicación efectiva y liderazgo",
+          "Certificación en programación",
+          "Manejo de maquinaria específica"
+        ],
+        "correcta": 1,
+        "explicacion": "Las habilidades blandas incluyen comunicación efectiva, liderazgo, trabajo en equipo y resolución de conflictos. Las técnicas (software, maquinaria, certificaciones) son capacitación técnica."
+      },
+      {
+        "pregunta": "Según el material, ¿qué impacto tiene una buena gestión de RRHH?",
+        "opciones": [
+          "Solo aumenta los gastos de la empresa",
+          "Reduce costos, mejora productividad y fortalece la cultura organizacional",
+          "No tiene impacto medible en la organización",
+          "Solo beneficia a los empleados, no a la empresa"
+        ],
+        "correcta": 1,
+        "explicacion": "Una gestión eficaz de RRHH disminuye la rotación, minimiza conflictos, optimiza la eficiencia operativa, aumenta el compromiso y productividad, fortalece la cultura organizacional y mejora la rentabilidad."
+      }
+    ]
+  },
+  
+  "cierre": {
+    "glosario": [
+      {"termino": "Capital Humano", "definicion": "Conjunto de conocimientos, habilidades, experiencias y competencias que poseen los empleados, añadiendo valor incalculable a la organización.", "emoji": "💎", "categoria": "Concepto base"},
+      {"termino": "Reclutamiento Interno", "definicion": "Proceso de promocionar a empleados actuales para cubrir puestos vacantes, fomentando su crecimiento dentro de la empresa.", "emoji": "🏢", "categoria": "Procesos de RRHH"},
+      {"termino": "Reclutamiento Externo", "definicion": "Búsqueda de talento fuera de la organización para incorporar nuevas perspectivas, habilidades y diversidad al equipo.", "emoji": "🌐", "categoria": "Procesos de RRHH"},
+      {"termino": "Evaluación 360°", "definicion": "Metodología que evalúa el desempeño desde múltiples perspectivas: superiores, pares, subordinados y autoevaluación, para obtener una visión completa.", "emoji": "🔄", "categoria": "Evaluación"},
+      {"termino": "KPIs", "definicion": "Key Performance Indicators, indicadores clave de rendimiento que transforman aspectos cualitativos en métricas tangibles para evaluar efectividad.", "emoji": "📊", "categoria": "Evaluación"},
+      {"termino": "Metas SMART", "definicion": "Objetivos Específicos, Medibles, Alcanzables, Relevantes y con Plazo Definido, clave para guiar el desarrollo profesional y asegurar avance constante.", "emoji": "🎯", "categoria": "Planificación"},
+      {"termino": "PDI", "definicion": "Plan de Desarrollo Individual construido a medida para cada empleado basándose en resultados de evaluación de desempeño.", "emoji": "📋", "categoria": "Desarrollo"},
+      {"termino": "Cultura Organizacional", "definicion": "Conjunto de valores, normas, creencias y comportamientos compartidos que definen la identidad de una empresa y guían las interacciones.", "emoji": "🏢", "categoria": "Concepto base"}
+    ],
+    "recursos": [
+      {"tipo": "📖 Libro", "title": "Gestión del Talento Humano - Idalberto Chiavenato", "desc": "Libro fundamental sobre RRHH que cubre desde reclutamiento hasta evaluación de desempeño", "nivel": "Intermedio", "color": "#8B5CF6"},
+      {"tipo": "🎬 Video", "title": "La importancia del Capital Humano en las organizaciones", "desc": "Video educativo que explica por qué las personas son el activo más valioso de una empresa", "nivel": "Introductorio", "color": "#A78BFA"},
+      {"tipo": "🌐 Web", "title": "People Analytics y HR Tech", "desc": "Artículos sobre herramientas digitales y analítica de datos para optimizar la gestión del talento", "nivel": "Avanzado", "color": "#C4B5FD"},
+      {"tipo": "🎧 Podcast", "title": "RRHH en la Práctica", "desc": "Podcast argentino sobre gestión de recursos humanos con casos reales de empresas locales", "nivel": "Introductorio", "color": "#DDD6FE"},
+      {"tipo": "📖 Libro", "title": "La Pirámide de Maslow y Teoría de Herzberg", "desc": "Textos clásicos sobre motivación humana, fundamentales para entender qué mueve a los empleados", "nivel": "Intermedio", "color": "#EDE9FE"}
+    ]
+  }
+}
