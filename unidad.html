@@ -887,45 +887,46 @@ function rSB3(){
 
 
 function rCruces(){
-  return secHeader("\u{1F500}","CRUCES","Conexi\u00f3n con otras materias",TABS[5].g)
-    +'<div class="sb">'
-    +actWrap("c1","\u{1F309} Puentes","Conexiones interdisciplinarias","Conectar","#14B8A6",rC1(),true)
-    +actWrap("c2","\u{1F578}\uFE0F Telara\u00f1a","Relaciones con otras ciencias","Relacionar","#8B5CF6",rC2())
-    +'</div>'
-    +renderCheckBtn("cruces");
-}
-function rC1(){
-  var ps=D.cruces.puentes;
-  if(!S.c1) S.c1={a:null};
-  var h='<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">';
-  for(var i=0;i<ps.length;i++){
-    var p=ps[i], active=S.c1.a===i;
-    h+='<div onclick="S.c1.a='+(active?'null':i)+';render()" style="padding:14px;border-radius:14px;border:2px solid '+(active?p.color:'#E5E7EB')+';background:'+(active?p.color+'08':'#fff')+';cursor:pointer">';
-    h+='<div style="display:flex;align-items:center;gap:8px"><span style="font-size:24px">'+p.emoji+'</span><span style="font-size:14px;font-weight:700;color:'+(active?p.color:'#374151')+'">'+p.materia+'</span></div>';
-    if(active){
-      h+='<div style="margin-top:8px;animation:fadeIn .3s">';
-      h+='<p style="margin:0;font-size:13px;font-weight:600;color:'+p.color+'">'+p.conexion+'</p>';
-      h+='<p style="margin:6px 0;font-size:12px;color:#6B7280;font-style:italic">'+p.pregunta+'</p>';
-      h+='<span style="font-size:11px;color:#9CA3AF;background:#F3F4F6;padding:3px 8px;border-radius:6px">\u{1F4CE} '+p.vinculo+'</span></div>';
-    }
-    h+='</div>';
-  }
-  h+='</div>';
-  return h;
-}
-function rC2(){
-  var cs=D.cruces.telarana;
-  var h='<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">';
-  for(var i=0;i<cs.length;i++){
-    var c=cs[i], open=S["c2_"+c.target];
-    h+='<div onclick="S[\'c2_'+c.target+'\']=!S[\'c2_'+c.target+'\'];render()" style="padding:12px;border-radius:14px;border:2px solid '+(open?c.color:'#E5E7EB')+';background:'+(open?c.color+'08':'#F9FAFB')+';cursor:pointer;text-align:center">';
-    h+='<span style="font-size:24px;display:block">'+c.emoji+'</span>';
-    h+='<span style="font-size:12px;font-weight:700;color:'+(open?c.color:'#374151')+'">'+c.target+'</span>';
-    if(open) h+='<p style="margin:6px 0 0;font-size:11px;color:#6B7280;animation:fadeIn .3s">'+c.desc+'</p>';
-    h+='</div>';
-  }
-  h+='</div>';
-  return h;
+  if(!S.cruces) S.cruces = {a:"", b:"", c:""};
+  var d = D.cruces;
+  
+  return secHeader("🔀","CRUCES","Preparate para explicar",TABS[7].g)
+    + '<div class="sb">'
+    + '<div style="padding:16px 20px;border-radius:14px;background:#F5F3FF;border:2px solid #C7D2FE;margin-bottom:20px">'
+    + '<p style="margin:0;font-size:14px;font-weight:600;color:#374151">💡 Consigna:</p>'
+    + '<p style="margin:8px 0 0;font-size:14px;color:#6B7280;line-height:1.6">' + d.consigna_general + '</p>'
+    + '</div>'
+    + d.bloques.map(function(bloque, idx){
+        var val = S.cruces[bloque.id] || "";
+        var wc = val.trim().split(/\s+/).filter(Boolean).length;
+        
+        var h = '<div style="margin-bottom:20px;border-radius:16px;overflow:hidden;border:2px solid ' + bloque.color + '30">';
+        h += '<div style="padding:16px 20px;background:' + bloque.color + '10;border-bottom:2px solid ' + bloque.color + '30">';
+        h += '<div style="display:flex;align-items:center;gap:10px">';
+        h += '<span style="font-size:28px">' + bloque.emoji + '</span>';
+        h += '<div><p style="margin:0;font-size:16px;font-weight:700;color:' + bloque.color + '">' + bloque.titulo + '</p></div>';
+        h += '</div></div>';
+        
+        h += '<div style="padding:16px 20px;background:#fff">';
+        h += '<p style="margin:0 0 10px;font-size:13px;font-weight:600;color:#374151">Algunos temas que podés elegir:</p>';
+        h += '<ul style="margin:0 0 16px;padding-left:20px;font-size:13px;color:#6B7280;line-height:1.8">';
+        bloque.temas_sugeridos.forEach(function(tema){
+          h += '<li>' + tema + '</li>';
+        });
+        h += '</ul>';
+        
+        h += '<p style="margin:0 0 8px;font-size:13px;font-weight:600;color:#374151">📝 Tema elegido y plan de exposición:</p>';
+        h += '<textarea oninput="S.cruces[\'' + bloque.id + '\']=this.value;render()" placeholder="' + bloque.placeholder + '" style="min-height:100px;width:100%;padding:12px;border-radius:10px;border:2px solid ' + bloque.color + '40;font-size:13px;font-family:inherit;box-sizing:border-box">' + val + '</textarea>';
+        
+        if(wc > 0) {
+          h += '<p style="margin:8px 0 0;font-size:12px;color:#9CA3AF;text-align:right">' + wc + ' palabra' + (wc === 1 ? '' : 's') + '</p>';
+        }
+        
+        h += '</div></div>';
+        return h;
+      }).join('')
+    + renderCheckBtn("cruces")
+    + '</div>';
 }
 
 
