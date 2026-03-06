@@ -1,4 +1,5 @@
 {
+  "id": "eeso206_5d_admin3_u1",
   "materia": "Administración III",
   "unidad": 1,
   "titulo": "La Administración en las Organizaciones",
@@ -571,4 +572,5 @@
       {"tipo": "📖 Libro", "title": "La Pirámide de Maslow y Teoría de Herzberg", "desc": "Textos clásicos sobre motivación humana, fundamentales para entender qué mueve a los empleados", "nivel": "Intermedio", "color": "#EDE9FE"}
     ]
   }
+
 }
