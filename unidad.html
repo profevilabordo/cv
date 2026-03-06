@@ -116,23 +116,19 @@ function loadData(){
 var CT=0, S={};
 
 // ===== CHECKLIST DE SECCIONES =====
-var TAB_KEYS=["umbral","mapa","nucleo","senales","sabias","cruces","relectura","emocional","autotest","cierre"];
-var TAB_LABELS=["Umbral","Mapa","Núcleo","Señales","Sabías","Cruces","Relectura","Emocional","Autotest","Cierre"];
-var TAB_EMOJIS=["🚪","🗺️","⚛️","🚦","✨","🔀","📖","🫶","📝","🔚"];
-
+var TAB_KEYS=["umbral","mapa","nucleo_a","nucleo_b","nucleo_c","senales","sabias","cruces","relectura","emocional","autotest","cierre"];
+var TAB_LABELS=["Umbral","Mapa","Núcleo A","Núcleo B","Núcleo C","Señales","Sabías","Cruces","Relectura","Emocional","Autotest","Cierre"];
+var TAB_EMOJIS=["🚪","🗺️","⚛️","⚛️","⚛️","🚦","✨","🔀","📖","🫶","📝","🔚"];
 function getCheckKey(tabKey){
   if(!D) return null;
   return "campus_check_" + (D.id||D.materia+"_u"+D.unidad) + "_" + tabKey;
 }
-
 function isChecked(tabKey){
   return localStorage.getItem(getCheckKey(tabKey)) === "1";
 }
-
 function getCheckedCount(){
   return TAB_KEYS.filter(function(k){ return isChecked(k); }).length;
 }
-
 function marcarSeccion(tabKey){
   var nombre = TAB_LABELS[TAB_KEYS.indexOf(tabKey)];
   if(isChecked(tabKey)) return;
@@ -146,13 +142,12 @@ function marcarSeccion(tabKey){
   actualizarBarra();
   render(); // re-render para mostrar el estado done
 }
-
 function actualizarBarra(){
   if(!D) return;
   var count = getCheckedCount();
   var pct = count / TAB_KEYS.length * 100;
   document.getElementById("pbFill").style.width = pct + "%";
-  document.getElementById("pbCount").textContent = count + "/10";
+  document.getElementById("pbCount").textContent = count + "/12";
   document.getElementById("progressBar").style.display = "flex";
 
   // Puntos
@@ -186,7 +181,9 @@ function mostrarPaginas(paginas) {
 var TABS=[
 {k:"umbral",i:"\u{1F6AA}",l:"UMBRAL",c:"#F59E0B",g:"linear-gradient(135deg,#F59E0B,#D97706)"},
 {k:"mapa",i:"\u{1F5FA}\uFE0F",l:"MAPA",c:"#0EA5E9",g:"linear-gradient(135deg,#0EA5E9,#0284C7)"},
-{k:"nucleo",i:"\u269B\uFE0F",l:"N\u00daCLEO",c:"#6366F1",g:"linear-gradient(135deg,#6366F1,#4F46E5)"},
+{k:"nucleo_a",i:"\u269B\uFE0F",l:"N\u00daCLEO A",c:"#6366F1",g:"linear-gradient(135deg,#6366F1,#4F46E5)"},
+{k:"nucleo_b",i:"\u269B\uFE0F",l:"N\u00daCLEO B",c:"#3B82F6",g:"linear-gradient(135deg,#3B82F6,#2563EB)"},
+{k:"nucleo_c",i:"\u269B\uFE0F",l:"N\u00daCLEO C",c:"#10B981",g:"linear-gradient(135deg,#10B981,#059669)"},
 {k:"senales",i:"\u{1F6A6}",l:"SE\u00d1ALES",c:"#F97316",g:"linear-gradient(135deg,#F97316,#EA580C)"},
 {k:"sabias",i:"\u2728",l:"SAB\u00cdAS",c:"#EC4899",g:"linear-gradient(135deg,#EC4899,#DB2777)"},
 {k:"cruces",i:"\u{1F500}",l:"CRUCES",c:"#14B8A6",g:"linear-gradient(135deg,#14B8A6,#0D9488)"},
@@ -261,7 +258,9 @@ function renderSection(){
   switch(TABS[CT].k){
     case "umbral": return rUmbral();
     case "mapa": return rMapa();
-    case "nucleo": return rNucleo();
+    case "nucleo_a": return rNucleoA();
+    case "nucleo_b": return rNucleoB();
+    case "nucleo_c": return rNucleoC();
     case "senales": return rSenales();
     case "sabias": return rSabias();
     case "cruces": return rCruces();
@@ -407,33 +406,74 @@ function rM3(){
 }
 
 
-function rNucleo(){
-  return secHeader("\u269B\uFE0F","N\u00daCLEO","10 actividades interactivas",TABS[2].g)
+function rNucleoA(){
+  var info = D.nucleo_a.bloque_info;
+  return secHeader(info.emoji,"NÚCLEO A",info.titulo + " — Páginas " + info.paginas.join(", "),TABS[2].g)
     +'<div class="sb">'
-    +actWrap("n1","\u{1F4CB} 1. Ordenar","Toc\u00e1 en orden correcto","Organizar","#6366F1",rN1(),true)
-    +actWrap("n4","\u2705 4. V o F","Evalu\u00e1 afirmaciones","Analizar","#EF4444",rN4())
-    +actWrap("n5","\u{1F517} 5. Relacionar","Conect\u00e1 pares","Relacionar","#8B5CF6",rN5())
-    +actWrap("n6","\u{1F6AB} 6. Intrusa","Encontr\u00e1 la que no pertenece","Diferenciar","#F97316",rN6())
-    +actWrap("n2","\u{1F5C2}\uFE0F 2. Clasificar","Asign\u00e1 categor\u00edas","Clasificar","#3B82F6",rN2())
-    +actWrap("n3","\u270F\uFE0F 3. Completar","Rellen\u00e1 los blancos","Definir","#10B981",rN3())
-    +actWrap("n7","\u{1F4AC} 7. Defin\u00ed","Escrib\u00ed con tus palabras","Explicar","#0EA5E9",rN7())
-    +actWrap("n8","\u26A1 8. Causa\u2192Efecto","Conect\u00e1 causas","Aplicar","#EC4899",rN8())
-    +actWrap("n9","\u{1F522} 9. Proceso","Orden\u00e1 los pasos","Estructurar","#14B8A6",rN9())
-    +actWrap("n10","\u2696\uFE0F 10. Comparar","Similitudes y diferencias","Comparar","#7C3AED",rN10())
+    +actWrap("na1","\u{1F4CB} 1. Ordenar","Tocá en orden correcto","Organizar",info.color,rN1("nucleo_a"),true)
+    +actWrap("na4","\u2705 4. V o F","Evaluá afirmaciones","Analizar",info.color,rN4("nucleo_a"))
+    +actWrap("na5","\u{1F517} 5. Relacionar","Conectá pares","Relacionar",info.color,rN5("nucleo_a"))
+    +actWrap("na6","\u{1F6AB} 6. Intrusa","Encontrá la que no pertenece","Diferenciar",info.color,rN6("nucleo_a"))
+    +actWrap("na2","\u{1F5C2}\uFE0F 2. Clasificar","Asigná categorías","Clasificar",info.color,rN2("nucleo_a"))
+    +actWrap("na3","\u270F\uFE0F 3. Completar","Rellenás los blancos","Definir",info.color,rN3("nucleo_a"))
+    +actWrap("na7","\u{1F4AC} 7. Definí","Escribí con tus palabras","Explicar",info.color,rN7("nucleo_a"))
+    +actWrap("na8","\u26A1 8. Causa\u2192Efecto","Conectá causas","Aplicar",info.color,rN8("nucleo_a"))
+    +actWrap("na9","\u{1F522} 9. Proceso","Ordená los pasos","Estructurar",info.color,rN9("nucleo_a"))
+    +actWrap("na10","\u2696\uFE0F 10. Comparar","Similitudes y diferencias","Comparar",info.color,rN10("nucleo_a"))
     +'</div>'
-    +renderCheckBtn("nucleo");
+    +renderCheckBtn("nucleo_a");
 }
 
-function rN1(){
-  var d=D.nucleo.n1_ordenar_cronologicamente;
-  if(!S.n1) S.n1={nx:1,dn:false,pl:{}};
-  var s=S.n1, h="";
+function rNucleoB(){
+  var info = D.nucleo_b.bloque_info;
+  return secHeader(info.emoji,"NÚCLEO B",info.titulo + " — Páginas " + info.paginas.join(", "),TABS[3].g)
+    +'<div class="sb">'
+    +actWrap("nb1","\u{1F4CB} 1. Ordenar","Tocá en orden correcto","Organizar",info.color,rN1("nucleo_b"),true)
+    +actWrap("nb4","\u2705 4. V o F","Evaluá afirmaciones","Analizar",info.color,rN4("nucleo_b"))
+    +actWrap("nb5","\u{1F517} 5. Relacionar","Conectá pares","Relacionar",info.color,rN5("nucleo_b"))
+    +actWrap("nb6","\u{1F6AB} 6. Intrusa","Encontrá la que no pertenece","Diferenciar",info.color,rN6("nucleo_b"))
+    +actWrap("nb2","\u{1F5C2}\uFE0F 2. Clasificar","Asigná categorías","Clasificar",info.color,rN2("nucleo_b"))
+    +actWrap("nb3","\u270F\uFE0F 3. Completar","Rellenás los blancos","Definir",info.color,rN3("nucleo_b"))
+    +actWrap("nb7","\u{1F4AC} 7. Definí","Escribí con tus palabras","Explicar",info.color,rN7("nucleo_b"))
+    +actWrap("nb8","\u26A1 8. Causa\u2192Efecto","Conectá causas","Aplicar",info.color,rN8("nucleo_b"))
+    +actWrap("nb9","\u{1F522} 9. Proceso","Ordená los pasos","Estructurar",info.color,rN9("nucleo_b"))
+    +actWrap("nb10","\u2696\uFE0F 10. Comparar","Similitudes y diferencias","Comparar",info.color,rN10("nucleo_b"))
+    +'</div>'
+    +renderCheckBtn("nucleo_b");
+}
+
+function rNucleoC(){
+  var info = D.nucleo_c.bloque_info;
+  return secHeader(info.emoji,"NÚCLEO C",info.titulo + " — Páginas " + info.paginas.join(", "),TABS[4].g)
+    +'<div class="sb">'
+    +actWrap("nc1","\u{1F4CB} 1. Ordenar","Tocá en orden correcto","Organizar",info.color,rN1("nucleo_c"),true)
+    +actWrap("nc4","\u2705 4. V o F","Evaluá afirmaciones","Analizar",info.color,rN4("nucleo_c"))
+    +actWrap("nc5","\u{1F517} 5. Relacionar","Conectá pares","Relacionar",info.color,rN5("nucleo_c"))
+    +actWrap("nc6","\u{1F6AB} 6. Intrusa","Encontrá la que no pertenece","Diferenciar",info.color,rN6("nucleo_c"))
+    +actWrap("nc2","\u{1F5C2}\uFE0F 2. Clasificar","Asigná categorías","Clasificar",info.color,rN2("nucleo_c"))
+    +actWrap("nc3","\u270F\uFE0F 3. Completar","Rellenás los blancos","Definir",info.color,rN3("nucleo_c"))
+    +actWrap("nc7","\u{1F4AC} 7. Definí","Escribí con tus palabras","Explicar",info.color,rN7("nucleo_c"))
+    +actWrap("nc8","\u26A1 8. Causa\u2192Efecto","Conectá causas","Aplicar",info.color,rN8("nucleo_c"))
+    +actWrap("nc9","\u{1F522} 9. Proceso","Ordená los pasos","Estructurar",info.color,rN9("nucleo_c"))
+    +actWrap("nc10","\u2696\uFE0F 10. Comparar","Similitudes y diferencias","Comparar",info.color,rN10("nucleo_c"))
+    +'</div>'
+    +renderCheckBtn("nucleo_c");
+}
+
+// ELIMINAR LA FUNCIÓN rNucleo() ORIGINAL
+// Y ahora modificar las 10 funciones para que acepten el parámetro "nucleo"
+
+function rN1(nucleo){
+  var d=D[nucleo].n1_ordenar_cronologicamente;
+  var sk=nucleo+"_n1";
+  if(!S[sk]) S[sk]={nx:1,dn:false,pl:{}};
+  var s=S[sk], h="";
   h+='<p style="font-size:14px;font-weight:600;color:#374151;margin:0 0 14px">'+d.consigna;
   if(d.paginas_referencia) h+=mostrarPaginas(d.paginas_referencia);
   h+='</p>';
   for(var i=0;i<d.items.length;i++){
     var it=d.items[i], placed=s.pl[it.id];
-    h+='<div onclick="if(!S.n1.dn&&!S.n1.pl['+it.id+']){S.n1.pl['+it.id+']=S.n1.nx;S.n1.nx++;if(S.n1.nx>'+d.items.length+')S.n1.dn=true;render()}" style="padding:12px 16px;border-radius:12px;border:2px solid '+(placed?'#6366F1':'#E5E7EB')+';background:'+(placed?'#EEF2FF':'#fff')+';cursor:'+(placed?'default':'pointer')+';display:flex;align-items:center;gap:12px;margin-bottom:8px">';
+    h+='<div onclick="if(!S.'+sk+'.dn&&!S.'+sk+'.pl['+it.id+']){S.'+sk+'.pl['+it.id+']=S.'+sk+'.nx;S.'+sk+'.nx++;if(S.'+sk+'.nx>'+d.items.length+')S.'+sk+'.dn=true;render()}" style="padding:12px 16px;border-radius:12px;border:2px solid '+(placed?'#6366F1':'#E5E7EB')+';background:'+(placed?'#EEF2FF':'#fff')+';cursor:'+(placed?'default':'pointer')+';display:flex;align-items:center;gap:12px;margin-bottom:8px">';
     if(placed){
       h+='<span style="width:30px;height:30px;border-radius:50%;background:#6366F1;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px">'+placed+'</span>';
     }else{
@@ -446,16 +486,17 @@ function rN1(){
     ids.sort(function(a,b){return s.pl[a]-s.pl[b]});
     var ok=JSON.stringify(ids)===JSON.stringify(d.orden_correcto);
     h+='<div class="fb" style="background:'+(ok?'#D1FAE5':'#FEF3C7')+';text-align:center">';
-    h+='<p style="margin:0;font-size:14px;font-weight:600;color:'+(ok?'#065F46':'#92400E')+'">'+(ok?'\u{1F389} \u00a1Perfecto!':'\u{1F504} Revis\u00e1 el orden...')+'</p>';
-    h+='<button class="btn2" onclick="S.n1={nx:1,dn:false,pl:{}};render()" style="margin-top:8px">Reintentar</button></div>';
+    h+='<p style="margin:0;font-size:14px;font-weight:600;color:'+(ok?'#065F46':'#92400E')+'">'+(ok?'\u{1F389} \u00a1Perfecto!':'\u{1F504} Revisá el orden...')+'</p>';
+    h+='<button class="btn2" onclick="S.'+sk+'={nx:1,dn:false,pl:{}};render()" style="margin-top:8px">Reintentar</button></div>';
   }
   return h;
 }
 
-function rN2(){
-  var d=D.nucleo.n2_clasificador;
-  if(!S.n2) S.n2={a:{},sh:false};
-  var s=S.n2;
+function rN2(nucleo){
+  var d=D[nucleo].n2_clasificador;
+  var sk=nucleo+"_n2";
+  if(!S[sk]) S[sk]={a:{},sh:false};
+  var s=S[sk];
   var h='<p style="font-size:14px;font-weight:600;color:#374151;margin:0 0 14px">'+d.consigna;
   if(d.paginas_referencia) h+=mostrarPaginas(d.paginas_referencia);
   h+='</p>';
@@ -473,22 +514,23 @@ function rN2(){
     h+='<span style="font-size:14px;font-weight:500">'+it.text+'</span><div style="display:flex;gap:6px">';
     for(var c=0;c<d.categorias.length;c++){
       var cat=d.categorias[c], sel=s.a[it.id]===c;
-      h+='<button onclick="S.n2.a['+it.id+']='+c+';S.n2.sh=false;render()" style="width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;border:'+(sel?'3px solid '+cat.color:'2px solid #D1D5DB')+';background:'+(sel?cat.color+'20':'#F9FAFB')+';transform:'+(sel?'scale(1.15)':'scale(1)')+'">'+cat.emoji+'</button>';
+      h+='<button onclick="S.'+sk+'.a['+it.id+']='+c+';S.'+sk+'.sh=false;render()" style="width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;border:'+(sel?'3px solid '+cat.color:'2px solid #D1D5DB')+';background:'+(sel?cat.color+'20':'#F9FAFB')+';transform:'+(sel?'scale(1.15)':'scale(1)')+'">'+cat.emoji+'</button>';
     }
     h+='</div></div>';
   }
-  if(allDone) h+='<button class="btn" onclick="S.n2.sh=true;render()">Verificar \u2713</button>';
+  if(allDone) h+='<button class="btn" onclick="S.'+sk+'.sh=true;render()">Verificar \u2713</button>';
   if(s.sh){
     var correct=d.items.filter(function(x){return s.a[x.id]===x.categoria_correcta}).length;
-    h+='<p style="text-align:center;margin-top:10px;font-size:14px;font-weight:600;color:'+(correct===d.items.length?'#065F46':'#92400E')+'">'+(correct===d.items.length?'\u{1F389} \u00a1Excelente!':'Correct\u00e9 '+(d.items.length-correct)+' concepto(s)')+'</p>';
+    h+='<p style="text-align:center;margin-top:10px;font-size:14px;font-weight:600;color:'+(correct===d.items.length?'#065F46':'#92400E')+'">'+(correct===d.items.length?'\u{1F389} \u00a1Excelente!':'Correcté '+(d.items.length-correct)+' concepto(s)')+'</p>';
   }
   return h;
 }
 
-function rN3(){
-  var d=D.nucleo.n3_completar_mapa;
-  if(!S.n3) S.n3={a:{},c:false};
-  var s=S.n3, h='';
+function rN3(nucleo){
+  var d=D[nucleo].n3_completar_mapa;
+  var sk=nucleo+"_n3";
+  if(!S[sk]) S[sk]={a:{},c:false};
+  var s=S[sk], h='';
   h+='<p style="font-size:14px;font-weight:600;color:#374151;margin:0 0 14px">'+(d.consigna||'Completá las oraciones con la palabra correcta');
   if(d.paginas_referencia) h+=mostrarPaginas(d.paginas_referencia);
   h+='</p>';
@@ -497,18 +539,19 @@ function rN3(){
     var ok=s.c&&v.toLowerCase().trim()===b.respuesta_correcta.toLowerCase();
     var bad=s.c&&!ok&&v.length>0;
     h+='<div style="margin-bottom:14px"><p style="font-size:14px;color:#374151;margin:0 0 6px">'+b.texto_antes+' <span style="color:#9CA3AF;font-size:12px">('+b.pista+')</span></p>';
-    h+='<input type="text" value="'+v+'" oninput="S.n3.a[\''+b.id+'\']=this.value;S.n3.c=false" placeholder="..." style="border-color:'+(ok?'#10B981':bad?'#EF4444':'#E5E7EB')+';background:'+(ok?'#D1FAE5':bad?'#FEE2E2':'#fff')+'">';
+    h+='<input type="text" value="'+v+'" oninput="S.'+sk+'.a[\''+b.id+'\']=this.value;S.'+sk+'.c=false" placeholder="..." style="border-color:'+(ok?'#10B981':bad?'#EF4444':'#E5E7EB')+';background:'+(ok?'#D1FAE5':bad?'#FEE2E2':'#fff')+'">';
     if(bad) h+='<p style="font-size:12px;color:#EF4444;margin:4px 0 0">\u{1F4A1} '+b.pista+'</p>';
     h+='</div>';
   }
-  h+='<button class="btn" onclick="S.n3.c=true;render()">Comprobar \u2713</button>';
+  h+='<button class="btn" onclick="S.'+sk+'.c=true;render()">Comprobar \u2713</button>';
   return h;
 }
 
-function rN4(){
-  var d=D.nucleo.n4_verdadero_falso;
-  if(!S.n4) S.n4={a:{}};
-  var s=S.n4, h='';
+function rN4(nucleo){
+  var d=D[nucleo].n4_verdadero_falso;
+  var sk=nucleo+"_n4";
+  if(!S[sk]) S[sk]={a:{}};
+  var s=S[sk], h='';
   h+='<p style="font-size:14px;font-weight:600;color:#374151;margin:0 0 14px">'+(d.consigna||'Evaluá si cada afirmación es verdadera o falsa');
   if(d.paginas_referencia) h+=mostrarPaginas(d.paginas_referencia);
   h+='</p>';
@@ -517,8 +560,8 @@ function rN4(){
     h+='<div style="padding:14px 16px;border-radius:14px;border:'+(ans?(ok?'2px solid #10B981':'2px solid #EF4444'):'1px solid #E5E7EB')+';background:'+(ans?(ok?'#ECFDF5':'#FEF2F2'):'#FAFAFA')+';margin-bottom:12px">';
     h+='<p style="margin:0;font-size:14px;font-weight:500">'+st.texto+'</p>';
     h+='<div style="display:flex;gap:8px;margin-top:10px">';
-    h+='<button onclick="S.n4.a['+i+']=true;render()" style="flex:1;padding:8px;border-radius:10px;border:2px solid '+(s.a[i]===true?'#6366F1':'#E5E7EB')+';background:'+(s.a[i]===true?'#EEF2FF':'#fff')+';cursor:pointer;font-size:13px;font-weight:'+(s.a[i]===true?700:500)+';font-family:inherit">\u2705 V</button>';
-    h+='<button onclick="S.n4.a['+i+']=false;render()" style="flex:1;padding:8px;border-radius:10px;border:2px solid '+(s.a[i]===false?'#6366F1':'#E5E7EB')+';background:'+(s.a[i]===false?'#EEF2FF':'#fff')+';cursor:pointer;font-size:13px;font-weight:'+(s.a[i]===false?700:500)+';font-family:inherit">\u274C F</button>';
+    h+='<button onclick="S.'+sk+'.a['+i+']=true;render()" style="flex:1;padding:8px;border-radius:10px;border:2px solid '+(s.a[i]===true?'#6366F1':'#E5E7EB')+';background:'+(s.a[i]===true?'#EEF2FF':'#fff')+';cursor:pointer;font-size:13px;font-weight:'+(s.a[i]===true?700:500)+';font-family:inherit">\u2705 V</button>';
+    h+='<button onclick="S.'+sk+'.a['+i+']=false;render()" style="flex:1;padding:8px;border-radius:10px;border:2px solid '+(s.a[i]===false?'#6366F1':'#E5E7EB')+';background:'+(s.a[i]===false?'#EEF2FF':'#fff')+';cursor:pointer;font-size:13px;font-weight:'+(s.a[i]===false?700:500)+';font-family:inherit">\u274C F</button>';
     h+='</div>';
     if(ans) h+='<p style="margin:10px 0 0;font-size:13px;color:'+(ok?'#065F46':'#991B1B')+';font-style:italic;animation:fadeIn .3s">'+(ok?'\u2728 ':'\u{1F4D6} ')+st.explicacion+'</p>';
     h+='</div>';
@@ -526,14 +569,15 @@ function rN4(){
   return h;
 }
 
-function rN5(){
-  var d=D.nucleo.n5_relacionar_columnas;
-  if(!S.n5){
+function rN5(nucleo){
+  var d=D[nucleo].n5_relacionar_columnas;
+  var sk=nucleo+"_n5";
+  if(!S[sk]){
     var shuffled=d.pares.slice();
     for(var i=shuffled.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=shuffled[i];shuffled[i]=shuffled[j];shuffled[j]=t;}
-    S.n5={sel:null,mt:{},sr:shuffled};
+    S[sk]={sel:null,mt:{},sr:shuffled,nk:nucleo};
   }
-  var s=S.n5, matched=Object.values(s.mt);
+  var s=S[sk], matched=Object.values(s.mt);
   var h='<p style="font-size:14px;font-weight:600;color:#374151;margin:0 0 14px">'+(d.consigna||'Conectá cada par:');
   if(d.paginas_referencia) h+=mostrarPaginas(d.paginas_referencia);
   h+='</p>';
@@ -541,29 +585,31 @@ function rN5(){
   h+='<div>';
   for(var i=0;i<d.pares.length;i++){
     var p=d.pares[i], iSel=s.sel===i, iMat=s.mt[i]!==undefined;
-    h+='<div onclick="if(!S.n5.mt['+i+'])S.n5.sel='+(iSel?'null':i)+';render()" style="padding:12px;border-radius:12px;border:2px solid '+(iSel?'#8B5CF6':iMat?'#10B981':'#E5E7EB')+';background:'+(iSel?'#EDE9FE':iMat?'#ECFDF5':'#fff')+';cursor:pointer;font-size:14px;font-weight:500;margin-bottom:8px">'+(iMat?'\u2705 ':'')+p.izquierda+'</div>';
+    h+='<div onclick="if(!S.'+sk+'.mt['+i+'])S.'+sk+'.sel='+(iSel?'null':i)+';render()" style="padding:12px;border-radius:12px;border:2px solid '+(iSel?'#8B5CF6':iMat?'#10B981':'#E5E7EB')+';background:'+(iSel?'#EDE9FE':iMat?'#ECFDF5':'#fff')+';cursor:pointer;font-size:14px;font-weight:500;margin-bottom:8px">'+(iMat?'\u2705 ':'')+p.izquierda+'</div>';
   }
   h+='</div><div>';
   for(var i=0;i<s.sr.length;i++){
     var p=s.sr[i], iMat=matched.indexOf(p.derecha)>=0;
-    h+='<div onclick="n5click(\''+p.derecha.replace(/'/g,"\\'")+'\')" style="padding:12px;border-radius:12px;border:2px solid '+(iMat?'#10B981':'#E5E7EB')+';background:'+(iMat?'#ECFDF5':s.sel!==null&&!iMat?'#FEF3C7':'#fff')+';cursor:pointer;font-size:14px;font-weight:500;margin-bottom:8px;opacity:'+(iMat?.6:1)+'">'+p.emoji+' '+p.derecha+'</div>';
+    h+='<div onclick="n5click(\''+p.derecha.replace(/'/g,"\\'")+ '\',\'' +nucleo+'\')" style="padding:12px;border-radius:12px;border:2px solid '+(iMat?'#10B981':'#E5E7EB')+';background:'+(iMat?'#ECFDF5':s.sel!==null&&!iMat?'#FEF3C7':'#fff')+';cursor:pointer;font-size:14px;font-weight:500;margin-bottom:8px;opacity:'+(iMat?.6:1)+'">'+p.emoji+' '+p.derecha+'</div>';
   }
   h+='</div></div>';
   if(Object.keys(s.mt).length===d.pares.length) h+='<p style="text-align:center;margin-top:12px;font-size:15px;font-weight:700;color:#065F46">\u{1F389} \u00a1Todas conectadas!</p>';
   return h;
 }
-function n5click(right){
-  var s=S.n5, d=D.nucleo.n5_relacionar_columnas;
+function n5click(right,nucleo){
+  var sk=nucleo+"_n5";
+  var s=S[sk], d=D[nucleo].n5_relacionar_columnas;
   if(s.sel===null) return;
   if(d.pares[s.sel].derecha===right) s.mt[s.sel]=right;
   s.sel=null;
   render();
 }
 
-function rN6(){
-  var d=D.nucleo.n6_palabra_intrusa;
-  if(!S.n6) S.n6={ci:0,sel:null};
-  var s=S.n6, g=d.grupos[s.ci];
+function rN6(nucleo){
+  var d=D[nucleo].n6_palabra_intrusa;
+  var sk=nucleo+"_n6";
+  if(!S[sk]) S[sk]={ci:0,sel:null};
+  var s=S[sk], g=d.grupos[s.ci];
   var h='<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px">';
   h+='<div style="flex:1">';
   h+='<p style="font-size:14px;font-weight:600;color:#374151;margin:0">'+g.emoji+' '+g.pregunta+'</p>';
@@ -576,22 +622,23 @@ function rN6(){
     var w=g.palabras[i], iSel=s.sel===i;
     var showOk=s.sel!==null&&w.es_intrusa;
     var isWrong=iSel&&!w.es_intrusa;
-    h+='<div onclick="if(S.n6.sel===null){S.n6.sel='+i+';render()}" style="padding:16px;border-radius:14px;border:'+(showOk?'3px solid #10B981':isWrong?'3px solid #EF4444':'2px solid #E5E7EB')+';background:'+(showOk?'#ECFDF5':isWrong?'#FEF2F2':'#fff')+';cursor:pointer;text-align:center;font-size:16px;font-weight:700;color:#374151">'+(showOk?'\u{1F6AB} ':'')+w.text+'</div>';
+    h+='<div onclick="if(S.'+sk+'.sel===null){S.'+sk+'.sel='+i+';render()}" style="padding:16px;border-radius:14px;border:'+(showOk?'3px solid #10B981':isWrong?'3px solid #EF4444':'2px solid #E5E7EB')+';background:'+(showOk?'#ECFDF5':isWrong?'#FEF2F2':'#fff')+';cursor:pointer;text-align:center;font-size:16px;font-weight:700;color:#374151">'+(showOk?'\u{1F6AB} ':'')+w.text+'</div>';
   }
   h+='</div>';
   if(s.sel!==null){
     var ok=g.palabras[s.sel].es_intrusa;
     h+='<div class="fb" style="background:'+(ok?'#D1FAE5':'#FEF3C7')+'">';
     h+='<p style="margin:0;font-size:13px;color:'+(ok?'#065F46':'#92400E')+'">'+(ok?'\u{1F389} \u00a1Correcto! ':'\u{1F914} No es esa... ')+g.explicacion+'</p></div>';
-    h+='<button class="btn2" onclick="S.n6.ci=(S.n6.ci+1)%'+d.grupos.length+';S.n6.sel=null;render()" style="display:block;margin:10px auto 0">Siguiente \u2192</button>';
+    h+='<button class="btn2" onclick="S.'+sk+'.ci=(S.'+sk+'.ci+1)%'+d.grupos.length+';S.'+sk+'.sel=null;render()" style="display:block;margin:10px auto 0">Siguiente \u2192</button>';
   }
   return h;
 }
 
-function rN7(){
-  var d=D.nucleo.n7_defini_con_tus_palabras;
-  if(!S.n7) S.n7={cur:0,inp:"",sub:false};
-  var s=S.n7, c=d.conceptos[s.cur];
+function rN7(nucleo){
+  var d=D[nucleo].n7_defini_con_tus_palabras;
+  var sk=nucleo+"_n7";
+  if(!S[sk]) S[sk]={cur:0,inp:"",sub:false};
+  var s=S[sk], c=d.conceptos[s.cur];
   var matched=c.palabras_clave.filter(function(k){return s.inp.toLowerCase().indexOf(k)>=0});
   var q=matched.length;
   var h='';
@@ -600,29 +647,30 @@ function rN7(){
   h+='<div style="padding:18px;border-radius:16px;background:linear-gradient(135deg,#EEF2FF,#E0E7FF);margin-bottom:14px;text-align:center">';
   h+='<p style="margin:0;font-size:22px;font-weight:800;color:#4338CA">'+c.termino+'</p></div>';
   h+='<p style="font-size:13px;color:#92400E;font-style:italic;margin-bottom:12px">\u{1F4A1} '+c.pista+'</p>';
-  h+='<textarea oninput="S.n7.inp=this.value;S.n7.sub=false" placeholder="Defin\u00ed con tus palabras...">'+s.inp+'</textarea>';
+  h+='<textarea oninput="S.'+sk+'.inp=this.value;S.'+sk+'.sub=false" placeholder="Definí con tus palabras...">'+s.inp+'</textarea>';
   if(s.inp.length>10){
     h+='<div style="display:flex;gap:4px;margin-top:8px">';
     for(var l=1;l<=3;l++) h+='<div style="flex:1;height:4px;border-radius:4px;background:'+(q>=l?'#10B981':'#E5E7EB')+'"></div>';
     h+='</div>';
   }
-  h+='<button class="btn" onclick="S.n7.sub=true;render()"'+(s.inp.length<5?' disabled':'')+'>Enviar</button>';
+  h+='<button class="btn" onclick="S.'+sk+'.sub=true;render()"'+(s.inp.length<5?' disabled':'')+'>Enviar</button>';
   if(s.sub){
-    var fb=q>=3?{t:"\u{1F31F} \u00a1Excelente!",b:"#D1FAE5",c:"#065F46"}:q>=2?{t:"\u{1F44D} \u00a1Buena!",b:"#FEF3C7",c:"#92400E"}:{t:"\u{1F914} Intent\u00e1 de nuevo",b:"#FEE2E2",c:"#991B1B"};
+    var fb=q>=3?{t:"\u{1F31F} \u00a1Excelente!",b:"#D1FAE5",c:"#065F46"}:q>=2?{t:"\u{1F44D} \u00a1Buena!",b:"#FEF3C7",c:"#92400E"}:{t:"\u{1F914} Intentá de nuevo",b:"#FEE2E2",c:"#991B1B"};
     h+='<div class="fb" style="background:'+fb.b+'"><p style="margin:0;font-size:14px;font-weight:600;color:'+fb.c+'">'+fb.t+'</p></div>';
-    if(s.cur<d.conceptos.length-1) h+='<button class="btn2" onclick="S.n7.cur++;S.n7.inp=\'\';S.n7.sub=false;render()" style="display:block;margin:10px auto 0;background:#10B981">Siguiente \u2192</button>';
+    if(s.cur<d.conceptos.length-1) h+='<button class="btn2" onclick="S.'+sk+'.cur++;S.'+sk+'.inp=\'\';S.'+sk+'.sub=false;render()" style="display:block;margin:10px auto 0;background:#10B981">Siguiente \u2192</button>';
   }
   return h;
 }
 
-function rN8(){
-  var d=D.nucleo.n8_causa_efecto;
-  if(!S.n8){
+function rN8(nucleo){
+  var d=D[nucleo].n8_causa_efecto;
+  var sk=nucleo+"_n8";
+  if(!S[sk]){
     var sh=d.efectos.slice();
     for(var i=sh.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=sh[i];sh[i]=sh[j];sh[j]=t;}
-    S.n8={sc:null,cn:{},se:sh};
+    S[sk]={sc:null,cn:{},se:sh,nk:nucleo};
   }
-  var s=S.n8, connected=Object.values(s.cn);
+  var s=S[sk], connected=Object.values(s.cn);
   var h='<p style="font-size:14px;font-weight:600;color:#374151;margin:0 0 6px">'+(d.consigna||'Conectá cada causa con su efecto:');
   if(d.paginas_referencia) h+=mostrarPaginas(d.paginas_referencia);
   h+='</p>';
@@ -630,46 +678,54 @@ function rN8(){
   h+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div>';
   for(var i=0;i<d.causas.length;i++){
     var c=d.causas[i], iSel=s.sc===c.id, iCon=s.cn[c.id]!==undefined;
-    h+='<div onclick="if(!S.n8.cn['+c.id+'])S.n8.sc='+c.id+';render()" style="padding:10px 12px;border-radius:12px;border:2px solid '+(iSel?'#8B5CF6':iCon?'#10B981':'#E5E7EB')+';background:'+(iSel?'#EDE9FE':iCon?'#ECFDF5':'#fff')+';cursor:pointer;font-size:13px;font-weight:500;margin-bottom:8px">'+c.emoji+' '+c.text+'</div>';
+    h+='<div onclick="if(!S.'+sk+'.cn['+c.id+'])S.'+sk+'.sc='+c.id+';render()" style="padding:10px 12px;border-radius:12px;border:2px solid '+(iSel?'#8B5CF6':iCon?'#10B981':'#E5E7EB')+';background:'+(iSel?'#EDE9FE':iCon?'#ECFDF5':'#fff')+';cursor:pointer;font-size:13px;font-weight:500;margin-bottom:8px">'+c.emoji+' '+c.text+'</div>';
   }
   h+='</div><div>';
   for(var i=0;i<s.se.length;i++){
     var e=s.se[i], iCon=connected.indexOf(e.id)>=0;
-    h+='<div onclick="n8click('+e.id+','+e.causa_id+')" style="padding:10px 12px;border-radius:12px;border:2px solid '+(iCon?'#10B981':'#E5E7EB')+';background:'+(iCon?'#ECFDF5':s.sc!==null?'#FEF3C7':'#F9FAFB')+';cursor:pointer;font-size:13px;font-weight:500;margin-bottom:8px;opacity:'+(iCon?.6:1)+'">'+e.emoji+' '+e.text+'</div>';
+    h+='<div onclick="n8click('+e.id+','+e.causa_id+',\''+nucleo+'\')" style="padding:10px 12px;border-radius:12px;border:2px solid '+(iCon?'#10B981':'#E5E7EB')+';background:'+(iCon?'#ECFDF5':s.sc!==null?'#FEF3C7':'#F9FAFB')+';cursor:pointer;font-size:13px;font-weight:500;margin-bottom:8px;opacity:'+(iCon?.6:1)+'">'+e.emoji+' '+e.text+'</div>';
   }
   h+='</div></div>';
   if(Object.keys(s.cn).length===d.causas.length) h+='<p style="text-align:center;margin-top:14px;font-size:15px;font-weight:700;color:#065F46">\u{1F389} \u00a1Todas correctas!</p>';
   return h;
 }
-function n8click(eid,pid){var s=S.n8;if(s.sc===null)return;if(pid===s.sc)s.cn[s.sc]=eid;s.sc=null;render();}
+function n8click(eid,pid,nucleo){
+  var sk=nucleo+"_n8";
+  var s=S[sk];
+  if(s.sc===null)return;
+  if(pid===s.sc)s.cn[s.sc]=eid;
+  s.sc=null;
+  render();
+}
 
-function rN9(){
-  var d=D.nucleo.n9_ordenar_proceso;
-  if(!S.n9){
+function rN9(nucleo){
+  var d=D[nucleo].n9_ordenar_proceso;
+  var sk=nucleo+"_n9";
+  if(!S[sk]){
     var sh=d.pasos_en_orden_correcto.slice();
     for(var i=sh.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=sh[i];sh[i]=sh[j];sh[j]=t;}
-    S.n9={sh:sh,pl:[]};
+    S[sk]={sh:sh,pl:[]};
   }
-  var s=S.n9;
+  var s=S[sk];
   var avail=s.sh.filter(function(x){return !s.pl.find(function(p){return p.id===x.id})});
   var done=s.pl.length===d.pasos_en_orden_correcto.length;
   var h='<p style="font-size:14px;font-weight:600;color:#374151;margin:0 0 14px">'+d.consigna;
   if(d.paginas_referencia) h+=mostrarPaginas(d.paginas_referencia);
   h+='</p>';
   h+='<div style="min-height:60px;padding:12px;border-radius:14px;border:2px dashed #C7D2FE;background:#F5F3FF;margin-bottom:14px">';
-  if(!s.pl.length) h+='<p style="margin:0;font-size:13px;color:#A78BFA;text-align:center;padding:10px">Los pasos aparecen ac\u00e1 \u2193</p>';
+  if(!s.pl.length) h+='<p style="margin:0;font-size:13px;color:#A78BFA;text-align:center;padding:10px">Los pasos aparecen acá \u2193</p>';
   for(var i=0;i<s.pl.length;i++){
     h+='<div style="display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:10px;background:#fff;border:1px solid #E0E7FF;margin-bottom:6px">';
     h+='<span style="width:26px;height:26px;border-radius:50%;background:#6366F1;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px">'+(i+1)+'</span>';
     h+='<span style="font-size:13px;font-weight:500">'+s.pl[i].emoji+' '+s.pl[i].text+'</span></div>';
   }
   h+='</div>';
-  if(s.pl.length>0&&!done) h+='<button onclick="S.n9.pl.pop();render()" style="display:block;margin:0 auto 12px;padding:6px 14px;border-radius:8px;border:1px solid #D1D5DB;background:#fff;cursor:pointer;font-size:12px;color:#6B7280;font-family:inherit">\u21A9 Quitar \u00faltimo</button>';
+  if(s.pl.length>0&&!done) h+='<button onclick="S.'+sk+'.pl.pop();render()" style="display:block;margin:0 auto 12px;padding:6px 14px;border-radius:8px;border:1px solid #D1D5DB;background:#fff;cursor:pointer;font-size:12px;color:#6B7280;font-family:inherit">\u21A9 Quitar \u00faltimo</button>';
   if(!done){
     h+='<div style="display:flex;flex-wrap:wrap;gap:8px">';
     for(var i=0;i<avail.length;i++){
       var x=avail[i];
-      h+='<div onclick="S.n9.pl.push({id:'+x.id+',text:\''+x.text.replace(/'/g,"\\'")+'\',emoji:\''+x.emoji+'\'});render()" style="padding:10px 16px;border-radius:12px;border:2px solid #E5E7EB;background:#fff;cursor:pointer;font-size:13px;font-weight:500">'+x.emoji+' '+x.text+'</div>';
+      h+='<div onclick="S.'+sk+'.pl.push({id:'+x.id+',text:\''+x.text.replace(/'/g,"\\'")+'\',emoji:\''+x.emoji+'\'});render()" style="padding:10px 16px;border-radius:12px;border:2px solid #E5E7EB;background:#fff;cursor:pointer;font-size:13px;font-weight:500">'+x.emoji+' '+x.text+'</div>';
     }
     h+='</div>';
   }
@@ -678,18 +734,19 @@ function rN9(){
     for(var i=0;i<s.pl.length;i++){if(s.pl[i].id!==d.pasos_en_orden_correcto[i].id){ok=false;break;}}
     h+='<div class="fb" style="background:'+(ok?'#D1FAE5':'#FEF3C7')+';text-align:center">';
     h+='<p style="margin:0;font-size:14px;font-weight:600;color:'+(ok?'#065F46':'#92400E')+'">'+(ok?'\u{1F389} \u00a1Proceso perfecto!':'\u{1F504} El orden no es correcto')+'</p>';
-    if(!ok) h+='<button class="btn2" onclick="S.n9.pl=[];render()" style="margin-top:8px">Reintentar</button>';
+    if(!ok) h+='<button class="btn2" onclick="S.'+sk+'.pl=[];render()" style="margin-top:8px">Reintentar</button>';
     h+='</div>';
   }
   return h;
 }
 
-function rN10(){
-  var d=D.nucleo.n10_comparador;
-  if(!S.n10) S.n10={s1:"",s2:"",d1:"",d2:"",d3:"",d4:""};
-  var s=S.n10;
+function rN10(nucleo){
+  var d=D[nucleo].n10_comparador;
+  var sk=nucleo+"_n10";
+  if(!S[sk]) S[sk]={s1:"",s2:"",d1:"",d2:"",d3:"",d4:""};
+  var s=S[sk];
   var filled=[s.s1,s.s2,s.d1,s.d2,s.d3,s.d4].filter(function(v){return v.trim().length>3}).length;
-  function inp(k,ph){return '<input type="text" value="'+s[k]+'" oninput="S.n10.'+k+'=this.value" placeholder="'+ph+'" style="padding:8px;border-radius:8px;border:1px solid #D1D5DB;font-size:13px;margin-bottom:6px">';}
+  function inp(k,ph){return '<input type="text" value="'+s[k]+'" oninput="S.'+sk+'.'+k+'=this.value" placeholder="'+ph+'" style="padding:8px;border-radius:8px;border:1px solid #D1D5DB;font-size:13px;margin-bottom:6px">';}
   var h='';
   if(d.consigna || d.paginas_referencia) {
     h+='<p style="font-size:14px;font-weight:600;color:#374151;margin:0 0 14px">';
@@ -709,7 +766,6 @@ function rN10(){
   h+='<div style="margin-top:14px;display:flex;align-items:center;gap:10px"><div class="bar" style="flex:1"><div class="barfill" style="width:'+(filled/6*100)+'%;background:linear-gradient(90deg,#6366F1,#8B5CF6)"></div></div><span style="font-size:12px;color:#6B7280">'+filled+'/6</span></div>';
   return h;
 }
-
 
 function rSenales(){
   return secHeader("\u{1F6A6}","SE\u00d1ALES","Conceptos clave imperdibles",TABS[3].g)
