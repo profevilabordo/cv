@@ -9,107 +9,59 @@
   "umbral": {
     "preguntas_disparadoras": [
       {
-        "pregunta": "¿Por qué creés que existen reglas en todos lados: en tu casa, en la escuela, en el trabajo?",
+        "emoji": "⚖️",
+        "texto": "¿Por qué creés que existen reglas en todos lados: en tu casa, en la escuela, en el trabajo?",
         "pista": "Pensá qué pasaría si cada uno hiciera lo que quisiera sin importar los demás..."
       },
       {
-        "pregunta": "Si alguien te insulta fuerte en las redes, ¿es lo mismo que si te empuja en la calle? ¿Cuál tiene consecuencias legales?",
+        "emoji": "📱",
+        "texto": "Si alguien te insulta fuerte en las redes, ¿es lo mismo que si te empuja en la calle? ¿Cuál tiene consecuencias legales?",
         "pista": "Una afecta tu honor, la otra tu integridad física. ¿Ambas están reguladas por leyes?"
       },
       {
-        "pregunta": "¿Creés que las leyes siempre fueron iguales a través del tiempo, o cambian según la época?",
+        "emoji": "📜",
+        "texto": "¿Creés que las leyes siempre fueron iguales a través del tiempo, o cambian según la época?",
         "pista": "Hace 100 años las mujeres no votaban en Argentina. ¿Eso era legal entonces?"
       }
     ],
     "situaciones_conecta": [
-      {
-        "emoji": "📱",
-        "texto": "Leí los términos y condiciones de una app antes de aceptar"
-      },
-      {
-        "emoji": "🚗",
-        "texto": "Vi que multaron a alguien por pasarse un semáforo en rojo"
-      },
-      {
-        "emoji": "🏫",
-        "texto": "Me sancionaron en la escuela por llegar tarde reiteradamente"
-      },
-      {
-        "emoji": "💼",
-        "texto": "Firmé un contrato de trabajo en mi primer empleo"
-      }
+      {"emoji": "📱", "label": "Leí los términos y condiciones de una app antes de aceptar"},
+      {"emoji": "🚗", "label": "Vi que multaron a alguien por pasarse un semáforo en rojo"},
+      {"emoji": "🏫", "label": "Me sancionaron en la escuela por llegar tarde reiteradamente"},
+      {"emoji": "💼", "label": "Firmé un contrato de trabajo en mi primer empleo"}
     ],
     "termometro_pregunta": "¿Cuánto sabés sobre el Derecho y las leyes que regulan nuestra vida cotidiana?"
   },
   
   "mapa": {
     "ruta_paradas": [
+      {"id": 1, "title": "El hombre como ser gregario", "desc": "Por qué vivimos en sociedad y necesitamos reglas", "emoji": "👥", "color": "#6366F1"},
+      {"id": 2, "title": "¿Qué es el Derecho?", "desc": "Concepto, tipos y características del Derecho", "emoji": "⚖️", "color": "#3B82F6"},
+      {"id": 3, "title": "Normas morales vs. jurídicas", "desc": "Diferencias clave entre moral y derecho", "emoji": "🔀", "color": "#10B981"},
+      {"id": 4, "title": "Fuentes del Derecho", "desc": "De dónde provienen las normas jurídicas", "emoji": "📚", "color": "#F59E0B"},
+      {"id": 5, "title": "Ramas del Derecho", "desc": "Derecho público y privado: áreas y aplicaciones", "emoji": "🌳", "color": "#EC4899"}
+    ],
+    "panoramica_bloques": [
       {
-        "numero": 1,
-        "titulo": "El hombre como ser gregario",
-        "descripcion": "Por qué vivimos en sociedad y necesitamos reglas",
-        "emoji": "👥",
+        "title": "Bloque A",
+        "subtitle": "Fundamentos",
+        "items": ["El ser humano como ser gregario", "Evolución de la organización social", "Necesidad de normas para la convivencia", "Concepto y definición de Derecho"],
+        "emoji": "📖",
         "color": "#6366F1"
       },
       {
-        "numero": 2,
-        "titulo": "¿Qué es el Derecho?",
-        "descripcion": "Concepto, tipos y características del Derecho",
+        "title": "Bloque B",
+        "subtitle": "Tipos y Características",
+        "items": ["Derecho Natural vs. Derecho Positivo", "Derecho Objetivo y Derecho Subjetivo", "Diferencias entre normas morales y jurídicas", "Principios fundamentales del Derecho"],
         "emoji": "⚖️",
         "color": "#3B82F6"
       },
       {
-        "numero": 3,
-        "titulo": "Normas morales vs. jurídicas",
-        "descripcion": "Diferencias clave entre moral y derecho",
-        "emoji": "🔀",
-        "color": "#10B981"
-      },
-      {
-        "numero": 4,
-        "titulo": "Fuentes del Derecho",
-        "descripcion": "De dónde provienen las normas jurídicas",
+        "title": "Bloque C",
+        "subtitle": "Aplicación Práctica",
+        "items": ["Fuentes del Derecho: ley, costumbre, jurisprudencia, doctrina", "Características de la ley", "Ramas del Derecho público y privado", "Interpretación de las normas jurídicas"],
         "emoji": "📚",
-        "color": "#F59E0B"
-      },
-      {
-        "numero": 5,
-        "titulo": "Ramas del Derecho",
-        "descripcion": "Derecho público y privado: áreas y aplicaciones",
-        "emoji": "🌳",
-        "color": "#EC4899"
-      }
-    ],
-    "panoramica_bloques": [
-      {
-        "letra": "A",
-        "subtitulo": "Fundamentos",
-        "items": [
-          "El ser humano como ser gregario",
-          "Evolución de la organización social",
-          "Necesidad de normas para la convivencia",
-          "Concepto y definición de Derecho"
-        ]
-      },
-      {
-        "letra": "B",
-        "subtitulo": "Tipos y Características",
-        "items": [
-          "Derecho Natural vs. Derecho Positivo",
-          "Derecho Objetivo y Derecho Subjetivo",
-          "Diferencias entre normas morales y jurídicas",
-          "Principios fundamentales del Derecho"
-        ]
-      },
-      {
-        "letra": "C",
-        "subtitulo": "Aplicación Práctica",
-        "items": [
-          "Fuentes del Derecho: ley, costumbre, jurisprudencia, doctrina",
-          "Características de la ley",
-          "Ramas del Derecho público y privado",
-          "Interpretación de las normas jurídicas"
-        ]
+        "color": "#10B981"
       }
     ],
     "mapa_mental": {
@@ -591,56 +543,18 @@
   
   "cruces": {
     "puentes": [
-      {
-        "materia": "Historia",
-        "conexion": "La evolución del Derecho está directamente relacionada con los cambios históricos de cada sociedad. Estudiamos cómo las leyes cambiaron desde los grupos nómades hasta los Estados modernos.",
-        "pregunta": "¿Qué eventos históricos argentinos importantes impulsaron cambios en nuestra Constitución y leyes?",
-        "vinculo": "Revolución de Mayo, organización nacional, reforma de 1994"
-      },
-      {
-        "materia": "Filosofía",
-        "conexion": "El concepto de Derecho Natural se relaciona directamente con la ética y la filosofía moral. Los filósofos debaten sobre si existen principios jurídicos universales o si todo derecho es creación humana.",
-        "pregunta": "¿Existen valores morales absolutos que deberían estar siempre en las leyes, o todo depende de cada cultura?",
-        "vinculo": "Ética normativa, relativismo vs. universalismo"
-      },
-      {
-        "materia": "Sociología",
-        "conexion": "El Derecho como fenómeno social regula las relaciones humanas. La sociología estudia cómo las normas jurídicas reflejan y moldean el comportamiento colectivo y las estructuras sociales.",
-        "pregunta": "¿Las leyes crean la sociedad o la sociedad crea las leyes?",
-        "vinculo": "Control social, instituciones, cambio social"
-      },
-      {
-        "materia": "Economía",
-        "conexion": "El Derecho Comercial y las normas sobre propiedad, contratos e impuestos son fundamentales para el funcionamiento económico. Sin seguridad jurídica, no habría inversión ni desarrollo.",
-        "pregunta": "¿Cómo influyen las leyes en la economía de un país? ¿Qué pasa si no hay seguridad jurídica?",
-        "vinculo": "Sistema económico, contratos, propiedad privada"
-      }
+      {"materia": "Historia", "emoji": "📜", "color": "#EF4444", "conexion": "La evolución del Derecho está directamente relacionada con los cambios históricos de cada sociedad. Estudiamos cómo las leyes cambiaron desde los grupos nómades hasta los Estados modernos.", "pregunta": "¿Qué eventos históricos argentinos importantes impulsaron cambios en nuestra Constitución y leyes?", "vinculo": "Revolución de Mayo, organización nacional, reforma de 1994"},
+      {"materia": "Filosofía", "emoji": "💭", "color": "#8B5CF6", "conexion": "El concepto de Derecho Natural se relaciona directamente con la ética y la filosofía moral. Los filósofos debaten sobre si existen principios jurídicos universales o si todo derecho es creación humana.", "pregunta": "¿Existen valores morales absolutos que deberían estar siempre en las leyes, o todo depende de cada cultura?", "vinculo": "Ética normativa, relativismo vs. universalismo"},
+      {"materia": "Sociología", "emoji": "👥", "color": "#3B82F6", "conexion": "El Derecho como fenómeno social regula las relaciones humanas. La sociología estudia cómo las normas jurídicas reflejan y moldean el comportamiento colectivo y las estructuras sociales.", "pregunta": "¿Las leyes crean la sociedad o la sociedad crea las leyes?", "vinculo": "Control social, instituciones, cambio social"},
+      {"materia": "Economía", "emoji": "💰", "color": "#10B981", "conexion": "El Derecho Comercial y las normas sobre propiedad, contratos e impuestos son fundamentales para el funcionamiento económico. Sin seguridad jurídica, no habría inversión ni desarrollo.", "pregunta": "¿Cómo influyen las leyes en la economía de un país? ¿Qué pasa si no hay seguridad jurídica?", "vinculo": "Sistema económico, contratos, propiedad privada"}
     ],
     "telarana": [
-      {
-        "disciplina": "Psicología",
-        "relacion": "Estudia cómo las normas influyen en el comportamiento individual y por qué cumplimos (o no) las leyes"
-      },
-      {
-        "disciplina": "Antropología",
-        "relacion": "Compara sistemas jurídicos de diferentes culturas y cómo cada sociedad organiza sus normas"
-      },
-      {
-        "disciplina": "Política",
-        "relacion": "Las leyes son producto de decisiones políticas y el Derecho organiza el poder del Estado"
-      },
-      {
-        "disciplina": "Lengua",
-        "relacion": "La interpretación de las leyes depende del análisis preciso del lenguaje jurídico"
-      },
-      {
-        "disciplina": "Matemática",
-        "relacion": "La lógica formal se aplica en el razonamiento jurídico y en la argumentación legal"
-      },
-      {
-        "disciplina": "Tecnología",
-        "relacion": "El Derecho debe adaptarse a nuevos desafíos como internet, redes sociales, inteligencia artificial"
-      }
+      {"target": "Psicología", "desc": "Estudia cómo las normas influyen en el comportamiento individual y por qué cumplimos (o no) las leyes", "emoji": "🧠", "color": "#EC4899"},
+      {"target": "Antropología", "desc": "Compara sistemas jurídicos de diferentes culturas y cómo cada sociedad organiza sus normas", "emoji": "🌍", "color": "#F59E0B"},
+      {"target": "Política", "desc": "Las leyes son producto de decisiones políticas y el Derecho organiza el poder del Estado", "emoji": "🏛️", "color": "#3B82F6"},
+      {"target": "Lengua", "desc": "La interpretación de las leyes depende del análisis preciso del lenguaje jurídico", "emoji": "📝", "color": "#8B5CF6"},
+      {"target": "Matemática", "desc": "La lógica formal se aplica en el razonamiento jurídico y en la argumentación legal", "emoji": "🔢", "color": "#10B981"},
+      {"target": "Tecnología", "desc": "El Derecho debe adaptarse a nuevos desafíos como internet, redes sociales, inteligencia artificial", "emoji": "💻", "color": "#6366F1"}
     ]
   },
   
@@ -649,18 +563,9 @@
       "titulo_debate": "Las normas morales deberían ser suficientes para regular la sociedad, sin necesidad de leyes con sanciones",
       "contexto": "Van a debatir sobre si realmente necesitamos leyes con castigos o si bastaría con que todos actuáramos moralmente. Cada grupo defenderá una postura con argumentos del material leído.",
       "roles": [
-        {
-          "nombre": "Defensa",
-          "descripcion": "Defienden que las normas morales (conciencia, valores) son suficientes. Argumentan que las sanciones legales no cambian realmente a las personas y que una sociedad moral no necesitaría leyes coercitivas."
-        },
-        {
-          "nombre": "Acusación",
-          "descripcion": "Sostienen que las normas morales solas son insuficientes porque no todos tienen la misma moral y no hay garantía de cumplimiento. Defienden la necesidad de la coerción estatal para mantener el orden."
-        },
-        {
-          "nombre": "Jurado",
-          "descripcion": "Escuchan ambas posturas y deben evaluar cuál presenta mejores argumentos basados en el material estudiado sobre normas morales vs. jurídicas. Formulan preguntas críticas a ambos bandos."
-        }
+        {"id": "favor", "label": "A FAVOR", "emoji": "🟢", "color": "#10B981", "desc": "Defienden que las normas morales (conciencia, valores) son suficientes. Argumentan que las sanciones legales no cambian realmente a las personas y que una sociedad moral no necesitaría leyes coercitivas."},
+        {"id": "contra", "label": "EN CONTRA", "emoji": "🔴", "color": "#EF4444", "desc": "Sostienen que las normas morales solas son insuficientes porque no todos tienen la misma moral y no hay garantía de cumplimiento. Defienden la necesidad de la coerción estatal para mantener el orden."},
+        {"id": "juez", "label": "JURADO", "emoji": "👨‍⚖️", "color": "#8B5CF6", "desc": "Escuchan ambas posturas y deben evaluar cuál presenta mejores argumentos basados en el material estudiado sobre normas morales vs. jurídicas. Formulan preguntas críticas a ambos bandos."}
       ]
     },
     "tesis": {
@@ -792,81 +697,22 @@
   },
   
   "cierre": {
-    "resumen": "En esta unidad exploramos los fundamentos del Derecho: comprendimos que somos seres gregarios que necesitamos vivir en sociedad, lo que hace indispensable un conjunto de normas obligatorias para ordenar la convivencia. Diferenciamos el Derecho Natural del Positivo, las normas morales de las jurídicas, conocimos las fuentes del Derecho (ley, costumbre, jurisprudencia, doctrina) y las principales ramas (público y privado). Entendimos que el Derecho no es estático: evoluciona con la sociedad y se adapta a nuevos desafíos, siempre buscando la justicia, la seguridad jurídica y el bien común.",
     "glosario": [
-      {
-        "termino": "Derecho",
-        "definicion": "Conjunto de normas jurídicas obligatorias que regulan la vida del hombre en sociedad, estableciendo derechos y deberes para garantizar la convivencia pacífica.",
-        "categoria": "Concepto base"
-      },
-      {
-        "termino": "Ser Gregario",
-        "definicion": "Característica del ser humano de tender a agruparse con otros formando sociedades. Es inherente a su naturaleza y le permite lograr objetivos comunes.",
-        "categoria": "Concepto base"
-      },
-      {
-        "termino": "Derecho Natural",
-        "definicion": "Conjunto de principios jurídicos fundamentales, eternos e inmutables que el hombre reconoce mediante la razón. Está presente en la conciencia humana.",
-        "categoria": "Tipos de derecho"
-      },
-      {
-        "termino": "Derecho Positivo",
-        "definicion": "Conjunto de normas jurídicas vigentes en un Estado, creadas por la autoridad política. Puede cambiar a través del tiempo y es particular de cada país.",
-        "categoria": "Tipos de derecho"
-      },
-      {
-        "termino": "Coerción",
-        "definicion": "Aptitud que tienen los poderes jurisdiccionales del Estado de disponer de la fuerza para hacer cumplir la ley. Es lo que diferencia a las normas jurídicas de las morales.",
-        "categoria": "Concepto base"
-      },
-      {
-        "termino": "Fuentes del Derecho",
-        "definicion": "Modos o procesos a través de los cuales se originan y se hacen obligatorias las normas jurídicas. Incluyen: ley, costumbre, jurisprudencia y doctrina.",
-        "categoria": "Procesos"
-      },
-      {
-        "termino": "Seguridad Jurídica",
-        "definicion": "Certeza sobre lo que las leyes exigen, prohíben o permiten. Implica que las personas puedan conocer y prever las consecuencias legales de sus acciones.",
-        "categoria": "Principios"
-      },
-      {
-        "termino": "Irretroactividad",
-        "definicion": "Característica de la ley que establece que rige siempre hacia adelante en el tiempo y no puede castigar actos pasados anteriores a su sanción.",
-        "categoria": "Características"
-      }
+      {"termino": "Derecho", "definicion": "Conjunto de normas jurídicas obligatorias que regulan la vida del hombre en sociedad, estableciendo derechos y deberes para garantizar la convivencia pacífica.", "emoji": "⚖️", "categoria": "Concepto base"},
+      {"termino": "Ser Gregario", "definicion": "Característica del ser humano de tender a agruparse con otros formando sociedades. Es inherente a su naturaleza y le permite lograr objetivos comunes.", "emoji": "👥", "categoria": "Concepto base"},
+      {"termino": "Derecho Natural", "definicion": "Conjunto de principios jurídicos fundamentales, eternos e inmutables que el hombre reconoce mediante la razón. Está presente en la conciencia humana.", "emoji": "💫", "categoria": "Tipos de derecho"},
+      {"termino": "Derecho Positivo", "definicion": "Conjunto de normas jurídicas vigentes en un Estado, creadas por la autoridad política. Puede cambiar a través del tiempo y es particular de cada país.", "emoji": "📜", "categoria": "Tipos de derecho"},
+      {"termino": "Coerción", "definicion": "Aptitud que tienen los poderes jurisdiccionales del Estado de disponer de la fuerza para hacer cumplir la ley. Es lo que diferencia a las normas jurídicas de las morales.", "emoji": "💪", "categoria": "Concepto base"},
+      {"termino": "Fuentes del Derecho", "definicion": "Modos o procesos a través de los cuales se originan y se hacen obligatorias las normas jurídicas. Incluyen: ley, costumbre, jurisprudencia y doctrina.", "emoji": "📚", "categoria": "Procesos"},
+      {"termino": "Seguridad Jurídica", "definicion": "Certeza sobre lo que las leyes exigen, prohíben o permiten. Implica que las personas puedan conocer y prever las consecuencias legales de sus acciones.", "emoji": "🛡️", "categoria": "Principios"},
+      {"termino": "Irretroactividad", "definicion": "Característica de la ley que establece que rige siempre hacia adelante en el tiempo y no puede castigar actos pasados anteriores a su sanción.", "emoji": "⏭️", "categoria": "Características"}
     ],
     "recursos": [
-      {
-        "tipo": "📖",
-        "titulo": "Introducción al Derecho - Jorge Joaquín Llambías",
-        "descripcion": "Libro fundamental de teoría general del derecho argentino, escrito por uno de los juristas más importantes del país",
-        "nivel": "Intermedio"
-      },
-      {
-        "tipo": "🎬",
-        "titulo": "Video: ¿Qué es el Derecho? - Educatina",
-        "descripcion": "Video educativo corto que explica los conceptos básicos del derecho de forma clara y visual",
-        "nivel": "Introductorio"
-      },
-      {
-        "tipo": "🌐",
-        "titulo": "Código Civil y Comercial de la Nación Argentina",
-        "descripcion": "Texto completo del Código vigente desde 2015, disponible en InfoLEG (sitio oficial del Estado)",
-        "nivel": "Intermedio"
-      },
-      {
-        "tipo": "📄",
-        "titulo": "Constitución Nacional Argentina",
-        "descripcion": "Ley suprema de Argentina, fundamental para entender el sistema jurídico del país",
-        "nivel": "Introductorio"
-      },
-      {
-        "tipo": "🎧",
-        "titulo": "Podcast: Derecho en Simple - Spotify",
-        "descripcion": "Podcast argentino que explica temas jurídicos cotidianos en lenguaje accesible para todos",
-        "nivel": "Introductorio"
-      }
-    ],
-    "reflexion_final": "El Derecho no es solo un conjunto de leyes abstractas: está presente en cada aspecto de tu vida diaria. Desde que te levantás hasta que te acostás, convivís con normas que regulan tus relaciones, protegen tus derechos y establecen tus obligaciones. Entender el Derecho es entender cómo funciona la sociedad en la que vivís y cómo podés defender tus derechos y cumplir tus deberes como ciudadano. ¿Estás listo para seguir explorando este fascinante mundo jurídico?"
+      {"tipo": "📖 Libro", "title": "Introducción al Derecho - Jorge Joaquín Llambías", "desc": "Libro fundamental de teoría general del derecho argentino, escrito por uno de los juristas más importantes del país", "nivel": "Intermedio", "color": "#3B82F6"},
+      {"tipo": "🎬 Video", "title": "¿Qué es el Derecho? - Educatina", "desc": "Video educativo corto que explica los conceptos básicos del derecho de forma clara y visual", "nivel": "Introductorio", "color": "#10B981"},
+      {"tipo": "🌐 Web", "title": "Código Civil y Comercial de la Nación Argentina", "desc": "Texto completo del Código vigente desde 2015, disponible en InfoLEG (sitio oficial del Estado)", "nivel": "Intermedio", "color": "#F59E0B"},
+      {"tipo": "📖 Libro", "title": "Constitución Nacional Argentina", "desc": "Ley suprema de Argentina, fundamental para entender el sistema jurídico del país", "nivel": "Introductorio", "color": "#EF4444"},
+      {"tipo": "🎧 Podcast", "title": "Derecho en Simple - Spotify", "desc": "Podcast argentino que explica temas jurídicos cotidianos en lenguaje accesible para todos", "nivel": "Introductorio", "color": "#8B5CF6"}
+    ]
   }
 }
