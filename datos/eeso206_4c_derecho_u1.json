@@ -516,11 +516,10 @@
     "encuesta": {
       "pregunta": "¿Qué dato te sorprendió más?",
       "opciones": [
-        "Que 'derecho' significa 'camino recto' en latín",
-        "Que el Código Civil de Vélez duró 145 años",
-        "Que los humanos somos semigregarios, no totalmente sociales"
-      ],
-      "votos_iniciales": [42, 38, 20]
+        {"text": "Que 'derecho' significa 'camino recto' en latín", "emoji": "📜", "votos_iniciales": 42},
+        {"text": "Que el Código Civil de Vélez duró 145 años", "emoji": "⚖️", "votos_iniciales": 38},
+        {"text": "Que los humanos somos semigregarios, no totalmente sociales", "emoji": "👥", "votos_iniciales": 20}
+      ]
     }
   },
   
