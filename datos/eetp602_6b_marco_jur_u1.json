@@ -1382,7 +1382,24 @@
     }
   },
 
-  "autotest": {
+ "autotest": {
+    "banco_respuestas_docente": [
+      "1. B - El Natural son principios ideales eternos, el Positivo es creado por autoridad política",
+      "2. C - La moral",
+      "3. C - 18 años",
+      "4. B - La física es un ser humano, la jurídica es una organización reconocida por la ley",
+      "5. C - Que tenga objeto lícito",
+      "6. C - 2015",
+      "7. B - El Público regula al Estado y el interés general, el Privado regula relaciones entre particulares",
+      "8. A - Negligencia, imprudencia o impericia",
+      "9. B - Tutela protege menores, curatela protege adultos incapaces",
+      "10. D - Busca el propósito que tuvo el legislador al crear la norma",
+      "11. FALSO - Las normas morales son incoercibles",
+      "12. VERDADERO - La coerción diferencia al Derecho de la moral",
+      "13. FALSO - Tiene 2.671 artículos (el de Vélez tenía 4.051)",
+      "14. VERDADERO - Requiere antijuridicidad, daño, relación causal y factor de atribución",
+      "15. VERDADERO - Pueden ser subjetiva (culpa/dolo) u objetiva (sin culpa)"
+    ],
     "preguntas": [
       {
         "pregunta": "¿Cuál es la principal diferencia entre Derecho Natural y Derecho Positivo?",
@@ -1399,11 +1416,11 @@
         "pregunta": "¿Cuál de estas NO es una fuente del Derecho?",
         "opciones": [
           "La ley",
-          "La moral",
           "La jurisprudencia",
+          "La moral",
           "La costumbre"
         ],
-        "correcta": 1,
+        "correcta": 2,
         "explicacion": "Las 4 fuentes del Derecho son: ley, costumbre, jurisprudencia y doctrina. La moral no es fuente del Derecho, aunque ambas regulan conductas humanas."
       },
       {
@@ -1449,6 +1466,77 @@
         ],
         "correcta": 2,
         "explicacion": "El Código Civil y Comercial de la Nación (Ley 26.994) entró en vigencia el 1° de agosto de 2015, reemplazando al Código de Vélez Sarsfield de 1869 y unificando el derecho civil y comercial."
+      },
+      {
+        "pregunta": "¿Cuál es la principal diferencia entre Derecho Público y Derecho Privado?",
+        "opciones": [
+          "El Público es para mayores de 18 años, el Privado para menores",
+          "El Público regula al Estado y el interés general, el Privado regula relaciones entre particulares",
+          "El Público se publica en el Boletín Oficial, el Privado no",
+          "El Público es gratuito, el Privado es oneroso"
+        ],
+        "correcta": 1,
+        "explicacion": "El Derecho Público regula la organización del Estado y sus relaciones con los particulares, priorizando el interés general. El Derecho Privado regula las relaciones entre particulares, donde prima la autonomía de la voluntad."
+      },
+      {
+        "pregunta": "La culpa en responsabilidad civil puede manifestarse como:",
+        "opciones": [
+          "Negligencia, imprudencia o impericia",
+          "Solo intención de dañar",
+          "Desconocimiento de la ley",
+          "Falta de capacidad económica"
+        ],
+        "correcta": 0,
+        "explicacion": "La culpa se manifiesta como: negligencia (omisión o descuido), imprudencia (acción temeraria sin previsión) o impericia (falta de conocimientos técnicos necesarios)."
+      },
+      {
+        "pregunta": "¿Cuál es la diferencia principal entre tutela y curatela?",
+        "opciones": [
+          "La tutela es para mayores de edad, la curatela para menores",
+          "La tutela protege menores sin patria potestad, la curatela protege adultos incapaces",
+          "La tutela es voluntaria, la curatela es obligatoria",
+          "La tutela es gratuita, la curatela es paga"
+        ],
+        "correcta": 1,
+        "explicacion": "La tutela es la institución para proteger a menores que no están bajo patria potestad. La curatela protege a adultos declarados incapaces o con capacidad restringida por sentencia judicial."
+      },
+      {
+        "pregunta": "La interpretación teleológica de la ley consiste en:",
+        "opciones": [
+          "Leer solo el texto literal de la norma",
+          "Consultar el contexto histórico en que se creó",
+          "Relacionarla con otras leyes del sistema",
+          "Buscar el propósito que tuvo el legislador al crear la norma"
+        ],
+        "correcta": 3,
+        "explicacion": "La interpretación teleológica busca identificar el propósito, la finalidad o el objetivo que el legislador tenía al crear la norma, más allá de su texto literal."
+      }
+    ],
+    "verdadero_falso": [
+      {
+        "texto": "Las normas morales son coercibles, igual que las jurídicas",
+        "correcto": false,
+        "explicacion": "Falso. Las normas morales son incoercibles: no se pueden imponer por la fuerza. Solo las normas jurídicas tienen coerción estatal."
+      },
+      {
+        "texto": "La coerción es lo que diferencia fundamentalmente al Derecho de la moral y la religión",
+        "correcto": true,
+        "explicacion": "Verdadero. La coerción (aptitud de hacer cumplir la norma por la fuerza) es la característica distintiva del Derecho frente a otros sistemas normativos."
+      },
+      {
+        "texto": "El Código Civil y Comercial actual tiene más artículos que el Código de Vélez Sarsfield",
+        "correcto": false,
+        "explicacion": "Falso. El CCyC tiene 2.671 artículos, mientras que el de Vélez tenía 4.051. Se unificó y modernizó, reduciendo la cantidad."
+      },
+      {
+        "texto": "Para que exista responsabilidad civil deben concurrir: antijuridicidad, daño, relación de causalidad y factor de atribución",
+        "correcto": true,
+        "explicacion": "Verdadero. Estos son los 4 elementos esenciales de la responsabilidad civil. Si falta uno, no hay obligación de indemnizar."
+      },
+      {
+        "texto": "La responsabilidad civil puede ser subjetiva (requiere culpa o dolo) u objetiva (no requiere culpa)",
+        "correcto": true,
+        "explicacion": "Verdadero. El CCyC establece un sistema mixto: responsabilidad subjetiva (basada en culpa/dolo) y objetiva (basada en riesgo o vicio de la cosa, sin necesidad de probar culpa)."
       }
     ]
   },
