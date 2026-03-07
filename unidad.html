@@ -1151,42 +1151,106 @@ function rAT(){
     return bancoHtml + h;
   }
   
-  // PANTALLA DE PREGUNTA (solo MC por ahora, V/F se agregan después)
-  var p=d[s.cur], answered=s.ans[s.cur]!==undefined, ok=answered&&s.ans[s.cur]===p.correcta;
-  var h='<div style="display:flex;justify-content:space-between;margin-bottom:12px">';
-  h+='<span style="font-size:13px;font-weight:700;color:#6366F1">Pregunta '+(s.cur+1)+'/'+totalPreguntas+'</span>';
-  h+='<div style="display:flex;gap:4px">';
-  for(var i=0;i<totalPreguntas;i++){
-    var isDone = i < tq ? (s.ans[i] !== undefined) : (s.ans['vf_' + (i-tq)] !== undefined);
-    var isCorrect = false;
-    if(isDone){
-      if(i < tq){
-        isCorrect = s.ans[i] === d[i].correcta;
-      } else {
-        var vfIdx = i - tq;
-        isCorrect = s.ans['vf_'+vfIdx] === vf[vfIdx].correcto;
+  // PANTALLA DE PREGUNTA
+  // Si cur < tq → mostrar MC
+  // Si cur >= tq → mostrar V/F
+  
+  if(s.cur < tq){
+    // ========== MULTIPLE CHOICE ==========
+    var p=d[s.cur], answered=s.ans[s.cur]!==undefined, ok=answered&&s.ans[s.cur]===p.correcta;
+    var h='<div style="display:flex;justify-content:space-between;margin-bottom:12px">';
+    h+='<span style="font-size:13px;font-weight:700;color:#6366F1">Pregunta '+(s.cur+1)+'/'+totalPreguntas+'</span>';
+    h+='<div style="display:flex;gap:4px">';
+    for(var i=0;i<totalPreguntas;i++){
+      var isDone = i < tq ? (s.ans[i] !== undefined) : (s.ans['vf_' + (i-tq)] !== undefined);
+      var isCorrect = false;
+      if(isDone){
+        if(i < tq){
+          isCorrect = s.ans[i] === d[i].correcta;
+        } else {
+          var vfIdx = i - tq;
+          isCorrect = s.ans['vf_'+vfIdx] === vf[vfIdx].correcto;
+        }
       }
+      h+='<div style="width:10px;height:10px;border-radius:50%;background:'+(i===s.cur?'#6366F1':isCorrect?'#10B981':isDone?'#EF4444':'#E5E7EB')+'"></div>';
     }
-    h+='<div style="width:10px;height:10px;border-radius:50%;background:'+(i===s.cur?'#6366F1':isCorrect?'#10B981':isDone?'#EF4444':'#E5E7EB')+'"></div>';
+    h+='</div></div>';
+    h+='<div style="padding:16px;border-radius:14px;background:#F5F3FF;margin-bottom:14px"><p style="margin:0;font-size:15px;font-weight:700;color:#374151">'+p.pregunta+'</p></div>';
+    
+    for(var j=0;j<p.opciones.length;j++){
+      var opt=p.opciones[j], iSel=s.ans[s.cur]===j;
+      var isCorrect=answered&&j===p.correcta;
+      var isWrong=iSel&&!ok;
+      h+='<div onclick="if(S.at.ans[S.at.cur]===undefined){S.at.ans[S.at.cur]='+j+';render()}" style="padding:12px 16px;border-radius:12px;border:'+(isCorrect?'2px solid #10B981':isWrong?'2px solid #EF4444':iSel?'2px solid #6366F1':'2px solid #E5E7EB')+';background:'+(isCorrect?'#ECFDF5':isWrong?'#FEF2F2':iSel?'#EEF2FF':'#fff')+';cursor:'+(answered?'default':'pointer')+';display:flex;align-items:center;gap:10px;margin-bottom:8px">';
+      h+='<span style="width:28px;height:28px;border-radius:50%;border:2px solid '+(isCorrect?'#10B981':isWrong?'#EF4444':'#D1D5DB')+';background:'+(isCorrect?'#10B981':isWrong?'#EF4444':'transparent')+';color:'+(isCorrect||isWrong?'#fff':'#6B7280')+';display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px">'+(isCorrect?'\u2713':isWrong?'\u2717':String.fromCharCode(65+j))+'</span>';
+      h+='<span style="font-size:14px;font-weight:'+(iSel?600:400)+'">'+opt+'</span></div>';
+    }
+    
+    if(answered){
+      h+='<div class="fb" style="background:'+(ok?'#D1FAE5':'#FEF3C7')+'"><p style="margin:0;font-size:13px;color:'+(ok?'#065F46':'#92400E')+'">'+(ok?'\u2728 ':'\u{1F4D6} ')+p.explicacion+'</p></div>';
+      h+='<button class="btn" onclick="S.at.cur++;render()">'+(s.cur<tq-1?'Siguiente \u2192':'Pasar a V/F \u2192')+'</button>';
+    }
+    
+    return bancoHtml + h;
+    
+  } else {
+    // ========== VERDADERO / FALSO ==========
+    var vfIdx = s.cur - tq;
+    
+    // Si ya terminó todas las V/F, mostrar resultados
+    if(vfIdx >= vfq){
+      s.fin = true;
+      return render(); // Re-renderizar para mostrar pantalla final
+    }
+    
+    var vfItem = vf[vfIdx];
+    var vfKey = 'vf_' + vfIdx;
+    var answered = s.ans[vfKey] !== undefined;
+    var ok = answered && s.ans[vfKey] === vfItem.correcto;
+    
+    var h='<div style="display:flex;justify-content:space-between;margin-bottom:12px">';
+    h+='<span style="font-size:13px;font-weight:700;color:#6366F1">Pregunta '+(s.cur+1)+'/'+totalPreguntas+' (Verdadero/Falso)</span>';
+    h+='<div style="display:flex;gap:4px">';
+    for(var i=0;i<totalPreguntas;i++){
+      var isDone = i < tq ? (s.ans[i] !== undefined) : (s.ans['vf_' + (i-tq)] !== undefined);
+      var isCorrect = false;
+      if(isDone){
+        if(i < tq){
+          isCorrect = s.ans[i] === d[i].correcta;
+        } else {
+          var vfI = i - tq;
+          isCorrect = s.ans['vf_'+vfI] === vf[vfI].correcto;
+        }
+      }
+      h+='<div style="width:10px;height:10px;border-radius:50%;background:'+(i===s.cur?'#6366F1':isCorrect?'#10B981':isDone?'#EF4444':'#E5E7EB')+'"></div>';
+    }
+    h+='</div></div>';
+    h+='<div style="padding:16px;border-radius:14px;background:#FFF7ED;margin-bottom:14px;border:2px solid #F59E0B">';
+    h+='<p style="margin:0;font-size:15px;font-weight:700;color:#374151">'+vfItem.texto+'</p></div>';
+    
+    // Botones V/F
+    var selV = s.ans[vfKey] === true;
+    var selF = s.ans[vfKey] === false;
+    var isCorrectV = answered && vfItem.correcto === true;
+    var isCorrectF = answered && vfItem.correcto === false;
+    var isWrongV = selV && !ok;
+    var isWrongF = selF && !ok;
+    
+    h+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">';
+    h+='<div onclick="if(S.at.ans[\''+vfKey+'\']===undefined){S.at.ans[\''+vfKey+'\']=true;render()}" style="padding:16px;border-radius:12px;border:'+(isCorrectV?'3px solid #10B981':isWrongV?'3px solid #EF4444':selV?'2px solid #6366F1':'2px solid #E5E7EB')+';background:'+(isCorrectV?'#ECFDF5':isWrongV?'#FEF2F2':selV?'#EEF2FF':'#fff')+';cursor:'+(answered?'default':'pointer')+';text-align:center;font-size:16px;font-weight:700">';
+    h+='<div style="font-size:24px;margin-bottom:6px">'+(isCorrectV?'\u2713':isWrongV?'\u2717':'\u2705')+'</div>VERDADERO</div>';
+    h+='<div onclick="if(S.at.ans[\''+vfKey+'\']===undefined){S.at.ans[\''+vfKey+'\']=false;render()}" style="padding:16px;border-radius:12px;border:'+(isCorrectF?'3px solid #10B981':isWrongF?'3px solid #EF4444':selF?'2px solid #6366F1':'2px solid #E5E7EB')+';background:'+(isCorrectF?'#ECFDF5':isWrongF?'#FEF2F2':selF?'#EEF2FF':'#fff')+';cursor:'+(answered?'default':'pointer')+';text-align:center;font-size:16px;font-weight:700">';
+    h+='<div style="font-size:24px;margin-bottom:6px">'+(isCorrectF?'\u2713':isWrongF?'\u2717':'\u274C')+'</div>FALSO</div>';
+    h+='</div>';
+    
+    if(answered){
+      h+='<div class="fb" style="background:'+(ok?'#D1FAE5':'#FEF3C7')+'"><p style="margin:0;font-size:13px;color:'+(ok?'#065F46':'#92400E')+'">'+(ok?'\u2728 ':'\u{1F4D6} ')+vfItem.explicacion+'</p></div>';
+      var isLastVF = vfIdx >= vfq - 1;
+      h+='<button class="btn" onclick="S.at.cur++;render()">'+(isLastVF?'Ver mi nota \u2192':'Siguiente \u2192')+'</button>';
+    }
+    
+    return bancoHtml + h;
   }
-  h+='</div></div>';
-  h+='<div style="padding:16px;border-radius:14px;background:#F5F3FF;margin-bottom:14px"><p style="margin:0;font-size:15px;font-weight:700;color:#374151">'+p.pregunta+'</p></div>';
-  
-  for(var j=0;j<p.opciones.length;j++){
-    var opt=p.opciones[j], iSel=s.ans[s.cur]===j;
-    var isCorrect=answered&&j===p.correcta;
-    var isWrong=iSel&&!ok;
-    h+='<div onclick="if(S.at.ans[S.at.cur]===undefined){S.at.ans[S.at.cur]='+j+';render()}" style="padding:12px 16px;border-radius:12px;border:'+(isCorrect?'2px solid #10B981':isWrong?'2px solid #EF4444':iSel?'2px solid #6366F1':'2px solid #E5E7EB')+';background:'+(isCorrect?'#ECFDF5':isWrong?'#FEF2F2':iSel?'#EEF2FF':'#fff')+';cursor:'+(answered?'default':'pointer')+';display:flex;align-items:center;gap:10px;margin-bottom:8px">';
-    h+='<span style="width:28px;height:28px;border-radius:50%;border:2px solid '+(isCorrect?'#10B981':isWrong?'#EF4444':'#D1D5DB')+';background:'+(isCorrect?'#10B981':isWrong?'#EF4444':'transparent')+';color:'+(isCorrect||isWrong?'#fff':'#6B7280')+';display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px">'+(isCorrect?'\u2713':isWrong?'\u2717':String.fromCharCode(65+j))+'</span>';
-    h+='<span style="font-size:14px;font-weight:'+(iSel?600:400)+'">'+opt+'</span></div>';
-  }
-  
-  if(answered){
-    h+='<div class="fb" style="background:'+(ok?'#D1FAE5':'#FEF3C7')+'"><p style="margin:0;font-size:13px;color:'+(ok?'#065F46':'#92400E')+'">'+(ok?'\u2728 ':'\u{1F4D6} ')+p.explicacion+'</p></div>';
-    h+='<button class="btn" onclick="if(S.at.cur<'+(tq-1)+'){S.at.cur++;render()}else{S.at.fin=true;render()}">'+(s.cur<tq-1?'Siguiente \u2192':'Ver mi nota')+'</button>';
-  }
-  
-  return bancoHtml + h;
 }
   
 function rCierre(){
@@ -1264,6 +1328,10 @@ var SUPABASE_ACTIVO = SUPABASE_URL.indexOf("TU_PROYECTO") === -1;
 // ----- LOGIN DEL ALUMNO -----
 // Solo se muestra si Supabase está configurado Y el alumno no tiene clave guardada
 (function initAlumnoLogin(){
+  // 🔑 Si es docente (1126), no pedir login de alumno
+  var esDocente = sessionStorage.getItem("campus_auth") === "1126";
+  if(esDocente) return;  // Docente puede ver todo sin login
+  
   if(!SUPABASE_ACTIVO) return;           // sin Supabase → no pedir clave
   if(localStorage.getItem("campus_alumno_codigo")) return; // ya identificado → no pedir de nuevo
 
