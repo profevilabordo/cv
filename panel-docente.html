@@ -428,8 +428,10 @@ function renderAutotests(){
   h += '</select>';
 
   // Filtro materia
-  var notas = allProgreso.filter(function(p){return p.nota !== null && p.nota !== undefined;});
-  var todasMaterias = [...new Set(notas.map(function(p){return p.materia}))].sort();
+  var autotests = allProgreso.filter(function(p){
+    return (p.seccion === 'autotest_1er_intento' || p.seccion === 'autotest_reintento') && p.nota !== null;
+  });
+  var todasMaterias = [...new Set(autotests.map(function(p){return p.materia}))].sort();
   h += '<select class="filter-select" id="filterMateriaA" onchange="renderAutotests()">';
   h += '<option value="">Todas las materias</option>';
   todasMaterias.forEach(function(m){ h += '<option'+(fm===m?' selected':'')+'>'+m+'</option>'; });
@@ -437,12 +439,41 @@ function renderAutotests(){
 
   h += '</div>';
 
-  // Aplicar filtros
-  var filtradas = notas.filter(function(p){
-    var alumno = allAlumnos.find(function(a){return a.codigo===p.alumno_codigo;}) || {};
+  // 📊 AGRUPAR POR ALUMNO + MATERIA + UNIDAD
+  var grupos = {};
+  autotests.forEach(function(p){
+    var alumno = allAlumnos.find(function(a){return a.codigo===p.alumno_codigo;});
+    if(!alumno) return;
+    
+    // Aplicar filtros
     var matchCurso = !fc || alumno.curso === fc;
     var matchMateria = !fm || p.materia === fm;
-    return matchCurso && matchMateria;
+    if(!matchCurso || !matchMateria) return;
+
+    var key = p.alumno_codigo + '|' + p.materia + '|' + p.unidad;
+    if(!grupos[key]){
+      grupos[key] = {
+        alumno: alumno,
+        materia: p.materia,
+        unidad: p.unidad,
+        primerIntento: null,
+        reintentos: [],
+        totalIntentos: 0
+      };
+    }
+
+    if(p.seccion === 'autotest_1er_intento'){
+      grupos[key].primerIntento = p;
+    } else if(p.seccion === 'autotest_reintento'){
+      grupos[key].reintentos.push(p);
+    }
+  });
+
+  // Convertir a array y ordenar
+  var registros = Object.values(grupos).filter(function(g){return g.primerIntento !== null;});
+  registros.forEach(function(r){r.totalIntentos = 1 + r.reintentos.length;});
+  registros.sort(function(a,b){
+    return new Date(b.primerIntento.fecha) - new Date(a.primerIntento.fecha);
   });
 
   // Chips de filtros activos
@@ -451,32 +482,77 @@ function renderAutotests(){
     h += '<span style="font-size:12px;color:#64748B">Filtrando por:</span>';
     if(fc) h += '<span style="background:#6366F120;color:#A78BFA;border:1px solid #6366F140;padding:4px 12px;border-radius:8px;font-size:12px;font-weight:700">🏫 '+fc+'</span>';
     if(fm) h += '<span style="background:#6366F120;color:#A78BFA;border:1px solid #6366F140;padding:4px 12px;border-radius:8px;font-size:12px;font-weight:700">📚 '+fm+'</span>';
-    h += '<span style="font-size:12px;color:#64748B">· '+filtradas.length+' resultado(s)</span>';
+    h += '<span style="font-size:12px;color:#64748B">· '+registros.length+' alumno(s)</span>';
     h += '</div>';
   }
 
-  h += '<div class="table-wrap"><table>';
-  h += '<thead><tr><th>Alumno</th><th>Curso</th><th>Materia</th><th>Unidad</th><th>Nota</th><th>Fecha</th></tr></thead><tbody>';
-
-  if(!filtradas.length){
-    h += '<tr><td colspan="6" style="text-align:center;color:#64748B;padding:30px">No hay autotests que coincidan con los filtros</td></tr>';
+  // 📊 ESTADÍSTICAS RÁPIDAS
+  if(registros.length > 0){
+    var totalPrimerIntento = registros.length;
+    var aprobados = registros.filter(function(r){return r.primerIntento.nota >= 60;}).length;
+    var promedio = registros.reduce(function(sum,r){return sum + r.primerIntento.nota;}, 0) / totalPrimerIntento;
+    var conReintentos = registros.filter(function(r){return r.reintentos.length > 0;}).length;
+    
+    h += '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:18px">';
+    h += '<div style="background:#1E293B;border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:14px;text-align:center">';
+    h += '<div style="font-size:22px;font-weight:800;color:#6366F1">'+totalPrimerIntento+'</div>';
+    h += '<div style="font-size:11px;color:#64748B;margin-top:2px">Total tests</div></div>';
+    
+    h += '<div style="background:#1E293B;border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:14px;text-align:center">';
+    h += '<div style="font-size:22px;font-weight:800;color:#10B981">'+Math.round(promedio)+'%</div>';
+    h += '<div style="font-size:11px;color:#64748B;margin-top:2px">Promedio</div></div>';
+    
+    h += '<div style="background:#1E293B;border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:14px;text-align:center">';
+    h += '<div style="font-size:22px;font-weight:800;color:#34D399">'+aprobados+'</div>';
+    h += '<div style="font-size:11px;color:#64748B;margin-top:2px">Aprobados (≥60%)</div></div>';
+    
+    h += '<div style="background:#1E293B;border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:14px;text-align:center">';
+    h += '<div style="font-size:22px;font-weight:800;color:#F59E0B">'+conReintentos+'</div>';
+    h += '<div style="font-size:11px;color:#64748B;margin-top:2px">Reintentaron</div></div>';
+    h += '</div>';
   }
 
-  filtradas.forEach(function(p){
-    var alumno = allAlumnos.find(function(a){return a.codigo===p.alumno_codigo;}) || {nombre:"—",curso:"—"};
-    var color = p.nota >= 70 ? "#10B981" : p.nota >= 50 ? "#F59E0B" : "#EF4444";
-    var fecha = new Date(p.fecha).toLocaleDateString("es-AR",{day:"2-digit",month:"2-digit",year:"2-digit"});
+  // TABLA
+  h += '<div class="table-wrap"><table>';
+  h += '<thead><tr><th>Alumno</th><th>Curso</th><th>Materia</th><th>Unidad</th><th>1er Intento</th><th>Reintentos</th><th>Fecha</th></tr></thead><tbody>';
+
+  if(!registros.length){
+    h += '<tr><td colspan="7" style="text-align:center;color:#64748B;padding:30px">📝 No hay autotests que coincidan con los filtros</td></tr>';
+  }
+
+  registros.forEach(function(r){
+    var nota1 = r.primerIntento.nota;
+    var color1 = nota1 >= 70 ? "#10B981" : nota1 >= 50 ? "#F59E0B" : "#EF4444";
+    var fecha1 = new Date(r.primerIntento.fecha).toLocaleDateString("es-AR",{day:"2-digit",month:"2-digit",year:"2-digit",hour:"2-digit",minute:"2-digit"});
+    
     h += '<tr>';
-    h += '<td><strong>'+alumno.nombre+'</strong></td>';
-    h += '<td><span class="badge badge-blue">'+alumno.curso+'</span></td>';
-    h += '<td>'+p.materia+'</td>';
-    h += '<td>'+p.unidad.toUpperCase()+'</td>';
-    h += '<td><span style="background:'+color+'20;color:'+color+';padding:4px 12px;border-radius:8px;font-size:13px;font-weight:800">'+p.nota+'%</span></td>';
-    h += '<td style="font-size:12px;color:#64748B">'+fecha+'</td>';
+    h += '<td><strong>'+r.alumno.nombre+'</strong></td>';
+    h += '<td><span class="badge badge-blue">'+r.alumno.curso+'</span></td>';
+    h += '<td style="font-size:12px">'+r.materia+'</td>';
+    h += '<td style="font-weight:700;color:#A78BFA">'+r.unidad.toUpperCase()+'</td>';
+    h += '<td><span style="background:'+color1+'20;color:'+color1+';padding:4px 12px;border-radius:8px;font-size:13px;font-weight:800">'+nota1+'%</span></td>';
+    
+    // Reintentos
+    if(r.reintentos.length === 0){
+      h += '<td style="font-size:12px;color:#64748B">—</td>';
+    } else {
+      var mejorReintento = Math.max.apply(null, r.reintentos.map(function(ri){return ri.nota;}));
+      var colorR = mejorReintento >= 70 ? "#10B981" : mejorReintento >= 50 ? "#F59E0B" : "#EF4444";
+      h += '<td><span style="font-size:11px;color:#64748B">'+r.reintentos.length+' intento(s)</span><br>';
+      h += '<span style="font-size:12px;color:'+colorR+';font-weight:700">Mejor: '+mejorReintento+'%</span></td>';
+    }
+    
+    h += '<td style="font-size:11px;color:#64748B">'+fecha1+'</td>';
     h += '</tr>';
   });
 
   h += '</tbody></table></div>';
+  
+  // NOTA AL PIE
+  h += '<div style="margin-top:16px;padding:12px 16px;border-radius:12px;background:#1E293B;border:1px solid rgba(255,255,255,0.07)">';
+  h += '<p style="margin:0;font-size:12px;color:#64748B">💡 <strong>Nota:</strong> Solo se muestra el <strong>primer intento</strong> de cada alumno (es la nota oficial). Los reintentos son solo para práctica.</p>';
+  h += '</div>';
+
   document.getElementById("tabContent").innerHTML = h;
 }
 
