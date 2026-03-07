@@ -256,6 +256,9 @@ function render(){
   if(saludo){
     h+='<div style="display:flex;align-items:center;gap:10px">';
     h+='<span style="font-size:14px;font-weight:600;color:#6B7280">'+saludo+'</span>';
+    if(esDocente){
+      h+='<a href="panel-docente.html" style="padding:6px 14px;border-radius:10px;border:1px solid #6366F1;background:#EEF2FF;color:#6366F1;font-size:13px;font-weight:600;text-decoration:none">📊 Panel</a>';
+    }
     h+='<button onclick="cerrarSesion()" style="padding:6px 14px;border-radius:10px;border:1px solid #E5E7EB;background:#fff;color:#EF4444;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">🚪 Salir</button>';
     h+='</div>';
   }
