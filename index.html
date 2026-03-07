@@ -101,6 +101,7 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 <div class="orbs"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
 <div class="container">
   <div class="header">
+    <div style="display:flex;justify-content:flex-end;margin-bottom:8px" id="userGreeting"></div>
     <div class="logo">📓</div>
     <h1>Campus Cuaderno Vivo</h1>
     <p>Plataforma de actividades interactivas</p>
@@ -353,11 +354,14 @@ function checkLogin(){
   if(input === correct){
     document.getElementById("loginOverlay").style.display = "none";
     sessionStorage.setItem("campus_auth", correct);
+    mostrarSaludo();
   } else if(input === "1126"){
     // 🎓 Clave docente estática
     document.getElementById("loginOverlay").style.display = "none";
     sessionStorage.setItem("campus_auth", correct); // Guardar clave del día
     sessionStorage.setItem("is_docente", "true");   // Flag de docente
+    localStorage.setItem("campus_alumno_nombre", "Profe"); // Para el saludo
+    mostrarSaludo();
   } else {
     document.getElementById("loginError").style.display = "block";
     document.getElementById("loginInput").style.borderColor = "#EF4444";
@@ -366,6 +370,26 @@ function checkLogin(){
       document.getElementById("loginInput").style.borderColor = "rgba(255,255,255,0.1)";
     }, 3000);
   }
+}
+
+function mostrarSaludo(){
+  var esDocente = sessionStorage.getItem("is_docente") === "true";
+  var nombreAlumno = localStorage.getItem("campus_alumno_nombre") || "";
+  var saludo = esDocente ? "👨‍🏫 Hola Profe" : (nombreAlumno ? "👋 Hola " + nombreAlumno : "");
+  
+  if(saludo){
+    var html = '<div style="display:flex;align-items:center;gap:10px">';
+    html += '<span style="font-size:14px;font-weight:600;color:#E2E8F0">'+saludo+'</span>';
+    html += '<button onclick="cerrarSesion()" style="padding:6px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#EF4444;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">🚪 Salir</button>';
+    html += '</div>';
+    document.getElementById("userGreeting").innerHTML = html;
+  }
+}
+
+function cerrarSesion(){
+  sessionStorage.clear();
+  localStorage.clear();
+  location.reload();
 }
 
 document.getElementById("loginInput").addEventListener("keypress", function(e){
