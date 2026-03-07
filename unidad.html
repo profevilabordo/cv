@@ -230,11 +230,38 @@ function fireConfetti(){
   setTimeout(function(){b.innerHTML=""},1500);
 }
 
+function cerrarSesion(){
+  // Limpiar todo storage
+  sessionStorage.clear();
+  localStorage.clear();
+  // Volver al index
+  window.location.href = "index.html";
+}
+
 function render(){
   if(!D) return;
   var t=TABS[CT];
+  
+  // 👤 Obtener info del usuario
+  var esDocente = sessionStorage.getItem("campus_auth") === "1126" || sessionStorage.getItem("is_docente") === "true";
+  var nombreAlumno = localStorage.getItem("campus_alumno_nombre") || "";
+  var saludo = esDocente ? "👨‍🏫 Hola Profe" : (nombreAlumno ? "👋 Hola " + nombreAlumno : "");
+  
   var h='<div class="hdr">';
-  h+='<a href="index.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:10px;border:1px solid #E5E7EB;background:#fff;color:#6B7280;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:12px">\u2190 Volver</a><br>';
+  
+  // Fila superior: Volver + Saludo + Logout
+  h+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">';
+  h+='<a href="index.html" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:10px;border:1px solid #E5E7EB;background:#fff;color:#6B7280;font-size:13px;font-weight:600;text-decoration:none">\u2190 Volver</a>';
+  
+  if(saludo){
+    h+='<div style="display:flex;align-items:center;gap:10px">';
+    h+='<span style="font-size:14px;font-weight:600;color:#6B7280">'+saludo+'</span>';
+    h+='<button onclick="cerrarSesion()" style="padding:6px 14px;border-radius:10px;border:1px solid #E5E7EB;background:#fff;color:#EF4444;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">🚪 Salir</button>';
+    h+='</div>';
+  }
+  
+  h+='</div>';
+  
   h+='<span style="font-size:32px">\u{1F4D3}</span> ';
   h+='<h1 style="display:inline;background:linear-gradient(135deg,'+D.color_primario+','+D.color_secundario+');-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">'+D.materia+'</h1>';
   h+='<p style="font-size:14px;color:#6B7280;margin-top:4px">'+D.emoji+' Unidad '+D.unidad+': '+D.titulo+'</p>';
