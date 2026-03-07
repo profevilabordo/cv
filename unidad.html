@@ -1053,6 +1053,9 @@ function rAutotest(){
 
 function rAT(){
   var d=D.autotest.preguntas, tq=d.length;
+  var vf=D.autotest.verdadero_falso || [], vfq=vf.length;
+  var totalPreguntas = tq + vfq;  // Total: 15 preguntas
+  
   if(!S.at) S.at={cur:0,ans:{},fin:false};
   var s=S.at;
   
@@ -1061,7 +1064,7 @@ function rAT(){
   for(var k in s.ans){
     if(s.ans[k]===d[k].correcta) score++;
   }
-  var pct=Math.round(score/tq*100);
+  var pct=Math.round(score/totalPreguntas*100);
   
   // Verificar si es docente
   var esDocente = sessionStorage.getItem("campus_auth") === "campusvvb_docente_2025";
@@ -1087,7 +1090,7 @@ function rAT(){
     h+='<span style="font-size:32px;font-weight:900;color:'+n.c+'">'+Math.round(pct/10)+'</span></div>';
     h+='<span style="font-size:28px">'+n.e+'</span>';
     h+='<p style="margin:8px 0;font-size:20px;font-weight:800;color:'+n.c+'">'+n.t+'</p>';
-    h+='<p style="margin:0;font-size:14px;color:#6B7280">'+score+'/'+tq+' correctas ('+pct+'%)</p>';
+    h+='<p style="margin:0;font-size:14px;color:#6B7280">'+score+'/'+totalPreguntas+' correctas ('+pct+'%)</p>';
     h+='<button class="btn" onclick="S.at={cur:0,ans:{},fin:false};render()" style="margin-top:20px">Reintentar</button></div>';
     return bancoHtml + h;
   }
@@ -1095,9 +1098,9 @@ function rAT(){
   // PANTALLA DE PREGUNTA
   var p=d[s.cur], answered=s.ans[s.cur]!==undefined, ok=answered&&s.ans[s.cur]===p.correcta;
   var h='<div style="display:flex;justify-content:space-between;margin-bottom:12px">';
-  h+='<span style="font-size:13px;font-weight:700;color:#6366F1">Pregunta '+(s.cur+1)+'/'+tq+'</span>';
+  h+='<span style="font-size:13px;font-weight:700;color:#6366F1">Pregunta '+(s.cur+1)+'/'+totalPreguntas+'</span>';
   h+='<div style="display:flex;gap:4px">';
-  for(var i=0;i<tq;i++){
+  for(var i=0;i<totalPreguntas;i++){
     var a=s.ans[i], o=a!==undefined&&a===d[i].correcta, b=a!==undefined&&a!==d[i].correcta;
     h+='<div style="width:10px;height:10px;border-radius:50%;background:'+(i===s.cur?'#6366F1':o?'#10B981':b?'#EF4444':'#E5E7EB')+'"></div>';
   }
@@ -1120,7 +1123,7 @@ function rAT(){
   
   return bancoHtml + h;
 }
-
+  
 function rCierre(){
   return secHeader("\u{1F51A}","CIERRE","Reflexi\u00f3n final, glosario y recursos",TABS[9].g)
     +'<div class="sb">'
