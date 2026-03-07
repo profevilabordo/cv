@@ -1078,7 +1078,7 @@ function rAT(){
   var keyIntentos = "campus_autotest_" + D.id + "_intentos";
   var primeraVez = !localStorage.getItem(keyIntentos);
   
-  if(!s.started && primeraVez){
+  if(!s.started && !s.fin && primeraVez){
     var h='<div style="text-align:center;padding:30px 20px;max-width:500px;margin:0 auto">';
     h+='<div style="font-size:48px;margin-bottom:16px">⚠️</div>';
     h+='<h3 style="font-size:20px;font-weight:800;color:#DC2626;margin:0 0 12px">ATENCIÓN - PRIMER INTENTO</h3>';
@@ -1092,7 +1092,7 @@ function rAT(){
   }
   
   // 🔄 PANTALLA PARA REINTENTOS (ya hizo el test antes)
-  if(!s.started && !primeraVez){
+  if(!s.started && !s.fin && !primeraVez){
     var primerNota = localStorage.getItem("campus_autotest_" + D.id + "_primera_nota");
     var primerPct = localStorage.getItem("campus_autotest_" + D.id + "_primera_pct");
     var intentosAnt = localStorage.getItem(keyIntentos);
