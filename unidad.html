@@ -1050,36 +1050,35 @@ function rAutotest(){
     +'</div>'
     +renderCheckBtn("autotest");
 }
+
 function rAT(){
   var d=D.autotest.preguntas, tq=d.length;
-  function rAT(){
-  var d=D.autotest.preguntas, tq=d.length;
   if(!S.at) S.at={cur:0,ans:{},fin:false};
   var s=S.at;
   
-  // ✨ NUEVO: Verificar si es docente y mostrar banco de respuestas
+  // Calcular puntaje
+  var score=0; 
+  for(var k in s.ans){
+    if(s.ans[k]===d[k].correcta) score++;
+  }
+  var pct=Math.round(score/tq*100);
+  
+  // Verificar si es docente
   var esDocente = sessionStorage.getItem("campus_auth") === "campusvvb_docente_2025";
   
-  var score=0; for(var k in s.ans){if(s.ans[k]===d[k].correcta)score++;}
-  var pct=Math.round(score/tq*100);
-  
-  // ✨ NUEVO: Mostrar banco de respuestas para docente
+  // Generar banco de respuestas para docente
+  var bancoHtml = '';
   if(esDocente && D.autotest.banco_respuestas_docente){
-    var h='<div style="padding:16px 20px;border-radius:14px;background:#FEF3C7;border:2px solid #F59E0B;margin-bottom:20px">';
-    h+='<p style="margin:0 0 10px;font-size:14px;font-weight:700;color:#92400E">🎓 BANCO DE RESPUESTAS (solo docente)</p>';
-    h+='<div style="font-size:12px;color:#78350F;line-height:1.8">';
+    bancoHtml='<div style="padding:16px 20px;border-radius:14px;background:#FEF3C7;border:2px solid #F59E0B;margin-bottom:20px">';
+    bancoHtml+='<p style="margin:0 0 10px;font-size:14px;font-weight:700;color:#92400E">🎓 BANCO DE RESPUESTAS (solo docente)</p>';
+    bancoHtml+='<div style="font-size:12px;color:#78350F;line-height:1.8">';
     for(var i=0;i<D.autotest.banco_respuestas_docente.length;i++){
-      h+='<div>'+D.autotest.banco_respuestas_docente[i]+'</div>';
+      bancoHtml+='<div>'+D.autotest.banco_respuestas_docente[i]+'</div>';
     }
-    h+='</div></div>';
+    bancoHtml+='</div></div>';
   }
   
-  // ... resto del código continúa igual
-  if(!S.at) S.at={cur:0,ans:{},fin:false};
-  var s=S.at;
-  var score=0; for(var k in s.ans){if(s.ans[k]===d[k].correcta)score++;}
-  var pct=Math.round(score/tq*100);
-  
+  // PANTALLA FINAL - Resultados
   if(s.fin){
     var n=pct>=90?{e:"\u{1F3C6}",t:"\u00a1EXCELENTE!",c:"#10B981"}:pct>=70?{e:"\u{1F389}",t:"\u00a1Muy bien!",c:"#3B82F6"}:pct>=50?{e:"\u{1F44D}",t:"Aprobado",c:"#F59E0B"}:{e:"\u{1F4DA}",t:"Repasar",c:"#EF4444"};
     if(pct>=70) fireConfetti();
@@ -1090,32 +1089,12 @@ function rAT(){
     h+='<p style="margin:8px 0;font-size:20px;font-weight:800;color:'+n.c+'">'+n.t+'</p>';
     h+='<p style="margin:0;font-size:14px;color:#6B7280">'+score+'/'+tq+' correctas ('+pct+'%)</p>';
     h+='<button class="btn" onclick="S.at={cur:0,ans:{},fin:false};render()" style="margin-top:20px">Reintentar</button></div>';
-    return h;
+    return bancoHtml + h;
   }
   
+  // PANTALLA DE PREGUNTA
   var p=d[s.cur], answered=s.ans[s.cur]!==undefined, ok=answered&&s.ans[s.cur]===p.correcta;
   var h='<div style="display:flex;justify-content:space-between;margin-bottom:12px">';
-    h = bancoHtml + h;  // Agregar banco de respuestas antes del contenido del test
-```
-
----
-
-## ✅ Resultado
-
-Cuando vos (docente) entres con la clave estática, vas a ver:
-```
-┌─────────────────────────────────────────┐
-│ 🎓 BANCO DE RESPUESTAS (solo docente)  │
-│                                         │
-│ 1. B - El Natural son principios...    │
-│ 2. C - La moral                         │
-│ 3. C - 18 años                          │
-│ ...                                     │
-│ 15. VERDADERO - Pueden ser subjetiva... │
-└─────────────────────────────────────────┘
-
-[Pregunta 1/10]
-¿Cuál es la principal diferencia...
   h+='<span style="font-size:13px;font-weight:700;color:#6366F1">Pregunta '+(s.cur+1)+'/'+tq+'</span>';
   h+='<div style="display:flex;gap:4px">';
   for(var i=0;i<tq;i++){
@@ -1124,6 +1103,7 @@ Cuando vos (docente) entres con la clave estática, vas a ver:
   }
   h+='</div></div>';
   h+='<div style="padding:16px;border-radius:14px;background:#F5F3FF;margin-bottom:14px"><p style="margin:0;font-size:15px;font-weight:700;color:#374151">'+p.pregunta+'</p></div>';
+  
   for(var j=0;j<p.opciones.length;j++){
     var opt=p.opciones[j], iSel=s.ans[s.cur]===j;
     var isCorrect=answered&&j===p.correcta;
@@ -1132,13 +1112,14 @@ Cuando vos (docente) entres con la clave estática, vas a ver:
     h+='<span style="width:28px;height:28px;border-radius:50%;border:2px solid '+(isCorrect?'#10B981':isWrong?'#EF4444':'#D1D5DB')+';background:'+(isCorrect?'#10B981':isWrong?'#EF4444':'transparent')+';color:'+(isCorrect||isWrong?'#fff':'#6B7280')+';display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px">'+(isCorrect?'\u2713':isWrong?'\u2717':String.fromCharCode(65+j))+'</span>';
     h+='<span style="font-size:14px;font-weight:'+(iSel?600:400)+'">'+opt+'</span></div>';
   }
+  
   if(answered){
     h+='<div class="fb" style="background:'+(ok?'#D1FAE5':'#FEF3C7')+'"><p style="margin:0;font-size:13px;color:'+(ok?'#065F46':'#92400E')+'">'+(ok?'\u2728 ':'\u{1F4D6} ')+p.explicacion+'</p></div>';
     h+='<button class="btn" onclick="if(S.at.cur<'+(tq-1)+'){S.at.cur++;render()}else{S.at.fin=true;render()}">'+(s.cur<tq-1?'Siguiente \u2192':'Ver mi nota')+'</button>';
   }
-  return h;
+  
+  return bancoHtml + h;
 }
-
 
 function rCierre(){
   return secHeader("\u{1F51A}","CIERRE","Reflexi\u00f3n final, glosario y recursos",TABS[9].g)
