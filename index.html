@@ -411,13 +411,46 @@ async function verificarCiudad(){
   var ciudad = document.getElementById("ciudadInput").value.trim().toLowerCase();
   if(!ciudad) return;
   
-  // Simular búsqueda en Supabase (aquí deberías tener la lógica real)
-  // Por ahora acepto cualquier ciudad y la guardo
-  localStorage.setItem("campus_alumno_codigo", ciudad);
-  localStorage.setItem("campus_alumno_nombre", ciudad.charAt(0).toUpperCase() + ciudad.slice(1));
-  
-  document.getElementById("ciudadOverlay").remove();
-  mostrarSaludo();
+  // Buscar alumno en Supabase
+  try {
+    var SUPABASE_URL = "https://ygafevogfxwupmgwksto.supabase.co";
+    var SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlnYWZldm9nZnh3dXBtZ3drc3RvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA5MTk0NTMsImV4cCI6MjA1NjQ5NTQ1M30.qLqds_PxrJdPuKEhQs3TtPXS8g_TXsQGBbXaV-d84II";
+    
+    var response = await fetch(SUPABASE_URL + "/rest/v1/alumnos?codigo=eq." + ciudad, {
+      headers: {
+        "apikey": SUPABASE_KEY,
+        "Authorization": "Bearer " + SUPABASE_KEY
+      }
+    });
+    
+    var alumnos = await response.json();
+    
+    if(alumnos && alumnos.length > 0){
+      // ✅ Alumno encontrado
+      var alumno = alumnos[0];
+      
+      // Extraer solo el nombre de pila (después de la coma)
+      var nombreCompleto = alumno.nombre;
+      var nombrePila = nombreCompleto;
+      
+      if(nombreCompleto.indexOf(",") !== -1){
+        // Formato: "APELLIDO, NOMBRE" → extraer "NOMBRE"
+        nombrePila = nombreCompleto.split(",")[1].trim();
+      }
+      
+      localStorage.setItem("campus_alumno_codigo", alumno.codigo);
+      localStorage.setItem("campus_alumno_nombre", nombrePila);
+      
+      document.getElementById("ciudadOverlay").remove();
+      mostrarSaludo();
+    } else {
+      // ❌ No encontrado
+      document.getElementById("ciudadError").style.display = "block";
+    }
+  } catch(error){
+    console.error("Error al verificar ciudad:", error);
+    document.getElementById("ciudadError").style.display = "block";
+  }
 }
 
 
