@@ -1059,8 +1059,8 @@ function rAT(){
   if(!S.at) S.at={cur:0,ans:{},fin:false,started:false};
   var s=S.at;
   
-  // Verificar si es docente
-  var esDocente = sessionStorage.getItem("campus_auth") === "1126";
+  // Verificar si es docente (por clave 1126 O por flag is_docente)
+  var esDocente = sessionStorage.getItem("campus_auth") === "1126" || sessionStorage.getItem("is_docente") === "true";
   
   // Generar banco de respuestas para docente
   var bancoHtml = '';
@@ -1345,8 +1345,8 @@ var SUPABASE_ACTIVO = SUPABASE_URL.indexOf("TU_PROYECTO") === -1;
 // ----- LOGIN DEL ALUMNO -----
 // Solo se muestra si Supabase está configurado Y el alumno no tiene clave guardada
 (function initAlumnoLogin(){
-  // 🔑 Si es docente (1126), no pedir login de alumno
-  var esDocente = sessionStorage.getItem("campus_auth") === "1126";
+  // 🔑 Si es docente (1126 O is_docente), no pedir login de alumno
+  var esDocente = sessionStorage.getItem("campus_auth") === "1126" || sessionStorage.getItem("is_docente") === "true";
   if(esDocente) return;  // Docente puede ver todo sin login
   
   if(!SUPABASE_ACTIVO) return;           // sin Supabase → no pedir clave
