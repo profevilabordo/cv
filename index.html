@@ -95,7 +95,6 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
     <button class="login-btn" onclick="checkLogin()">Entrar &#x1F680;</button>
     <p class="login-error" id="loginError">&#x274C; Clave incorrecta. Pedile la clave a tu profe.</p>
     <p class="login-hint">&#x1F512; La clave cambia todos los d&#237;as</p>
-    <a href="panel-docente.html" style="display:block;margin-top:16px;font-size:12px;color:#6366F1;text-decoration:none;font-weight:600">&#x1F4CA; Acceso Panel Docente</a>
   </div>
 </div>
 
@@ -147,7 +146,7 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
     <p>3. Abrí <code>http://localhost:8000</code> en tu navegador</p>
   </div>
 
-  <div style="margin-top:28px;padding:24px;border-radius:16px;background:linear-gradient(135deg,#1E293B,#0F172A);border:2px solid #6366F1;text-align:center">
+  <div id="areaDocente" style="margin-top:28px;padding:24px;border-radius:16px;background:linear-gradient(135deg,#1E293B,#0F172A);border:2px solid #6366F1;text-align:center;display:none">
     <h3 style="font-size:16px;font-weight:700;color:#F8FAFC;margin:0 0 8px">👨‍🏫 Área Docente</h3>
     <p style="font-size:13px;color:#94A3B8;margin:0 0 16px">Accedé al panel de seguimiento y estadísticas</p>
     <a href="panel-docente.html" style="display:inline-block;padding:12px 28px;border-radius:12px;background:linear-gradient(135deg,#6366F1,#8B5CF6);color:#fff;font-size:14px;font-weight:700;text-decoration:none;box-shadow:0 4px 12px rgba(99,102,241,0.3)">📊 Abrir Panel Docente</a>
@@ -359,9 +358,11 @@ function checkLogin(){
   
   // Verificar clave del día O clave docente 1126
   if(input === correct){
+    // 🎓 Login como ALUMNO → pedir ciudad
     document.getElementById("loginOverlay").style.display = "none";
     sessionStorage.setItem("campus_auth", correct);
-    mostrarSaludo();
+    // Mostrar modal para pedir ciudad
+    mostrarModalCiudad();
   } else if(input === "1126"){
     // 🎓 Clave docente estática
     document.getElementById("loginOverlay").style.display = "none";
@@ -379,6 +380,47 @@ function checkLogin(){
   }
 }
 
+function mostrarModalCiudad(){
+  var overlay = document.createElement("div");
+  overlay.id = "ciudadOverlay";
+  overlay.style.cssText = "position:fixed;inset:0;background:rgba(15,23,42,0.95);z-index:9999;display:flex;align-items:center;justify-content:center";
+  overlay.innerHTML = `
+    <div style="background:#1E293B;border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:36px;max-width:340px;width:90%;text-align:center">
+      <div style="font-size:44px;margin-bottom:14px">🌍</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:800;color:#F8FAFC;margin-bottom:6px">¡Bienvenido/a!</h2>
+      <p style="font-size:13px;color:#94A3B8;margin-bottom:20px">Ingresá tu ciudad asignada para sincronizar tu progreso</p>
+      <input type="text" id="ciudadInput" placeholder="tu ciudad..." autocomplete="off"
+        style="width:100%;padding:13px 16px;border-radius:12px;border:2px solid rgba(255,255,255,0.1);background:#0F172A;color:#F8FAFC;font-size:16px;outline:none;text-align:center;letter-spacing:2px;box-sizing:border-box;margin-bottom:10px">
+      <button onclick="verificarCiudad()"
+        style="width:100%;padding:13px;border-radius:12px;border:none;background:linear-gradient(135deg,#6366F1,#8B5CF6);color:#fff;font-size:15px;font-weight:700;cursor:pointer">
+        Entrar 🚀
+      </button>
+      <p id="ciudadError" style="color:#EF4444;font-size:12px;margin-top:10px;display:none">❌ Ciudad no encontrada. Pedile a tu profe que la verifique.</p>
+      <p style="font-size:11px;color:#475569;margin-top:14px">🔒 Tu progreso se guarda automáticamente</p>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  
+  document.getElementById("ciudadInput").addEventListener("keypress", function(e){
+    if(e.key === "Enter") verificarCiudad();
+  });
+  document.getElementById("ciudadInput").focus();
+}
+
+async function verificarCiudad(){
+  var ciudad = document.getElementById("ciudadInput").value.trim().toLowerCase();
+  if(!ciudad) return;
+  
+  // Simular búsqueda en Supabase (aquí deberías tener la lógica real)
+  // Por ahora acepto cualquier ciudad y la guardo
+  localStorage.setItem("campus_alumno_codigo", ciudad);
+  localStorage.setItem("campus_alumno_nombre", ciudad.charAt(0).toUpperCase() + ciudad.slice(1));
+  
+  document.getElementById("ciudadOverlay").remove();
+  mostrarSaludo();
+}
+
+
 function mostrarSaludo(){
   var esDocente = sessionStorage.getItem("is_docente") === "true";
   var nombreAlumno = localStorage.getItem("campus_alumno_nombre") || "";
@@ -393,6 +435,11 @@ function mostrarSaludo(){
     html += '<button onclick="cerrarSesion()" style="padding:6px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#EF4444;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">🚪 Salir</button>';
     html += '</div>';
     document.getElementById("userGreeting").innerHTML = html;
+    
+    // Mostrar área docente solo si es docente
+    if(esDocente){
+      document.getElementById("areaDocente").style.display = "block";
+    }
   }
 }
 
