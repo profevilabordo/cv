@@ -411,19 +411,36 @@ async function verificarCiudad(){
   var ciudad = document.getElementById("ciudadInput").value.trim().toLowerCase();
   if(!ciudad) return;
   
+  // Ocultar error previo
+  document.getElementById("ciudadError").style.display = "none";
+  
   // Buscar alumno en Supabase
   try {
     var SUPABASE_URL = "https://ygafevogfxwupmgwksto.supabase.co";
-    var SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlnYWZldm9nZnh3dXBtZ3drc3RvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA5MTk0NTMsImV4cCI6MjA1NjQ5NTQ1M30.qLqds_PxrJdPuKEhQs3TtPXS8g_TXsQGBbXaV-d84II";
+    var SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlnYWZldm9nZnh3dXBtZ3drc3RvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MDA5NDMsImV4cCI6MjA4ODI3Njk0M30.5LoSWrwtFCR4qoQnmNY6UZB1SuiVpx-G9N1AG6cOev8";
+    
+    console.log("Buscando código:", ciudad);
+    console.log("URL completa:", SUPABASE_URL + "/rest/v1/alumnos?codigo=eq." + ciudad);
     
     var response = await fetch(SUPABASE_URL + "/rest/v1/alumnos?codigo=eq." + ciudad, {
+      method: "GET",
+      mode: "cors",
+      credentials: "omit",
       headers: {
         "apikey": SUPABASE_KEY,
-        "Authorization": "Bearer " + SUPABASE_KEY
+        "Authorization": "Bearer " + SUPABASE_KEY,
+        "Content-Type": "application/json"
       }
     });
     
+    console.log("Response status:", response.status);
+    
+    if(!response.ok){
+      throw new Error("Error en la consulta: " + response.status);
+    }
+    
     var alumnos = await response.json();
+    console.log("Alumnos encontrados:", alumnos);
     
     if(alumnos && alumnos.length > 0){
       // ✅ Alumno encontrado
@@ -438,6 +455,8 @@ async function verificarCiudad(){
         nombrePila = nombreCompleto.split(",")[1].trim();
       }
       
+      console.log("Nombre extraído:", nombrePila);
+      
       localStorage.setItem("campus_alumno_codigo", alumno.codigo);
       localStorage.setItem("campus_alumno_nombre", nombrePila);
       
@@ -445,11 +464,13 @@ async function verificarCiudad(){
       mostrarSaludo();
     } else {
       // ❌ No encontrado
+      console.log("Código no encontrado en la base de datos");
       document.getElementById("ciudadError").style.display = "block";
     }
   } catch(error){
     console.error("Error al verificar ciudad:", error);
     document.getElementById("ciudadError").style.display = "block";
+    document.getElementById("ciudadError").textContent = "❌ Error: " + error.message;
   }
 }
 
