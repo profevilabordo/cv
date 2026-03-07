@@ -6,16 +6,7 @@
 <title>Campus Cuaderno Vivo</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-<!-- PWA -->
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#6366F1">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Cuaderno Vivo">
-<link rel="apple-touch-icon" href="icon-192.png">
-<link rel="apple-touch-icon" sizes="152x152" href="icon-192.png">
-<link rel="apple-touch-icon" sizes="180x180" href="icon-192.png">
-  <style>
+<style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'DM Sans',sans-serif}
 html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-x:hidden}
 :root{background:#0F172A !important;color-scheme:dark}
@@ -57,22 +48,6 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 .unit:hover{transform:scale(1.08);filter:brightness(1.2)}
 .pdf{padding:5px 8px;border-radius:8px;font-size:11px;font-weight:700;color:#94A3B8;text-decoration:none;transition:all 0.2s;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);cursor:pointer;display:inline-flex;align-items:center;gap:3px}
 .pdf:hover{background:rgba(255,255,255,0.12);color:#F8FAFC;transform:scale(1.08)}
-
-/* Modal PDF */
-.pdf-modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:8000;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);animation:fadeUp 0.2s ease}
-.pdf-modal-box{background:#1E293B;border:1px solid rgba(255,255,255,0.15);border-radius:24px;padding:32px 28px;max-width:360px;width:90%;animation:fadeUp 0.25s ease}
-.pdf-modal-box h3{font-size:18px;font-weight:800;color:#F8FAFC;font-family:'Space Grotesk',sans-serif;margin-bottom:6px;text-align:center}
-.pdf-modal-box .pdf-unit-label{text-align:center;font-size:13px;color:#64748B;margin-bottom:24px}
-.pdf-choice{display:flex;flex-direction:column;gap:10px}
-.pdf-btn{display:flex;align-items:center;gap:14px;padding:16px 20px;border-radius:16px;border:2px solid rgba(255,255,255,0.1);background:#0F172A;cursor:pointer;transition:all 0.25s;text-decoration:none;color:#F8FAFC}
-.pdf-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.3)}
-.pdf-btn-alumno:hover{border-color:#6366F1;background:#6366F120}
-.pdf-btn-docente:hover{border-color:#EC4899;background:#EC489920}
-.pdf-btn-icon{font-size:28px}
-.pdf-btn-text strong{display:block;font-size:14px;font-weight:800;font-family:'Space Grotesk',sans-serif}
-.pdf-btn-text span{font-size:12px;color:#94A3B8}
-.pdf-modal-close{display:block;width:100%;margin-top:14px;padding:10px;border-radius:12px;border:none;background:rgba(255,255,255,0.06);color:#64748B;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
-.pdf-modal-close:hover{background:rgba(255,255,255,0.1);color:#94A3B8}
 .unit.ready{opacity:1;cursor:pointer}
 .unit.soon{opacity:0.3;cursor:default}
 .footer{text-align:center;padding:40px 20px;border-top:1px solid rgba(255,255,255,0.05)}
@@ -94,24 +69,6 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 .tool-card h3{font-size:15px;font-weight:800;color:#F8FAFC;font-family:'Space Grotesk',sans-serif;margin-bottom:6px}
 .tool-card p{font-size:12px;color:#94A3B8;line-height:1.5;margin-bottom:14px}
 .tool-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:4px 10px;border-radius:8px;background:rgba(232,197,71,0.12);color:#e8c547;border:1px solid rgba(232,197,71,0.25);letter-spacing:0.3px}
-/* Modal Generar PDF */
-@keyframes modalIn{from{opacity:0;transform:translateY(16px) scale(0.97)}to{opacity:1;transform:translateY(0) scale(1)}}
-.pdf-modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.72);z-index:8000;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(5px)}
-.pdf-modal-box{background:#1E293B;border:1px solid rgba(255,255,255,0.13);border-radius:24px;padding:32px 28px;max-width:360px;width:90%;animation:modalIn 0.25s ease}
-.pdf-modal-box .pm-icon{font-size:40px;text-align:center;display:block;margin-bottom:10px}
-.pdf-modal-box h3{font-size:17px;font-weight:800;color:#F8FAFC;font-family:'Space Grotesk',sans-serif;text-align:center;margin-bottom:4px}
-.pdf-modal-box .pm-sub{text-align:center;font-size:12px;color:#64748B;margin-bottom:22px;line-height:1.5}
-.pm-choice{display:flex;flex-direction:column;gap:10px}
-.pm-btn{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:16px;border:2px solid rgba(255,255,255,0.1);background:#0F172A;cursor:pointer;transition:all 0.22s;text-decoration:none;color:#F8FAFC;font-family:'DM Sans',sans-serif;font-size:14px}
-.pm-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.35)}
-.pm-btn-alumno:hover{border-color:#6366F1;background:rgba(99,102,241,0.12)}
-.pm-btn-docente:hover{border-color:#EC4899;background:rgba(236,72,153,0.12)}
-.pm-btn-icon{font-size:30px;flex-shrink:0}
-.pm-btn strong{display:block;font-size:14px;font-weight:800;font-family:'Space Grotesk',sans-serif;margin-bottom:2px}
-.pm-btn span{font-size:11px;color:#94A3B8;line-height:1.4}
-.pm-close{display:block;width:100%;margin-top:12px;padding:10px;border-radius:12px;border:none;background:rgba(255,255,255,0.05);color:#64748B;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.2s}
-.pm-close:hover{background:rgba(255,255,255,0.1);color:#94A3B8}
-
 .login-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#0F172A;z-index:9999;display:flex;align-items:center;justify-content:center}
 .login-box{background:#1E293B;border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:40px 36px;max-width:380px;width:90%;text-align:center;animation:fadeUp 0.6s ease}
 .login-box .lgo{font-size:48px;margin-bottom:16px}
@@ -124,69 +81,20 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 .login-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(99,102,241,0.4)}
 .login-error{color:#EF4444;font-size:13px;font-weight:600;margin-top:12px;display:none;animation:fadeUp 0.3s}
 .login-hint{color:#475569;font-size:11px;margin-top:16px}
-.login-contact{margin-top:20px;padding:12px 16px;border-radius:12px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.2)}
-.login-contact p{font-size:11px;color:#94A3B8;margin:0;line-height:1.5}
-.login-contact a{color:#A78BFA;font-weight:600;text-decoration:none;transition:color 0.2s}
-.login-contact a:hover{color:#C4B5FD}
-.nav-links{display:flex;gap:12px;justify-content:center;margin-top:20px;flex-wrap:wrap}
-.nav-link{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;border-radius:14px;text-decoration:none;font-size:14px;font-weight:700;background:#1E293B;border:1px solid rgba(255,255,255,0.12);color:#CBD5E1;transition:all 0.3s ease}
-.nav-link:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(99,102,241,0.25);border-color:rgba(99,102,241,0.5);color:#fff;background:#263347}
-.nav-link-survey{border-color:rgba(236,72,153,0.3);color:#F9A8D4}
-.nav-link-survey:hover{box-shadow:0 6px 20px rgba(236,72,153,0.25);border-color:rgba(236,72,153,0.6);background:#2a1f2d}
-.nav-link-disabled{opacity:0.45;cursor:not-allowed;pointer-events:none}
+
 </style>
 </head>
 <body>
 
-<!-- Modal Generar PDF -->
-<div id="pdfModalOverlay" style="display:none" class="pdf-modal-overlay" onclick="cerrarModalPDF(event)">
-  <div class="pdf-modal-box">
-    <span class="pm-icon">⚙️</span>
-    <h3>Generar PDF</h3>
-    <p class="pm-sub" id="pdfModalLabel">Unidad</p>
-    <div class="pm-choice">
-      <button class="pm-btn pm-btn-alumno" id="pdfBtnAlumno" onclick="irAlGenerador('alumno')">
-        <span class="pm-btn-icon">🎒</span>
-        <div><strong>Para alumno</strong><span>Con espacios para completar</span></div>
-      </button>
-      <button class="pm-btn pm-btn-docente" id="pdfBtnDocente" onclick="irAlGenerador('docente')">
-        <span class="pm-btn-icon">🎓</span>
-        <div><strong>Para docente</strong><span>Hoja de ruta compacta con respuestas</span></div>
-      </button>
-    </div>
-    <button class="pm-close" onclick="cerrarModalPDF()">Cancelar</button>
-  </div>
-</div>
-
 <div class="login-overlay" id="loginOverlay">
   <div class="login-box">
-
-    <!-- PASO 1: Clave del día -->
-    <div id="loginStep1">
-      <div class="lgo">📓</div>
-      <h2>Campus Cuaderno Vivo</h2>
-      <p>Ingresá la clave del día para acceder</p>
-      <input type="text" class="login-input" id="loginInput" placeholder="Clave de acceso..." autocomplete="off" autofocus oninput="togglePanelBtn()">
-      <button class="login-btn" onclick="checkLogin()">Entrar 🚀</button>
-      <a href="panel-docente.html" id="btnPanel" style="display:none;margin-top:12px;width:100%;padding:12px;border-radius:14px;border:2px solid #6366F1;background:#6366F110;color:#A78BFA;font-size:14px;font-weight:700;text-decoration:none;text-align:center;box-sizing:border-box">⚙️ Ir al Panel Docente</a>
-      <p class="login-error" id="loginError">❌ Clave incorrecta. Pedile la clave a tu profe.</p>
-      <p class="login-hint">🔒 La clave cambia todos los días</p>
-      <div class="login-contact">
-        <p>💬 ¿Problemas para acceder? Contactá a la profesora:<br><a href="/cdn-cgi/l/email-protection#a9d9dbc6cfccdfc0c5c8cbc6dbcdc6e9cec4c8c0c587cac6c4"><span class="__cf_email__" data-cfemail="374745585152415e5b56555845535877505a565e5b1954585a">[email&#160;protected]</span></a></p>
-      </div>
-    </div>
-
-    <!-- PASO 2: Clave de ciudad (alumno) -->
-    <div id="loginStep2" style="display:none">
-      <div class="lgo">🌍</div>
-      <h2>¿Quién sos?</h2>
-      <p>Ingresá tu clave personal para que guardemos tu progreso</p>
-      <input type="text" class="login-input" id="ciudadInput" placeholder="tu clave..." autocomplete="off">
-      <button class="login-btn" onclick="checkCiudad()">Continuar ✨</button>
-      <p class="login-error" id="ciudadError">❌ Clave no encontrada. Pedile a tu profe que la verifique.</p>
-      <p class="login-hint" style="cursor:pointer;color:#6366F1;text-decoration:underline" onclick="saltearIdentificacion()">Continuar sin identificarme</p>
-    </div>
-
+    <div class="lgo">&#x1F4D3;</div>
+    <h2>Campus Cuaderno Vivo</h2>
+    <p>Ingres&#225; la clave del d&#237;a para acceder</p>
+    <input type="text" class="login-input" id="loginInput" placeholder="Clave de acceso..." autocomplete="off" autofocus>
+    <button class="login-btn" onclick="checkLogin()">Entrar &#x1F680;</button>
+    <p class="login-error" id="loginError">&#x274C; Clave incorrecta. Pedile la clave a tu profe.</p>
+    <p class="login-hint">&#x1F512; La clave cambia todos los d&#237;as</p>
   </div>
 </div>
 
@@ -196,20 +104,6 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
     <div class="logo">📓</div>
     <h1>Campus Cuaderno Vivo</h1>
     <p>Plataforma de actividades interactivas</p>
-    <!-- Saludo alumno identificado -->
-    <div id="saludoAlumno" style="display:none;margin:10px auto 0;padding:10px 20px;border-radius:14px;background:#1E293B;border:1px solid rgba(99,102,241,0.3);align-items:center;gap:12px;max-width:400px">
-      <span style="font-size:22px">👋</span>
-      <span id="saludoNombre" style="font-size:14px;font-weight:700;color:#F8FAFC;flex:1"></span>
-      <button onclick="cerrarSesionAlumno()" style="padding:6px 14px;border-radius:10px;border:1px solid rgba(239,68,68,0.4);background:rgba(239,68,68,0.1);color:#F87171;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;transition:all .2s" onmouseover="this.style.background='rgba(239,68,68,0.2)'" onmouseout="this.style.background='rgba(239,68,68,0.1)'">Salir 🚪</button>
-    </div>
-    <div class="nav-links">
-      <a href="criterios-evaluacion.html" class="nav-link">
-        📋 Criterios de evaluación
-      </a>
-      <a href="encuesta.html" class="nav-link nav-link-survey">
-        ⭐ Tu voz también cuenta — Evaluación docente
-      </a>
-    </div>
     <div class="stats">
       <div class="stat"><span>2</span><small>Escuelas</small></div>
       <div class="stat"><span>14</span><small>Asignaturas</small></div>
@@ -241,12 +135,6 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
         <p>Todo el contenido compacto: respuestas correctas, conceptos clave, glosario y actividades resueltas. Tu hoja de ruta para la clase.</p>
         <span class="tool-badge">⬇ JSON → PDF sin espacios</span>
       </a>
-      <a href="panel-docente.html" class="tool-card">
-        <span class="tool-icon">⚙️</span>
-        <h3>Panel docente — Seguimiento</h3>
-        <p>Ves quién entró, qué secciones completó y las notas del autotest. Filtrá por curso y materia.</p>
-        <span class="tool-badge">📊 Progreso en tiempo real</span>
-      </a>
     </div>
   </div>
 
@@ -262,7 +150,7 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 var escuelas = [
   {
     nombre: 'EETP N\u00b0602 "Gral Jos\u00e9 de San Mart\u00edn"',
@@ -397,31 +285,6 @@ var escuelas = [
   }
 ];
 
-var currentPdfInfo = null;
-
-function abrirModalPDF(materia, unidadNum, archivo) {
-  currentPdfInfo = { materia: materia, unidad: unidadNum, archivo: archivo };
-  document.getElementById('pdfModalLabel').textContent = materia + ' — Unidad ' + unidadNum;
-  
-  // Mostrar botón docente solo si es docente
-  var isDocente = sessionStorage.getItem("is_docente") === "true";
-  document.getElementById('pdfBtnDocente').style.display = isDocente ? 'flex' : 'none';
-  
-  document.getElementById('pdfModalOverlay').style.display = 'flex';
-}
-
-function cerrarModalPDF(event) {
-  if (event && event.target !== event.currentTarget) return;
-  document.getElementById('pdfModalOverlay').style.display = 'none';
-  currentPdfInfo = null;
-}
-
-function irAlGenerador(tipo) {
-  if (!currentPdfInfo) return;
-  var url = tipo === 'alumno' ? 'generar-pdf.html' : 'generar-pdf-docente.html';
-  window.location.href = url + '?datos=' + currentPdfInfo.archivo;
-}
-
 var content = document.getElementById("content");
 var html = "";
 var delay = 0;
@@ -439,7 +302,7 @@ escuelas.forEach(function(esc) {
     var unitsHtml = '';
 
     m.archivos.forEach(function(archivo, i) {
-      var pdfContenidos = "pdfs/" + m.id + "_u" + (i + 1) + ".pdf";
+      var pdfFile = "pdfs/" + m.id + "_u" + (i + 1) + ".pdf";
       unitsHtml += "<div class=\"unit-row\">";
       if (archivo) {
         if (!firstReady) firstReady = archivo;
@@ -447,8 +310,7 @@ escuelas.forEach(function(esc) {
       } else {
         unitsHtml += "<span class=\"unit soon\" style=\"background:" + m.color + "\">U" + (i + 1) + "</span>";
       }
-      unitsHtml += "<a href=\"" + pdfContenidos + "\" class=\"pdf\" target=\"_blank\" onclick=\"event.stopPropagation()\" title=\"PDF de contenidos U" + (i+1) + "\">📄 PDF</a>";
-      unitsHtml += "<a href=\"javascript:void(0)\" class=\"pdf\" onclick=\"event.stopPropagation();abrirModalPDF('" + m.nombre.replace(/'/g, "\\'") + "', " + (i+1) + ", '" + archivo + "')\" title=\"Generar PDF U" + (i+1) + "\">⚙️ Generar</a>";
+      unitsHtml += "<a href=\"" + pdfFile + "\" class=\"pdf\" target=\"_blank\" onclick=\"event.stopPropagation()\" title=\"PDF U" + (i+1) + "\">\ud83d\udcc4 PDF</a>";
       unitsHtml += "</div>";
     });
 
@@ -483,261 +345,35 @@ function getTodayPassword(){
   return "campusvvb" + code;
 }
 
-// ===== SUPABASE CONFIG =====
-var SUPABASE_URL = "https://ygafevogfxwupmgwksto.supabase.co";
-var SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlnYWZldm9nZnh3dXBtZ3drc3RvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MDA5NDMsImV4cCI6MjA4ODI3Njk0M30.5LoSWrwtFCR4qoQnmNY6UZB1SuiVpx-G9N1AG6cOev8";
-var SUPABASE_ACTIVO = SUPABASE_URL.indexOf("TU_PROYECTO") === -1;
-
-// ===== PASO 1: CLAVE DEL DÍA =====
-function togglePanelBtn(){
-  var input = document.getElementById("loginInput").value.trim();
-  document.getElementById("btnPanel").style.display = input === "1126" ? "block" : "none";
-}
-
 function checkLogin(){
   var input = document.getElementById("loginInput").value.trim().toLowerCase();
   var correct = getTodayPassword();
-  var docentePass = "1126";
-
-  if(input === docentePass){
-    // Docente: entra directo sin paso 2
-    document.getElementById("loginOverlay").style.display = "none";
-    sessionStorage.setItem("campus_auth", correct);
-    sessionStorage.setItem("is_docente", "true");
-    mostrarSaludoDocente();
-    return;
-  }
-
   if(input === correct){
-    // Alumno: pasa al paso 2
-    sessionStorage.setItem("campus_auth", correct);
-    if(SUPABASE_ACTIVO){
-      // Mostrar paso 2
-      document.getElementById("loginStep1").style.display = "none";
-      document.getElementById("loginStep2").style.display = "block";
-      setTimeout(function(){ document.getElementById("ciudadInput").focus(); }, 100);
-    } else {
-      // Sin Supabase: entra directo
-      document.getElementById("loginOverlay").style.display = "none";
-    }
-    return;
-  }
-
-  // Error
-  document.getElementById("loginError").style.display = "block";
-  document.getElementById("loginInput").style.borderColor = "#EF4444";
-  setTimeout(function(){
-    document.getElementById("loginError").style.display = "none";
-    document.getElementById("loginInput").style.borderColor = "rgba(255,255,255,0.1)";
-  }, 3000);
-}
-
-// ===== PASO 2: CLAVE DE CIUDAD =====
-async function checkCiudad(){
-  var codigo = document.getElementById("ciudadInput").value.trim().toLowerCase().replace(/\s/g,"");
-  if(!codigo) return;
-
-  var btn = document.querySelector("#loginStep2 .login-btn");
-  btn.textContent = "Verificando...";
-  btn.disabled = true;
-
-  try {
-    var r = await fetch(SUPABASE_URL + "/rest/v1/alumnos?codigo=eq." + codigo + "&select=*", {
-      headers: { "apikey": SUPABASE_KEY, "Authorization": "Bearer " + SUPABASE_KEY }
-    });
-    var data = await r.json();
-
-    if(data && data.length > 0){
-      var alumno = data[0];
-      localStorage.setItem("campus_alumno_codigo", alumno.codigo);
-      localStorage.setItem("campus_alumno_nombre", alumno.nombre);
-      localStorage.setItem("campus_alumno_curso", alumno.curso);
-      document.getElementById("loginOverlay").style.display = "none";
-      mostrarSaludo(alumno.nombre);
-    } else {
-      document.getElementById("ciudadError").style.display = "block";
-      document.getElementById("ciudadInput").style.borderColor = "#EF4444";
-      setTimeout(function(){
-        document.getElementById("ciudadError").style.display = "none";
-        document.getElementById("ciudadInput").style.borderColor = "rgba(255,255,255,0.1)";
-      }, 3000);
-    }
-  } catch(e){
-    // Sin conexión: entra igual
     document.getElementById("loginOverlay").style.display = "none";
+    sessionStorage.setItem("campus_auth", correct);
+  } else {
+    document.getElementById("loginError").style.display = "block";
+    document.getElementById("loginInput").style.borderColor = "#EF4444";
+    setTimeout(function(){
+      document.getElementById("loginError").style.display = "none";
+      document.getElementById("loginInput").style.borderColor = "rgba(255,255,255,0.1)";
+    }, 3000);
   }
-
-  btn.textContent = "Continuar ✨";
-  btn.disabled = false;
 }
 
-function saltearIdentificacion(){
-  localStorage.removeItem("campus_alumno_codigo");
-  localStorage.removeItem("campus_alumno_nombre");
-  document.getElementById("loginOverlay").style.display = "none";
-}
-
-// ===== SALUDO Y CIERRE DE SESIÓN =====
-function mostrarSaludo(nombre){
-  var el = document.getElementById("saludoAlumno");
-  var nm = document.getElementById("saludoNombre");
-  if(!el || !nm) return;
-  nm.textContent = "¡Hola, " + nombre.split(" ")[0] + "! \u{1F44B} Tu progreso se guarda automáticamente";
-  el.style.display = "inline-flex";
-}
-
-function mostrarSaludoDocente(){
-  var el = document.getElementById("saludoAlumno");
-  var nm = document.getElementById("saludoNombre");
-  if(!el || !nm) return;
-  nm.textContent = "\u{1F468}\u200D\u{1F3EB} ¡Hola, profe! Bienvenida al campus";
-  el.style.display = "inline-flex";
-}
-
-function cerrarSesionAlumno(){
-  var esDocente = sessionStorage.getItem("is_docente") === "true";
-  var msg = esDocente
-    ? "¿Salir del modo docente?"
-    : "¿Cerrar sesión? El próximo alumno tendrá que ingresar su clave.";
-  if(!confirm(msg)) return;
-  localStorage.removeItem("campus_alumno_codigo");
-  localStorage.removeItem("campus_alumno_nombre");
-  localStorage.removeItem("campus_alumno_curso");
-  localStorage.removeItem("campus_ultima_sesion");
-  sessionStorage.removeItem("campus_auth");
-  sessionStorage.removeItem("is_docente");
-  location.reload();
-}
-
-// ===== EVENTOS TECLADO =====
 document.getElementById("loginInput").addEventListener("keypress", function(e){
   if(e.key === "Enter") checkLogin();
 });
 
-// ===== AUTO-LOGIN SI YA TIENE SESIÓN =====
-(function initSession(){
-  var auth = sessionStorage.getItem("campus_auth");
-  var nombre = localStorage.getItem("campus_alumno_nombre");
+// 🔒 SIEMPRE pedir login (no leer sessionStorage automáticamente)
+// Limpiar sessionStorage al cargar para empezar fresco
+sessionStorage.clear();
 
-  if(auth === getTodayPassword()){
-    document.getElementById("loginOverlay").style.display = "none";
-    var esDocente = sessionStorage.getItem("is_docente") === "true";
-    if(esDocente){
-      mostrarSaludoDocente();
-    } else if(nombre){
-      mostrarSaludo(nombre);
-    }
-  }
+// Si querés que recuerde la sesión, descomentá estas líneas:
+// if(sessionStorage.getItem("campus_auth") === getTodayPassword()){
+//   document.getElementById("loginOverlay").style.display = "none";
+// }
 
-  // Listener para el campo ciudad
-  setTimeout(function(){
-    var ci = document.getElementById("ciudadInput");
-    if(ci) ci.addEventListener("keypress", function(e){ if(e.key==="Enter") checkCiudad(); });
-  }, 200);
-})();
-
-</script>
-  <!-- 
-==============================================
-  BOTÓN DE INSTALACIÓN PWA
-  Pegá esto en index.html en dos partes:
-
-  PARTE 1: el div del botón → dentro del <body>, 
-  por ejemplo justo antes del </body>
-
-  PARTE 2: el script → reemplaza el bloque 
-  de script que ya tenés, o pegalo antes del </body>
-==============================================
--->
-
-
-<!-- ====== PARTE 1: El botón (pegalo antes del </body>) ====== -->
-
-<div id="pwa-banner" style="
-  display:none;
-  position:fixed;
-  bottom:24px;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:9998;
-  background:linear-gradient(135deg,#6366F1,#8B5CF6);
-  color:#fff;
-  padding:14px 24px;
-  border-radius:18px;
-  box-shadow:0 8px 30px rgba(99,102,241,0.5);
-  display:none;
-  align-items:center;
-  gap:12px;
-  font-family:'DM Sans',sans-serif;
-  font-size:15px;
-  font-weight:700;
-  cursor:pointer;
-  white-space:nowrap;
-  animation: slideUp 0.4s ease;
-">
-  <span style="font-size:22px">📲</span>
-  <div>
-    <div style="font-size:15px;font-weight:800">Instalá la app</div>
-    <div style="font-size:11px;font-weight:500;opacity:0.85">Accedé desde tu pantalla de inicio</div>
-  </div>
-  <button id="pwa-install-btn" style="
-    background:rgba(255,255,255,0.25);
-    border:2px solid rgba(255,255,255,0.6);
-    color:#fff;
-    padding:8px 18px;
-    border-radius:12px;
-    font-size:14px;
-    font-weight:800;
-    cursor:pointer;
-    font-family:'DM Sans',sans-serif;
-  ">Instalar</button>
-  <button onclick="document.getElementById('pwa-banner').style.display='none'" style="
-    background:none;
-    border:none;
-    color:rgba(255,255,255,0.7);
-    font-size:20px;
-    cursor:pointer;
-    padding:0 4px;
-    line-height:1;
-  ">×</button>
-</div>
-
-<style>
-@keyframes slideUp {
-  from { opacity:0; transform:translateX(-50%) translateY(20px); }
-  to   { opacity:1; transform:translateX(-50%) translateY(0); }
-}
-</style>
-
-
-<!-- ====== PARTE 2: Script (pegalo antes del </body>) ====== -->
-
-<script>
-// PWA Install Banner
-let deferredPrompt = null;
-const banner = document.getElementById('pwa-banner');
-const installBtn = document.getElementById('pwa-install-btn');
-
-// El navegador dispara este evento cuando la app se puede instalar
-window.addEventListener('beforeinstallprompt', function(e) {
-  e.preventDefault();
-  deferredPrompt = e;
-  // Mostrar el banner
-  banner.style.display = 'flex';
-});
-
-// Al tocar "Instalar"
-installBtn.addEventListener('click', function() {
-  if (!deferredPrompt) return;
-  deferredPrompt.prompt();
-  deferredPrompt.userChoice.then(function(result) {
-    if (result.outcome === 'accepted') {
-      console.log('PWA instalada');
-    }
-    deferredPrompt = null;
-    banner.style.display = 'none';
-  });
-});
 </script>
 </body>
 </html>
