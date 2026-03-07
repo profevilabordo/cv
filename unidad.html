@@ -1363,6 +1363,15 @@ var SUPABASE_ACTIVO = SUPABASE_URL.indexOf("TU_PROYECTO") === -1;
 async function verificarAlumno(){
   var codigo = document.getElementById("alumnoCodigo").value.trim().toLowerCase();
   if(!codigo) return;
+  
+  // 🔑 Si ingresa 1126, es docente
+  if(codigo === "1126"){
+    sessionStorage.setItem("campus_auth", "1126");
+    localStorage.setItem("campus_alumno_codigo", "docente_1126"); // Para que no trackee
+    localStorage.setItem("campus_alumno_nombre", "Docente");
+    document.getElementById("alumnoLoginOverlay").remove();
+    return;
+  }
 
   try {
     var r = await fetch(SUPABASE_URL + "/rest/v1/alumnos?codigo=eq." + codigo + "&select=*", {
