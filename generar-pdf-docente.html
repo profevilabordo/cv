@@ -411,11 +411,15 @@ async function generarPDF() {
     y += 1;
 
     // ── NÚCLEO ───────────────────────────────────────────────────────────
-    setProgreso(38,'Nucleo...');
+    setProgreso(38,'Nucleo A, B, C...');
     await new Promise(r=>setTimeout(r,10));
     const nucleo = datos.nucleo || {};
     checkY(10);
     y = seccion('NUCLEO - ACTIVIDADES (con respuestas)', y);
+
+    // ═══ NÚCLEO A (Actividades 1-3) ═══
+    checkY(5);
+    t('▸ NÚCLEO A - Actividades 1-3', ML, y, 7.5, true, [99,102,241]); y+=5;
 
     // N1 Ordenar
     const n1 = nucleo.n1_ordenar_cronologicamente;
@@ -463,6 +467,10 @@ async function generarPDF() {
       });
       y += 1;
     }
+
+    // ═══ NÚCLEO B (Actividades 4-7) ═══
+    checkY(5);
+    t('▸ NÚCLEO B - Actividades 4-7', ML, y, 7.5, true, [99,102,241]); y+=5;
 
     // N4 V/F
     const n4 = nucleo.n4_verdadero_falso;
@@ -521,6 +529,10 @@ async function generarPDF() {
       });
       y += 1;
     }
+
+    // ═══ NÚCLEO C (Actividades 8-10) ═══
+    checkY(5);
+    t('▸ NÚCLEO C - Actividades 8-10', ML, y, 7.5, true, [99,102,241]); y+=5;
 
     // N8 Causa-efecto
     const n8 = nucleo.n8_causa_efecto;
@@ -661,8 +673,9 @@ async function generarPDF() {
     await new Promise(r=>setTimeout(r,10));
     const autotest = datos.autotest || {};
     checkY(10);
-    y = seccion('AUTOTEST - PREGUNTAS Y RESPUESTAS CORRECTAS', y);
+    y = seccion('AUTOTEST - 15 PREGUNTAS Y RESPUESTAS CORRECTAS', y);
 
+    // Preguntas Múltiple Choice (10 preguntas)
     (autotest.preguntas||[]).forEach((q,i) => {
       checkY(5);
       const letras = ['a','b','c','d'];
@@ -680,6 +693,29 @@ async function generarPDF() {
       }
       y += 1.5; hr(y); y += 2;
     });
+
+    // Preguntas Verdadero / Falso (5 preguntas)
+    const verdaderoFalso = autotest.verdadero_falso || [];
+    if (verdaderoFalso.length > 0) {
+      checkY(5);
+      t('VERDADERO / FALSO', ML+1, y, 7.5, true, cpRgb); y+=5;
+      
+      verdaderoFalso.forEach((vf,i) => {
+        checkY(5);
+        const numPregunta = (autotest.preguntas||[]).length + i + 1;
+        const respuesta = vf.correcto ? 'VERDADERO' : 'FALSO';
+        
+        const nl = tw(`${numPregunta}. ${limpiar(vf.texto||'')}`, ML+1, y, 7.5, true, [40,40,40]);
+        y += nl*3.8 + 1;
+        t(`Resp: ${respuesta}`, ML+3, y, 7, false, cpRgb.map(c=>Math.max(0,c-30)));
+        y += 3.8;
+        if (vf.explicacion) {
+          const nle = tw(`> ${limpiar(vf.explicacion)}`, ML+4, y, PW-6, 6.5, false, [100,100,100]);
+          y += nle*3.5;
+        }
+        y += 1.5; hr(y); y += 2;
+      });
+    }
 
     // ── GLOSARIO ─────────────────────────────────────────────────────────
     setProgreso(93,'Glosario...');
