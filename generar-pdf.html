@@ -536,16 +536,18 @@ function procesarArchivo(file) {
 
 // ── Preview ────────────────────────────────────────────────────────────────
 const SECCIONES_INFO = [
-  { key: 'umbral',     label: 'Umbral',     emoji: '🚪' },
-  { key: 'mapa',       label: 'Mapa',       emoji: '🗺️' },
-  { key: 'nucleo',     label: 'Núcleo',     emoji: '⚙️' },
-  { key: 'senales',    label: 'Señales',    emoji: '🚦' },
-  { key: 'sabias',     label: '¿Sabías?',   emoji: '🎲' },
-  { key: 'cruces',     label: 'Cruces',     emoji: '🌐' },
-  { key: 'relectura',  label: 'Relectura',  emoji: '🔁' },
-  { key: 'autotest',   label: 'Autotest',   emoji: '✅' },
-  { key: 'cierre',     label: 'Cierre',     emoji: '📚' },
-  { key: 'emocional',  label: 'Emocional',  emoji: '💛' },
+  { key: 'umbral',      label: 'Umbral',      emoji: '🚪' },
+  { key: 'mapa',        label: 'Mapa',        emoji: '🗺️' },
+  { key: 'nucleo_a',    label: 'Núcleo A',    emoji: '⚙️' },
+  { key: 'nucleo_b',    label: 'Núcleo B',    emoji: '⚙️' },
+  { key: 'nucleo_c',    label: 'Núcleo C',    emoji: '⚙️' },
+  { key: 'senales',     label: 'Señales',     emoji: '🚦' },
+  { key: 'sabias',      label: '¿Sabías?',    emoji: '🎲' },
+  { key: 'cruces',      label: 'Cruces',      emoji: '🌐' },
+  { key: 'relectura',   label: 'Relectura',   emoji: '🔁' },
+  { key: 'autotest',    label: 'Autotest',    emoji: '✅' },
+  { key: 'cierre',      label: 'Cierre',      emoji: '📚' },
+  { key: 'emocional',   label: 'Emocional',   emoji: '💛' },
 ];
 
 function tieneContenido(sec) {
@@ -805,12 +807,12 @@ async function generarPDF() {
       y += 8;
     });
 
-    // ── NÚCLEO ─────────────────────────────────────────────────────────────
-    setProgreso(40, 'Núcleo — actividades...');
+    // ── NÚCLEO A ───────────────────────────────────────────────────────────
+    setProgreso(35, 'Núcleo A — actividades 1-3...');
     await new Promise(r => setTimeout(r, 10));
     nuevaPagina();
     const nucleo = datos.nucleo || {};
-    y = encabezadoSeccion('⚙️  NÚCLEO — Actividades', y);
+    y = encabezadoSeccion('⚙️  NÚCLEO A — Actividades 1-3', y);
     y += 4;
 
     // N1
@@ -870,6 +872,13 @@ async function generarPDF() {
       });
       y += 3;
     }
+
+    // ── NÚCLEO B ───────────────────────────────────────────────────────────
+    setProgreso(42, 'Núcleo B — actividades 4-7...');
+    await new Promise(r => setTimeout(r, 10));
+    nuevaPagina();
+    y = encabezadoSeccion('⚙️  NÚCLEO B — Actividades 4-7', y);
+    y += 4;
 
     // N4 - V/F
     const n4 = nucleo.n4_verdadero_falso;
@@ -958,6 +967,13 @@ async function generarPDF() {
         y += 3;
       });
     }
+
+    // ── NÚCLEO C ───────────────────────────────────────────────────────────
+    setProgreso(49, 'Núcleo C — actividades 8-10...');
+    await new Promise(r => setTimeout(r, 10));
+    nuevaPagina();
+    y = encabezadoSeccion('⚙️  NÚCLEO C — Actividades 8-10', y);
+    y += 4;
 
     // N8 - causa-efecto
     const n8 = nucleo.n8_causa_efecto;
@@ -1217,9 +1233,10 @@ async function generarPDF() {
     await new Promise(r => setTimeout(r, 10));
     nuevaPagina();
     const autotest = datos.autotest || {};
-    y = encabezadoSeccion('✅  AUTOTEST — Preguntas de repaso', y);
+    y = encabezadoSeccion('✅  AUTOTEST — 15 Preguntas de repaso', y);
     y += 5;
 
+    // Preguntas Múltiple Choice (10 preguntas)
     (autotest.preguntas||[]).forEach((q,i) => {
       checkY(25);
       texto(`${i+1}. ${q.pregunta||''}`, ML, y, { size:9.5, bold:true, maxW:PW }); 
@@ -1234,6 +1251,29 @@ async function generarPDF() {
       });
       y += 4;
     });
+
+    // Preguntas Verdadero / Falso (5 preguntas)
+    const verdaderoFalso = autotest.verdadero_falso || [];
+    if (verdaderoFalso.length > 0) {
+      checkY(20);
+      y += 3;
+      texto('VERDADERO / FALSO', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=6;
+      
+      verdaderoFalso.forEach((vf,i) => {
+        checkY(15);
+        const numPregunta = (autotest.preguntas||[]).length + i + 1;
+        texto(`${numPregunta}. ${vf.texto||''}`, ML, y, { size:9.5, bold:true, maxW:PW-20 }); 
+        const nlQ = pdf.splitTextToSize(`${numPregunta}. ${vf.texto||''}`, PW-20).length;
+        y += nlQ*4.5+2;
+        
+        // Opciones V / F
+        pdf.setDrawColor(180,180,180); pdf.setFillColor(255,255,255);
+        pdf.circle(ML+3, y-1.2, 2, 'FD');
+        texto('V) Verdadero', ML+8, y, { size:8.5 }); y+=6;
+        pdf.circle(ML+3, y-1.2, 2, 'FD');
+        texto('F) Falso', ML+8, y, { size:8.5 }); y+=7;
+      });
+    }
 
     // ── CIERRE ─────────────────────────────────────────────────────────────
     setProgreso(95, 'Cierre y glosario...');
