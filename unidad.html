@@ -94,8 +94,10 @@ function loadData(){
       if(!r.ok) throw new Error("No se encontr\u00f3 " + archivo);
       return r.json(); 
     })
-    .then(function(data){ 
+    .then(async function(data){ 
       D = data; 
+      // Cargar datos de autotest desde Supabase
+      AUTOTEST_DATA = await obtenerDatosAutotest();
       render(); 
       actualizarBarra(); 
       // Sincronizar progreso desde Supabase
@@ -114,6 +116,7 @@ function loadData(){
 }
 
 var CT=0, S={};
+var AUTOTEST_DATA = null; // Datos del autotest desde Supabase (se carga al inicio)
 
 // ===== CHECKLIST DE SECCIONES =====
 var TAB_KEYS=["umbral","mapa","nucleo_a","nucleo_b","nucleo_c","senales","sabias","cruces","relectura","emocional","autotest","cierre"];
@@ -1074,10 +1077,13 @@ function rAT(){
     bancoHtml+='</div></div>';
   }
   
-  // 🆕 ADVERTENCIA INICIAL (solo si nunca hizo el test)
-  var keyIntentos = "campus_autotest_" + D.id + "_intentos";
-  var primeraVez = !localStorage.getItem(keyIntentos);
+  // 🆕 Usar datos de Supabase en vez de localStorage
+  var datosAutotest = AUTOTEST_DATA || {primeraVez: true, primerIntento: null, reintentos: []};
+  var primeraVez = datosAutotest.primeraVez;
+  var primerIntento = datosAutotest.primerIntento;
+  var reintentos = datosAutotest.reintentos;
   
+  // 🆕 ADVERTENCIA INICIAL (solo si nunca hizo el test)
   if(!s.started && !s.fin && primeraVez){
     var h='<div style="text-align:center;padding:30px 20px;max-width:500px;margin:0 auto">';
     h+='<div style="font-size:48px;margin-bottom:16px">⚠️</div>';
@@ -1093,9 +1099,9 @@ function rAT(){
   
   // 🔄 PANTALLA PARA REINTENTOS (ya hizo el test antes)
   if(!s.started && !s.fin && !primeraVez){
-    var primerNota = localStorage.getItem("campus_autotest_" + D.id + "_primera_nota");
-    var primerPct = localStorage.getItem("campus_autotest_" + D.id + "_primera_pct");
-    var intentosAnt = localStorage.getItem(keyIntentos);
+    var primerNota = Math.round((primerIntento.nota / 100) * totalPreguntas) + '/' + totalPreguntas;
+    var primerPct = primerIntento.nota;
+    var intentosAnt = 1 + reintentos.length;
     var h='<div style="text-align:center;padding:30px 20px;max-width:500px;margin:0 auto">';
     h+='<div style="font-size:48px;margin-bottom:16px">🔄</div>';
     h+='<h3 style="font-size:20px;font-weight:800;color:#6366F1;margin:0 0 12px">REINTENTO DEL TEST</h3>';
@@ -1127,24 +1133,24 @@ function rAT(){
     var n=pct>=90?{e:"\u{1F3C6}",t:"\u00a1EXCELENTE!",c:"#10B981"}:pct>=70?{e:"\u{1F389}",t:"\u00a1Muy bien!",c:"#3B82F6"}:pct>=50?{e:"\u{1F44D}",t:"Aprobado",c:"#F59E0B"}:{e:"\u{1F4DA}",t:"Repasar",c:"#EF4444"};
     if(pct>=70) fireConfetti();
     
-    // 🆕 GUARDAR RESULTADO
-    var intentos = parseInt(localStorage.getItem(keyIntentos) || '0');
-    var esPrimerIntento = intentos === 0;
+    // 🆕 GUARDAR RESULTADO EN SUPABASE (sin localStorage)
+    var esPrimerIntento = datosAutotest.primeraVez;
     
     if(esPrimerIntento){
-      localStorage.setItem("campus_autotest_" + D.id + "_primera_nota", score + '/' + totalPreguntas);
-      localStorage.setItem("campus_autotest_" + D.id + "_primera_pct", pct);
-      localStorage.setItem("campus_autotest_" + D.id + "_primera_fecha", new Date().toISOString());
       // 🚀 GUARDAR EN SUPABASE (primer intento)
-      trackProgreso("autotest_1er_intento", pct);
+      trackProgreso("autotest_1er_intento", pct).then(function(){
+        // Recargar datos para próximas veces
+        obtenerDatosAutotest().then(function(datos){ AUTOTEST_DATA = datos; });
+      });
     } else {
       // 🚀 GUARDAR EN SUPABASE (reintento)
-      trackProgreso("autotest_reintento", pct);
+      trackProgreso("autotest_reintento", pct).then(function(){
+        // Recargar datos para próximas veces
+        obtenerDatosAutotest().then(function(datos){ AUTOTEST_DATA = datos; });
+      });
     }
     
-    intentos++;
-    localStorage.setItem(keyIntentos, intentos);
-    localStorage.setItem("campus_autotest_" + D.id + "_ultima_fecha", new Date().toISOString());
+    var totalIntentos = 1 + datosAutotest.reintentos.length + (esPrimerIntento ? 0 : 1);
     
     var h='<div style="text-align:center;padding:20px">';
     
@@ -1153,10 +1159,10 @@ function rAT(){
       h+='<div style="background:#DBEAFE;padding:8px 16px;border-radius:10px;margin-bottom:12px;border:2px solid #3B82F6">';
       h+='<p style="margin:0;font-size:13px;font-weight:700;color:#1E40AF">📌 Esta nota queda guardada como tu PRIMER INTENTO</p></div>';
     }else{
-      var primerNota = localStorage.getItem("campus_autotest_" + D.id + "_primera_nota");
-      var primerPct = localStorage.getItem("campus_autotest_" + D.id + "_primera_pct");
+      var primerNota = Math.round((datosAutotest.primerIntento.nota / 100) * totalPreguntas) + '/' + totalPreguntas;
+      var primerPct = datosAutotest.primerIntento.nota;
       h+='<div style="background:#FEF3C7;padding:8px 16px;border-radius:10px;margin-bottom:12px;border:2px solid #F59E0B">';
-      h+='<p style="margin:0;font-size:13px;font-weight:600;color:#92400E">🔄 Intento #'+intentos+' (tu primera nota fue: '+primerNota+' - '+primerPct+'%)</p></div>';
+      h+='<p style="margin:0;font-size:13px;font-weight:600;color:#92400E">🔄 Intento #'+totalIntentos+' (tu primera nota fue: '+primerNota+' - '+primerPct+'%)</p></div>';
     }
     
     h+='<div style="width:100px;height:100px;border-radius:50%;background:'+n.c+'15;border:4px solid '+n.c+';display:flex;align-items:center;justify-content:center;margin:0 auto 16px">';
@@ -1480,6 +1486,43 @@ async function trackProgreso(seccion, nota){
       body: JSON.stringify(payload)
     });
   } catch(e){ console.warn("No se pudo guardar en Supabase, queda en localStorage"); }
+}
+
+// ----- OBTENER DATOS DE AUTOTEST DESDE SUPABASE -----
+async function obtenerDatosAutotest(){
+  if(!SUPABASE_ACTIVO || !D) return {primeraVez: true, primerIntento: null, reintentos: []};
+  
+  var codigo = localStorage.getItem("campus_alumno_codigo");
+  if(!codigo || codigo === "docente_1126") return {primeraVez: true, primerIntento: null, reintentos: []}; // Docente no trackea
+  
+  try {
+    var url = SUPABASE_URL + "/rest/v1/progreso?alumno_codigo=eq." + codigo + 
+              "&materia=eq." + encodeURIComponent(D.materia) +
+              "&unidad=eq." + encodeURIComponent(D.id) +
+              "&seccion=like.autotest*" +
+              "&select=*&order=fecha.asc";
+    
+    var r = await fetch(url, {
+      headers: {
+        "apikey": SUPABASE_KEY,
+        "Authorization": "Bearer " + SUPABASE_KEY
+      }
+    });
+    
+    var data = await r.json();
+    
+    var primerIntento = data.find(function(d){ return d.seccion === "autotest_1er_intento"; });
+    var reintentos = data.filter(function(d){ return d.seccion === "autotest_reintento"; });
+    
+    return {
+      primeraVez: !primerIntento,
+      primerIntento: primerIntento,
+      reintentos: reintentos
+    };
+  } catch(e){
+    console.warn("Error al obtener datos de autotest:", e);
+    return {primeraVez: true, primerIntento: null, reintentos: []};
+  }
 }
 
 // ----- SINCRONIZAR PROGRESO DESDE SUPABASE -----
