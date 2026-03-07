@@ -95,6 +95,7 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
     <button class="login-btn" onclick="checkLogin()">Entrar &#x1F680;</button>
     <p class="login-error" id="loginError">&#x274C; Clave incorrecta. Pedile la clave a tu profe.</p>
     <p class="login-hint">&#x1F512; La clave cambia todos los d&#237;as</p>
+    <a href="panel-docente.html" style="display:block;margin-top:16px;font-size:12px;color:#6366F1;text-decoration:none;font-weight:600">&#x1F4CA; Acceso Panel Docente</a>
   </div>
 </div>
 
@@ -144,6 +145,12 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
     <p>1. Abrí una terminal en la carpeta del proyecto</p>
     <p>2. Ejecutá: <code>python3 -m http.server</code></p>
     <p>3. Abrí <code>http://localhost:8000</code> en tu navegador</p>
+  </div>
+
+  <div style="margin-top:28px;padding:24px;border-radius:16px;background:linear-gradient(135deg,#1E293B,#0F172A);border:2px solid #6366F1;text-align:center">
+    <h3 style="font-size:16px;font-weight:700;color:#F8FAFC;margin:0 0 8px">👨‍🏫 Área Docente</h3>
+    <p style="font-size:13px;color:#94A3B8;margin:0 0 16px">Accedé al panel de seguimiento y estadísticas</p>
+    <a href="panel-docente.html" style="display:inline-block;padding:12px 28px;border-radius:12px;background:linear-gradient(135deg,#6366F1,#8B5CF6);color:#fff;font-size:14px;font-weight:700;text-decoration:none;box-shadow:0 4px 12px rgba(99,102,241,0.3)">📊 Abrir Panel Docente</a>
   </div>
 
   <div class="footer">
@@ -380,6 +387,9 @@ function mostrarSaludo(){
   if(saludo){
     var html = '<div style="display:flex;align-items:center;gap:10px">';
     html += '<span style="font-size:14px;font-weight:600;color:#E2E8F0">'+saludo+'</span>';
+    if(esDocente){
+      html += '<a href="panel-docente.html" style="padding:6px 14px;border-radius:10px;border:1px solid #6366F1;background:rgba(99,102,241,0.2);color:#A78BFA;font-size:13px;font-weight:600;text-decoration:none;font-family:inherit">📊 Panel</a>';
+    }
     html += '<button onclick="cerrarSesion()" style="padding:6px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#EF4444;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">🚪 Salir</button>';
     html += '</div>';
     document.getElementById("userGreeting").innerHTML = html;
