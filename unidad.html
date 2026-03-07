@@ -1091,6 +1091,23 @@ function rAT(){
     return bancoHtml + h;
   }
   
+  // 🔄 PANTALLA PARA REINTENTOS (ya hizo el test antes)
+  if(!s.started && !primeraVez){
+    var primerNota = localStorage.getItem("campus_autotest_" + D.id + "_primera_nota");
+    var primerPct = localStorage.getItem("campus_autotest_" + D.id + "_primera_pct");
+    var intentosAnt = localStorage.getItem(keyIntentos);
+    var h='<div style="text-align:center;padding:30px 20px;max-width:500px;margin:0 auto">';
+    h+='<div style="font-size:48px;margin-bottom:16px">🔄</div>';
+    h+='<h3 style="font-size:20px;font-weight:800;color:#6366F1;margin:0 0 12px">REINTENTO DEL TEST</h3>';
+    h+='<div style="text-align:left;background:#DBEAFE;padding:16px 20px;border-radius:14px;border:2px solid #3B82F6;margin-bottom:20px">';
+    h+='<p style="margin:0 0 8px;font-size:14px;color:#1E40AF;line-height:1.6"><strong>Tu primera nota:</strong> '+primerNota+' ('+primerPct+'%)</p>';
+    h+='<p style="margin:0;font-size:14px;color:#1E40AF;line-height:1.6">Ya hiciste este test '+intentosAnt+' vez/veces. Podés practicar cuantas veces quieras.</p>';
+    h+='</div>';
+    h+='<button class="btn" onclick="S.at.started=true;render()" style="font-size:15px;padding:12px 32px">Comenzar nuevo intento 🚀</button>';
+    h+='</div>';
+    return bancoHtml + h;
+  }
+  
   // Calcular puntaje (MC + V/F)
   var score=0;
   for(var k in s.ans){
