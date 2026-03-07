@@ -301,9 +301,9 @@ function renderAlumnos(){
 }
 
 // ----- TAB 1: PROGRESO -----
-var SECCIONES = ["umbral","mapa","nucleo","senales","sabias","cruces","relectura","emocional","autotest","cierre"];
+var SECCIONES = ["umbral","mapa","nucleo_a","nucleo_b","nucleo_c","senales","sabias","cruces","relectura","emocional","autotest","cierre"];
 var SECCIONES_LABELS = {
-  "umbral":"🚪 Umbral","mapa":"🗺️ Mapa","nucleo":"⚛️ Núcleo","senales":"🚦 Señales",
+  "umbral":"🚪 Umbral","mapa":"🗺️ Mapa","nucleo_a":"⚛️ Núcleo A","nucleo_b":"⚛️ Núcleo B","nucleo_c":"⚛️ Núcleo C","senales":"🚦 Señales",
   "sabias":"✨ Sabías","cruces":"🔀 Cruces","relectura":"📖 Relectura",
   "emocional":"🫶 Emocional","autotest":"📝 Autotest","cierre":"🔚 Cierre"
 };
@@ -391,7 +391,7 @@ function renderProgreso(){
         h += '<div class="prog-row">';
         h += '<div class="prog-label" style="width:100px;font-size:12px">'+u.toUpperCase()+'</div>';
         h += '<div class="prog-bar"><div class="prog-fill" style="width:'+pct+'%;background:'+barColor+'"></div></div>';
-        h += '<div class="prog-val" style="color:'+barColor+';font-weight:700">'+secs.length+'/10</div>';
+        h += '<div class="prog-val" style="color:'+barColor+';font-weight:700">'+secs.length+'/'+SECCIONES.length+'</div>';
         h += '</div>';
         h += '<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;padding-left:4px">';
         SECCIONES.forEach(function(sec){
