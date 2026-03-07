@@ -1629,8 +1629,8 @@ function actualizarIndicadoresTabs(){
 var _switchTabOriginal = switchTab;
 switchTab = function(i){
   _switchTabOriginal(i);
-  var tabKeys = ["umbral","mapa","nucleo","senales","sabias","cruces","relectura","emocional","autotest","cierre"];
-  if(tabKeys[i]) trackProgreso(tabKeys[i]);
+  // ❌ REMOVIDO: trackProgreso automático
+  // Solo se guarda cuando el alumno marca explícitamente como completada
   setTimeout(actualizarIndicadoresTabs, 100);
 };
 
