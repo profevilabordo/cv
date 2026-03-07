@@ -348,9 +348,16 @@ function getTodayPassword(){
 function checkLogin(){
   var input = document.getElementById("loginInput").value.trim().toLowerCase();
   var correct = getTodayPassword();
+  
+  // Verificar clave del día O clave docente 1126
   if(input === correct){
     document.getElementById("loginOverlay").style.display = "none";
     sessionStorage.setItem("campus_auth", correct);
+  } else if(input === "1126"){
+    // 🎓 Clave docente estática
+    document.getElementById("loginOverlay").style.display = "none";
+    sessionStorage.setItem("campus_auth", correct); // Guardar clave del día
+    sessionStorage.setItem("is_docente", "true");   // Flag de docente
   } else {
     document.getElementById("loginError").style.display = "block";
     document.getElementById("loginInput").style.borderColor = "#EF4444";
