@@ -1046,12 +1046,35 @@ function rE2(){
 function rAutotest(){
   return secHeader("\u{1F4DD}","AUTOTEST","Test con nota autom\u00e1tica",TABS[8].g)
     +'<div class="sb">'
-    +actWrap("at","\u{1F4DD} Test de la Unidad","6 preguntas","Evaluar","#F59E0B",rAT(),true)
+    +actWrap("at","\u{1F4DD} Test de la Unidad","15 preguntas","Evaluar","#F59E0B",rAT(),true)
     +'</div>'
     +renderCheckBtn("autotest");
 }
 function rAT(){
   var d=D.autotest.preguntas, tq=d.length;
+  function rAT(){
+  var d=D.autotest.preguntas, tq=d.length;
+  if(!S.at) S.at={cur:0,ans:{},fin:false};
+  var s=S.at;
+  
+  // ✨ NUEVO: Verificar si es docente y mostrar banco de respuestas
+  var esDocente = sessionStorage.getItem("campus_auth") === "campusvvb_docente_2025";
+  
+  var score=0; for(var k in s.ans){if(s.ans[k]===d[k].correcta)score++;}
+  var pct=Math.round(score/tq*100);
+  
+  // ✨ NUEVO: Mostrar banco de respuestas para docente
+  if(esDocente && D.autotest.banco_respuestas_docente){
+    var h='<div style="padding:16px 20px;border-radius:14px;background:#FEF3C7;border:2px solid #F59E0B;margin-bottom:20px">';
+    h+='<p style="margin:0 0 10px;font-size:14px;font-weight:700;color:#92400E">🎓 BANCO DE RESPUESTAS (solo docente)</p>';
+    h+='<div style="font-size:12px;color:#78350F;line-height:1.8">';
+    for(var i=0;i<D.autotest.banco_respuestas_docente.length;i++){
+      h+='<div>'+D.autotest.banco_respuestas_docente[i]+'</div>';
+    }
+    h+='</div></div>';
+  }
+  
+  // ... resto del código continúa igual
   if(!S.at) S.at={cur:0,ans:{},fin:false};
   var s=S.at;
   var score=0; for(var k in s.ans){if(s.ans[k]===d[k].correcta)score++;}
@@ -1072,6 +1095,27 @@ function rAT(){
   
   var p=d[s.cur], answered=s.ans[s.cur]!==undefined, ok=answered&&s.ans[s.cur]===p.correcta;
   var h='<div style="display:flex;justify-content:space-between;margin-bottom:12px">';
+    h = bancoHtml + h;  // Agregar banco de respuestas antes del contenido del test
+```
+
+---
+
+## ✅ Resultado
+
+Cuando vos (docente) entres con la clave estática, vas a ver:
+```
+┌─────────────────────────────────────────┐
+│ 🎓 BANCO DE RESPUESTAS (solo docente)  │
+│                                         │
+│ 1. B - El Natural son principios...    │
+│ 2. C - La moral                         │
+│ 3. C - 18 años                          │
+│ ...                                     │
+│ 15. VERDADERO - Pueden ser subjetiva... │
+└─────────────────────────────────────────┘
+
+[Pregunta 1/10]
+¿Cuál es la principal diferencia...
   h+='<span style="font-size:13px;font-weight:700;color:#6366F1">Pregunta '+(s.cur+1)+'/'+tq+'</span>';
   h+='<div style="display:flex;gap:4px">';
   for(var i=0;i<tq;i++){
