@@ -1054,17 +1054,10 @@ function rAutotest(){
 function rAT(){
   var d=D.autotest.preguntas, tq=d.length;
   var vf=D.autotest.verdadero_falso || [], vfq=vf.length;
-  var totalPreguntas = tq + vfq;  // Total: 15 preguntas
+  var totalPreguntas = tq + vfq;
   
-  if(!S.at) S.at={cur:0,ans:{},fin:false};
+  if(!S.at) S.at={cur:0,ans:{},fin:false,started:false};
   var s=S.at;
-  
-  // Calcular puntaje
-  var score=0; 
-  for(var k in s.ans){
-    if(s.ans[k]===d[k].correcta) score++;
-  }
-  var pct=Math.round(score/totalPreguntas*100);
   
   // Verificar si es docente
   var esDocente = sessionStorage.getItem("campus_auth") === "campusvvb_docente_2025";
@@ -1081,28 +1074,100 @@ function rAT(){
     bancoHtml+='</div></div>';
   }
   
+  // 🆕 ADVERTENCIA INICIAL (solo si nunca hizo el test)
+  var keyIntentos = "campus_autotest_" + D.id + "_intentos";
+  var primeraVez = !localStorage.getItem(keyIntentos);
+  
+  if(!s.started && primeraVez){
+    var h='<div style="text-align:center;padding:30px 20px;max-width:500px;margin:0 auto">';
+    h+='<div style="font-size:48px;margin-bottom:16px">⚠️</div>';
+    h+='<h3 style="font-size:20px;font-weight:800;color:#DC2626;margin:0 0 12px">ATENCIÓN - PRIMER INTENTO</h3>';
+    h+='<div style="text-align:left;background:#FEF3C7;padding:16px 20px;border-radius:14px;border:2px solid #F59E0B;margin-bottom:20px">';
+    h+='<p style="margin:0 0 12px;font-size:14px;color:#78350F;line-height:1.6">Podés hacer este test <strong>todas las veces que quieras</strong>, pero tu <strong>PRIMERA NOTA</strong> es la que queda guardada en el registro docente.</p>';
+    h+='<p style="margin:0;font-size:14px;color:#78350F;line-height:1.6">💡 <strong>Asegurate de haber repasado</strong> antes de empezar.</p>';
+    h+='</div>';
+    h+='<button class="btn" onclick="S.at.started=true;render()" style="background:linear-gradient(135deg,#DC2626,#B91C1C);font-size:15px;padding:12px 32px">Estoy listo/a, comenzar test 🚀</button>';
+    h+='</div>';
+    return bancoHtml + h;
+  }
+  
+  // Calcular puntaje (MC + V/F)
+  var score=0;
+  for(var k in s.ans){
+    if(k.indexOf('vf_') === 0){
+      // Es V/F
+      var vfIdx = parseInt(k.replace('vf_',''));
+      if(s.ans[k] === vf[vfIdx].correcto) score++;
+    } else {
+      // Es MC
+      if(s.ans[k]===d[k].correcta) score++;
+    }
+  }
+  var pct=Math.round(score/totalPreguntas*100);
+  
   // PANTALLA FINAL - Resultados
   if(s.fin){
     var n=pct>=90?{e:"\u{1F3C6}",t:"\u00a1EXCELENTE!",c:"#10B981"}:pct>=70?{e:"\u{1F389}",t:"\u00a1Muy bien!",c:"#3B82F6"}:pct>=50?{e:"\u{1F44D}",t:"Aprobado",c:"#F59E0B"}:{e:"\u{1F4DA}",t:"Repasar",c:"#EF4444"};
     if(pct>=70) fireConfetti();
+    
+    // 🆕 GUARDAR RESULTADO
+    var intentos = parseInt(localStorage.getItem(keyIntentos) || '0');
+    var esPrimerIntento = intentos === 0;
+    
+    if(esPrimerIntento){
+      localStorage.setItem("campus_autotest_" + D.id + "_primera_nota", score + '/' + totalPreguntas);
+      localStorage.setItem("campus_autotest_" + D.id + "_primera_pct", pct);
+      localStorage.setItem("campus_autotest_" + D.id + "_primera_fecha", new Date().toISOString());
+      // 🚀 GUARDAR EN SUPABASE (primer intento)
+      trackProgreso("autotest_1er_intento", pct);
+    } else {
+      // 🚀 GUARDAR EN SUPABASE (reintento)
+      trackProgreso("autotest_reintento", pct);
+    }
+    
+    intentos++;
+    localStorage.setItem(keyIntentos, intentos);
+    localStorage.setItem("campus_autotest_" + D.id + "_ultima_fecha", new Date().toISOString());
+    
     var h='<div style="text-align:center;padding:20px">';
+    
+    // Mostrar si es primera vez o reintento
+    if(esPrimerIntento){
+      h+='<div style="background:#DBEAFE;padding:8px 16px;border-radius:10px;margin-bottom:12px;border:2px solid #3B82F6">';
+      h+='<p style="margin:0;font-size:13px;font-weight:700;color:#1E40AF">📌 Esta nota queda guardada como tu PRIMER INTENTO</p></div>';
+    }else{
+      var primerNota = localStorage.getItem("campus_autotest_" + D.id + "_primera_nota");
+      var primerPct = localStorage.getItem("campus_autotest_" + D.id + "_primera_pct");
+      h+='<div style="background:#FEF3C7;padding:8px 16px;border-radius:10px;margin-bottom:12px;border:2px solid #F59E0B">';
+      h+='<p style="margin:0;font-size:13px;font-weight:600;color:#92400E">🔄 Intento #'+intentos+' (tu primera nota fue: '+primerNota+' - '+primerPct+'%)</p></div>';
+    }
+    
     h+='<div style="width:100px;height:100px;border-radius:50%;background:'+n.c+'15;border:4px solid '+n.c+';display:flex;align-items:center;justify-content:center;margin:0 auto 16px">';
     h+='<span style="font-size:32px;font-weight:900;color:'+n.c+'">'+Math.round(pct/10)+'</span></div>';
     h+='<span style="font-size:28px">'+n.e+'</span>';
     h+='<p style="margin:8px 0;font-size:20px;font-weight:800;color:'+n.c+'">'+n.t+'</p>';
     h+='<p style="margin:0;font-size:14px;color:#6B7280">'+score+'/'+totalPreguntas+' correctas ('+pct+'%)</p>';
-    h+='<button class="btn" onclick="S.at={cur:0,ans:{},fin:false};render()" style="margin-top:20px">Reintentar</button></div>';
+    h+='<button class="btn" onclick="S.at={cur:0,ans:{},fin:false,started:true};render()" style="margin-top:20px">Reintentar</button></div>';
     return bancoHtml + h;
   }
   
-  // PANTALLA DE PREGUNTA
+  // PANTALLA DE PREGUNTA (solo MC por ahora, V/F se agregan después)
   var p=d[s.cur], answered=s.ans[s.cur]!==undefined, ok=answered&&s.ans[s.cur]===p.correcta;
   var h='<div style="display:flex;justify-content:space-between;margin-bottom:12px">';
   h+='<span style="font-size:13px;font-weight:700;color:#6366F1">Pregunta '+(s.cur+1)+'/'+totalPreguntas+'</span>';
   h+='<div style="display:flex;gap:4px">';
   for(var i=0;i<totalPreguntas;i++){
-    var a=s.ans[i], o=a!==undefined&&a===d[i].correcta, b=a!==undefined&&a!==d[i].correcta;
-    h+='<div style="width:10px;height:10px;border-radius:50%;background:'+(i===s.cur?'#6366F1':o?'#10B981':b?'#EF4444':'#E5E7EB')+'"></div>';
+    var isDone = i < tq ? (s.ans[i] !== undefined) : (s.ans['vf_' + (i-tq)] !== undefined);
+    var isCorrect = false;
+    if(isDone){
+      if(i < tq){
+        isCorrect = s.ans[i] === d[i].correcta;
+      } else {
+        var vfIdx = i - tq;
+        isCorrect = s.ans['vf_'+vfIdx] === vf[vfIdx].correcto;
+      }
+    }
+    h+='<div style="width:10px;height:10px;border-radius:50%;background:'+(i===s.cur?'#6366F1':isCorrect?'#10B981':isDone?'#EF4444':'#E5E7EB')+'"></div>';
   }
   h+='</div></div>';
   h+='<div style="padding:16px;border-radius:14px;background:#F5F3FF;margin-bottom:14px"><p style="margin:0;font-size:15px;font-weight:700;color:#374151">'+p.pregunta+'</p></div>';
@@ -1400,20 +1465,6 @@ switchTab = function(i){
   var tabKeys = ["umbral","mapa","nucleo","senales","sabias","cruces","relectura","emocional","autotest","cierre"];
   if(tabKeys[i]) trackProgreso(tabKeys[i]);
   setTimeout(actualizarIndicadoresTabs, 100);
-};
-
-// Trackear nota del autotest cuando termina
-// Se integra automáticamente porque el panel de resultado llama a fireConfetti()
-var _fireConfettiOriginal = typeof fireConfetti !== "undefined" ? fireConfetti : function(){};
-fireConfetti = function(){
-  _fireConfettiOriginal();
-  if(S && S.at && S.at.fin && D){
-    var score = 0;
-    var d = D.autotest.preguntas;
-    for(var k in S.at.ans){ if(S.at.ans[k]===d[k].correcta) score++; }
-    var pct = Math.round(score/d.length*100);
-    trackProgreso("autotest_nota", pct);
-  }
 };
 
 // Indicadores al cargar
