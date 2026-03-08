@@ -1,0 +1,1677 @@
+{
+  "id": "eeso206_4d_economia_u1",
+  "materia": "Economía",
+  "unidad": 1,
+  "titulo": "La Ciencia Económica y sus Fundamentos",
+  "emoji": "📊",
+  "color_primario": "#6366F1",
+  "color_secundario": "#EC4899",
+
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "🛒",
+        "texto": "¿Por qué no podés comprarte TODO lo que querés aunque tengas plata?",
+        "pista": "Pensá en que el tiempo también es limitado... no podés estar en dos lugares a la vez..."
+      },
+      {
+        "emoji": "⏰",
+        "texto": "Si tenés que elegir entre estudiar o salir con amigos, ¿a qué estás renunciando realmente?",
+        "pista": "Lo que dejás de ganar cuando elegís una opción se llama 'costo de oportunidad'..."
+      },
+      {
+        "emoji": "💎",
+        "texto": "¿Por qué el agua (que necesitamos para vivir) es barata y un diamante (que no necesitamos) es carísimo?",
+        "pista": "La clave está en la ESCASEZ... el agua es abundante, los diamantes no..."
+      }
+    ],
+    "situaciones_conecta": [
+      {
+        "emoji": "💸",
+        "label": "Tengo que administrar mi paga semanal"
+      },
+      {
+        "emoji": "📱",
+        "label": "Quiero el último modelo de celular pero es caro"
+      },
+      {
+        "emoji": "🎮",
+        "label": "Juego o estudio: no me alcanza el tiempo"
+      },
+      {
+        "emoji": "🍕",
+        "label": "Comparo precios antes de pedir comida"
+      }
+    ],
+    "termometro_pregunta": "¿Cuánto sabés sobre cómo funciona la economía en tu vida diaria?"
+  },
+
+  "mapa": {
+    "ruta_paradas": [
+      {
+        "id": 1,
+        "emoji": "🔍",
+        "title": "¿Qué es la Economía?",
+        "desc": "La ciencia de la escasez y la elección: recursos limitados, necesidades ilimitadas",
+        "color": "#6366F1"
+      },
+      {
+        "id": 2,
+        "emoji": "🎯",
+        "title": "Necesidades y Bienes",
+        "desc": "Cómo clasificamos lo que necesitamos y lo que consumimos",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 3,
+        "emoji": "💰",
+        "title": "Valor, Utilidad y Escasez",
+        "desc": "Por qué las cosas valen lo que valen y la paradoja del agua y el diamante",
+        "color": "#10B981"
+      },
+      {
+        "id": 4,
+        "emoji": "⚖️",
+        "title": "Costo de Oportunidad",
+        "desc": "Qué dejamos de ganar cuando elegimos algo: el costo invisible de decidir",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 5,
+        "emoji": "📈",
+        "title": "FPP y Agentes Económicos",
+        "desc": "Límites de producción y quiénes toman decisiones en la economía",
+        "color": "#EC4899"
+      }
+    ],
+
+    "panoramica_bloques": [
+      {
+        "id": "a",
+        "emoji": "📚",
+        "title": "BLOQUE A",
+        "subtitle": "Fundamentos de Economía (páginas 2-9)",
+        "color": "#6366F1",
+        "items": [
+          "La Economía como ciencia de la escasez y la elección",
+          "Recursos escasos vs. necesidades ilimitadas",
+          "Microeconomía, Macroeconomía y Economía Internacional",
+          "Preguntas fundamentales: qué, cómo y para quién producir",
+          "Método científico en economía: inductivo y deductivo",
+          "Modelos económicos y Ceteris Paribus",
+          "Economía Positiva vs. Normativa"
+        ]
+      },
+      {
+        "id": "b",
+        "emoji": "🛍️",
+        "title": "BLOQUE B",
+        "subtitle": "Necesidades, Bienes y Valor (páginas 10-18)",
+        "color": "#3B82F6",
+        "items": [
+          "Recursos, bienes, servicios y necesidades",
+          "Clasificación de bienes: consumo, capital, públicos, privados",
+          "Características de las necesidades según Maslow",
+          "Necesidades primarias vs. secundarias",
+          "La escasez económica y sus características",
+          "Valor de uso vs. valor de cambio",
+          "Utilidad total y utilidad marginal decreciente"
+        ]
+      },
+      {
+        "id": "c",
+        "emoji": "🎯",
+        "title": "BLOQUE C",
+        "subtitle": "Decisiones y Producción (páginas 19-28)",
+        "color": "#10B981",
+        "items": [
+          "Costo de oportunidad: monetario e invisible",
+          "Costes irrecuperables y análisis marginal",
+          "Incentivos positivos y negativos",
+          "Frontera de Posibilidades de Producción (FPP)",
+          "Eficiencia, escasez y costo de oportunidad en la FPP",
+          "Desplazamientos de la FPP: crecimiento económico",
+          "Agentes económicos: familias, empresas y Estado"
+        ]
+      }
+    ],
+
+    "mapa_mental": {
+      "centro": {
+        "emoji": "📊",
+        "title": "LA ECONOMÍA"
+      },
+      "ramas": [
+        {
+          "id": "que",
+          "emoji": "❓",
+          "title": "¿Qué es?",
+          "color": "#6366F1",
+          "items": [
+            "Ciencia de la escasez y la elección",
+            "Administrar recursos limitados",
+            "Satisfacer necesidades ilimitadas",
+            "Estudia producción, distribución y consumo"
+          ]
+        },
+        {
+          "id": "niveles",
+          "emoji": "🔬",
+          "title": "¿Cómo se divide?",
+          "color": "#3B82F6",
+          "items": [
+            "Microeconomía: hogares y empresas",
+            "Macroeconomía: economía nacional",
+            "Economía Internacional: comercio global",
+            "Economía Positiva vs. Normativa"
+          ]
+        },
+        {
+          "id": "conceptos",
+          "emoji": "💡",
+          "title": "¿Conceptos clave?",
+          "color": "#10B981",
+          "items": [
+            "Escasez económica",
+            "Costo de oportunidad",
+            "Utilidad marginal decreciente",
+            "Frontera de Posibilidades de Producción"
+          ]
+        },
+        {
+          "id": "agentes",
+          "emoji": "👥",
+          "title": "¿Quiénes participan?",
+          "color": "#F59E0B",
+          "items": [
+            "Familias: consumen y ofrecen trabajo",
+            "Empresas: producen bienes y servicios",
+            "Estado: regula y provee servicios públicos",
+            "Todos interactúan en el mercado"
+          ]
+        }
+      ]
+    }
+  },
+
+  "nucleo_a": {
+    "bloque_info": {
+      "id": "a",
+      "emoji": "📚",
+      "titulo": "BLOQUE A: Fundamentos de Economía",
+      "color": "#6366F1",
+      "paginas": [2, 3, 4, 5, 6, 7, 8, 9]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los pasos del método científico aplicado a economía:",
+      "paginas_referencia": "5",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "👀",
+          "text": "Observación del fenómeno económico"
+        },
+        {
+          "id": 1,
+          "emoji": "💭",
+          "text": "Formulación de hipótesis"
+        },
+        {
+          "id": 2,
+          "emoji": "🔮",
+          "text": "Predicción basada en la hipótesis"
+        },
+        {
+          "id": 3,
+          "emoji": "📊",
+          "text": "Recolección de datos y evidencia"
+        },
+        {
+          "id": 4,
+          "emoji": "✅",
+          "text": "Validación o rechazo de la hipótesis"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada concepto según corresponda a Microeconomía o Macroeconomía:",
+      "paginas_referencia": "3, 8",
+      "categorias": [
+        {
+          "name": "Microeconomía",
+          "emoji": "🏪",
+          "color": "#6366F1"
+        },
+        {
+          "name": "Macroeconomía",
+          "emoji": "🌍",
+          "color": "#EC4899"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Precio de las zapatillas Nike",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Tasa de inflación en Argentina",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Decisión de compra de un consumidor",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "Desempleo nacional",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Crecimiento del PBI",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 5,
+          "text": "Estrategia de precios de una panadería",
+          "categoria_correcta": 0
+        }
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "2-3",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "Los recursos son",
+          "respuesta_correcta": "escasos",
+          "pista": "E______"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "Las necesidades son",
+          "respuesta_correcta": "ilimitadas",
+          "pista": "I__________"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "Por eso la economía se llama la ciencia de la escasez y la",
+          "respuesta_correcta": "elección",
+          "pista": "E_______"
+        }
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "2-7",
+      "afirmaciones": [
+        {
+          "texto": "La economía estudia cómo satisfacer TODAS las necesidades con recursos limitados",
+          "correcto": false,
+          "explicacion": "Falso. La economía estudia cómo satisfacer la MAYOR CANTIDAD POSIBLE de necesidades, no todas, porque los recursos son escasos."
+        },
+        {
+          "texto": "La Microeconomía analiza el comportamiento de agentes individuales como hogares y empresas",
+          "correcto": true,
+          "explicacion": "Verdadero. La Microeconomía se enfoca en decisiones de consumidores, productores y mercados específicos."
+        },
+        {
+          "texto": "El método inductivo en economía va de lo general a lo particular",
+          "correcto": false,
+          "explicacion": "Falso. El método inductivo va de lo particular (observaciones específicas) a lo general (conclusiones generales). El que va de general a particular es el deductivo."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "4",
+      "pares": [
+        {
+          "izquierda": "¿Qué producir?",
+          "derecha": "Qué bienes y servicios y en qué cantidades",
+          "emoji": "🎯"
+        },
+        {
+          "izquierda": "¿Cómo producir?",
+          "derecha": "Métodos y recursos a utilizar",
+          "emoji": "⚙️"
+        },
+        {
+          "izquierda": "¿Para quién producir?",
+          "derecha": "Cómo distribuir entre la sociedad",
+          "emoji": "👥"
+        },
+        {
+          "izquierda": "Ceteris Paribus",
+          "derecha": "Todo lo demás constante",
+          "emoji": "🔒"
+        }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "3-7",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "📊",
+          "pregunta": "¿Cuál NO es una rama de la economía?",
+          "paginas": "3",
+          "palabras": [
+            {
+              "text": "Microeconomía",
+              "es_intrusa": false
+            },
+            {
+              "text": "Macroeconomía",
+              "es_intrusa": false
+            },
+            {
+              "text": "Psicología",
+              "es_intrusa": true
+            },
+            {
+              "text": "Economía Internacional",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Psicología no es una rama de la economía, aunque sí estudia el comportamiento humano desde otra perspectiva."
+        },
+        {
+          "id": 1,
+          "emoji": "🔬",
+          "pregunta": "¿Cuál NO es un método utilizado en economía?",
+          "paginas": "5",
+          "palabras": [
+            {
+              "text": "Inductivo",
+              "es_intrusa": false
+            },
+            {
+              "text": "Deductivo",
+              "es_intrusa": false
+            },
+            {
+              "text": "Adivinar",
+              "es_intrusa": true
+            },
+            {
+              "text": "Científico",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "La economía usa métodos científicos rigurosos, no se basa en adivinanzas sino en observación, hipótesis y evidencia."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "2-3",
+      "conceptos": [
+        {
+          "termino": "Economía",
+          "pista": "¿Qué ciencia estudia cómo administrar recursos escasos?",
+          "palabras_clave": ["recursos", "escasos", "necesidades", "satisfacer", "administrar", "limitados"]
+        },
+        {
+          "termino": "Escasez económica",
+          "pista": "¿Por qué no podemos tener todo lo que queremos?",
+          "palabras_clave": ["limitados", "recursos", "necesidades", "ilimitadas", "elegir", "insuficientes"]
+        },
+        {
+          "termino": "Ceteris Paribus",
+          "pista": "¿Qué significa 'todo lo demás constante' en economía?",
+          "palabras_clave": ["constante", "igual", "mantener", "variables", "aislar", "supuesto"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "2-3",
+      "causas": [
+        {
+          "id": 1,
+          "emoji": "⏰",
+          "text": "Los recursos son escasos"
+        },
+        {
+          "id": 2,
+          "emoji": "♾️",
+          "text": "Las necesidades son ilimitadas"
+        },
+        {
+          "id": 3,
+          "emoji": "📱",
+          "text": "Al satisfacer una necesidad surgen otras nuevas"
+        },
+        {
+          "id": 4,
+          "emoji": "🔒",
+          "text": "Queremos estudiar el efecto del precio en las ventas"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "🤔",
+          "text": "Debemos tomar decisiones sobre cómo usarlos"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "❌",
+          "text": "No podemos satisfacerlas todas"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "🔄",
+          "text": "Las necesidades se reproducen constantemente"
+        },
+        {
+          "id": 4,
+          "causa_id": 4,
+          "emoji": "📊",
+          "text": "Usamos Ceteris Paribus: mantenemos todo lo demás constante"
+        }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená las etapas del pensamiento económico al analizar un problema:",
+      "paginas_referencia": "4-5",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 1,
+          "emoji": "👀",
+          "text": "Observo el fenómeno económico (ej: baja el precio del cine, más gente va)"
+        },
+        {
+          "id": 2,
+          "emoji": "💡",
+          "text": "Formulo una hipótesis (existe relación entre precio y cantidad demandada)"
+        },
+        {
+          "id": 3,
+          "emoji": "📉",
+          "text": "Hago una predicción (si baja el precio, aumenta la demanda)"
+        },
+        {
+          "id": 4,
+          "emoji": "📊",
+          "text": "Recolecto datos y evidencia para probar mi predicción"
+        },
+        {
+          "id": 5,
+          "emoji": "✅",
+          "text": "Valido o rechazo la hipótesis según los resultados"
+        }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "7",
+      "concepto_a": {
+        "nombre": "Economía Positiva",
+        "emoji": "📊",
+        "color": "#6366F1"
+      },
+      "concepto_b": {
+        "nombre": "Economía Normativa",
+        "emoji": "💭",
+        "color": "#EC4899"
+      }
+    }
+  },
+
+  "nucleo_b": {
+    "bloque_info": {
+      "id": "b",
+      "emoji": "🛍️",
+      "titulo": "BLOQUE B: Necesidades, Bienes y Valor",
+      "color": "#3B82F6",
+      "paginas": [9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená la pirámide de Maslow de necesidades básicas a autorrealización:",
+      "paginas_referencia": "15-16",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "🍕",
+          "text": "Necesidades fisiológicas (comer, dormir)"
+        },
+        {
+          "id": 1,
+          "emoji": "🛡️",
+          "text": "Seguridad y protección"
+        },
+        {
+          "id": 2,
+          "emoji": "👥",
+          "text": "Necesidades sociales (pertenecer a un grupo)"
+        },
+        {
+          "id": 3,
+          "emoji": "🏆",
+          "text": "Estima y reconocimiento"
+        },
+        {
+          "id": 4,
+          "emoji": "⭐",
+          "text": "Autorrealización (máxima expresión del yo)"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada bien según su tipo:",
+      "paginas_referencia": "10",
+      "categorias": [
+        {
+          "name": "Bienes de Consumo",
+          "emoji": "🍔",
+          "color": "#3B82F6"
+        },
+        {
+          "name": "Bienes de Capital",
+          "emoji": "⚙️",
+          "color": "#10B981"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Una hamburguesa",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Un tractor agrícola",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Zapatillas deportivas",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "Máquina de coser en una fábrica textil",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Un celular para uso personal",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Horno industrial de panadería",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "11-12",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "Las necesidades son",
+          "respuesta_correcta": "ilimitadas",
+          "pista": "I__________"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "La misma necesidad puede satisfacerse de",
+          "respuesta_correcta": "varias maneras",
+          "pista": "V_____ M______"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "Las necesidades se sienten de manera",
+          "respuesta_correcta": "diferente",
+          "pista": "D_________"
+        }
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "12-18",
+      "afirmaciones": [
+        {
+          "texto": "Las necesidades se reproducen: al satisfacer una, surgen otras nuevas",
+          "correcto": true,
+          "explicacion": "Verdadero. Por ejemplo, al comprar un celular surge la necesidad de accesorios, fundas, auriculares, etc."
+        },
+        {
+          "texto": "La escasez económica solo afecta a las personas pobres",
+          "correcto": false,
+          "explicacion": "Falso. La escasez económica es universal: todos tenemos recursos limitados (tiempo, dinero) frente a necesidades ilimitadas, incluso los ricos."
+        },
+        {
+          "texto": "El agua tiene alto valor de uso pero bajo valor de cambio por ser abundante",
+          "correcto": true,
+          "explicacion": "Verdadero. Esta es la paradoja del agua y el diamante: el agua es esencial (alto valor de uso) pero barata porque es abundante (bajo valor de cambio)."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "10",
+      "pares": [
+        {
+          "izquierda": "Bienes Complementarios",
+          "derecha": "Se usan juntos (ej: celular y auriculares)",
+          "emoji": "🔗"
+        },
+        {
+          "izquierda": "Bienes Sustitutivos",
+          "derecha": "Se reemplazan entre sí (ej: Coca-Cola y Pepsi)",
+          "emoji": "🔄"
+        },
+        {
+          "izquierda": "Bienes Públicos",
+          "derecha": "Accesibles para todos (ej: alumbrado público)",
+          "emoji": "🏛️"
+        },
+        {
+          "izquierda": "Bienes Privados",
+          "derecha": "Excluyentes y rivales (ej: tu celular)",
+          "emoji": "🔐"
+        }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "10-14",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "📦",
+          "pregunta": "¿Cuál NO es una característica de los bienes?",
+          "paginas": "11",
+          "palabras": [
+            {
+              "text": "Escasez",
+              "es_intrusa": false
+            },
+            {
+              "text": "Utilidad",
+              "es_intrusa": false
+            },
+            {
+              "text": "Infinitos",
+              "es_intrusa": true
+            },
+            {
+              "text": "Transferibilidad",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Los bienes no son infinitos, son escasos. Por eso tienen valor económico."
+        },
+        {
+          "id": 1,
+          "emoji": "🎯",
+          "pregunta": "¿Cuál NO es un tipo de necesidad según su importancia?",
+          "paginas": "14",
+          "palabras": [
+            {
+              "text": "Primarias",
+              "es_intrusa": false
+            },
+            {
+              "text": "Secundarias",
+              "es_intrusa": false
+            },
+            {
+              "text": "Terciarias",
+              "es_intrusa": true
+            },
+            {
+              "text": "Básicas",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Las necesidades se clasifican en primarias (básicas para vivir) y secundarias (aumentan bienestar). No existe la categoría 'terciarias'."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "9-11",
+      "conceptos": [
+        {
+          "termino": "Utilidad",
+          "pista": "¿Qué es la capacidad de un bien para satisfacer una necesidad?",
+          "palabras_clave": ["satisfacer", "necesidad", "capacidad", "bien", "deseo", "servicio"]
+        },
+        {
+          "termino": "Valor de uso",
+          "pista": "¿Qué mide la capacidad de un bien para cubrir una necesidad vital?",
+          "palabras_clave": ["uso", "necesidad", "vital", "satisface", "esencial", "importante"]
+        },
+        {
+          "termino": "Necesidad primaria",
+          "pista": "¿Qué necesidades son básicas para vivir?",
+          "palabras_clave": ["básica", "vivir", "esencial", "alimentación", "vivienda", "vestido"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "12-18",
+      "causas": [
+        {
+          "id": 1,
+          "emoji": "📱",
+          "text": "Comprás un celular nuevo"
+        },
+        {
+          "id": 2,
+          "emoji": "🌍",
+          "text": "Vivís en un país con alta inseguridad"
+        },
+        {
+          "id": 3,
+          "emoji": "💎",
+          "text": "Los diamantes son muy escasos"
+        },
+        {
+          "id": 4,
+          "emoji": "💰",
+          "text": "Una persona muy rica tiene recursos abundantes"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "🔄",
+          "text": "Surge la necesidad de funda, auriculares, cargador"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "🛡️",
+          "text": "Sentís más fuerte la necesidad de seguridad"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "💸",
+          "text": "Tienen alto valor de cambio (son caros)"
+        },
+        {
+          "id": 4,
+          "causa_id": 4,
+          "emoji": "⏰",
+          "text": "Igual sufre escasez económica (el tiempo es limitado)"
+        }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el proceso de producción de un bien desde recursos hasta consumo:",
+      "paginas_referencia": "9",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 1,
+          "emoji": "🌾",
+          "text": "Se obtienen recursos naturales (ej: semillas, tierra)"
+        },
+        {
+          "id": 2,
+          "emoji": "👨‍🌾",
+          "text": "Los trabajadores cultivan y cuidan los cultivos"
+        },
+        {
+          "id": 3,
+          "emoji": "🚜",
+          "text": "Se usa capital físico (tractores, herramientas)"
+        },
+        {
+          "id": 4,
+          "emoji": "🍞",
+          "text": "Se produce el bien final (ej: pan)"
+        },
+        {
+          "id": 5,
+          "emoji": "😋",
+          "text": "El bien satisface la necesidad del consumidor"
+        }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "14",
+      "concepto_a": {
+        "nombre": "Necesidades Primarias",
+        "emoji": "🍕",
+        "color": "#3B82F6"
+      },
+      "concepto_b": {
+        "nombre": "Necesidades Secundarias",
+        "emoji": "🎮",
+        "color": "#EC4899"
+      }
+    }
+  },
+
+  "nucleo_c": {
+    "bloque_info": {
+      "id": "c",
+      "emoji": "🎯",
+      "titulo": "BLOQUE C: Decisiones y Producción",
+      "color": "#10B981",
+      "paginas": [19, 20, 21, 22, 23, 24, 25, 26, 27, 28]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los principios económicos para tomar mejores decisiones:",
+      "paginas_referencia": "23-25",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "⚖️",
+          "text": "Identificar el costo de oportunidad de cada opción"
+        },
+        {
+          "id": 1,
+          "emoji": "❌",
+          "text": "Ignorar los costes irrecuperables (dinero ya gastado)"
+        },
+        {
+          "id": 2,
+          "emoji": "📊",
+          "text": "Aplicar análisis marginal: comparar beneficio vs. costo adicional"
+        },
+        {
+          "id": 3,
+          "emoji": "🎁",
+          "text": "Evaluar los incentivos que afectan la decisión"
+        },
+        {
+          "id": 4,
+          "emoji": "✅",
+          "text": "Tomar la decisión que maximiza el beneficio neto"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada concepto como Costo Monetario o Costo de Oportunidad:",
+      "paginas_referencia": "21-22",
+      "categorias": [
+        {
+          "name": "Costo Monetario",
+          "emoji": "💵",
+          "color": "#10B981"
+        },
+        {
+          "name": "Costo de Oportunidad",
+          "emoji": "⏰",
+          "color": "#F59E0B"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Pagás $15.000 por una entrada al cine",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Renunciás a ir a una fiesta por estudiar",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Comprás zapatillas por $80.000",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "Dejás de ahorrar $500.000 por viajar",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Matrícula universitaria de $300.000",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "No podés trabajar porque estudiás todo el día",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "21-24",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "El costo de ________ es el valor de la mejor alternativa a la que renunciamos",
+          "respuesta_correcta": "oportunidad",
+          "pista": "O___________"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "Los costes ________ son gastos pasados que no se pueden recuperar",
+          "respuesta_correcta": "irrecuperables",
+          "pista": "I______________"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "El beneficio ________ es la satisfacción adicional de consumir una unidad más",
+          "respuesta_correcta": "marginal",
+          "pista": "M________"
+        }
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "23-26",
+      "afirmaciones": [
+        {
+          "texto": "Si compraste una entrada al cine por $15.000 y surge un plan mejor gratis, deberías ir al cine igual para 'no perder' la plata",
+          "correcto": false,
+          "explicacion": "Falso. Los $15.000 son un coste irrecuperable: ya están gastados. Decidí por el beneficio futuro, no por recuperar lo perdido."
+        },
+        {
+          "texto": "La Ley de Utilidad Marginal Decreciente dice que cada unidad adicional que consumimos da menos satisfacción",
+          "correcto": true,
+          "explicacion": "Verdadero. La primera porción de pizza da mucha satisfacción, la cuarta ya casi no te gusta. La utilidad adicional disminuye."
+        },
+        {
+          "texto": "Un punto FUERA de la Frontera de Posibilidades de Producción es alcanzable con los recursos actuales",
+          "correcto": false,
+          "explicacion": "Falso. Los puntos fuera de la FPP son inalcanzables con los recursos actuales. Solo se pueden alcanzar con más recursos o mejor tecnología."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "29",
+      "pares": [
+        {
+          "izquierda": "Familias",
+          "derecha": "Consumen bienes y ofrecen su trabajo",
+          "emoji": "👨‍👩‍👧"
+        },
+        {
+          "izquierda": "Empresas",
+          "derecha": "Producen bienes y servicios",
+          "emoji": "🏭"
+        },
+        {
+          "izquierda": "Estado",
+          "derecha": "Regula, provee servicios públicos y recauda impuestos",
+          "emoji": "🏛️"
+        },
+        {
+          "izquierda": "FPP",
+          "derecha": "Muestra límites de producción con recursos dados",
+          "emoji": "📈"
+        }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "23-26",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🧠",
+          "pregunta": "¿Cuál NO es un principio económico para tomar decisiones?",
+          "paginas": "23",
+          "palabras": [
+            {
+              "text": "Costo de oportunidad",
+              "es_intrusa": false
+            },
+            {
+              "text": "Análisis marginal",
+              "es_intrusa": false
+            },
+            {
+              "text": "Adivinación",
+              "es_intrusa": true
+            },
+            {
+              "text": "Incentivos",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "La economía usa principios racionales y científicos, no adivinación. Se basa en análisis, evidencia e incentivos."
+        },
+        {
+          "id": 1,
+          "emoji": "📍",
+          "pregunta": "¿Cuál NO es un tipo de punto en la FPP?",
+          "paginas": "26-27",
+          "palabras": [
+            {
+              "text": "Eficiente (sobre la frontera)",
+              "es_intrusa": false
+            },
+            {
+              "text": "Ineficiente (dentro)",
+              "es_intrusa": false
+            },
+            {
+              "text": "Perfecto",
+              "es_intrusa": true
+            },
+            {
+              "text": "Imposible (fuera)",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Los puntos en la FPP se clasifican en eficientes, ineficientes o imposibles. No existe la categoría 'perfecto'."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "21-26",
+      "conceptos": [
+        {
+          "termino": "Costo de Oportunidad",
+          "pista": "¿A qué renunciás cuando elegís una opción?",
+          "palabras_clave": ["renunciar", "alternativa", "sacrificar", "dejar", "mejor", "opción"]
+        },
+        {
+          "termino": "Análisis Marginal",
+          "pista": "¿Cómo comparamos el beneficio y costo de una unidad adicional?",
+          "palabras_clave": ["adicional", "beneficio", "costo", "comparar", "unidad", "extra"]
+        },
+        {
+          "termino": "Frontera de Posibilidades de Producción",
+          "pista": "¿Qué muestra las combinaciones máximas que se pueden producir?",
+          "palabras_clave": ["combinaciones", "producir", "recursos", "límite", "máximo", "posibles"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "23-28",
+      "causas": [
+        {
+          "id": 1,
+          "emoji": "🎓",
+          "text": "Elegís estudiar en vez de trabajar"
+        },
+        {
+          "id": 2,
+          "emoji": "🎁",
+          "text": "Tu padre te ofrece pagar la mitad del celular caro"
+        },
+        {
+          "id": 3,
+          "emoji": "🚜",
+          "text": "Se inventa nueva maquinaria agrícola que duplica la cosecha"
+        },
+        {
+          "id": 4,
+          "emoji": "📉",
+          "text": "Una economía no usa todos sus recursos disponibles"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "💸",
+          "text": "Tu costo de oportunidad es el salario que dejás de ganar"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "📱",
+          "text": "Cambia tu decisión: el incentivo reduce el costo marginal"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "📈",
+          "text": "La FPP se desplaza hacia afuera: más producción posible"
+        },
+        {
+          "id": 4,
+          "causa_id": 4,
+          "emoji": "⚠️",
+          "text": "Está en un punto INEFICIENTE (dentro de la FPP)"
+        }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená cómo una mejora tecnológica afecta la FPP de un país:",
+      "paginas_referencia": "28",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 1,
+          "emoji": "💡",
+          "text": "Se inventa una nueva tecnología más eficiente"
+        },
+        {
+          "id": 2,
+          "emoji": "⚙️",
+          "text": "Las empresas adoptan la nueva tecnología"
+        },
+        {
+          "id": 3,
+          "emoji": "📊",
+          "text": "Se puede producir más con los mismos recursos"
+        },
+        {
+          "id": 4,
+          "emoji": "📈",
+          "text": "La FPP se desplaza hacia afuera"
+        },
+        {
+          "id": 5,
+          "emoji": "🎉",
+          "text": "Hay crecimiento económico: más bienes disponibles"
+        }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "26-27",
+      "concepto_a": {
+        "nombre": "Punto Eficiente (sobre la FPP)",
+        "emoji": "✅",
+        "color": "#10B981"
+      },
+      "concepto_b": {
+        "nombre": "Punto Ineficiente (dentro de la FPP)",
+        "emoji": "⚠️",
+        "color": "#F59E0B"
+      }
+    }
+  },
+
+  "senales": {
+    "conceptos_clave": [
+      {
+        "emoji": "📊",
+        "termino": "Economía",
+        "color": "#6366F1",
+        "definicion": "Ciencia social que estudia cómo administrar recursos escasos para satisfacer la mayor cantidad posible de necesidades ilimitadas. Se llama la ciencia de la escasez y la elección.",
+        "importancia": "Sin entender esto, no podés tomar decisiones inteligentes con tu plata, tiempo o recursos. Es la base de todo."
+      },
+      {
+        "emoji": "⚖️",
+        "termino": "Costo de Oportunidad",
+        "color": "#EF4444",
+        "definicion": "Valor de la mejor alternativa a la que renunciamos cuando tomamos una decisión. Es el costo invisible de elegir: lo que dejás de ganar.",
+        "importancia": "Cada vez que decidís algo (estudiar, comprar, salir) estás renunciando a otra cosa. Entenderlo te hace decidir mejor."
+      },
+      {
+        "emoji": "📈",
+        "termino": "Frontera de Posibilidades de Producción (FPP)",
+        "color": "#10B981",
+        "definicion": "Gráfico que muestra todas las combinaciones posibles de dos bienes que una economía puede producir con sus recursos disponibles trabajando eficientemente.",
+        "importancia": "Ilustra visualmente la escasez, la eficiencia y el costo de oportunidad. Muestra los límites de lo que es posible producir."
+      },
+      {
+        "emoji": "💎",
+        "termino": "Paradoja del Agua y el Diamante",
+        "color": "#8B5CF6",
+        "definicion": "El agua (esencial para vivir) es barata mientras que el diamante (no esencial) es caro. Se explica por la escasez: el agua es abundante, los diamantes raros.",
+        "importancia": "Muestra que el precio no depende solo de la utilidad, sino de la escasez. Es clave para entender valor de uso vs. valor de cambio."
+      }
+    ],
+    "semaforo_conceptos": [
+      {
+        "emoji": "📊",
+        "termino": "Economía como ciencia"
+      },
+      {
+        "emoji": "⚖️",
+        "termino": "Costo de oportunidad"
+      },
+      {
+        "emoji": "💎",
+        "termino": "Valor y escasez"
+      },
+      {
+        "emoji": "📈",
+        "termino": "Frontera de Posibilidades de Producción"
+      },
+      {
+        "emoji": "👥",
+        "termino": "Agentes económicos"
+      }
+    ],
+    "postits_conceptos": [
+      "Economía",
+      "Costo de Oportunidad",
+      "Frontera de Posibilidades de Producción",
+      "Paradoja del Agua y el Diamante"
+    ]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {
+        "emoji": "🍕",
+        "color": "#6366F1",
+        "frente": "La primera porción de pizza es la mejor",
+        "dorso": "Esto se llama Ley de Utilidad Marginal Decreciente: cada unidad adicional que consumís te da menos satisfacción. La cuarta porción de pizza ya no te gusta tanto como la primera. Es un principio económico fundamental que explica por qué no compramos cantidades infinitas de algo aunque sea barato."
+      },
+      {
+        "emoji": "💰",
+        "color": "#EC4899",
+        "frente": "Los ricos también sufren escasez económica",
+        "dorso": "Aunque tengas muchísimo dinero, seguís teniendo un recurso escaso: el tiempo. No podés estar en dos lugares a la vez ni satisfacer dos necesidades simultáneamente. Por eso la escasez económica es universal: afecta a todos, ricos y pobres, aunque de manera diferente."
+      },
+      {
+        "emoji": "📱",
+        "color": "#10B981",
+        "frente": "Durante la burbuja del 2000, muchos dejaron de estudiar para trabajar en construcción",
+        "dorso": "El costo de oportunidad de no estudiar fue enorme: cuando estalló la burbuja inmobiliaria, se quedaron sin empleo, sin estudios cualificados y con pocas opciones laborales. Este caso real muestra la importancia de pensar en el largo plazo al tomar decisiones económicas."
+      }
+    ],
+    "linea_de_tiempo": [
+      {
+        "emoji": "📜",
+        "year": "1776",
+        "text": "Adam Smith publica 'La Riqueza de las Naciones', considerado el inicio de la economía moderna"
+      },
+      {
+        "emoji": "🏭",
+        "year": "1867",
+        "text": "Karl Marx publica 'El Capital', crítica al sistema capitalista y base del pensamiento económico socialista"
+      },
+      {
+        "emoji": "📉",
+        "year": "1929",
+        "text": "Gran Depresión: la peor crisis económica del siglo XX, que cambió la forma de entender la economía"
+      },
+      {
+        "emoji": "💡",
+        "year": "1936",
+        "text": "John Maynard Keynes publica 'Teoría General': revoluciona la macroeconomía y el papel del Estado"
+      },
+      {
+        "emoji": "🌐",
+        "year": "2008",
+        "text": "Crisis financiera global: colapso del sistema bancario internacional, segunda mayor crisis tras 1929"
+      }
+    ],
+    "encuesta": {
+      "pregunta": "¿Qué concepto te sorprendió más de esta unidad?",
+      "opciones": [
+        {
+          "emoji": "🍕",
+          "text": "Que la primera porción de pizza siempre es la mejor (utilidad marginal)",
+          "votos_iniciales": 45
+        },
+        {
+          "emoji": "💎",
+          "text": "La paradoja del agua y el diamante",
+          "votos_iniciales": 38
+        },
+        {
+          "emoji": "💰",
+          "text": "Que los ricos también sufren escasez económica",
+          "votos_iniciales": 29
+        }
+      ]
+    }
+  },
+
+  "cruces": {
+    "consigna_general": "Elegí un tema de cada bloque que te haya interesado y preparalo para explicárselo a un compañero. Usá ejemplos, dibujos, analogías... ¡lo que se te ocurra!",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "📚",
+        "titulo": "BLOQUE A: Fundamentos de Economía",
+        "color": "#6366F1",
+        "temas_sugeridos": [
+          "La economía como ciencia de la escasez y la elección",
+          "Diferencia entre Microeconomía y Macroeconomía",
+          "Las tres preguntas fundamentales: qué, cómo y para quién producir",
+          "Método científico en economía: inductivo vs. deductivo",
+          "Ceteris Paribus: aislar variables para estudiar fenómenos",
+          "Economía Positiva (lo que es) vs. Normativa (lo que debería ser)"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo se lo vas a explicar a tu compañero..."
+      },
+      {
+        "id": "b",
+        "emoji": "🛍️",
+        "titulo": "BLOQUE B: Necesidades, Bienes y Valor",
+        "color": "#3B82F6",
+        "temas_sugeridos": [
+          "Por qué las necesidades son ilimitadas y se reproducen",
+          "La pirámide de Maslow aplicada a las redes sociales (2026)",
+          "Clasificación de bienes: consumo vs. capital, públicos vs. privados",
+          "Escasez económica: universal y relativa",
+          "La paradoja del agua y el diamante: valor de uso vs. valor de cambio",
+          "Ley de Utilidad Marginal Decreciente (¿por qué la 4ta pizza no gusta?)"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo se lo vas a explicar a tu compañero..."
+      },
+      {
+        "id": "c",
+        "emoji": "🎯",
+        "titulo": "BLOQUE C: Decisiones y Producción",
+        "color": "#10B981",
+        "temas_sugeridos": [
+          "Costo de oportunidad: lo que dejás de ganar al elegir",
+          "Costes irrecuperables: 'a lo hecho, pecho' (no mirar atrás)",
+          "Análisis marginal: comparar beneficio vs. costo adicional",
+          "Incentivos: cómo cambian nuestras decisiones",
+          "Frontera de Posibilidades de Producción: límites de lo posible",
+          "Agentes económicos: familias, empresas y Estado"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo se lo vas a explicar a tu compañero..."
+      }
+    ]
+  },
+
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "La economía debería priorizar el crecimiento económico (producir más) por sobre la distribución equitativa de la riqueza",
+      "contexto": "Un país puede crecer mucho económicamente pero con desigualdad, o crecer menos pero distribuir mejor. ¿Qué es más importante: agrandar la torta o repartirla mejor?",
+      "roles": [
+        {
+          "id": "fiscal",
+          "emoji": "📈",
+          "label": "A favor del crecimiento",
+          "desc": "Argumentá por qué primero hay que producir más (agrandar la torta) y después repartir. Sin crecimiento, no hay nada que distribuir.",
+          "color": "#6366F1"
+        },
+        {
+          "id": "defensa",
+          "emoji": "⚖️",
+          "label": "A favor de la distribución",
+          "desc": "Argumentá por qué de nada sirve crecer si la riqueza se concentra en pocos. La justicia social debe ser prioridad.",
+          "color": "#EC4899"
+        },
+        {
+          "id": "juez",
+          "emoji": "🤝",
+          "label": "Posición equilibrada",
+          "desc": "Proponé cómo lograr ambos objetivos: crecer Y distribuir mejor. ¿Son compatibles o incompatibles?",
+          "color": "#10B981"
+        }
+      ]
+    },
+    "tesis": {
+      "consigna": "Formulá una tesis sobre cómo la economía afecta tu vida diaria como adolescente en 2026. Incluí: (1) Tu tesis principal, (2) Dos evidencias que la apoyen (con ejemplos de tu vida), (3) Dos contraargumentos posibles, (4) Una conclusión que defienda tu postura."
+    },
+    "critica": {
+      "consigna": "Analizá críticamente la unidad: ¿Qué concepto económico te parece más útil para tu vida? ¿Cuál te parece menos realista o aplicable? ¿Qué preguntas te quedaron sin responder? ¿Qué cambiarías del sistema económico actual para que funcione mejor para los jóvenes?"
+    }
+  },
+
+  "autotest": {
+    "banco_respuestas_docente": [
+      "1. Correcta: B - Ciencia de la escasez y la elección: administrar recursos limitados para satisfacer necesidades ilimitadas",
+      "2. Correcta: D - Adivinación del futuro (esta NO es un principio económico)",
+      "3. Correcta: B - Valor de la mejor alternativa a la que renunciamos al tomar una decisión",
+      "4. Correcta: C - Microeconomía",
+      "5. Correcta: A - Son gastos pasados que no se pueden recuperar y NO deben influir en decisiones futuras",
+      "6. Correcta: D - Los recursos son escasos y las necesidades ilimitadas",
+      "7. Correcta: B - Es abundante (alta disponibilidad): la escasez determina el valor de cambio",
+      "8. Correcta: A - Muestra las combinaciones máximas de producción con recursos dados eficientemente",
+      "9. Correcta: C - La satisfacción adicional por cada unidad extra disminuye",
+      "10. Correcta: B - Regulan la economía, proveen servicios públicos y redistribuyen riqueza",
+      "11. FALSO - La escasez económica es UNIVERSAL: afecta a todos (ricos y pobres), no solo a los pobres",
+      "12. VERDADERO - Los costes irrecuperables NO deben influir en decisiones futuras ('a lo hecho, pecho')",
+      "13. VERDADERO - Ley de Utilidad Marginal Decreciente: cada unidad adicional da menos satisfacción",
+      "14. VERDADERO - Mejor tecnología desplaza la FPP hacia afuera (crecimiento económico)",
+      "15. FALSO - La Macroeconomía estudia la economía en conjunto (inflación, PIB, desempleo), no agentes individuales"
+    ],
+    "preguntas": [
+      {
+        "pregunta": "¿Qué es la economía?",
+        "opciones": [
+          "El estudio del dinero y cómo ganarlo",
+          "Ciencia de la escasez y la elección: administrar recursos limitados para satisfacer necesidades ilimitadas",
+          "El estudio de cómo funcionan los bancos",
+          "La ciencia que solo estudia a las empresas"
+        ],
+        "correcta": 1,
+        "explicacion": "La economía estudia cómo administrar recursos ESCASOS para satisfacer la MAYOR cantidad posible de necesidades ILIMITADAS. Revisá las páginas 2-3 para entender por qué se llama ciencia de la escasez y la elección."
+      },
+      {
+        "pregunta": "¿Cuál de estos NO es un principio económico para tomar decisiones?",
+        "opciones": [
+          "Costo de oportunidad",
+          "Costes irrecuperables",
+          "Análisis marginal",
+          "Adivinación del futuro"
+        ],
+        "correcta": 3,
+        "explicacion": "Los principios económicos son: costo de oportunidad, costes irrecuperables, análisis marginal e incentivos. La economía usa métodos científicos, no adivinación. Repasá las páginas 23-25 para profundizar."
+      },
+      {
+        "pregunta": "¿Qué es el costo de oportunidad?",
+        "opciones": [
+          "El precio de un producto en oferta",
+          "Valor de la mejor alternativa a la que renunciamos al tomar una decisión",
+          "El dinero que ahorramos comprando barato",
+          "La ganancia de una inversión"
+        ],
+        "correcta": 1,
+        "explicacion": "El costo de oportunidad es aquello a lo que RENUNCIÁS cuando elegís. Si elegís estudiar, tu costo de oportunidad es lo que dejás de hacer (salir, trabajar, etc.). Más en páginas 21-22."
+      },
+      {
+        "pregunta": "¿Qué rama de la economía estudia el comportamiento de consumidores y empresas individuales?",
+        "opciones": [
+          "Macroeconomía",
+          "Economía Internacional",
+          "Microeconomía",
+          "Economía Normativa"
+        ],
+        "correcta": 2,
+        "explicacion": "La Microeconomía analiza agentes INDIVIDUALES: hogares, empresas y mercados específicos. La Macro estudia la economía en su conjunto (PIB, inflación). Revisá página 3 y 8 para más detalles."
+      },
+      {
+        "pregunta": "¿Qué son los costes irrecuperables?",
+        "opciones": [
+          "Son gastos pasados que no se pueden recuperar y NO deben influir en decisiones futuras",
+          "Dinero que podemos recuperar si devolvemos el producto",
+          "Costos que podemos negociar",
+          "Gastos que siempre debemos considerar"
+        ],
+        "correcta": 0,
+        "explicacion": "Los costes irrecuperables son dinero ya gastado que NO se recupera. El error es tomar decisiones por 'no perder' esa plata. 'A lo hecho, pecho': decidí por el beneficio FUTURO. Páginas 24 para más info."
+      },
+      {
+        "pregunta": "¿Por qué existe la escasez económica?",
+        "opciones": [
+          "Porque la gente es egoísta",
+          "Porque no producimos suficiente",
+          "Porque hay desigualdad en el mundo",
+          "Los recursos son escasos y las necesidades ilimitadas"
+        ],
+        "correcta": 3,
+        "explicacion": "La escasez económica surge porque los RECURSOS son LIMITADOS pero las NECESIDADES son ILIMITADAS. Esto obliga a elegir qué satisfacer. Es universal: afecta a todos. Repasá páginas 2-3 y 17-18."
+      },
+      {
+        "pregunta": "¿Por qué el agua (esencial para vivir) es barata y un diamante (no esencial) es caro?",
+        "opciones": [
+          "Porque el agua no sirve para nada",
+          "Es abundante (alta disponibilidad): la escasez determina el valor de cambio",
+          "Porque la gente prefiere los diamantes",
+          "Porque el agua no tiene valor de uso"
+        ],
+        "correcta": 1,
+        "explicacion": "Paradoja del agua y el diamante: el agua tiene ALTO valor de uso pero BAJO valor de cambio porque es ABUNDANTE. Los diamantes son ESCASOS, por eso son caros. La escasez determina el precio. Más en páginas 19-20."
+      },
+      {
+        "pregunta": "¿Qué muestra la Frontera de Posibilidades de Producción (FPP)?",
+        "opciones": [
+          "Muestra las combinaciones máximas de producción con recursos dados eficientemente",
+          "Los precios de los productos",
+          "Cuánto dinero gana un país",
+          "La población de un país"
+        ],
+        "correcta": 0,
+        "explicacion": "La FPP muestra todas las COMBINACIONES POSIBLES de dos bienes que se pueden producir con recursos disponibles trabajando EFICIENTEMENTE. Ilustra escasez, eficiencia y costo de oportunidad. Páginas 26-28 para profundizar."
+      },
+      {
+        "pregunta": "¿Qué dice la Ley de Utilidad Marginal Decreciente?",
+        "opciones": [
+          "Que cada unidad adicional cuesta más",
+          "Que los productos se deterioran con el tiempo",
+          "La satisfacción adicional por cada unidad extra disminuye",
+          "Que siempre queremos más de todo"
+        ],
+        "correcta": 2,
+        "explicacion": "La primera porción de pizza da MUCHA satisfacción, la cuarta ya casi no. Cada unidad ADICIONAL que consumís te da MENOS utilidad (satisfacción) que la anterior. Por eso no compramos infinitas unidades. Repasá página 19."
+      },
+      {
+        "pregunta": "¿Cuál es el rol del Estado como agente económico?",
+        "opciones": [
+          "Solo cobrar impuestos",
+          "Regulan la economía, proveen servicios públicos y redistribuyen riqueza",
+          "Producir todos los bienes",
+          "Solo hacer leyes"
+        ],
+        "correcta": 1,
+        "explicacion": "El Estado REGULA la economía, PROVEE servicios públicos esenciales (educación, salud, seguridad), RECAUDA impuestos y REDISTRIBUYE la riqueza para bienestar social. Más información en página 29."
+      }
+    ],
+    "verdadero_falso": [
+      {
+        "texto": "La escasez económica solo afecta a las personas pobres que no tienen recursos",
+        "correcto": false,
+        "explicacion": "FALSO. La escasez económica es UNIVERSAL: afecta a TODOS (ricos y pobres) porque siempre tenemos recursos limitados (tiempo, dinero) frente a necesidades ilimitadas. Repasá páginas 17-18 para entender por qué es universal y relativa."
+      },
+      {
+        "texto": "Los costes irrecuperables (dinero ya gastado) NO deben influir en las decisiones futuras",
+        "correcto": true,
+        "explicacion": "VERDADERO. Los costes irrecuperables son gastos PASADOS que no se recuperan. 'A lo hecho, pecho': debés decidir por el beneficio FUTURO, no por recuperar lo perdido. Más en página 24."
+      },
+      {
+        "texto": "Según la Ley de Utilidad Marginal Decreciente, cada porción adicional de pizza te gusta menos que la anterior",
+        "correcto": true,
+        "explicacion": "VERDADERO. La PRIMERA porción da mucha satisfacción, la CUARTA ya casi no. Cada unidad ADICIONAL te da MENOS utilidad (satisfacción). Es un principio económico fundamental. Revisá página 19."
+      },
+      {
+        "texto": "Si una economía tiene mejor tecnología, su Frontera de Posibilidades de Producción se desplaza hacia afuera (crecimiento económico)",
+        "correcto": true,
+        "explicacion": "VERDADERO. Mejor TECNOLOGÍA permite producir MÁS con los MISMOS recursos. Esto desplaza la FPP hacia AFUERA: hay CRECIMIENTO ECONÓMICO (más bienes disponibles). Más información en página 28."
+      },
+      {
+        "texto": "La Macroeconomía estudia decisiones de compra de consumidores individuales y estrategias de empresas específicas",
+        "correcto": false,
+        "explicacion": "FALSO. Eso lo estudia la MICROECONOMÍA. La MACROECONOMÍA estudia la economía en su CONJUNTO: inflación, PIB, desempleo, crecimiento económico nacional. Repasá páginas 3 y 8 para diferenciar Micro de Macro."
+      }
+    ]
+  },
+
+  "cierre": {
+    "glosario": [
+      {
+        "emoji": "📊",
+        "termino": "Economía",
+        "categoria": "Concepto base",
+        "definicion": "Ciencia social que estudia cómo administrar recursos escasos para satisfacer la mayor cantidad posible de necesidades ilimitadas. Se llama la ciencia de la escasez y la elección."
+      },
+      {
+        "emoji": "⚖️",
+        "termino": "Costo de Oportunidad",
+        "categoria": "Concepto clave",
+        "definicion": "Valor de la mejor alternativa a la que renunciamos cuando tomamos una decisión. Es el costo invisible de elegir: lo que dejás de ganar."
+      },
+      {
+        "emoji": "📈",
+        "termino": "Frontera de Posibilidades de Producción (FPP)",
+        "categoria": "Modelo económico",
+        "definicion": "Gráfico que muestra todas las combinaciones posibles de dos bienes que una economía puede producir con sus recursos disponibles trabajando eficientemente."
+      },
+      {
+        "emoji": "🏪",
+        "termino": "Microeconomía",
+        "categoria": "Rama",
+        "definicion": "Rama de la economía que estudia el comportamiento de agentes individuales: hogares, empresas y mercados específicos."
+      },
+      {
+        "emoji": "🌍",
+        "termino": "Macroeconomía",
+        "categoria": "Rama",
+        "definicion": "Rama que estudia la economía en su conjunto: crecimiento económico, inflación, desempleo y políticas económicas nacionales."
+      },
+      {
+        "emoji": "💎",
+        "termino": "Escasez Económica",
+        "categoria": "Concepto base",
+        "definicion": "Situación que surge porque los recursos son limitados pero las necesidades son ilimitadas, lo que obliga a elegir qué satisfacer."
+      },
+      {
+        "emoji": "💰",
+        "termino": "Utilidad Marginal",
+        "categoria": "Concepto clave",
+        "definicion": "Satisfacción adicional que se obtiene al consumir una unidad más de un bien. Tiende a decrecer: la primera porción de pizza gusta más que la cuarta."
+      },
+      {
+        "emoji": "👥",
+        "termino": "Agentes Económicos",
+        "categoria": "Actores",
+        "definicion": "Individuos, grupos u organizaciones que toman decisiones económicas: familias (consumen), empresas (producen) y Estado (regula)."
+      }
+    ],
+    "recursos": [
+      {
+        "tipo": "📖 Libro",
+        "title": "Economía - Paul Samuelson y William Nordhaus",
+        "desc": "Clásico libro de texto de economía, clarísimo para entender conceptos fundamentales",
+        "nivel": "Intermedio",
+        "color": "#6366F1"
+      },
+      {
+        "tipo": "🎬 Video",
+        "title": "Crash Course Economics (YouTube)",
+        "desc": "Serie de videos animados que explican economía de forma divertida y visual",
+        "nivel": "Introductorio",
+        "color": "#EC4899"
+      },
+      {
+        "tipo": "🌐 Web",
+        "title": "Khan Academy - Microeconomía y Macroeconomía",
+        "desc": "Plataforma gratuita con videos y ejercicios interactivos de economía en español",
+        "nivel": "Introductorio",
+        "color": "#10B981"
+      },
+      {
+        "tipo": "🎧 Podcast",
+        "title": "Freakonomics Radio",
+        "desc": "Podcast que explora el lado oculto de la economía en situaciones cotidianas (en inglés pero muy accesible)",
+        "nivel": "Intermedio",
+        "color": "#F59E0B"
+      },
+      {
+        "tipo": "📄 Artículo",
+        "title": "La Nación - Sección Economía",
+        "desc": "Noticias económicas argentinas actualizadas con análisis accesible para estudiantes",
+        "nivel": "Introductorio",
+        "color": "#8B5CF6"
+      }
+    ]
+  }
+}
