@@ -1676,41 +1676,41 @@
       }
     ],
     "recursos": [
-      {
-        "tipo": "📄 PDF",
-        "title": "Relectura del Bloque A",
-        "desc": "Volvé a las páginas 2 a 5 para repasar gregarismo, concepto de Derecho y diferencia entre normas morales y jurídicas.",
-        "nivel": "Base",
-        "color": "#6366F1"
-      },
-      {
-        "tipo": "📄 PDF",
-        "title": "Relectura del Bloque B",
-        "desc": "Revisá las páginas 6 a 9 para afianzar objeto del Derecho, fuentes y características de la ley.",
-        "nivel": "Medio",
-        "color": "#3B82F6"
-      },
-      {
-        "tipo": "📄 PDF",
-        "title": "Relectura del Bloque C",
-        "desc": "Leé otra vez las páginas 10 a 13 para consolidar principios, ramas e interpretación de la ley.",
-        "nivel": "Medio",
-        "color": "#10B981"
-      },
-      {
-        "tipo": "📝 Práctica",
-        "title": "Armar ejemplos propios",
-        "desc": "Inventá una situación cotidiana y ubicá qué principio, rama e interpretación podrían intervenir.",
-        "nivel": "Aplicación",
-        "color": "#F59E0B"
-      },
-      {
-        "tipo": "🗣️ Oral",
-        "title": "Explicación entre pares",
-        "desc": "Usá la sección Cruces para enseñar un tema con tus palabras y comprobar si realmente lo entendiste.",
-        "nivel": "Profundización",
-        "color": "#8B5CF6"
-      }
-    ]
+  {
+    "tipo": "🎬 Video",
+    "title": "¿Qué es el Derecho? - Educatina",
+    "desc": "Video educativo que explica de forma clara qué es el Derecho, por qué existen las normas y cómo ayudan a organizar la convivencia en la sociedad.",
+    "nivel": "Introductorio",
+    "color": "#EC4899"
+  },
+  {
+    "tipo": "🎧 Podcast",
+    "title": "Derecho en Zapatillas",
+    "desc": "Podcast argentino creado por Sergio Mohadeb que explica temas jurídicos de la vida cotidiana y cómo funcionan las leyes en situaciones reales.",
+    "nivel": "Introductorio",
+    "color": "#8B5CF6"
+  },
+  {
+    "tipo": "🌐 Web",
+    "title": "InfoLEG - Información Legislativa Argentina",
+    "desc": "Portal oficial del Ministerio de Justicia donde se pueden consultar leyes, decretos y normativa vigente de la República Argentina.",
+    "nivel": "Intermedio",
+    "color": "#10B981"
+  },
+  {
+    "tipo": "📄 Artículo",
+    "title": "Convención Americana sobre Derechos Humanos (Pacto de San José de Costa Rica)",
+    "desc": "Tratado internacional que reconoce derechos y garantías fundamentales y forma parte del sistema jurídico argentino.",
+    "nivel": "Avanzado",
+    "color": "#F59E0B"
+  },
+  {
+    "tipo": "📖 Libro",
+    "title": "Introducción al Derecho - Guillermo A. Borda",
+    "desc": "Obra clásica que presenta los conceptos fundamentales del Derecho como las normas jurídicas, las fuentes del Derecho y su función en la sociedad.",
+    "nivel": "Intermedio",
+    "color": "#6366F1"
+  }
+]
   }
 }
