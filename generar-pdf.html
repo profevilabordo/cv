@@ -1160,24 +1160,42 @@ async function generarPDF() {
     y = encabezadoSeccion('🌐  CRUCES — Explicá a un compañero', y);
     y += 4;
 
-    // Nueva estructura de cruces
-    if (cruces.temas_para_explicar?.length) {
-      texto('Elegí uno de estos temas y preparate para explicárselo a un compañero:', ML, y, { size:8.5, color:[107,114,128], maxW:PW }); 
-      const nlConsigna = pdf.splitTextToSize('Elegí uno de estos temas y preparate para explicárselo a un compañero:', PW).length;
-      y += nlConsigna * 4.5 + 2;
-      
-      cruces.temas_para_explicar.forEach((tema, i) => {
-        checkY(10);
-        pdf.setDrawColor(209,213,219); pdf.setFillColor(243,244,246);
-        pdf.setLineWidth(0.2);
-        pdf.rect(ML, y-3, 5, 5, 'FD');
-        const nl = textoWrapped(`${tema.emoji||''} ${tema.tema||''}`, ML+8, y, PW-10, 8.5);
-        y += nl*4.5 + 2;
+    // Consigna general
+    if (cruces.consigna_general) {
+      const nlConsigna = textoWrapped(cruces.consigna_general, ML, y, PW, 8.5, false, [107,114,128]);
+      y += nlConsigna * 4.5 + 4;
+    }
+
+    // Mostrar bloques con temas sugeridos
+    if (cruces.bloques?.length) {
+      cruces.bloques.forEach(bloque => {
+        checkY(15);
+        
+        // Título del bloque
+        texto(`${bloque.emoji||''} ${bloque.titulo||''}`, ML, y, { size:9, bold:true, color:hexToRgb(bloque.color||'#6366F1') });
+        y += 5;
+        
+        // Temas sugeridos
+        (bloque.temas_sugeridos||[]).forEach(tema => {
+          checkY(8);
+          pdf.setDrawColor(209,213,219); pdf.setFillColor(255,255,255);
+          pdf.setLineWidth(0.2);
+          pdf.rect(ML+2, y-3.5, 4, 4, 'FD');
+          const nl = textoWrapped(tema, ML+8, y, PW-10, 8.5);
+          y += nl*4.5 + 1;
+        });
+        
+        y += 3;
+        // Espacio para escribir
+        texto(`✏️ ${bloque.placeholder||'Mi explicación:'}`, ML, y, { size:8, color:[107,114,128] });
+        y += 4;
+        for (let l=0; l<3; l++) { 
+          checkY(8);
+          lineaRespuesta(ML, y, PW); 
+          y += 7; 
+        }
+        y += 4;
       });
-      
-      y += 3;
-      texto('Mi explicación:', ML, y, { size:8.5, color:[107,114,128] }); y+=5;
-      for (let l=0; l<5; l++) { lineaRespuesta(ML, y, PW); y+=8; }
     }
 
     // ── RELECTURA ──────────────────────────────────────────────────────────
