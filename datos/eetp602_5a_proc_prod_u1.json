@@ -1,0 +1,1742 @@
+{
+  "id": "eetp602_5a_proc_prod_u1",
+  "materia": "Procesos Productivos",
+  "unidad": "Unidad 1",
+  "titulo": "Fundamentos de la Producción",
+  "emoji": "🏭",
+  "color_primario": "#14B8A6",
+  "color_secundario": "#0F766E",
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "📱",
+        "texto": "¿Por qué un celular que parece igual puede fabricarse de maneras muy distintas según la empresa?",
+        "pista": "Pensá en volumen, automatización, personalización y costo..."
+      },
+      {
+        "emoji": "🧃",
+        "texto": "¿Por qué una bebida se produce en enormes cantidades, pero una PC gamer suele armarse con más variantes?",
+        "pista": "No todos los productos necesitan el mismo tipo de proceso productivo..."
+      },
+      {
+        "emoji": "🚚",
+        "texto": "¿Por qué no da lo mismo dónde ubicar una fábrica, un local o un centro de datos?",
+        "pista": "Mirá qué pasa con la materia prima, los clientes, la energía y los costos..."
+      }
+    ],
+    "situaciones_conecta": [
+      {
+        "emoji": "🛒",
+        "label": "Compré un producto hecho en serie"
+      },
+      {
+        "emoji": "🖥️",
+        "label": "Elegí componentes para una compu armada a medida"
+      },
+      {
+        "emoji": "🍔",
+        "label": "Pedí comida y vi cómo se prepara bajo demanda"
+      },
+      {
+        "emoji": "📦",
+        "label": "Esperé un envío y pensé en toda la logística detrás"
+      }
+    ],
+    "termometro_pregunta": "¿Cuánto entendés sobre cómo se organiza la producción de bienes y servicios?"
+  },
+  "mapa": {
+    "ruta_paradas": [
+      {
+        "id": 0,
+        "emoji": "🕰️",
+        "title": "Origen y concepto",
+        "desc": "Cómo evolucionaron los procesos productivos y qué significa producir",
+        "color": "#6366F1"
+      },
+      {
+        "id": 1,
+        "emoji": "⚙️",
+        "title": "Elementos y factores",
+        "desc": "Qué necesita un proceso productivo y qué recibe cada factor",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "emoji": "🏭",
+        "title": "Tipos de producción",
+        "desc": "Artesanal, serie, masa, flexible y Lean/JIT",
+        "color": "#10B981"
+      },
+      {
+        "id": 3,
+        "emoji": "🧩",
+        "title": "Sistemas y casos",
+        "desc": "Por encargo, lotes, continua, modular e híbrida en empresas reales",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 4,
+        "emoji": "📍",
+        "title": "Diseño y localización",
+        "desc": "Cómo se diseñan productos y servicios y dónde conviene ubicarlos",
+        "color": "#EC4899"
+      }
+    ],
+    "panoramica_bloques": [
+      {
+        "id": "a",
+        "emoji": "⚙️",
+        "title": "BLOQUE A",
+        "subtitle": "Fundamentos de los procesos productivos (páginas 3-10)",
+        "items": [
+          "Antecedentes históricos",
+          "Concepto de proceso productivo",
+          "Proceso como sistema",
+          "Materia prima, trabajo, capital, tecnología y energía",
+          "Integración de elementos y rol del Técnico en Informática"
+        ],
+        "color": "#6366F1"
+      },
+      {
+        "id": "b",
+        "emoji": "🏭",
+        "title": "BLOQUE B",
+        "subtitle": "Factores, tipos y eficiencia productiva (páginas 11-28)",
+        "items": [
+          "Factores productivos y retribuciones",
+          "Tipos de producción",
+          "Matriz comparativa",
+          "Lean/JIT y desperdicios",
+          "Toyota y mejora continua"
+        ],
+        "color": "#3B82F6"
+      },
+      {
+        "id": "c",
+        "emoji": "🧩",
+        "title": "BLOQUE C",
+        "subtitle": "Sistemas, diseño y decisiones estratégicas (páginas 29-39)",
+        "items": [
+          "Sistemas de producción",
+          "Casos de estudio",
+          "Diseño de productos y servicios",
+          "Pasos del diseño",
+          "Localización de empresas"
+        ],
+        "color": "#10B981"
+      }
+    ],
+    "mapa_mental": {
+      "centro": {
+        "emoji": "🏭",
+        "title": "PROCESOS PRODUCTIVOS"
+      },
+      "ramas": [
+        {
+          "id": "que",
+          "emoji": "❓",
+          "title": "¿Qué son?",
+          "color": "#6366F1",
+          "items": [
+            "Transforman insumos en bienes y servicios",
+            "Son actividades organizadas y coordinadas",
+            "Funcionan como sistema",
+            "Buscan satisfacer necesidades"
+          ]
+        },
+        {
+          "id": "con_que",
+          "emoji": "🧰",
+          "title": "¿Con qué se producen?",
+          "color": "#3B82F6",
+          "items": [
+            "Materia prima",
+            "Trabajo humano",
+            "Capital",
+            "Tecnología y energía"
+          ]
+        },
+        {
+          "id": "como",
+          "emoji": "🔧",
+          "title": "¿Cómo se organizan?",
+          "color": "#10B981",
+          "items": [
+            "Tipos de producción",
+            "Sistemas productivos",
+            "Automatización y control",
+            "Diseño y mejora continua"
+          ]
+        },
+        {
+          "id": "donde",
+          "emoji": "📍",
+          "title": "¿Dónde conviene producir?",
+          "color": "#F59E0B",
+          "items": [
+            "Cerca de materia prima",
+            "Cerca de clientes",
+            "Cerca de energía",
+            "Según infraestructura y talento"
+          ]
+        }
+      ]
+    }
+  },
+  "nucleo_a": {
+    "bloque_info": {
+      "id": "a",
+      "emoji": "⚙️",
+      "titulo": "BLOQUE A: Fundamentos de los procesos productivos",
+      "color": "#6366F1",
+      "paginas": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená cronológicamente la evolución histórica de los procesos productivos:",
+      "paginas_referencia": "3",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "🏹",
+          "text": "Sociedades primitivas"
+        },
+        {
+          "id": 1,
+          "emoji": "🏺",
+          "text": "Antigüedad"
+        },
+        {
+          "id": 2,
+          "emoji": "🏰",
+          "text": "Edad Media"
+        },
+        {
+          "id": 3,
+          "emoji": "🚂",
+          "text": "Revolución Industrial"
+        },
+        {
+          "id": 4,
+          "emoji": "💻",
+          "text": "Actualidad digital"
+        }
+      ],
+      "orden_correcto": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá cada idea según corresponda a elemento material del proceso o elemento organizativo/tecnológico:",
+      "paginas_referencia": "6-9",
+      "categorias": [
+        {
+          "name": "Material / recurso básico",
+          "emoji": "📦",
+          "color": "#A78BFA"
+        },
+        {
+          "name": "Organización / método",
+          "emoji": "🧠",
+          "color": "#6366F1"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Materia prima",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Energía",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 2,
+          "text": "Tecnología",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 3,
+          "text": "Software de gestión",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Capital físico",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Métodos de producción",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+    "n3_completar_mapa": {
+      "paginas_referencia": "4-5, 9",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "Un proceso productivo transforma",
+          "respuesta_correcta": "insumos",
+          "pista": "I______"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "Desde una mirada amplia, el proceso productivo puede entenderse como un",
+          "respuesta_correcta": "sistema",
+          "pista": "S______"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "Sin",
+          "respuesta_correcta": "energía",
+          "pista": "E______",
+          "texto_despues": " los demás elementos no pueden operar"
+        }
+      ]
+    },
+    "n4_verdadero_falso": {
+      "paginas_referencia": "4-10",
+      "afirmaciones": [
+        {
+          "texto": "Un proceso productivo solo se limita a fabricar objetos físicos.",
+          "correcto": false,
+          "explicacion": "Falso. El material explica que hoy también se producen servicios e información, y que el proceso incorpora decisiones técnicas, económicas y organizativas."
+        },
+        {
+          "texto": "La tecnología no se reduce a máquinas: también incluye conocimientos, métodos y software.",
+          "correcto": true,
+          "explicacion": "Verdadero. En el PDF la tecnología incluye conocimientos, técnicas, procedimientos, software de gestión y automatización."
+        },
+        {
+          "texto": "Si falla uno de los elementos del proceso productivo, el resultado final puede verse afectado.",
+          "correcto": true,
+          "explicacion": "Verdadero. El enfoque sistémico del material remarca que los elementos están interrelacionados y funcionan como un todo."
+        }
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "6-9",
+      "pares": [
+        {
+          "izquierda": "Materia prima",
+          "derecha": "Insumo básico que se transforma",
+          "emoji": "🪵"
+        },
+        {
+          "izquierda": "Trabajo",
+          "derecha": "Actividad humana física e intelectual",
+          "emoji": "🧑‍🏭"
+        },
+        {
+          "izquierda": "Capital",
+          "derecha": "Maquinarias, equipos y recursos económicos",
+          "emoji": "💰"
+        },
+        {
+          "izquierda": "Tecnología",
+          "derecha": "Métodos, herramientas y conocimientos aplicados",
+          "emoji": "💻"
+        }
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "6-10",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "⚙️",
+          "pregunta": "¿Cuál NO es un elemento del proceso productivo según el material?",
+          "paginas": "6-9",
+          "palabras": [
+            {
+              "text": "Materia prima",
+              "es_intrusa": false
+            },
+            {
+              "text": "Tecnología",
+              "es_intrusa": false
+            },
+            {
+              "text": "Publicidad",
+              "es_intrusa": true
+            },
+            {
+              "text": "Energía",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Publicidad no aparece como elemento básico del proceso productivo en este bloque; sí aparecen materia prima, tecnología y energía."
+        },
+        {
+          "id": 1,
+          "emoji": "💻",
+          "pregunta": "¿Cuál NO corresponde al proceso productivo actual según el PDF?",
+          "paginas": "5, 10",
+          "palabras": [
+            {
+              "text": "Software de gestión",
+              "es_intrusa": false
+            },
+            {
+              "text": "Robotización",
+              "es_intrusa": false
+            },
+            {
+              "text": "Datos en tiempo real",
+              "es_intrusa": false
+            },
+            {
+              "text": "Trueque",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "Trueque no forma parte de las herramientas del proceso productivo actual presentadas en el material."
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "4-10",
+      "conceptos": [
+        {
+          "termino": "Proceso productivo",
+          "pista": "¿Cómo explicarías la idea de transformar insumos en bienes o servicios?",
+          "palabras_clave": [
+            "transformar",
+            "insumos",
+            "bienes",
+            "servicios",
+            "organización",
+            "necesidades"
+          ]
+        },
+        {
+          "termino": "Tecnología",
+          "pista": "No la reduzcas solo a máquinas: ¿qué más incluye?",
+          "palabras_clave": [
+            "conocimientos",
+            "métodos",
+            "herramientas",
+            "software",
+            "procedimientos",
+            "innovación"
+          ]
+        },
+        {
+          "termino": "Energía",
+          "pista": "¿Qué permite que el proceso efectivamente funcione?",
+          "palabras_clave": [
+            "funcionamiento",
+            "fuerza",
+            "costos",
+            "sostenibilidad",
+            "proceso",
+            "operar"
+          ]
+        }
+      ]
+    },
+    "n8_causa_efecto": {
+      "paginas_referencia": "5, 9-10",
+      "causas": [
+        {
+          "id": 0,
+          "emoji": "🔗",
+          "text": "Los elementos del proceso están interrelacionados"
+        },
+        {
+          "id": 1,
+          "emoji": "⚡",
+          "text": "La energía se usa de forma ineficiente"
+        },
+        {
+          "id": 2,
+          "emoji": "💻",
+          "text": "Se incorpora software, automatización y datos en tiempo real"
+        },
+        {
+          "id": 3,
+          "emoji": "🧑‍💻",
+          "text": "El trabajo se vuelve más técnico y especializado"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 0,
+          "causa_id": 0,
+          "emoji": "❗",
+          "text": "Si falla una parte, se afecta el resultado final"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "💸",
+          "text": "Aumentan costos e impacto ambiental"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "📊",
+          "text": "La información pasa a ser tan importante como la materia prima"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "🛠️",
+          "text": "Se necesitan técnicos capaces de operar, programar y mantener sistemas"
+        }
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená la lógica general de un proceso productivo entendido como sistema:",
+      "paginas_referencia": "5",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 0,
+          "emoji": "📥",
+          "text": "Entradas"
+        },
+        {
+          "id": 1,
+          "emoji": "🔄",
+          "text": "Transformación"
+        },
+        {
+          "id": 2,
+          "emoji": "📤",
+          "text": "Salidas"
+        },
+        {
+          "id": 3,
+          "emoji": "🎛️",
+          "text": "Control"
+        }
+      ]
+    },
+    "n10_comparador": {
+      "paginas_referencia": "7-9",
+      "concepto_a": {
+        "nombre": "Trabajo",
+        "emoji": "🧑‍🏭",
+        "color": "#6366F1"
+      },
+      "concepto_b": {
+        "nombre": "Tecnología",
+        "emoji": "🤖",
+        "color": "#EC4899"
+      }
+    }
+  },
+  "nucleo_b": {
+    "bloque_info": {
+      "id": "b",
+      "emoji": "🏭",
+      "titulo": "BLOQUE B: Factores, tipos y eficiencia productiva",
+      "color": "#3B82F6",
+      "paginas": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28
+      ]
+    },
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená la secuencia histórica que presenta el PDF para la evolución hacia modelos productivos modernos:",
+      "paginas_referencia": "3, 22, 25, 28",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "🏭",
+          "text": "Fordismo / producción en masa"
+        },
+        {
+          "id": 1,
+          "emoji": "🚚",
+          "text": "Toyotismo / Just-in-Time"
+        },
+        {
+          "id": 2,
+          "emoji": "🤖",
+          "text": "Automatización y digitalización actual"
+        },
+        {
+          "id": 3,
+          "emoji": "🛠️",
+          "text": "Producción artesanal"
+        },
+        {
+          "id": 4,
+          "emoji": "🚂",
+          "text": "Revolución Industrial"
+        }
+      ],
+      "orden_correcto": [
+        3,
+        4,
+        0,
+        1,
+        2
+      ]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá cada retribución según corresponda al factor productivo trabajo o capital/iniciativa/tierra:",
+      "paginas_referencia": "11-15",
+      "categorias": [
+        {
+          "name": "Trabajo",
+          "emoji": "🧑‍🏭",
+          "color": "#3B82F6"
+        },
+        {
+          "name": "Otros factores productivos",
+          "emoji": "🏢",
+          "color": "#10B981"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Salario",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Renta",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Interés",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 3,
+          "text": "Beneficio",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Esfuerzo físico e intelectual",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Coordinación y riesgo",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+    "n3_completar_mapa": {
+      "paginas_referencia": "11-12, 22",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "El factor tierra recibe como retribución la",
+          "respuesta_correcta": "renta",
+          "pista": "R____"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "Lean/JIT busca eliminar todo tipo de",
+          "respuesta_correcta": "desperdicio",
+          "pista": "D___________"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "La producción en masa prioriza el",
+          "respuesta_correcta": "volumen",
+          "pista": "V______"
+        }
+      ]
+    },
+    "n4_verdadero_falso": {
+      "paginas_referencia": "11-23, 25-28",
+      "afirmaciones": [
+        {
+          "texto": "El salario es la retribución del factor trabajo.",
+          "correcto": true,
+          "explicacion": "Verdadero. El cuadro de factores productivos del material vincula trabajo con salario."
+        },
+        {
+          "texto": "La producción artesanal se caracteriza por muy alta personalización y muy bajo volumen.",
+          "correcto": true,
+          "explicacion": "Verdadero. Así aparece en la descripción y en la matriz comparativa de tipos de producción."
+        },
+        {
+          "texto": "Lean/JIT recomienda sostener inventarios altos para evitar problemas de abastecimiento.",
+          "correcto": false,
+          "explicacion": "Falso. Lean/JIT busca inventarios mínimos y producir solo lo necesario, cuando se necesita."
+        }
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "18-22",
+      "pares": [
+        {
+          "izquierda": "Producción artesanal",
+          "derecha": "Piezas únicas y muy personalizadas",
+          "emoji": "🎨"
+        },
+        {
+          "izquierda": "Producción en serie",
+          "derecha": "Lotes de productos similares con variantes",
+          "emoji": "📦"
+        },
+        {
+          "izquierda": "Producción en masa",
+          "derecha": "Grandes volúmenes de productos idénticos",
+          "emoji": "🏭"
+        },
+        {
+          "izquierda": "Producción flexible (FMS)",
+          "derecha": "Automatización alta con capacidad de reconfiguración",
+          "emoji": "🤖"
+        }
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "11-15, 25-26",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "💸",
+          "pregunta": "¿Cuál NO es una retribución de los factores productivos?",
+          "paginas": "11-15",
+          "palabras": [
+            {
+              "text": "Salario",
+              "es_intrusa": false
+            },
+            {
+              "text": "Interés",
+              "es_intrusa": false
+            },
+            {
+              "text": "Beneficio",
+              "es_intrusa": false
+            },
+            {
+              "text": "Depreciación",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "El material trabaja como retribuciones renta, salario, interés y beneficio; depreciación no forma parte de ese listado."
+        },
+        {
+          "id": 1,
+          "emoji": "🗑️",
+          "pregunta": "¿Cuál NO integra los desperdicios que Lean busca eliminar?",
+          "paginas": "25-26",
+          "palabras": [
+            {
+              "text": "Sobreproducción",
+              "es_intrusa": false
+            },
+            {
+              "text": "Esperas",
+              "es_intrusa": false
+            },
+            {
+              "text": "Talento subutilizado",
+              "es_intrusa": false
+            },
+            {
+              "text": "Capacitación",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "Capacitación no es un desperdicio Lean; al contrario, puede ayudar a mejorar el sistema."
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "11-15, 22, 25-26",
+      "conceptos": [
+        {
+          "termino": "Beneficio",
+          "pista": "¿Qué recibe quien organiza, coordina y asume riesgos en la producción?",
+          "palabras_clave": [
+            "ganancia",
+            "riesgo",
+            "empresa",
+            "organiza",
+            "coordina",
+            "iniciativa"
+          ]
+        },
+        {
+          "termino": "Producción flexible",
+          "pista": "¿Cómo explicarías un sistema altamente automatizado pero adaptable?",
+          "palabras_clave": [
+            "adaptabilidad",
+            "robots",
+            "CNC",
+            "reconfiguración",
+            "variedad",
+            "mercado"
+          ]
+        },
+        {
+          "termino": "Lean/JIT",
+          "pista": "¿Qué filosofía productiva busca valor con mínimo desperdicio?",
+          "palabras_clave": [
+            "desperdicio",
+            "inventario mínimo",
+            "demanda",
+            "mejora continua",
+            "valor",
+            "eficiencia"
+          ]
+        }
+      ]
+    },
+    "n8_causa_efecto": {
+      "paginas_referencia": "13-15, 20-22, 25-28",
+      "causas": [
+        {
+          "id": 0,
+          "emoji": "💵",
+          "text": "Los salarios sostienen el consumo interno"
+        },
+        {
+          "id": 1,
+          "emoji": "📈",
+          "text": "Una empresa necesita producir enormes volúmenes estandarizados"
+        },
+        {
+          "id": 2,
+          "emoji": "🔄",
+          "text": "Lean/JIT elimina inventarios y desperdicios"
+        },
+        {
+          "id": 3,
+          "emoji": "🤖",
+          "text": "Se incorporan robots programables y software MES"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 0,
+          "causa_id": 0,
+          "emoji": "🛍️",
+          "text": "La economía mantiene un circuito de producción e ingresos"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "🏭",
+          "text": "Conviene un modelo de producción en masa"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "✅",
+          "text": "Aumenta la eficiencia y se responde más rápido al mercado"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "🎯",
+          "text": "La producción flexible gana precisión y capacidad de cambio"
+        }
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los 5 pilares de Lean en el mismo orden en que aparecen en el material:",
+      "paginas_referencia": "25",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 0,
+          "emoji": "💎",
+          "text": "Valor"
+        },
+        {
+          "id": 1,
+          "emoji": "➡️",
+          "text": "Flujo"
+        },
+        {
+          "id": 2,
+          "emoji": "🧲",
+          "text": "Tirón (Pull)"
+        },
+        {
+          "id": 3,
+          "emoji": "🎯",
+          "text": "Perfección"
+        },
+        {
+          "id": 4,
+          "emoji": "👥",
+          "text": "Personas"
+        }
+      ]
+    },
+    "n10_comparador": {
+      "paginas_referencia": "20-22, 26",
+      "concepto_a": {
+        "nombre": "Producción en masa",
+        "emoji": "🏭",
+        "color": "#3B82F6"
+      },
+      "concepto_b": {
+        "nombre": "Lean / Just-in-Time",
+        "emoji": "🎯",
+        "color": "#F59E0B"
+      }
+    }
+  },
+  "nucleo_c": {
+    "bloque_info": {
+      "id": "c",
+      "emoji": "🧩",
+      "titulo": "BLOQUE C: Sistemas, diseño y decisiones estratégicas",
+      "color": "#10B981",
+      "paginas": [
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ]
+    },
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená las etapas clave del diseño de productos y servicios:",
+      "paginas_referencia": "36",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "🔎",
+          "text": "Investigación y descubrimiento"
+        },
+        {
+          "id": 1,
+          "emoji": "💡",
+          "text": "Ideación y conceptuación"
+        },
+        {
+          "id": 2,
+          "emoji": "🧪",
+          "text": "Prototipado y validación"
+        },
+        {
+          "id": 3,
+          "emoji": "🚀",
+          "text": "Implementación y evolución"
+        },
+        {
+          "id": 4,
+          "emoji": "👤",
+          "text": "Comprensión del usuario"
+        }
+      ],
+      "orden_correcto": [
+        4,
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá cada sistema según corresponda a producción de flujo continuo o producción adaptable/personalizable:",
+      "paginas_referencia": "29-31",
+      "categorias": [
+        {
+          "name": "Flujo continuo / gran escala",
+          "emoji": "♾️",
+          "color": "#10B981"
+        },
+        {
+          "name": "Adaptable / personalizable",
+          "emoji": "🧩",
+          "color": "#EC4899"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Producción continua",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Producción modular",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Producción por encargo",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 3,
+          "text": "Refinería de petróleo",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 4,
+          "text": "PCs a la carta",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 5,
+          "text": "Embotellado masivo",
+          "categoria_correcta": 0
+        }
+      ]
+    },
+    "n3_completar_mapa": {
+      "paginas_referencia": "35-38",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "Los productos son tangibles; los servicios son",
+          "respuesta_correcta": "intangibles",
+          "pista": "I__________"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "La ubicación de una empresa es una decisión",
+          "respuesta_correcta": "estratégica",
+          "pista": "E___________"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "En retail y servicios, el factor prioritario de localización suele ser la proximidad a",
+          "respuesta_correcta": "clientes",
+          "pista": "C_______"
+        }
+      ]
+    },
+    "n4_verdadero_falso": {
+      "paginas_referencia": "29-39",
+      "afirmaciones": [
+        {
+          "texto": "La producción modular combina componentes estandarizados para lograr distintas configuraciones finales.",
+          "correcto": true,
+          "explicacion": "Verdadero. Esa es la lógica central del sistema modular explicada en la página 30."
+        },
+        {
+          "texto": "Los servicios pueden almacenarse e inventariarse igual que los productos físicos.",
+          "correcto": false,
+          "explicacion": "Falso. El material distingue que los servicios no pueden guardarse o inventariarse como los productos."
+        },
+        {
+          "texto": "La proximidad a clientes es especialmente importante para tiendas y restaurantes.",
+          "correcto": true,
+          "explicacion": "Verdadero. En la matriz de localización se remarca que retail y servicios priorizan accesibilidad y visibilidad para el cliente."
+        }
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "32-39",
+      "pares": [
+        {
+          "izquierda": "Startup de hardware personalizado",
+          "derecha": "Por encargo y lotes pequeños",
+          "emoji": "🚁"
+        },
+        {
+          "izquierda": "Fábrica de bebidas",
+          "derecha": "Producción continua con gran escala",
+          "emoji": "🥤"
+        },
+        {
+          "izquierda": "Toyota",
+          "derecha": "Lean/JIT con sistema híbrido",
+          "emoji": "🚗"
+        },
+        {
+          "izquierda": "IKEA",
+          "derecha": "Producción modular con piezas estandarizadas",
+          "emoji": "🪑"
+        }
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "35-38",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🧠",
+          "pregunta": "¿Cuál NO es una etapa del diseño según el material?",
+          "paginas": "36",
+          "palabras": [
+            {
+              "text": "Ideación",
+              "es_intrusa": false
+            },
+            {
+              "text": "Prototipado",
+              "es_intrusa": false
+            },
+            {
+              "text": "Validación",
+              "es_intrusa": false
+            },
+            {
+              "text": "Liquidación",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "Liquidación no integra el proceso de diseño de productos y servicios desarrollado en la unidad."
+        },
+        {
+          "id": 1,
+          "emoji": "📍",
+          "pregunta": "¿Cuál NO es uno de los 3 factores clave de localización destacados en el PDF?",
+          "paginas": "37",
+          "palabras": [
+            {
+              "text": "Materia prima",
+              "es_intrusa": false
+            },
+            {
+              "text": "Clientes",
+              "es_intrusa": false
+            },
+            {
+              "text": "Energía",
+              "es_intrusa": false
+            },
+            {
+              "text": "Publicidad",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "Publicidad no figura entre los 3 factores clave principales de localización del material."
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "29-38",
+      "conceptos": [
+        {
+          "termino": "Producción modular",
+          "pista": "¿Cómo la explicarías usando la idea de módulos combinables?",
+          "palabras_clave": [
+            "módulos",
+            "estandarizados",
+            "ensamblaje",
+            "configuraciones",
+            "personalización",
+            "eficiencia"
+          ]
+        },
+        {
+          "termino": "Diseño de servicios",
+          "pista": "Pensá en experiencia, usuario y simultaneidad de producción y consumo.",
+          "palabras_clave": [
+            "usuario",
+            "intangibles",
+            "experiencia",
+            "valor",
+            "proceso",
+            "consumo"
+          ]
+        },
+        {
+          "termino": "Localización",
+          "pista": "¿Qué implica decidir dónde se instala una empresa?",
+          "palabras_clave": [
+            "ubicación",
+            "estrategia",
+            "costos",
+            "clientes",
+            "energía",
+            "infraestructura"
+          ]
+        }
+      ]
+    },
+    "n8_causa_efecto": {
+      "paginas_referencia": "29-30, 35-39",
+      "causas": [
+        {
+          "id": 0,
+          "emoji": "👤",
+          "text": "Un cliente hace un pedido con requisitos únicos"
+        },
+        {
+          "id": 1,
+          "emoji": "🧩",
+          "text": "Los componentes se fabrican de forma estandarizada y luego se combinan"
+        },
+        {
+          "id": 2,
+          "emoji": "🛍️",
+          "text": "Un negocio necesita alta accesibilidad y visibilidad"
+        },
+        {
+          "id": 3,
+          "emoji": "🧊",
+          "text": "Un centro de datos consume mucha energía y genera calor"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 0,
+          "causa_id": 0,
+          "emoji": "📐",
+          "text": "Conviene producción por encargo"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "🪑",
+          "text": "Se vuelve viable la producción modular"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "📍",
+          "text": "La proximidad a clientes gana prioridad"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "⚡",
+          "text": "Importa ubicarse donde haya energía adecuada y condiciones favorables"
+        }
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená una decisión productiva desde el análisis hasta la implementación final:",
+      "paginas_referencia": "31-38",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 0,
+          "emoji": "📊",
+          "text": "Analizar volumen, variedad y flexibilidad necesarias"
+        },
+        {
+          "id": 1,
+          "emoji": "🏭",
+          "text": "Elegir tipo y sistema de producción"
+        },
+        {
+          "id": 2,
+          "emoji": "🧠",
+          "text": "Diseñar el producto o servicio"
+        },
+        {
+          "id": 3,
+          "emoji": "📍",
+          "text": "Evaluar la localización más conveniente"
+        },
+        {
+          "id": 4,
+          "emoji": "🚀",
+          "text": "Implementar y ajustar el proceso"
+        }
+      ]
+    },
+    "n10_comparador": {
+      "paginas_referencia": "35-37",
+      "concepto_a": {
+        "nombre": "Producto",
+        "emoji": "📦",
+        "color": "#10B981"
+      },
+      "concepto_b": {
+        "nombre": "Servicio",
+        "emoji": "🛎️",
+        "color": "#EC4899"
+      }
+    }
+  },
+  "senales": {
+    "conceptos_clave": [
+      {
+        "emoji": "🏭",
+        "termino": "Proceso productivo",
+        "color": "#14B8A6",
+        "definicion": "Conjunto de actividades organizadas, planificadas y coordinadas que transforman insumos en bienes o servicios para satisfacer necesidades.",
+        "importancia": "Es la idea central de toda la unidad: permite entender que producir no es solo fabricar, sino organizar recursos, tecnología y decisiones."
+      },
+      {
+        "emoji": "🧰",
+        "termino": "Elementos del proceso",
+        "color": "#6366F1",
+        "definicion": "Materia prima, trabajo, capital, tecnología y energía que actúan de manera integrada en la producción.",
+        "importancia": "Sirven para analizar por qué una empresa produce de cierta forma y qué pasa cuando una parte del sistema falla."
+      },
+      {
+        "emoji": "🏭",
+        "termino": "Tipos de producción",
+        "color": "#F59E0B",
+        "definicion": "Modelos como artesanal, en serie, en masa, flexible y Lean/JIT que combinan de distintas maneras personalización, volumen y automatización.",
+        "importancia": "Ayudan a elegir el modelo más conveniente según el producto, la demanda, el costo y la tecnología disponible."
+      },
+      {
+        "emoji": "📍",
+        "termino": "Localización",
+        "color": "#EC4899",
+        "definicion": "Decisión estratégica sobre dónde instalar una empresa o actividad productiva según materia prima, clientes, energía, infraestructura y otros factores.",
+        "importancia": "Impacta en costos, logística, acceso al mercado y eficiencia operativa."
+      }
+    ],
+    "semaforo_conceptos": [
+      {
+        "emoji": "🏭",
+        "termino": "Proceso productivo"
+      },
+      {
+        "emoji": "⚙️",
+        "termino": "Elementos y factores"
+      },
+      {
+        "emoji": "🤖",
+        "termino": "Tipos de producción"
+      },
+      {
+        "emoji": "🎯",
+        "termino": "Lean/JIT"
+      },
+      {
+        "emoji": "📍",
+        "termino": "Localización"
+      }
+    ],
+    "postits_conceptos": [
+      "Insumos",
+      "Tecnología",
+      "Retribuciones",
+      "Lean/JIT"
+    ]
+  },
+  "sabias": {
+    "flip_cards": [
+      {
+        "emoji": "🚂",
+        "color": "#6366F1",
+        "frente": "La Revolución Industrial cambió para siempre la forma de producir",
+        "dorso": "El PDF la presenta como un punto de quiebre: aparecen las máquinas, nuevas fuentes de energía y la concentración del trabajo en fábricas, dando origen a la producción en serie."
+      },
+      {
+        "emoji": "📦",
+        "color": "#10B981",
+        "frente": "Lean no busca producir más: busca producir mejor",
+        "dorso": "La filosofía Lean/JIT se enfoca en eliminar desperdicios, reducir inventarios y producir exactamente lo que se necesita, cuando se necesita."
+      },
+      {
+        "emoji": "💻",
+        "color": "#EC4899",
+        "frente": "En la producción actual, la información vale tanto como la materia prima",
+        "dorso": "El material explica que hoy se integran software de gestión, automatización, datos en tiempo real e inteligencia artificial, convirtiendo al proceso en un sistema tecno-organizacional."
+      }
+    ],
+    "linea_de_tiempo": [
+      {
+        "emoji": "🏹",
+        "year": "Orígenes",
+        "text": "Sociedades primitivas: producción orientada a la subsistencia"
+      },
+      {
+        "emoji": "🏰",
+        "year": "Edad Media",
+        "text": "Predominio de la producción artesanal y los gremios"
+      },
+      {
+        "emoji": "🚂",
+        "year": "Revolución Industrial",
+        "text": "Máquinas, vapor, fábricas y producción en serie"
+      },
+      {
+        "emoji": "🚗",
+        "year": "Siglos XIX-XX",
+        "text": "Fordismo, toyotismo y expansión de la producción en masa"
+      },
+      {
+        "emoji": "🤖",
+        "year": "Actualidad",
+        "text": "Automatización, robotización, informática e inteligencia artificial"
+      }
+    ],
+    "encuesta": {
+      "pregunta": "¿Qué cambio te parece más transformador para la producción actual?",
+      "opciones": [
+        {
+          "emoji": "🤖",
+          "text": "La automatización y robotización",
+          "votos_iniciales": 41
+        },
+        {
+          "emoji": "📊",
+          "text": "Los datos en tiempo real y el software",
+          "votos_iniciales": 34
+        },
+        {
+          "emoji": "🎯",
+          "text": "Lean/JIT y la eliminación de desperdicios",
+          "votos_iniciales": 27
+        }
+      ]
+    }
+  },
+  "cruces": {
+    "consigna_general": "Elegí un tema de cada bloque y preparalo para explicárselo a un compañero con ejemplos del mundo real o de la informática. Podés usar cuadro comparativo, esquema, mini exposición o infografía.",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "⚙️",
+        "titulo": "BLOQUE A: Fundamentos",
+        "color": "#6366F1",
+        "temas_sugeridos": [
+          "Evolución histórica de los procesos productivos",
+          "Proceso productivo como sistema",
+          "Materia prima, trabajo, capital, tecnología y energía",
+          "Por qué la información hoy también es un insumo clave",
+          "Rol del Técnico en Informática en la producción actual"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste, el ejemplo que vas a usar y cómo lo explicarías..."
+      },
+      {
+        "id": "b",
+        "emoji": "🏭",
+        "titulo": "BLOQUE B: Tipos y eficiencia",
+        "color": "#3B82F6",
+        "temas_sugeridos": [
+          "Factores productivos y retribuciones",
+          "Diferencia entre producción artesanal, en serie y en masa",
+          "Qué aporta la producción flexible",
+          "Lean/JIT y los desperdicios",
+          "Toyota como caso de mejora continua"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste, el ejemplo que vas a usar y cómo lo explicarías..."
+      },
+      {
+        "id": "c",
+        "emoji": "🧩",
+        "titulo": "BLOQUE C: Sistemas, diseño y localización",
+        "color": "#10B981",
+        "temas_sugeridos": [
+          "Sistemas por encargo, lotes, continua, modular e híbrida",
+          "Casos de estudio del material",
+          "Diferencias entre diseño de productos y servicios",
+          "Pasos del diseño centrado en el usuario",
+          "Cómo decidir la localización de una empresa"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste, el ejemplo que vas a usar y cómo lo explicarías..."
+      }
+    ]
+  },
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "¿Conviene priorizar siempre la máxima eficiencia productiva, aunque reduzca flexibilidad o trabajo humano directo?",
+      "contexto": "A lo largo de la unidad aparecen modelos que priorizan volumen, costo y automatización, y otros que priorizan adaptación, personalización o mejora continua. El debate es pensar qué debería priorizar una empresa y por qué.",
+      "roles": [
+        {
+          "id": "fiscal",
+          "emoji": "🏭",
+          "label": "A favor de la eficiencia",
+          "desc": "Defendé que producir más rápido, con menor costo y menos desperdicio debería ser la prioridad principal.",
+          "color": "#6366F1"
+        },
+        {
+          "id": "defensa",
+          "emoji": "🧩",
+          "label": "A favor de la flexibilidad",
+          "desc": "Defendé que adaptarse al cliente, al mercado y a cambios tecnológicos puede ser más importante que maximizar volumen.",
+          "color": "#EC4899"
+        },
+        {
+          "id": "juez",
+          "emoji": "⚖️",
+          "label": "Posición equilibrada",
+          "desc": "Proponé qué combinación de eficiencia, flexibilidad, tecnología y trabajo sería la más razonable.",
+          "color": "#10B981"
+        }
+      ]
+    },
+    "tesis": {
+      "consigna": "Formulá una tesis sobre qué tipo o sistema de producción te parece más conveniente para una empresa tecnológica actual. Incluí: (1) tu postura, (2) dos argumentos a favor, (3) un límite o desventaja, y (4) una conclusión bien defendida."
+    },
+    "critica": {
+      "consigna": "Analizá críticamente la unidad: ¿qué decisiones productivas te parecieron más complejas? ¿Qué tensiones encontrás entre costo, calidad, personalización, automatización y localización? ¿Qué rol imaginás para un Técnico en Informática en ese escenario?"
+    }
+  },
+  "autotest": {
+    "banco_respuestas_docente": [
+      "1. B - Transforma insumos en bienes o servicios mediante actividades organizadas (p. 4)",
+      "2. C - La energía (p. 9)",
+      "3. B - Salario (p. 11)",
+      "4. C - Producción en masa (p. 20)",
+      "5. D - Inventarios mínimos y producción bajo demanda (p. 22)",
+      "6. B - Producción modular (p. 30)",
+      "7. C - Los servicios no pueden almacenarse (p. 35)",
+      "8. A - Investigación y descubrimiento (p. 36)",
+      "9. B - Proximidad a clientes (p. 37)",
+      "10. D - Integrar ERP y MES / monitoreo y optimización digital (p. 27)",
+      "11. VERDADERO - El proceso productivo puede entenderse como sistema (p. 5)",
+      "12. FALSO - La producción artesanal tiene muy bajo volumen, no alto (p. 18, 23)",
+      "13. VERDADERO - Lean/JIT busca eliminar desperdicios como sobreproducción y esperas (p. 26)",
+      "14. FALSO - La producción por encargo no se caracteriza por tiempos cortos y bajo costo unitario (p. 29)",
+      "15. VERDADERO - La localización es una decisión estratégica (p. 37)"
+    ],
+    "preguntas": [
+      {
+        "pregunta": "¿Qué es un proceso productivo según la unidad?",
+        "opciones": [
+          "Una estrategia de ventas para posicionar marcas",
+          "El conjunto de actividades organizadas y coordinadas que transforma insumos en bienes o servicios",
+          "Una máquina que fabrica productos de manera automática",
+          "Un sector exclusivo de la industria pesada"
+        ],
+        "correcta": 1,
+        "explicacion": "La definición central del material indica que el proceso productivo es un conjunto de actividades organizadas, planificadas y coordinadas que transforma insumos en bienes o servicios. (p. 4)"
+      },
+      {
+        "pregunta": "¿Cuál de estos elementos permite poner en funcionamiento el proceso productivo?",
+        "opciones": [
+          "La costumbre",
+          "La renta",
+          "La energía",
+          "La publicidad"
+        ],
+        "correcta": 2,
+        "explicacion": "La unidad explica que sin energía los demás elementos no pueden operar. Además, relaciona su uso con costos e impacto ambiental. (p. 9)"
+      },
+      {
+        "pregunta": "¿Qué retribución corresponde al factor trabajo?",
+        "opciones": [
+          "Beneficio",
+          "Salario",
+          "Interés",
+          "Renta"
+        ],
+        "correcta": 1,
+        "explicacion": "En el cuadro de factores productivos y retribuciones, trabajo se vincula con salario. (p. 11)"
+      },
+      {
+        "pregunta": "¿Qué tipo de producción prioriza grandes cantidades de productos idénticos con costo unitario mínimo?",
+        "opciones": [
+          "Artesanal",
+          "Flexible (FMS)",
+          "En masa",
+          "Por encargo"
+        ],
+        "correcta": 2,
+        "explicacion": "La producción en masa busca fabricar grandes volúmenes de productos estandarizados con muy bajo costo unitario. (p. 20)"
+      },
+      {
+        "pregunta": "¿Qué rasgo caracteriza especialmente a Lean / Just-in-Time?",
+        "opciones": [
+          "Alta personalización manual pieza por pieza",
+          "Producción continua sin control",
+          "Alto inventario para anticipar demanda",
+          "Inventarios mínimos y producción según demanda"
+        ],
+        "correcta": 3,
+        "explicacion": "Lean/JIT se enfoca en producir exactamente lo necesario cuando se necesita, con inventarios mínimos y eliminación de desperdicios. (p. 22)"
+      },
+      {
+        "pregunta": "¿Qué sistema de producción combina componentes estandarizados para formar distintas configuraciones finales?",
+        "opciones": [
+          "Continua",
+          "Modular",
+          "Por encargo",
+          "Artesanal"
+        ],
+        "correcta": 1,
+        "explicacion": "La producción modular crea módulos estandarizados que luego se ensamblan en múltiples configuraciones. (p. 30)"
+      },
+      {
+        "pregunta": "¿Cuál es una diferencia fundamental entre productos y servicios que aparece en la unidad?",
+        "opciones": [
+          "Los productos no satisfacen necesidades",
+          "Los servicios siempre requieren maquinaria industrial",
+          "Los servicios no pueden almacenarse",
+          "Los productos se consumen siempre al mismo tiempo que se producen"
+        ],
+        "correcta": 2,
+        "explicacion": "El material distingue que los productos pueden almacenarse, mientras que los servicios no pueden guardarse o inventariarse. (p. 35)"
+      },
+      {
+        "pregunta": "¿Cuál es la primera etapa del proceso de diseño de productos y servicios?",
+        "opciones": [
+          "Investigación y descubrimiento",
+          "Implementación y evolución",
+          "Prototipado y validación",
+          "Ideación y conceptuación"
+        ],
+        "correcta": 0,
+        "explicacion": "Los pasos del diseño comienzan con investigación y descubrimiento para comprender necesidades del usuario y del mercado. (p. 36)"
+      },
+      {
+        "pregunta": "Para un negocio retail o de servicios, ¿qué factor de localización suele ser prioritario?",
+        "opciones": [
+          "Proximidad a energía",
+          "Proximidad a clientes",
+          "Proximidad a bosques",
+          "Proximidad a yacimientos"
+        ],
+        "correcta": 1,
+        "explicacion": "La matriz del material muestra que retail y servicios priorizan cercanía a clientes por accesibilidad y visibilidad. (p. 37)"
+      },
+      {
+        "pregunta": "¿Qué aporte del Técnico en Informática aparece de manera clara en la unidad?",
+        "opciones": [
+          "Eliminar completamente el trabajo humano",
+          "Reemplazar toda decisión empresarial",
+          "Definir los precios finales de mercado",
+          "Integrar sistemas de control, monitoreo y gestión para optimizar procesos"
+        ],
+        "correcta": 3,
+        "explicacion": "A lo largo del PDF se menciona que el Técnico en Informática participa en automatización, monitoreo en tiempo real, integración ERP/MES y análisis de datos para mejorar procesos. (p. 10, 23, 27, 38)"
+      }
+    ],
+    "verdadero_falso": [
+      {
+        "texto": "El proceso productivo puede entenderse como un sistema con entradas, transformación, salidas y control.",
+        "correcto": true,
+        "explicacion": "Verdadero. Así se presenta explícitamente el enfoque sistémico del proceso productivo. (p. 5)"
+      },
+      {
+        "texto": "La producción artesanal se caracteriza por alto volumen y baja personalización.",
+        "correcto": false,
+        "explicacion": "Falso. La producción artesanal se caracteriza por muy alta personalización y muy bajo volumen. (p. 18 y matriz de p. 23)"
+      },
+      {
+        "texto": "Lean/JIT busca eliminar desperdicios como sobreproducción, esperas e inventario excesivo.",
+        "correcto": true,
+        "explicacion": "Verdadero. La unidad enumera esos desperdicios dentro del enfoque Lean. (p. 26)"
+      },
+      {
+        "texto": "La producción por encargo suele tener bajo costo unitario y tiempos cortos de entrega.",
+        "correcto": false,
+        "explicacion": "Falso. En el material se la describe con alta personalización, costos unitarios elevados y tiempos prolongados. (p. 29)"
+      },
+      {
+        "texto": "La localización de una empresa es una decisión estratégica porque afecta costos, acceso y funcionamiento.",
+        "correcto": true,
+        "explicacion": "Verdadero. El bloque final remarca que la ubicación no es casualidad, sino estrategia. (p. 37-38)"
+      }
+    ]
+  },
+  "cierre": {
+    "glosario": [
+      {
+        "emoji": "🏭",
+        "termino": "Proceso productivo",
+        "categoria": "Concepto base",
+        "definicion": "Conjunto de actividades organizadas que transforma insumos en bienes o servicios."
+      },
+      {
+        "emoji": "📦",
+        "termino": "Materia prima",
+        "categoria": "Elementos",
+        "definicion": "Insumo básico que se transforma durante la producción."
+      },
+      {
+        "emoji": "💰",
+        "termino": "Retribución",
+        "categoria": "Economía",
+        "definicion": "Ingreso que recibe cada factor productivo por su aporte al proceso, como salario, renta, interés o beneficio."
+      },
+      {
+        "emoji": "🤖",
+        "termino": "Producción flexible",
+        "categoria": "Tipos",
+        "definicion": "Modelo que combina alta automatización con capacidad de adaptarse rápidamente a distintos productos."
+      },
+      {
+        "emoji": "🎯",
+        "termino": "Lean / JIT",
+        "categoria": "Gestión",
+        "definicion": "Filosofía productiva que busca eliminar desperdicios y producir solo lo necesario, cuando se necesita."
+      },
+      {
+        "emoji": "🧩",
+        "termino": "Producción modular",
+        "categoria": "Sistemas",
+        "definicion": "Sistema que fabrica módulos estandarizados para luego combinarlos en distintas configuraciones finales."
+      },
+      {
+        "emoji": "🛎️",
+        "termino": "Servicio",
+        "categoria": "Diseño",
+        "definicion": "Oferta intangible que se produce y consume simultáneamente y no puede almacenarse."
+      },
+      {
+        "emoji": "📍",
+        "termino": "Localización",
+        "categoria": "Estrategia",
+        "definicion": "Decisión sobre dónde ubicar una empresa según factores como clientes, materia prima, energía e infraestructura."
+      }
+    ],
+    "recursos": [
+      {
+        "tipo": "🎬 Video",
+        "title": "¿Qué es un proceso productivo? - Educatina",
+        "desc": "Video introductorio que explica qué es un proceso productivo y cómo se transforman insumos en bienes y servicios.",
+        "nivel": "Introductorio",
+        "color": "#EC4899"
+      },
+      {
+        "tipo": "🎧 Podcast",
+        "title": "Industria 4.0 y transformación digital - BBVA Aprendemos Juntos",
+        "desc": "Episodio sobre cómo la tecnología, los datos y la automatización modifican la producción actual.",
+        "nivel": "Introductorio",
+        "color": "#8B5CF6"
+      },
+      {
+        "tipo": "🌐 Web",
+        "title": "Khan Academy en Español - Economía: factores de producción",
+        "desc": "Recurso web para reforzar la idea de factores productivos y su papel en la producción y la economía.",
+        "nivel": "Intermedio",
+        "color": "#10B981"
+      },
+      {
+        "tipo": "📄 Artículo",
+        "title": "Toyota Production System y Lean Manufacturing",
+        "desc": "Artículo de consulta para profundizar en los principios de Lean, mejora continua y eliminación de desperdicios.",
+        "nivel": "Avanzado",
+        "color": "#F59E0B"
+      },
+      {
+        "tipo": "📖 Libro",
+        "title": "Administración de Operaciones - Heizer y Render",
+        "desc": "Libro de referencia sobre procesos, operaciones, diseño y decisiones productivas en empresas.",
+        "nivel": "Intermedio",
+        "color": "#6366F1"
+      }
+    ]
+  }
+}
