@@ -1,0 +1,1690 @@
+{
+  "id": "eetp602_6a_org_gestion_com_u1",
+  "materia": "Organización y Gestión Comercial",
+  "unidad": "Unidad 1",
+  "titulo": "La Compra Estratégica",
+  "emoji": "🛒",
+  "color_primario": "#F97316",
+  "color_secundario": "#EA580C",
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "🧃",
+        "texto": "¿Por qué a veces un negocio se queda sin stock aunque venda mucho y le vaya bien?",
+        "pista": "Pensá en compras, inventarios, abastecimiento y anticipación..."
+      },
+      {
+        "emoji": "💻",
+        "texto": "¿Por qué no conviene comprar siempre al proveedor más barato?",
+        "pista": "Mirá qué pasa con la calidad, los plazos, la confiabilidad y el servicio..."
+      },
+      {
+        "emoji": "📦",
+        "texto": "¿Qué cambia en una empresa cuando planifica sus compras en vez de improvisarlas?",
+        "pista": "Compará reaccionar tarde con anticiparse usando información y presupuesto..."
+      }
+    ],
+    "situaciones_conecta": [
+      {
+        "emoji": "🛍️",
+        "label": "Un local no tenía el producto que fui a buscar"
+      },
+      {
+        "emoji": "🚚",
+        "label": "Esperé una compra online y llegó tarde"
+      },
+      {
+        "emoji": "💸",
+        "label": "Vi que el mismo producto tenía precios muy distintos"
+      },
+      {
+        "emoji": "📚",
+        "label": "En casa hicieron una lista antes de comprar para gastar mejor"
+      }
+    ],
+    "termometro_pregunta": "¿Cuánto entendés sobre cómo compra una empresa y cómo controla su stock?"
+  },
+  "mapa": {
+    "ruta_paradas": [
+      {
+        "id": 0,
+        "emoji": "🛒",
+        "title": "Qué es comprar en una empresa",
+        "desc": "Concepto, funciones e importancia estratégica de las compras",
+        "color": "#6366F1"
+      },
+      {
+        "id": 1,
+        "emoji": "🏢",
+        "title": "Área de compras",
+        "desc": "Cómo se organiza y con qué sectores se relaciona internamente",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "emoji": "📊",
+        "title": "Información y planeamiento",
+        "desc": "Políticas, presupuesto y decisiones para comprar con criterio",
+        "color": "#10B981"
+      },
+      {
+        "id": 3,
+        "emoji": "📦",
+        "title": "Abastecimiento e inventarios",
+        "desc": "Cómo asegurar recursos sin excesos ni faltantes",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 4,
+        "emoji": "🧮",
+        "title": "Valuación del stock",
+        "desc": "PEPS, UEPS y PPP para valorar inventarios y costo de ventas",
+        "color": "#EC4899"
+      }
+    ],
+    "panoramica_bloques": [
+      {
+        "id": "a",
+        "subtitulo": "Fundamentos de la compra estratégica",
+        "items": [
+          "Concepto de compra",
+          "Funciones del departamento de compras",
+          "Importancia estratégica",
+          "Estrategias según el rubro",
+          "Relaciones internas del área"
+        ]
+      },
+      {
+        "id": "b",
+        "subtitulo": "Decidir, planificar y ejecutar compras",
+        "items": [
+          "Información del sector compras",
+          "Políticas de compras",
+          "Planeamiento",
+          "Presupuesto",
+          "Etapas de la transacción de compra"
+        ]
+      },
+      {
+        "id": "c",
+        "subtitulo": "Abastecimiento, inventarios y valuación",
+        "items": [
+          "Abastecimiento",
+          "Inventarios",
+          "Fichas de stock",
+          "PEPS, UEPS y PPP",
+          "Comparación de métodos"
+        ]
+      }
+    ],
+    "mapa_mental": {
+      "centro": "Compra estratégica",
+      "ramas": [
+        {
+          "pregunta": "¿Qué es?",
+          "items": [
+            "Proceso estratégico",
+            "Satisface necesidades",
+            "Asegura calidad-cantidad-precio-plazo",
+            "Base de la operación"
+          ]
+        },
+        {
+          "pregunta": "¿Qué hace?",
+          "items": [
+            "Selecciona proveedores",
+            "Negocia",
+            "Controla documentación",
+            "Gestiona inventarios"
+          ]
+        },
+        {
+          "pregunta": "¿Cómo se decide?",
+          "items": [
+            "Información precisa",
+            "Políticas claras",
+            "Planeamiento",
+            "Presupuesto"
+          ]
+        },
+        {
+          "pregunta": "¿Por qué importa?",
+          "items": [
+            "Reduce costos",
+            "Evita faltantes",
+            "Mejora calidad",
+            "Impacta en rentabilidad"
+          ]
+        }
+      ]
+    }
+  },
+  "nucleo_a": {
+    "bloque_info": {
+      "id": "a",
+      "emoji": "🛒",
+      "titulo": "BLOQUE A: Fundamentos de la compra estratégica",
+      "color": "#6366F1",
+      "paginas": [
+        2,
+        3,
+        4
+      ]
+    },
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená la lógica con la que el material presenta la función de compra, desde la idea básica hasta su articulación con otras áreas:",
+      "paginas_referencia": "2-4",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "🧾",
+          "text": "Funciones del departamento de compras"
+        },
+        {
+          "id": 1,
+          "emoji": "🛒",
+          "text": "Concepto de compra"
+        },
+        {
+          "id": 2,
+          "emoji": "🏆",
+          "text": "Importancia estratégica"
+        },
+        {
+          "id": 3,
+          "emoji": "🏢",
+          "text": "Relación con otras áreas de la empresa"
+        },
+        {
+          "id": 4,
+          "emoji": "🏭",
+          "text": "Estrategias según el rubro"
+        }
+      ],
+      "orden_correcto": [
+        1,
+        0,
+        2,
+        4,
+        3
+      ]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá cada elemento según corresponda a función del área de compras o impacto estratégico de la compra:",
+      "paginas_referencia": "2-3",
+      "categorias": [
+        {
+          "name": "Función del área",
+          "emoji": "🧰",
+          "color": "#A78BFA"
+        },
+        {
+          "name": "Impacto estratégico",
+          "emoji": "🎯",
+          "color": "#6366F1"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Selección de proveedores",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Negociación de contratos",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 2,
+          "text": "Optimización de costos",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 3,
+          "text": "Continuidad operativa",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Gestión documental",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Ventaja competitiva",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+    "n3_completar_mapa": {
+      "paginas_referencia": "2-4",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "La compra es un proceso",
+          "respuesta_correcta": "estratégico",
+          "pista": "E__________"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "Una buena gestión de compras mejora la",
+          "respuesta_correcta": "rentabilidad",
+          "pista": "R___________"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "Compras no es un sector aislado: se relaciona con producción, ventas y",
+          "respuesta_correcta": "finanzas",
+          "pista": "F________"
+        }
+      ]
+    },
+    "n4_verdadero_falso": {
+      "paginas_referencia": "2-4",
+      "afirmaciones": [
+        {
+          "texto": "Comprar en una empresa significa solo buscar el menor precio posible.",
+          "correcto": false,
+          "explicacion": "Falso. El material aclara que la compra busca asegurar calidad, cantidad, precio y plazo adecuados, no solo precio bajo."
+        },
+        {
+          "texto": "Una compra deficiente puede provocar cuellos de botella y pérdida de clientes.",
+          "correcto": true,
+          "explicacion": "Verdadero. El PDF explica que una compra mal gestionada puede aumentar costos, frenar operaciones y afectar al cliente final."
+        },
+        {
+          "texto": "Las estrategias de compras son iguales para todas las empresas, sin importar el rubro.",
+          "correcto": false,
+          "explicacion": "Falso. La unidad diferencia estrategias para manufactura, retail, servicios, agro, tecnología y salud."
+        }
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "2-4",
+      "pares": [
+        {
+          "izquierda": "Gestión de proveedores",
+          "derecha": "Evalúa, selecciona y mantiene relaciones",
+          "emoji": "🤝"
+        },
+        {
+          "izquierda": "Control de calidad",
+          "derecha": "Verifica que lo recibido cumpla especificaciones",
+          "emoji": "✅"
+        },
+        {
+          "izquierda": "Logística y transporte",
+          "derecha": "Coordina el traslado de la mercadería",
+          "emoji": "🚚"
+        },
+        {
+          "izquierda": "Gestión documental",
+          "derecha": "Administra órdenes, facturas y contratos",
+          "emoji": "🗂️"
+        }
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "2-4",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🛍️",
+          "pregunta": "¿Cuál NO aparece como función complementaria del departamento de compras?",
+          "paginas": "2",
+          "palabras": [
+            {
+              "text": "Gestión documental",
+              "es_intrusa": false
+            },
+            {
+              "text": "Sostenibilidad y ética",
+              "es_intrusa": false
+            },
+            {
+              "text": "Control de calidad",
+              "es_intrusa": false
+            },
+            {
+              "text": "Campaña publicitaria",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "Campaña publicitaria corresponde al área de marketing; las otras tres aparecen como funciones complementarias de compras."
+        },
+        {
+          "id": 1,
+          "emoji": "🏭",
+          "pregunta": "¿Cuál NO coincide con la estrategia señalada para un rubro específico?",
+          "paginas": "3",
+          "palabras": [
+            {
+              "text": "Retail: foco en rotación de stock",
+              "es_intrusa": false
+            },
+            {
+              "text": "Salud: trazabilidad y cumplimiento legal",
+              "es_intrusa": false
+            },
+            {
+              "text": "Tecnología: actualización rápida",
+              "es_intrusa": false
+            },
+            {
+              "text": "Agro: compras sin relación con la estacionalidad",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "El sector agropecuario sí está condicionado por ciclos productivos, clima y estacionalidad."
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "2-4",
+      "conceptos": [
+        {
+          "termino": "Compra estratégica",
+          "pista": "Explicá por qué en una empresa comprar no es solo adquirir algo, sino tomar decisiones importantes.",
+          "palabras_clave": [
+            "necesidades",
+            "calidad",
+            "cantidad",
+            "precio",
+            "plazo",
+            "empresa"
+          ]
+        },
+        {
+          "termino": "Continuidad operativa",
+          "pista": "¿Qué relación hay entre comprar bien y que la empresa no se detenga?",
+          "palabras_clave": [
+            "materiales",
+            "interrupciones",
+            "operar",
+            "faltantes",
+            "producción",
+            "servicios"
+          ]
+        },
+        {
+          "termino": "Ventaja competitiva",
+          "pista": "¿Cómo puede ayudar compras a que una empresa se diferencie de otras?",
+          "palabras_clave": [
+            "tecnología",
+            "insumos",
+            "diferenciar",
+            "empresa",
+            "competir",
+            "mejora"
+          ]
+        }
+      ]
+    },
+    "n8_causa_efecto": {
+      "paginas_referencia": "2-4",
+      "causas": [
+        {
+          "id": 0,
+          "emoji": "📉",
+          "text": "La gestión de compras es ineficiente"
+        },
+        {
+          "id": 1,
+          "emoji": "🔎",
+          "text": "Se analiza el mercado y a los proveedores"
+        },
+        {
+          "id": 2,
+          "emoji": "🔗",
+          "text": "Compras se coordina con producción y ventas"
+        },
+        {
+          "id": 3,
+          "emoji": "🧭",
+          "text": "La empresa adapta su estrategia de compra al rubro"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 0,
+          "causa_id": 0,
+          "emoji": "⛔",
+          "text": "Pueden aparecer cuellos de botella, más costos y pérdida de clientes"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "🤝",
+          "text": "Mejora la selección de proveedores y la toma de decisiones"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "📦",
+          "text": "Se sincronizan necesidades, disponibilidad y entregas"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "🏷️",
+          "text": "La compra responde mejor a condiciones del negocio y del mercado"
+        }
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená la lógica de cómo la unidad presenta una compra empresarial bien entendida:",
+      "paginas_referencia": "2-4",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 0,
+          "emoji": "❓",
+          "text": "Detectar una necesidad empresarial"
+        },
+        {
+          "id": 1,
+          "emoji": "🎯",
+          "text": "Definir qué se necesita en calidad, cantidad, precio y plazo"
+        },
+        {
+          "id": 2,
+          "emoji": "🤝",
+          "text": "Coordinar con proveedores y áreas internas"
+        },
+        {
+          "id": 3,
+          "emoji": "📈",
+          "text": "Asegurar impacto positivo en costos, calidad y continuidad"
+        }
+      ]
+    },
+    "n10_comparador": {
+      "paginas_referencia": "3",
+      "concepto_a": {
+        "nombre": "Industria manufacturera",
+        "emoji": "🏭",
+        "color": "#6366F1"
+      },
+      "concepto_b": {
+        "nombre": "Comercio minorista (retail)",
+        "emoji": "🛍️",
+        "color": "#EC4899"
+      }
+    }
+  },
+  "nucleo_b": {
+    "bloque_info": {
+      "id": "b",
+      "emoji": "📊",
+      "titulo": "BLOQUE B: Información, políticas y ejecución de compras",
+      "color": "#F59E0B",
+      "paginas": [
+        5,
+        6,
+        7
+      ]
+    },
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená las etapas del procesamiento de una transacción de compra:",
+      "paginas_referencia": "7",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "📍",
+          "text": "Detección de la necesidad"
+        },
+        {
+          "id": 1,
+          "emoji": "🔎",
+          "text": "Selección del proveedor"
+        },
+        {
+          "id": 2,
+          "emoji": "🚚",
+          "text": "Seguimiento y recepción"
+        },
+        {
+          "id": 3,
+          "emoji": "🗃️",
+          "text": "Almacenamiento y registro"
+        },
+        {
+          "id": 4,
+          "emoji": "📝",
+          "text": "Emisión del pedido"
+        }
+      ],
+      "orden_correcto": [
+        0,
+        1,
+        4,
+        2,
+        3
+      ]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá cada idea según corresponda a información del sector compras o política de compras:",
+      "paginas_referencia": "5",
+      "categorias": [
+        {
+          "name": "Información",
+          "emoji": "📈",
+          "color": "#FDBA74"
+        },
+        {
+          "name": "Política",
+          "emoji": "📜",
+          "color": "#F59E0B"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Historial y desempeño de proveedores",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Criterios de selección",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Precios de mercado y tendencias",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "Ética en las transacciones",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Historial de compras internas",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Procedimientos de negociación",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+    "n3_completar_mapa": {
+      "paginas_referencia": "5-7",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "La información es el combustible que impulsa las decisiones",
+          "respuesta_correcta": "estratégicas",
+          "pista": "E___________"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "El presupuesto de compras establece límites de",
+          "respuesta_correcta": "gasto",
+          "pista": "G_____"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "Sin planeamiento, las compras se vuelven reactivas y",
+          "respuesta_correcta": "costosas",
+          "pista": "C_______"
+        }
+      ]
+    },
+    "n4_verdadero_falso": {
+      "paginas_referencia": "5-7",
+      "afirmaciones": [
+        {
+          "texto": "Las políticas de compras ayudan a asegurar transparencia y eficiencia.",
+          "correcto": true,
+          "explicacion": "Verdadero. El material las presenta como reglas y directrices que ordenan el proceso de compra."
+        },
+        {
+          "texto": "El presupuesto de compras sirve solo para registrar gastos ya realizados.",
+          "correcto": false,
+          "explicacion": "Falso. El presupuesto asigna recursos y fija límites antes de comprar, funcionando como herramienta de control."
+        },
+        {
+          "texto": "Luego de recibir la mercadería, ya no hace falta registrarla en el sistema.",
+          "correcto": false,
+          "explicacion": "Falso. La última etapa incluye almacenamiento y registro para actualizar inventarios y contabilidad."
+        }
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "5-7",
+      "pares": [
+        {
+          "izquierda": "Planeamiento de compras",
+          "derecha": "Pronostica necesidades futuras y define qué, cuándo y cuánto comprar",
+          "emoji": "🧭"
+        },
+        {
+          "izquierda": "Presupuesto de compras",
+          "derecha": "Asigna recursos y límites de gasto",
+          "emoji": "💸"
+        },
+        {
+          "izquierda": "Selección del proveedor",
+          "derecha": "Evalúa precio, calidad, plazos y reputación",
+          "emoji": "🔎"
+        },
+        {
+          "izquierda": "Almacenamiento y registro",
+          "derecha": "Actualiza inventarios y contabilidad",
+          "emoji": "🗂️"
+        }
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "5-7",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "📊",
+          "pregunta": "¿Cuál NO forma parte de la información del sector compras?",
+          "paginas": "5",
+          "palabras": [
+            {
+              "text": "Desempeño de proveedores",
+              "es_intrusa": false
+            },
+            {
+              "text": "Tendencias de la industria",
+              "es_intrusa": false
+            },
+            {
+              "text": "Historial de compras internas",
+              "es_intrusa": false
+            },
+            {
+              "text": "Color del logo de la empresa",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "El color del logo no es información relevante para decidir compras; las otras opciones sí aparecen como datos útiles del sector."
+        },
+        {
+          "id": 1,
+          "emoji": "🧾",
+          "pregunta": "¿Cuál NO es una etapa del procesamiento de la compra según la unidad?",
+          "paginas": "7",
+          "palabras": [
+            {
+              "text": "Detección de la necesidad",
+              "es_intrusa": false
+            },
+            {
+              "text": "Selección del proveedor",
+              "es_intrusa": false
+            },
+            {
+              "text": "Seguimiento y recepción",
+              "es_intrusa": false
+            },
+            {
+              "text": "Campaña de fidelización",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "Campaña de fidelización pertenece al marketing o ventas; no forma parte del proceso de compra presentado en el PDF."
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "5-7",
+      "conceptos": [
+        {
+          "termino": "Política de compras",
+          "pista": "¿Qué función cumplen las reglas y directrices en el área de compras?",
+          "palabras_clave": [
+            "reglas",
+            "directrices",
+            "selección",
+            "transparencia",
+            "eficiencia",
+            "empresa"
+          ]
+        },
+        {
+          "termino": "Planeamiento de compras",
+          "pista": "Explicá por qué anticipar necesidades mejora las decisiones de compra.",
+          "palabras_clave": [
+            "pronostica",
+            "necesidades",
+            "futuras",
+            "cuándo",
+            "cantidades",
+            "faltantes"
+          ]
+        },
+        {
+          "termino": "Transacción de compra",
+          "pista": "¿Qué etapas recorre una compra desde que aparece la necesidad hasta el registro final?",
+          "palabras_clave": [
+            "necesidad",
+            "proveedor",
+            "seguimiento",
+            "recepción",
+            "registro",
+            "almacenamiento"
+          ]
+        }
+      ]
+    },
+    "n8_causa_efecto": {
+      "paginas_referencia": "5-7",
+      "causas": [
+        {
+          "id": 0,
+          "emoji": "🧭",
+          "text": "La empresa planifica y presupuesta sus compras"
+        },
+        {
+          "id": 1,
+          "emoji": "📚",
+          "text": "Se dispone de información precisa sobre mercado y proveedores"
+        },
+        {
+          "id": 2,
+          "emoji": "⏰",
+          "text": "No se realiza seguimiento del pedido"
+        },
+        {
+          "id": 3,
+          "emoji": "📦",
+          "text": "La mercadería se recibe y se controla correctamente"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 0,
+          "causa_id": 0,
+          "emoji": "✅",
+          "text": "Las compras dejan de ser reactivas y se optimizan costos"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "🎯",
+          "text": "Mejoran las decisiones estratégicas de adquisición"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "⚠️",
+          "text": "Pueden incumplirse plazos o aparecer problemas sin detectar a tiempo"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "🗃️",
+          "text": "Se puede almacenar y registrar con información confiable"
+        }
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos del procesamiento de una compra tal como aparecen en la unidad:",
+      "paginas_referencia": "7",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 0,
+          "emoji": "❗",
+          "text": "Detección de la necesidad"
+        },
+        {
+          "id": 1,
+          "emoji": "👤",
+          "text": "Selección del proveedor"
+        },
+        {
+          "id": 2,
+          "emoji": "🚚",
+          "text": "Seguimiento y recepción"
+        },
+        {
+          "id": 3,
+          "emoji": "🗂️",
+          "text": "Almacenamiento y registro"
+        }
+      ]
+    },
+    "n10_comparador": {
+      "paginas_referencia": "5-6",
+      "concepto_a": {
+        "nombre": "Planeamiento de compras",
+        "emoji": "🧭",
+        "color": "#F59E0B"
+      },
+      "concepto_b": {
+        "nombre": "Presupuesto de compras",
+        "emoji": "💸",
+        "color": "#10B981"
+      }
+    }
+  },
+  "nucleo_c": {
+    "bloque_info": {
+      "id": "c",
+      "emoji": "📦",
+      "titulo": "BLOQUE C: Abastecimiento, inventarios y valuación",
+      "color": "#10B981",
+      "paginas": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená la secuencia del ejemplo PEPS con smartwatches durante abril:",
+      "paginas_referencia": "11-13",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "📥",
+          "text": "Inventario inicial del 01/04"
+        },
+        {
+          "id": 1,
+          "emoji": "🛒",
+          "text": "Compra del 05/04"
+        },
+        {
+          "id": 2,
+          "emoji": "💰",
+          "text": "Venta del 10/04"
+        },
+        {
+          "id": 3,
+          "emoji": "🛒",
+          "text": "Compra del 15/04"
+        },
+        {
+          "id": 4,
+          "emoji": "💸",
+          "text": "Venta del 20/04"
+        }
+      ],
+      "orden_correcto": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá cada elemento según corresponda a abastecimiento o inventarios:",
+      "paginas_referencia": "8",
+      "categorias": [
+        {
+          "name": "Abastecimiento",
+          "emoji": "🚚",
+          "color": "#34D399"
+        },
+        {
+          "name": "Inventarios",
+          "emoji": "📦",
+          "color": "#10B981"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Asegura flujo continuo de recursos",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Materia prima",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Minimiza interrupciones",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "Productos terminados",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Optimiza la cadena de suministro",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Productos en proceso",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+    "n3_completar_mapa": {
+      "paginas_referencia": "8-10",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "Las fichas de stock registran entradas, salidas y el",
+          "respuesta_correcta": "saldo",
+          "pista": "S____"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "PEPS significa Primeras Entradas, Primeras",
+          "respuesta_correcta": "Salidas",
+          "pista": "S______"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "El método PPP usa un costo unitario",
+          "respuesta_correcta": "promedio",
+          "pista": "P_______"
+        }
+      ]
+    },
+    "n4_verdadero_falso": {
+      "paginas_referencia": "8-16",
+      "afirmaciones": [
+        {
+          "texto": "Abastecimiento e inventarios son dos temas completamente independientes y sin relación.",
+          "correcto": false,
+          "explicacion": "Falso. La unidad los presenta como dos caras de la misma moneda dentro del flujo de recursos."
+        },
+        {
+          "texto": "En PEPS, las primeras unidades en entrar son las primeras en salir.",
+          "correcto": true,
+          "explicacion": "Verdadero. Ese es el supuesto central del método PEPS/FIFO."
+        },
+        {
+          "texto": "En un entorno de precios crecientes, UEPS muestra menor costo de ventas que PEPS.",
+          "correcto": false,
+          "explicacion": "Falso. En el ejemplo comparativo, UEPS da un costo de ventas mayor y un inventario final menor que PEPS."
+        }
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "9-10, 16",
+      "pares": [
+        {
+          "izquierda": "PEPS",
+          "derecha": "Primeras entradas, primeras salidas",
+          "emoji": "1️⃣"
+        },
+        {
+          "izquierda": "UEPS",
+          "derecha": "Últimas entradas, primeras salidas",
+          "emoji": "🔚"
+        },
+        {
+          "izquierda": "PPP",
+          "derecha": "Precio promedio ponderado móvil",
+          "emoji": "➗"
+        },
+        {
+          "izquierda": "Ficha de stock",
+          "derecha": "Registro de entradas, salidas y saldo",
+          "emoji": "📋"
+        }
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "8-16",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "📦",
+          "pregunta": "¿Cuál NO aparece como tipo de existencia dentro de inventarios?",
+          "paginas": "8",
+          "palabras": [
+            {
+              "text": "Materia prima",
+              "es_intrusa": false
+            },
+            {
+              "text": "Productos terminados",
+              "es_intrusa": false
+            },
+            {
+              "text": "Productos en proceso",
+              "es_intrusa": false
+            },
+            {
+              "text": "Publicidad digital",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "Publicidad digital no forma parte del inventario físico mencionado en la unidad."
+        },
+        {
+          "id": 1,
+          "emoji": "🧮",
+          "pregunta": "¿Cuál NO es un método de valuación de inventarios de los trabajados en la unidad?",
+          "paginas": "10, 14-16",
+          "palabras": [
+            {
+              "text": "PEPS",
+              "es_intrusa": false
+            },
+            {
+              "text": "UEPS",
+              "es_intrusa": false
+            },
+            {
+              "text": "PPP",
+              "es_intrusa": false
+            },
+            {
+              "text": "TIR",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "TIR es un indicador financiero de inversión, no un método de valuación de inventarios."
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "8-16",
+      "conceptos": [
+        {
+          "termino": "Abastecimiento",
+          "pista": "¿Por qué no alcanza con comprar una vez y ya? Explicá la idea de flujo continuo de recursos.",
+          "palabras_clave": [
+            "proceso",
+            "continuo",
+            "bienes",
+            "servicios",
+            "recursos",
+            "flujo"
+          ]
+        },
+        {
+          "termino": "Valuación de inventarios",
+          "pista": "Explicá para qué sirve ponerle valor monetario a las existencias.",
+          "palabras_clave": [
+            "valor",
+            "monetario",
+            "existencias",
+            "costo",
+            "ventas",
+            "inventario"
+          ]
+        },
+        {
+          "termino": "PPP",
+          "pista": "¿Cómo funciona el promedio ponderado móvil frente a compras con precios distintos?",
+          "palabras_clave": [
+            "promedio",
+            "ponderado",
+            "costo",
+            "recalcula",
+            "compra",
+            "precio"
+          ]
+        }
+      ]
+    },
+    "n8_causa_efecto": {
+      "paginas_referencia": "8-10, 14-16",
+      "causas": [
+        {
+          "id": 0,
+          "emoji": "📉",
+          "text": "Se gestiona mal el inventario"
+        },
+        {
+          "id": 1,
+          "emoji": "📋",
+          "text": "Se registran entradas, salidas y saldo en fichas de stock"
+        },
+        {
+          "id": 2,
+          "emoji": "📈",
+          "text": "Los precios vienen creciendo y se aplica UEPS"
+        },
+        {
+          "id": 3,
+          "emoji": "➗",
+          "text": "Se utiliza PPP"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 0,
+          "causa_id": 0,
+          "emoji": "⚠️",
+          "text": "Puede afectar el capital de trabajo y la capacidad de respuesta"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "👀",
+          "text": "Se logra control físico y contable del artículo"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "💸",
+          "text": "El costo de ventas resulta más alto y el inventario final más bajo que con PEPS"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "⚖️",
+          "text": "Los valores del inventario final y del costo de ventas quedan en un punto intermedio"
+        }
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená la lógica de cálculo del PPP según el material:",
+      "paginas_referencia": "15-16",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 0,
+          "emoji": "📦",
+          "text": "Tomar el saldo anterior del inventario"
+        },
+        {
+          "id": 1,
+          "emoji": "🛒",
+          "text": "Sumar el costo de la nueva compra"
+        },
+        {
+          "id": 2,
+          "emoji": "🔢",
+          "text": "Calcular la nueva cantidad total"
+        },
+        {
+          "id": 3,
+          "emoji": "➗",
+          "text": "Obtener el nuevo precio promedio"
+        },
+        {
+          "id": 4,
+          "emoji": "💰",
+          "text": "Valuar las salidas con ese último promedio"
+        }
+      ]
+    },
+    "n10_comparador": {
+      "paginas_referencia": "10, 14-16",
+      "concepto_a": {
+        "nombre": "PEPS",
+        "emoji": "1️⃣",
+        "color": "#6366F1"
+      },
+      "concepto_b": {
+        "nombre": "UEPS",
+        "emoji": "🔚",
+        "color": "#EC4899"
+      }
+    }
+  },
+  "senales": {
+    "conceptos_clave": [
+      {
+        "emoji": "🛒",
+        "termino": "Compra estratégica",
+        "color": "#F97316",
+        "definicion": "Proceso empresarial que busca satisfacer necesidades asegurando calidad, cantidad, precio y plazo adecuados.",
+        "importancia": "Sin esta idea, la compra queda reducida a 'gastar plata' y no se entiende su impacto real sobre costos, calidad y funcionamiento de la empresa."
+      },
+      {
+        "emoji": "📜",
+        "termino": "Políticas de compras",
+        "color": "#6366F1",
+        "definicion": "Reglas y directrices que ordenan cómo comprar, a quién comprarle y bajo qué criterios hacerlo.",
+        "importancia": "Sin políticas claras, las compras se vuelven arbitrarias, poco transparentes y más riesgosas para la empresa."
+      },
+      {
+        "emoji": "📦",
+        "termino": "Inventario",
+        "color": "#10B981",
+        "definicion": "Conjunto de bienes y existencias que la empresa posee para vender, transformar o utilizar en su operación.",
+        "importancia": "Sin entender inventarios no se puede analizar faltantes, exceso de stock, capital inmovilizado ni continuidad operativa."
+      },
+      {
+        "emoji": "🧮",
+        "termino": "Valuación de inventarios",
+        "color": "#EC4899",
+        "definicion": "Procedimiento mediante el cual se asigna valor monetario a las existencias para calcular inventario final y costo de ventas.",
+        "importancia": "Sin esto no se comprende cómo el stock afecta la contabilidad, los estados financieros y la toma de decisiones comerciales."
+      }
+    ],
+    "semaforo_conceptos": [
+      {
+        "emoji": "🛒",
+        "termino": "Compra estratégica"
+      },
+      {
+        "emoji": "🤝",
+        "termino": "Selección de proveedores"
+      },
+      {
+        "emoji": "📊",
+        "termino": "Planeamiento y presupuesto"
+      },
+      {
+        "emoji": "📦",
+        "termino": "Abastecimiento e inventarios"
+      },
+      {
+        "emoji": "🧮",
+        "termino": "PEPS, UEPS y PPP"
+      }
+    ],
+    "postits_conceptos": [
+      "Calidad",
+      "Presupuesto",
+      "Stock",
+      "Valuación"
+    ]
+  },
+  "sabias": {
+    "flip_cards": [
+      {
+        "emoji": "🛒",
+        "color": "#6366F1",
+        "frente": "Comprar bien puede hacer ganar o perder plata sin vender una unidad más",
+        "dorso": "En la unidad se ve que compras impacta directo en costos, calidad, continuidad operativa y rentabilidad. A veces la diferencia entre una empresa ordenada y una desordenada no está en vender más, sino en comprar mejor."
+      },
+      {
+        "emoji": "📦",
+        "color": "#10B981",
+        "frente": "Tener mucho stock no siempre es una ventaja",
+        "dorso": "El material muestra que gestionar inventarios no es acumular por acumular. Un exceso inmoviliza recursos, pero un faltante puede frenar operaciones o hacer perder ventas: el desafío es el equilibrio."
+      },
+      {
+        "emoji": "🧮",
+        "color": "#EC4899",
+        "frente": "El mismo movimiento de mercadería puede dar resultados contables distintos",
+        "dorso": "Con PEPS, UEPS y PPP cambian el inventario final y el costo de ventas aun usando las mismas compras y ventas. O sea: no solo importa cuánto entra y cuánto sale, sino también cómo lo valuás."
+      }
+    ],
+    "linea_de_tiempo": [
+      {
+        "emoji": "🧾",
+        "year": "Inicio",
+        "text": "La unidad parte del concepto de compra como proceso estratégico empresarial"
+      },
+      {
+        "emoji": "🏢",
+        "year": "Organización",
+        "text": "Luego ubica a compras como área conectada con producción, ventas, finanzas y logística"
+      },
+      {
+        "emoji": "📊",
+        "year": "Planificación",
+        "text": "Después incorpora información, políticas, planeamiento y presupuesto"
+      },
+      {
+        "emoji": "📦",
+        "year": "Control",
+        "text": "Más adelante trabaja abastecimiento, inventarios y fichas de stock"
+      },
+      {
+        "emoji": "🧮",
+        "year": "Valuación",
+        "text": "Cierra comparando PEPS, UEPS y PPP con ejemplos aplicados"
+      }
+    ],
+    "encuesta": {
+      "pregunta": "¿Qué dato te sorprendió más?",
+      "opciones": [
+        {
+          "emoji": "🛒",
+          "text": "Que compras influya tanto en la rentabilidad",
+          "votos_iniciales": 37
+        },
+        {
+          "emoji": "📦",
+          "text": "Que demasiado stock también puede ser un problema",
+          "votos_iniciales": 33
+        },
+        {
+          "emoji": "🧮",
+          "text": "Que distintos métodos den resultados contables distintos",
+          "votos_iniciales": 30
+        }
+      ]
+    }
+  },
+  "cruces": {
+    "consigna_general": "Elegí un bloque y explicáselo a un compañero como si fueras parte del equipo que quiere capacitar a alguien nuevo en una empresa. Tenés que usar al menos un ejemplo concreto del material y dejar claro por qué ese tema sirve para tomar mejores decisiones.",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "🛒",
+        "titulo": "BLOQUE A: Qué compra una empresa y por qué importa",
+        "color": "#6366F1",
+        "temas_sugeridos": [
+          "Qué significa compra estratégica",
+          "Funciones del departamento de compras",
+          "Por qué impacta en costos, calidad y continuidad",
+          "Diferencias de estrategia según el rubro",
+          "Vínculo entre compras y otras áreas"
+        ],
+        "placeholder": "Escribí acá qué tema elegiste, qué ejemplo vas a usar y cómo se lo explicarías a tu compañero..."
+      },
+      {
+        "id": "b",
+        "emoji": "📊",
+        "titulo": "BLOQUE B: Cómo se decide y se ejecuta una compra",
+        "color": "#F59E0B",
+        "temas_sugeridos": [
+          "Qué información necesita compras",
+          "Para qué sirven las políticas",
+          "Diferencia entre planeamiento y presupuesto",
+          "Etapas de una transacción de compra",
+          "Qué errores puede haber si no se registra bien"
+        ],
+        "placeholder": "Escribí acá qué tema elegiste, qué ejemplo vas a usar y cómo se lo explicarías a tu compañero..."
+      },
+      {
+        "id": "c",
+        "emoji": "📦",
+        "titulo": "BLOQUE C: Cómo se controla el stock y cómo se valúa",
+        "color": "#10B981",
+        "temas_sugeridos": [
+          "Abastecimiento e inventarios",
+          "Qué muestra una ficha de stock",
+          "Cómo funciona PEPS",
+          "Cómo cambia el resultado con UEPS o PPP",
+          "Qué método te parece más claro para aprender"
+        ],
+        "placeholder": "Escribí acá qué tema elegiste, qué ejemplo vas a usar y cómo se lo explicarías a tu compañero..."
+      }
+    ]
+  },
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "¿Conviene priorizar siempre comprar al menor precio posible?",
+      "contexto": "La unidad muestra que compras no solo busca precio bajo, sino también calidad, plazo, continuidad, trazabilidad, ética y control del stock. El debate es decidir qué debería priorizar una empresa cuando compra y qué riesgos asume si se queda con un solo criterio.",
+      "roles": [
+        {
+          "id": "fiscal",
+          "emoji": "💸",
+          "label": "A favor del menor precio",
+          "desc": "Defendé que bajar costos de compra debería ser la prioridad principal porque mejora rentabilidad y competitividad.",
+          "color": "#6366F1"
+        },
+        {
+          "id": "defensa",
+          "emoji": "✅",
+          "label": "A favor de una compra integral",
+          "desc": "Defendé que además del precio importan calidad, cumplimiento, stock, documentación y confiabilidad del proveedor.",
+          "color": "#EC4899"
+        },
+        {
+          "id": "juez",
+          "emoji": "⚖️",
+          "label": "Posición equilibrada",
+          "desc": "Proponé una postura razonable: cuándo conviene priorizar precio y cuándo otros factores pesan más.",
+          "color": "#10B981"
+        }
+      ]
+    },
+    "tesis": {
+      "consigna": "Formulá una tesis sobre esta idea: 'Una empresa que planifica sus compras y controla su inventario compra mejor que una que solo reacciona ante urgencias'. Incluí: (1) postura, (2) dos argumentos, (3) un ejemplo del material y (4) una conclusión."
+    },
+    "critica": {
+      "consigna": "Analizá críticamente la unidad: ¿qué te pareció más complejo, decidir a quién comprar, planificar el presupuesto o valuar el stock? ¿Qué errores pensás que serían más graves en una empresa real y por qué?"
+    }
+  },
+  "autotest": {
+    "banco_respuestas_docente": [
+      "1. B - La compra es un proceso estratégico que asegura calidad, cantidad, precio y plazo adecuados. (p. 2-3)",
+      "2. B - Gestión documental. (p. 2)",
+      "3. C - Optimizar costos y mejorar rentabilidad. (p. 3)",
+      "4. A - Producción, ventas y finanzas. (p. 4)",
+      "5. A - Información precisa y políticas claras. (p. 5)",
+      "6. B - Pronostica necesidades futuras y define qué, cuándo y cuánto comprar. (p. 6)",
+      "7. C - Selección del proveedor. (p. 7)",
+      "8. B - Conjunto de bienes y existencias para venta o transformación. (p. 8)",
+      "9. C - PEPS. (p. 10-13)",
+      "10. B - PPP da valores intermedios entre PEPS y UEPS. (p. 16)",
+      "11. VERDADERO - Una compra deficiente puede generar cuellos de botella y pérdida de clientes. (p. 4)",
+      "12. FALSO - El presupuesto de compras no registra solo gastos pasados; asigna recursos y límites futuros. (p. 6)",
+      "13. VERDADERO - Las fichas de stock registran entradas, salidas y saldo. (p. 9)",
+      "14. FALSO - En UEPS no salen primero las unidades más antiguas, sino las últimas que entraron. (p. 14)",
+      "15. VERDADERO - En el ejemplo final, UEPS muestra mayor costo de ventas que PEPS en precios crecientes. (p. 14 y 16)"
+    ],
+    "preguntas": [
+      {
+        "pregunta": "¿Cómo define la unidad a la compra en el ámbito empresarial?",
+        "opciones": [
+          "Como un gasto inevitable sin valor estratégico",
+          "Como un proceso estratégico que busca asegurar calidad, cantidad, precio y plazo adecuados",
+          "Como una tarea exclusiva de contabilidad",
+          "Como una venta diferida al proveedor"
+        ],
+        "correcta": 1,
+        "explicacion": "La unidad explica que comprar no es solo adquirir bienes o servicios, sino satisfacer necesidades empresariales con calidad, cantidad, precio y plazo adecuados. Revisá las páginas 2-3."
+      },
+      {
+        "pregunta": "¿Cuál de estas funciones aparece explícitamente como complementaria del departamento de compras?",
+        "opciones": [
+          "Diseño publicitario",
+          "Gestión documental",
+          "Selección de personal",
+          "Auditoría impositiva externa"
+        ],
+        "correcta": 1,
+        "explicacion": "Entre las funciones complementarias se menciona la gestión documental de órdenes de compra, facturas, contratos y registros. Revisá la página 2."
+      },
+      {
+        "pregunta": "¿Qué beneficio estratégico logra una buena gestión de compras según el material?",
+        "opciones": [
+          "Evitar toda competencia",
+          "Eliminar la necesidad de inventarios",
+          "Optimizar costos y mejorar rentabilidad",
+          "Reemplazar a todas las demás áreas"
+        ],
+        "correcta": 2,
+        "explicacion": "La importancia estratégica de compras incluye optimización de costos, garantía de calidad, continuidad operativa y ventaja competitiva. Revisá la página 3."
+      },
+      {
+        "pregunta": "¿Con qué áreas internas se relaciona directamente el área de compras en el esquema de la unidad?",
+        "opciones": [
+          "Producción, ventas y finanzas",
+          "Marketing, recursos humanos y legales",
+          "Diseño, auditoría y prensa",
+          "Solo logística"
+        ],
+        "correcta": 0,
+        "explicacion": "El esquema presenta a compras articulada con producción, ventas y finanzas; además luego se menciona logística en las relaciones clave. Revisá la página 4."
+      },
+      {
+        "pregunta": "¿Qué necesitan el área de compras y sus decisiones para funcionar eficazmente?",
+        "opciones": [
+          "Información precisa y políticas claras",
+          "Solo intuición del comprador",
+          "Un gran stock permanente",
+          "Publicidad constante"
+        ],
+        "correcta": 0,
+        "explicacion": "La página 5 remarca que la información es el combustible de las decisiones y que las políticas son la guía operativa. Revisá la página 5."
+      },
+      {
+        "pregunta": "¿Qué hace el planeamiento de compras?",
+        "opciones": [
+          "Registra compras ya cerradas",
+          "Pronostica necesidades futuras y define qué, cuándo y cuánto comprar",
+          "Calcula sueldos del personal",
+          "Vende los excedentes de stock"
+        ],
+        "correcta": 1,
+        "explicacion": "El planeamiento pronostica necesidades futuras según demanda, producción y crecimiento, definiendo compras con anticipación. Revisá la página 6."
+      },
+      {
+        "pregunta": "¿Cuál es la segunda etapa del procesamiento de transacciones de compra?",
+        "opciones": [
+          "Almacenamiento y registro",
+          "Seguimiento y recepción",
+          "Selección del proveedor",
+          "Detección de la necesidad"
+        ],
+        "correcta": 2,
+        "explicacion": "La secuencia presentada es: detección de la necesidad, selección del proveedor, seguimiento y recepción, y almacenamiento y registro. Revisá la página 7."
+      },
+      {
+        "pregunta": "¿Qué son los inventarios según la unidad?",
+        "opciones": [
+          "Solo mercaderías obsoletas",
+          "El conjunto de bienes y existencias para venta o transformación",
+          "Un gasto fijo mensual",
+          "Documentos contables de compras"
+        ],
+        "correcta": 1,
+        "explicacion": "La unidad define inventarios como el conjunto de bienes y existencias que la empresa posee para vender o transformar. Revisá la página 8."
+      },
+      {
+        "pregunta": "¿Qué método supone que las primeras unidades que entran son las primeras en salir?",
+        "opciones": [
+          "UEPS",
+          "PPP",
+          "PEPS",
+          "LIFO"
+        ],
+        "correcta": 2,
+        "explicacion": "PEPS significa Primeras Entradas, Primeras Salidas, y así se desarrolla en el ejemplo práctico. Revisá las páginas 10-13."
+      },
+      {
+        "pregunta": "En un contexto de precios crecientes, ¿qué muestra la comparación final entre PEPS, UEPS y PPP?",
+        "opciones": [
+          "UEPS deja el inventario final más alto que PEPS",
+          "PPP da valores intermedios entre PEPS y UEPS",
+          "PEPS da siempre el mayor costo de ventas",
+          "Los tres métodos arrojan exactamente el mismo resultado"
+        ],
+        "correcta": 1,
+        "explicacion": "La comparación final muestra que PPP queda en un punto intermedio: inventario final y costo de ventas intermedios respecto de PEPS y UEPS. Revisá la página 16."
+      }
+    ],
+    "verdadero_falso": [
+      {
+        "texto": "Una compra deficiente puede generar cuellos de botella, aumento de costos y pérdida de clientes.",
+        "correcto": true,
+        "explicacion": "Verdadero. El PDF señala que compras está conectada con todas las áreas y que una compra deficiente puede producir esos efectos. Revisá la página 4."
+      },
+      {
+        "texto": "El presupuesto de compras sirve únicamente para anotar lo que la empresa ya gastó.",
+        "correcto": false,
+        "explicacion": "Falso. El presupuesto asigna recursos financieros y fija límites de gasto para controlar compras futuras. Revisá la página 6."
+      },
+      {
+        "texto": "Las fichas de stock permiten registrar entradas, salidas y saldo de cada artículo.",
+        "correcto": true,
+        "explicacion": "Verdadero. Esa es la función central de las fichas de stock en el control detallado del inventario. Revisá la página 9."
+      },
+      {
+        "texto": "En el método UEPS, se venden primero las unidades más antiguas del almacén.",
+        "correcto": false,
+        "explicacion": "Falso. UEPS supone que las últimas unidades que entraron son las primeras en salir. Revisá la página 14."
+      },
+      {
+        "texto": "En la comparación final de métodos, UEPS arroja un costo de ventas mayor que PEPS en un contexto de precios crecientes.",
+        "correcto": true,
+        "explicacion": "Verdadero. La tabla comparativa final muestra UEPS con costo de ventas más alto y menor inventario final que PEPS. Revisá las páginas 14 y 16."
+      }
+    ]
+  },
+  "cierre": {
+    "glosario": [
+      {
+        "emoji": "🛒",
+        "termino": "Compra",
+        "categoria": "Concepto base",
+        "definicion": "Proceso estratégico mediante el cual la empresa adquiere bienes o servicios asegurando calidad, cantidad, precio y plazo adecuados."
+      },
+      {
+        "emoji": "🤝",
+        "termino": "Proveedor",
+        "categoria": "Actores",
+        "definicion": "Persona o empresa que suministra bienes o servicios a la organización compradora."
+      },
+      {
+        "emoji": "📜",
+        "termino": "Política de compras",
+        "categoria": "Gestión",
+        "definicion": "Conjunto de reglas y criterios que orientan cómo se realizan las compras en la empresa."
+      },
+      {
+        "emoji": "🧭",
+        "termino": "Planeamiento de compras",
+        "categoria": "Gestión",
+        "definicion": "Pronóstico y organización anticipada de qué comprar, cuándo hacerlo y en qué cantidades."
+      },
+      {
+        "emoji": "💸",
+        "termino": "Presupuesto de compras",
+        "categoria": "Finanzas",
+        "definicion": "Asignación de recursos y límites de gasto para controlar adquisiciones."
+      },
+      {
+        "emoji": "📦",
+        "termino": "Inventario",
+        "categoria": "Stock",
+        "definicion": "Conjunto de existencias que la empresa posee para vender, transformar o usar en sus operaciones."
+      },
+      {
+        "emoji": "📋",
+        "termino": "Ficha de stock",
+        "categoria": "Control",
+        "definicion": "Registro detallado de entradas, salidas y saldo de cada artículo del inventario."
+      },
+      {
+        "emoji": "🧮",
+        "termino": "Valuación de inventarios",
+        "categoria": "Contabilidad",
+        "definicion": "Asignación de valor monetario al stock para calcular inventario final y costo de ventas."
+      }
+    ],
+    "recursos": [
+      {
+        "tipo": "🎬 Video",
+        "title": "¿Qué es la gestión de inventarios? - Educatina",
+        "desc": "Video introductorio para reforzar la idea de stock, control y registro dentro de la empresa.",
+        "nivel": "Introductorio",
+        "color": "#EC4899"
+      },
+      {
+        "tipo": "🎧 Podcast",
+        "title": "Emprender y gestionar un negocio - Aprender de Grandes",
+        "desc": "Episodio útil para pensar cómo las decisiones de gestión, costos y organización impactan en un negocio real.",
+        "nivel": "Introductorio",
+        "color": "#8B5CF6"
+      },
+      {
+        "tipo": "🌐 Web",
+        "title": "Khan Academy en Español - Inventarios y costo de ventas",
+        "desc": "Recurso web para reforzar conceptos contables vinculados con inventarios, costo de ventas y valuación.",
+        "nivel": "Intermedio",
+        "color": "#10B981"
+      },
+      {
+        "tipo": "📄 Artículo",
+        "title": "FIFO, LIFO y promedio ponderado: diferencias básicas",
+        "desc": "Artículo de consulta para profundizar cómo cambian los resultados según el método de valuación elegido.",
+        "nivel": "Avanzado",
+        "color": "#F59E0B"
+      },
+      {
+        "tipo": "📖 Libro",
+        "title": "Administración de Compras y Abastecimientos",
+        "desc": "Libro de referencia sobre función de compras, proveedores, control de stock y decisiones de abastecimiento.",
+        "nivel": "Intermedio",
+        "color": "#6366F1"
+      }
+    ]
+  }
+}
