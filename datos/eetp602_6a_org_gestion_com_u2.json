@@ -33,72 +33,131 @@
     "termometro_pregunta": "¿Cuánto sabés sobre cómo manejar tu dinero de forma inteligente?"
   },
 
-  "mapa": {
-    "ruta_paradas": [
-      {"id": 1, "title": "Finanzas Personales", "desc": "Ganar, gastar, ahorrar y proteger: los 4 pilares", "emoji": "💰", "color": "#6366F1"},
-      {"id": 2, "title": "Presupuesto y Necesidades vs. Deseos", "desc": "Planificar, priorizar y la regla 50/30/20", "emoji": "📋", "color": "#3B82F6"},
-      {"id": 3, "title": "Ahorro, Deudas y Metas", "desc": "Hábitos, crédito responsable y metas SMART", "emoji": "🎯", "color": "#10B981"},
-      {"id": 4, "title": "Interés Simple y Compuesto", "desc": "Fórmulas, diferencias y el efecto exponencial", "emoji": "📈", "color": "#F59E0B"},
-      {"id": 5, "title": "Tasas, Inflación y Decisiones Reales", "desc": "TNA, TEA, CFT, tasa real y casos argentinos", "emoji": "🏦", "color": "#EC4899"}
-    ],
-    "panoramica_bloques": [
-      {
-        "title": "Bloque 1",
-        "subtitle": "Finanzas Personales",
-        "items": ["¿Qué son las finanzas personales?", "Ingresos y gastos: activos, pasivos, fijos, variables, hormiga", "Presupuesto personal y regla 50/30/20", "Necesidades vs. deseos", "El ahorro como hábito: pagáte a vos primero", "Las deudas: buenas y malas", "Metas financieras SMART: corto, mediano y largo plazo"],
-        "emoji": "💰",
-        "color": "#6366F1"
-      },
-      {
-        "title": "Bloque 2",
-        "subtitle": "Matemática Financiera",
-        "items": ["Valor del dinero en el tiempo", "Capital, tasa, tiempo y monto", "Interés simple: I = C × i × n", "Interés compuesto: M = C × (1+i)^n", "Comparación entre regímenes", "TNA, TEA, tasa nominal y tasa real", "Aplicaciones: plazo fijo, préstamos, tarjetas", "Inflación y ecuación de Fisher"],
-        "emoji": "📐",
-        "color": "#F59E0B"
-      },
-      {
-        "title": "Bloque 3",
-        "subtitle": "Profundización Aplicada",
-        "items": ["Caso real: trampa de la tarjeta con TEA 210%", "Sistema Francés de amortización", "CFT: Costo Financiero Total", "Valor Actual (VA)", "Tasa real en contexto inflacionario argentino", "Trabajo integrador: caso Tomás y la moto"],
-        "emoji": "🏦",
-        "color": "#EC4899"
-      }
-    ],
-    "mapa_mental": {
-      "centro": {"title": "Finanzas & Matemática Financiera", "emoji": "💰"},
-      "ramas": [
-        {
-          "id": 1,
-          "title": "¿Qué son las finanzas personales?",
-          "items": ["Ganar: ingresos activos y pasivos", "Gastar: gastos fijos, variables y hormiga", "Ahorrar: pagáte a vos primero (10%)", "Proteger: evitar deudas tóxicas"],
-          "color": "#6366F1",
-          "emoji": "💰"
-        },
-        {
-          "id": 2,
-          "title": "¿Cómo se planifica?",
-          "items": ["Presupuesto: estimar, listar, calcular", "Regla 50/30/20: necesidades, deseos, ahorro", "Metas SMART: específica, medible, alcanzable", "Corto (1 año), mediano (1-5), largo (+5)"],
-          "color": "#10B981",
-          "emoji": "📋"
-        },
-        {
-          "id": 3,
-          "title": "¿Cómo funciona el interés?",
-          "items": ["Simple: I = C × i × n (siempre sobre capital original)", "Compuesto: M = C × (1+i)^n (interés sobre interés)", "Simple crece lineal, compuesto exponencial", "TNA → tasa del período ÷ 12"],
-          "color": "#F59E0B",
-          "emoji": "📈"
-        },
-        {
-          "id": 4,
-          "title": "¿Por qué importa la inflación?",
-          "items": ["Tasa real = tasa nominal - inflación", "Fórmula de Fisher: (1+r) = (1+i)/(1+π)", "Tasa real negativa = perdés poder de compra", "Las deudas a tasa fija se 'licúan' en inflación"],
-          "color": "#EC4899",
-          "emoji": "🏦"
-        }
+
+"mapa": {
+  "ruta_paradas": [
+    {
+      "id": 0,
+      "emoji": "🛒",
+      "title": "Qué es comprar en una empresa",
+      "desc": "Concepto, funciones e importancia estratégica de las compras",
+      "color": "#6366F1"
+    },
+    {
+      "id": 1,
+      "emoji": "🏢",
+      "title": "Área de compras",
+      "desc": "Cómo se organiza y con qué sectores se relaciona internamente",
+      "color": "#3B82F6"
+    },
+    {
+      "id": 2,
+      "emoji": "📊",
+      "title": "Información y planeamiento",
+      "desc": "Políticas, presupuesto y decisiones para comprar con criterio",
+      "color": "#10B981"
+    },
+    {
+      "id": 3,
+      "emoji": "📦",
+      "title": "Abastecimiento e inventarios",
+      "desc": "Cómo asegurar recursos sin excesos ni faltantes",
+      "color": "#F59E0B"
+    },
+    {
+      "id": 4,
+      "emoji": "🧮",
+      "title": "Valuación del stock",
+      "desc": "PEPS, UEPS y PPP para valorar inventarios y costo de ventas",
+      "color": "#EC4899"
+    }
+  ],
+  "panoramica_bloques": [
+    {
+      "id": "a",
+      "emoji": "🛒",
+      "title": "BLOQUE A",
+      "subtitle": "Fundamentos de la compra estratégica",
+      "color": "#6366F1",
+      "items": [
+        "Concepto de compra",
+        "Funciones del departamento de compras",
+        "Importancia estratégica",
+        "Estrategias según el rubro",
+        "Relaciones internas del área"
+      ]
+    },
+    {
+      "id": "b",
+      "emoji": "📊",
+      "title": "BLOQUE B",
+      "subtitle": "Decidir, planificar y ejecutar compras",
+      "color": "#3B82F6",
+      "items": [
+        "Información del sector compras",
+        "Políticas de compras",
+        "Planeamiento",
+        "Presupuesto",
+        "Etapas de la transacción de compra"
+      ]
+    },
+    {
+      "id": "c",
+      "emoji": "📦",
+      "title": "BLOQUE C",
+      "subtitle": "Abastecimiento, inventarios y valuación",
+      "color": "#10B981",
+      "items": [
+        "Abastecimiento",
+        "Inventarios",
+        "Fichas de stock",
+        "PEPS, UEPS y PPP",
+        "Comparación de métodos"
       ]
     }
-  },
-
+  ],
+  "mapa_mental": {
+    "centro": "Compra estratégica",
+    "ramas": [
+      {
+        "pregunta": "¿Qué es?",
+        "items": [
+          "Proceso estratégico",
+          "Satisface necesidades",
+          "Asegura calidad-cantidad-precio-plazo",
+          "Base de la operación"
+        ]
+      },
+      {
+        "pregunta": "¿Qué hace?",
+        "items": [
+          "Selecciona proveedores",
+          "Negocia",
+          "Controla documentación",
+          "Gestiona inventarios"
+        ]
+      },
+      {
+        "pregunta": "¿Cómo se decide?",
+        "items": [
+          "Información precisa",
+          "Políticas claras",
+          "Planeamiento",
+          "Presupuesto"
+        ]
+      },
+      {
+        "pregunta": "¿Por qué importa?",
+        "items": [
+          "Reduce costos",
+          "Evita faltantes",
+          "Mejora calidad",
+          "Impacta en rentabilidad"
+        ]
+      }
+    ]
+  }
+},
   "nucleo": {
     "n1_ordenar_cronologicamente": {
       "consigna": "Ordená los pasos para armar un presupuesto personal correctamente:",
