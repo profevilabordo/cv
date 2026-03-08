@@ -1341,75 +1341,75 @@
       "Lean/JIT"
     ]
   },
-  "sabias": {
-    "flip_cards": [
+ "sabias": {
+  "flip_cards": [
+    {
+      "emoji": "📱",
+      "color": "#6366F1",
+      "frente": "Tu celular existe gracias a procesos productivos coordinados en distintos países",
+      "dorso": "Un mismo smartphone puede diseñarse en un país, fabricar sus componentes en varios más, ensamblarse en otro y venderse en todo el mundo. Esto muestra que producir hoy no es solo fabricar: es coordinar tecnología, logística, información y trabajo a escala global."
+    },
+    {
+      "emoji": "🚗",
+      "color": "#10B981",
+      "frente": "Toyota revolucionó la industria mundial produciendo solo lo necesario, en el momento justo",
+      "dorso": "El sistema Just-in-Time cambió la forma de organizar fábricas enteras: menos desperdicio, menos stock acumulado y más eficiencia. Una idea nacida para resolver problemas reales terminó transformando la producción en todo el planeta."
+    },
+    {
+      "emoji": "🤖",
+      "color": "#EC4899",
+      "frente": "Los robots no 'trabajan solos': detrás de ellos siempre hay personas que diseñan, programan y controlan",
+      "dorso": "En los procesos productivos modernos, la automatización no elimina por completo el trabajo humano: cambia su forma. Hoy hacen falta técnicos y especialistas capaces de programar sistemas, analizar datos, mantener equipos y mejorar procesos."
+    }
+  ],
+  "linea_de_tiempo": [
+    {
+      "emoji": "🪵",
+      "year": "Antes",
+      "text": "La producción dependía casi por completo de la fuerza humana, herramientas simples y recursos naturales cercanos."
+    },
+    {
+      "emoji": "🏭",
+      "year": "Revolución Industrial",
+      "text": "Las máquinas, las fábricas y nuevas fuentes de energía cambiaron para siempre la escala y la velocidad de producción."
+    },
+    {
+      "emoji": "📦",
+      "year": "Siglo XX",
+      "text": "La producción en serie, en masa y luego el modelo Lean transformaron la organización del trabajo y la eficiencia industrial."
+    },
+    {
+      "emoji": "💻",
+      "year": "Hoy",
+      "text": "Producir también significa usar software, datos en tiempo real, automatización e inteligencia artificial."
+    },
+    {
+      "emoji": "🌍",
+      "year": "Lo que viene",
+      "text": "Los procesos productivos del futuro estarán cada vez más ligados a la sustentabilidad, la personalización y el control digital."
+    }
+  ],
+  "encuesta": {
+    "pregunta": "¿Qué idea te impacta más sobre la producción actual?",
+    "opciones": [
       {
-        "emoji": "🚂",
-        "color": "#6366F1",
-        "frente": "La Revolución Industrial cambió para siempre la forma de producir",
-        "dorso": "El PDF la presenta como un punto de quiebre: aparecen las máquinas, nuevas fuentes de energía y la concentración del trabajo en fábricas, dando origen a la producción en serie."
-      },
-      {
-        "emoji": "📦",
-        "color": "#10B981",
-        "frente": "Lean no busca producir más: busca producir mejor",
-        "dorso": "La filosofía Lean/JIT se enfoca en eliminar desperdicios, reducir inventarios y producir exactamente lo que se necesita, cuando se necesita."
-      },
-      {
-        "emoji": "💻",
-        "color": "#EC4899",
-        "frente": "En la producción actual, la información vale tanto como la materia prima",
-        "dorso": "El material explica que hoy se integran software de gestión, automatización, datos en tiempo real e inteligencia artificial, convirtiendo al proceso en un sistema tecno-organizacional."
-      }
-    ],
-    "linea_de_tiempo": [
-      {
-        "emoji": "🏹",
-        "year": "Orígenes",
-        "text": "Sociedades primitivas: producción orientada a la subsistencia"
-      },
-      {
-        "emoji": "🏰",
-        "year": "Edad Media",
-        "text": "Predominio de la producción artesanal y los gremios"
-      },
-      {
-        "emoji": "🚂",
-        "year": "Revolución Industrial",
-        "text": "Máquinas, vapor, fábricas y producción en serie"
+        "emoji": "📱",
+        "text": "Que un producto como el celular dependa de una red global de producción",
+        "votos_iniciales": 39
       },
       {
         "emoji": "🚗",
-        "year": "Siglos XIX-XX",
-        "text": "Fordismo, toyotismo y expansión de la producción en masa"
+        "text": "Que producir menos desperdicio haya cambiado fábricas en todo el mundo",
+        "votos_iniciales": 31
       },
       {
         "emoji": "🤖",
-        "year": "Actualidad",
-        "text": "Automatización, robotización, informática e inteligencia artificial"
+        "text": "Que la tecnología no elimine el trabajo, sino que lo vuelva más técnico",
+        "votos_iniciales": 45
       }
-    ],
-    "encuesta": {
-      "pregunta": "¿Qué cambio te parece más transformador para la producción actual?",
-      "opciones": [
-        {
-          "emoji": "🤖",
-          "text": "La automatización y robotización",
-          "votos_iniciales": 41
-        },
-        {
-          "emoji": "📊",
-          "text": "Los datos en tiempo real y el software",
-          "votos_iniciales": 34
-        },
-        {
-          "emoji": "🎯",
-          "text": "Lean/JIT y la eliminación de desperdicios",
-          "votos_iniciales": 27
-        }
-      ]
-    }
-  },
+    ]
+  }
+},
   "cruces": {
     "consigna_general": "Elegí un tema de cada bloque y preparalo para explicárselo a un compañero con ejemplos del mundo real o de la informática. Podés usar cuadro comparativo, esquema, mini exposición o infografía.",
     "bloques": [
