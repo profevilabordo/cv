@@ -71,6 +71,7 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 .tool-card h3{font-size:15px;font-weight:800;color:#F8FAFC;font-family:'Space Grotesk',sans-serif;margin-bottom:6px}
 .tool-card p{font-size:12px;color:#94A3B8;line-height:1.5;margin-bottom:14px}
 .tool-badge{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:4px 10px;border-radius:8px;background:rgba(232,197,71,0.12);color:#e8c547;border:1px solid rgba(232,197,71,0.25);letter-spacing:0.3px}
+
 .login-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#0F172A;z-index:9999;display:flex;align-items:center;justify-content:center}
 .login-box{background:#1E293B;border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:40px 36px;max-width:380px;width:90%;text-align:center;animation:fadeUp 0.6s ease}
 .login-box .lgo{font-size:48px;margin-bottom:16px}
@@ -83,6 +84,11 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 .login-btn:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(99,102,241,0.4)}
 .login-error{color:#EF4444;font-size:13px;font-weight:600;margin-top:12px;display:none;animation:fadeUp 0.3s}
 .login-hint{color:#475569;font-size:11px;margin-top:16px}
+
+/* Modal Ciudad */
+.modal-ciudad-input{width:100%;padding:14px 18px;border-radius:14px;border:2px solid rgba(255,255,255,0.1);background:#0F172A;color:#F8FAFC;font-size:16px;font-family:'DM Sans',sans-serif;outline:none;box-sizing:border-box;text-align:center;transition:border-color 0.3s;margin-bottom:14px}
+.modal-ciudad-input:focus{border-color:#6366F1}
+.modal-ciudad-error{color:#EF4444;font-size:13px;font-weight:600;margin-top:8px;display:none}
 
 /* Modal Generar PDF */
 .modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:10000;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
@@ -103,19 +109,48 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 .modal-btn-cancel{background:#334155;color:#CBD5E1}
 .modal-btn-cancel:hover{background:#475569}
 
+/* Barra de Saludo */
+.saludo-bar{position:fixed;top:0;left:0;right:0;background:rgba(30,41,59,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,0.1);padding:10px 20px;z-index:1000;display:none;animation:fadeUp 0.5s ease}
+.saludo-content{max-width:900px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.saludo-text{font-size:14px;font-weight:600;color:#F8FAFC}
+.saludo-actions{display:flex;gap:12px}
+.saludo-btn{padding:6px 14px;border-radius:10px;border:none;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.3s;text-decoration:none;display:inline-flex;align-items:center;gap:4px}
+.saludo-btn-panel{background:rgba(232,197,71,0.15);color:#e8c547;border:1px solid rgba(232,197,71,0.3)}
+.saludo-btn-panel:hover{background:rgba(232,197,71,0.25);transform:translateY(-1px)}
+.saludo-btn-logout{background:rgba(239,68,68,0.15);color:#EF4444;border:1px solid rgba(239,68,68,0.3)}
+.saludo-btn-logout:hover{background:rgba(239,68,68,0.25);transform:translateY(-1px)}
+.container-with-saludo{padding-top:60px}
+
+/* Área Docente */
+#areaDocente{display:none}
+
 </style>
 </head>
 <body>
 
+<!-- Login Overlay -->
 <div class="login-overlay" id="loginOverlay">
   <div class="login-box">
-    <div class="lgo">&#x1F4D3;</div>
+    <div class="lgo">📓</div>
     <h2>Campus Cuaderno Vivo</h2>
-    <p>Ingres&#225; la clave del d&#237;a para acceder</p>
+    <p>Ingresá la clave del día para acceder</p>
     <input type="text" class="login-input" id="loginInput" placeholder="Clave de acceso..." autocomplete="off" autofocus>
-    <button class="login-btn" onclick="checkLogin()">Entrar &#x1F680;</button>
-    <p class="login-error" id="loginError">&#x274C; Clave incorrecta. Pedile la clave a tu profe.</p>
-    <p class="login-hint">&#x1F512; La clave cambia todos los d&#237;as</p>
+    <button class="login-btn" onclick="checkLogin()">Entrar 🚀</button>
+    <p class="login-error" id="loginError">❌ Clave incorrecta. Pedile la clave a tu profe.</p>
+    <p class="login-hint">🔒 La clave cambia todos los días</p>
+  </div>
+</div>
+
+<!-- Modal Ciudad (Supabase) -->
+<div class="modal-overlay" id="modalCiudad">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>🌍 Identificación</h3>
+      <p>Ingresá tu ciudad asignada</p>
+    </div>
+    <input type="text" class="modal-ciudad-input" id="ciudadInput" placeholder="Ej: tokyo, warsaw..." autocomplete="off">
+    <button class="login-btn" onclick="verificarCiudad()">Continuar</button>
+    <p class="modal-ciudad-error" id="ciudadError">❌ Ciudad no encontrada. Verificá con tu profe.</p>
   </div>
 </div>
 
@@ -148,8 +183,19 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
   </div>
 </div>
 
+<!-- Barra de Saludo -->
+<div class="saludo-bar" id="saludoBar">
+  <div class="saludo-content">
+    <div class="saludo-text" id="saludoText"></div>
+    <div class="saludo-actions">
+      <a href="panel-docente.html" class="saludo-btn saludo-btn-panel" id="btnPanel" style="display:none">📊 Panel</a>
+      <button class="saludo-btn saludo-btn-logout" onclick="logout()">🚪 Salir</button>
+    </div>
+  </div>
+</div>
+
 <div class="orbs"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
-<div class="container">
+<div class="container" id="mainContainer">
   <div class="header">
     <div class="logo">📓</div>
     <h1>Campus Cuaderno Vivo</h1>
@@ -164,35 +210,31 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 
   <div id="content"></div>
 
-  <div class="tools-section">
-    <div class="school-header" style="margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.1)">
-      <div class="school-icon" style="background:#e8c54720;border:2px solid #e8c54740">🛠️</div>
-      <div>
-        <div class="school-name">Herramientas</div>
-        <div class="school-sub">Recursos para gestionar el campus</div>
+  <!-- Área Docente -->
+  <div id="areaDocente">
+    <div class="tools-section">
+      <div class="school-header" style="margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.1)">
+        <div class="school-icon" style="background:#e8c54720;border:2px solid #e8c54740">🛠️</div>
+        <div>
+          <div class="school-name">Herramientas</div>
+          <div class="school-sub">Recursos para gestionar el campus</div>
+        </div>
+      </div>
+      <div class="tools-grid">
+        <a href="generar-pdf.html" class="tool-card">
+          <span class="tool-icon">📄</span>
+          <h3>PDF alumnos — Cuaderno imprimible</h3>
+          <p>Cuaderno de actividades con espacios para escribir. Ideal si no hay celulares en clase.</p>
+          <span class="tool-badge">⬇ JSON → PDF con actividades</span>
+        </a>
+        <a href="generar-pdf-docente.html" class="tool-card">
+          <span class="tool-icon">🎓</span>
+          <h3>PDF docente — Hoja de ruta</h3>
+          <p>Todo el contenido compacto: respuestas correctas, conceptos clave, glosario y actividades resueltas. Tu hoja de ruta para la clase.</p>
+          <span class="tool-badge">⬇ JSON → PDF sin espacios</span>
+        </a>
       </div>
     </div>
-    <div class="tools-grid">
-      <a href="generar-pdf.html" class="tool-card">
-        <span class="tool-icon">📄</span>
-        <h3>PDF alumnos — Cuaderno imprimible</h3>
-        <p>Cuaderno de actividades con espacios para escribir. Ideal si no hay celulares en clase.</p>
-        <span class="tool-badge">⬇ JSON → PDF con actividades</span>
-      </a>
-      <a href="generar-pdf-docente.html" class="tool-card">
-        <span class="tool-icon">🎓</span>
-        <h3>PDF docente — Hoja de ruta</h3>
-        <p>Todo el contenido compacto: respuestas correctas, conceptos clave, glosario y actividades resueltas. Tu hoja de ruta para la clase.</p>
-        <span class="tool-badge">⬇ JSON → PDF sin espacios</span>
-      </a>
-    </div>
-  </div>
-
-  <div class="instructions">
-    <h3>🚀 ¿Cómo abrir?</h3>
-    <p>1. Abrí una terminal en la carpeta del proyecto</p>
-    <p>2. Ejecutá: <code>python3 -m http.server</code></p>
-    <p>3. Abrí <code>http://localhost:8000</code> en tu navegador</p>
   </div>
 
   <div class="footer">
@@ -201,25 +243,34 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 </div>
 
 <script>
+// ============================================================================
+// CONFIGURACIÓN SUPABASE
+// ============================================================================
+var SUPABASE_URL = "https://ygafevogfxwupmgwksto.supabase.co";
+var SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlnYWZldm9nZnh3dXBtZ3drc3RvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MDA5NDMsImV4cCI6MjA4ODI3Njk0M30.5LoSWrwtFCR4qoQnmNY6UZB1SuiVpx-G9N1AG6cOev8";
+
+// ============================================================================
+// DATOS DE ESCUELAS Y MATERIAS
+// ============================================================================
 var escuelas = [
   {
-    nombre: 'EETP N\u00b0602 "Gral Jos\u00e9 de San Mart\u00edn"',
-    icono: "\u{1F3EB}",
+    nombre: 'EETP N°602 "Gral José de San Martín"',
+    icono: "🏫",
     color: "#6366F1",
     materias: [
       {
-        nombre: "Fundamentos de Gesti\u00f3n",
+        nombre: "Fundamentos de Gestión",
         curso: '4to "A"',
-        emoji: "\u{1F4CB}",
+        emoji: "📋",
         color: "#6366F1",
-        desc: "Bases de la administraci\u00f3n y gesti\u00f3n organizacional",
+        desc: "Bases de la administración y gestión organizacional",
         id: "eetp602_4a_fund_gestion",
         archivos: ["datos/eetp602_4a_fund_gestion_u1.json", "datos/eetp602_4a_fund_gestion_u2.json", "datos/eetp602_4a_fund_gestion_u3.json"]
       },
       {
-        nombre: "Organizaci\u00f3n y Gesti\u00f3n",
+        nombre: "Organización y Gestión",
         curso: '5to "A"',
-        emoji: "\u{1F3E2}",
+        emoji: "🏢",
         color: "#3B82F6",
         desc: "Estructura, procesos y toma de decisiones",
         id: "eetp602_5a_org_gestion",
@@ -228,43 +279,43 @@ var escuelas = [
       {
         nombre: "Procesos Productivos",
         curso: '5to "A"',
-        emoji: "\u{1F3ED}",
+        emoji: "🏭",
         color: "#10B981",
-        desc: "Sistemas de producci\u00f3n, cadena de valor y eficiencia",
+        desc: "Sistemas de producción, cadena de valor y eficiencia",
         id: "eetp602_5a_proc_prod",
         archivos: ["datos/eetp602_5a_proc_prod_u1.json", "datos/eetp602_5a_proc_prod_u2.json", "datos/eetp602_5a_proc_prod_u3.json"]
       },
       {
-        nombre: "Marco Jur\u00eddico",
+        nombre: "Marco Jurídico",
         curso: '5to "A"',
-        emoji: "\u2696\uFE0F",
+        emoji: "⚖️",
         color: "#F59E0B",
-        desc: "Legislaci\u00f3n aplicada a las organizaciones",
+        desc: "Legislación aplicada a las organizaciones",
         id: "eetp602_5a_marco_jur",
         archivos: ["datos/eetp602_5a_marco_jur_u1.json", "datos/eetp602_5a_marco_jur_u2.json", "datos/eetp602_5a_marco_jur_u3.json"]
       },
       {
-        nombre: "Organizaci\u00f3n y Gesti\u00f3n Comercial",
+        nombre: "Organización y Gestión Comercial",
         curso: '6to "A"',
-        emoji: "\u{1F6D2}",
+        emoji: "🛒",
         color: "#EC4899",
-        desc: "Marketing, comercializaci\u00f3n y gesti\u00f3n de ventas",
+        desc: "Marketing, comercialización y gestión de ventas",
         id: "eetp602_6a_org_gestion_com",
         archivos: ["datos/eetp602_6a_org_gestion_com_u1.json", "datos/eetp602_6a_org_gestion_com_u2.json", "datos/eetp602_6a_org_gestion_com_u3.json"]
       },
       {
-        nombre: "Econom\u00eda",
+        nombre: "Economía",
         curso: '6to "B"',
-        emoji: "\u{1F4B0}",
+        emoji: "💰",
         color: "#8B5CF6",
-        desc: "Sistemas econ\u00f3micos, mercado y pensamiento econ\u00f3mico",
+        desc: "Sistemas económicos, mercado y pensamiento económico",
         id: "eetp602_6b_economia",
         archivos: ["datos/eetp602_6b_economia_u1.json", "datos/eetp602_6b_economia_u2.json", "datos/eetp602_6b_economia_u3.json"]
       },
       {
-        nombre: "Marco Jur\u00eddico",
+        nombre: "Marco Jurídico",
         curso: '6to "B"',
-        emoji: "\u{1F4DC}",
+        emoji: "📜",
         color: "#EF4444",
         desc: "Derecho comercial, laboral y societario",
         id: "eetp602_6b_marco_jur",
@@ -273,61 +324,61 @@ var escuelas = [
     ]
   },
   {
-    nombre: 'EESO N\u00b0206 "Rosa Turner de Estrugamou"',
-    icono: "\u{1F393}",
+    nombre: 'EESO N°206 "Rosa Turner de Estrugamou"',
+    icono: "🎓",
     color: "#EC4899",
     materias: [
       {
-        nombre: "Econom\u00eda",
+        nombre: "Economía",
         curso: '3ro "A"',
-        emoji: "\u{1F4B0}",
+        emoji: "💰",
         color: "#6366F1",
-        desc: "Introducci\u00f3n a la econom\u00eda, agentes y sistemas econ\u00f3micos",
+        desc: "Introducción a la economía, agentes y sistemas económicos",
         id: "eeso206_3a_economia",
         archivos: ["datos/eeso206_3a_economia_u1.json", "datos/eeso206_3a_economia_u2.json", "datos/eeso206_3a_economia_u3.json"]
       },
       {
         nombre: "Derecho",
         curso: '4to "C"',
-        emoji: "\u2696\uFE0F",
+        emoji: "⚖️",
         color: "#F59E0B",
-        desc: "Fundamentos del derecho, normas y ciudadan\u00eda",
+        desc: "Fundamentos del derecho, normas y ciudadanía",
         id: "eeso206_4c_derecho",
         archivos: ["datos/eeso206_4c_derecho_u1.json", "datos/eeso206_4c_derecho_u2.json", "datos/eeso206_4c_derecho_u3.json"]
       },
       {
         nombre: "Derecho",
         curso: '4to "D"',
-        emoji: "\u2696\uFE0F",
+        emoji: "⚖️",
         color: "#14B8A6",
-        desc: "Fundamentos del derecho, normas y ciudadan\u00eda",
+        desc: "Fundamentos del derecho, normas y ciudadanía",
         id: "eeso206_4d_derecho",
         archivos: ["datos/eeso206_4d_derecho_u1.json", "datos/eeso206_4d_derecho_u2.json", "datos/eeso206_4d_derecho_u3.json"]
       },
       {
-        nombre: "Econom\u00eda",
+        nombre: "Economía",
         curso: '4to "D"',
-        emoji: "\u{1F4CA}",
+        emoji: "📊",
         color: "#7C3AED",
-        desc: "Microeconom\u00eda, macroeconom\u00eda y pol\u00edticas econ\u00f3micas",
+        desc: "Microeconomía, macroeconomía y políticas económicas",
         id: "eeso206_4d_economia",
         archivos: ["datos/eeso206_4d_economia_u1.json", "datos/eeso206_4d_economia_u2.json", "datos/eeso206_4d_economia_u3.json"]
       },
       {
-        nombre: "Orientaci\u00f3n en Contextos Laborales",
+        nombre: "Orientación en Contextos Laborales",
         curso: '5to "D"',
-        emoji: "\u{1F4BC}",
+        emoji: "💼",
         color: "#0EA5E9",
         desc: "Mercado laboral, derechos y proyecto profesional",
         id: "eeso206_5d_ocl",
         archivos: ["datos/eeso206_5d_ocl_u1.json", "datos/eeso206_5d_ocl_u2.json", "datos/eeso206_5d_ocl_u3.json"]
       },
       {
-        nombre: "Administraci\u00f3n III",
+        nombre: "Administración III",
         curso: '5to "D"',
-        emoji: "\u{1F4C8}",
+        emoji: "📈",
         color: "#F97316",
-        desc: "Gesti\u00f3n avanzada, planificaci\u00f3n y control",
+        desc: "Gestión avanzada, planificación y control",
         id: "eeso206_5d_admin3",
         archivos: ["datos/eeso206_5d_admin3_u1.json", "datos/eeso206_5d_admin3_u2.json", "datos/eeso206_5d_admin3_u3.json"]
       }
@@ -335,6 +386,9 @@ var escuelas = [
   }
 ];
 
+// ============================================================================
+// GENERAR HTML DE ESCUELAS Y MATERIAS
+// ============================================================================
 var content = document.getElementById("content");
 var html = "";
 var delay = 0;
@@ -353,7 +407,7 @@ escuelas.forEach(function(esc) {
 
     m.archivos.forEach(function(archivo, i) {
       var pdfFile = "pdfs/" + m.id + "_u" + (i + 1) + ".pdf";
-      var jsonFile = archivo; // El path al JSON
+      var jsonFile = archivo;
       unitsHtml += "<div class=\"unit-row\">";
       if (archivo) {
         if (!firstReady) firstReady = archivo;
@@ -361,7 +415,7 @@ escuelas.forEach(function(esc) {
       } else {
         unitsHtml += "<span class=\"unit soon\" style=\"background:" + m.color + "\">U" + (i + 1) + "</span>";
       }
-      unitsHtml += "<a href=\"" + pdfFile + "\" class=\"pdf\" target=\"_blank\" onclick=\"event.stopPropagation()\" title=\"PDF U" + (i+1) + "\">\ud83d\udcc4 PDF</a>";
+      unitsHtml += "<a href=\"" + pdfFile + "\" class=\"pdf\" target=\"_blank\" onclick=\"event.stopPropagation()\" title=\"PDF U" + (i+1) + "\">📄 PDF</a>";
       
       // Botón ⚙️ Generar (solo si hay JSON)
       if (archivo) {
@@ -387,7 +441,9 @@ escuelas.forEach(function(esc) {
 
 content.innerHTML = html;
 
-
+// ============================================================================
+// FUNCIONES DE LOGIN
+// ============================================================================
 function getDayOfYear(){
   var now = new Date();
   var start = new Date(now.getFullYear(), 0, 0);
@@ -405,9 +461,21 @@ function getTodayPassword(){
 function checkLogin(){
   var input = document.getElementById("loginInput").value.trim().toLowerCase();
   var correct = getTodayPassword();
-  if(input === correct){
+  
+  // Clave docente especial: 1126
+  if(input === "1126"){
+    sessionStorage.setItem("campus_auth", "1126");
+    sessionStorage.setItem("is_docente", "true");
     document.getElementById("loginOverlay").style.display = "none";
+    mostrarSaludo("Profe", true);
+    return;
+  }
+  
+  // Clave alumno (diaria)
+  if(input === correct){
     sessionStorage.setItem("campus_auth", correct);
+    document.getElementById("loginOverlay").style.display = "none";
+    mostrarModalCiudad();
   } else {
     document.getElementById("loginError").style.display = "block";
     document.getElementById("loginInput").style.borderColor = "#EF4444";
@@ -422,12 +490,147 @@ document.getElementById("loginInput").addEventListener("keypress", function(e){
   if(e.key === "Enter") checkLogin();
 });
 
-if(sessionStorage.getItem("campus_auth") === getTodayPassword()){
-  document.getElementById("loginOverlay").style.display = "none";
+// ============================================================================
+// MODAL CIUDAD CON SUPABASE
+// ============================================================================
+function mostrarModalCiudad(){
+  document.getElementById("modalCiudad").style.display = "flex";
+  document.getElementById("ciudadInput").focus();
+}
+
+async function verificarCiudad(){
+  var ciudad = document.getElementById("ciudadInput").value.trim().toLowerCase();
+  if(!ciudad) return;
+  
+  try {
+    var url = SUPABASE_URL + "/rest/v1/alumnos?codigo=eq." + ciudad + "&select=*";
+    var response = await fetch(url, {
+      headers: {
+        "apikey": SUPABASE_KEY,
+        "Authorization": "Bearer " + SUPABASE_KEY
+      }
+    });
+    
+    var data = await response.json();
+    
+    if(data && data.length > 0){
+      var alumno = data[0];
+      var nombreCompleto = alumno.nombre || "";
+      
+      // Extraer nombre de pila (después de la coma)
+      var nombrePila = nombreCompleto;
+      if(nombreCompleto.indexOf(",") > -1){
+        nombrePila = nombreCompleto.split(",")[1].trim();
+      }
+      
+      // Guardar en sessionStorage el código del alumno
+      sessionStorage.setItem("alumno_codigo", ciudad);
+      
+      // Cerrar modal y mostrar saludo
+      document.getElementById("modalCiudad").style.display = "none";
+      mostrarSaludo(nombrePila, false);
+      
+    } else {
+      // Ciudad no encontrada
+      document.getElementById("ciudadError").style.display = "block";
+      document.getElementById("ciudadInput").style.borderColor = "#EF4444";
+      setTimeout(function(){
+        document.getElementById("ciudadError").style.display = "none";
+        document.getElementById("ciudadInput").style.borderColor = "rgba(255,255,255,0.1)";
+      }, 3000);
+    }
+  } catch(error) {
+    console.error("Error verificando ciudad:", error);
+    alert("Error conectando con Supabase. Verificá tu conexión.");
+  }
+}
+
+document.getElementById("ciudadInput").addEventListener("keypress", function(e){
+  if(e.key === "Enter") verificarCiudad();
+});
+
+// ============================================================================
+// MOSTRAR SALUDO
+// ============================================================================
+function mostrarSaludo(nombre, esDocente){
+  var saludoBar = document.getElementById("saludoBar");
+  var saludoText = document.getElementById("saludoText");
+  var btnPanel = document.getElementById("btnPanel");
+  var mainContainer = document.getElementById("mainContainer");
+  var areaDocente = document.getElementById("areaDocente");
+  
+  if(esDocente){
+    saludoText.innerHTML = "👨‍🏫 Hola Profe";
+    btnPanel.style.display = "inline-flex";
+    areaDocente.style.display = "block";
+  } else {
+    saludoText.innerHTML = "👋 Hola " + nombre;
+    btnPanel.style.display = "none";
+    areaDocente.style.display = "none";
+  }
+  
+  saludoBar.style.display = "block";
+  mainContainer.classList.add("container-with-saludo");
 }
 
 // ============================================================================
-// FUNCIONES PARA MODAL DE GENERACIÓN DE PDF
+// LOGOUT
+// ============================================================================
+function logout(){
+  sessionStorage.clear();
+  location.reload();
+}
+
+// ============================================================================
+// VERIFICACIÓN INICIAL
+// ============================================================================
+var authActual = sessionStorage.getItem("campus_auth");
+if(authActual === getTodayPassword() || authActual === "1126"){
+  document.getElementById("loginOverlay").style.display = "none";
+  
+  if(authActual === "1126"){
+    // Es docente
+    mostrarSaludo("Profe", true);
+  } else {
+    // Es alumno, necesita verificar ciudad
+    var codigoGuardado = sessionStorage.getItem("alumno_codigo");
+    if(codigoGuardado){
+      // Ya tiene código, consultar Supabase para obtener nombre
+      (async function(){
+        try {
+          var url = SUPABASE_URL + "/rest/v1/alumnos?codigo=eq." + codigoGuardado + "&select=*";
+          var response = await fetch(url, {
+            headers: {
+              "apikey": SUPABASE_KEY,
+              "Authorization": "Bearer " + SUPABASE_KEY
+            }
+          });
+          var data = await response.json();
+          if(data && data.length > 0){
+            var nombreCompleto = data[0].nombre || "";
+            var nombrePila = nombreCompleto;
+            if(nombreCompleto.indexOf(",") > -1){
+              nombrePila = nombreCompleto.split(",")[1].trim();
+            }
+            mostrarSaludo(nombrePila, false);
+          } else {
+            // Código inválido, pedir de nuevo
+            mostrarModalCiudad();
+          }
+        } catch(error){
+          console.error("Error verificando alumno:", error);
+          mostrarModalCiudad();
+        }
+      })();
+    } else {
+      // No tiene código guardado, pedir ciudad
+      mostrarModalCiudad();
+    }
+  }
+}
+
+// ============================================================================
+// MODAL GENERAR PDF
 // ============================================================================
 var jsonSeleccionado = '';
 
@@ -466,9 +669,14 @@ function generarPDF(tipo) {
 
 // Cerrar modal al hacer clic fuera
 document.addEventListener('click', function(e) {
-  var modal = document.getElementById("modalGenerar");
-  if (e.target === modal) {
+  var modalGenerar = document.getElementById("modalGenerar");
+  var modalCiudad = document.getElementById("modalCiudad");
+  
+  if (e.target === modalGenerar) {
     cerrarModalGenerar();
+  }
+  if (e.target === modalCiudad) {
+    document.getElementById("modalCiudad").style.display = "none";
   }
 });
 
