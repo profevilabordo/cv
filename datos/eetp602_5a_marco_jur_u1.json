@@ -1,0 +1,1699 @@
+{
+  "id": "eetp602_5a_marco_jur_u1",
+  "materia": "Marco Jurídico",
+  "unidad": 1,
+  "titulo": "El Derecho y las Personas",
+  "emoji": "⚖️",
+  "color_primario": "#F59E0B",
+  "color_secundario": "#EF4444",
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "🚗",
+        "texto": "¿Por qué no podés manejar sin registro aunque sepas conducir perfectamente?",
+        "pista": "Pensá en la diferencia entre saber hacer algo y tener la autorización legal para hacerlo..."
+      },
+      {
+        "emoji": "💰",
+        "texto": "Si encontrás $50.000 en la calle, ¿son tuyos o tenés que devolverlos?",
+        "pista": "El Derecho regula qué pasa con las cosas perdidas y quién es su dueño legal..."
+      },
+      {
+        "emoji": "📱",
+        "texto": "¿Por qué las empresas te hacen aceptar 'términos y condiciones' antes de usar una app?",
+        "pista": "Están creando un acuerdo jurídico entre vos y ellos, con derechos y obligaciones..."
+      }
+    ],
+    "situaciones_conecta": [
+      {
+        "emoji": "🎂",
+        "label": "Cumplí 18 y ahora puedo votar"
+      },
+      {
+        "emoji": "🏠",
+        "label": "Mi familia firmó un contrato de alquiler"
+      },
+      {
+        "emoji": "🚦",
+        "label": "Vi a alguien pasarse un semáforo en rojo"
+      },
+      {
+        "emoji": "📝",
+        "label": "Firmé un acuerdo en el club deportivo"
+      }
+    ],
+    "termometro_pregunta": "¿Cuánto sabés sobre tus derechos y obligaciones legales?"
+  },
+  "mapa": {
+    "ruta_paradas": [
+      {
+        "id": 1,
+        "emoji": "👥",
+        "title": "El hombre como ser gregario",
+        "desc": "Por qué vivimos en grupos y necesitamos normas para convivir",
+        "color": "#6366F1"
+      },
+      {
+        "id": 2,
+        "emoji": "📜",
+        "title": "Concepto de Derecho",
+        "desc": "Concepto, tipos y diferencias con la moral y la religión",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 3,
+        "emoji": "⚖️",
+        "title": "Fuentes y ramas del Derecho",
+        "desc": "Derecho Público, Privado y cómo se divide cada uno",
+        "color": "#10B981"
+      },
+      {
+        "id": 4,
+        "emoji": "📕",
+        "title": "Código Civil e interpretación",
+        "desc": "Historia, estructura e importancia del CCyC argentino",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 5,
+        "emoji": "👤",
+        "title": "Personas y actos jurídicos",
+        "desc": "Quiénes somos ante la ley, capacidad y responsabilidad",
+        "color": "#EC4899"
+      }
+    ],
+    "panoramica_bloques": [
+      {
+        "id": "a",
+        "emoji": "👥",
+        "title": "BLOQUE A",
+        "subtitle": "Origen social y concepto del Derecho",
+        "color": "#6366F1",
+        "items": [
+          "El hombre como ser gregario",
+          "Concepto y etimología del Derecho",
+          "Derecho Natural vs. Positivo",
+          "Normas jurídicas vs. morales",
+          "Fuentes del Derecho",
+          "Características de la ley",
+          "Principios jurídicos fundamentales"
+        ]
+      },
+      {
+        "id": "b",
+        "emoji": "📚",
+        "title": "BLOQUE B",
+        "subtitle": "Fuentes y organización del sistema jurídico",
+        "color": "#3B82F6",
+        "items": [
+          "Derecho Público y sus ramas",
+          "Derecho Privado y sus ramas",
+          "Interpretación de la ley",
+          "Historia del Código Civil argentino",
+          "Código Civil y Comercial 2015",
+          "Estructura del CCyC"
+        ]
+      },
+      {
+        "id": "c",
+        "emoji": "👤",
+        "title": "BLOQUE C",
+        "subtitle": "Personas y relaciones jurídicas",
+        "color": "#10B981",
+        "items": [
+          "Personas físicas y jurídicas",
+          "Atributos: nombre, domicilio, capacidad",
+          "Incapacidad y sistemas de protección",
+          "Hechos y actos jurídicos",
+          "Elementos y clasificación de actos",
+          "Responsabilidad civil"
+        ]
+      }
+    ],
+    "mapa_mental": {
+      "centro": {
+        "emoji": "⚖️",
+        "title": "EL DERECHO"
+      },
+      "ramas": [
+        {
+          "id": "que",
+          "emoji": "❓",
+          "title": "¿Qué es?",
+          "color": "#6366F1",
+          "items": [
+            "Ordenamiento social justo",
+            "Conjunto de normas obligatorias",
+            "Regula la vida en sociedad",
+            "Tiene fuerza coercitiva"
+          ]
+        },
+        {
+          "id": "quienes",
+          "emoji": "👥",
+          "title": "¿Quiénes lo crean?",
+          "color": "#3B82F6",
+          "items": [
+            "El Poder Legislativo (ley)",
+            "La sociedad (costumbre)",
+            "Los jueces (jurisprudencia)",
+            "Los estudiosos (doctrina)"
+          ]
+        },
+        {
+          "id": "como",
+          "emoji": "🔧",
+          "title": "¿Cómo funciona?",
+          "color": "#10B981",
+          "items": [
+            "Se divide en Público y Privado",
+            "Se interpreta de distintas formas",
+            "Se aplica por los jueces",
+            "Tiene principios (igualdad, justicia, legalidad)"
+          ]
+        },
+        {
+          "id": "porque",
+          "emoji": "💡",
+          "title": "¿Por qué existe?",
+          "color": "#F59E0B",
+          "items": [
+            "Para regular la convivencia",
+            "Para proteger derechos",
+            "Para limitar libertades cuando es necesario",
+            "Para garantizar justicia y seguridad"
+          ]
+        }
+      ]
+    }
+  },
+  "nucleo_a": {
+    "bloque_info": {
+      "id": "a",
+      "emoji": "👥",
+      "titulo": "BLOQUE A: Origen social y concepto del Derecho",
+      "color": "#6366F1",
+      "paginas": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená la evolución social del ser humano desde el origen hasta hoy:",
+      "items": [
+        {
+          "id": 1,
+          "emoji": "🏕️",
+          "text": "Grupos nómades"
+        },
+        {
+          "id": 2,
+          "emoji": "👨‍👩‍👧‍👦",
+          "text": "Clanes familiares"
+        },
+        {
+          "id": 3,
+          "emoji": "🏘️",
+          "text": "Ciudades"
+        },
+        {
+          "id": 4,
+          "emoji": "🏛️",
+          "text": "Estados"
+        },
+        {
+          "id": 5,
+          "emoji": "📜",
+          "text": "Sistemas jurídicos complejos"
+        }
+      ],
+      "orden_correcto": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá cada concepto según corresponda a Derecho Natural o Derecho Positivo:",
+      "categorias": [
+        {
+          "name": "Derecho Natural",
+          "emoji": "💭",
+          "color": "#A78BFA"
+        },
+        {
+          "name": "Derecho Positivo",
+          "emoji": "📕",
+          "color": "#6366F1"
+        }
+      ],
+      "items": [
+        {
+          "id": 1,
+          "text": "Conjunto de reglas ideales y eternas",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 2,
+          "text": "Código Civil y Comercial argentino",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 3,
+          "text": "Reconocido por la razón humana",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 4,
+          "text": "Establecido por la autoridad política",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 5,
+          "text": "Puede cambiar con el tiempo",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 6,
+          "text": "Principios jurídicos fundamentales",
+          "categoria_correcta": 0
+        }
+      ]
+    },
+    "n3_completar_mapa": {
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "El hombre es un ser",
+          "respuesta_correcta": "gregario",
+          "pista": "G________"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "La fuerza que tiene el Derecho para hacer cumplir sus normas se llama",
+          "respuesta_correcta": "coerción",
+          "pista": "C______"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "Las normas jurídicas son ________ porque pueden imponerse por la fuerza",
+          "respuesta_correcta": "coercibles",
+          "pista": "C_________"
+        }
+      ]
+    },
+    "n4_verdadero_falso": {
+      "afirmaciones": [
+        {
+          "texto": "Las normas morales son coercibles, igual que las jurídicas",
+          "correcto": false,
+          "explicacion": "Falso. Las normas morales son incoercibles: no se pueden imponer por la fuerza. Solo las jurídicas tienen coerción."
+        },
+        {
+          "texto": "El Derecho Positivo puede transformarse a través del tiempo",
+          "correcto": true,
+          "explicacion": "Verdadero. El Derecho Positivo es particular de cada país y puede modificarse según las necesidades sociales."
+        },
+        {
+          "texto": "La ley es la única fuente del Derecho",
+          "correcto": false,
+          "explicacion": "Falso. El Derecho tiene 4 fuentes: ley, costumbre, jurisprudencia y doctrina."
+        }
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "pares": [
+        {
+          "izquierda": "Generalidad",
+          "derecha": "Se aplica a todas las personas",
+          "emoji": "👥"
+        },
+        {
+          "izquierda": "Obligatoriedad",
+          "derecha": "Su cumplimiento no es optativo",
+          "emoji": "⚠️"
+        },
+        {
+          "izquierda": "Irretroactividad",
+          "derecha": "Rige solo hacia el futuro",
+          "emoji": "⏭️"
+        },
+        {
+          "izquierda": "Ignorancia no exime",
+          "derecha": "Desconocer la ley no evita el castigo",
+          "emoji": "📚"
+        }
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "grupos": [
+        {
+          "emoji": "📜",
+          "pregunta": "¿Cuál NO es una fuente del Derecho?",
+          "palabras": [
+            {
+              "text": "Ley",
+              "es_intrusa": false
+            },
+            {
+              "text": "Costumbre",
+              "es_intrusa": false
+            },
+            {
+              "text": "Moral",
+              "es_intrusa": true
+            },
+            {
+              "text": "Jurisprudencia",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "La moral no es fuente del Derecho. Las 4 fuentes son: ley, costumbre, jurisprudencia y doctrina."
+        },
+        {
+          "emoji": "⚖️",
+          "pregunta": "¿Cuál NO es una característica de las normas jurídicas?",
+          "palabras": [
+            {
+              "text": "Bilaterales",
+              "es_intrusa": false
+            },
+            {
+              "text": "Coercibles",
+              "es_intrusa": false
+            },
+            {
+              "text": "Autónomas",
+              "es_intrusa": true
+            },
+            {
+              "text": "Exteriores",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Las normas jurídicas son heterónomas, no autónomas. Las morales son autónomas."
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "conceptos": [
+        {
+          "termino": "Gregarismo",
+          "pista": "¿Por qué los humanos vivimos en grupos?",
+          "palabras_clave": [
+            "agruparse",
+            "sociedad",
+            "grupos",
+            "convivir",
+            "asociación",
+            "comunidad"
+          ]
+        },
+        {
+          "termino": "Derecho",
+          "pista": "¿Qué es el conjunto de normas que regula la vida social?",
+          "palabras_clave": [
+            "normas",
+            "sociedad",
+            "obligatorias",
+            "regula",
+            "convivencia",
+            "ordenamiento"
+          ]
+        },
+        {
+          "termino": "Coerción",
+          "pista": "¿Qué permite al Estado hacer cumplir las leyes por la fuerza?",
+          "palabras_clave": [
+            "fuerza",
+            "cumplir",
+            "obligar",
+            "ley",
+            "Estado",
+            "imponer"
+          ]
+        }
+      ]
+    },
+    "n8_causa_efecto": {
+      "causas": [
+        {
+          "id": 1,
+          "emoji": "👥",
+          "text": "El hombre vive naturalmente en sociedad"
+        },
+        {
+          "id": 2,
+          "emoji": "⚠️",
+          "text": "Sin normas habría caos y conflictos"
+        },
+        {
+          "id": 3,
+          "emoji": "📜",
+          "text": "Las leyes se publican oficialmente"
+        },
+        {
+          "id": 4,
+          "emoji": "⚖️",
+          "text": "Las normas jurídicas tienen coerción"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "📚",
+          "text": "Se necesitan normas para regular la convivencia"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "🏛️",
+          "text": "Surge el Derecho como ordenamiento social"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "🚫",
+          "text": "Nadie puede alegar desconocimiento de la ley"
+        },
+        {
+          "id": 4,
+          "causa_id": 4,
+          "emoji": "⚡",
+          "text": "El Estado puede hacerlas cumplir por la fuerza"
+        }
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el proceso de creación de una ley en Argentina:",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 1,
+          "emoji": "💡",
+          "text": "Un diputado o senador presenta un proyecto de ley"
+        },
+        {
+          "id": 2,
+          "emoji": "🗣️",
+          "text": "Se debate en comisiones parlamentarias"
+        },
+        {
+          "id": 3,
+          "emoji": "✋",
+          "text": "Se vota en ambas cámaras (Diputados y Senado)"
+        },
+        {
+          "id": 4,
+          "emoji": "✍️",
+          "text": "El Poder Ejecutivo la promulga o veta"
+        },
+        {
+          "id": 5,
+          "emoji": "📰",
+          "text": "Se publica en el Boletín Oficial y entra en vigencia"
+        }
+      ]
+    },
+    "n10_comparador": {
+      "concepto_a": {
+        "nombre": "Normas Jurídicas",
+        "emoji": "⚖️",
+        "color": "#6366F1"
+      },
+      "concepto_b": {
+        "nombre": "Normas Morales",
+        "emoji": "💭",
+        "color": "#EC4899"
+      }
+    }
+  },
+  "nucleo_b": {
+    "bloque_info": {
+      "id": "b",
+      "emoji": "📚",
+      "titulo": "BLOQUE B: Fuentes y organización del sistema jurídico",
+      "color": "#3B82F6",
+      "paginas": [
+        9,
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená cronológicamente los hitos del Código Civil argentino:",
+      "items": [
+        {
+          "id": 1,
+          "emoji": "📜",
+          "text": "Dalmacio Vélez Sarsfield redacta el primer Código Civil (4.051 artículos)"
+        },
+        {
+          "id": 2,
+          "emoji": "✏️",
+          "text": "Ley 17.711 introduce reformas en familia y contratos"
+        },
+        {
+          "id": 3,
+          "emoji": "🔄",
+          "text": "Ley 26.994 unifica el Código Civil y Comercial (2.671 artículos)"
+        },
+        {
+          "id": 4,
+          "emoji": "📅",
+          "text": "Entra en vigencia el CCyC el 1° de agosto"
+        },
+        {
+          "id": 5,
+          "emoji": "⚖️",
+          "text": "El CCyC moderniza el derecho argentino hasta hoy"
+        }
+      ],
+      "orden_correcto": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá cada rama según corresponda a Derecho Público o Derecho Privado:",
+      "categorias": [
+        {
+          "name": "Derecho Público",
+          "emoji": "🏛️",
+          "color": "#3B82F6"
+        },
+        {
+          "name": "Derecho Privado",
+          "emoji": "👥",
+          "color": "#10B981"
+        }
+      ],
+      "items": [
+        {
+          "id": 1,
+          "text": "Derecho Constitucional",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 2,
+          "text": "Derecho Civil",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 3,
+          "text": "Derecho Penal",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 4,
+          "text": "Derecho Comercial",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 5,
+          "text": "Derecho Administrativo",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 6,
+          "text": "Derecho Laboral",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+    "n3_completar_mapa": {
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "El Derecho ________ regula la organización del Estado y sus relaciones con los ciudadanos",
+          "respuesta_correcta": "Público",
+          "pista": "P______"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "El año de entrada en vigencia del Código Civil y Comercial fue",
+          "respuesta_correcta": "2015",
+          "pista": "2___"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "El autor del primer Código Civil argentino fue Dalmacio",
+          "respuesta_correcta": "Vélez Sarsfield",
+          "pista": "V____ S________"
+        }
+      ]
+    },
+    "n4_verdadero_falso": {
+      "afirmaciones": [
+        {
+          "texto": "El Derecho Público busca proteger el interés general de la sociedad",
+          "correcto": true,
+          "explicacion": "Verdadero. El Derecho Público regula al Estado y sus relaciones con los particulares, priorizando el interés colectivo."
+        },
+        {
+          "texto": "El Código Civil y Comercial tiene más artículos que el Código de Vélez Sarsfield",
+          "correcto": false,
+          "explicacion": "Falso. El CCyC tiene 2.671 artículos, mientras que el de Vélez tenía 4.051. Se unificó y modernizó."
+        },
+        {
+          "texto": "La interpretación literal busca el propósito que el legislador tuvo al crear la norma",
+          "correcto": false,
+          "explicacion": "Falso. Eso es la interpretación teleológica. La literal se enfoca en el significado exacto de las palabras."
+        }
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "pares": [
+        {
+          "izquierda": "Derecho Constitucional",
+          "derecha": "Estudia la Constitución y organización del poder",
+          "emoji": "📜"
+        },
+        {
+          "izquierda": "Derecho Penal",
+          "derecha": "Establece delitos y penas",
+          "emoji": "⚖️"
+        },
+        {
+          "izquierda": "Derecho Procesal",
+          "derecha": "Regula procedimientos judiciales",
+          "emoji": "🏛️"
+        },
+        {
+          "izquierda": "Derecho Civil",
+          "derecha": "Regula relaciones personales y patrimoniales",
+          "emoji": "👥"
+        }
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "grupos": [
+        {
+          "emoji": "🏛️",
+          "pregunta": "¿Cuál NO es una rama del Derecho Público?",
+          "palabras": [
+            {
+              "text": "Constitucional",
+              "es_intrusa": false
+            },
+            {
+              "text": "Administrativo",
+              "es_intrusa": false
+            },
+            {
+              "text": "Laboral",
+              "es_intrusa": true
+            },
+            {
+              "text": "Penal",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Derecho Laboral pertenece al Derecho Privado, porque regula relaciones entre empleadores y trabajadores."
+        },
+        {
+          "emoji": "📖",
+          "pregunta": "¿Cuál NO es un libro del Código Civil y Comercial?",
+          "palabras": [
+            {
+              "text": "Parte General",
+              "es_intrusa": false
+            },
+            {
+              "text": "Derechos Reales",
+              "es_intrusa": false
+            },
+            {
+              "text": "Derecho Penal",
+              "es_intrusa": true
+            },
+            {
+              "text": "Relaciones de Familia",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Derecho Penal no está en el CCyC. Los 6 libros son: Parte General, Relaciones de Familia, Derechos Personales, Derechos Reales, Transmisión por Muerte, Disposiciones Comunes."
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "conceptos": [
+        {
+          "termino": "Interpretación de la ley",
+          "pista": "¿Cómo se descubre el significado de una norma?",
+          "palabras_clave": [
+            "entender",
+            "significado",
+            "aplicar",
+            "norma",
+            "ley",
+            "comprender"
+          ]
+        },
+        {
+          "termino": "Código Civil y Comercial",
+          "pista": "¿Qué unificó el derecho argentino en 2015?",
+          "palabras_clave": [
+            "unifica",
+            "civil",
+            "comercial",
+            "2015",
+            "normas",
+            "código"
+          ]
+        },
+        {
+          "termino": "Derecho Público",
+          "pista": "¿Qué parte del Derecho regula al Estado y el interés general?",
+          "palabras_clave": [
+            "Estado",
+            "público",
+            "gobierno",
+            "general",
+            "organización",
+            "poder"
+          ]
+        }
+      ]
+    },
+    "n8_causa_efecto": {
+      "causas": [
+        {
+          "id": 1,
+          "emoji": "📅",
+          "text": "El Código de Vélez era de 1869 y estaba desactualizado"
+        },
+        {
+          "id": 2,
+          "emoji": "🏛️",
+          "text": "El Derecho Público tiene normas imperativas"
+        },
+        {
+          "id": 3,
+          "emoji": "📜",
+          "text": "La interpretación literal puede ser insuficiente"
+        },
+        {
+          "id": 4,
+          "emoji": "⚖️",
+          "text": "El CCyC modernizó el sistema jurídico"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "🔄",
+          "text": "Se creó el nuevo Código Civil y Comercial en 2015"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "⚠️",
+          "text": "No se puede renunciar a derechos públicos"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "🔍",
+          "text": "Existen otros métodos: sistemático, teleológico, histórico"
+        },
+        {
+          "id": 4,
+          "causa_id": 4,
+          "emoji": "✨",
+          "text": "Se adaptó a realidades sociales y tecnológicas actuales"
+        }
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos para interpretar una ley de forma completa:",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 1,
+          "emoji": "📖",
+          "text": "Leo el texto literal de la norma"
+        },
+        {
+          "id": 2,
+          "emoji": "🔗",
+          "text": "La relaciono con otras leyes del sistema (sistemática)"
+        },
+        {
+          "id": 3,
+          "emoji": "🎯",
+          "text": "Busco el propósito del legislador (teleológica)"
+        },
+        {
+          "id": 4,
+          "emoji": "📜",
+          "text": "Consulto el contexto histórico en que se creó"
+        },
+        {
+          "id": 5,
+          "emoji": "🌐",
+          "text": "La adapto a la realidad actual (progresiva)"
+        }
+      ]
+    },
+    "n10_comparador": {
+      "concepto_a": {
+        "nombre": "Derecho Público",
+        "emoji": "🏛️",
+        "color": "#3B82F6"
+      },
+      "concepto_b": {
+        "nombre": "Derecho Privado",
+        "emoji": "👥",
+        "color": "#10B981"
+      }
+    }
+  },
+  "nucleo_c": {
+    "bloque_info": {
+      "id": "c",
+      "emoji": "👤",
+      "titulo": "BLOQUE C: Personas y relaciones jurídicas",
+      "color": "#10B981",
+      "paginas": [
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25
+      ]
+    },
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená el ciclo de vida de una persona ante el Derecho:",
+      "items": [
+        {
+          "id": 1,
+          "emoji": "🤰",
+          "text": "Concepción (inicia existencia de persona humana)"
+        },
+        {
+          "id": 2,
+          "emoji": "👶",
+          "text": "Nacimiento con vida (adquiere capacidad de derecho plena)"
+        },
+        {
+          "id": 3,
+          "emoji": "🎂",
+          "text": "Cumple 18 años (mayoría de edad, capacidad de ejercicio)"
+        },
+        {
+          "id": 4,
+          "emoji": "💼",
+          "text": "Realiza actos jurídicos (contratos, testamento, etc.)"
+        },
+        {
+          "id": 5,
+          "emoji": "⚰️",
+          "text": "Fallecimiento (fin de la existencia, transmisión sucesoria)"
+        }
+      ],
+      "orden_correcto": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá según sean atributos de Personas Físicas o Personas Jurídicas:",
+      "categorias": [
+        {
+          "name": "Solo Personas Físicas",
+          "emoji": "👤",
+          "color": "#10B981"
+        },
+        {
+          "name": "Ambas tienen",
+          "emoji": "⚖️",
+          "color": "#6366F1"
+        }
+      ],
+      "items": [
+        {
+          "id": 1,
+          "text": "Prenombre y apellido",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 2,
+          "text": "Capacidad",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 3,
+          "text": "Estado civil (soltero, casado, etc.)",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 4,
+          "text": "Domicilio",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 5,
+          "text": "Patrimonio",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 6,
+          "text": "Existencia desde la concepción",
+          "categoria_correcta": 0
+        }
+      ]
+    },
+    "n3_completar_mapa": {
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "La capacidad de ________ es la aptitud para ejercer derechos por sí mismo",
+          "respuesta_correcta": "hecho",
+          "pista": "H____"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "Los ________ son hechos realizados con discernimiento, intención y libertad",
+          "respuesta_correcta": "voluntarios",
+          "pista": "V__________"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "La responsabilidad ________ no requiere probar culpa del responsable",
+          "respuesta_correcta": "objetiva",
+          "pista": "O_______"
+        }
+      ]
+    },
+    "n4_verdadero_falso": {
+      "afirmaciones": [
+        {
+          "texto": "Todas las personas jurídicas tienen existencia física y tangible",
+          "correcto": false,
+          "explicacion": "Falso. Las personas jurídicas son entes ideales creados por la ley. No tienen existencia física."
+        },
+        {
+          "texto": "Un menor de 10 años puede realizar actos jurídicos válidos por sí solo",
+          "correcto": false,
+          "explicacion": "Falso. Los menores sin madurez suficiente (hasta 13 años) tienen incapacidad absoluta de ejercicio."
+        },
+        {
+          "texto": "Para que exista responsabilidad civil debe haber un daño real",
+          "correcto": true,
+          "explicacion": "Verdadero. Sin daño no hay responsabilidad. Es uno de los 4 elementos esenciales."
+        }
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "pares": [
+        {
+          "izquierda": "Capacidad de derecho",
+          "derecha": "Aptitud para ser titular de derechos",
+          "emoji": "👶"
+        },
+        {
+          "izquierda": "Capacidad de hecho",
+          "derecha": "Aptitud para ejercer derechos por sí mismo",
+          "emoji": "🎂"
+        },
+        {
+          "izquierda": "Tutela",
+          "derecha": "Protección de menores sin patria potestad",
+          "emoji": "👨‍👧"
+        },
+        {
+          "izquierda": "Curatela",
+          "derecha": "Protección de adultos incapaces",
+          "emoji": "🤝"
+        }
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "grupos": [
+        {
+          "emoji": "📝",
+          "pregunta": "¿Cuál NO es un elemento esencial del acto jurídico?",
+          "palabras": [
+            {
+              "text": "Voluntad",
+              "es_intrusa": false
+            },
+            {
+              "text": "Objeto",
+              "es_intrusa": false
+            },
+            {
+              "text": "Emoción",
+              "es_intrusa": true
+            },
+            {
+              "text": "Causa",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Los elementos esenciales son: sujetos, voluntad, objeto, causa y forma. La emoción no es un elemento jurídico."
+        },
+        {
+          "emoji": "⚖️",
+          "pregunta": "¿Cuál NO es un elemento de la responsabilidad civil?",
+          "palabras": [
+            {
+              "text": "Daño",
+              "es_intrusa": false
+            },
+            {
+              "text": "Antijuridicidad",
+              "es_intrusa": false
+            },
+            {
+              "text": "Venganza",
+              "es_intrusa": true
+            },
+            {
+              "text": "Relación de causalidad",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Los elementos son: antijuridicidad, daño, relación de causalidad y factor de atribución. La venganza no es un elemento jurídico."
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "conceptos": [
+        {
+          "termino": "Persona jurídica",
+          "pista": "¿Qué es una organización reconocida por la ley como sujeto de derechos?",
+          "palabras_clave": [
+            "organización",
+            "ley",
+            "derechos",
+            "ente",
+            "ideal",
+            "reconocida"
+          ]
+        },
+        {
+          "termino": "Acto jurídico",
+          "pista": "¿Qué es un hecho voluntario lícito con fin inmediato de crear, modificar o extinguir derechos?",
+          "palabras_clave": [
+            "voluntario",
+            "lícito",
+            "derechos",
+            "crear",
+            "modificar",
+            "extinguir"
+          ]
+        },
+        {
+          "termino": "Responsabilidad civil",
+          "pista": "¿Qué obligación surge cuando alguien causa un daño a otro?",
+          "palabras_clave": [
+            "reparar",
+            "daño",
+            "indemnizar",
+            "obligación",
+            "perjuicio",
+            "compensar"
+          ]
+        }
+      ]
+    },
+    "n8_causa_efecto": {
+      "causas": [
+        {
+          "id": 1,
+          "emoji": "👶",
+          "text": "Una persona nace con vida"
+        },
+        {
+          "id": 2,
+          "emoji": "🎂",
+          "text": "Una persona cumple 18 años"
+        },
+        {
+          "id": 3,
+          "emoji": "💥",
+          "text": "Alguien causa un daño a otro sin justificación"
+        },
+        {
+          "id": 4,
+          "emoji": "📜",
+          "text": "Un acto jurídico carece de elemento esencial"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "⚖️",
+          "text": "Adquiere plena capacidad de derecho"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "✅",
+          "text": "Adquiere capacidad de ejercicio (mayoría de edad)"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "💰",
+          "text": "Surge la obligación de reparar (responsabilidad civil)"
+        },
+        {
+          "id": 4,
+          "causa_id": 4,
+          "emoji": "❌",
+          "text": "El acto es nulo o anulable"
+        }
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos para que un acto jurídico sea válido:",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 1,
+          "emoji": "👥",
+          "text": "Existen sujetos con capacidad para realizarlo"
+        },
+        {
+          "id": 2,
+          "emoji": "💭",
+          "text": "Manifiestan su voluntad sin vicios (error, dolo, violencia)"
+        },
+        {
+          "id": 3,
+          "emoji": "📦",
+          "text": "El objeto es lícito, posible y determinado"
+        },
+        {
+          "id": 4,
+          "emoji": "🎯",
+          "text": "Existe una causa (fin jurídico) no contraria a la ley"
+        },
+        {
+          "id": 5,
+          "emoji": "✍️",
+          "text": "Se cumple con la forma exigida (si la ley lo requiere)"
+        }
+      ]
+    },
+    "n10_comparador": {
+      "concepto_a": {
+        "nombre": "Personas Físicas",
+        "emoji": "👤",
+        "color": "#10B981"
+      },
+      "concepto_b": {
+        "nombre": "Personas Jurídicas",
+        "emoji": "🏢",
+        "color": "#6366F1"
+      }
+    }
+  },
+  "senales": {
+    "conceptos_clave": [
+      {
+        "emoji": "⚖️",
+        "termino": "Derecho",
+        "color": "#6366F1",
+        "definicion": "Conjunto de normas jurídicas obligatorias que regulan la vida del hombre en la sociedad. Tiene fuerza coercitiva: puede imponerse por la fuerza del Estado.",
+        "importancia": "Sin el Derecho habría caos social. Es la base de la convivencia ordenada y la protección de nuestros derechos."
+      },
+      {
+        "emoji": "🔗",
+        "termino": "Coerción",
+        "color": "#EF4444",
+        "definicion": "Aptitud que tienen los poderes jurisdiccionales de disponer de la fuerza para hacer cumplir la ley. Es lo que diferencia al Derecho de la moral y la religión.",
+        "importancia": "Sin coerción, las normas jurídicas serían solo consejos. La coerción garantiza que todos cumplan las leyes."
+      },
+      {
+        "emoji": "👤",
+        "termino": "Capacidad",
+        "color": "#10B981",
+        "definicion": "Aptitud para adquirir derechos y contraer obligaciones (capacidad de derecho) y para ejercerlos por sí mismo (capacidad de hecho). La de derecho es desde la concepción; la de hecho, desde los 18 años.",
+        "importancia": "Define qué podés hacer legalmente en cada etapa de tu vida. Sin capacidad de hecho, necesitás representantes."
+      },
+      {
+        "emoji": "📜",
+        "termino": "Acto Jurídico",
+        "color": "#8B5CF6",
+        "definicion": "Hecho humano voluntario lícito con finalidad inmediata de crear, modificar, conservar, transferir o extinguir algún derecho. Requiere voluntad, objeto, causa y forma.",
+        "importancia": "Es la herramienta para que ejerzas tus derechos: contratos, testamentos, compraventas... Todo pasa por actos jurídicos."
+      }
+    ],
+    "semaforo_conceptos": [
+      {
+        "emoji": "⚖️",
+        "termino": "Derecho"
+      },
+      {
+        "emoji": "📚",
+        "termino": "Fuentes del Derecho"
+      },
+      {
+        "emoji": "🏛️",
+        "termino": "Ramas del Derecho"
+      },
+      {
+        "emoji": "👤",
+        "termino": "Personas y capacidad"
+      },
+      {
+        "emoji": "📝",
+        "termino": "Actos jurídicos"
+      }
+    ],
+    "postits_conceptos": [
+      "Derecho",
+      "Coerción",
+      "Capacidad",
+      "Acto Jurídico"
+    ]
+  },
+  "sabias": {
+    "flip_cards": [
+      {
+        "emoji": "📜",
+        "color": "#6366F1",
+        "frente": "El Código de Vélez duró 146 años",
+        "dorso": "El Código Civil redactado por Dalmacio Vélez Sarsfield en 1869 estuvo vigente hasta 2015. Durante 146 años rigió la vida civil de los argentinos, siendo uno de los códigos más longevos de América Latina."
+      },
+      {
+        "emoji": "👶",
+        "color": "#EC4899",
+        "frente": "Tenés derechos desde antes de nacer",
+        "dorso": "La existencia de la persona humana comienza con la concepción. Desde ese momento tenés protección legal: podés ser beneficiario de una herencia o donación, aunque tu ejercicio pleno depende de que nazcas con vida."
+      },
+      {
+        "emoji": "⚖️",
+        "color": "#10B981",
+        "frente": "La ignorancia de la ley no te exime",
+        "dorso": "El principio 'ignorantia legis non excusat' significa que no podés alegar que desconocías una ley para evitar sus consecuencias. Por eso las leyes se publican en el Boletín Oficial: se presume que todos las conocemos."
+      }
+    ],
+    "linea_de_tiempo": [
+      {
+        "emoji": "📜",
+        "year": "1869",
+        "text": "Dalmacio Vélez Sarsfield redacta el primer Código Civil argentino con 4.051 artículos"
+      },
+      {
+        "emoji": "✏️",
+        "year": "1968",
+        "text": "Ley 17.711 introduce reformas importantes en familia, responsabilidad civil y contratos"
+      },
+      {
+        "emoji": "🌍",
+        "year": "1994",
+        "text": "Reforma constitucional: incorpora tratados internacionales de derechos humanos"
+      },
+      {
+        "emoji": "🔄",
+        "year": "2015",
+        "text": "Entra en vigencia el Código Civil y Comercial unificado (2.671 artículos)"
+      },
+      {
+        "emoji": "⚖️",
+        "year": "2025",
+        "text": "El CCyC cumple 10 años modernizando el derecho argentino"
+      }
+    ],
+    "encuesta": {
+      "pregunta": "¿Qué dato te sorprendió más?",
+      "opciones": [
+        {
+          "emoji": "⏳",
+          "text": "Que el Código de Vélez duró 146 años",
+          "votos_iniciales": 42
+        },
+        {
+          "emoji": "👶",
+          "text": "Que tenés derechos desde la concepción",
+          "votos_iniciales": 38
+        },
+        {
+          "emoji": "📚",
+          "text": "Que desconocer la ley no te exime de cumplirla",
+          "votos_iniciales": 31
+        }
+      ]
+    }
+  },
+  "cruces": {
+    "consigna_general": "Elegí un tema de cada bloque que te haya interesado y preparalo para explicárselo a un compañero. Podés usar esquemas, dibujos, ejemplos... ¡lo que quieras!",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "👥",
+        "titulo": "BLOQUE A: Origen social y concepto del Derecho",
+        "color": "#6366F1",
+        "temas_sugeridos": [
+          "El hombre como ser gregario y la necesidad de normas",
+          "Diferencia entre Derecho Natural y Derecho Positivo",
+          "Normas jurídicas vs. normas morales",
+          "Las 4 fuentes del Derecho",
+          "Características de la ley (generalidad, obligatoriedad, etc.)",
+          "Principios del Derecho (igualdad, justicia, legalidad)"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+      },
+      {
+        "id": "b",
+        "emoji": "📚",
+        "titulo": "BLOQUE B: Fuentes y organización del sistema jurídico",
+        "color": "#3B82F6",
+        "temas_sugeridos": [
+          "Diferencia entre Derecho Público y Derecho Privado",
+          "Las ramas del Derecho Público (Constitucional, Penal, Administrativo)",
+          "Las ramas del Derecho Privado (Civil, Comercial, Laboral)",
+          "Formas de interpretar la ley (literal, sistemática, teleológica)",
+          "Historia del Código Civil argentino (Vélez → CCyC)",
+          "Estructura del Código Civil y Comercial 2015"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+      },
+      {
+        "id": "c",
+        "emoji": "👤",
+        "titulo": "BLOQUE C: Personas y relaciones jurídicas",
+        "color": "#10B981",
+        "temas_sugeridos": [
+          "Diferencia entre personas físicas y jurídicas",
+          "Atributos de la personalidad (nombre, domicilio, capacidad)",
+          "Capacidad de derecho vs. capacidad de hecho",
+          "Incapacidad absoluta y relativa",
+          "Elementos esenciales de los actos jurídicos",
+          "Responsabilidad civil: elementos y tipos (subjetiva/objetiva)"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+      }
+    ]
+  },
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "El Derecho debería priorizar la seguridad jurídica por sobre la justicia del caso concreto",
+      "contexto": "En un sistema jurídico, a veces la aplicación estricta de la ley puede generar injusticias en casos particulares. ¿Qué es más importante: que las reglas se apliquen siempre igual (seguridad) o que cada caso tenga una solución justa aunque sea distinta?",
+      "roles": [
+        {
+          "id": "fiscal",
+          "emoji": "⚖️",
+          "label": "A favor de la seguridad",
+          "desc": "Argumentá por qué es mejor que la ley se aplique siempre igual, aunque a veces parezca injusta",
+          "color": "#6366F1"
+        },
+        {
+          "id": "defensa",
+          "emoji": "🤝",
+          "label": "A favor de la justicia",
+          "desc": "Argumentá por qué el juez debería poder adaptar la ley a cada caso para lograr justicia real",
+          "color": "#EC4899"
+        },
+        {
+          "id": "juez",
+          "emoji": "👨‍⚖️",
+          "label": "Posición equilibrada",
+          "desc": "Proponé cómo equilibrar ambos valores: seguridad Y justicia",
+          "color": "#10B981"
+        }
+      ]
+    },
+    "tesis": {
+      "consigna": "Formulá una tesis sobre cómo debería ser el Derecho ideal para los jóvenes de tu generación. Incluí: (1) Tu tesis principal, (2) Dos evidencias que la apoyen, (3) Dos contraargumentos posibles, (4) Una conclusión que defienda tu postura."
+    },
+    "critica": {
+      "consigna": "Analizá críticamente el sistema jurídico argentino actual: ¿Qué fortalezas tiene? ¿Qué debilidades o contradicciones encontrás? ¿Qué preguntas te surgen? ¿Qué cambios propondrías para mejorarlo?"
+    }
+  },
+  "autotest": {
+    "banco_respuestas_docente": [
+      "1. B - El Natural son principios ideales eternos, el Positivo es creado por autoridad política",
+      "2. C - La moral",
+      "3. C - 18 años",
+      "4. B - La física es un ser humano, la jurídica es una organización reconocida por la ley",
+      "5. C - Que tenga objeto lícito",
+      "6. C - 2015",
+      "7. B - El Público regula al Estado y el interés general, el Privado regula relaciones entre particulares",
+      "8. A - Negligencia, imprudencia o impericia",
+      "9. B - Tutela protege menores, curatela protege adultos incapaces",
+      "10. D - Busca el propósito que tuvo el legislador al crear la norma",
+      "11. FALSO - Las normas morales son incoercibles",
+      "12. VERDADERO - La coerción diferencia al Derecho de la moral",
+      "13. FALSO - Tiene 2.671 artículos (el de Vélez tenía 4.051)",
+      "14. VERDADERO - Requiere antijuridicidad, daño, relación causal y factor de atribución",
+      "15. VERDADERO - Pueden ser subjetiva (culpa/dolo) u objetiva (sin culpa)"
+    ],
+    "preguntas": [
+      {
+        "pregunta": "¿Cuál es la principal diferencia entre Derecho Natural y Derecho Positivo?",
+        "opciones": [
+          "El Natural es escrito y el Positivo es oral",
+          "El Natural son principios ideales eternos, el Positivo es creado por autoridad política",
+          "El Natural es argentino y el Positivo es extranjero",
+          "El Natural es obligatorio y el Positivo es voluntario"
+        ],
+        "correcta": 1,
+        "explicacion": "El Derecho Natural son principios ideales, eternos e inmutables reconocidos por la razón. El Derecho Positivo es el conjunto de normas vigentes en un Estado, creadas por la autoridad política."
+      },
+      {
+        "pregunta": "¿Cuál de estas NO es una fuente del Derecho?",
+        "opciones": [
+          "La ley",
+          "La jurisprudencia",
+          "La moral",
+          "La costumbre"
+        ],
+        "correcta": 2,
+        "explicacion": "Las 4 fuentes del Derecho son: ley, costumbre, jurisprudencia y doctrina. La moral no es fuente del Derecho, aunque ambas regulan conductas humanas."
+      },
+      {
+        "pregunta": "¿A qué edad una persona adquiere plena capacidad de ejercicio en Argentina?",
+        "opciones": [
+          "16 años",
+          "17 años",
+          "18 años",
+          "21 años"
+        ],
+        "correcta": 2,
+        "explicacion": "A los 18 años se alcanza la mayoría de edad y se adquiere plena capacidad de ejercicio, es decir, la aptitud para ejercer derechos por sí mismo sin necesidad de representantes."
+      },
+      {
+        "pregunta": "¿Cuál es la diferencia entre persona física y persona jurídica?",
+        "opciones": [
+          "La física hace ejercicio y la jurídica no",
+          "La física es un ser humano, la jurídica es una organización reconocida por la ley",
+          "La física vive en Argentina y la jurídica en el extranjero",
+          "No hay diferencia, son lo mismo"
+        ],
+        "correcta": 1,
+        "explicacion": "Las personas físicas son seres humanos con existencia real desde la concepción. Las personas jurídicas son organizaciones (empresas, asociaciones, fundaciones) que la ley reconoce como sujetos de derechos."
+      },
+      {
+        "pregunta": "¿Cuál es un elemento esencial de TODO acto jurídico?",
+        "opciones": [
+          "Que sea gratuito",
+          "Que sea por escrito",
+          "Que tenga objeto lícito",
+          "Que sea entre dos personas"
+        ],
+        "correcta": 2,
+        "explicacion": "Los elementos esenciales de todo acto jurídico son: sujetos, voluntad, objeto, causa y forma. El objeto debe ser lícito, posible y determinado. Sin estos elementos, el acto es nulo."
+      },
+      {
+        "pregunta": "¿En qué año entró en vigencia el Código Civil y Comercial unificado?",
+        "opciones": [
+          "1869",
+          "1968",
+          "2015",
+          "2020"
+        ],
+        "correcta": 2,
+        "explicacion": "El Código Civil y Comercial de la Nación (Ley 26.994) entró en vigencia el 1° de agosto de 2015, reemplazando al Código de Vélez Sarsfield de 1869 y unificando el derecho civil y comercial."
+      },
+      {
+        "pregunta": "¿Cuál es la principal diferencia entre Derecho Público y Derecho Privado?",
+        "opciones": [
+          "El Público es para mayores de 18 años, el Privado para menores",
+          "El Público regula al Estado y el interés general, el Privado regula relaciones entre particulares",
+          "El Público se publica en el Boletín Oficial, el Privado no",
+          "El Público es gratuito, el Privado es oneroso"
+        ],
+        "correcta": 1,
+        "explicacion": "El Derecho Público regula la organización del Estado y sus relaciones con los particulares, priorizando el interés general. El Derecho Privado regula las relaciones entre particulares, donde prima la autonomía de la voluntad."
+      },
+      {
+        "pregunta": "La culpa en responsabilidad civil puede manifestarse como:",
+        "opciones": [
+          "Negligencia, imprudencia o impericia",
+          "Solo intención de dañar",
+          "Desconocimiento de la ley",
+          "Falta de capacidad económica"
+        ],
+        "correcta": 0,
+        "explicacion": "La culpa se manifiesta como: negligencia (omisión o descuido), imprudencia (acción temeraria sin previsión) o impericia (falta de conocimientos técnicos necesarios)."
+      },
+      {
+        "pregunta": "¿Cuál es la diferencia principal entre tutela y curatela?",
+        "opciones": [
+          "La tutela es para mayores de edad, la curatela para menores",
+          "La tutela protege menores sin patria potestad, la curatela protege adultos incapaces",
+          "La tutela es voluntaria, la curatela es obligatoria",
+          "La tutela es gratuita, la curatela es paga"
+        ],
+        "correcta": 1,
+        "explicacion": "La tutela es la institución para proteger a menores que no están bajo patria potestad. La curatela protege a adultos declarados incapaces o con capacidad restringida por sentencia judicial."
+      },
+      {
+        "pregunta": "La interpretación teleológica de la ley consiste en:",
+        "opciones": [
+          "Leer solo el texto literal de la norma",
+          "Consultar el contexto histórico en que se creó",
+          "Relacionarla con otras leyes del sistema",
+          "Buscar el propósito que tuvo el legislador al crear la norma"
+        ],
+        "correcta": 3,
+        "explicacion": "La interpretación teleológica busca identificar el propósito, la finalidad o el objetivo que el legislador tenía al crear la norma, más allá de su texto literal."
+      }
+    ],
+    "verdadero_falso": [
+      {
+        "texto": "Las normas morales son coercibles, igual que las jurídicas",
+        "correcto": false,
+        "explicacion": "Falso. Las normas morales son incoercibles: no se pueden imponer por la fuerza. Solo las normas jurídicas tienen coerción estatal."
+      },
+      {
+        "texto": "La coerción es lo que diferencia fundamentalmente al Derecho de la moral y la religión",
+        "correcto": true,
+        "explicacion": "Verdadero. La coerción (aptitud de hacer cumplir la norma por la fuerza) es la característica distintiva del Derecho frente a otros sistemas normativos."
+      },
+      {
+        "texto": "El Código Civil y Comercial actual tiene más artículos que el Código de Vélez Sarsfield",
+        "correcto": false,
+        "explicacion": "Falso. El CCyC tiene 2.671 artículos, mientras que el de Vélez tenía 4.051. Se unificó y modernizó, reduciendo la cantidad."
+      },
+      {
+        "texto": "Para que exista responsabilidad civil deben concurrir: antijuridicidad, daño, relación de causalidad y factor de atribución",
+        "correcto": true,
+        "explicacion": "Verdadero. Estos son los 4 elementos esenciales de la responsabilidad civil. Si falta uno, no hay obligación de indemnizar."
+      },
+      {
+        "texto": "La responsabilidad civil puede ser subjetiva (requiere culpa o dolo) u objetiva (no requiere culpa)",
+        "correcto": true,
+        "explicacion": "Verdadero. El CCyC establece un sistema mixto: responsabilidad subjetiva (basada en culpa/dolo) y objetiva (basada en riesgo o vicio de la cosa, sin necesidad de probar culpa)."
+      }
+    ]
+  },
+  "cierre": {
+    "glosario": [
+      {
+        "emoji": "⚖️",
+        "termino": "Derecho",
+        "categoria": "Concepto base",
+        "definicion": "Conjunto de normas jurídicas obligatorias que regulan la vida del hombre en la sociedad, con fuerza coercitiva para hacerse cumplir."
+      },
+      {
+        "emoji": "👥",
+        "termino": "Gregarismo",
+        "categoria": "Concepto base",
+        "definicion": "Característica del ser humano de vivir naturalmente en grupos sociales, lo que genera la necesidad de normas para regular la convivencia."
+      },
+      {
+        "emoji": "🔗",
+        "termino": "Coerción",
+        "categoria": "Concepto clave",
+        "definicion": "Aptitud del Estado de disponer de la fuerza para hacer cumplir la ley. Es lo que diferencia al Derecho de la moral."
+      },
+      {
+        "emoji": "👤",
+        "termino": "Capacidad",
+        "categoria": "Atributos",
+        "definicion": "Aptitud para adquirir derechos y contraer obligaciones (de derecho) y para ejercerlos por sí mismo (de hecho)."
+      },
+      {
+        "emoji": "📜",
+        "termino": "Acto Jurídico",
+        "categoria": "Concepto clave",
+        "definicion": "Hecho humano voluntario lícito con finalidad inmediata de crear, modificar, conservar, transferir o extinguir derechos."
+      },
+      {
+        "emoji": "🏛️",
+        "termino": "Persona Jurídica",
+        "categoria": "Sujetos",
+        "definicion": "Organización o entidad reconocida por el Derecho como sujeto de derechos y obligaciones, con existencia independiente de sus miembros."
+      },
+      {
+        "emoji": "📕",
+        "termino": "Código Civil y Comercial",
+        "categoria": "Fuentes",
+        "definicion": "Cuerpo legal argentino vigente desde 2015 que unifica y moderniza el derecho civil y comercial en 2.671 artículos."
+      },
+      {
+        "emoji": "💰",
+        "termino": "Responsabilidad Civil",
+        "categoria": "Obligaciones",
+        "definicion": "Obligación de reparar un daño causado a otra persona. Requiere: antijuridicidad, daño, relación de causalidad y factor de atribución."
+      }
+    ],
+    "recursos": [
+      {
+        "tipo": "🎬 Video",
+        "title": "¿Qué es el Derecho? - Educatina",
+        "desc": "Video educativo que explica de forma clara qué es el Derecho, por qué existen las normas y cómo ayudan a organizar la convivencia en la sociedad.",
+        "nivel": "Introductorio",
+        "color": "#EC4899"
+      },
+      {
+        "tipo": "🎧 Podcast",
+        "title": "Derecho en Zapatillas",
+        "desc": "Podcast argentino creado por Sergio Mohadeb que explica temas jurídicos de la vida cotidiana y cómo funcionan las leyes en situaciones reales.",
+        "nivel": "Introductorio",
+        "color": "#8B5CF6"
+      },
+      {
+        "tipo": "🌐 Web",
+        "title": "InfoLEG - Información Legislativa Argentina",
+        "desc": "Portal oficial del Ministerio de Justicia donde se pueden consultar leyes, decretos y normativa vigente de la República Argentina.",
+        "nivel": "Intermedio",
+        "color": "#10B981"
+      },
+      {
+        "tipo": "📄 Artículo",
+        "title": "Convención Americana sobre Derechos Humanos (Pacto de San José de Costa Rica)",
+        "desc": "Tratado internacional que reconoce derechos y garantías fundamentales y forma parte del sistema jurídico argentino.",
+        "nivel": "Avanzado",
+        "color": "#F59E0B"
+      },
+      {
+        "tipo": "📖 Libro",
+        "title": "Introducción al Derecho - Guillermo A. Borda",
+        "desc": "Obra clásica que presenta los conceptos fundamentales del Derecho como las normas jurídicas, las fuentes del Derecho y su función en la sociedad.",
+        "nivel": "Intermedio",
+        "color": "#6366F1"
+      }
+    ]
+  }
+}
