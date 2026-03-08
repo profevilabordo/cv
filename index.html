@@ -48,6 +48,8 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 .unit:hover{transform:scale(1.08);filter:brightness(1.2)}
 .pdf{padding:5px 8px;border-radius:8px;font-size:11px;font-weight:700;color:#94A3B8;text-decoration:none;transition:all 0.2s;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);cursor:pointer;display:inline-flex;align-items:center;gap:3px}
 .pdf:hover{background:rgba(255,255,255,0.12);color:#F8FAFC;transform:scale(1.08)}
+.btn-generar{padding:5px 8px;border-radius:8px;font-size:11px;font-weight:700;color:#e8c547;text-decoration:none;transition:all 0.2s;background:rgba(232,197,71,0.08);border:1px solid rgba(232,197,71,0.2);cursor:pointer;display:inline-flex;align-items:center;gap:3px}
+.btn-generar:hover{background:rgba(232,197,71,0.15);color:#fbbf24;transform:scale(1.08);border-color:rgba(232,197,71,0.4)}
 .unit.ready{opacity:1;cursor:pointer}
 .unit.soon{opacity:0.3;cursor:default}
 .footer{text-align:center;padding:40px 20px;border-top:1px solid rgba(255,255,255,0.05)}
@@ -82,6 +84,25 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 .login-error{color:#EF4444;font-size:13px;font-weight:600;margin-top:12px;display:none;animation:fadeUp 0.3s}
 .login-hint{color:#475569;font-size:11px;margin-top:16px}
 
+/* Modal Generar PDF */
+.modal-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.7);z-index:10000;display:none;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.modal-box{background:#1E293B;border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:32px;max-width:420px;width:90%;animation:fadeUp 0.4s ease}
+.modal-header{text-align:center;margin-bottom:24px}
+.modal-header h3{font-size:20px;font-weight:800;color:#F8FAFC;font-family:'Space Grotesk',sans-serif;margin-bottom:6px}
+.modal-header p{font-size:13px;color:#94A3B8}
+.modal-options{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+.modal-option{padding:16px 20px;border-radius:14px;border:2px solid rgba(255,255,255,0.1);background:#0F172A;cursor:pointer;transition:all 0.3s;display:flex;align-items:center;gap:12px}
+.modal-option:hover{border-color:#6366F1;background:#1a1f3a;transform:translateY(-2px)}
+.modal-option.docente{border-color:rgba(232,197,71,0.2)}
+.modal-option.docente:hover{border-color:#e8c547;background:rgba(232,197,71,0.05)}
+.modal-option-icon{font-size:28px}
+.modal-option-text h4{font-size:14px;font-weight:700;color:#F8FAFC;margin-bottom:2px}
+.modal-option-text p{font-size:12px;color:#94A3B8}
+.modal-footer{display:flex;gap:10px}
+.modal-btn{flex:1;padding:12px;border-radius:12px;border:none;font-size:14px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.3s}
+.modal-btn-cancel{background:#334155;color:#CBD5E1}
+.modal-btn-cancel:hover{background:#475569}
+
 </style>
 </head>
 <body>
@@ -98,10 +119,38 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
   </div>
 </div>
 
+<!-- Modal Generar PDF -->
+<div class="modal-overlay" id="modalGenerar">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>⚙️ Generar PDF</h3>
+      <p>Elegí el tipo de PDF que querés generar</p>
+    </div>
+    <div class="modal-options">
+      <div class="modal-option" onclick="generarPDF('alumno')">
+        <div class="modal-option-icon">📄</div>
+        <div class="modal-option-text">
+          <h4>PDF Alumno</h4>
+          <p>Con espacios para completar</p>
+        </div>
+      </div>
+      <div class="modal-option docente" id="opcionDocente" style="display:none">
+        <div class="modal-option-icon">🎓</div>
+        <div class="modal-option-text">
+          <h4>PDF Docente</h4>
+          <p>Hoja de ruta con respuestas</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-btn modal-btn-cancel" onclick="cerrarModalGenerar()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
 <div class="orbs"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
 <div class="container">
   <div class="header">
-    <div style="display:flex;justify-content:flex-end;margin-bottom:8px" id="userGreeting"></div>
     <div class="logo">📓</div>
     <h1>Campus Cuaderno Vivo</h1>
     <p>Plataforma de actividades interactivas</p>
@@ -144,12 +193,6 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
     <p>1. Abrí una terminal en la carpeta del proyecto</p>
     <p>2. Ejecutá: <code>python3 -m http.server</code></p>
     <p>3. Abrí <code>http://localhost:8000</code> en tu navegador</p>
-  </div>
-
-  <div id="areaDocente" style="margin-top:28px;padding:24px;border-radius:16px;background:linear-gradient(135deg,#1E293B,#0F172A);border:2px solid #6366F1;text-align:center;display:none">
-    <h3 style="font-size:16px;font-weight:700;color:#F8FAFC;margin:0 0 8px">👨‍🏫 Área Docente</h3>
-    <p style="font-size:13px;color:#94A3B8;margin:0 0 16px">Accedé al panel de seguimiento y estadísticas</p>
-    <a href="panel-docente.html" style="display:inline-block;padding:12px 28px;border-radius:12px;background:linear-gradient(135deg,#6366F1,#8B5CF6);color:#fff;font-size:14px;font-weight:700;text-decoration:none;box-shadow:0 4px 12px rgba(99,102,241,0.3)">📊 Abrir Panel Docente</a>
   </div>
 
   <div class="footer">
@@ -310,6 +353,7 @@ escuelas.forEach(function(esc) {
 
     m.archivos.forEach(function(archivo, i) {
       var pdfFile = "pdfs/" + m.id + "_u" + (i + 1) + ".pdf";
+      var jsonFile = archivo; // El path al JSON
       unitsHtml += "<div class=\"unit-row\">";
       if (archivo) {
         if (!firstReady) firstReady = archivo;
@@ -318,6 +362,12 @@ escuelas.forEach(function(esc) {
         unitsHtml += "<span class=\"unit soon\" style=\"background:" + m.color + "\">U" + (i + 1) + "</span>";
       }
       unitsHtml += "<a href=\"" + pdfFile + "\" class=\"pdf\" target=\"_blank\" onclick=\"event.stopPropagation()\" title=\"PDF U" + (i+1) + "\">\ud83d\udcc4 PDF</a>";
+      
+      // Botón ⚙️ Generar (solo si hay JSON)
+      if (archivo) {
+        unitsHtml += "<button class=\"btn-generar\" onclick=\"event.stopPropagation();abrirModalGenerar('" + jsonFile + "')\" title=\"Generar PDF personalizado\">⚙️ Generar</button>";
+      }
+      
       unitsHtml += "</div>";
     });
 
@@ -355,21 +405,9 @@ function getTodayPassword(){
 function checkLogin(){
   var input = document.getElementById("loginInput").value.trim().toLowerCase();
   var correct = getTodayPassword();
-  
-  // Verificar clave del día O clave docente 1126
   if(input === correct){
-    // 🎓 Login como ALUMNO → pedir ciudad
     document.getElementById("loginOverlay").style.display = "none";
     sessionStorage.setItem("campus_auth", correct);
-    // Mostrar modal para pedir ciudad
-    mostrarModalCiudad();
-  } else if(input === "1126"){
-    // 🎓 Clave docente estática
-    document.getElementById("loginOverlay").style.display = "none";
-    sessionStorage.setItem("campus_auth", correct); // Guardar clave del día
-    sessionStorage.setItem("is_docente", "true");   // Flag de docente
-    localStorage.setItem("campus_alumno_nombre", "Profe"); // Para el saludo
-    mostrarSaludo();
   } else {
     document.getElementById("loginError").style.display = "block";
     document.getElementById("loginInput").style.borderColor = "#EF4444";
@@ -380,141 +418,59 @@ function checkLogin(){
   }
 }
 
-function mostrarModalCiudad(){
-  var overlay = document.createElement("div");
-  overlay.id = "ciudadOverlay";
-  overlay.style.cssText = "position:fixed;inset:0;background:rgba(15,23,42,0.95);z-index:9999;display:flex;align-items:center;justify-content:center";
-  overlay.innerHTML = `
-    <div style="background:#1E293B;border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:36px;max-width:340px;width:90%;text-align:center">
-      <div style="font-size:44px;margin-bottom:14px">🌍</div>
-      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:800;color:#F8FAFC;margin-bottom:6px">¡Bienvenido/a!</h2>
-      <p style="font-size:13px;color:#94A3B8;margin-bottom:20px">Ingresá tu ciudad asignada para sincronizar tu progreso</p>
-      <input type="text" id="ciudadInput" placeholder="tu ciudad..." autocomplete="off"
-        style="width:100%;padding:13px 16px;border-radius:12px;border:2px solid rgba(255,255,255,0.1);background:#0F172A;color:#F8FAFC;font-size:16px;outline:none;text-align:center;letter-spacing:2px;box-sizing:border-box;margin-bottom:10px">
-      <button onclick="verificarCiudad()"
-        style="width:100%;padding:13px;border-radius:12px;border:none;background:linear-gradient(135deg,#6366F1,#8B5CF6);color:#fff;font-size:15px;font-weight:700;cursor:pointer">
-        Entrar 🚀
-      </button>
-      <p id="ciudadError" style="color:#EF4444;font-size:12px;margin-top:10px;display:none">❌ Ciudad no encontrada. Pedile a tu profe que la verifique.</p>
-      <p style="font-size:11px;color:#475569;margin-top:14px">🔒 Tu progreso se guarda automáticamente</p>
-    </div>
-  `;
-  document.body.appendChild(overlay);
-  
-  document.getElementById("ciudadInput").addEventListener("keypress", function(e){
-    if(e.key === "Enter") verificarCiudad();
-  });
-  document.getElementById("ciudadInput").focus();
-}
-
-async function verificarCiudad(){
-  var ciudad = document.getElementById("ciudadInput").value.trim().toLowerCase();
-  if(!ciudad) return;
-  
-  // Ocultar error previo
-  document.getElementById("ciudadError").style.display = "none";
-  
-  // Buscar alumno en Supabase
-  try {
-    var SUPABASE_URL = "https://ygafevogfxwupmgwksto.supabase.co";
-    var SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlnYWZldm9nZnh3dXBtZ3drc3RvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MDA5NDMsImV4cCI6MjA4ODI3Njk0M30.5LoSWrwtFCR4qoQnmNY6UZB1SuiVpx-G9N1AG6cOev8";
-    
-    console.log("Buscando código:", ciudad);
-    console.log("URL completa:", SUPABASE_URL + "/rest/v1/alumnos?codigo=eq." + ciudad);
-    
-    var response = await fetch(SUPABASE_URL + "/rest/v1/alumnos?codigo=eq." + ciudad, {
-      method: "GET",
-      mode: "cors",
-      credentials: "omit",
-      headers: {
-        "apikey": SUPABASE_KEY,
-        "Authorization": "Bearer " + SUPABASE_KEY,
-        "Content-Type": "application/json"
-      }
-    });
-    
-    console.log("Response status:", response.status);
-    
-    if(!response.ok){
-      throw new Error("Error en la consulta: " + response.status);
-    }
-    
-    var alumnos = await response.json();
-    console.log("Alumnos encontrados:", alumnos);
-    
-    if(alumnos && alumnos.length > 0){
-      // ✅ Alumno encontrado
-      var alumno = alumnos[0];
-      
-      // Extraer solo el nombre de pila (después de la coma)
-      var nombreCompleto = alumno.nombre;
-      var nombrePila = nombreCompleto;
-      
-      if(nombreCompleto.indexOf(",") !== -1){
-        // Formato: "APELLIDO, NOMBRE" → extraer "NOMBRE"
-        nombrePila = nombreCompleto.split(",")[1].trim();
-      }
-      
-      console.log("Nombre extraído:", nombrePila);
-      
-      localStorage.setItem("campus_alumno_codigo", alumno.codigo);
-      localStorage.setItem("campus_alumno_nombre", nombrePila);
-      
-      document.getElementById("ciudadOverlay").remove();
-      mostrarSaludo();
-    } else {
-      // ❌ No encontrado
-      console.log("Código no encontrado en la base de datos");
-      document.getElementById("ciudadError").style.display = "block";
-    }
-  } catch(error){
-    console.error("Error al verificar ciudad:", error);
-    document.getElementById("ciudadError").style.display = "block";
-    document.getElementById("ciudadError").textContent = "❌ Error: " + error.message;
-  }
-}
-
-
-function mostrarSaludo(){
-  var esDocente = sessionStorage.getItem("is_docente") === "true";
-  var nombreAlumno = localStorage.getItem("campus_alumno_nombre") || "";
-  var saludo = esDocente ? "👨‍🏫 Hola Profe" : (nombreAlumno ? "👋 Hola " + nombreAlumno : "");
-  
-  if(saludo){
-    var html = '<div style="display:flex;align-items:center;gap:10px">';
-    html += '<span style="font-size:14px;font-weight:600;color:#E2E8F0">'+saludo+'</span>';
-    if(esDocente){
-      html += '<a href="panel-docente.html" style="padding:6px 14px;border-radius:10px;border:1px solid #6366F1;background:rgba(99,102,241,0.2);color:#A78BFA;font-size:13px;font-weight:600;text-decoration:none;font-family:inherit">📊 Panel</a>';
-    }
-    html += '<button onclick="cerrarSesion()" style="padding:6px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.1);color:#EF4444;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit">🚪 Salir</button>';
-    html += '</div>';
-    document.getElementById("userGreeting").innerHTML = html;
-    
-    // Mostrar área docente solo si es docente
-    if(esDocente){
-      document.getElementById("areaDocente").style.display = "block";
-    }
-  }
-}
-
-function cerrarSesion(){
-  sessionStorage.clear();
-  localStorage.clear();
-  location.reload();
-}
-
 document.getElementById("loginInput").addEventListener("keypress", function(e){
   if(e.key === "Enter") checkLogin();
 });
 
-// 🔒 SIEMPRE pedir login (no leer sessionStorage automáticamente)
-// Limpiar sessionStorage al cargar para empezar fresco
-sessionStorage.clear();
+if(sessionStorage.getItem("campus_auth") === getTodayPassword()){
+  document.getElementById("loginOverlay").style.display = "none";
+}
 
-// Si querés que recuerde la sesión, descomentá estas líneas:
-// if(sessionStorage.getItem("campus_auth") === getTodayPassword()){
-//   document.getElementById("loginOverlay").style.display = "none";
-// }
+// ============================================================================
+// FUNCIONES PARA MODAL DE GENERACIÓN DE PDF
+// ============================================================================
+var jsonSeleccionado = '';
+
+function abrirModalGenerar(jsonFile) {
+  jsonSeleccionado = jsonFile;
+  var modal = document.getElementById("modalGenerar");
+  modal.style.display = "flex";
+  
+  // Mostrar opción docente solo si está logueado como docente
+  var esDocente = sessionStorage.getItem("campus_auth") === "1126";
+  var opcionDocente = document.getElementById("opcionDocente");
+  
+  if (esDocente) {
+    opcionDocente.style.display = "flex";
+    opcionDocente.onclick = function() { generarPDF('docente'); };
+  } else {
+    opcionDocente.style.display = "none";
+  }
+}
+
+function cerrarModalGenerar() {
+  document.getElementById("modalGenerar").style.display = "none";
+  jsonSeleccionado = '';
+}
+
+function generarPDF(tipo) {
+  if (!jsonSeleccionado) return;
+  
+  var url = tipo === 'docente' 
+    ? 'generar-pdf-docente.html?datos=' + jsonSeleccionado
+    : 'generar-pdf.html?datos=' + jsonSeleccionado;
+  
+  window.open(url, '_blank');
+  cerrarModalGenerar();
+}
+
+// Cerrar modal al hacer clic fuera
+document.addEventListener('click', function(e) {
+  var modal = document.getElementById("modalGenerar");
+  if (e.target === modal) {
+    cerrarModalGenerar();
+  }
+});
 
 </script>
 </body>
