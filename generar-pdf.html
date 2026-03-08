@@ -1283,7 +1283,7 @@ async function generarPDF() {
       (q.opciones||[]).forEach((op,j) => {
         checkY(7);
         pdf.setDrawColor(180,180,180); pdf.setFillColor(255,255,255);
-        pdf.circle(ML+3, y-1.2, 2, 'FD');
+        pdf.circle(ML+3, y-1.2, 2, 'D');
         const nl = textoWrapped(`${'abcd'[j]}) ${op}`, ML+8, y, PW-10, 8.5);
         y += nl*4.5+1;
       });
@@ -1306,9 +1306,10 @@ async function generarPDF() {
         
         // Opciones V / F
         pdf.setDrawColor(180,180,180); pdf.setFillColor(255,255,255);
-        pdf.circle(ML+3, y-1.2, 2, 'FD');
+        pdf.circle(ML+3, y-1.2, 2, 'D');
         texto('V) Verdadero', ML+8, y, { size:8.5 }); y+=6;
-        pdf.circle(ML+3, y-1.2, 2, 'FD');
+        pdf.setDrawColor(180,180,180); pdf.setFillColor(255,255,255);
+        pdf.circle(ML+3, y-1.2, 2, 'D');
         texto('F) Falso', ML+8, y, { size:8.5 }); y+=7;
       });
     }
