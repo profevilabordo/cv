@@ -1,0 +1,1687 @@
+{
+  "id": "eeso206_3a_economia_u1",
+  "materia": "Economía",
+  "unidad": 1,
+  "titulo": "Historia del Pensamiento Económico",
+  "emoji": "📜",
+  "color_primario": "#6366F1",
+  "color_secundario": "#EC4899",
+
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "🏝️",
+        "texto": "Si estuvieras solo en una isla desierta como en la película Náufrago, ¿podrías sobrevivir solo toda tu vida?",
+        "pista": "Pensá en que los humanos somos animales gregarios por naturaleza... necesitamos a otros para sobrevivir y prosperar..."
+      },
+      {
+        "emoji": "💰",
+        "texto": "¿Por qué España se llenó de oro de América pero terminó siendo más pobre que Inglaterra?",
+        "pista": "Tener oro no es lo mismo que producir riqueza... la paradoja del oro español muestra que acumular metales sin producción lleva a la ruina..."
+      },
+      {
+        "emoji": "🏭",
+        "texto": "¿Fue la Revolución Industrial solo progreso o también trajo sufrimiento masivo?",
+        "pista": "Hubo crecimiento económico asombroso, pero también explotación brutal de trabajadores, niños en fábricas, pobreza extrema..."
+      }
+    ],
+    "situaciones_conecta": [
+      {
+        "emoji": "🤝",
+        "label": "Me doy cuenta que necesito ayuda de otros para lograr cosas"
+      },
+      {
+        "emoji": "📱",
+        "label": "Uso tecnología que otros inventaron y produjeron"
+      },
+      {
+        "emoji": "💼",
+        "label": "Veo desigualdad económica a mi alrededor"
+      },
+      {
+        "emoji": "🌍",
+        "label": "Noticias sobre crisis económicas globales"
+      }
+    ],
+    "termometro_pregunta": "¿Cuánto sabés sobre cómo llegamos al sistema económico actual?"
+  },
+
+  "mapa": {
+    "ruta_paradas": [
+      {
+        "id": 1,
+        "emoji": "👥",
+        "title": "Gregarismo y Economía",
+        "desc": "Por qué los humanos vivimos en sociedad y necesitamos organizarnos económicamente",
+        "color": "#6366F1"
+      },
+      {
+        "id": 2,
+        "emoji": "🏰",
+        "title": "Feudalismo y Mercantilismo",
+        "desc": "Los primeros sistemas económicos organizados tras la caída de Roma",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 3,
+        "emoji": "🌾",
+        "title": "Fisiocracia y Adam Smith",
+        "desc": "Primeras teorías económicas: agricultura vs. industria, mano invisible del mercado",
+        "color": "#10B981"
+      },
+      {
+        "id": 4,
+        "emoji": "⚙️",
+        "title": "Revolución Industrial",
+        "desc": "Máquinas, fábricas y el nacimiento del capitalismo moderno",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 5,
+        "emoji": "📉",
+        "title": "Crisis de 1873",
+        "desc": "La primera gran crisis global del capitalismo: colapso, desempleo y respuestas",
+        "color": "#EC4899"
+      }
+    ],
+
+    "panoramica_bloques": [
+      {
+        "id": "a",
+        "emoji": "📚",
+        "title": "BLOQUE A",
+        "subtitle": "Fundamentos y Sistemas Precapitalistas (páginas 2-7)",
+        "color": "#6366F1",
+        "items": [
+          "Gregarismo: biológico, psicológico y económico",
+          "Revolución Neolítica: excedentes, propiedad privada, desigualdad",
+          "Economía como ciencia de la escasez y la elección",
+          "Método económico: observación, hipótesis, modelos, ceteris paribus",
+          "Ramas: Positiva vs. Normativa, Micro vs. Macro",
+          "Feudalismo: estructura jerárquica medieval",
+          "Mercantilismo: acumulación de metales, proteccionismo, colonias"
+        ]
+      },
+      {
+        "id": "b",
+        "emoji": "🌾",
+        "title": "BLOQUE B",
+        "subtitle": "Fisiocracia y Economía Clásica (páginas 8-12)",
+        "color": "#3B82F6",
+        "items": [
+          "Paradoja del oro español: metales sin producción = ruina",
+          "Fisiocracia: agricultura como única fuente de riqueza",
+          "Tableau Économique de Quesnay",
+          "Revolución Industrial (1760-1840): vapor, ferrocarriles, textiles",
+          "Adam Smith: mano invisible, división del trabajo, crítica al mercantilismo",
+          "Economistas clásicos: Ricardo, Malthus, Stuart Mill",
+          "Consecuencias sociales: progreso vs. explotación y pobreza"
+        ]
+      },
+      {
+        "id": "c",
+        "emoji": "📉",
+        "title": "BLOQUE C",
+        "subtitle": "Segunda Revolución y Crisis Global (páginas 13-19)",
+        "color": "#10B981",
+        "items": [
+          "Segunda Revolución Industrial (1870-1914): electricidad, petróleo, química",
+          "Crisis de Superproducción de 1873: causas y detonante",
+          "Gran Depresión del siglo XIX (1873-1896): deflación, quiebras, desempleo",
+          "Consecuencias globales: impacto en Argentina y países periféricos",
+          "Respuestas: cuestionamiento del laissez-faire, proteccionismo",
+          "Movimiento obrero: sindicatos, socialismo, anarquismo",
+          "Imperialismo: colonias como solución a la crisis",
+          "Conclusión: aviso de las inestabilidades del capitalismo"
+        ]
+      }
+    ],
+
+    "mapa_mental": {
+      "centro": {
+        "emoji": "📜",
+        "title": "HISTORIA ECONÓMICA"
+      },
+      "ramas": [
+        {
+          "id": "origen",
+          "emoji": "👥",
+          "title": "¿Cómo empezó?",
+          "color": "#6366F1",
+          "items": [
+            "Gregarismo humano: necesidad de vivir en sociedad",
+            "Revolución Neolítica: agricultura sedentaria",
+            "Producción de excedentes y propiedad privada",
+            "Surgimiento de la desigualdad social"
+          ]
+        },
+        {
+          "id": "sistemas",
+          "emoji": "🏰",
+          "title": "¿Qué sistemas hubo?",
+          "color": "#3B82F6",
+          "items": [
+            "Feudalismo medieval: señores, vasallos, siervos",
+            "Mercantilismo: acumulación de oro y proteccionismo",
+            "Fisiocracia: agricultura como única riqueza",
+            "Capitalismo industrial: máquinas y fábricas"
+          ]
+        },
+        {
+          "id": "pensadores",
+          "emoji": "🧠",
+          "title": "¿Quiénes teorizaron?",
+          "color": "#10B981",
+          "items": [
+            "Fisiócratas: Quesnay y el producto neto agrícola",
+            "Adam Smith: mano invisible y libre mercado",
+            "Ricardo: ventaja comparativa en comercio",
+            "Malthus: crecimiento poblacional vs. alimentos"
+          ]
+        },
+        {
+          "id": "crisis",
+          "emoji": "📉",
+          "title": "¿Qué problemas surgieron?",
+          "color": "#F59E0B",
+          "items": [
+            "Explotación laboral brutal (niños, mujeres)",
+            "Crisis de Sobreproducción de 1873",
+            "Gran Depresión del siglo XIX (1873-1896)",
+            "Cuestionamiento del laissez-faire"
+          ]
+        }
+      ]
+    }
+  },
+
+  "nucleo_a": {
+    "bloque_info": {
+      "id": "a",
+      "emoji": "📚",
+      "titulo": "BLOQUE A: Fundamentos y Sistemas Precapitalistas",
+      "color": "#6366F1",
+      "paginas": [2, 3, 4, 5, 6, 7]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená cronológicamente la evolución del concepto de Economía:",
+      "paginas_referencia": "3",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "🏛️",
+          "text": "Aristóteles (IV a.C.): Oikonomía = administración del hogar"
+        },
+        {
+          "id": 1,
+          "emoji": "⚓",
+          "text": "Mercantilistas (Siglo XVIII): economía a nivel nacional"
+        },
+        {
+          "id": 2,
+          "emoji": "📖",
+          "text": "Adam Smith (1776): Economía política moderna"
+        },
+        {
+          "id": 3,
+          "emoji": "🌐",
+          "text": "Actualidad: Relaciones sociales y conductuales"
+        },
+        {
+          "id": 4,
+          "emoji": "🔬",
+          "text": "Hoy: Ciencia social que estudia recursos escasos vs. necesidades ilimitadas"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada concepto según sea de Economía Positiva o Normativa:",
+      "paginas_referencia": "5",
+      "categorias": [
+        {
+          "name": "Economía Positiva (lo que ES)",
+          "emoji": "📊",
+          "color": "#6366F1"
+        },
+        {
+          "name": "Economía Normativa (lo que DEBERÍA SER)",
+          "emoji": "💭",
+          "color": "#EC4899"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Si baja el precio de un producto, aumenta la cantidad comprada",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Se deberían subir los impuestos para invertir más en educación",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Si una empresa vende por debajo de sus costos, tendrá pérdidas",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "El Estado debería aumentar las ayudas sociales",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "La inflación en Argentina es del 25% anual",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Deberíamos reducir la jornada laboral a 6 horas diarias",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "2-3",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "Los humanos somos animales",
+          "respuesta_correcta": "gregarios",
+          "pista": "G________"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "La economía es la ciencia de la",
+          "respuesta_correcta": "escasez",
+          "pista": "E______"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "Ceteris Paribus significa todo lo demás",
+          "respuesta_correcta": "constante",
+          "pista": "C________"
+        }
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "2-7",
+      "afirmaciones": [
+        {
+          "texto": "Los humanos podemos sobrevivir perfectamente en aislamiento total, sin necesidad de otros",
+          "correcto": false,
+          "explicacion": "Falso. Somos animales gregarios por naturaleza: necesitamos a otros desde el nacimiento (gregarismo biológico), para nuestra identidad (psicológico) y para satisfacer necesidades complejas (económico)."
+        },
+        {
+          "texto": "La Revolución Neolítica (hace 10.000 años) transformó a los humanos de nómadas a agricultores sedentarios",
+          "correcto": true,
+          "explicacion": "Verdadero. Este cambio generó producción de excedentes, propiedad privada y desigualdad social, sentando las bases de la economía moderna."
+        },
+        {
+          "texto": "El Mercantilismo creía que la riqueza venía de la producción industrial, no de acumular oro",
+          "correcto": false,
+          "explicacion": "Falso. El Mercantilismo sostenía que la riqueza era la acumulación de metales preciosos (oro y plata), no la producción. Adam Smith luego criticó esto diciendo que la riqueza es la productividad."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "3-4",
+      "pares": [
+        {
+          "izquierda": "¿Qué producir?",
+          "derecha": "Decidir qué bienes y servicios crear y en qué cantidades",
+          "emoji": "🎯"
+        },
+        {
+          "izquierda": "¿Cómo producir?",
+          "derecha": "Seleccionar técnicas y recursos para la producción",
+          "emoji": "⚙️"
+        },
+        {
+          "izquierda": "¿Para quién producir?",
+          "derecha": "Determinar cómo distribuir los bienes entre la población",
+          "emoji": "👥"
+        },
+        {
+          "izquierda": "Ceteris Paribus",
+          "derecha": "Aislar variables manteniendo otras constantes",
+          "emoji": "🔒"
+        }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "5-7",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🔬",
+          "pregunta": "¿Cuál NO es una rama de la economía?",
+          "paginas": "5",
+          "palabras": [
+            {
+              "text": "Microeconomía",
+              "es_intrusa": false
+            },
+            {
+              "text": "Macroeconomía",
+              "es_intrusa": false
+            },
+            {
+              "text": "Astrología",
+              "es_intrusa": true
+            },
+            {
+              "text": "Economía Normativa",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "La astrología no es una rama de la economía. Las ramas son: Positiva/Normativa y Micro/Macroeconomía."
+        },
+        {
+          "id": 1,
+          "emoji": "🏰",
+          "pregunta": "¿Cuál NO era parte de la estructura feudal?",
+          "paginas": "6",
+          "palabras": [
+            {
+              "text": "Rey y alta nobleza",
+              "es_intrusa": false
+            },
+            {
+              "text": "Vasallos y caballeros",
+              "es_intrusa": false
+            },
+            {
+              "text": "Empresarios industriales",
+              "es_intrusa": true
+            },
+            {
+              "text": "Campesinos y siervos",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Los empresarios industriales surgieron mucho después, con el capitalismo. El feudalismo tenía: rey/nobleza, vasallos/caballeros, y campesinos/siervos."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "2-7",
+      "conceptos": [
+        {
+          "termino": "Gregarismo",
+          "pista": "¿Por qué los humanos no podemos vivir solos?",
+          "palabras_clave": ["sociedad", "grupos", "cooperación", "necesidad", "otros", "vivir"]
+        },
+        {
+          "termino": "Economía",
+          "pista": "¿Qué estudia la ciencia económica?",
+          "palabras_clave": ["recursos", "escasos", "necesidades", "ilimitadas", "administrar", "satisfacer"]
+        },
+        {
+          "termino": "Feudalismo",
+          "pista": "¿Cómo se organizaba la sociedad europea medieval?",
+          "palabras_clave": ["tierra", "señores", "vasallos", "siervos", "protección", "trabajo"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "2-7",
+      "causas": [
+        {
+          "id": 1,
+          "emoji": "🏛️",
+          "text": "Cae el Imperio Romano en 476 d.C."
+        },
+        {
+          "id": 2,
+          "emoji": "🌾",
+          "text": "Revolución Neolítica: paso de nómadas a agricultores"
+        },
+        {
+          "id": 3,
+          "emoji": "⚓",
+          "text": "Mercantilismo: Estados buscan acumular oro y plata"
+        },
+        {
+          "id": 4,
+          "emoji": "🔬",
+          "text": "Economistas usan el método científico"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "🏰",
+          "text": "Surge el feudalismo para dar orden y seguridad en Europa"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "💰",
+          "text": "Se generan excedentes, propiedad privada y desigualdad"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "🛡️",
+          "text": "Políticas proteccionistas: aranceles, monopolios, colonias"
+        },
+        {
+          "id": 4,
+          "causa_id": 4,
+          "emoji": "📊",
+          "text": "Observación, hipótesis, modelos y verificación de teorías"
+        }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená la evolución del feudalismo europeo:",
+      "paginas_referencia": "6",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 1,
+          "emoji": "💥",
+          "text": "476-800: Origen tras la caída del Imperio Romano"
+        },
+        {
+          "id": 2,
+          "emoji": "🏗️",
+          "text": "800-1000: Consolidación y estructuración del vasallaje"
+        },
+        {
+          "id": 3,
+          "emoji": "👑",
+          "text": "1000-1300: Apogeo, máxima expansión y crecimiento"
+        },
+        {
+          "id": 4,
+          "emoji": "📉",
+          "text": "1300-1500: Crisis y declive hacia el comercio moderno"
+        },
+        {
+          "id": 5,
+          "emoji": "⚓",
+          "text": "Siglo XVI en adelante: Surgimiento del Mercantilismo"
+        }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "9",
+      "concepto_a": {
+        "nombre": "Mercantilismo",
+        "emoji": "⚓",
+        "color": "#6366F1"
+      },
+      "concepto_b": {
+        "nombre": "Fisiocracia",
+        "emoji": "🌾",
+        "color": "#10B981"
+      }
+    }
+  },
+
+  "nucleo_b": {
+    "bloque_info": {
+      "id": "b",
+      "emoji": "🌾",
+      "titulo": "BLOQUE B: Fisiocracia y Economía Clásica",
+      "color": "#3B82F6",
+      "paginas": [8, 9, 10, 11, 12]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los hitos de la Primera Revolución Industrial:",
+      "paginas_referencia": "10",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "🌾",
+          "text": "Revolución Agrícola: aumenta productividad, libera mano de obra"
+        },
+        {
+          "id": 1,
+          "emoji": "💨",
+          "text": "Invención de la máquina de vapor: energía constante"
+        },
+        {
+          "id": 2,
+          "emoji": "🧵",
+          "text": "Industria textil: mecanización multiplica la productividad"
+        },
+        {
+          "id": 3,
+          "emoji": "🚂",
+          "text": "Ferrocarriles: integran mercados y reducen costos de transporte"
+        },
+        {
+          "id": 4,
+          "emoji": "📖",
+          "text": "Adam Smith publica 'La Riqueza de las Naciones' (1776)"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada clase social según la Teoría Fisiócrata:",
+      "paginas_referencia": "8",
+      "categorias": [
+        {
+          "name": "Clase Productiva",
+          "emoji": "🌾",
+          "color": "#10B981"
+        },
+        {
+          "name": "Clase Estéril",
+          "emoji": "🏭",
+          "color": "#EF4444"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Agricultores que generan excedente real",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Artesanos que transforman materias primas",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Ganaderos que crían animales",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "Comerciantes que intercambian bienes",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Pescadores que extraen recursos del mar",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Zapateros que fabrican calzado",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "8-10",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "España acumuló oro de América pero sufrió",
+          "respuesta_correcta": "inflación",
+          "pista": "I________"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "Adam Smith criticó el mercantilismo y defendió el",
+          "respuesta_correcta": "libre comercio",
+          "pista": "L____ C_______"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "La división del trabajo aumenta la",
+          "respuesta_correcta": "productividad",
+          "pista": "P_____________"
+        }
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "8-12",
+      "afirmaciones": [
+        {
+          "texto": "Los fisiócratas creían que la agricultura era la única fuente real de excedente económico",
+          "correcto": true,
+          "explicacion": "Verdadero. Los fisiócratas sostenían que solo la agricultura generaba 'producto neto' (riqueza real), mientras que artesanos y comerciantes eran 'estériles' porque no creaban excedente."
+        },
+        {
+          "texto": "España se enriqueció permanentemente gracias al oro y plata de América",
+          "correcto": false,
+          "explicacion": "Falso. La paradoja del oro español muestra que acumular metales SIN producción interna generó inflación, dependencia de importaciones y declive económico irreversible."
+        },
+        {
+          "texto": "La Revolución Industrial trajo progreso tecnológico pero también explotación laboral brutal",
+          "correcto": true,
+          "explicacion": "Verdadero. Hubo avances asombrosos (PIB multiplicado, tecnologías, urbanización) pero también condiciones extremas: jornadas de 14-16 horas, trabajo infantil, hacinamiento, pobreza y desigualdad masiva."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "10-11",
+      "pares": [
+        {
+          "izquierda": "Adam Smith",
+          "derecha": "Mano invisible: auto-interés individual promueve bienestar social",
+          "emoji": "✋"
+        },
+        {
+          "izquierda": "David Ricardo",
+          "derecha": "Ventaja comparativa: libre comercio beneficia a todos",
+          "emoji": "🌍"
+        },
+        {
+          "izquierda": "Thomas Malthus",
+          "derecha": "Población crece más rápido que producción de alimentos",
+          "emoji": "👨‍👩‍👧‍👦"
+        },
+        {
+          "izquierda": "John Stuart Mill",
+          "derecha": "Humanismo: equidad social y libertad individual",
+          "emoji": "⚖️"
+        }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "10-12",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "✋",
+          "pregunta": "¿Cuál NO es un principio de la 'Mano Invisible' de Adam Smith?",
+          "paginas": "10",
+          "palabras": [
+            {
+              "text": "Auto-interés individual",
+              "es_intrusa": false
+            },
+            {
+              "text": "Autorregulación del mercado",
+              "es_intrusa": false
+            },
+            {
+              "text": "Control total del Estado",
+              "es_intrusa": true
+            },
+            {
+              "text": "Eficiencia en asignación de recursos",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Adam Smith defendía el LIBRE MERCADO con mínima intervención estatal, no el control total del Estado. La mano invisible autorregula el mercado mediante la competencia."
+        },
+        {
+          "id": 1,
+          "emoji": "⚙️",
+          "pregunta": "¿Cuál NO fue una consecuencia NEGATIVA de la Revolución Industrial?",
+          "paginas": "12",
+          "palabras": [
+            {
+              "text": "Jornadas laborales de 14-16 horas",
+              "es_intrusa": false
+            },
+            {
+              "text": "Crecimiento económico asombroso",
+              "es_intrusa": true
+            },
+            {
+              "text": "Trabajo infantil masivo",
+              "es_intrusa": false
+            },
+            {
+              "text": "Hacinamiento y epidemias urbanas",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "El crecimiento económico fue una consecuencia POSITIVA. Las negativas fueron: explotación laboral extrema, trabajo infantil, hacinamiento, pobreza y desigualdad masiva."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "8-12",
+      "conceptos": [
+        {
+          "termino": "Mano Invisible",
+          "pista": "¿Cómo se autorregula el mercado según Adam Smith?",
+          "palabras_clave": ["auto-interés", "mercado", "competencia", "equilibrio", "beneficio", "social"]
+        },
+        {
+          "termino": "División del Trabajo",
+          "pista": "¿Por qué especializarse multiplica la producción?",
+          "palabras_clave": ["especialización", "tareas", "productividad", "eficiencia", "dividir", "aumenta"]
+        },
+        {
+          "termino": "Paradoja del Oro Español",
+          "pista": "¿Por qué España se empobreció con el oro de América?",
+          "palabras_clave": ["oro", "inflación", "producción", "importación", "metales", "declive"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "8-12",
+      "causas": [
+        {
+          "id": 1,
+          "emoji": "⚓",
+          "text": "Mercantilismo: España acumula oro sin producir"
+        },
+        {
+          "id": 2,
+          "emoji": "💨",
+          "text": "Se inventa la máquina de vapor"
+        },
+        {
+          "id": 3,
+          "emoji": "🔪",
+          "text": "Adam Smith critica el mercantilismo"
+        },
+        {
+          "id": 4,
+          "emoji": "🏭",
+          "text": "Revolución Industrial: crecimiento económico sin distribución"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "📉",
+          "text": "Inflación, dependencia de importaciones y declive económico"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "⚙️",
+          "text": "Energía constante permite fábricas y producción masiva"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "🌍",
+          "text": "Defiende libre comercio, mano invisible y división del trabajo"
+        },
+        {
+          "id": 4,
+          "causa_id": 4,
+          "emoji": "😢",
+          "text": "Explotación brutal, trabajo infantil, pobreza y desigualdad"
+        }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená cómo funciona la 'Mano Invisible' del mercado según Adam Smith:",
+      "paginas_referencia": "10",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 1,
+          "emoji": "💰",
+          "text": "Cada persona busca su propio beneficio individual (auto-interés)"
+        },
+        {
+          "id": 2,
+          "emoji": "🏪",
+          "text": "Para ganar dinero, debe ofrecer lo que otros necesitan"
+        },
+        {
+          "id": 3,
+          "emoji": "🤝",
+          "text": "La competencia regula precios y calidad automáticamente"
+        },
+        {
+          "id": 4,
+          "emoji": "⚖️",
+          "text": "El mercado se equilibra solo, sin intervención estatal"
+        },
+        {
+          "id": 5,
+          "emoji": "🌟",
+          "text": "Resultado: bienestar social y asignación eficiente de recursos"
+        }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "12",
+      "concepto_a": {
+        "nombre": "Progreso de la Revolución Industrial",
+        "emoji": "📈",
+        "color": "#10B981"
+      },
+      "concepto_b": {
+        "nombre": "Explotación de la Revolución Industrial",
+        "emoji": "😢",
+        "color": "#EF4444"
+      }
+    }
+  },
+
+  "nucleo_c": {
+    "bloque_info": {
+      "id": "c",
+      "emoji": "📉",
+      "titulo": "BLOQUE C: Segunda Revolución y Crisis Global",
+      "color": "#10B981",
+      "paginas": [13, 14, 15, 16, 17, 18, 19]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los eventos de la Crisis de 1873 y la Gran Depresión del siglo XIX:",
+      "paginas_referencia": "15-16",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "📈",
+          "text": "1850-1873: Auge económico con expansión ferroviaria y especulación"
+        },
+        {
+          "id": 1,
+          "emoji": "🏦",
+          "text": "20 sept. 1873: Quiebra del banco Jay Cooke & Company"
+        },
+        {
+          "id": 2,
+          "emoji": "💥",
+          "text": "Pánico bursátil se extiende globalmente (Viernes Negro de Viena)"
+        },
+        {
+          "id": 3,
+          "emoji": "📉",
+          "text": "1873-1896: Gran Depresión del siglo XIX (deflación, quiebras, desempleo)"
+        },
+        {
+          "id": 4,
+          "emoji": "🛡️",
+          "text": "Respuestas: proteccionismo, imperialismo, movimiento obrero"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada avance según pertenezca a la Primera o Segunda Revolución Industrial:",
+      "paginas_referencia": "10, 14",
+      "categorias": [
+        {
+          "name": "Primera Revolución (1760-1840)",
+          "emoji": "⚙️",
+          "color": "#3B82F6"
+        },
+        {
+          "name": "Segunda Revolución (1870-1914)",
+          "emoji": "💡",
+          "color": "#10B981"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Máquina de vapor",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Electricidad (Edison, Tesla)",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Industria textil mecanizada",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "Motor de combustión y petróleo",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Ferrocarriles de vapor",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Teléfono, radio y cine",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "15-19",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "La Crisis de 1873 fue causada por",
+          "respuesta_correcta": "sobreproducción",
+          "pista": "S______________"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "La crisis cuestionó el principio del",
+          "respuesta_correcta": "laissez-faire",
+          "pista": "L______-F____"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "Países adoptaron políticas",
+          "respuesta_correcta": "proteccionistas",
+          "pista": "P______________"
+        }
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "15-19",
+      "afirmaciones": [
+        {
+          "texto": "La Crisis de 1873 fue un problema local de Estados Unidos que no afectó a otros países",
+          "correcto": false,
+          "explicacion": "Falso. Fue la PRIMERA gran crisis SISTÉMICA GLOBAL del capitalismo. El pánico se extendió desde Nueva York a Viena, Alemania, y países periféricos como Argentina."
+        },
+        {
+          "texto": "La Gran Depresión del siglo XIX duró de 1873 a 1896 (23 años)",
+          "correcto": true,
+          "explicacion": "Verdadero. Este largo período de deflación, quiebras masivas y desempleo fue la primera gran crisis prolongada del capitalismo industrial."
+        },
+        {
+          "texto": "Tras la crisis de 1873, los países abandonaron el proteccionismo y adoptaron más libre comercio",
+          "correcto": false,
+          "explicacion": "Falso. Fue EXACTAMENTE AL REVÉS: abandonaron el libre comercio y adoptaron PROTECCIONISMO (aranceles altos) para proteger industrias nacionales."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "14",
+      "pares": [
+        {
+          "izquierda": "Electricidad",
+          "derecha": "Edison (bombilla), Tesla (corriente alterna), iluminación 24h",
+          "emoji": "💡"
+        },
+        {
+          "izquierda": "Petróleo y Motor",
+          "derecha": "Pozo petrolífero (1859), Benz (1885), primer vuelo (1903)",
+          "emoji": "🚗"
+        },
+        {
+          "izquierda": "Química",
+          "derecha": "Tintes sintéticos, fertilizantes, farmacéutica",
+          "emoji": "🧪"
+        },
+        {
+          "izquierda": "Comunicaciones",
+          "derecha": "Teléfono (1876), radio (1895), cine (1895)",
+          "emoji": "📞"
+        }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "15-19",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "📉",
+          "pregunta": "¿Cuál NO fue una consecuencia de la Crisis de 1873?",
+          "paginas": "16",
+          "palabras": [
+            {
+              "text": "Deflación y caída de precios",
+              "es_intrusa": false
+            },
+            {
+              "text": "Quiebras masivas de bancos",
+              "es_intrusa": false
+            },
+            {
+              "text": "Prosperidad y pleno empleo",
+              "es_intrusa": true
+            },
+            {
+              "text": "Desempleo del 14% en EE.UU.",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "La crisis generó TODO LO CONTRARIO a prosperidad: deflación, quiebras, desempleo masivo (14% en EE.UU. en 1876) y gran descontento social."
+        },
+        {
+          "id": 1,
+          "emoji": "🛡️",
+          "pregunta": "¿Cuál NO fue una respuesta a la crisis de 1873?",
+          "paginas": "17-18",
+          "palabras": [
+            {
+              "text": "Cuestionamiento del laissez-faire",
+              "es_intrusa": false
+            },
+            {
+              "text": "Aumento del libre comercio global",
+              "es_intrusa": true
+            },
+            {
+              "text": "Proteccionismo y aranceles altos",
+              "es_intrusa": false
+            },
+            {
+              "text": "Imperialismo: búsqueda de colonias",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Hubo MENOS libre comercio, no más. Las respuestas fueron: proteccionismo, aranceles, imperialismo (colonias) y fortalecimiento del movimiento obrero."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "15-19",
+      "conceptos": [
+        {
+          "termino": "Crisis de Sobreproducción",
+          "pista": "¿Qué pasa cuando se produce más de lo que se puede vender?",
+          "palabras_clave": ["oferta", "demanda", "exceso", "saturación", "mercados", "desigualdad"]
+        },
+        {
+          "termino": "Laissez-faire",
+          "pista": "¿Qué significa 'dejar hacer' al mercado sin intervención estatal?",
+          "palabras_clave": ["libre", "mercado", "Estado", "intervención", "autorregulación", "mínima"]
+        },
+        {
+          "termino": "Proteccionismo",
+          "pista": "¿Cómo protegen los países sus industrias de la competencia extranjera?",
+          "palabras_clave": ["aranceles", "impuestos", "importaciones", "proteger", "industria", "nacional"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "15-19",
+      "causas": [
+        {
+          "id": 1,
+          "emoji": "📈",
+          "text": "Expansión ferroviaria masiva con sobreinversión especulativa"
+        },
+        {
+          "id": 2,
+          "emoji": "🏦",
+          "text": "Quiebra del banco Jay Cooke & Company (20 sept. 1873)"
+        },
+        {
+          "id": 3,
+          "emoji": "📉",
+          "text": "Gran Depresión (1873-1896): deflación, quiebras, desempleo"
+        },
+        {
+          "id": 4,
+          "emoji": "😢",
+          "text": "Crisis intensifica el sufrimiento de los trabajadores"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "💥",
+          "text": "Deudas impagables que arrastran bancos y empresas al colapso"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "🌍",
+          "text": "Pánico bursátil se contagia globalmente (Viena, Alemania, Argentina)"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "🛡️",
+          "text": "Proteccionismo, imperialismo y cuestionamiento del laissez-faire"
+        },
+        {
+          "id": 4,
+          "causa_id": 4,
+          "emoji": "✊",
+          "text": "Surgen sindicatos, socialismo, anarquismo y huelgas masivas"
+        }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená cómo se desarrolló la Segunda Revolución Industrial:",
+      "paginas_referencia": "14",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 1,
+          "emoji": "💡",
+          "text": "Electricidad: Edison inventa la bombilla, Tesla la corriente alterna"
+        },
+        {
+          "id": 2,
+          "emoji": "🛢️",
+          "text": "Petróleo: primer pozo (1859), motor de combustión (Benz 1885)"
+        },
+        {
+          "id": 3,
+          "emoji": "🧪",
+          "text": "Química: tintes sintéticos, fertilizantes, industria farmacéutica"
+        },
+        {
+          "id": 4,
+          "emoji": "📞",
+          "text": "Comunicaciones: teléfono (1876), radio (1895), cine (1895)"
+        },
+        {
+          "id": 5,
+          "emoji": "🌍",
+          "text": "Economía global interconectada a escala sin precedentes"
+        }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "17",
+      "concepto_a": {
+        "nombre": "Laissez-faire (Libre Mercado)",
+        "emoji": "🆓",
+        "color": "#6366F1"
+      },
+      "concepto_b": {
+        "nombre": "Proteccionismo (Intervención Estatal)",
+        "emoji": "🛡️",
+        "color": "#EF4444"
+      }
+    }
+  },
+
+  "senales": {
+    "conceptos_clave": [
+      {
+        "emoji": "👥",
+        "termino": "Gregarismo",
+        "color": "#6366F1",
+        "definicion": "Característica del ser humano de vivir naturalmente en grupos sociales. Somos gregarios biológicamente (dependemos de otros desde el nacimiento), psicológicamente (nuestra identidad se construye con otros) y económicamente (la especialización e intercambio nos permiten satisfacer necesidades complejas).",
+        "importancia": "Sin gregarismo, los humanos no hubiéramos podido sobrevivir ni prosperar. La cooperación social es la base de toda la economía y la civilización."
+      },
+      {
+        "emoji": "⚖️",
+        "termino": "Economía",
+        "color": "#3B82F6",
+        "definicion": "Ciencia social que estudia cómo las sociedades gestionan recursos limitados (escasos) para satisfacer necesidades humanas ilimitadas. Responde a: ¿qué producir?, ¿cómo producir?, ¿para quién producir?",
+        "importancia": "Es el problema fundamental de toda sociedad: recursos finitos vs. deseos infinitos. Sin resolver esto, no podemos vivir en sociedad."
+      },
+      {
+        "emoji": "✋",
+        "termino": "Mano Invisible",
+        "color": "#10B981",
+        "definicion": "Concepto de Adam Smith: cuando cada persona busca su propio beneficio en un mercado libre y competitivo, la competencia regula precios y calidad automáticamente, logrando bienestar social sin intervención estatal. El auto-interés individual genera eficiencia colectiva.",
+        "importancia": "Fundamento del liberalismo económico. Cuestionó el control estatal mercantilista y defendió el libre comercio como motor de prosperidad global."
+      },
+      {
+        "emoji": "📉",
+        "termino": "Crisis de 1873",
+        "color": "#EC4899",
+        "definicion": "Primera gran crisis global del capitalismo industrial. Causada por sobreproducción, especulación ferroviaria y quiebra bancaria en EE.UU. Generó la Gran Depresión del siglo XIX (1873-1896): 23 años de deflación, quiebras masivas, desempleo y estancamiento económico global.",
+        "importancia": "Demostró que el capitalismo tiene inestabilidades intrínsecas y que el laissez-faire no garantiza equilibrio automático. Fue el 'aviso' que anticipó problemas que explotarían en 1929."
+      }
+    ],
+    "semaforo_conceptos": [
+      {
+        "emoji": "👥",
+        "termino": "Gregarismo"
+      },
+      {
+        "emoji": "⚖️",
+        "termino": "Economía y escasez"
+      },
+      {
+        "emoji": "🏰",
+        "termino": "Sistemas precapitalistas"
+      },
+      {
+        "emoji": "✋",
+        "termino": "Mano Invisible"
+      },
+      {
+        "emoji": "📉",
+        "termino": "Crisis de 1873"
+      }
+    ],
+    "postits_conceptos": [
+      "Gregarismo",
+      "Economía",
+      "Mano Invisible",
+      "Crisis de 1873"
+    ]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {
+        "emoji": "💰",
+        "color": "#F59E0B",
+        "frente": "España tenía todo el oro pero quebró igual",
+        "dorso": "La paradoja del oro español: España acumuló toneladas de oro y plata de América (siglos XVI-XVII) pero terminó más pobre que Inglaterra. ¿Por qué? Inflación brutal (entrada de metales sin producción interna), dependencia de importaciones (compraba todo afuera), y guerras constantes que agotaron la riqueza. La lección: la riqueza es PRODUCIR, no acumular metal."
+      },
+      {
+        "emoji": "👶",
+        "color": "#EC4899",
+        "frente": "Niños de 5 años trabajaban 14 horas en fábricas",
+        "dorso": "En la Revolución Industrial, niños desde 5-6 años trabajaban jornadas de 14-16 horas diarias en fábricas textiles y minas de carbón. Salarios miserables, condiciones insalubres, accidentes frecuentes. La esperanza de vida de trabajadores urbanos era de apenas 25-30 años. El 'progreso' industrial tenía un lado oscuro brutal."
+      },
+      {
+        "emoji": "🌍",
+        "color": "#6366F1",
+        "frente": "La primera crisis GLOBAL fue en 1873",
+        "dorso": "Antes de 1873, las crisis económicas eran locales o regionales. La Crisis de Superproducción de 1873 fue la PRIMERA crisis verdaderamente GLOBAL del capitalismo: comenzó con la quiebra de un banco en EE.UU. y se contagió en días a Viena, Alemania, Francia, Inglaterra y hasta Argentina. Duró 23 años (1873-1896). El mundo estaba más conectado de lo que creían."
+      }
+    ],
+    "linea_de_tiempo": [
+      {
+        "emoji": "🏛️",
+        "year": "476 d.C.",
+        "text": "Caída del Imperio Romano: surge el feudalismo medieval"
+      },
+      {
+        "emoji": "🌾",
+        "year": "1758",
+        "text": "Quesnay publica el Tableau Économique (primer modelo económico)"
+      },
+      {
+        "emoji": "📖",
+        "year": "1776",
+        "text": "Adam Smith publica 'La Riqueza de las Naciones'"
+      },
+      {
+        "emoji": "💨",
+        "year": "1760-1840",
+        "text": "Primera Revolución Industrial: vapor, textiles, ferrocarriles"
+      },
+      {
+        "emoji": "📉",
+        "year": "1873-1896",
+        "text": "Crisis de 1873 y Gran Depresión del siglo XIX"
+      },
+      {
+        "emoji": "💡",
+        "year": "1870-1914",
+        "text": "Segunda Revolución Industrial: electricidad, petróleo, química"
+      }
+    ],
+    "encuesta": {
+      "pregunta": "¿Qué dato te sorprendió más?",
+      "opciones": [
+        {
+          "emoji": "💰",
+          "text": "Que España quebró con todo el oro de América",
+          "votos_iniciales": 45
+        },
+        {
+          "emoji": "👶",
+          "text": "Que niños de 5 años trabajaban 14 horas en fábricas",
+          "votos_iniciales": 38
+        },
+        {
+          "emoji": "🌍",
+          "text": "Que la primera crisis global fue en 1873",
+          "votos_iniciales": 28
+        }
+      ]
+    }
+  },
+
+  "cruces": {
+    "consigna_general": "Elegí un tema de cada bloque que te haya interesado y preparalo para explicárselo a un compañero. Podés usar esquemas, dibujos, ejemplos... ¡lo que quieras!",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "📚",
+        "titulo": "BLOQUE A: Fundamentos y Sistemas Precapitalistas",
+        "color": "#6366F1",
+        "temas_sugeridos": [
+          "Gregarismo: por qué los humanos necesitamos vivir en sociedad",
+          "Revolución Neolítica: de nómadas a agricultores sedentarios",
+          "Economía: ciencia de la escasez y las tres preguntas fundamentales",
+          "Método económico: cómo los economistas usan el método científico",
+          "Diferencia entre Economía Positiva (lo que ES) y Normativa (lo que DEBERÍA SER)",
+          "Feudalismo: cómo funcionaba la sociedad medieval europea",
+          "Mercantilismo: por qué los Estados querían acumular oro y plata"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+      },
+      {
+        "id": "b",
+        "emoji": "🌾",
+        "titulo": "BLOQUE B: Fisiocracia y Economía Clásica",
+        "color": "#3B82F6",
+        "temas_sugeridos": [
+          "Paradoja del oro español: por qué España quebró con todo el oro de América",
+          "Fisiocracia: por qué creían que solo la agricultura generaba riqueza",
+          "Adam Smith y la Mano Invisible: cómo el auto-interés genera bienestar social",
+          "División del trabajo: por qué especializarse multiplica la productividad",
+          "Diferencia entre economistas clásicos: Smith, Ricardo, Malthus, Stuart Mill",
+          "Revolución Industrial: progreso tecnológico asombroso",
+          "Consecuencias sociales: explotación laboral brutal, trabajo infantil, pobreza"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+      },
+      {
+        "id": "c",
+        "emoji": "📉",
+        "titulo": "BLOQUE C: Segunda Revolución y Crisis Global",
+        "color": "#10B981",
+        "temas_sugeridos": [
+          "Segunda Revolución Industrial: electricidad, petróleo, química, comunicaciones",
+          "Crisis de Sobreproducción de 1873: causas y detonantes",
+          "Gran Depresión del siglo XIX (1873-1896): 23 años de crisis",
+          "Consecuencias de la crisis: deflación, quiebras, desempleo masivo",
+          "Cuestionamiento del laissez-faire: el mercado NO se autorregula solo",
+          "Proteccionismo: aranceles altos para proteger industrias nacionales",
+          "Movimiento obrero: sindicatos, socialismo, anarquismo, huelgas",
+          "Imperialismo: colonias como 'solución' a la crisis de sobreproducción"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+      }
+    ]
+  },
+
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "El capitalismo es inherentemente inestable y genera crisis inevitables",
+      "contexto": "La Crisis de 1873 y la Gran Depresión del siglo XIX mostraron que el capitalismo puede generar crisis globales devastadoras. ¿Son estas crisis fallas accidentales que se pueden corregir, o son parte inevitable del sistema capitalista? ¿El libre mercado se autorregula solo o necesita intervención estatal?",
+      "roles": [
+        {
+          "id": "fiscal",
+          "emoji": "📉",
+          "label": "A favor: Crisis son inevitables",
+          "desc": "Argumentá que las crisis son inherentes al capitalismo (sobreproducción, especulación, desigualdad) y que el laissez-faire no funciona",
+          "color": "#EF4444"
+        },
+        {
+          "id": "defensa",
+          "emoji": "📈",
+          "label": "En contra: Crisis son excepciones",
+          "desc": "Argumentá que las crisis son fallas corregibles, que el capitalismo genera progreso y que la intervención estatal empeora las cosas",
+          "color": "#10B981"
+        },
+        {
+          "id": "juez",
+          "emoji": "⚖️",
+          "label": "Posición equilibrada",
+          "desc": "Evaluá ambos argumentos y proponé un equilibrio entre mercado libre e intervención estatal reguladora",
+          "color": "#6366F1"
+        }
+      ]
+    },
+    "tesis": {
+      "consigna": "Formulá una tesis sobre el rol del Estado en la economía basándote en lo aprendido sobre mercantilismo, laissez-faire y la crisis de 1873. Incluí: (1) Tu tesis principal, (2) Tres evidencias históricas que la apoyen, (3) Dos contraargumentos posibles, (4) Tu refutación a esos contraargumentos, (5) Una conclusión que defienda tu postura."
+    },
+    "critica": {
+      "consigna": "Analizá críticamente el siguiente argumento: 'La Revolución Industrial fue un progreso neto para la humanidad a pesar de la explotación laboral, porque multiplicó la producción y sentó las bases de la vida moderna'. ¿Estás de acuerdo? ¿Qué fortalezas tiene este argumento? ¿Qué debilidades o contradicciones encontrás? ¿Es posible justificar el sufrimiento de millones en nombre del 'progreso'? ¿Qué conclusiones sacás sobre cómo evaluar sistemas económicos?"
+    }
+  },
+
+  "autotest": {
+    "banco_respuestas_docente": [
+      "1. B - Ciencia social que estudia cómo gestionar recursos escasos ante necesidades ilimitadas",
+      "2. D - El aislamiento total no afecta al ser humano",
+      "3. B - Conjunto de normas mercantilistas para acumular oro",
+      "4. A - La agricultura era la única fuente de riqueza real (producto neto)",
+      "5. C - El auto-interés individual promueve el bienestar social mediante la competencia",
+      "6. B - España acumuló oro de América pero sufrió inflación y declive",
+      "7. D - Crecimiento económico pero también explotación laboral brutal",
+      "8. C - Sobreproducción: oferta superó demanda por desigualdad en distribución",
+      "9. A - Cuestionamiento del laissez-faire y adopción de proteccionismo",
+      "10. B - Sindicatos, socialismo, anarquismo y huelgas masivas",
+      "11. VERDADERO - La Revolución Neolítica generó excedentes, propiedad privada y desigualdad",
+      "12. FALSO - El Mercantilismo defendía acumulación de oro/plata, no libre comercio",
+      "13. VERDADERO - Jornadas de 14-16 horas, trabajo infantil, hacinamiento urbano",
+      "14. VERDADERO - Fue la primera crisis sistémica global del capitalismo industrial",
+      "15. FALSO - Adoptaron PROTECCIONISMO (aranceles), no más libre comercio"
+    ],
+    "preguntas": [
+      {
+        "pregunta": "¿Cuál es la definición más completa de Economía?",
+        "opciones": [
+          "Estudio del dinero y cómo las personas se enriquecen",
+          "Ciencia social que estudia cómo gestionar recursos escasos ante necesidades ilimitadas",
+          "Análisis de las empresas y sus ganancias",
+          "Administración del hogar según Aristóteles"
+        ],
+        "correcta": 1,
+        "explicacion": "La economía es la ciencia social que estudia cómo las sociedades gestionan recursos ESCASOS (limitados) para satisfacer necesidades ILIMITADAS. Este es el problema económico fundamental. Revisá las páginas 3-4 para profundizar."
+      },
+      {
+        "pregunta": "¿Cuál NO es un aspecto del gregarismo humano?",
+        "opciones": [
+          "Gregarismo biológico: dependemos de otros desde el nacimiento",
+          "Gregarismo psicológico: nuestra identidad se construye con otros",
+          "Gregarismo económico: especialización e intercambio nos permiten satisfacer necesidades",
+          "El aislamiento total no afecta al ser humano"
+        ],
+        "correcta": 3,
+        "explicacion": "El aislamiento ES LETAL para los humanos. Somos animales gregarios en tres aspectos: biológico (dependencia), psicológico (identidad) y económico (cooperación). Repasá la página 2 para más detalles."
+      },
+      {
+        "pregunta": "¿Qué defendía el Mercantilismo?",
+        "opciones": [
+          "Libre comercio sin intervención estatal",
+          "La agricultura como única fuente de riqueza",
+          "Acumulación de metales preciosos (oro y plata) mediante proteccionismo",
+          "División del trabajo y especialización productiva"
+        ],
+        "correcta": 2,
+        "explicacion": "El Mercantilismo (siglos XVI-XVIII) sostenía que la riqueza era acumular oro y plata, usando proteccionismo (aranceles, monopolios, colonias). Adam Smith luego criticó esto. Revisá las páginas 7-8."
+      },
+      {
+        "pregunta": "Según la Fisiocracia, ¿cuál era la única clase productiva?",
+        "opciones": [
+          "La agricultura era la única fuente de riqueza real (producto neto)",
+          "Los comerciantes generaban excedente mediante el intercambio",
+          "Los artesanos creaban valor transformando materias primas",
+          "Todas las actividades económicas generaban riqueza por igual"
+        ],
+        "correcta": 0,
+        "explicacion": "Los fisiócratas sostenían que SOLO la agricultura generaba 'producto neto' (excedente real). Artesanos y comerciantes eran 'estériles' porque no creaban riqueza nueva. Repasá la página 8."
+      },
+      {
+        "pregunta": "¿Qué es la 'Mano Invisible' de Adam Smith?",
+        "opciones": [
+          "Intervención oculta del Estado en la economía",
+          "Manipulación de precios por monopolios",
+          "El auto-interés individual promueve el bienestar social mediante la competencia",
+          "Conspiración de comerciantes para controlar mercados"
+        ],
+        "correcta": 2,
+        "explicacion": "La mano invisible: cuando cada persona busca su beneficio en un mercado libre, la competencia regula precios y calidad automáticamente, logrando eficiencia colectiva SIN intervención estatal. Revisá la página 10."
+      },
+      {
+        "pregunta": "¿Cuál es la 'Paradoja del Oro Español'?",
+        "opciones": [
+          "España no encontró oro en América",
+          "España acumuló oro de América pero sufrió inflación y declive económico",
+          "España usó el oro para desarrollar industria nacional",
+          "El oro español benefició a toda Europa por igual"
+        ],
+        "correcta": 1,
+        "explicacion": "Paradoja: España acumuló TONELADAS de oro/plata pero terminó POBRE. ¿Por qué? Inflación (metales sin producción), dependencia de importaciones, guerras. Lección: la riqueza es PRODUCIR, no acumular metal. Repasá la página 8."
+      },
+      {
+        "pregunta": "¿Cuál fue el principal impacto social de la Revolución Industrial?",
+        "opciones": [
+          "Solo progreso: mejora generalizada de condiciones de vida",
+          "Solo retroceso: empeoramiento para toda la población",
+          "Avances tecnológicos sin impacto en condiciones laborales",
+          "Crecimiento económico asombroso pero también explotación laboral brutal"
+        ],
+        "correcta": 3,
+        "explicacion": "La Revolución Industrial fue DUAL: progreso increíble (PIB multiplicado, tecnologías, urbanización) PERO TAMBIÉN explotación brutal (jornadas 14-16h, trabajo infantil, hacinamiento, pobreza masiva). Revisá las páginas 12-13."
+      },
+      {
+        "pregunta": "¿Cuál fue la causa principal de la Crisis de 1873?",
+        "opciones": [
+          "Guerra mundial que destruyó la producción",
+          "Escasez de materias primas y recursos naturales",
+          "Sobreproducción: oferta superó demanda por desigualdad en distribución de riqueza",
+          "Revolución socialista que derrocó el capitalismo"
+        ],
+        "correcta": 2,
+        "explicacion": "Causa: SOBREPRODUCCIÓN. Expansión productiva (ferrocarriles, industria) generó oferta que SUPERÓ la demanda efectiva (la gente no podía comprar por desigualdad). Mercados saturados → crisis. Repasá las páginas 15-16."
+      },
+      {
+        "pregunta": "¿Cuál fue la principal respuesta política-económica a la Crisis de 1873?",
+        "opciones": [
+          "Cuestionamiento del laissez-faire y adopción de proteccionismo (aranceles altos)",
+          "Mayor liberalización comercial y eliminación de barreras",
+          "Revolución comunista en todos los países afectados",
+          "Vuelta al feudalismo medieval"
+        ],
+        "correcta": 0,
+        "explicacion": "Respuesta: ABANDONARON el laissez-faire (libre mercado) y adoptaron PROTECCIONISMO (aranceles altos, monopolios estatales). También surgió imperialismo (colonias) y movimiento obrero. Revisá las páginas 17-18."
+      },
+      {
+        "pregunta": "¿Cómo respondió el movimiento obrero a la Crisis de 1873?",
+        "opciones": [
+          "Apoyó totalmente al capitalismo sin críticas",
+          "Surgieron sindicatos, socialismo, anarquismo y huelgas masivas",
+          "Se disolvió por falta de trabajadores descontentos",
+          "Adoptó posiciones conservadoras y pro-empresariales"
+        ],
+        "correcta": 1,
+        "explicacion": "La crisis intensificó el sufrimiento obrero → RADICALIZACIÓN: formación de sindicatos, difusión de socialismo y anarquismo, Primera Internacional, huelgas masivas y confrontación capital-trabajo. Repasá la página 18 para más detalles."
+      }
+    ],
+    "verdadero_falso": [
+      {
+        "texto": "La Revolución Neolítica (hace 10.000 años) generó excedentes, propiedad privada y desigualdad social",
+        "correcto": true,
+        "explicacion": "VERDADERO. El paso de nómadas a agricultores sedentarios permitió producir EXCEDENTES (más de lo necesario), lo que generó PROPIEDAD PRIVADA (acumulación) y DESIGUALDAD SOCIAL (algunos acumularon más que otros). Repasá la página 2."
+      },
+      {
+        "texto": "El Mercantilismo defendía el libre comercio sin intervención estatal",
+        "correcto": false,
+        "explicacion": "FALSO. El Mercantilismo defendía TODO LO CONTRARIO: PROTECCIONISMO (aranceles altos, subsidios, monopolios estatales) y acumulación de oro/plata mediante colonias. Adam Smith luego defendió el libre comercio. Revisá la página 7."
+      },
+      {
+        "texto": "La Revolución Industrial solo trajo progreso, sin consecuencias negativas para los trabajadores",
+        "correcto": false,
+        "explicacion": "FALSO. Hubo progreso increíble PERO TAMBIÉN explotación brutal: jornadas 14-16 horas, salarios miserables, trabajo infantil masivo (niños desde 5 años), hacinamiento urbano, esperanza de vida de 25-30 años. Repasá las páginas 12-13."
+      },
+      {
+        "texto": "La Crisis de 1873 fue la primera gran crisis SISTÉMICA GLOBAL del capitalismo industrial",
+        "correcto": true,
+        "explicacion": "VERDADERO. Antes de 1873, las crisis eran locales. Esta fue la PRIMERA crisis verdaderamente GLOBAL: comenzó en EE.UU. y se contagió en días a Viena, Alemania, Francia, Inglaterra, Argentina. Duró 23 años (1873-1896). Revisá la página 16."
+      },
+      {
+        "texto": "Tras la crisis de 1873, los países abandonaron el proteccionismo y adoptaron más libre comercio",
+        "correcto": false,
+        "explicacion": "FALSO. Fue EXACTAMENTE AL REVÉS: abandonaron el libre comercio (laissez-faire) y adoptaron PROTECCIONISMO (aranceles altos) para proteger industrias nacionales de la competencia. También surgió imperialismo. Repasá las páginas 17-18."
+      }
+    ]
+  },
+
+  "cierre": {
+    "glosario": [
+      {
+        "emoji": "👥",
+        "termino": "Gregarismo",
+        "categoria": "Concepto base",
+        "definicion": "Característica del ser humano de vivir naturalmente en grupos sociales. Es biológico (dependencia desde nacimiento), psicológico (identidad con otros) y económico (cooperación y especialización)."
+      },
+      {
+        "emoji": "⚖️",
+        "termino": "Economía",
+        "categoria": "Concepto base",
+        "definicion": "Ciencia social que estudia cómo las sociedades gestionan recursos escasos para satisfacer necesidades ilimitadas. Responde: ¿qué, cómo y para quién producir?"
+      },
+      {
+        "emoji": "🏰",
+        "termino": "Feudalismo",
+        "categoria": "Sistema histórico",
+        "definicion": "Sistema económico y social europeo (siglos V-XV) basado en posesión de tierras y pactos de lealtad: rey/nobleza, vasallos/caballeros, campesinos/siervos."
+      },
+      {
+        "emoji": "⚓",
+        "termino": "Mercantilismo",
+        "categoria": "Sistema histórico",
+        "definicion": "Sistema económico (siglos XVI-XVIII) centrado en acumular metales preciosos mediante proteccionismo estatal (aranceles, monopolios, colonias)."
+      },
+      {
+        "emoji": "🌾",
+        "termino": "Fisiocracia",
+        "categoria": "Doctrina económica",
+        "definicion": "Doctrina del siglo XVIII que sostenía que solo la agricultura genera riqueza real (producto neto). Artesanos y comerciantes eran 'estériles'. Defendía libre comercio y orden natural."
+      },
+      {
+        "emoji": "✋",
+        "termino": "Mano Invisible",
+        "categoria": "Concepto clave",
+        "definicion": "Concepto de Adam Smith: el auto-interés individual en un mercado libre genera bienestar social mediante la competencia, sin intervención estatal."
+      },
+      {
+        "emoji": "📉",
+        "termino": "Crisis de 1873",
+        "categoria": "Evento histórico",
+        "definicion": "Primera gran crisis global del capitalismo industrial. Causada por sobreproducción y especulación. Generó la Gran Depresión del siglo XIX (1873-1896): deflación, quiebras, desempleo masivo."
+      },
+      {
+        "emoji": "🛡️",
+        "termino": "Proteccionismo",
+        "categoria": "Política económica",
+        "definicion": "Política de imponer aranceles altos a importaciones para proteger industrias nacionales de la competencia extranjera. Opuesto al libre comercio."
+      }
+    ],
+    "recursos": [
+      {
+        "tipo": "🎬 Video",
+        "title": "Náufrago (2000) - Película completa",
+        "desc": "Film protagonizado por Tom Hanks que ilustra el gregarismo humano: la necesidad vital de vivir en sociedad",
+        "nivel": "Introductorio",
+        "color": "#EC4899"
+      },
+      {
+        "tipo": "📖 Libro",
+        "title": "La Riqueza de las Naciones - Adam Smith (1776)",
+        "desc": "Obra fundacional de la economía clásica que introduce la mano invisible y la división del trabajo",
+        "nivel": "Avanzado",
+        "color": "#6366F1"
+      },
+      {
+        "tipo": "🎧 Podcast",
+        "title": "Historia Económica Argentina - Radio Nacional",
+        "desc": "Serie que explica cómo Argentina se insertó en la economía global durante el siglo XIX",
+        "nivel": "Intermedio",
+        "color": "#10B981"
+      },
+      {
+        "tipo": "🌐 Web",
+        "title": "Museo Británico - Revolución Industrial",
+        "desc": "Colección digital con fotos, objetos y testimonios de la era industrial británica",
+        "nivel": "Introductorio",
+        "color": "#F59E0B"
+      },
+      {
+        "tipo": "📄 Artículo",
+        "title": "La Crisis de 1873 y sus consecuencias - CEPAL",
+        "desc": "Análisis académico de la primera gran crisis global del capitalismo y su impacto en América Latina",
+        "nivel": "Avanzado",
+        "color": "#8B5CF6"
+      }
+    ]
+  }
+}
