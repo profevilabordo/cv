@@ -1,0 +1,1716 @@
+{
+  "id": "eeso206_4d_derecho_u1",
+  "materia": "Derecho",
+  "unidad": 1,
+  "titulo": "El Derecho y su marco normativo",
+  "emoji": "⚖️",
+  "color_primario": "#6366F1",
+  "color_secundario": "#10B981",
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "🚦",
+        "texto": "¿Por qué aunque una calle esté vacía igual tenés que respetar el semáforo?",
+        "pista": "Pensá qué pasaría si cada uno hiciera solo lo que le parece bien..."
+      },
+      {
+        "emoji": "📄",
+        "texto": "¿Por qué al firmar un contrato o aceptar términos de una app no alcanza solo con “tener buena intención”?",
+        "pista": "Hay acuerdos que generan obligaciones concretas, no quedan solo en la conciencia..."
+      },
+      {
+        "emoji": "🤝",
+        "texto": "¿Por qué vivir con otras personas obliga a aceptar reglas, incluso cuando no nos gustan del todo?",
+        "pista": "Convivir implica límites, derechos y deberes para todos..."
+      }
+    ],
+    "situaciones_conecta": [
+      {
+        "emoji": "🛵",
+        "label": "Vi una multa por no usar casco"
+      },
+      {
+        "emoji": "📱",
+        "label": "Acepté términos y condiciones sin leer"
+      },
+      {
+        "emoji": "🏪",
+        "label": "Compré algo y pedí ticket o factura"
+      },
+      {
+        "emoji": "👥",
+        "label": "En el curso discutimos una regla de convivencia"
+      }
+    ],
+    "termometro_pregunta": "¿Cuánto sentís que entendés por qué existen las normas y qué lugar ocupa el Derecho en tu vida diaria?"
+  },
+  "mapa": {
+    "ruta_paradas": [
+      {
+        "id": 1,
+        "emoji": "👥",
+        "title": "Vivir en sociedad",
+        "desc": "El ser humano como ser gregario y la necesidad de normas",
+        "color": "#6366F1"
+      },
+      {
+        "id": 2,
+        "emoji": "📘",
+        "title": "Qué es el Derecho",
+        "desc": "Concepto, tipos y diferencias con la moral y la religión",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 3,
+        "emoji": "📜",
+        "title": "Fuentes y ley",
+        "desc": "De dónde surge el Derecho y por qué la ley ocupa un lugar central",
+        "color": "#10B981"
+      },
+      {
+        "id": 4,
+        "emoji": "✨",
+        "title": "Principios del Derecho",
+        "desc": "Ideas que orientan la creación, interpretación y aplicación de las normas",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 5,
+        "emoji": "🏛️",
+        "title": "Ramas e interpretación",
+        "desc": "Cómo se divide el Derecho y cómo se interpreta una ley",
+        "color": "#EC4899"
+      }
+    ],
+    "panoramica_bloques": [
+      {
+        "id": "a",
+        "emoji": "👥",
+        "title": "BLOQUE A",
+        "subtitle": "Sociedad, normas y concepto de Derecho",
+        "color": "#6366F1",
+        "items": [
+          "El hombre como ser gregario",
+          "Evolución social: nómades, clanes, ciudades y Estados",
+          "Definición de Derecho",
+          "Derecho Natural y Derecho Positivo",
+          "Derecho Objetivo y Derecho Subjetivo",
+          "Normas morales y jurídicas",
+          "Relación entre Derecho y religión"
+        ]
+      },
+      {
+        "id": "b",
+        "emoji": "📜",
+        "title": "BLOQUE B",
+        "subtitle": "Objeto, fuentes y características de la ley",
+        "color": "#3B82F6",
+        "items": [
+          "Objeto del Derecho",
+          "Derechos, deberes y bien común",
+          "Fuentes del Derecho",
+          "La ley como fuente principal",
+          "Características de la ley",
+          "Costumbre, jurisprudencia y doctrina"
+        ]
+      },
+      {
+        "id": "c",
+        "emoji": "⚖️",
+        "title": "BLOQUE C",
+        "subtitle": "Principios, ramas e interpretación",
+        "color": "#10B981",
+        "items": [
+          "Principios del Derecho",
+          "Igualdad, legalidad, justicia y seguridad jurídica",
+          "Buena fe, proporcionalidad, autonomía de la voluntad y solidaridad",
+          "Derecho Público y Derecho Privado",
+          "Ramas de cada uno",
+          "Interpretación literal, sistemática, teleológica, histórica y progresiva"
+        ]
+      }
+    ],
+    "mapa_mental": {
+      "centro": {
+        "emoji": "⚖️",
+        "title": "EL DERECHO"
+      },
+      "ramas": [
+        {
+          "id": "que",
+          "emoji": "❓",
+          "title": "¿Qué es?",
+          "color": "#6366F1",
+          "items": [
+            "Conjunto de normas obligatorias",
+            "Regula la vida del hombre en sociedad",
+            "Busca una convivencia ordenada y justa",
+            "Tiene relación con derechos y deberes"
+          ]
+        },
+        {
+          "id": "origen",
+          "emoji": "📜",
+          "title": "¿De dónde surge?",
+          "color": "#3B82F6",
+          "items": [
+            "De la ley",
+            "De la costumbre",
+            "De la jurisprudencia",
+            "De la doctrina"
+          ]
+        },
+        {
+          "id": "paraque",
+          "emoji": "🎯",
+          "title": "¿Para qué sirve?",
+          "color": "#10B981",
+          "items": [
+            "Ordena la convivencia social",
+            "Da seguridad jurídica",
+            "Equilibra derechos y deberes",
+            "Limita libertades por el bien común"
+          ]
+        },
+        {
+          "id": "como",
+          "emoji": "🧭",
+          "title": "¿Cómo se organiza?",
+          "color": "#F59E0B",
+          "items": [
+            "Se apoya en principios",
+            "Se divide en Público y Privado",
+            "Tiene distintas ramas",
+            "La ley debe interpretarse"
+          ]
+        }
+      ]
+    }
+  },
+  "nucleo_a": {
+    "bloque_info": {
+      "id": "a",
+      "emoji": "👥",
+      "titulo": "BLOQUE A: Sociedad, normas y concepto de Derecho",
+      "color": "#6366F1",
+      "paginas": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená la secuencia de formas de organización humana que presenta el PDF, desde las más simples hasta las más complejas:",
+      "paginas_referencia": "2",
+      "items": [
+        {
+          "id": 1,
+          "emoji": "🏕️",
+          "text": "Grupos nómades"
+        },
+        {
+          "id": 2,
+          "emoji": "👪",
+          "text": "Clanes"
+        },
+        {
+          "id": 3,
+          "emoji": "🏙️",
+          "text": "Ciudades"
+        },
+        {
+          "id": 4,
+          "emoji": "🏛️",
+          "text": "Estados"
+        },
+        {
+          "id": 5,
+          "emoji": "⚖️",
+          "text": "Convivencia regulada por normas"
+        }
+      ],
+      "orden_correcto": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá cada enunciado según corresponda a Derecho Natural o Derecho Positivo:",
+      "paginas_referencia": "3",
+      "categorias": [
+        {
+          "name": "Derecho Natural",
+          "emoji": "💭",
+          "color": "#A78BFA"
+        },
+        {
+          "name": "Derecho Positivo",
+          "emoji": "📕",
+          "color": "#6366F1"
+        }
+      ],
+      "items": [
+        {
+          "id": 1,
+          "text": "Conjunto de reglas ideales, eternas e inmutables",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 2,
+          "text": "Normas vigentes en un Estado particular",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 3,
+          "text": "El hombre lo reconoce mediante la razón",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 4,
+          "text": "Fue establecido por la autoridad política de un pueblo",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 5,
+          "text": "Puede transformarse a través del tiempo",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 6,
+          "text": "Expresa principios jurídicos fundamentales",
+          "categoria_correcta": 0
+        }
+      ]
+    },
+    "n3_completar_mapa": {
+      "paginas_referencia": "2-5",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "El ser humano tiende a vivir en grupos porque es un ser",
+          "respuesta_correcta": "gregario",
+          "pista": "G________"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "El Derecho es el conjunto de normas ________ que regulan la vida del hombre en la sociedad",
+          "respuesta_correcta": "obligatorias",
+          "pista": "O___________"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "Las normas morales dejan su cumplimiento librado a la",
+          "respuesta_correcta": "conciencia",
+          "pista": "C_________"
+        }
+      ]
+    },
+    "n4_verdadero_falso": {
+      "paginas_referencia": "4-5",
+      "afirmaciones": [
+        {
+          "texto": "El Derecho Subjetivo es el conjunto de normas vigentes que integran el ordenamiento jurídico.",
+          "correcto": false,
+          "explicacion": "Falso. Eso corresponde al Derecho Objetivo. El Derecho Subjetivo es la facultad reconocida a una persona por la ley."
+        },
+        {
+          "texto": "Las normas jurídicas y las morales coinciden en que ambas orientan conductas humanas.",
+          "correcto": true,
+          "explicacion": "Verdadero. Ambas indican cómo debe actuar el ser humano, aunque se diferencian por la coerción y el origen."
+        },
+        {
+          "texto": "La moral puede imponerse por la fuerza del Estado del mismo modo que una ley.",
+          "correcto": false,
+          "explicacion": "Falso. Las normas morales son incoercibles; su incumplimiento no activa una sanción estatal."
+        }
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "5",
+      "pares": [
+        {
+          "izquierda": "Bilaterales",
+          "derecha": "Suponen relación con otro sujeto",
+          "emoji": "👥"
+        },
+        {
+          "izquierda": "Exteriores",
+          "derecha": "Atienden al fuero externo de la conducta",
+          "emoji": "👀"
+        },
+        {
+          "izquierda": "Coercibles",
+          "derecha": "Pueden imponerse por la fuerza",
+          "emoji": "⚡"
+        },
+        {
+          "izquierda": "Autónomas",
+          "derecha": "Dependen de la propia conciencia",
+          "emoji": "🧠"
+        }
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "grupos": [
+        {
+          "emoji": "⚖️",
+          "pregunta": "¿Cuál es la palabra intrusa en este grupo?",
+          "paginas": "5",
+          "palabras": [
+            {
+              "text": "Bilaterales",
+              "es_intrusa": false
+            },
+            {
+              "text": "Coercibles",
+              "es_intrusa": false
+            },
+            {
+              "text": "Heterónomas",
+              "es_intrusa": false
+            },
+            {
+              "text": "Incoercibles",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "Incoercibles es la intrusa porque esa característica corresponde a las normas morales, no a las jurídicas."
+        },
+        {
+          "emoji": "📘",
+          "pregunta": "¿Cuál no pertenece al mismo conjunto conceptual?",
+          "paginas": "3-4",
+          "palabras": [
+            {
+              "text": "Derecho Natural",
+              "es_intrusa": false
+            },
+            {
+              "text": "Derecho Positivo",
+              "es_intrusa": false
+            },
+            {
+              "text": "Derecho Objetivo",
+              "es_intrusa": false
+            },
+            {
+              "text": "Jurisprudencia",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "Jurisprudencia es la intrusa porque es una fuente del Derecho; las otras tres expresiones son clasificaciones o formas del Derecho explicadas en estas páginas."
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "2-5",
+      "conceptos": [
+        {
+          "termino": "Gregarismo",
+          "pista": "Explicá por qué el ser humano no vive aislado y necesita agruparse.",
+          "palabras_clave": [
+            "grupos",
+            "sociedad",
+            "asociación",
+            "objetivos",
+            "convivencia",
+            "comunidad"
+          ]
+        },
+        {
+          "termino": "Derecho Positivo",
+          "pista": "Definilo sin copiar: pensá en quién lo establece y dónde rige.",
+          "palabras_clave": [
+            "normas",
+            "Estado",
+            "vigentes",
+            "autoridad",
+            "país",
+            "cambio"
+          ]
+        },
+        {
+          "termino": "Coerción",
+          "pista": "Explicá qué puede hacer el Estado frente al incumplimiento de la ley.",
+          "palabras_clave": [
+            "fuerza",
+            "cumplir",
+            "ley",
+            "Estado",
+            "sanción",
+            "imponer"
+          ]
+        }
+      ]
+    },
+    "n8_causa_efecto": {
+      "paginas_referencia": "2-5",
+      "causas": [
+        {
+          "id": 1,
+          "emoji": "👥",
+          "text": "El hombre vive y persigue fines junto a otros."
+        },
+        {
+          "id": 2,
+          "emoji": "⚠️",
+          "text": "La convivencia sin reglas podría volverse caótica."
+        },
+        {
+          "id": 3,
+          "emoji": "🧠",
+          "text": "Una persona incumple una norma moral."
+        },
+        {
+          "id": 4,
+          "emoji": "🚫",
+          "text": "Una persona incumple una norma jurídica."
+        }
+      ],
+      "efectos": [
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "📜",
+          "text": "Se hace necesario un conjunto de normas para ordenar la vida social."
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "⚖️",
+          "text": "Surge el Derecho como ordenamiento social justo."
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "😶",
+          "text": "Recibe reproche de conciencia o censura social, pero no sanción estatal."
+        },
+        {
+          "id": 4,
+          "causa_id": 4,
+          "emoji": "🏛️",
+          "text": "Puede aplicarse una sanción prevista por el propio Derecho."
+        }
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el razonamiento que construye el PDF para explicar por qué aparece el Derecho:",
+      "paginas_referencia": "2-3",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 1,
+          "emoji": "👤",
+          "text": "El ser humano tiene naturaleza gregaria."
+        },
+        {
+          "id": 2,
+          "emoji": "👥",
+          "text": "Se asocia y convive con otros en grupos."
+        },
+        {
+          "id": 3,
+          "emoji": "🎯",
+          "text": "Busca metas y fines comunes."
+        },
+        {
+          "id": 4,
+          "emoji": "📏",
+          "text": "La convivencia necesita ser reglada para evitar desorden."
+        },
+        {
+          "id": 5,
+          "emoji": "⚖️",
+          "text": "Aparece el Derecho como conjunto de normas obligatorias."
+        }
+      ]
+    },
+    "n10_comparador": {
+      "paginas_referencia": "5",
+      "concepto_a": {
+        "nombre": "Normas Jurídicas",
+        "emoji": "⚖️",
+        "color": "#6366F1"
+      },
+      "concepto_b": {
+        "nombre": "Normas Morales",
+        "emoji": "💭",
+        "color": "#EC4899"
+      }
+    }
+  },
+  "nucleo_b": {
+    "bloque_info": {
+      "id": "b",
+      "emoji": "📜",
+      "titulo": "BLOQUE B: Objeto, fuentes y características de la ley",
+      "color": "#3B82F6",
+      "paginas": [
+        6,
+        7,
+        8,
+        9
+      ]
+    },
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená esta secuencia lógica sobre cómo se presenta el tema en el PDF:",
+      "paginas_referencia": "6-8",
+      "items": [
+        {
+          "id": 1,
+          "emoji": "🏠",
+          "text": "El Derecho aparece en situaciones cotidianas de la vida social"
+        },
+        {
+          "id": 2,
+          "emoji": "🤝",
+          "text": "Equilibra derechos, deberes y libertades"
+        },
+        {
+          "id": 3,
+          "emoji": "📚",
+          "text": "Se define qué son las fuentes del Derecho"
+        },
+        {
+          "id": 4,
+          "emoji": "📜",
+          "text": "Se identifican las fuentes principales"
+        },
+        {
+          "id": 5,
+          "emoji": "🏛️",
+          "text": "La ley se destaca como la fuente más importante"
+        }
+      ],
+      "orden_correcto": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá cada expresión según corresponda a “Objeto del Derecho” o “Fuentes del Derecho”:",
+      "paginas_referencia": "6-8",
+      "categorias": [
+        {
+          "name": "Objeto del Derecho",
+          "emoji": "🎯",
+          "color": "#F59E0B"
+        },
+        {
+          "name": "Fuentes del Derecho",
+          "emoji": "📜",
+          "color": "#3B82F6"
+        }
+      ],
+      "items": [
+        {
+          "id": 1,
+          "text": "Establecer un marco para la convivencia social justa",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 2,
+          "text": "Ley",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 3,
+          "text": "Otorgar seguridad jurídica",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 4,
+          "text": "Costumbre",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 5,
+          "text": "Equilibrar derechos y deberes de los ciudadanos",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 6,
+          "text": "Doctrina",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+    "n3_completar_mapa": {
+      "paginas_referencia": "7-9",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "Las fuentes del Derecho explican de dónde surge y por qué las normas tienen fuerza",
+          "respuesta_correcta": "obligatoria",
+          "pista": "O__________"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "La fuente más importante del Derecho en la actualidad es la",
+          "respuesta_correcta": "ley",
+          "pista": "L__"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "Desconocer una ley no ________ de cumplirla ni evita la sanción",
+          "respuesta_correcta": "exime",
+          "pista": "E____"
+        }
+      ]
+    },
+    "n4_verdadero_falso": {
+      "paginas_referencia": "7-9",
+      "afirmaciones": [
+        {
+          "texto": "Sin fuentes reconocidas no sería posible determinar qué normas son obligatorias.",
+          "correcto": true,
+          "explicacion": "Verdadero. El PDF explica que las fuentes permiten identificar origen, validez y obligatoriedad de las normas."
+        },
+        {
+          "texto": "La costumbre requiere repetitividad, uniformidad, generalidad y duración.",
+          "correcto": true,
+          "explicacion": "Verdadero. Esas condiciones aparecen expresamente señaladas para que una costumbre tenga relevancia jurídica."
+        },
+        {
+          "texto": "La ley rige siempre hacia atrás en el tiempo para corregir actos ya realizados.",
+          "correcto": false,
+          "explicacion": "Falso. Una característica de la ley es la irretroactividad: rige hacia adelante y no puede castigar actos pasados."
+        }
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "9",
+      "pares": [
+        {
+          "izquierda": "Generalidad",
+          "derecha": "Aplica a todos sin distinciones",
+          "emoji": "👥"
+        },
+        {
+          "izquierda": "Obligatoriedad",
+          "derecha": "Su cumplimiento no es optativo",
+          "emoji": "⚠️"
+        },
+        {
+          "izquierda": "Permanencia",
+          "derecha": "Sigue vigente hasta que se disponga lo contrario",
+          "emoji": "🕒"
+        },
+        {
+          "izquierda": "Impersonalidad",
+          "derecha": "Regula conductas en abstracto, no casos individuales",
+          "emoji": "📄"
+        }
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "grupos": [
+        {
+          "emoji": "📚",
+          "pregunta": "¿Cuál NO es una fuente del Derecho mencionada en el PDF?",
+          "paginas": "8-9",
+          "palabras": [
+            {
+              "text": "Ley",
+              "es_intrusa": false
+            },
+            {
+              "text": "Costumbre",
+              "es_intrusa": false
+            },
+            {
+              "text": "Jurisprudencia",
+              "es_intrusa": false
+            },
+            {
+              "text": "Costo social",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "Costo social es la intrusa porque no figura como fuente del Derecho. Las fuentes señaladas son ley, costumbre, jurisprudencia y doctrina."
+        },
+        {
+          "emoji": "📜",
+          "pregunta": "¿Cuál palabra no corresponde a características de la ley?",
+          "paginas": "9",
+          "palabras": [
+            {
+              "text": "Generalidad",
+              "es_intrusa": false
+            },
+            {
+              "text": "Irretroactividad",
+              "es_intrusa": false
+            },
+            {
+              "text": "Bilateralidad",
+              "es_intrusa": true
+            },
+            {
+              "text": "Obligatoriedad",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Bilateralidad es la intrusa porque el PDF la trabaja como rasgo de las normas jurídicas, no como característica de la ley en esa sección."
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "6-9",
+      "conceptos": [
+        {
+          "termino": "Fuentes del Derecho",
+          "pista": "Explicá qué resuelven y por qué son necesarias dentro de un sistema legal.",
+          "palabras_clave": [
+            "origen",
+            "validez",
+            "obligatoriedad",
+            "normas",
+            "sociedad",
+            "interpretación"
+          ]
+        },
+        {
+          "termino": "Ley",
+          "pista": "Definila pensando en quién la emite y qué fuerza tiene.",
+          "palabras_clave": [
+            "regla",
+            "obligatoria",
+            "autoridad",
+            "pública",
+            "fuerza",
+            "competente"
+          ]
+        },
+        {
+          "termino": "Costumbre",
+          "pista": "Explicá cuándo una práctica social puede tener relevancia jurídica.",
+          "palabras_clave": [
+            "comportamiento",
+            "constante",
+            "uniforme",
+            "comunidad",
+            "obligatoriedad",
+            "duración"
+          ]
+        }
+      ]
+    },
+    "n8_causa_efecto": {
+      "paginas_referencia": "6-9",
+      "causas": [
+        {
+          "id": 1,
+          "emoji": "👥",
+          "text": "Las personas se relacionan todos los días en múltiples situaciones."
+        },
+        {
+          "id": 2,
+          "emoji": "📚",
+          "text": "Existen fuentes reconocidas del Derecho."
+        },
+        {
+          "id": 3,
+          "emoji": "🧾",
+          "text": "Una ley es publicada y entra en vigencia."
+        },
+        {
+          "id": 4,
+          "emoji": "🔁",
+          "text": "Una comunidad mantiene durante mucho tiempo una práctica uniforme con convicción de obligatoriedad."
+        }
+      ],
+      "efectos": [
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "⚖️",
+          "text": "El Derecho regula hechos cotidianos para evitar caos y desorden."
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "✅",
+          "text": "Puede determinarse qué normas tienen autoridad y deben aplicarse."
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "🚫",
+          "text": "Nadie puede alegar ignorancia de la ley para evitar consecuencias."
+        },
+        {
+          "id": 4,
+          "causa_id": 4,
+          "emoji": "📜",
+          "text": "Esa práctica puede constituir costumbre como fuente del Derecho."
+        }
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el recorrido que propone el PDF para entender el lugar de la ley dentro del sistema jurídico:",
+      "paginas_referencia": "7-9",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 1,
+          "emoji": "❓",
+          "text": "Se pregunta de dónde proviene el Derecho."
+        },
+        {
+          "id": 2,
+          "emoji": "📚",
+          "text": "Se presentan las fuentes del Derecho."
+        },
+        {
+          "id": 3,
+          "emoji": "📜",
+          "text": "Se define la ley en sentido amplio y en sentido formal."
+        },
+        {
+          "id": 4,
+          "emoji": "⭐",
+          "text": "Se afirma que la ley es la fuente más importante en la actualidad."
+        },
+        {
+          "id": 5,
+          "emoji": "🧩",
+          "text": "Se analizan sus características y se suman otras fuentes como costumbre, jurisprudencia y doctrina."
+        }
+      ]
+    },
+    "n10_comparador": {
+      "paginas_referencia": "8-9",
+      "concepto_a": {
+        "nombre": "Ley",
+        "emoji": "📕",
+        "color": "#3B82F6"
+      },
+      "concepto_b": {
+        "nombre": "Costumbre",
+        "emoji": "🔁",
+        "color": "#10B981"
+      }
+    }
+  },
+  "nucleo_c": {
+    "bloque_info": {
+      "id": "c",
+      "emoji": "⚖️",
+      "titulo": "BLOQUE C: Principios, ramas e interpretación",
+      "color": "#10B981",
+      "paginas": [
+        10,
+        11,
+        12,
+        13
+      ]
+    },
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená este recorrido conceptual tal como se organiza en el cierre de la unidad:",
+      "paginas_referencia": "10-13",
+      "items": [
+        {
+          "id": 1,
+          "emoji": "✨",
+          "text": "Se explican los principios del Derecho"
+        },
+        {
+          "id": 2,
+          "emoji": "⚖️",
+          "text": "Se desarrollan principios como igualdad, legalidad y justicia"
+        },
+        {
+          "id": 3,
+          "emoji": "🤝",
+          "text": "Se agregan buena fe, proporcionalidad, autonomía de la voluntad y solidaridad"
+        },
+        {
+          "id": 4,
+          "emoji": "🏛️",
+          "text": "Se distingue entre Derecho Público y Derecho Privado"
+        },
+        {
+          "id": 5,
+          "emoji": "🔎",
+          "text": "Se presentan formas de interpretación de la ley"
+        }
+      ],
+      "orden_correcto": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá cada rama según pertenezca al Derecho Público o al Derecho Privado:",
+      "paginas_referencia": "12",
+      "categorias": [
+        {
+          "name": "Derecho Público",
+          "emoji": "🏛️",
+          "color": "#10B981"
+        },
+        {
+          "name": "Derecho Privado",
+          "emoji": "🤝",
+          "color": "#8B5CF6"
+        }
+      ],
+      "items": [
+        {
+          "id": 1,
+          "text": "Derecho Constitucional",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 2,
+          "text": "Derecho Civil",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 3,
+          "text": "Derecho Penal",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 4,
+          "text": "Derecho Comercial",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 5,
+          "text": "Derecho Administrativo",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 6,
+          "text": "Derecho Laboral",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+    "n3_completar_mapa": {
+      "paginas_referencia": "10-13",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "El principio de ________ exige actuar con honestidad, lealtad y rectitud en las relaciones jurídicas",
+          "respuesta_correcta": "buena fe",
+          "pista": "B____ f_"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "La interpretación ________ busca el propósito que tuvo el legislador al crear la norma",
+          "respuesta_correcta": "teleológica",
+          "pista": "T___________"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "El Derecho ________ regula las relaciones entre particulares",
+          "respuesta_correcta": "Privado",
+          "pista": "P_______"
+        }
+      ]
+    },
+    "n4_verdadero_falso": {
+      "paginas_referencia": "10-13",
+      "afirmaciones": [
+        {
+          "texto": "La seguridad jurídica implica poder prever las consecuencias legales de las acciones.",
+          "correcto": true,
+          "explicacion": "Verdadero. El PDF la define como certeza sobre lo que las leyes exigen, prohíben o permiten."
+        },
+        {
+          "texto": "La autonomía de la voluntad permite crear relaciones jurídicas aunque contradigan el orden público.",
+          "correcto": false,
+          "explicacion": "Falso. Ese principio reconoce libertad, pero dentro de límites: no puede ir contra el orden público ni las buenas costumbres."
+        },
+        {
+          "texto": "La interpretación literal agrega ideas para actualizar el sentido de la norma.",
+          "correcto": false,
+          "explicacion": "Falso. La interpretación literal se centra en el significado exacto de las palabras sin añadir ni quitar ideas."
+        }
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "10-13",
+      "pares": [
+        {
+          "izquierda": "Igualdad ante la ley",
+          "derecha": "Todos tienen los mismos derechos y obligaciones frente a la ley",
+          "emoji": "⚖️"
+        },
+        {
+          "izquierda": "Legalidad",
+          "derecha": "Nadie puede ser castigado sin ley preexistente",
+          "emoji": "📘"
+        },
+        {
+          "izquierda": "Proporcionalidad",
+          "derecha": "La respuesta jurídica no debe ser excesiva",
+          "emoji": "📏"
+        },
+        {
+          "izquierda": "Interpretación histórica",
+          "derecha": "Examina el contexto en que nació la norma",
+          "emoji": "🕰️"
+        }
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "grupos": [
+        {
+          "emoji": "🏛️",
+          "pregunta": "¿Cuál es la intrusa dentro del Derecho Público?",
+          "paginas": "12",
+          "palabras": [
+            {
+              "text": "Constitucional",
+              "es_intrusa": false
+            },
+            {
+              "text": "Penal",
+              "es_intrusa": false
+            },
+            {
+              "text": "Administrativo",
+              "es_intrusa": false
+            },
+            {
+              "text": "Comercial",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "Comercial es la intrusa porque el PDF la ubica dentro del Derecho Privado."
+        },
+        {
+          "emoji": "🔎",
+          "pregunta": "¿Cuál no es una forma de interpretación desarrollada en la unidad?",
+          "paginas": "13",
+          "palabras": [
+            {
+              "text": "Literal",
+              "es_intrusa": false
+            },
+            {
+              "text": "Teleológica",
+              "es_intrusa": false
+            },
+            {
+              "text": "Sistemática",
+              "es_intrusa": false
+            },
+            {
+              "text": "Geométrica",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "Geométrica es la intrusa porque no aparece entre las formas de interpretación de la ley trabajadas en el PDF."
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "10-13",
+      "conceptos": [
+        {
+          "termino": "Seguridad jurídica",
+          "pista": "Explicala pensando en previsibilidad y confianza en las instituciones.",
+          "palabras_clave": [
+            "certeza",
+            "prever",
+            "consecuencias",
+            "leyes",
+            "estabilidad",
+            "confianza"
+          ]
+        },
+        {
+          "termino": "Autonomía de la voluntad",
+          "pista": "Definila desde la idea de libertad para contratar o decidir dentro de ciertos límites.",
+          "palabras_clave": [
+            "libertad",
+            "crear",
+            "modificar",
+            "relaciones",
+            "contratos",
+            "orden público"
+          ]
+        },
+        {
+          "termino": "Interpretación progresiva",
+          "pista": "Explicá por qué una ley puede leerse con mirada actual sin perder su espíritu.",
+          "palabras_clave": [
+            "cambios",
+            "sociales",
+            "tecnológicos",
+            "culturales",
+            "espíritu",
+            "moderna"
+          ]
+        }
+      ]
+    },
+    "n8_causa_efecto": {
+      "paginas_referencia": "10-13",
+      "causas": [
+        {
+          "id": 1,
+          "emoji": "⚖️",
+          "text": "Todas las personas deben ser tratadas como iguales ante la ley."
+        },
+        {
+          "id": 2,
+          "emoji": "🏛️",
+          "text": "El Estado interviene frente a una falta o conflicto."
+        },
+        {
+          "id": 3,
+          "emoji": "🤝",
+          "text": "Las partes celebran un contrato."
+        },
+        {
+          "id": 4,
+          "emoji": "🌍",
+          "text": "La sociedad cambia con nuevas realidades tecnológicas y culturales."
+        }
+      ],
+      "efectos": [
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "✅",
+          "text": "Se rechazan privilegios y discriminaciones en la aplicación de las normas."
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "📘",
+          "text": "Debe actuar dentro del principio de legalidad y con medidas proporcionales."
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "🤝",
+          "text": "Rige la buena fe y puede operar la autonomía de la voluntad dentro de límites legales."
+        },
+        {
+          "id": 4,
+          "causa_id": 4,
+          "emoji": "🔄",
+          "text": "Puede recurrirse a una interpretación progresiva de la ley."
+        }
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená una posible secuencia para analizar correctamente una norma según el cierre de la unidad:",
+      "paginas_referencia": "10-13",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 1,
+          "emoji": "📖",
+          "text": "Reconocer el principio jurídico involucrado."
+        },
+        {
+          "id": 2,
+          "emoji": "🏛️",
+          "text": "Ubicar si el caso pertenece al Derecho Público o Privado."
+        },
+        {
+          "id": 3,
+          "emoji": "🌿",
+          "text": "Identificar la rama específica que regula esa situación."
+        },
+        {
+          "id": 4,
+          "emoji": "🔎",
+          "text": "Elegir una forma de interpretación adecuada para comprender la norma."
+        },
+        {
+          "id": 5,
+          "emoji": "⚖️",
+          "text": "Aplicarla buscando justicia y coherencia del sistema legal."
+        }
+      ]
+    },
+    "n10_comparador": {
+      "paginas_referencia": "12",
+      "concepto_a": {
+        "nombre": "Derecho Público",
+        "emoji": "🏛️",
+        "color": "#10B981"
+      },
+      "concepto_b": {
+        "nombre": "Derecho Privado",
+        "emoji": "🤝",
+        "color": "#8B5CF6"
+      }
+    }
+  },
+  "senales": {
+    "conceptos_clave": [
+      {
+        "emoji": "⚖️",
+        "termino": "Derecho",
+        "color": "#6366F1",
+        "definicion": "Es el conjunto de normas obligatorias que regulan la vida del hombre en la sociedad y hacen posible una convivencia ordenada.",
+        "importancia": "Permite que la vida social no dependa solo de la buena voluntad individual, sino de reglas comunes con efectos concretos."
+      },
+      {
+        "emoji": "👥",
+        "termino": "Gregarismo",
+        "color": "#EC4899",
+        "definicion": "Es la tendencia del ser humano a agruparse, convivir y asociarse con otros para alcanzar fines y objetivos comunes.",
+        "importancia": "Explica por qué aparecen normas: si vivimos con otros, necesitamos pautas para convivir sin caos."
+      },
+      {
+        "emoji": "📜",
+        "termino": "Fuentes del Derecho",
+        "color": "#10B981",
+        "definicion": "Son los modos o procesos por los cuales las normas jurídicas se originan, se manifiestan y se vuelven obligatorias.",
+        "importancia": "Ayudan a entender de dónde sale el Derecho y por qué ciertas reglas tienen validez y autoridad."
+      },
+      {
+        "emoji": "✨",
+        "termino": "Principios del Derecho",
+        "color": "#F59E0B",
+        "definicion": "Son ideas fundamentales que inspiran el sistema jurídico y orientan la creación, interpretación y aplicación de las leyes.",
+        "importancia": "Evitan que el Derecho sea una suma mecánica de reglas y le dan coherencia, justicia y estabilidad."
+      }
+    ],
+    "semaforo_conceptos": [
+      {
+        "emoji": "👥",
+        "termino": "Ser gregario"
+      },
+      {
+        "emoji": "⚖️",
+        "termino": "Normas jurídicas y morales"
+      },
+      {
+        "emoji": "📜",
+        "termino": "Fuentes del Derecho"
+      },
+      {
+        "emoji": "✨",
+        "termino": "Principios del Derecho"
+      },
+      {
+        "emoji": "🏛️",
+        "termino": "Ramas del Derecho"
+      }
+    ],
+    "postits_conceptos": [
+      "Gregarismo",
+      "Derecho Positivo",
+      "Ley",
+      "Seguridad jurídica"
+    ]
+  },
+  "sabias": {
+    "flip_cards": [
+      {
+        "emoji": "🧠",
+        "color": "#6366F1",
+        "frente": "El ser humano no es totalmente gregario ni totalmente solitario",
+        "dorso": "El PDF explica que filosóficamente el ser humano es semigregario: tiene impulsos sociales y otros solitarios. Esa complejidad ayuda a entender por qué necesita convivir, pero también conservar espacios de decisión propia."
+      },
+      {
+        "emoji": "📕",
+        "color": "#EC4899",
+        "frente": "La ley no es la única fuente del Derecho",
+        "dorso": "Aunque la ley es la fuente más importante en la actualidad, el sistema jurídico también se apoya en la costumbre, la jurisprudencia y la doctrina. Sin esas fuentes, sería más difícil interpretar y aplicar las normas en la práctica."
+      },
+      {
+        "emoji": "🔎",
+        "color": "#10B981",
+        "frente": "Una misma ley puede interpretarse de varias maneras",
+        "dorso": "La unidad muestra cinco formas de interpretación: literal, sistemática, teleológica, histórica y progresiva. Eso revela que aplicar una norma no siempre es repetir palabras, sino comprender alcance, contexto y finalidad."
+      }
+    ],
+    "linea_de_tiempo": [
+      {
+        "emoji": "🏕️",
+        "year": "Inicio",
+        "text": "Los seres humanos forman grupos nómades."
+      },
+      {
+        "emoji": "👪",
+        "year": "Después",
+        "text": "Se organizan en clanes."
+      },
+      {
+        "emoji": "🏙️",
+        "year": "Más tarde",
+        "text": "Establecen ciudades."
+      },
+      {
+        "emoji": "🏛️",
+        "year": "Complejidad mayor",
+        "text": "Se consolidan los Estados."
+      },
+      {
+        "emoji": "📘",
+        "year": "2015",
+        "text": "Entra en vigencia el nuevo Código Civil y Comercial de la Nación."
+      }
+    ],
+    "encuesta": {
+      "pregunta": "¿Qué idea te cambió más la forma de mirar el Derecho?",
+      "opciones": [
+        {
+          "emoji": "👥",
+          "text": "Que surge de la vida en sociedad",
+          "votos_iniciales": 28
+        },
+        {
+          "emoji": "📜",
+          "text": "Que tiene varias fuentes además de la ley",
+          "votos_iniciales": 24
+        },
+        {
+          "emoji": "🔎",
+          "text": "Que una ley necesita interpretación",
+          "votos_iniciales": 19
+        }
+      ]
+    }
+  },
+  "cruces": {
+    "consigna_general": "Elegí un tema de cada bloque y preparalo para explicárselo a un compañero con un ejemplo propio. La idea no es repetir de memoria: tenés que volverlo claro, preciso y entendible.",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "👥",
+        "titulo": "BLOQUE A: Sociedad, normas y concepto de Derecho",
+        "color": "#6366F1",
+        "temas_sugeridos": [
+          "Por qué el ser humano es gregario y necesita normas",
+          "Diferencia entre Derecho Natural y Derecho Positivo",
+          "Diferencia entre Derecho Objetivo y Derecho Subjetivo",
+          "Normas jurídicas versus normas morales",
+          "Relación entre Derecho y religión"
+        ],
+        "placeholder": "Escribí el tema elegido, la idea central y el ejemplo con el que se lo explicarías a otro compañero..."
+      },
+      {
+        "id": "b",
+        "emoji": "📜",
+        "titulo": "BLOQUE B: Objeto, fuentes y ley",
+        "color": "#3B82F6",
+        "temas_sugeridos": [
+          "Objeto del Derecho y bien común",
+          "Qué son las fuentes del Derecho",
+          "Por qué la ley es la fuente más importante",
+          "Características de la ley",
+          "Diferencia entre costumbre, jurisprudencia y doctrina"
+        ],
+        "placeholder": "Escribí el tema elegido, la idea central y el ejemplo con el que se lo explicarías a otro compañero..."
+      },
+      {
+        "id": "c",
+        "emoji": "⚖️",
+        "titulo": "BLOQUE C: Principios, ramas e interpretación",
+        "color": "#10B981",
+        "temas_sugeridos": [
+          "Principios del Derecho y su función",
+          "Igualdad, legalidad y justicia",
+          "Buena fe, proporcionalidad y autonomía de la voluntad",
+          "Diferencia entre Derecho Público y Derecho Privado",
+          "Formas de interpretación de la ley"
+        ],
+        "placeholder": "Escribí el tema elegido, la idea central y el ejemplo con el que se lo explicarías a otro compañero..."
+      }
+    ]
+  },
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "¿Es suficiente que una norma exista para que sea justa?",
+      "contexto": "La unidad diferencia Derecho Natural y Derecho Positivo, y también muestra que el Derecho necesita principios como justicia, igualdad y legalidad. Debatí si alcanza con que una norma haya sido creada por autoridad competente o si además debe responder a ideales de justicia.",
+      "roles": [
+        {
+          "id": "fiscal",
+          "emoji": "📕",
+          "label": "A favor de la validez formal",
+          "desc": "Defendé que una norma vale porque fue creada por autoridad competente y forma parte del Derecho Positivo.",
+          "color": "#6366F1"
+        },
+        {
+          "id": "defensa",
+          "emoji": "✨",
+          "label": "A favor de la justicia material",
+          "desc": "Defendé que una norma no debería considerarse plenamente válida si contradice principios de justicia.",
+          "color": "#EC4899"
+        },
+        {
+          "id": "juez",
+          "emoji": "⚖️",
+          "label": "Posición integradora",
+          "desc": "Buscá una postura que combine validez legal, principios jurídicos e interpretación razonable.",
+          "color": "#10B981"
+        }
+      ]
+    },
+    "tesis": {
+      "consigna": "Formulá una tesis sobre esta idea: “Cuanto más compleja es la sociedad, más necesario se vuelve el Derecho”. Incluí una postura clara, dos argumentos tomados de la unidad, un posible contraargumento y una conclusión propia."
+    },
+    "critica": {
+      "consigna": "Analizá críticamente estas preguntas: ¿alcanza con conocer la ley literal para resolver un caso?, ¿por qué las fuentes y los principios son necesarios?, ¿qué riesgos habría si todo dependiera solo de la opinión personal de cada uno?"
+    }
+  },
+  "autotest": {
+    "banco_respuestas_docente": [
+      "1. B - Que el ser humano tiende a agruparse y convivir con otros",
+      "2. B - Conjunto de normas vigentes en un Estado establecidas por autoridad política",
+      "3. C - Las jurídicas son coercibles y las morales no",
+      "4. B - Para explicar el origen, la validez y la obligatoriedad de las normas",
+      "5. C - Generalidad",
+      "6. A - Ley, costumbre, jurisprudencia y doctrina",
+      "7. B - Buena fe",
+      "8. D - Derecho Comercial",
+      "9. C - El propósito o finalidad del legislador",
+      "10. C - Cada derecho encuentra límites frente al derecho del otro y al bien común",
+      "11. FALSO - Eso describe al Derecho Subjetivo. El Derecho Objetivo es el conjunto de normas vigentes del ordenamiento jurídico.",
+      "12. VERDADERO - Esas son las condiciones señaladas en la unidad para que la costumbre tenga valor jurídico.",
+      "13. FALSO - La legalidad exige una ley preexistente y también limita la acción estatal para evitar arbitrariedades.",
+      "14. FALSO - Esa descripción corresponde al Derecho Privado. El Público regula la organización del Estado y sus relaciones con los particulares.",
+      "15. VERDADERO - Así la define el PDF al presentar las formas de interpretación de la ley."
+    ],
+    "preguntas": [
+      {
+        "pregunta": "¿Cuál es la idea central del gregarismo humano según el PDF?",
+        "opciones": [
+          "Que el ser humano siempre vive aislado",
+          "Que el ser humano tiende a agruparse y convivir con otros",
+          "Que todos los grupos humanos funcionan igual",
+          "Que la sociedad reemplaza por completo la libertad individual"
+        ],
+        "correcta": 1,
+        "explicacion": "El gregarismo se explica como la tendencia del ser humano a agruparse y vivir con otros para alcanzar fines y objetivos comunes. Revisá las páginas 2-3."
+      },
+      {
+        "pregunta": "¿Cuál de estas opciones define mejor al Derecho Positivo?",
+        "opciones": [
+          "Conjunto de ideales eternos reconocidos por la razón",
+          "Conjunto de normas vigentes en un Estado establecidas por autoridad política",
+          "Conjunto de creencias morales compartidas por una comunidad",
+          "Conjunto de fallos dictados por los jueces"
+        ],
+        "correcta": 1,
+        "explicacion": "El Derecho Positivo comprende normas jurídicas vigentes en un Estado, creadas por la autoridad política y susceptibles de cambiar con el tiempo. Revisá la página 3."
+      },
+      {
+        "pregunta": "¿Qué diferencia clave señala la unidad entre normas jurídicas y normas morales?",
+        "opciones": [
+          "Las jurídicas solo existen en el ámbito privado",
+          "Las morales siempre protegen mejor el bien común",
+          "Las jurídicas son coercibles y las morales no",
+          "Las morales son bilaterales y las jurídicas unilaterales"
+        ],
+        "correcta": 2,
+        "explicacion": "La distinción principal es que las normas jurídicas pueden imponerse por la fuerza del Estado, mientras que las morales quedan libradas a la conciencia. Revisá la página 5."
+      },
+      {
+        "pregunta": "¿Para qué sirven las fuentes del Derecho?",
+        "opciones": [
+          "Para reemplazar a los principios jurídicos",
+          "Para explicar el origen, la validez y la obligatoriedad de las normas",
+          "Para clasificar a las personas según sus derechos",
+          "Para distinguir entre normas morales y religiosas"
+        ],
+        "correcta": 1,
+        "explicacion": "Las fuentes del Derecho permiten entender de dónde surge el Derecho y por qué ciertas normas tienen fuerza obligatoria. Revisá la página 7."
+      },
+      {
+        "pregunta": "¿Qué característica de la ley implica que se aplica a todos sin distinciones?",
+        "opciones": [
+          "Impersonalidad",
+          "Permanencia",
+          "Generalidad",
+          "Irretroactividad"
+        ],
+        "correcta": 2,
+        "explicacion": "La generalidad significa que la ley se aplica a todos, sin distinciones individuales. Revisá la página 9."
+      },
+      {
+        "pregunta": "¿Cuál de estas opciones nombra solo fuentes del Derecho trabajadas en la unidad?",
+        "opciones": [
+          "Ley, costumbre, jurisprudencia y doctrina",
+          "Ley, religión, costumbre y conciencia",
+          "Doctrina, moral, costumbre y sanción",
+          "Jurisprudencia, castigo, ley y bien común"
+        ],
+        "correcta": 0,
+        "explicacion": "Las cuatro fuentes mencionadas son ley, costumbre, jurisprudencia y doctrina. Revisá las páginas 7-9."
+      },
+      {
+        "pregunta": "¿Cuál de los siguientes es un principio del Derecho?",
+        "opciones": [
+          "Ignorancia de la ley",
+          "Buena fe",
+          "Bilateralidad",
+          "Costumbre"
+        ],
+        "correcta": 1,
+        "explicacion": "La buena fe aparece entre los principios del Derecho junto con igualdad, legalidad, justicia, seguridad jurídica, proporcionalidad, autonomía de la voluntad y solidaridad. Revisá las páginas 10-11."
+      },
+      {
+        "pregunta": "¿Qué rama pertenece al Derecho Privado según el PDF?",
+        "opciones": [
+          "Derecho Penal",
+          "Derecho Administrativo",
+          "Derecho Constitucional",
+          "Derecho Comercial"
+        ],
+        "correcta": 3,
+        "explicacion": "El Derecho Comercial integra el Derecho Privado, que regula relaciones entre particulares y actividades empresariales. Revisá la página 12."
+      },
+      {
+        "pregunta": "¿Qué busca la interpretación teleológica de la ley?",
+        "opciones": [
+          "El significado exacto de las palabras",
+          "El contexto histórico de creación",
+          "El propósito o finalidad del legislador",
+          "La relación con otras leyes del sistema"
+        ],
+        "correcta": 2,
+        "explicacion": "La interpretación teleológica intenta identificar la finalidad perseguida por el legislador al crear la norma. Revisá la página 13."
+      },
+      {
+        "pregunta": "¿Qué relación establece el PDF entre derechos y libertades?",
+        "opciones": [
+          "Los derechos son absolutos y no reconocen límites",
+          "Las libertades deben ejercerse sin considerar a los demás",
+          "Cada derecho encuentra límites frente al derecho del otro y al bien común",
+          "Los deberes solo existen para el Estado"
+        ],
+        "correcta": 2,
+        "explicacion": "El material explica que la libertad no es absoluta: cada derecho reconoce límites frente a los derechos ajenos y al bien común. Revisá las páginas 6-7."
+      }
+    ],
+    "verdadero_falso": [
+      {
+        "texto": "El Derecho Objetivo es la facultad reconocida a una persona para exigir una conducta o defender intereses.",
+        "correcto": false,
+        "explicacion": "FALSO - Eso describe al Derecho Subjetivo. El Derecho Objetivo es el conjunto de normas vigentes del ordenamiento jurídico. Revisá la página 4."
+      },
+      {
+        "texto": "La costumbre jurídica requiere repetitividad, uniformidad, generalidad y duración, junto con la creencia de su obligatoriedad.",
+        "correcto": true,
+        "explicacion": "VERDADERO - Esas son las condiciones señaladas en la unidad para que la costumbre tenga valor jurídico. Revisá la página 9."
+      },
+      {
+        "texto": "La legalidad significa que el Estado puede castigar cualquier conducta si la considera inconveniente.",
+        "correcto": false,
+        "explicacion": "FALSO - La legalidad exige una ley preexistente y también limita la acción estatal para evitar arbitrariedades. Revisá la página 10."
+      },
+      {
+        "texto": "El Derecho Público regula principalmente las relaciones entre particulares donde prima la autonomía de la voluntad.",
+        "correcto": false,
+        "explicacion": "FALSO - Esa descripción corresponde al Derecho Privado. El Público regula la organización del Estado y sus relaciones con los particulares. Revisá la página 12."
+      },
+      {
+        "texto": "La interpretación progresiva adapta el significado de la ley a cambios sociales, tecnológicos y culturales manteniendo su espíritu.",
+        "correcto": true,
+        "explicacion": "VERDADERO - Así la define el PDF al presentar las formas de interpretación de la ley. Revisá la página 13."
+      }
+    ]
+  },
+  "cierre": {
+    "glosario": [
+      {
+        "emoji": "👥",
+        "termino": "Gregarismo",
+        "categoria": "Concepto base",
+        "definicion": "Tendencia del ser humano a agruparse y vivir en sociedad con otros."
+      },
+      {
+        "emoji": "⚖️",
+        "termino": "Derecho",
+        "categoria": "Concepto base",
+        "definicion": "Conjunto de normas obligatorias que regulan la vida del hombre en la sociedad."
+      },
+      {
+        "emoji": "📕",
+        "termino": "Derecho Positivo",
+        "categoria": "Tipos de Derecho",
+        "definicion": "Conjunto de normas jurídicas vigentes en un Estado, establecidas por autoridad política y susceptibles de cambio."
+      },
+      {
+        "emoji": "🧠",
+        "termino": "Derecho Natural",
+        "categoria": "Tipos de Derecho",
+        "definicion": "Conjunto de principios jurídicos ideales, eternos e inmutables que el hombre reconoce mediante la razón."
+      },
+      {
+        "emoji": "📜",
+        "termino": "Fuentes del Derecho",
+        "categoria": "Concepto clave",
+        "definicion": "Procesos o modos por los que las normas jurídicas se originan, se manifiestan y se vuelven obligatorias."
+      },
+      {
+        "emoji": "📘",
+        "termino": "Ley",
+        "categoria": "Fuente principal",
+        "definicion": "Regla social obligatoria emanada de autoridad competente y sancionada por la fuerza."
+      },
+      {
+        "emoji": "✨",
+        "termino": "Seguridad jurídica",
+        "categoria": "Principios",
+        "definicion": "Certeza sobre lo que las leyes exigen, prohíben o permiten, y posibilidad de prever consecuencias legales."
+      },
+      {
+        "emoji": "🔎",
+        "termino": "Interpretación teleológica",
+        "categoria": "Interpretación",
+        "definicion": "Forma de interpretar la ley que busca su finalidad o propósito."
+      }
+    ],
+    "recursos": [
+      {
+        "tipo": "📄 PDF",
+        "title": "Relectura del Bloque A",
+        "desc": "Volvé a las páginas 2 a 5 para repasar gregarismo, concepto de Derecho y diferencia entre normas morales y jurídicas.",
+        "nivel": "Base",
+        "color": "#6366F1"
+      },
+      {
+        "tipo": "📄 PDF",
+        "title": "Relectura del Bloque B",
+        "desc": "Revisá las páginas 6 a 9 para afianzar objeto del Derecho, fuentes y características de la ley.",
+        "nivel": "Medio",
+        "color": "#3B82F6"
+      },
+      {
+        "tipo": "📄 PDF",
+        "title": "Relectura del Bloque C",
+        "desc": "Leé otra vez las páginas 10 a 13 para consolidar principios, ramas e interpretación de la ley.",
+        "nivel": "Medio",
+        "color": "#10B981"
+      },
+      {
+        "tipo": "📝 Práctica",
+        "title": "Armar ejemplos propios",
+        "desc": "Inventá una situación cotidiana y ubicá qué principio, rama e interpretación podrían intervenir.",
+        "nivel": "Aplicación",
+        "color": "#F59E0B"
+      },
+      {
+        "tipo": "🗣️ Oral",
+        "title": "Explicación entre pares",
+        "desc": "Usá la sección Cruces para enseñar un tema con tus palabras y comprobar si realmente lo entendiste.",
+        "nivel": "Profundización",
+        "color": "#8B5CF6"
+      }
+    ]
+  }
+}
