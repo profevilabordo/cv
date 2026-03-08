@@ -413,36 +413,38 @@ async function generarPDF() {
     // ── NÚCLEO ───────────────────────────────────────────────────────────
     setProgreso(38,'Nucleo A, B, C...');
     await new Promise(r=>setTimeout(r,10));
-    const nucleo = datos.nucleo || {};
     checkY(10);
     y = seccion('NUCLEO - ACTIVIDADES (con respuestas)', y);
 
-    // ═══ NÚCLEO A (Actividades 1-3) ═══
-    checkY(5);
-    t('▸ NÚCLEO A - Actividades 1-3', ML, y, 7.5, true, [99,102,241]); y+=5;
+    // ═══ NÚCLEO A ═══
+    const nucleoA = datos.nucleo_a || {};
+    if (nucleoA.bloque_info) {
+      checkY(5);
+      t(`▸ BLOQUE A: ${nucleoA.bloque_info.titulo||''}`, ML, y, 7.5, true, [99,102,241]); y+=5;
+    }
 
     // N1 Ordenar
-    const n1 = nucleo.n1_ordenar_cronologicamente;
-    if (n1?.items?.length) {
+    const n1a = nucleoA.n1_ordenar_cronologicamente;
+    if (n1a?.items?.length) {
       checkY(6);
-      t('N1 Orden correcto:', ML+1, y, 7.5, true, cpRgb); y+=4;
-      const ordenados = [...n1.items].sort((a,b)=>{
-        const oc = n1.orden_correcto||[];
+      t('N1 Orden:', ML+1, y, 7.5, true, cpRgb); y+=4;
+      const ordenados = [...n1a.items].sort((a,b)=>{
+        const oc = n1a.orden_correcto||[];
         return oc.indexOf(a.id)-oc.indexOf(b.id);
       });
-      const linea = ordenados.map((it,i)=>`${i+1}. ${limpiar(it.text||'')}`).join('  |  ');
+      const linea = ordenados.map((it,i)=>`${i+1}. ${limpiar(it.text||'')}`).join(' | ');
       const nl = tw(linea, ML+2, y, PW-4, 7);
       y += nl*3.8 + 1;
     }
 
     // N2 Clasificador
-    const n2 = nucleo.n2_clasificador;
-    if (n2?.items?.length) {
+    const n2a = nucleoA.n2_clasificador;
+    if (n2a?.items?.length) {
       checkY(6);
-      t('N2 Clasificacion:', ML+1, y, 7.5, true, cpRgb); y+=4;
-      const cats = n2.categorias||[];
+      t('N2 Clasif:', ML+1, y, 7.5, true, cpRgb); y+=4;
+      const cats = n2a.categorias||[];
       const grupos = {};
-      (n2.items||[]).forEach(it => {
+      (n2a.items||[]).forEach(it => {
         const c = cats[it.categoria_correcta]?.name || `Cat ${it.categoria_correcta}`;
         if (!grupos[c]) grupos[c]=[];
         grupos[c].push(limpiar(it.text||''));
@@ -456,11 +458,11 @@ async function generarPDF() {
     }
 
     // N3 Completar
-    const n3 = nucleo.n3_completar_mapa;
-    if (n3?.blanks?.length) {
+    const n3a = nucleoA.n3_completar_mapa;
+    if (n3a?.blanks?.length) {
       checkY(6);
       t('N3 Completar:', ML+1, y, 7.5, true, cpRgb); y+=4;
-      (n3.blanks||[]).forEach(b => {
+      (n3a.blanks||[]).forEach(b => {
         checkY(4);
         const nl = tw(`${limpiar(b.texto_antes||'')} [${limpiar(b.respuesta_correcta||'')}]`, ML+2, y, PW-4, 7);
         y += nl*3.8;
@@ -468,103 +470,198 @@ async function generarPDF() {
       y += 1;
     }
 
-    // ═══ NÚCLEO B (Actividades 4-7) ═══
-    checkY(5);
-    t('▸ NÚCLEO B - Actividades 4-7', ML, y, 7.5, true, [99,102,241]); y+=5;
-
-    // N4 V/F
-    const n4 = nucleo.n4_verdadero_falso;
-    if (n4?.afirmaciones?.length) {
-      checkY(6);
-      t('N4 Verdadero / Falso:', ML+1, y, 7.5, true, cpRgb); y+=4;
-      (n4.afirmaciones||[]).forEach(a => {
+    // Resto de actividades de NÚCLEO A (4-10)
+    ['n4_verdadero_falso','n5_relacionar_columnas','n6_palabra_intrusa','n7_defini_con_tus_palabras','n8_causa_efecto','n9_ordenar_proceso','n10_comparador'].forEach((key,idx) => {
+      const actNum = idx + 4;
+      const act = nucleoA[key];
+      if (!act) return;
+      
+      if (key === 'n4_verdadero_falso' && act.afirmaciones?.length) {
+        checkY(6); t(`N${actNum} V/F:`, ML+1, y, 7.5, true, cpRgb); y+=4;
+        (act.afirmaciones||[]).forEach(a => {
+          checkY(4);
+          const resp = a.correcto ? 'V' : 'F';
+          const nl = tw(`[${resp}] ${limpiar(a.texto||'')}`, ML+2, y, PW-4, 7);
+          y += nl*3.8;
+        });
+        y += 1;
+      } else if (key === 'n5_relacionar_columnas' && act.pares?.length) {
+        checkY(6); t(`N${actNum} Pares:`, ML+1, y, 7.5, true, cpRgb); y+=4;
+        (act.pares||[]).forEach(p => {
+          checkY(4);
+          const nl = tw(`${limpiar(p.izquierda||'')} > ${limpiar(p.derecha||'')}`, ML+2, y, PW-4, 7);
+          y += nl*3.8;
+        });
+        y += 1;
+      } else if (key === 'n6_palabra_intrusa' && act.grupos?.length) {
+        checkY(6); t(`N${actNum} Intrusas:`, ML+1, y, 7.5, true, cpRgb); y+=4;
+        (act.grupos||[]).forEach(g => {
+          checkY(4);
+          const intrusa = (g.palabras||[]).find(p=>p.es_intrusa)?.text||'';
+          const nl = tw(`[${limpiar(intrusa)}] ${limpiar(g.explicacion||'')}`, ML+2, y, PW-4, 7);
+          y += nl*3.8;
+        });
+        y += 1;
+      } else if (key === 'n7_defini_con_tus_palabras' && act.conceptos?.length) {
+        checkY(6); t(`N${actNum} Palabras clave:`, ML+1, y, 7.5, true, cpRgb); y+=4;
+        (act.conceptos||[]).forEach(c => {
+          checkY(4);
+          const nl = tw(`${limpiar(c.termino||'')}: ${(c.palabras_clave||[]).join(', ')}`, ML+2, y, PW-4, 7);
+          y += nl*3.8;
+        });
+        y += 1;
+      } else if (key === 'n8_causa_efecto' && act.causas?.length) {
+        checkY(6); t(`N${actNum} Causa>Efecto:`, ML+1, y, 7.5, true, cpRgb); y+=4;
+        (act.causas||[]).forEach(ca => {
+          checkY(4);
+          const ef = (act.efectos||[]).find(e=>e.causa_id===ca.id);
+          const nl = tw(`${limpiar(ca.text||'')} > ${limpiar(ef?.text||'')}`, ML+2, y, PW-4, 7);
+          y += nl*3.8;
+        });
+        y += 1;
+      } else if (key === 'n9_ordenar_proceso' && act.pasos_en_orden_correcto?.length) {
+        checkY(6); t(`N${actNum} Proceso:`, ML+1, y, 7.5, true, cpRgb); y+=4;
+        const linea = (act.pasos_en_orden_correcto||[]).map((p,i)=>`${i+1}. ${limpiar(p.text||'')}`).join(' | ');
+        const nl = tw(linea, ML+2, y, PW-4, 7);
+        y += nl*3.8 + 1;
+      } else if (key === 'n10_comparador' && act.concepto_a) {
         checkY(4);
-        const resp = a.correcto ? 'V' : 'F';
-        const nl = tw(`[${resp}] ${limpiar(a.texto||'')}`, ML+2, y, PW-4, 7);
-        y += nl*3.8;
-        if (a.explicacion) {
-          const nle = tw(`     > ${limpiar(a.explicacion)}`, ML+4, y, PW-6, 6.5, false, [100,100,100]);
-          y += nle*3.5;
-        }
-      });
-      y += 1;
+        t(`N${actNum} Comparar: ${limpiar(act.concepto_a.nombre||'')} vs ${limpiar(act.concepto_b?.nombre||'')}`, ML+2, y, 7, false, [100,100,100]);
+        y += 4;
+      }
+    });
+
+    // ═══ NÚCLEO B ═══
+    const nucleoB = datos.nucleo_b || {};
+    if (nucleoB.bloque_info) {
+      checkY(5);
+      t(`▸ BLOQUE B: ${nucleoB.bloque_info.titulo||''}`, ML, y, 7.5, true, [99,102,241]); y+=5;
     }
 
-    // N5 Relacionar
-    const n5 = nucleo.n5_relacionar_columnas;
-    if (n5?.pares?.length) {
-      checkY(6);
-      t('N5 Pares correctos:', ML+1, y, 7.5, true, cpRgb); y+=4;
-      (n5.pares||[]).forEach(p => {
-        checkY(4);
-        const nl = tw(`${limpiar(p.izquierda||'')} > ${limpiar(p.derecha||'')}`, ML+2, y, PW-4, 7);
-        y += nl*3.8;
+    // N1 Ordenar
+    const n1b = nucleoB.n1_ordenar_cronologicamente;
+    if (n1b?.items?.length) {
+      checkY(6); t('N1 Orden:', ML+1, y, 7.5, true, cpRgb); y+=4;
+      const ordenados = [...n1b.items].sort((a,b)=>{
+        const oc = n1b.orden_correcto||[];
+        return oc.indexOf(a.id)-oc.indexOf(b.id);
       });
-      y += 1;
-    }
-
-    // N6 Intrusa
-    const n6 = nucleo.n6_palabra_intrusa;
-    if (n6?.grupos?.length) {
-      checkY(6);
-      t('N6 Intrusas:', ML+1, y, 7.5, true, cpRgb); y+=4;
-      (n6.grupos||[]).forEach(g => {
-        checkY(4);
-        const intrusa = (g.palabras||[]).find(p=>p.es_intrusa)?.text||'';
-        const nl = tw(`Intrusa: [${limpiar(intrusa)}] - ${limpiar(g.explicacion||'')}`, ML+2, y, PW-4, 7);
-        y += nl*3.8;
-      });
-      y += 1;
-    }
-
-    // N7 Palabras clave
-    const n7 = nucleo.n7_defini_con_tus_palabras;
-    if (n7?.conceptos?.length) {
-      checkY(6);
-      t('N7 Palabras clave esperadas:', ML+1, y, 7.5, true, cpRgb); y+=4;
-      (n7.conceptos||[]).forEach(c => {
-        checkY(4);
-        const nl = tw(`${limpiar(c.termino||'')}: ${(c.palabras_clave||[]).join(', ')}`, ML+2, y, PW-4, 7);
-        y += nl*3.8;
-      });
-      y += 1;
-    }
-
-    // ═══ NÚCLEO C (Actividades 8-10) ═══
-    checkY(5);
-    t('▸ NÚCLEO C - Actividades 8-10', ML, y, 7.5, true, [99,102,241]); y+=5;
-
-    // N8 Causa-efecto
-    const n8 = nucleo.n8_causa_efecto;
-    if (n8?.causas?.length) {
-      checkY(6);
-      t('N8 Causa > Efecto:', ML+1, y, 7.5, true, cpRgb); y+=4;
-      (n8.causas||[]).forEach(ca => {
-        checkY(4);
-        const ef = (n8.efectos||[]).find(e=>e.causa_id===ca.id);
-        const nl = tw(`${limpiar(ca.text||'')} > ${limpiar(ef?.text||'')}`, ML+2, y, PW-4, 7);
-        y += nl*3.8;
-      });
-      y += 1;
-    }
-
-    // N9 Orden correcto
-    const n9 = nucleo.n9_ordenar_proceso;
-    if (n9?.pasos_en_orden_correcto?.length) {
-      checkY(6);
-      t('N9 Orden del proceso:', ML+1, y, 7.5, true, cpRgb); y+=4;
-      const linea9 = (n9.pasos_en_orden_correcto||[]).map((p,i)=>`${i+1}. ${limpiar(p.text||'')}`).join('  |  ');
-      const nl = tw(linea9, ML+2, y, PW-4, 7);
+      const linea = ordenados.map((it,i)=>`${i+1}. ${limpiar(it.text||'')}`).join(' | ');
+      const nl = tw(linea, ML+2, y, PW-4, 7);
       y += nl*3.8 + 1;
     }
 
-    // N10 Comparador
-    const n10 = nucleo.n10_comparador;
-    if (n10?.concepto_a && n10?.concepto_b) {
-      checkY(6);
-      t(`N10 Comparar: ${limpiar(n10.concepto_a.nombre||'')} vs ${limpiar(n10.concepto_b.nombre||'')} (actividad abierta)`, ML+2, y, 7, false, [100,100,100]);
-      y += 4;
+    // N2 Clasificador B
+    const n2b = nucleoB.n2_clasificador;
+    if (n2b?.items?.length) {
+      checkY(6); t('N2 Clasif:', ML+1, y, 7.5, true, cpRgb); y+=4;
+      const cats = n2b.categorias||[];
+      const grupos = {};
+      (n2b.items||[]).forEach(it => {
+        const c = cats[it.categoria_correcta]?.name || `Cat ${it.categoria_correcta}`;
+        if (!grupos[c]) grupos[c]=[];
+        grupos[c].push(limpiar(it.text||''));
+      });
+      Object.entries(grupos).forEach(([cat,items]) => {
+        checkY(4);
+        const nl = tw(`${limpiar(cat)}: ${items.join(' / ')}`, ML+2, y, PW-4, 7);
+        y += nl*3.8;
+      });
+      y += 1;
     }
+
+    // N3 Completar B
+    const n3b = nucleoB.n3_completar_mapa;
+    if (n3b?.blanks?.length) {
+      checkY(6); t('N3 Completar:', ML+1, y, 7.5, true, cpRgb); y+=4;
+      (n3b.blanks||[]).forEach(b => {
+        checkY(4);
+        const nl = tw(`${limpiar(b.texto_antes||'')} [${limpiar(b.respuesta_correcta||'')}]`, ML+2, y, PW-4, 7);
+        y += nl*3.8;
+      });
+      y += 1;
+    }
+
+    // Resto de actividades B (4-10)
+    ['n4_verdadero_falso','n5_relacionar_columnas','n6_palabra_intrusa','n7_defini_con_tus_palabras','n8_causa_efecto','n9_ordenar_proceso','n10_comparador'].forEach((key,idx) => {
+      const actNum = idx + 4;
+      const act = nucleoB[key];
+      if (!act) return;
+      
+      if (key === 'n4_verdadero_falso' && act.afirmaciones?.length) {
+        checkY(6); t(`N${actNum} V/F:`, ML+1, y, 7.5, true, cpRgb); y+=4;
+        act.afirmaciones.forEach(a => { checkY(4); const nl = tw(`[${a.correcto?'V':'F'}] ${limpiar(a.texto||'')}`, ML+2, y, PW-4, 7); y += nl*3.8; });
+        y += 1;
+      } else if (key === 'n5_relacionar_columnas' && act.pares?.length) {
+        checkY(6); t(`N${actNum} Pares:`, ML+1, y, 7.5, true, cpRgb); y+=4;
+        act.pares.forEach(p => { checkY(4); const nl = tw(`${limpiar(p.izquierda||'')} > ${limpiar(p.derecha||'')}`, ML+2, y, PW-4, 7); y += nl*3.8; });
+        y += 1;
+      } else if (key === 'n6_palabra_intrusa' && act.grupos?.length) {
+        checkY(6); t(`N${actNum} Intrusas:`, ML+1, y, 7.5, true, cpRgb); y+=4;
+        act.grupos.forEach(g => { checkY(4); const intrusa = g.palabras.find(p=>p.es_intrusa)?.text||''; const nl = tw(`[${limpiar(intrusa)}]`, ML+2, y, PW-4, 7); y += nl*3.8; });
+        y += 1;
+      } else if (key === 'n7_defini_con_tus_palabras' && act.conceptos?.length) {
+        checkY(6); t(`N${actNum} Palabras:`, ML+1, y, 7.5, true, cpRgb); y+=4;
+        act.conceptos.forEach(c => { checkY(4); const nl = tw(`${limpiar(c.termino||'')}: ${c.palabras_clave.join(', ')}`, ML+2, y, PW-4, 7); y += nl*3.8; });
+        y += 1;
+      } else if (key === 'n8_causa_efecto' && act.causas?.length) {
+        checkY(6); t(`N${actNum} C>E:`, ML+1, y, 7.5, true, cpRgb); y+=4;
+        act.causas.forEach(ca => { checkY(4); const ef = act.efectos.find(e=>e.causa_id===ca.id); const nl = tw(`${limpiar(ca.text||'')} > ${limpiar(ef?.text||'')}`, ML+2, y, PW-4, 7); y += nl*3.8; });
+        y += 1;
+      } else if (key === 'n9_ordenar_proceso' && act.pasos_en_orden_correcto?.length) {
+        checkY(6); t(`N${actNum} Proceso:`, ML+1, y, 7.5, true, cpRgb); y+=4;
+        const linea = act.pasos_en_orden_correcto.map((p,i)=>`${i+1}. ${limpiar(p.text||'')}`).join(' | ');
+        const nl = tw(linea, ML+2, y, PW-4, 7); y += nl*3.8 + 1;
+      } else if (key === 'n10_comparador' && act.concepto_a) {
+        checkY(4); t(`N${actNum} Comparar: ${limpiar(act.concepto_a.nombre||'')} vs ${limpiar(act.concepto_b?.nombre||'')}`, ML+2, y, 7, false, [100,100,100]); y += 4;
+      }
+    });
+
+    // ═══ NÚCLEO C ═══
+    const nucleoC = datos.nucleo_c || {};
+    if (nucleoC.bloque_info) {
+      checkY(5);
+      t(`▸ BLOQUE C: ${nucleoC.bloque_info.titulo||''}`, ML, y, 7.5, true, [99,102,241]); y+=5;
+    }
+
+    // N1 Ordenar C
+    const n1c = nucleoC.n1_ordenar_cronologicamente;
+    if (n1c?.items?.length) {
+      checkY(6); t('N1 Orden:', ML+1, y, 7.5, true, cpRgb); y+=4;
+      const ordenados = [...n1c.items].sort((a,b)=>{ const oc = n1c.orden_correcto||[]; return oc.indexOf(a.id)-oc.indexOf(b.id); });
+      const linea = ordenados.map((it,i)=>`${i+1}. ${limpiar(it.text||'')}`).join(' | ');
+      const nl = tw(linea, ML+2, y, PW-4, 7); y += nl*3.8 + 1;
+    }
+
+    // N2 Clasificador C
+    const n2c = nucleoC.n2_clasificador;
+    if (n2c?.items?.length) {
+      checkY(6); t('N2 Clasif:', ML+1, y, 7.5, true, cpRgb); y+=4;
+      const cats = n2c.categorias||[]; const grupos = {};
+      n2c.items.forEach(it => { const c = cats[it.categoria_correcta]?.name || `Cat ${it.categoria_correcta}`; if (!grupos[c]) grupos[c]=[]; grupos[c].push(limpiar(it.text||'')); });
+      Object.entries(grupos).forEach(([cat,items]) => { checkY(4); const nl = tw(`${limpiar(cat)}: ${items.join(' / ')}`, ML+2, y, PW-4, 7); y += nl*3.8; });
+      y += 1;
+    }
+
+    // N3 Completar C
+    const n3c = nucleoC.n3_completar_mapa;
+    if (n3c?.blanks?.length) {
+      checkY(6); t('N3 Completar:', ML+1, y, 7.5, true, cpRgb); y+=4;
+      n3c.blanks.forEach(b => { checkY(4); const nl = tw(`${limpiar(b.texto_antes||'')} [${limpiar(b.respuesta_correcta||'')}]`, ML+2, y, PW-4, 7); y += nl*3.8; });
+      y += 1;
+    }
+
+    // Resto de actividades C (4-10)
+    ['n4_verdadero_falso','n5_relacionar_columnas','n6_palabra_intrusa','n7_defini_con_tus_palabras','n8_causa_efecto','n9_ordenar_proceso','n10_comparador'].forEach((key,idx) => {
+      const actNum = idx + 4; const act = nucleoC[key]; if (!act) return;
+      if (key === 'n4_verdadero_falso' && act.afirmaciones?.length) { checkY(6); t(`N${actNum} V/F:`, ML+1, y, 7.5, true, cpRgb); y+=4; act.afirmaciones.forEach(a => { checkY(4); const nl = tw(`[${a.correcto?'V':'F'}] ${limpiar(a.texto||'')}`, ML+2, y, PW-4, 7); y += nl*3.8; }); y += 1; }
+      else if (key === 'n5_relacionar_columnas' && act.pares?.length) { checkY(6); t(`N${actNum} Pares:`, ML+1, y, 7.5, true, cpRgb); y+=4; act.pares.forEach(p => { checkY(4); const nl = tw(`${limpiar(p.izquierda||'')} > ${limpiar(p.derecha||'')}`, ML+2, y, PW-4, 7); y += nl*3.8; }); y += 1; }
+      else if (key === 'n6_palabra_intrusa' && act.grupos?.length) { checkY(6); t(`N${actNum} Intrusas:`, ML+1, y, 7.5, true, cpRgb); y+=4; act.grupos.forEach(g => { checkY(4); const intrusa = g.palabras.find(p=>p.es_intrusa)?.text||''; const nl = tw(`[${limpiar(intrusa)}]`, ML+2, y, PW-4, 7); y += nl*3.8; }); y += 1; }
+      else if (key === 'n7_defini_con_tus_palabras' && act.conceptos?.length) { checkY(6); t(`N${actNum} Palabras:`, ML+1, y, 7.5, true, cpRgb); y+=4; act.conceptos.forEach(c => { checkY(4); const nl = tw(`${limpiar(c.termino||'')}: ${c.palabras_clave.join(', ')}`, ML+2, y, PW-4, 7); y += nl*3.8; }); y += 1; }
+      else if (key === 'n8_causa_efecto' && act.causas?.length) { checkY(6); t(`N${actNum} C>E:`, ML+1, y, 7.5, true, cpRgb); y+=4; act.causas.forEach(ca => { checkY(4); const ef = act.efectos.find(e=>e.causa_id===ca.id); const nl = tw(`${limpiar(ca.text||'')} > ${limpiar(ef?.text||'')}`, ML+2, y, PW-4, 7); y += nl*3.8; }); y += 1; }
+      else if (key === 'n9_ordenar_proceso' && act.pasos_en_orden_correcto?.length) { checkY(6); t(`N${actNum} Proceso:`, ML+1, y, 7.5, true, cpRgb); y+=4; const linea = act.pasos_en_orden_correcto.map((p,i)=>`${i+1}. ${limpiar(p.text||'')}`).join(' | '); const nl = tw(linea, ML+2, y, PW-4, 7); y += nl*3.8 + 1; }
+      else if (key === 'n10_comparador' && act.concepto_a) { checkY(4); t(`N${actNum} Comparar: ${limpiar(act.concepto_a.nombre||'')} vs ${limpiar(act.concepto_b?.nombre||'')}`, ML+2, y, 7, false, [100,100,100]); y += 4; }
+    });
 
     // ── SEÑALES ──────────────────────────────────────────────────────────
     setProgreso(55,'Senales...');
@@ -618,19 +715,17 @@ async function generarPDF() {
     await new Promise(r=>setTimeout(r,10));
     const cruces = datos.cruces || {};
     checkY(10);
-    y = seccion('CRUCES INTERDISCIPLINARIOS', y);
+    y = seccion('CRUCES - Temas para explicar', y);
 
-    (cruces.puentes||[]).forEach(p => {
-      checkY(5);
-      t(limpiar(p.materia||''), ML+1, y, 7.5, true, cpRgb); y+=4;
-      const nl = tw(limpiar(p.conexion||''), ML+3, y, PW-5, 7);
-      y += nl*3.8;
-      if (p.pregunta) {
-        const nlp = tw(`Pregunta: ${limpiar(p.pregunta)}`, ML+3, y, PW-5, 7, false, [100,100,100]);
-        y += nlp*3.5;
-      }
-      y += 1; hr(y); y += 2;
-    });
+    if (cruces.bloques?.length) {
+      cruces.bloques.forEach(bloque => {
+        checkY(5);
+        t(`${bloque.emoji||''} ${limpiar(bloque.titulo||'')}`, ML+1, y, 7.5, true, cpRgb); y+=4;
+        const temas = (bloque.temas_sugeridos||[]).map(tema => limpiar(tema)).join(' | ');
+        const nl = tw(temas, ML+3, y, PW-5, 7);
+        y += nl*3.8 + 2;
+      });
+    }
 
     // ── RELECTURA ────────────────────────────────────────────────────────
     setProgreso(80,'Relectura...');
