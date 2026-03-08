@@ -474,6 +474,7 @@ function checkLogin(){
   // Clave alumno (diaria)
   if(input === correct){
     sessionStorage.setItem("campus_auth", correct);
+    // NO cerrar loginOverlay todavía, solo ocultarlo y mostrar modal ciudad
     document.getElementById("loginOverlay").style.display = "none";
     mostrarModalCiudad();
   } else {
@@ -675,9 +676,8 @@ document.addEventListener('click', function(e) {
   if (e.target === modalGenerar) {
     cerrarModalGenerar();
   }
-  if (e.target === modalCiudad) {
-    document.getElementById("modalCiudad").style.display = "none";
-  }
+  // NO permitir cerrar modal ciudad haciendo clic fuera
+  // Solo se cierra cuando ingresa una ciudad válida
 });
 
 </script>
