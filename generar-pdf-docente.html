@@ -768,49 +768,16 @@ async function generarPDF() {
     await new Promise(r=>setTimeout(r,10));
     const autotest = datos.autotest || {};
     checkY(10);
-    y = seccion('AUTOTEST - 15 PREGUNTAS Y RESPUESTAS CORRECTAS', y);
+    y = seccion('AUTOTEST - Banco de respuestas', y);
 
-    // Preguntas Múltiple Choice (10 preguntas)
-    (autotest.preguntas||[]).forEach((q,i) => {
-      checkY(5);
-      const letras = ['a','b','c','d'];
-      const corrIdx = q.correcta ?? 0;
-      const corrLetra = letras[corrIdx];
-      const corrTexto = (q.opciones||[])[corrIdx]||'';
-
-      const nl = tw(`${i+1}. ${limpiar(q.pregunta||'')}`, ML+1, y, 7.5, true, [40,40,40]);
-      y += nl*3.8 + 1;
-      t(`Resp: ${corrLetra}) ${limpiar(corrTexto)}`, ML+3, y, 7, false, cpRgb.map(c=>Math.max(0,c-30)));
-      y += 3.8;
-      if (q.explicacion) {
-        const nle = tw(`> ${limpiar(q.explicacion)}`, ML+4, y, PW-6, 6.5, false, [100,100,100]);
-        y += nle*3.5;
-      }
-      y += 1.5; hr(y); y += 2;
+    // Usar banco_respuestas_docente del JSON
+    const bancoResp = autotest.banco_respuestas_docente || [];
+    bancoResp.forEach(resp => {
+      checkY(6);
+      const nl = tw(limpiar(resp), ML+1, y, PW-3, 7);
+      y += nl*3.5 + 1;
     });
-
-    // Preguntas Verdadero / Falso (5 preguntas)
-    const verdaderoFalso = autotest.verdadero_falso || [];
-    if (verdaderoFalso.length > 0) {
-      checkY(5);
-      t('VERDADERO / FALSO', ML+1, y, 7.5, true, cpRgb); y+=5;
-      
-      verdaderoFalso.forEach((vf,i) => {
-        checkY(5);
-        const numPregunta = (autotest.preguntas||[]).length + i + 1;
-        const respuesta = vf.correcto ? 'VERDADERO' : 'FALSO';
-        
-        const nl = tw(`${numPregunta}. ${limpiar(vf.texto||'')}`, ML+1, y, 7.5, true, [40,40,40]);
-        y += nl*3.8 + 1;
-        t(`Resp: ${respuesta}`, ML+3, y, 7, false, cpRgb.map(c=>Math.max(0,c-30)));
-        y += 3.8;
-        if (vf.explicacion) {
-          const nle = tw(`> ${limpiar(vf.explicacion)}`, ML+4, y, PW-6, 6.5, false, [100,100,100]);
-          y += nle*3.5;
-        }
-        y += 1.5; hr(y); y += 2;
-      });
-    }
+    y += 2;
 
     // ── GLOSARIO ─────────────────────────────────────────────────────────
     setProgreso(93,'Glosario...');
