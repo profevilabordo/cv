@@ -44,121 +44,132 @@
     ],
     "termometro_pregunta": "¿Cuánto entendés sobre cómo compra una empresa y cómo controla su stock?"
   },
-  "mapa": {
-    "ruta_paradas": [
-      {
-        "id": 0,
-        "emoji": "🛒",
-        "title": "Qué es comprar en una empresa",
-        "desc": "Concepto, funciones e importancia estratégica de las compras",
-        "color": "#6366F1"
-      },
-      {
-        "id": 1,
-        "emoji": "🏢",
-        "title": "Área de compras",
-        "desc": "Cómo se organiza y con qué sectores se relaciona internamente",
-        "color": "#3B82F6"
-      },
-      {
-        "id": 2,
-        "emoji": "📊",
-        "title": "Información y planeamiento",
-        "desc": "Políticas, presupuesto y decisiones para comprar con criterio",
-        "color": "#10B981"
-      },
-      {
-        "id": 3,
-        "emoji": "📦",
-        "title": "Abastecimiento e inventarios",
-        "desc": "Cómo asegurar recursos sin excesos ni faltantes",
-        "color": "#F59E0B"
-      },
-      {
-        "id": 4,
-        "emoji": "🧮",
-        "title": "Valuación del stock",
-        "desc": "PEPS, UEPS y PPP para valorar inventarios y costo de ventas",
-        "color": "#EC4899"
-      }
-    ],
-    "panoramica_bloques": [
-      {
-        "id": "a",
-        "subtitulo": "Fundamentos de la compra estratégica",
-        "items": [
-          "Concepto de compra",
-          "Funciones del departamento de compras",
-          "Importancia estratégica",
-          "Estrategias según el rubro",
-          "Relaciones internas del área"
-        ]
-      },
-      {
-        "id": "b",
-        "subtitulo": "Decidir, planificar y ejecutar compras",
-        "items": [
-          "Información del sector compras",
-          "Políticas de compras",
-          "Planeamiento",
-          "Presupuesto",
-          "Etapas de la transacción de compra"
-        ]
-      },
-      {
-        "id": "c",
-        "subtitulo": "Abastecimiento, inventarios y valuación",
-        "items": [
-          "Abastecimiento",
-          "Inventarios",
-          "Fichas de stock",
-          "PEPS, UEPS y PPP",
-          "Comparación de métodos"
-        ]
-      }
-    ],
-    "mapa_mental": {
-      "centro": "Compra estratégica",
-      "ramas": [
-        {
-          "pregunta": "¿Qué es?",
-          "items": [
-            "Proceso estratégico",
-            "Satisface necesidades",
-            "Asegura calidad-cantidad-precio-plazo",
-            "Base de la operación"
-          ]
-        },
-        {
-          "pregunta": "¿Qué hace?",
-          "items": [
-            "Selecciona proveedores",
-            "Negocia",
-            "Controla documentación",
-            "Gestiona inventarios"
-          ]
-        },
-        {
-          "pregunta": "¿Cómo se decide?",
-          "items": [
-            "Información precisa",
-            "Políticas claras",
-            "Planeamiento",
-            "Presupuesto"
-          ]
-        },
-        {
-          "pregunta": "¿Por qué importa?",
-          "items": [
-            "Reduce costos",
-            "Evita faltantes",
-            "Mejora calidad",
-            "Impacta en rentabilidad"
-          ]
-        }
+"mapa": {
+  "ruta_paradas": [
+    {
+      "id": 0,
+      "emoji": "🛒",
+      "title": "Qué es comprar en una empresa",
+      "desc": "Concepto, funciones e importancia estratégica de las compras",
+      "color": "#6366F1"
+    },
+    {
+      "id": 1,
+      "emoji": "🏢",
+      "title": "Área de compras",
+      "desc": "Cómo se organiza y con qué sectores se relaciona internamente",
+      "color": "#3B82F6"
+    },
+    {
+      "id": 2,
+      "emoji": "📊",
+      "title": "Información y planeamiento",
+      "desc": "Políticas, presupuesto y decisiones para comprar con criterio",
+      "color": "#10B981"
+    },
+    {
+      "id": 3,
+      "emoji": "📦",
+      "title": "Abastecimiento e inventarios",
+      "desc": "Cómo asegurar recursos sin excesos ni faltantes",
+      "color": "#F59E0B"
+    },
+    {
+      "id": 4,
+      "emoji": "🧮",
+      "title": "Valuación del stock",
+      "desc": "PEPS, UEPS y PPP para valorar inventarios y costo de ventas",
+      "color": "#EC4899"
+    }
+  ],
+  "panoramica_bloques": [
+    {
+      "id": "a",
+      "titulo": "Bloque A",
+      "subtitulo": "Fundamentos de la compra estratégica",
+      "descripcion": "Conceptos básicos del área de compras y su valor en la empresa",
+      "items": [
+        "Concepto de compra",
+        "Funciones del departamento de compras",
+        "Importancia estratégica",
+        "Estrategias según el rubro",
+        "Relaciones internas del área"
+      ]
+    },
+    {
+      "id": "b",
+      "titulo": "Bloque B",
+      "subtitulo": "Decidir, planificar y ejecutar compras",
+      "descripcion": "Información, políticas y etapas para comprar con criterio",
+      "items": [
+        "Información del sector compras",
+        "Políticas de compras",
+        "Planeamiento",
+        "Presupuesto",
+        "Etapas de la transacción de compra"
+      ]
+    },
+    {
+      "id": "c",
+      "titulo": "Bloque C",
+      "subtitulo": "Abastecimiento, inventarios y valuación",
+      "descripcion": "Control del stock y métodos para valorar inventarios",
+      "items": [
+        "Abastecimiento",
+        "Inventarios",
+        "Fichas de stock",
+        "PEPS, UEPS y PPP",
+        "Comparación de métodos"
       ]
     }
-  },
+  ],
+  "mapa_mental": {
+    "centro": "Compra estratégica",
+    "titulo_central": "Compra estratégica",
+    "ramas": [
+      {
+        "titulo": "¿Qué es?",
+        "pregunta": "¿Qué es?",
+        "items": [
+          "Proceso estratégico",
+          "Satisface necesidades",
+          "Asegura calidad-cantidad-precio-plazo",
+          "Base de la operación"
+        ]
+      },
+      {
+        "titulo": "¿Qué hace?",
+        "pregunta": "¿Qué hace?",
+        "items": [
+          "Selecciona proveedores",
+          "Negocia",
+          "Controla documentación",
+          "Gestiona inventarios"
+        ]
+      },
+      {
+        "titulo": "¿Cómo se decide?",
+        "pregunta": "¿Cómo se decide?",
+        "items": [
+          "Información precisa",
+          "Políticas claras",
+          "Planeamiento",
+          "Presupuesto"
+        ]
+      },
+      {
+        "titulo": "¿Por qué importa?",
+        "pregunta": "¿Por qué importa?",
+        "items": [
+          "Reduce costos",
+          "Evita faltantes",
+          "Mejora calidad",
+          "Impacta en rentabilidad"
+        ]
+      }
+    ]
+  }
+}
   "nucleo_a": {
     "bloque_info": {
       "id": "a",
