@@ -172,8 +172,14 @@
   }
 
   @keyframes slideUp {
-    from { opacity: 0; transform: translateY(12px); }
-    to   { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .preview-header {
@@ -807,246 +813,90 @@ async function generarPDF() {
       y += 8;
     });
 
-    // ── NÚCLEO A ───────────────────────────────────────────────────────────
-    setProgreso(35, 'Núcleo A — actividades 1-3...');
-    await new Promise(r => setTimeout(r, 10));
-    nuevaPagina();
-    const nucleo = datos.nucleo || {};
-    y = encabezadoSeccion('⚙️  NÚCLEO A — Actividades 1-3', y);
-    y += 4;
-
-    // N1
-    const n1 = nucleo.n1_ordenar_cronologicamente;
-    if (n1?.items?.length) {
-      checkY(30);
-      texto('Actividad 1 — Ordenar', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=5;
-      texto(n1.consigna||'', ML, y, { size:8.5, color:[107,114,128], maxW:PW }); y+=5;
-      const mezc = [...n1.items].sort(() => Math.random()-0.5);
-      mezc.forEach(it => {
-        checkY(7);
-        pdf.setDrawColor(209,213,219); pdf.setFillColor(255,255,255);
-        pdf.rect(ML, y-3.5, 4.5, 4.5, 'FD');
-        texto(`${it.emoji||''} ${it.text||''}`, ML+6, y, { size:8.5, maxW:PW-8 });
-        const nl = pdf.splitTextToSize(`${it.emoji||''} ${it.text||''}`, PW-8).length;
-        y += nl*4.5 + 1;
-      });
+    // ══ FUNCIÓN HELPER PARA PROCESAR NÚCLEOS ══
+    function procesarNucleo(nucleoData, bloqueLabel, progLabel, progPct) {
+      setProgreso(progPct, progLabel);
+      nuevaPagina();
+      
+      const bloque = nucleoData.bloque_info || {};
+      y = encabezadoSeccion(`⚙️  ${bloqueLabel} — ${bloque.titulo || 'Actividades'}`, y);
       y += 4;
-    }
 
-    // N2 - clasificador
-    const n2 = nucleo.n2_clasificador;
-    if (n2?.items?.length) {
-      checkY(35);
-      texto('Actividad 2 — Clasificador', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=5;
-      texto(n2.consigna||'', ML, y, { size:8.5, color:[107,114,128], maxW:PW }); y+=5;
-      const cats = n2.categorias || [];
-      if (cats.length >= 2) {
-        const cw = PW/2;
-        [0,1].forEach(i => {
-          cajaColor(ML + i*cw, y, cw, 7, hexToRgb(cats[i]?.color||'#6366F1'), 2);
-          texto(cats[i]?.name||'', ML + i*cw + cw/2, y+5, { size:9, bold:true, color:[255,255,255], align:'center', maxW:cw-4 });
+      // N1 - Ordenar
+      const n1 = nucleoData.n1_ordenar_cronologicamente;
+      if (n1?.items?.length) {
+        checkY(30);
+        texto('Actividad 1 — Ordenar', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=5;
+        texto(n1.consigna||'', ML, y, { size:8.5, color:[107,114,128], maxW:PW }); y+=5;
+        const mezc = [...n1.items].sort(() => Math.random()-0.5);
+        mezc.forEach(it => {
+          checkY(7);
+          pdf.setDrawColor(209,213,219); pdf.setFillColor(255,255,255);
+          pdf.rect(ML, y-3.5, 4.5, 4.5, 'FD');
+          texto(`${it.emoji||''} ${it.text||''}`, ML+6, y, { size:8.5, maxW:PW-8 });
+          const nl = pdf.splitTextToSize(`${it.emoji||''} ${it.text||''}`, PW-8).length;
+          y += nl*4.5 + 1;
         });
-        y += 10;
+        y += 4;
       }
-      (n2.items||[]).forEach(it => {
-        checkY(7);
-        pdf.setDrawColor(209,213,219); pdf.setFillColor(255,255,255);
-        pdf.rect(ML, y-3.5, 4.5, 4.5, 'FD');
-        texto(it.text||'', ML+6, y, { size:8.5, maxW:PW-8 });
-        const nl = pdf.splitTextToSize(it.text||'', PW-8).length;
-        y += nl*4.5+1;
-      });
-      y += 4;
+
+      // N2 - Clasificador
+      const n2 = nucleoData.n2_clasificador;
+      if (n2?.items?.length) {
+        checkY(35);
+        texto('Actividad 2 — Clasificador', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=5;
+        texto(n2.consigna||'', ML, y, { size:8.5, color:[107,114,128], maxW:PW }); y+=5;
+        const cats = n2.categorias || [];
+        if (cats.length >= 2) {
+          const cw = PW/2;
+          [0,1].forEach(i => {
+            cajaColor(ML + i*cw, y, cw, 7, hexToRgb(cats[i]?.color||'#6366F1'), 2);
+            texto(cats[i]?.name||'', ML + i*cw + cw/2, y+5, { size:9, bold:true, color:[255,255,255], align:'center', maxW:cw-4 });
+          });
+          y += 10;
+        }
+        (n2.items||[]).forEach(it => {
+          checkY(7);
+          pdf.setDrawColor(209,213,219); pdf.setFillColor(255,255,255);
+          pdf.rect(ML, y-3.5, 4.5, 4.5, 'FD');
+          texto(it.text||'', ML+6, y, { size:8.5, maxW:PW-8 });
+          const nl = pdf.splitTextToSize(it.text||'', PW-8).length;
+          y += nl*4.5+1;
+        });
+        y += 4;
+      }
+
+      // N3 - Completar
+      const n3 = nucleoData.n3_completar_mapa;
+      if (n3?.blanks?.length) {
+        checkY(25);
+        texto('Actividad 3 — Completar los espacios', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=5;
+        (n3.blanks||[]).forEach(b => {
+          checkY(12);
+          const lineTxt = `${b.texto_antes||''} _______________ ${b.pista ? '(Pista: '+b.pista+')' : ''}`;
+          const nl = textoWrapped(lineTxt, ML, y, PW, 8.5);
+          y += nl*4.5 + 3;
+        });
+        y += 3;
+      }
     }
 
-    // N3 - completar
-    const n3 = nucleo.n3_completar_mapa;
-    if (n3?.blanks?.length) {
-      checkY(25);
-      texto('Actividad 3 — Completar los espacios', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=5;
-      (n3.blanks||[]).forEach(b => {
-        checkY(12);
-        const lineTxt = `${b.texto_antes||''} _______________ ${b.pista ? '(Pista: '+b.pista+')' : ''}`;
-        const nl = textoWrapped(lineTxt, ML, y, PW, 8.5);
-        y += nl*4.5 + 3;
-      });
-      y += 3;
+    // ── NÚCLEO A ───────────────────────────────────────────────────────────
+    if (datos.nucleo_a) {
+      await new Promise(r => setTimeout(r, 10));
+      procesarNucleo(datos.nucleo_a, 'NÚCLEO A', 'Núcleo A — actividades 1-3...', 30);
     }
 
     // ── NÚCLEO B ───────────────────────────────────────────────────────────
-    setProgreso(42, 'Núcleo B — actividades 4-7...');
-    await new Promise(r => setTimeout(r, 10));
-    nuevaPagina();
-    y = encabezadoSeccion('⚙️  NÚCLEO B — Actividades 4-7', y);
-    y += 4;
-
-    // N4 - V/F
-    const n4 = nucleo.n4_verdadero_falso;
-    if (n4?.afirmaciones?.length) {
-      checkY(30);
-      texto('Actividad 4 — Verdadero o Falso', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=5;
-      cajaColor(ML, y, PW, 7, cpRgb, 2);
-      texto('N°', ML+3, y+5, { size:8, bold:true, color:[255,255,255] });
-      texto('Afirmación', ML+14, y+5, { size:8, bold:true, color:[255,255,255] });
-      texto('V', ML+PW-14, y+5, { size:8, bold:true, color:[255,255,255], align:'center' });
-      texto('F', ML+PW-5, y+5, { size:8, bold:true, color:[255,255,255], align:'center' });
-      y += 8;
-      (n4.afirmaciones||[]).forEach((a,i) => {
-        checkY(10);
-        const nl = pdf.splitTextToSize(a.texto||'', PW-28).length;
-        const rowH = nl*4.5 + 3;
-        const bg = i%2===0 ? [255,255,255] : [243,244,246];
-        pdf.setFillColor(...bg);
-        pdf.setDrawColor(209,213,219);
-        pdf.setLineWidth(0.2);
-        pdf.rect(ML, y, PW, rowH, 'FD');
-        texto(String(i+1), ML+3, y+rowH/2+1.5, { size:8.5 });
-        textoWrapped(a.texto||'', ML+14, y+4, PW-28, 8.5);
-        // checkboxes
-        pdf.setDrawColor(180,180,180); pdf.setFillColor(255,255,255);
-        pdf.rect(ML+PW-17, y+(rowH-4)/2, 4, 4, 'FD');
-        pdf.rect(ML+PW-8,  y+(rowH-4)/2, 4, 4, 'FD');
-        y += rowH;
-      });
-      y += 5;
-    }
-
-    // N5 - relacionar
-    const n5 = nucleo.n5_relacionar_columnas;
-    if (n5?.pares?.length) {
-      checkY(30);
-      texto('Actividad 5 — Relacionar columnas', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=4;
-      texto('Uní con una línea cada concepto con su definición:', ML, y, { size:8.5, color:[107,114,128] }); y+=6;
-      const derechas = [...n5.pares].map(p=>p.derecha).sort(() => Math.random()-0.5);
-      const colW = (PW-10)/2;
-      cajaColor(ML, y, colW, 6, cpRgb, 2);
-      texto('Concepto', ML+colW/2, y+4.5, { size:8, bold:true, color:[255,255,255], align:'center' });
-      cajaColor(ML+colW+10, y, colW, 6, cpRgb, 2);
-      texto('Definición', ML+colW+10+colW/2, y+4.5, { size:8, bold:true, color:[255,255,255], align:'center' });
-      y += 7;
-      (n5.pares||[]).forEach((par,i) => {
-        checkY(10);
-        const nlL = pdf.splitTextToSize(par.izquierda||'', colW-4).length;
-        const nlR = pdf.splitTextToSize(derechas[i]||'', colW-4).length;
-        const rh  = Math.max(nlL,nlR)*4.5 + 3;
-        const bg  = i%2===0 ? [255,255,255] : [243,244,246];
-        pdf.setFillColor(...bg); pdf.setDrawColor(209,213,219); pdf.setLineWidth(0.2);
-        pdf.rect(ML, y, colW, rh, 'FD');
-        pdf.rect(ML+colW+10, y, colW, rh, 'FD');
-        textoWrapped(par.izquierda||'', ML+3, y+4, colW-6, 8.5);
-        textoWrapped(derechas[i]||'',   ML+colW+13, y+4, colW-6, 8.5);
-        y += rh;
-      });
-      y += 5;
-    }
-
-    // N6 - intrusa
-    const n6 = nucleo.n6_palabra_intrusa;
-    if (n6?.grupos?.length) {
-      checkY(20);
-      texto('Actividad 6 — La palabra intrusa', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=5;
-      (n6.grupos||[]).forEach(g => {
-        checkY(15);
-        texto(g.pregunta||'', ML, y, { size:8.5, color:[107,114,128] }); y+=5;
-        const palabras = (g.palabras||[]).map(p=>'☐ '+p.text);
-        texto(palabras.join('    '), ML, y, { size:9 }); y+=7;
-      });
-      y += 3;
-    }
-
-    // N7 - definir
-    const n7 = nucleo.n7_defini_con_tus_palabras;
-    if (n7?.conceptos?.length) {
-      checkY(30);
-      texto('Actividad 7 — Definí con tus palabras', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=5;
-      (n7.conceptos||[]).forEach(c => {
-        checkY(25);
-        texto(c.termino||'', ML, y, { size:9, bold:true }); y+=4;
-        if (c.pista) { texto(`💡 ${c.pista}`, ML+3, y, { size:8, color:[156,163,175], maxW:PW-3 }); y+=5; }
-        for (let l=0; l<3; l++) { lineaRespuesta(ML, y, PW); y+=7; }
-        y += 3;
-      });
+    if (datos.nucleo_b) {
+      await new Promise(r => setTimeout(r, 10));
+      procesarNucleo(datos.nucleo_b, 'NÚCLEO B', 'Núcleo B — actividades 4-6...', 40);
     }
 
     // ── NÚCLEO C ───────────────────────────────────────────────────────────
-    setProgreso(49, 'Núcleo C — actividades 8-10...');
-    await new Promise(r => setTimeout(r, 10));
-    nuevaPagina();
-    y = encabezadoSeccion('⚙️  NÚCLEO C — Actividades 8-10', y);
-    y += 4;
-
-    // N8 - causa-efecto
-    const n8 = nucleo.n8_causa_efecto;
-    if (n8?.causas?.length) {
-      checkY(35);
-      texto('Actividad 8 — Causa y efecto', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=4;
-      texto('Uní cada causa con su efecto:', ML, y, { size:8.5, color:[107,114,128] }); y+=6;
-      const efs = [...(n8.efectos||[])].sort(() => Math.random()-0.5);
-      const cw8 = (PW-8)/2;
-      cajaColor(ML, y, cw8, 6, cpRgb, 2);
-      texto('Causas', ML+cw8/2, y+4.5, { size:8, bold:true, color:[255,255,255], align:'center' });
-      cajaColor(ML+cw8+8, y, cw8, 6, cpRgb, 2);
-      texto('Efectos', ML+cw8+8+cw8/2, y+4.5, { size:8, bold:true, color:[255,255,255], align:'center' });
-      y += 7;
-      const maxLen = Math.max((n8.causas||[]).length, efs.length);
-      for (let i=0; i<maxLen; i++) {
-        checkY(10);
-        const ca = n8.causas[i], ef = efs[i];
-        const nlL = ca ? pdf.splitTextToSize(ca.text||'', cw8-4).length : 1;
-        const nlR = ef ? pdf.splitTextToSize(ef.text||'', cw8-4).length : 1;
-        const rh  = Math.max(nlL,nlR)*4.5 + 3;
-        const bg  = i%2===0 ? [255,255,255] : [243,244,246];
-        pdf.setFillColor(...bg); pdf.setDrawColor(209,213,219); pdf.setLineWidth(0.2);
-        if (ca) { pdf.rect(ML, y, cw8, rh, 'FD'); textoWrapped(ca.text||'', ML+3, y+4, cw8-6, 8.5); }
-        if (ef) { pdf.rect(ML+cw8+8, y, cw8, rh, 'FD'); textoWrapped(ef.text||'', ML+cw8+11, y+4, cw8-6, 8.5); }
-        y += rh;
-      }
-      y += 5;
-    }
-
-    // N9 - ordenar proceso
-    const n9 = nucleo.n9_ordenar_proceso;
-    if (n9?.pasos_en_orden_correcto?.length) {
-      checkY(30);
-      texto('Actividad 9 — Ordenar el proceso', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=4;
-      texto(n9.consigna||'', ML, y, { size:8.5, color:[107,114,128] }); y+=5;
-      const pasos = [...n9.pasos_en_orden_correcto].sort(() => Math.random()-0.5);
-      pasos.forEach(p => {
-        checkY(8);
-        pdf.setDrawColor(209,213,219); pdf.setFillColor(255,255,255);
-        pdf.rect(ML, y-3.5, 4.5, 4.5, 'FD');
-        const nl = textoWrapped(`${p.emoji||''} ${p.text||''}`, ML+6, y, PW-8, 8.5);
-        y += nl*4.5 + 2;
-      });
-      y += 4;
-    }
-
-    // N10 - comparador
-    const n10 = nucleo.n10_comparador;
-    if (n10?.concepto_a && n10?.concepto_b) {
-      checkY(45);
-      texto('Actividad 10 — Comparador', ML, y, { size:10, bold:true, color:[...cpRgb] }); y+=4;
-      texto(`Completá el cuadro comparativo:`, ML, y, { size:8.5, color:[107,114,128] }); y+=6;
-      const a = n10.concepto_a, b = n10.concepto_b;
-      const cw10 = PW/3;
-      // encabezado
-      cajaColor(ML, y, cw10, 7, [209,213,219], 2);
-      cajaColor(ML+cw10, y, cw10, 7, hexToRgb(a.color||'#3B82F6'), 2);
-      cajaColor(ML+2*cw10, y, cw10, 7, hexToRgb(b.color||'#10B981'), 2);
-      texto('', ML+cw10/2, y+5, { size:8, bold:true, color:[255,255,255], align:'center' });
-      texto(`${a.emoji||''} ${a.nombre||''}`, ML+cw10+cw10/2, y+5, { size:8, bold:true, color:[255,255,255], align:'center', maxW:cw10-4 });
-      texto(`${b.emoji||''} ${b.nombre||''}`, ML+2*cw10+cw10/2, y+5, { size:8, bold:true, color:[255,255,255], align:'center', maxW:cw10-4 });
-      y += 8;
-      ['Similitudes','Diferencias'].forEach(tipo => {
-        for (let r=0; r<2; r++) {
-          const bg = r===0 ? [255,255,255] : [243,244,246];
-          pdf.setFillColor(...bg); pdf.setDrawColor(209,213,219); pdf.setLineWidth(0.2);
-          [ML, ML+cw10, ML+2*cw10].forEach(x => pdf.rect(x, y, cw10, 12, 'FD'));
-          if (r===0) texto(tipo, ML+3, y+7, { size:8, bold:true });
-          y += 12;
-        }
-      });
-      y += 4;
+    if (datos.nucleo_c) {
+      await new Promise(r => setTimeout(r, 10));
+      procesarNucleo(datos.nucleo_c, 'NÚCLEO C', 'Núcleo C — actividades 7-10...', 50);
     }
 
     // ── SEÑALES ────────────────────────────────────────────────────────────
@@ -1145,20 +995,27 @@ async function generarPDF() {
     await new Promise(r => setTimeout(r, 10));
     nuevaPagina();
     const cruces = datos.cruces || {};
-    y = encabezadoSeccion('🌐  CRUCES — Conexiones interdisciplinarias', y);
+    y = encabezadoSeccion('🌐  CRUCES — Explicá a un compañero', y);
     y += 4;
 
-    (cruces.puentes||[]).forEach(p => {
-      checkY(30);
-      texto(`${p.emoji||''}  ${p.materia||''}`, ML, y, { size:9, bold:true, color:[...cpRgb] }); y+=4;
-      const nlc = textoWrapped(p.conexion||'', ML+3, y, PW-3, 8.5);
-      y += nlc*4.5 + 2;
-      texto(`❓ ${p.pregunta||''}`, ML+3, y, { size:8.5, color:[107,114,128], maxW:PW-3 });
-      const nlp = pdf.splitTextToSize(`❓ ${p.pregunta||''}`, PW-3).length;
-      y += nlp*4.5 + 2;
-      for (let l=0; l<2; l++) { lineaRespuesta(ML, y, PW); y+=7; }
+    // Nueva estructura de cruces
+    if (cruces.temas_para_explicar?.length) {
+      texto('Elegí uno de estos temas y preparate para explicárselo a un compañero:', ML, y, { size:8.5, color:[107,114,128], maxW:PW }); 
+      y += 6;
+      
+      cruces.temas_para_explicar.forEach((tema, i) => {
+        checkY(10);
+        pdf.setDrawColor(209,213,219); pdf.setFillColor(243,244,246);
+        pdf.setLineWidth(0.2);
+        pdf.rect(ML, y-3, 5, 5, 'FD');
+        const nl = textoWrapped(`${tema.emoji||''} ${tema.tema||''}`, ML+8, y, PW-10, 8.5);
+        y += nl*4.5 + 2;
+      });
+      
       y += 3;
-    });
+      texto('Mi explicación:', ML, y, { size:8.5, color:[107,114,128] }); y+=5;
+      for (let l=0; l<5; l++) { lineaRespuesta(ML, y, PW); y+=8; }
+    }
 
     // ── RELECTURA ──────────────────────────────────────────────────────────
     setProgreso(84, 'Relectura...');
