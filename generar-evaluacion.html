@@ -314,136 +314,94 @@ function generarEvaluacion(variante = 'A'){
   };
 }
 
-// Generar PDF
+// Generar PDF - versión optimizada y simple
 function generarPDF(evaluaciones){
   const doc = new jsPDF();
-  const pageWidth = doc.internal.pageSize.getWidth();
-  const pageHeight = doc.internal.pageSize.getHeight();
-  const margin = 12;
-  const usableWidth = pageWidth - (margin * 2);
+  const margin = 15;
+  const pageHeight = 280;
   
   evaluaciones.forEach((eval, idx) => {
     if(idx > 0) doc.addPage();
     
     let y = margin;
     
-    // Encabezado
-    doc.setFontSize(18);
+    // Encabezado compacto
+    doc.setFontSize(14);
     doc.setFont(undefined, 'bold');
-    doc.text(`Evaluación - Variante ${eval.variante}`, margin, y);
-    y += 8;
-    
-    doc.setFontSize(10);
-    doc.setFont(undefined, 'normal');
-    doc.text(`${eval.materia} · Unidad ${eval.unidad}: ${eval.titulo}`, margin, y);
-    y += 5;
+    doc.text(`Evaluacion - Variante ${eval.variante}`, margin, y);
+    y += 6;
     
     doc.setFontSize(9);
-    doc.text(`Nombre: ________________________  Curso: ______  Fecha: ___/___/___`, margin, y);
-    y += 8;
+    doc.setFont(undefined, 'normal');
+    doc.text(`${eval.materia} - U${eval.unidad}`, margin, y);
+    y += 4;
+    doc.text(`Nombre: ________________  Curso: ____  Fecha: __/__/__`, margin, y);
+    y += 7;
     
-    doc.setDrawColor(200);
-    doc.line(margin, y, pageWidth - margin, y);
-    y += 6;
+    // Línea separadora
+    doc.line(margin, y, 195, y);
+    y += 5;
     
-    // Actividades del núcleo
+    // Actividades - versión simple
     eval.nucleo.forEach((act, i) => {
-      if(y > pageHeight - 40){
-        doc.addPage();
-        y = margin;
-      }
-      
-      doc.setFontSize(11);
-      doc.setFont(undefined, 'bold');
-      doc.text(`${i+1}. ${act.icono} ${act.titulo}`, margin, y);
-      y += 5;
-      
-      doc.setFontSize(9);
-      doc.setFont(undefined, 'normal');
-      
-      // Renderizar según tipo
-      if(act.tipo === 'n4'){ // V o F
-        act.data.afirmaciones.forEach((af, j) => {
-          doc.text(`${String.fromCharCode(97+j)}) ${af.texto}`, margin + 2, y);
-          y += 4;
-          doc.text('[ V ] [ F ]', margin + 150, y - 4);
-        });
-        y += 2;
-      }
-      else if(act.tipo === 'n3'){ // Completar
-        act.data.blanks.forEach(b => {
-          const texto = b.texto_antes.replace(/_{3,}/g, '_______');
-          doc.text(texto, margin + 2, y);
-          y += 5;
-        });
-      }
-      else if(act.tipo === 'n1'){ // Ordenar
-        const items = shuffle([...act.data.items]);
-        items.forEach((it, j) => {
-          doc.text(`[ ] ${it.emoji} ${it.text}`, margin + 2, y);
-          y += 4;
-        });
-        y += 2;
-      }
-      else if(act.tipo === 'n5'){ // Relacionar
-        doc.text('Uní con flechas:', margin + 2, y);
-        y += 4;
-        act.data.pares.forEach(p => {
-          doc.text(`${p.izquierda}`, margin + 5, y);
-          doc.text(`${p.emoji} ${p.derecha}`, margin + 100, y);
-          y += 4;
-        });
-        y += 2;
-      }
-      else {
-        // Otros tipos: espacio para responder
-        doc.text('Respuesta:', margin + 2, y);
-        y += 4;
-        doc.text('_'.repeat(80), margin + 2, y);
-        y += 4;
-        doc.text('_'.repeat(80), margin + 2, y);
-        y += 4;
-      }
-      
-      y += 3;
-    });
-    
-    // Autotest
-    if(y > pageHeight - 60){
-      doc.addPage();
-      y = margin;
-    }
-    
-    doc.setFontSize(12);
-    doc.setFont(undefined, 'bold');
-    doc.text('Multiple Choice', margin, y);
-    y += 6;
-    
-    eval.autotest.forEach((p, i) => {
-      if(y > pageHeight - 35){
+      if(y > pageHeight - 30){
         doc.addPage();
         y = margin;
       }
       
       doc.setFontSize(10);
       doc.setFont(undefined, 'bold');
-      doc.text(`${eval.nucleo.length + i + 1}. ${p.pregunta}`, margin, y);
+      doc.text(`${i+1}. ${act.titulo}`, margin, y);
       y += 5;
       
-      doc.setFontSize(9);
+      doc.setFontSize(8);
       doc.setFont(undefined, 'normal');
-      p.opciones.forEach((op, j) => {
-        doc.text(`${String.fromCharCode(65+j)}) ${op}`, margin + 3, y);
-        y += 4;
-      });
-      y += 3;
+      
+      // Espacio para responder (genérico)
+      doc.text('Respuesta:', margin + 2, y);
+      y += 4;
+      doc.text('_________________________________________________________________________', margin, y);
+      y += 4;
+      doc.text('_________________________________________________________________________', margin, y);
+      y += 6;
     });
     
-    // Pie de página con variante
-    doc.setFontSize(8);
-    doc.setTextColor(150);
-    doc.text(`Variante ${eval.variante} · Campus Cuaderno Vivo`, margin, pageHeight - 5);
-    doc.setTextColor(0);
+    // Autotest
+    if(y > pageHeight - 40){
+      doc.addPage();
+      y = margin;
+    }
+    
+    doc.setFontSize(11);
+    doc.setFont(undefined, 'bold');
+    doc.text('Multiple Choice', margin, y);
+    y += 5;
+    
+    eval.autotest.forEach((p, i) => {
+      if(y > pageHeight - 25){
+        doc.addPage();
+        y = margin;
+      }
+      
+      doc.setFontSize(9);
+      doc.setFont(undefined, 'bold');
+      const pregNum = eval.nucleo.length + i + 1;
+      doc.text(`${pregNum}. ${p.pregunta.substring(0, 75)}`, margin, y);
+      y += 4;
+      
+      doc.setFont(undefined, 'normal');
+      doc.setFontSize(8);
+      p.opciones.forEach((op, j) => {
+        const letra = String.fromCharCode(65+j);
+        doc.text(`${letra}) ${op.substring(0, 70)}`, margin + 2, y);
+        y += 3.5;
+      });
+      y += 2;
+    });
+    
+    // Pie de página
+    doc.setFontSize(7);
+    doc.text(`Var. ${eval.variante}`, margin, 285);
   });
   
   return doc;
