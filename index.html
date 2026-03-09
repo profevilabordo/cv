@@ -28,6 +28,11 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 .stat{padding:8px 20px;border-radius:12px;background:#1E293B;border:1px solid rgba(255,255,255,0.1)}
 .stat span{font-size:20px;font-weight:800;font-family:'Space Grotesk',sans-serif;background:linear-gradient(135deg,#A78BFA,#6366F1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .stat small{display:block;font-size:11px;color:#94A3B8;font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.quick-links{display:flex;gap:12px;justify-content:center;margin-top:20px;margin-bottom:20px;flex-wrap:wrap}
+.quick-link{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:14px;background:linear-gradient(135deg,#1E293B,#1a2332);border:2px solid rgba(255,255,255,0.1);color:#E2E8F0;font-size:14px;font-weight:700;text-decoration:none;transition:all 0.3s ease;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
+.quick-link:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(99,102,241,0.3);border-color:#6366F1;background:linear-gradient(135deg,#6366F1,#8B5CF6)}
+.quick-link-icon{font-size:20px}
+.quick-link-text{font-family:'Space Grotesk',sans-serif;letter-spacing:-0.3px}
 .school{margin-bottom:40px;animation:fadeUp 0.8s ease both}
 .school-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.1)}
 .school-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px}
@@ -200,6 +205,19 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
     <div class="logo">📓</div>
     <h1>Campus Cuaderno Vivo</h1>
     <p>Plataforma de actividades interactivas</p>
+    
+    <!-- Enlaces Rápidos -->
+    <div class="quick-links">
+      <a href="criterios-evaluacion.html" class="quick-link">
+        <span class="quick-link-icon">📊</span>
+        <span class="quick-link-text">Criterios de Evaluación</span>
+      </a>
+      <a href="encuesta.html" class="quick-link">
+        <span class="quick-link-icon">💬</span>
+        <span class="quick-link-text">Tu Voz Cuenta</span>
+      </a>
+    </div>
+    
     <div class="stats">
       <div class="stat"><span>2</span><small>Escuelas</small></div>
       <div class="stat"><span>14</span><small>Asignaturas</small></div>
