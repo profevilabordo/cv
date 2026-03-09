@@ -127,7 +127,7 @@ select:focus,input[type="number"]:focus{border-color:#6366F1}
 <script>
 const { jsPDF } = window.jspdf;
 
-// Auth check
+// Auth check - permitir docente o estudiante autenticado
 function getDayOfYear(){
   var now = new Date();
   var start = new Date(now.getFullYear(), 0, 0);
@@ -137,7 +137,18 @@ function getDayOfYear(){
 function getTodayPassword(){
   return "campusvvb" + (getDayOfYear() * 27);
 }
-if(sessionStorage.getItem("campus_auth") !== getTodayPassword()){
+
+const CLAVE_DOCENTE = "1126";
+const authAlumno = sessionStorage.getItem("campus_auth") === getTodayPassword();
+const authDocente = sessionStorage.getItem("campus_auth") === CLAVE_DOCENTE;
+
+if(!authAlumno && !authDocente){
+  window.location.href = "index.html";
+}
+
+// Solo docentes pueden acceder a esta herramienta
+if(!authDocente){
+  alert("⚠️ Esta herramienta es solo para docentes.\n\nIngresá la clave docente en el login del campus.");
   window.location.href = "index.html";
 }
 
