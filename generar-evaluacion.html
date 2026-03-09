@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generador de Evaluaciones - Campus Cuaderno Vivo</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'DM Sans',sans-serif}
+body{min-height:100vh;background:#0F172A;color:#E2E8F0;padding:20px}
+.container{max-width:900px;margin:0 auto}
+.header{text-align:center;margin-bottom:32px}
+.header h1{font-size:28px;font-weight:900;font-family:'Space Grotesk',sans-serif;background:linear-gradient(135deg,#A78BFA,#EC4899,#F59E0B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.header p{font-size:14px;color:#94A3B8}
+.back{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:10px;background:#1E293B;border:1px solid rgba(255,255,255,0.1);color:#94A3B8;text-decoration:none;font-size:13px;font-weight:600;margin-bottom:20px}
+.back:hover{background:#263347;color:#E2E8F0}
+.panel{background:#1E293B;border-radius:20px;padding:28px;border:1px solid rgba(255,255,255,0.1);margin-bottom:20px}
+.panel h2{font-size:18px;font-weight:800;color:#F8FAFC;font-family:'Space Grotesk',sans-serif;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.form-group{margin-bottom:20px}
+.form-group label{display:block;font-size:13px;font-weight:700;color:#CBD5E1;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px}
+select,input[type="number"]{width:100%;padding:12px 16px;border-radius:12px;border:2px solid rgba(255,255,255,0.1);background:#0F172A;color:#F8FAFC;font-size:15px;font-family:'DM Sans',sans-serif;outline:none}
+select:focus,input[type="number"]:focus{border-color:#6366F1}
+.slider-container{display:flex;align-items:center;gap:16px}
+.slider-container input[type="range"]{flex:1;accent-color:#6366F1}
+.slider-value{min-width:40px;text-align:center;font-size:18px;font-weight:800;color:#6366F1;font-family:'Space Grotesk',sans-serif}
+.toggle-group{display:flex;flex-wrap:wrap;gap:10px}
+.toggle{padding:10px 18px;border-radius:12px;border:2px solid rgba(255,255,255,0.1);background:#0F172A;color:#94A3B8;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.3s}
+.toggle.on{background:#6366F1;border-color:#6366F1;color:#fff;transform:scale(1.05)}
+.toggle:hover:not(.on){background:#1E293B;border-color:rgba(255,255,255,0.2)}
+.info-box{padding:16px;border-radius:12px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.3);margin-bottom:20px}
+.info-box p{font-size:13px;color:#A78BFA;line-height:1.5;margin-bottom:6px}
+.info-box p:last-child{margin-bottom:0}
+.btn-group{display:flex;gap:12px;margin-top:24px}
+.btn{flex:1;padding:14px 24px;border-radius:14px;border:none;font-size:15px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all 0.3s}
+.btn-primary{background:linear-gradient(135deg,#6366F1,#8B5CF6);color:#fff;box-shadow:0 4px 15px rgba(99,102,241,0.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(99,102,241,0.4)}
+.btn-secondary{background:linear-gradient(135deg,#EC4899,#DB2777);color:#fff;box-shadow:0 4px 15px rgba(236,72,153,0.3)}
+.btn-secondary:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(236,72,153,0.4)}
+.btn:disabled{opacity:0.4;cursor:not-allowed;transform:none!important}
+.preview{background:#0F172A;border-radius:16px;padding:20px;border:1px solid rgba(255,255,255,0.1);margin-top:20px}
+.preview h3{font-size:16px;font-weight:700;color:#F8FAFC;margin-bottom:12px}
+.preview-list{display:flex;flex-direction:column;gap:8px}
+.preview-item{padding:10px 14px;border-radius:10px;background:#1E293B;border-left:3px solid #6366F1;font-size:13px;color:#CBD5E1}
+.loading{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(15,23,42,0.95);z-index:9999;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+.loading.show{display:flex}
+.spinner{width:50px;height:50px;border:4px solid rgba(99,102,241,0.2);border-top-color:#6366F1;border-radius:50%;animation:spin 0.8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.footer{text-align:center;margin-top:40px;padding:20px;border-top:1px solid rgba(255,255,255,0.05);font-size:12px;color:#475569}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <a href="index.html" class="back">← Volver al Campus</a>
+  
+  <div class="header">
+    <h1>📝 Generador de Evaluaciones</h1>
+    <p>Creá 3 variantes diferentes optimizadas para 1 hoja</p>
+  </div>
+
+  <div class="panel">
+    <h2>⚙️ Configuración</h2>
+    
+    <div class="form-group">
+      <label>📚 Unidad a evaluar</label>
+      <select id="unidadSelect">
+        <option value="">Seleccioná una unidad...</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>⚛️ Actividades del Núcleo (de 30 disponibles)</label>
+      <div class="slider-container">
+        <input type="range" id="nucleoSlider" min="3" max="8" value="5">
+        <span class="slider-value" id="nucleoValue">5</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>📝 Preguntas del Autotest (de 6 disponibles)</label>
+      <div class="slider-container">
+        <input type="range" id="autotestSlider" min="2" max="6" value="3">
+        <span class="slider-value" id="autotestValue">3</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>🎯 Tipos de actividad a incluir</label>
+      <div class="toggle-group" id="tiposToggle">
+        <button class="toggle on" data-tipo="n1">📋 Ordenar</button>
+        <button class="toggle on" data-tipo="n4">✅ V o F</button>
+        <button class="toggle on" data-tipo="n5">🔗 Relacionar</button>
+        <button class="toggle on" data-tipo="n3">✏️ Completar</button>
+        <button class="toggle on" data-tipo="n7">💬 Definir</button>
+        <button class="toggle on" data-tipo="n2">🗂️ Clasificar</button>
+      </div>
+    </div>
+
+    <div class="info-box" id="infoBox">
+      <p><strong>📄 Estimación:</strong> <span id="estimacion">Seleccioná una unidad</span></p>
+      <p><strong>💡 Recomendación:</strong> 5 del núcleo + 3 del autotest = evaluación completa en 1 hoja</p>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-primary" id="btnGenerar1" disabled>Generar 1 variante</button>
+      <button class="btn btn-secondary" id="btnGenerar3" disabled>Generar 3 variantes (A, B, C)</button>
+    </div>
+  </div>
+
+  <div class="preview" id="preview" style="display:none">
+    <h3>🔍 Vista previa de actividades seleccionadas</h3>
+    <div class="preview-list" id="previewList"></div>
+  </div>
+
+  <div class="footer">
+    💡 Campus Cuaderno Vivo · Generador de Evaluaciones · Prof. Verónica
+  </div>
+</div>
+
+<div class="loading" id="loading">
+  <div class="spinner"></div>
+  <p style="color:#A78BFA;font-size:15px;font-weight:600">Generando PDFs...</p>
+</div>
+
+<script>
+const { jsPDF } = window.jspdf;
+
+// Auth check
+function getDayOfYear(){
+  var now = new Date();
+  var start = new Date(now.getFullYear(), 0, 0);
+  var diff = now - start;
+  return Math.floor(diff / (1000*60*60*24));
+}
+function getTodayPassword(){
+  return "campusvvb" + (getDayOfYear() * 27);
+}
+if(sessionStorage.getItem("campus_auth") !== getTodayPassword()){
+  window.location.href = "index.html";
+}
+
+const STATE = {
+  unidades: [],
+  selectedUnidad: null,
+  nucleoCount: 5,
+  autotestCount: 3,
+  tiposActivos: new Set(['n1','n4','n5','n3','n7','n2'])
+};
+
+// Cargar lista de unidades disponibles
+async function cargarUnidades(){
+  const archivos = [
+    {path: "datos/eetp602_6b_marco_jur_u1.json", label: "Marco Jurídico 6B - U1"},
+    {path: "datos/eetp602_6b_marco_jur_u2.json", label: "Marco Jurídico 6B - U2"},
+    {path: "datos/eetp602_6b_marco_jur_u3.json", label: "Marco Jurídico 6B - U3"},
+    // Agregar más según tengas disponibles
+  ];
+  
+  const select = document.getElementById('unidadSelect');
+  for(const archivo of archivos){
+    try{
+      const res = await fetch(archivo.path);
+      if(res.ok){
+        const data = await res.json();
+        STATE.unidades.push({path: archivo.path, data: data, label: archivo.label});
+        const opt = document.createElement('option');
+        opt.value = archivo.path;
+        opt.textContent = archivo.label;
+        select.appendChild(opt);
+      }
+    }catch(e){}
+  }
+}
+
+// UI updates
+document.getElementById('nucleoSlider').addEventListener('input', e => {
+  STATE.nucleoCount = +e.target.value;
+  document.getElementById('nucleoValue').textContent = STATE.nucleoCount;
+  actualizarEstimacion();
+});
+
+document.getElementById('autotestSlider').addEventListener('input', e => {
+  STATE.autotestCount = +e.target.value;
+  document.getElementById('autotestValue').textContent = STATE.autotestCount;
+  actualizarEstimacion();
+});
+
+document.getElementById('unidadSelect').addEventListener('change', e => {
+  const found = STATE.unidades.find(u => u.path === e.target.value);
+  STATE.selectedUnidad = found ? found.data : null;
+  document.getElementById('btnGenerar1').disabled = !STATE.selectedUnidad;
+  document.getElementById('btnGenerar3').disabled = !STATE.selectedUnidad;
+  actualizarEstimacion();
+  mostrarPreview();
+});
+
+document.getElementById('tiposToggle').addEventListener('click', e => {
+  if(e.target.classList.contains('toggle')){
+    e.target.classList.toggle('on');
+    const tipo = e.target.dataset.tipo;
+    if(e.target.classList.contains('on')){
+      STATE.tiposActivos.add(tipo);
+    }else{
+      STATE.tiposActivos.delete(tipo);
+    }
+    actualizarEstimacion();
+    mostrarPreview();
+  }
+});
+
+function actualizarEstimacion(){
+  if(!STATE.selectedUnidad){
+    document.getElementById('estimacion').textContent = 'Seleccioná una unidad';
+    return;
+  }
+  
+  const total = STATE.nucleoCount + STATE.autotestCount;
+  let msg = `${total} actividades`;
+  
+  if(total <= 6) msg += ' ✅ Cabe perfecto en 1 hoja';
+  else if(total <= 8) msg += ' ⚠️ Justo en 1 hoja (frente y dorso)';
+  else msg += ' ❌ Demasiadas actividades, reducí la cantidad';
+  
+  document.getElementById('estimacion').textContent = msg;
+}
+
+function mostrarPreview(){
+  if(!STATE.selectedUnidad) return;
+  
+  const preview = document.getElementById('preview');
+  const list = document.getElementById('previewList');
+  list.innerHTML = '';
+  
+  const actividadesDisponibles = obtenerActividadesNucleo();
+  const sample = actividadesDisponibles.slice(0, STATE.nucleoCount);
+  
+  sample.forEach(act => {
+    const div = document.createElement('div');
+    div.className = 'preview-item';
+    div.textContent = `${act.icono} ${act.titulo} (${act.tipo})`;
+    list.appendChild(div);
+  });
+  
+  preview.style.display = 'block';
+}
+
+// Obtener actividades del núcleo filtradas por tipo
+function obtenerActividadesNucleo(){
+  const nucleo = STATE.selectedUnidad.nucleo;
+  const actividades = [];
+  
+  const tipoMap = {
+    n1: {data: nucleo.n1_ordenar_cronologicamente, titulo: 'Ordenar Cronológicamente', icono: '📋'},
+    n2: {data: nucleo.n2_clasificador, titulo: 'Clasificador', icono: '🗂️'},
+    n3: {data: nucleo.n3_completar_mapa, titulo: 'Completar', icono: '✏️'},
+    n4: {data: nucleo.n4_verdadero_falso, titulo: 'Verdadero o Falso', icono: '✅'},
+    n5: {data: nucleo.n5_relacionar_columnas, titulo: 'Relacionar', icono: '🔗'},
+    n6: {data: nucleo.n6_palabra_intrusa, titulo: 'Palabra Intrusa', icono: '🚫'},
+    n7: {data: nucleo.n7_defini_con_tus_palabras, titulo: 'Definir', icono: '💬'},
+    n8: {data: nucleo.n8_causa_efecto, titulo: 'Causa-Efecto', icono: '⚡'},
+    n9: {data: nucleo.n9_ordenar_proceso, titulo: 'Ordenar Proceso', icono: '🔢'},
+    n10: {data: nucleo.n10_comparador, titulo: 'Comparar', icono: '⚖️'}
+  };
+  
+  for(const tipo of STATE.tiposActivos){
+    if(tipoMap[tipo]){
+      actividades.push({
+        tipo: tipo,
+        data: tipoMap[tipo].data,
+        titulo: tipoMap[tipo].titulo,
+        icono: tipoMap[tipo].icono
+      });
+    }
+  }
+  
+  return actividades;
+}
+
+// Mezclar array
+function shuffle(arr){
+  const copy = [...arr];
+  for(let i = copy.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+// Generar evaluación
+function generarEvaluacion(variante = 'A'){
+  const actividadesNucleo = shuffle(obtenerActividadesNucleo()).slice(0, STATE.nucleoCount);
+  const preguntasAutotest = shuffle([...STATE.selectedUnidad.autotest.preguntas]).slice(0, STATE.autotestCount);
+  
+  return {
+    variante: variante,
+    materia: STATE.selectedUnidad.materia,
+    unidad: STATE.selectedUnidad.unidad,
+    titulo: STATE.selectedUnidad.titulo,
+    nucleo: actividadesNucleo,
+    autotest: preguntasAutotest
+  };
+}
+
+// Generar PDF
+function generarPDF(evaluaciones){
+  const doc = new jsPDF();
+  const pageWidth = doc.internal.pageSize.getWidth();
+  const pageHeight = doc.internal.pageSize.getHeight();
+  const margin = 12;
+  const usableWidth = pageWidth - (margin * 2);
+  
+  evaluaciones.forEach((eval, idx) => {
+    if(idx > 0) doc.addPage();
+    
+    let y = margin;
+    
+    // Encabezado
+    doc.setFontSize(18);
+    doc.setFont(undefined, 'bold');
+    doc.text(`Evaluación - Variante ${eval.variante}`, margin, y);
+    y += 8;
+    
+    doc.setFontSize(10);
+    doc.setFont(undefined, 'normal');
+    doc.text(`${eval.materia} · Unidad ${eval.unidad}: ${eval.titulo}`, margin, y);
+    y += 5;
+    
+    doc.setFontSize(9);
+    doc.text(`Nombre: ________________________  Curso: ______  Fecha: ___/___/___`, margin, y);
+    y += 8;
+    
+    doc.setDrawColor(200);
+    doc.line(margin, y, pageWidth - margin, y);
+    y += 6;
+    
+    // Actividades del núcleo
+    eval.nucleo.forEach((act, i) => {
+      if(y > pageHeight - 40){
+        doc.addPage();
+        y = margin;
+      }
+      
+      doc.setFontSize(11);
+      doc.setFont(undefined, 'bold');
+      doc.text(`${i+1}. ${act.icono} ${act.titulo}`, margin, y);
+      y += 5;
+      
+      doc.setFontSize(9);
+      doc.setFont(undefined, 'normal');
+      
+      // Renderizar según tipo
+      if(act.tipo === 'n4'){ // V o F
+        act.data.afirmaciones.forEach((af, j) => {
+          doc.text(`${String.fromCharCode(97+j)}) ${af.texto}`, margin + 2, y);
+          y += 4;
+          doc.text('[ V ] [ F ]', margin + 150, y - 4);
+        });
+        y += 2;
+      }
+      else if(act.tipo === 'n3'){ // Completar
+        act.data.blanks.forEach(b => {
+          const texto = b.texto_antes.replace(/_{3,}/g, '_______');
+          doc.text(texto, margin + 2, y);
+          y += 5;
+        });
+      }
+      else if(act.tipo === 'n1'){ // Ordenar
+        const items = shuffle([...act.data.items]);
+        items.forEach((it, j) => {
+          doc.text(`[ ] ${it.emoji} ${it.text}`, margin + 2, y);
+          y += 4;
+        });
+        y += 2;
+      }
+      else if(act.tipo === 'n5'){ // Relacionar
+        doc.text('Uní con flechas:', margin + 2, y);
+        y += 4;
+        act.data.pares.forEach(p => {
+          doc.text(`${p.izquierda}`, margin + 5, y);
+          doc.text(`${p.emoji} ${p.derecha}`, margin + 100, y);
+          y += 4;
+        });
+        y += 2;
+      }
+      else {
+        // Otros tipos: espacio para responder
+        doc.text('Respuesta:', margin + 2, y);
+        y += 4;
+        doc.text('_'.repeat(80), margin + 2, y);
+        y += 4;
+        doc.text('_'.repeat(80), margin + 2, y);
+        y += 4;
+      }
+      
+      y += 3;
+    });
+    
+    // Autotest
+    if(y > pageHeight - 60){
+      doc.addPage();
+      y = margin;
+    }
+    
+    doc.setFontSize(12);
+    doc.setFont(undefined, 'bold');
+    doc.text('Multiple Choice', margin, y);
+    y += 6;
+    
+    eval.autotest.forEach((p, i) => {
+      if(y > pageHeight - 35){
+        doc.addPage();
+        y = margin;
+      }
+      
+      doc.setFontSize(10);
+      doc.setFont(undefined, 'bold');
+      doc.text(`${eval.nucleo.length + i + 1}. ${p.pregunta}`, margin, y);
+      y += 5;
+      
+      doc.setFontSize(9);
+      doc.setFont(undefined, 'normal');
+      p.opciones.forEach((op, j) => {
+        doc.text(`${String.fromCharCode(65+j)}) ${op}`, margin + 3, y);
+        y += 4;
+      });
+      y += 3;
+    });
+    
+    // Pie de página con variante
+    doc.setFontSize(8);
+    doc.setTextColor(150);
+    doc.text(`Variante ${eval.variante} · Campus Cuaderno Vivo`, margin, pageHeight - 5);
+    doc.setTextColor(0);
+  });
+  
+  return doc;
+}
+
+// Eventos de los botones
+document.getElementById('btnGenerar1').addEventListener('click', () => {
+  document.getElementById('loading').classList.add('show');
+  setTimeout(() => {
+    const eval1 = generarEvaluacion('A');
+    const pdf = generarPDF([eval1]);
+    pdf.save(`Evaluacion_${STATE.selectedUnidad.materia.replace(/\s/g,'_')}_U${STATE.selectedUnidad.unidad}_Variante_A.pdf`);
+    document.getElementById('loading').classList.remove('show');
+  }, 300);
+});
+
+document.getElementById('btnGenerar3').addEventListener('click', () => {
+  document.getElementById('loading').classList.add('show');
+  setTimeout(() => {
+    const evalA = generarEvaluacion('A');
+    const evalB = generarEvaluacion('B');
+    const evalC = generarEvaluacion('C');
+    const pdf = generarPDF([evalA, evalB, evalC]);
+    pdf.save(`Evaluacion_${STATE.selectedUnidad.materia.replace(/\s/g,'_')}_U${STATE.selectedUnidad.unidad}_3_Variantes.pdf`);
+    document.getElementById('loading').classList.remove('show');
+  }, 300);
+});
+
+// Inicializar
+cargarUnidades();
+actualizarEstimacion();
+
+</script>
+</body>
+</html>
