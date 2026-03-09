@@ -85,9 +85,10 @@
   "panoramica_bloques": [
     {
       "id": "a",
-      "titulo": "Bloque A",
-      "subtitulo": "Fundamentos de la compra estratégica",
-      "descripcion": "Conceptos básicos del área de compras y su valor en la empresa",
+      "emoji": "🛒",
+      "title": "Bloque A",
+      "subtitle": "Fundamentos de la compra estratégica",
+      "color": "#6366F1",
       "items": [
         "Concepto de compra",
         "Funciones del departamento de compras",
@@ -98,9 +99,10 @@
     },
     {
       "id": "b",
-      "titulo": "Bloque B",
-      "subtitulo": "Decidir, planificar y ejecutar compras",
-      "descripcion": "Información, políticas y etapas para comprar con criterio",
+      "emoji": "📊",
+      "title": "Bloque B",
+      "subtitle": "Decidir, planificar y ejecutar compras",
+      "color": "#10B981",
       "items": [
         "Información del sector compras",
         "Políticas de compras",
@@ -111,9 +113,10 @@
     },
     {
       "id": "c",
-      "titulo": "Bloque C",
-      "subtitulo": "Abastecimiento, inventarios y valuación",
-      "descripcion": "Control del stock y métodos para valorar inventarios",
+      "emoji": "📦",
+      "title": "Bloque C",
+      "subtitle": "Abastecimiento, inventarios y valuación",
+      "color": "#EC4899",
       "items": [
         "Abastecimiento",
         "Inventarios",
@@ -124,12 +127,16 @@
     }
   ],
   "mapa_mental": {
-    "centro": "Compra estratégica",
-    "titulo_central": "Compra estratégica",
+    "centro": {
+      "emoji": "🛒",
+      "title": "Compra estratégica"
+    },
     "ramas": [
       {
-        "titulo": "¿Qué es?",
-        "pregunta": "¿Qué es?",
+        "id": "que",
+        "emoji": "❓",
+        "title": "¿Qué es?",
+        "color": "#6366F1",
         "items": [
           "Proceso estratégico",
           "Satisface necesidades",
@@ -138,8 +145,10 @@
         ]
       },
       {
-        "titulo": "¿Qué hace?",
-        "pregunta": "¿Qué hace?",
+        "id": "hace",
+        "emoji": "⚙️",
+        "title": "¿Qué hace?",
+        "color": "#3B82F6",
         "items": [
           "Selecciona proveedores",
           "Negocia",
@@ -148,8 +157,10 @@
         ]
       },
       {
-        "titulo": "¿Cómo se decide?",
-        "pregunta": "¿Cómo se decide?",
+        "id": "decide",
+        "emoji": "🎯",
+        "title": "¿Cómo se decide?",
+        "color": "#10B981",
         "items": [
           "Información precisa",
           "Políticas claras",
@@ -158,8 +169,10 @@
         ]
       },
       {
-        "titulo": "¿Por qué importa?",
-        "pregunta": "¿Por qué importa?",
+        "id": "importa",
+        "emoji": "💡",
+        "title": "¿Por qué importa?",
+        "color": "#F59E0B",
         "items": [
           "Reduce costos",
           "Evita faltantes",
