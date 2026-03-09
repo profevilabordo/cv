@@ -162,6 +162,8 @@ const STATE = {
 
 // Cargar lista de unidades disponibles
 async function cargarUnidades(){
+  console.log('🔄 Iniciando carga de unidades...');
+  
   const archivos = [
     {path: "datos/eetp602_6b_marco_jur_u1.json", label: "Marco Jurídico 6B - U1"},
     {path: "datos/eetp602_6b_marco_jur_u2.json", label: "Marco Jurídico 6B - U2"},
@@ -170,8 +172,11 @@ async function cargarUnidades(){
   ];
   
   const select = document.getElementById('unidadSelect');
+  let cargadas = 0;
+  
   for(const archivo of archivos){
     try{
+      console.log(`📂 Intentando cargar: ${archivo.path}`);
       const res = await fetch(archivo.path);
       if(res.ok){
         const data = await res.json();
@@ -180,8 +185,21 @@ async function cargarUnidades(){
         opt.value = archivo.path;
         opt.textContent = archivo.label;
         select.appendChild(opt);
+        cargadas++;
+        console.log(`✅ Cargada: ${archivo.label}`);
+      }else{
+        console.warn(`⚠️ No encontrado: ${archivo.path} (${res.status})`);
       }
-    }catch(e){}
+    }catch(e){
+      console.error(`❌ Error cargando ${archivo.path}:`, e);
+    }
+  }
+  
+  console.log(`📊 Total cargadas: ${cargadas}/${archivos.length}`);
+  
+  if(cargadas === 0){
+    select.innerHTML = '<option>⚠️ No se encontraron unidades</option>';
+    alert('⚠️ No se pudieron cargar las unidades.\n\nAsegurate de:\n1. Abrir con servidor local (python3 -m http.server)\n2. Tener los archivos JSON en /datos/');
   }
 }
 
@@ -409,25 +427,75 @@ function generarPDF(evaluaciones){
 
 // Eventos de los botones
 document.getElementById('btnGenerar1').addEventListener('click', () => {
+  console.log('🎯 Generando 1 variante...');
+  console.log('📋 Unidad seleccionada:', STATE.selectedUnidad);
+  
+  if(!STATE.selectedUnidad){
+    alert('❌ Error: No hay unidad seleccionada');
+    return;
+  }
+  
   document.getElementById('loading').classList.add('show');
+  
   setTimeout(() => {
-    const eval1 = generarEvaluacion('A');
-    const pdf = generarPDF([eval1]);
-    pdf.save(`Evaluacion_${STATE.selectedUnidad.materia.replace(/\s/g,'_')}_U${STATE.selectedUnidad.unidad}_Variante_A.pdf`);
-    document.getElementById('loading').classList.remove('show');
-  }, 300);
+    try{
+      console.log('🔄 Creando evaluación variante A...');
+      const eval1 = generarEvaluacion('A');
+      console.log('✅ Evaluación creada:', eval1);
+      
+      console.log('📄 Generando PDF...');
+      const pdf = generarPDF([eval1]);
+      console.log('✅ PDF generado');
+      
+      const filename = `Evaluacion_${STATE.selectedUnidad.materia.replace(/\s/g,'_')}_U${STATE.selectedUnidad.unidad}_Variante_A.pdf`;
+      console.log('💾 Guardando:', filename);
+      pdf.save(filename);
+      console.log('✅ Descarga iniciada');
+      
+      document.getElementById('loading').classList.remove('show');
+    }catch(err){
+      console.error('❌ ERROR EN GENERACIÓN:', err);
+      document.getElementById('loading').classList.remove('show');
+      alert('❌ Error al generar PDF:\n\n' + err.message + '\n\nAbrí la consola del navegador (F12) para ver más detalles.');
+    }
+  }, 100);
 });
 
 document.getElementById('btnGenerar3').addEventListener('click', () => {
+  console.log('🎯 Generando 3 variantes...');
+  console.log('📋 Unidad seleccionada:', STATE.selectedUnidad);
+  
+  if(!STATE.selectedUnidad){
+    alert('❌ Error: No hay unidad seleccionada');
+    return;
+  }
+  
   document.getElementById('loading').classList.add('show');
+  
   setTimeout(() => {
-    const evalA = generarEvaluacion('A');
-    const evalB = generarEvaluacion('B');
-    const evalC = generarEvaluacion('C');
-    const pdf = generarPDF([evalA, evalB, evalC]);
-    pdf.save(`Evaluacion_${STATE.selectedUnidad.materia.replace(/\s/g,'_')}_U${STATE.selectedUnidad.unidad}_3_Variantes.pdf`);
-    document.getElementById('loading').classList.remove('show');
-  }, 300);
+    try{
+      console.log('🔄 Creando evaluaciones A, B, C...');
+      const evalA = generarEvaluacion('A');
+      const evalB = generarEvaluacion('B');
+      const evalC = generarEvaluacion('C');
+      console.log('✅ 3 evaluaciones creadas');
+      
+      console.log('📄 Generando PDF...');
+      const pdf = generarPDF([evalA, evalB, evalC]);
+      console.log('✅ PDF generado con 3 páginas');
+      
+      const filename = `Evaluacion_${STATE.selectedUnidad.materia.replace(/\s/g,'_')}_U${STATE.selectedUnidad.unidad}_3_Variantes.pdf`;
+      console.log('💾 Guardando:', filename);
+      pdf.save(filename);
+      console.log('✅ Descarga iniciada');
+      
+      document.getElementById('loading').classList.remove('show');
+    }catch(err){
+      console.error('❌ ERROR EN GENERACIÓN:', err);
+      document.getElementById('loading').classList.remove('show');
+      alert('❌ Error al generar PDF:\n\n' + err.message + '\n\nAbrí la consola del navegador (F12) para ver más detalles.');
+    }
+  }, 100);
 });
 
 // Inicializar
