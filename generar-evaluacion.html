@@ -277,6 +277,11 @@ function mostrarPreview(){
 
 // Obtener actividades del núcleo filtradas por tipo
 function obtenerActividadesNucleo(){
+  if(!STATE.selectedUnidad || !STATE.selectedUnidad.nucleo){
+    console.warn('⚠️ No hay núcleo en la unidad seleccionada');
+    return [];
+  }
+  
   const nucleo = STATE.selectedUnidad.nucleo;
   const actividades = [];
   
@@ -294,16 +299,19 @@ function obtenerActividadesNucleo(){
   };
   
   for(const tipo of STATE.tiposActivos){
-    if(tipoMap[tipo]){
+    if(tipoMap[tipo] && tipoMap[tipo].data){
       actividades.push({
         tipo: tipo,
         data: tipoMap[tipo].data,
         titulo: tipoMap[tipo].titulo,
         icono: tipoMap[tipo].icono
       });
+    }else{
+      console.warn(`⚠️ Actividad ${tipo} no encontrada o vacía en el JSON`);
     }
   }
   
+  console.log(`✅ ${actividades.length} actividades disponibles del núcleo`);
   return actividades;
 }
 
@@ -319,8 +327,21 @@ function shuffle(arr){
 
 // Generar evaluación
 function generarEvaluacion(variante = 'A'){
-  const actividadesNucleo = shuffle(obtenerActividadesNucleo()).slice(0, STATE.nucleoCount);
-  const preguntasAutotest = shuffle([...STATE.selectedUnidad.autotest.preguntas]).slice(0, STATE.autotestCount);
+  const actividadesDisponibles = obtenerActividadesNucleo();
+  
+  if(actividadesDisponibles.length === 0){
+    throw new Error('No hay actividades del núcleo disponibles en esta unidad');
+  }
+  
+  const actividadesNucleo = shuffle(actividadesDisponibles).slice(0, Math.min(STATE.nucleoCount, actividadesDisponibles.length));
+  
+  if(!STATE.selectedUnidad.autotest || !STATE.selectedUnidad.autotest.preguntas){
+    throw new Error('No hay preguntas de autotest en esta unidad');
+  }
+  
+  const preguntasAutotest = shuffle([...STATE.selectedUnidad.autotest.preguntas]).slice(0, Math.min(STATE.autotestCount, STATE.selectedUnidad.autotest.preguntas.length));
+  
+  console.log(`📊 Evaluación ${variante}: ${actividadesNucleo.length} núcleo + ${preguntasAutotest.length} autotest`);
   
   return {
     variante: variante,
