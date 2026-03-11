@@ -270,7 +270,10 @@ function renderAlumnos(){
     h += '<select class="filter-select" id="filterCurso"><option value="">Todos los cursos</option>';
     var cursos = [...new Set(allAlumnos.map(function(a){return a.curso}))].sort();
     cursos.forEach(function(c){ h += '<option>'+c+'</option>'; });
-    h += '</select></div>';
+    h += '</select>';
+    h += '<button class="refresh-btn" onclick="copiarTablaAlumnos()" style="background:#10B98115;border-color:#10B98140;color:#34D399">📋 Copiar</button>';
+    h += '<button class="refresh-btn" onclick="imprimirAlumnos()">🖨️ Imprimir</button>';
+    h += '</div>';
     h += '<div id="tablaAlumnos"></div>';
     document.getElementById("tabContent").innerHTML = h;
     
@@ -280,6 +283,106 @@ function renderAlumnos(){
   }
   
   filtrarAlumnos();
+}
+
+// Copiar tabla al portapapeles (para pegar en Excel)
+function copiarTablaAlumnos(){
+  var q = (document.getElementById("searchAlumno")||{value:""}).value.toLowerCase().trim();
+  var fc = (document.getElementById("filterCurso")||{value:""}).value;
+  
+  var filtered = allAlumnos.filter(function(a){
+    var nombreCompleto = a.nombre.toLowerCase();
+    var palabras = nombreCompleto.split(/[\s,]+/);
+    var matchQ = !q || nombreCompleto.includes(q) || a.codigo.toLowerCase().includes(q) || palabras.some(function(palabra){ return palabra.startsWith(q); });
+    var matchC = !fc || a.curso === fc;
+    return matchQ && matchC;
+  });
+  
+  // Crear texto con tabulaciones (compatible con Excel)
+  var texto = "Alumno\tCurso\tClave\tIngresos\tActividades\tÚltima visita\n";
+  
+  filtered.forEach(function(a){
+    var sesiones = allSesiones.filter(function(s){return s.alumno_codigo===a.codigo}).length;
+    var actividades = allProgreso.filter(function(p){return p.alumno_codigo===a.codigo}).length;
+    var ultimas = allSesiones.filter(function(s){return s.alumno_codigo===a.codigo}).sort(function(x,y){return new Date(y.fecha)-new Date(x.fecha)});
+    var ultima = ultimas.length ? new Date(ultimas[0].fecha).toLocaleDateString("es-AR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}) : "—";
+    
+    texto += a.nombre + "\t" + a.curso + "\t" + a.codigo + "\t" + sesiones + "\t" + actividades + "\t" + ultima + "\n";
+  });
+  
+  // Copiar al portapapeles
+  navigator.clipboard.writeText(texto).then(function(){
+    alert("✅ Tabla copiada!\n\n📋 Ahora podés pegarla en Excel con Ctrl+V");
+  }).catch(function(){
+    alert("❌ No se pudo copiar. Probá con el botón Imprimir.");
+  });
+}
+
+// Abrir vista de impresión
+function imprimirAlumnos(){
+  var q = (document.getElementById("searchAlumno")||{value:""}).value.toLowerCase().trim();
+  var fc = (document.getElementById("filterCurso")||{value:""}).value;
+  
+  var filtered = allAlumnos.filter(function(a){
+    var nombreCompleto = a.nombre.toLowerCase();
+    var palabras = nombreCompleto.split(/[\s,]+/);
+    var matchQ = !q || nombreCompleto.includes(q) || a.codigo.toLowerCase().includes(q) || palabras.some(function(palabra){ return palabra.startsWith(q); });
+    var matchC = !fc || a.curso === fc;
+    return matchQ && matchC;
+  });
+  
+  // Crear ventana nueva con HTML imprimible
+  var ventana = window.open('', '_blank');
+  var html = '<!DOCTYPE html><html><head><meta charset="UTF-8">';
+  html += '<title>Reporte de Alumnos - Campus Cuaderno Vivo</title>';
+  html += '<style>';
+  html += 'body{font-family:Arial,sans-serif;padding:20px;max-width:1000px;margin:0 auto}';
+  html += 'h1{font-size:20px;margin-bottom:8px;color:#333}';
+  html += 'p{font-size:12px;color:#666;margin-bottom:20px}';
+  html += 'table{width:100%;border-collapse:collapse;font-size:11px}';
+  html += 'th{background:#f5f5f5;padding:10px 8px;text-align:left;font-weight:600;border-bottom:2px solid #ddd}';
+  html += 'td{padding:8px;border-bottom:1px solid #eee}';
+  html += 'tr:hover{background:#fafafa}';
+  html += '@media print{body{padding:10px}h1{font-size:18px}table{font-size:10px}}';
+  html += '</style></head><body>';
+  
+  html += '<h1>📊 Reporte de Alumnos - Campus Cuaderno Vivo</h1>';
+  html += '<p>Fecha: ' + new Date().toLocaleDateString("es-AR",{day:"2-digit",month:"2-digit",year:"numeric",hour:"2-digit",minute:"2-digit"}) + '</p>';
+  
+  if(fc) html += '<p><strong>Curso:</strong> ' + fc + '</p>';
+  if(q) html += '<p><strong>Búsqueda:</strong> "' + q + '"</p>';
+  
+  html += '<table>';
+  html += '<thead><tr><th>Alumno</th><th>Curso</th><th>Clave</th><th>Ingresos</th><th>Actividades</th><th>Última visita</th></tr></thead>';
+  html += '<tbody>';
+  
+  filtered.forEach(function(a){
+    var sesiones = allSesiones.filter(function(s){return s.alumno_codigo===a.codigo}).length;
+    var actividades = allProgreso.filter(function(p){return p.alumno_codigo===a.codigo}).length;
+    var ultimas = allSesiones.filter(function(s){return s.alumno_codigo===a.codigo}).sort(function(x,y){return new Date(y.fecha)-new Date(x.fecha)});
+    var ultima = ultimas.length ? new Date(ultimas[0].fecha).toLocaleDateString("es-AR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}) : "—";
+    
+    html += '<tr>';
+    html += '<td><strong>' + a.nombre + '</strong></td>';
+    html += '<td>' + a.curso + '</td>';
+    html += '<td>' + a.codigo + '</td>';
+    html += '<td>' + sesiones + '</td>';
+    html += '<td>' + actividades + '</td>';
+    html += '<td>' + ultima + '</td>';
+    html += '</tr>';
+  });
+  
+  html += '</tbody></table>';
+  html += '<p style="margin-top:30px;text-align:center;color:#999;font-size:10px">Campus Cuaderno Vivo · Panel Docente</p>';
+  html += '</body></html>';
+  
+  ventana.document.write(html);
+  ventana.document.close();
+  
+  // Esperar que cargue y abrir diálogo de impresión
+  setTimeout(function(){
+    ventana.print();
+  }, 500);
 }
 
 function filtrarAlumnos(){
