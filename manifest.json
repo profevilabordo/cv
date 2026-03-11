@@ -1,11 +1,11 @@
 {
   "name": "Campus Cuaderno Vivo",
-  "short_name": "Cuaderno Vivo",
-  "description": "Plataforma de actividades interactivas",
+  "short_name": "Campus Vivo",
+  "description": "Plataforma de actividades interactivas para estudiantes de nivel secundario",
   "start_url": "/index.html",
   "display": "standalone",
   "background_color": "#0F172A",
-  "theme_color": "#6366F1",
+  "theme_color": "#0F172A",
   "orientation": "portrait-primary",
   "icons": [
     {
@@ -20,7 +20,5 @@
       "type": "image/png",
       "purpose": "any maskable"
     }
-  ],
-  "categories": ["education"],
-  "lang": "es"
+  ]
 }
