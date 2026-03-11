@@ -372,67 +372,78 @@ function renderProgreso(){
     return;
   }
 
-  // Mostrar chip de filtro activo
-  if(fm){
-    h += '<div style="margin-bottom:14px;display:flex;align-items:center;gap:8px">';
-    h += '<span style="font-size:12px;color:#64748B">Mostrando:</span>';
-    h += '<span style="background:#6366F120;color:#A78BFA;border:1px solid #6366F140;padding:4px 12px;border-radius:8px;font-size:12px;font-weight:700">📚 '+fm+'</span>';
-    h += '</div>';
-  }
-
   filtAlumnos.forEach(function(a){
     var progAlumno = allProgreso.filter(function(p){ return p.alumno_codigo===a.codigo; });
-    // Si hay filtro de materia, mostrar solo esa materia
-    var materias = fm ? [fm] : [...new Set(progAlumno.map(function(p){return p.materia}))];
+    
+    // Obtener todas las materias del alumno
+    var materiasDelAlumno = [...new Set(progAlumno.map(function(p){return p.materia}))].sort();
+    
+    // Si hay filtro de materia, mostrar solo esa
+    if(fm) materiasDelAlumno = materiasDelAlumno.filter(function(m){return m===fm});
+
+    // Calcular totales
+    var totalActividades = progAlumno.length;
+    var totalMaterias = materiasDelAlumno.length;
 
     h += '<div class="alumno-card">';
     h += '<div class="alumno-header"><div>';
-    h += '<div class="alumno-name">'+a.nombre+'</div>';
-    h += '<div class="alumno-meta">'+a.curso;
-    if(!fm) h += ' · '+progAlumno.length+' actividades totales';
-    h += '</div></div></div>';
+    h += '<div class="alumno-name">👤 '+a.nombre+'</div>';
+    h += '<div class="alumno-meta">'+a.curso+' · '+totalMaterias+' materia'+(totalMaterias===1?'':'s')+' · '+totalActividades+' act.</div>';
+    h += '</div></div>';
 
     if(!progAlumno.length){
-      h += '<p style="font-size:13px;color:#64748B">Aún no completó actividades</p>';
-      h += '</div>'; return;
+      h += '<p style="font-size:13px;color:#64748B;margin-top:8px">Aún no completó actividades</p>';
+      h += '</div>';
+      return;
     }
 
-    h += '<div class="progress-bars">';
-    var tieneDatos = false;
-    materias.forEach(function(m){
-      var progMateria = progAlumno.filter(function(p){return p.materia===m;});
-      if(!progMateria.length) return;
-      tieneDatos = true;
-      // Etiqueta de materia si hay más de una (o si no hay filtro)
-      if(!fm && materias.length > 1){
-        h += '<div style="font-size:11px;font-weight:700;color:#6366F1;text-transform:uppercase;letter-spacing:.6px;margin:8px 0 4px">'+m+'</div>';
-      }
+    // Renderizar cada materia
+    materiasDelAlumno.forEach(function(materia){
+      var progMateria = progAlumno.filter(function(p){return p.materia===materia;});
+      
+      // Agrupar por unidad
       var unidades = [...new Set(progMateria.map(function(p){return p.unidad}))].sort();
-      unidades.forEach(function(u){
-        var secs = progMateria.filter(function(p){return p.unidad===u;}).map(function(p){return p.seccion;});
-        var pct = Math.round(secs.length / SECCIONES.length * 100);
-        var barColor = pct >= 70 ? '#10B981' : pct >= 40 ? '#F59E0B' : '#6366F1';
-        h += '<div style="margin-bottom:12px">';
-        h += '<div class="prog-row">';
-        h += '<div class="prog-label" style="width:100px;font-size:12px">'+u.toUpperCase()+'</div>';
-        h += '<div class="prog-bar"><div class="prog-fill" style="width:'+pct+'%;background:'+barColor+'"></div></div>';
-        h += '<div class="prog-val" style="color:'+barColor+';font-weight:700">'+secs.length+'/'+SECCIONES.length+'</div>';
+      
+      unidades.forEach(function(unidad){
+        var secsCompletadas = progMateria.filter(function(p){return p.unidad===unidad;}).map(function(p){return p.seccion;});
+        var totalSecciones = SECCIONES.length;
+        var pct = Math.round(secsCompletadas.length / totalSecciones * 100);
+        
+        // Color según porcentaje
+        var color = pct >= 70 ? '#10B981' : pct >= 40 ? '#F59E0B' : '#6366F1';
+        
+        h += '<div style="margin-top:16px;padding:14px;border-radius:12px;background:#0F172A;border:1px solid rgba(255,255,255,0.05)">';
+        
+        // Header de la materia
+        h += '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">';
+        h += '<div style="font-size:13px;font-weight:700;color:#F8FAFC">📚 '+materia+' ('+unidad.toUpperCase()+')</div>';
+        h += '<div style="display:flex;align-items:center;gap:8px">';
+        h += '<span style="font-size:11px;color:#64748B">['+secsCompletadas.length+'/'+totalSecciones+']</span>';
+        h += '<span style="font-size:13px;font-weight:800;color:'+color+'">'+pct+'%</span>';
+        h += '</div></div>';
+        
+        // Barra de progreso
+        h += '<div style="height:6px;background:#1E293B;border-radius:6px;overflow:hidden;margin-bottom:12px">';
+        h += '<div style="height:100%;width:'+pct+'%;background:'+color+';border-radius:6px;transition:width .5s"></div>';
         h += '</div>';
-        h += '<div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:6px;padding-left:4px">';
+        
+        // Chips de secciones
+        h += '<div style="display:flex;flex-wrap:wrap;gap:6px">';
         SECCIONES.forEach(function(sec){
-          var done = secs.indexOf(sec) >= 0;
-          h += '<span style="font-size:11px;padding:3px 8px;border-radius:6px;font-weight:600;';
-          h += done
-            ? 'background:#10B98120;color:#34D399;border:1px solid #10B98140'
-            : 'background:#0F172A;color:#475569;border:1px solid #1E293B';
-          h += '">'+(done?'✅':'⬜')+' '+(SECCIONES_LABELS[sec]||sec)+'</span>';
+          var completada = secsCompletadas.indexOf(sec) >= 0;
+          h += '<span style="font-size:11px;padding:4px 10px;border-radius:8px;font-weight:600;';
+          h += completada
+            ? 'background:#10B98115;color:#34D399;border:1px solid #10B98130'
+            : 'background:#1E293B;color:#64748B;border:1px solid #334155';
+          h += '">'+(completada?'✓':'⏳')+' '+(SECCIONES_LABELS[sec]||sec)+'</span>';
         });
         h += '</div>';
+        
         h += '</div>';
       });
     });
-    if(!tieneDatos) h += '<p style="font-size:13px;color:#64748B">Sin actividad en esta materia aún</p>';
-    h += '</div></div>';
+
+    h += '</div>';
   });
 
   document.getElementById("tabContent").innerHTML = h;
