@@ -800,7 +800,10 @@ function copiarProgreso(){
     
     if(!materiasDelAlumno.length){
       // Sin actividades
-      texto += a.nombre + "\t";
+      texto += a.nombre;
+      if(fm) texto += " (" + fm + ")";
+      else texto += " (Sin actividades)";
+      texto += "\t";
       SECCIONES.forEach(function(){ texto += "\t"; });
       texto += "0%\n";
       return;
@@ -901,7 +904,10 @@ function imprimirProgreso(){
     if(fm) materiasDelAlumno = materiasDelAlumno.filter(function(m){return m===fm});
     
     if(!materiasDelAlumno.length){
-      html += '<tr><td>' + a.nombre + '</td>';
+      html += '<tr><td>' + a.nombre;
+      if(fm) html += ' <span style="color:#999;font-size:9px">(' + fm + ')</span>';
+      else html += ' <span style="color:#999;font-size:9px">(Sin actividades)</span>';
+      html += '</td>';
       SECCIONES.forEach(function(){ html += '<td></td>'; });
       html += '<td>0%</td></tr>';
       return;
