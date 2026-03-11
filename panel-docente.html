@@ -819,7 +819,8 @@ function copiarProgreso(){
         
         // Nombre del alumno (con aclaraciones si hay múltiples materias/unidades)
         texto += a.nombre;
-        if(!fm && materiasDelAlumno.length > 1) texto += " (" + materia + ")";
+        // SIEMPRE mostrar la materia
+        texto += " (" + materia + ")";
         if(unidades.length > 1) texto += " [" + unidad.toUpperCase() + "]";
         texto += "\t";
         
@@ -922,8 +923,8 @@ function imprimirProgreso(){
         var pct = Math.round(secsCompletadas.length / SECCIONES.length * 100);
         
         html += '<tr><td>' + a.nombre;
-        // Si NO hay filtro de materia (hay varias), mostrar cuál es
-        if(!fm && materiasDelAlumno.length > 1) html += ' <span style="color:#999;font-size:9px">(' + materia + ')</span>';
+        // SIEMPRE mostrar la materia
+        html += ' <span style="color:#666;font-size:9px">(' + materia + ')</span>';
         // Si hay múltiples unidades, mostrar cuál es
         if(unidades.length > 1) html += ' <span style="color:#999;font-size:9px">[' + unidad.toUpperCase() + ']</span>';
         html += '</td>';
