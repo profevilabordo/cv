@@ -262,16 +262,20 @@ function renderTab(){
 
 // ----- TAB 0: ALUMNOS -----
 function renderAlumnos(){
+  // Guardar el valor actual del input ANTES de re-renderizar
+  var valorBusqueda = (document.getElementById("searchAlumno")||{value:""}).value;
+  var cursoSeleccionado = (document.getElementById("filterCurso")||{value:""}).value;
+  
   var h = '<div class="search-row">';
-  h += '<input class="search-input" type="text" placeholder="🔍 Buscar alumno..." id="searchAlumno" oninput="renderAlumnos()">';
+  h += '<input class="search-input" type="text" placeholder="🔍 Buscar alumno..." id="searchAlumno" value="'+valorBusqueda+'" oninput="renderAlumnos()">';
   h += '<select class="filter-select" id="filterCurso" onchange="renderAlumnos()">';
   h += '<option value="">Todos los cursos</option>';
   var cursos = [...new Set(allAlumnos.map(function(a){return a.curso}))].sort();
-  cursos.forEach(function(c){ h += '<option>'+c+'</option>'; });
+  cursos.forEach(function(c){ h += '<option'+(c===cursoSeleccionado?' selected':'')+'>'+c+'</option>'; });
   h += '</select></div>';
 
-  var q = (document.getElementById("searchAlumno")||{value:""}).value.toLowerCase().trim();
-  var fc = (document.getElementById("filterCurso")||{value:""}).value;
+  var q = valorBusqueda.toLowerCase().trim();
+  var fc = cursoSeleccionado;
   var filtered = allAlumnos.filter(function(a){
     // Buscar en nombre completo, código y separar por palabras
     var nombreCompleto = a.nombre.toLowerCase();
