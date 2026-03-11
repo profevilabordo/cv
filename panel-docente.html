@@ -270,10 +270,18 @@ function renderAlumnos(){
   cursos.forEach(function(c){ h += '<option>'+c+'</option>'; });
   h += '</select></div>';
 
-  var q = (document.getElementById("searchAlumno")||{value:""}).value.toLowerCase();
+  var q = (document.getElementById("searchAlumno")||{value:""}).value.toLowerCase().trim();
   var fc = (document.getElementById("filterCurso")||{value:""}).value;
   var filtered = allAlumnos.filter(function(a){
-    var matchQ = !q || a.nombre.toLowerCase().includes(q) || a.codigo.toLowerCase().includes(q);
+    // Buscar en nombre completo, código y separar por palabras
+    var nombreCompleto = a.nombre.toLowerCase();
+    var palabras = nombreCompleto.split(/[\s,]+/); // Separa por espacios y comas
+    
+    var matchQ = !q || 
+      nombreCompleto.includes(q) ||  // Busca en el nombre completo
+      a.codigo.toLowerCase().includes(q) ||  // Busca en el código
+      palabras.some(function(palabra){ return palabra.startsWith(q); });  // Busca si alguna palabra empieza con lo escrito
+    
     var matchC = !fc || a.curso === fc;
     return matchQ && matchC;
   });
