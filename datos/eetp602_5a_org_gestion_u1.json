@@ -1,10 +1,12 @@
 {
+  "id": "eetp602_5a_org_gestion_u1",
   "materia": "Organización y Gestión",
   "unidad": 1,
   "titulo": "Las Organizaciones como Sistema",
   "emoji": "🏢",
   "color_primario": "#6366F1",
   "color_secundario": "#8B5CF6",
+
   "umbral": {
     "preguntas_disparadoras": [
       {
@@ -24,1333 +26,594 @@
       }
     ],
     "situaciones_conecta": [
-      {
-        "emoji": "📊",
-        "label": "Vi una empresa que quebró porque no se adaptó a los cambios del mercado"
-      },
-      {
-        "emoji": "🤝",
-        "label": "Noté que algunas organizaciones funcionan mejor que otras con los mismos recursos"
-      },
-      {
-        "emoji": "🎮",
-        "label": "Me di cuenta de que las empresas compiten de formas que no había pensado"
-      },
-      {
-        "emoji": "🔍",
-        "label": "Me pregunté cómo las organizaciones deciden qué hacer y hacia dónde ir"
-      }
+      {"emoji": "📊", "label": "Vi una empresa que quebró porque no se adaptó a los cambios del mercado"},
+      {"emoji": "🤝", "label": "Noté que algunas organizaciones funcionan mejor que otras con los mismos recursos"},
+      {"emoji": "🎮", "label": "Me di cuenta de que las empresas compiten de formas que no había pensado"},
+      {"emoji": "🔍", "label": "Me pregunté cómo las organizaciones deciden qué hacer y hacia dónde ir"}
     ],
     "termometro_pregunta": "¿Cuánto creés que entender cómo funcionan las organizaciones te ayudará en tu futuro profesional?"
   },
+
   "mapa": {
     "ruta_paradas": [
-      {
-        "id": 1,
-        "title": "Concepto y fines de las organizaciones",
-        "desc": "Qué es una organización, sistema abierto, fines económicos y sociales",
-        "emoji": "🏢",
-        "color": "#6366F1"
-      },
-      {
-        "id": 2,
-        "title": "Funciones organizacionales",
-        "desc": "Planeación, organización, dirección y control",
-        "emoji": "⚙️",
-        "color": "#3B82F6"
-      },
-      {
-        "id": 3,
-        "title": "Modelo de las 5 Fuerzas de Porter",
-        "desc": "Rivalidad, nuevos entrantes, proveedores, clientes, sustitutos",
-        "emoji": "⚔️",
-        "color": "#10B981"
-      },
-      {
-        "id": 4,
-        "title": "Diamante de Porter",
-        "desc": "Factores, demanda, industrias relacionadas, rivalidad, gobierno",
-        "emoji": "💎",
-        "color": "#F59E0B"
-      },
-      {
-        "id": 5,
-        "title": "Análisis FODA y planeamiento estratégico",
-        "desc": "Diagnóstico interno/externo, estrategias cruzadas, niveles jerárquicos",
-        "emoji": "📋",
-        "color": "#EC4899"
-      }
+      {"id": 1, "title": "Concepto y fines de las organizaciones", "desc": "Qué es una organización, sistema abierto, fines económicos y sociales", "emoji": "🏢", "color": "#6366F1"},
+      {"id": 2, "title": "Funciones organizacionales", "desc": "Planeación, organización, dirección y control", "emoji": "⚙️", "color": "#3B82F6"},
+      {"id": 3, "title": "Modelo de las 5 Fuerzas de Porter", "desc": "Rivalidad, nuevos entrantes, proveedores, clientes, sustitutos", "emoji": "⚔️", "color": "#10B981"},
+      {"id": 4, "title": "Diamante de Porter", "desc": "Factores, demanda, industrias relacionadas, rivalidad, gobierno", "emoji": "💎", "color": "#F59E0B"},
+      {"id": 5, "title": "Análisis FODA y planeamiento estratégico", "desc": "Diagnóstico interno/externo, estrategias cruzadas, niveles jerárquicos", "emoji": "📋", "color": "#EC4899"}
     ],
     "panoramica_bloques": [
       {
         "id": "A",
-        "title": "Bloque A",
-        "subtitle": "Fundamentos de las organizaciones (páginas 2-4)",
-        "items": [
-          "Concepto de organización: personas, recursos y objetivos comunes",
-          "Sistema abierto: interacción con el entorno",
-          "Estructura organizacional y cultura",
-          "Fines económicos, sociales y de desarrollo humano",
-          "Funciones: planeación, organización, dirección y control"
-        ],
+        "title": "BLOQUE A",
+        "subtitle": "Fundamentos de las organizaciones",
+        "items": ["Concepto: conjunto de personas y recursos con objetivos comunes", "Sistema abierto: interacción con el entorno", "Estructura organizacional y cultura", "Fines: económicos, sociales y desarrollo humano", "Funciones: planeación, organización, dirección y control"],
         "emoji": "🏢",
         "color": "#6366F1"
       },
       {
         "id": "B",
-        "title": "Bloque B",
-        "subtitle": "Entorno competitivo y ventaja competitiva (páginas 5-8)",
-        "items": [
-          "Modelo de las 5 Fuerzas de Michael Porter",
-          "Diamante de Porter y ventaja competitiva nacional",
-          "Condiciones de factores y de demanda",
-          "Industrias relacionadas, rivalidad y gobierno",
-          "Aplicación estratégica: posición y ventaja competitiva"
-        ],
+        "title": "BLOQUE B",
+        "subtitle": "Análisis del entorno competitivo",
+        "items": ["Modelo de las 5 Fuerzas de Porter: rivalidad, nuevos entrantes, poder de proveedores, poder de clientes, productos sustitutos", "Diamante de Porter: condiciones de factores, demanda, industrias relacionadas, rivalidad empresarial, rol del gobierno", "Aplicación estratégica: posición competitiva y ventaja competitiva", "Caso Apple: gestión de fuerzas competitivas"],
         "emoji": "⚔️",
         "color": "#10B981"
       },
       {
         "id": "C",
-        "title": "Bloque C",
-        "subtitle": "FODA y planeamiento estratégico (páginas 9-13)",
-        "items": [
-          "Repaso y componentes del análisis FODA",
-          "Factores internos y externos",
-          "Caso práctico del sector salud y estrategias FO, FA, DO, DA",
-          "Planeamiento estratégico: proceso y niveles",
-          "Herramientas complementarias: PESTEL y matriz de perfil competitivo"
-        ],
+        "title": "BLOQUE C",
+        "subtitle": "Análisis FODA y planeamiento estratégico",
+        "items": ["Componentes del FODA: fortalezas, oportunidades, debilidades, amenazas", "Matriz de estrategias cruzadas: FO, FA, DO, DA", "Proceso de planeamiento: diagnóstico → formulación → implementación → control", "Niveles jerárquicos: estratégico, táctico, operativo", "Herramientas complementarias: PESTEL, matriz de perfil competitivo"],
         "emoji": "📋",
         "color": "#F59E0B"
       }
     ],
     "mapa_mental": {
-      "centro": {
-        "title": "Organizaciones como Sistema",
-        "emoji": "🏢"
-      },
+      "centro": {"title": "Organizaciones como Sistema", "emoji": "🏢"},
       "ramas": [
         {
-          "id": 1,
+          "id": "conceptos",
           "title": "¿Qué es una organización?",
-          "items": [
-            "Sistema abierto: recibe insumos, transforma, genera productos/servicios",
-            "Estructura: división del trabajo, jerarquía, comunicación",
-            "Cultura: valores, normas, comportamientos compartidos",
-            "Fines: económicos (rentabilidad), sociales (empleo, comunidad), desarrollo humano"
-          ],
+          "items": ["Sistema abierto: recibe insumos, transforma, genera productos/servicios", "Estructura: división del trabajo, jerarquía, comunicación", "Cultura: valores, normas, comportamientos compartidos", "Fines: económicos (rentabilidad), sociales (empleo, comunidad), desarrollo humano"],
           "color": "#6366F1",
           "emoji": "🏢"
         },
         {
-          "id": 2,
+          "id": "porter5",
           "title": "5 Fuerzas de Porter",
-          "items": [
-            "Rivalidad entre competidores existentes",
-            "Amenaza de nuevos entrantes (barreras de entrada)",
-            "Poder de negociación de proveedores",
-            "Poder de negociación de clientes",
-            "Amenaza de productos sustitutos"
-          ],
+          "items": ["Rivalidad entre competidores existentes", "Amenaza de nuevos entrantes (barreras de entrada)", "Poder de negociación de proveedores", "Poder de negociación de clientes", "Amenaza de productos sustitutos"],
           "color": "#10B981",
           "emoji": "⚔️"
         },
         {
-          "id": 3,
+          "id": "diamante",
           "title": "Diamante de Porter",
-          "items": [
-            "Condiciones de factores: mano de obra, infraestructura, capital, recursos naturales",
-            "Condiciones de demanda: sofisticación y exigencia del mercado local",
-            "Industrias relacionadas y de apoyo: proveedores competitivos, clústeres",
-            "Estrategia, estructura y rivalidad de empresas",
-            "Rol del gobierno: políticas públicas, regulación, inversión en I+D"
-          ],
+          "items": ["Condiciones de factores: mano de obra, infraestructura, capital, recursos naturales", "Condiciones de demanda: sofisticación y exigencia del mercado local", "Industrias relacionadas y de apoyo: proveedores competitivos, clústeres", "Estrategia, estructura y rivalidad de empresas", "Rol del gobierno: políticas públicas, regulación, inversión en I+D"],
           "color": "#F59E0B",
           "emoji": "💎"
         },
         {
-          "id": 4,
+          "id": "foda",
           "title": "FODA y Planeamiento",
-          "items": [
-            "Fortalezas y debilidades (interno, controlable)",
-            "Oportunidades y amenazas (externo, no controlable)",
-            "Estrategias cruzadas: FO, FA, DO, DA",
-            "Proceso: diagnóstico → formulación → implementación → control",
-            "Niveles: estratégico (largo plazo), táctico (mediano), operativo (corto)"
-          ],
+          "items": ["Fortalezas y debilidades (interno, controlable)", "Oportunidades y amenazas (externo, no controlable)", "Estrategias cruzadas: FO, FA, DO, DA", "Proceso: diagnóstico → formulación → implementación → control", "Niveles: estratégico (largo plazo), táctico (mediano), operativo (corto)"],
           "color": "#EC4899",
           "emoji": "📋"
         }
       ]
     }
   },
-  "senales": {
-    "conceptos_clave": [
-      {
-        "termino": "Organización como sistema abierto",
-        "definicion": "Una organización es un conjunto de personas y recursos coordinados con objetivos comunes, que funciona como sistema abierto: recibe insumos del entorno, los transforma mediante procesos internos y genera productos o servicios. Esta interacción permanente la hace vulnerable a cambios externos pero también capaz de adaptarse y evolucionar.",
-        "emoji": "🏢",
-        "importancia": "Entender que las organizaciones no operan en el vacío sino en constante interacción con su entorno es fundamental para comprender por qué algunas tienen éxito y otras fracasan.",
-        "color": "#EF4444"
-      },
-      {
-        "termino": "Modelo de las 5 Fuerzas de Porter",
-        "definicion": "Herramienta desarrollada por Michael Porter en 1979 para analizar la atractividad y competitividad de una industria. Identifica cinco fuerzas que determinan la intensidad competitiva: rivalidad entre competidores, amenaza de nuevos entrantes, poder de proveedores, poder de clientes y amenaza de productos sustitutos.",
-        "emoji": "⚔️",
-        "importancia": "Es la herramienta más utilizada en el mundo para entender el entorno competitivo de una industria y diseñar estrategias. Sin entender estas fuerzas, cualquier plan estratégico es ciego.",
-        "color": "#8B5CF6"
-      },
-      {
-        "termino": "Análisis FODA",
-        "definicion": "Herramienta de diagnóstico estratégico que identifica Fortalezas y Debilidades (factores internos controlables) y Oportunidades y Amenazas (factores externos no controlables). Su valor real está en las estrategias cruzadas: FO (usar fortalezas para aprovechar oportunidades), FA (usar fortalezas para neutralizar amenazas), DO (superar debilidades aprovechando oportunidades), DA (minimizar debilidades y evitar amenazas).",
-        "emoji": "📋",
-        "importancia": "El FODA es el punto de partida de todo planeamiento estratégico. Antes de decidir hacia dónde ir, hay que saber dónde estamos parados y qué nos rodea.",
-        "color": "#3B82F6"
-      },
-      {
-        "termino": "Planeamiento estratégico",
-        "definicion": "Proceso sistemático y continuo mediante el cual una organización define su dirección futura (misión, visión, objetivos estratégicos) y diseña las acciones necesarias para alcanzarla. Se compone de cuatro etapas: diagnóstico, formulación, implementación y control, en un ciclo que se retroalimenta permanentemente.",
-        "emoji": "🎯",
-        "importancia": "Las organizaciones que planean estratégicamente tienen el doble de probabilidades de sobrevivir a largo plazo que las que improvisan. Planear no es adivinar el futuro, es prepararse para él.",
-        "color": "#10B981"
-      }
-    ],
-    "semaforo_conceptos": [
-      {
-        "termino": "Organización como sistema abierto",
-        "emoji": "🏢"
-      },
-      {
-        "termino": "Modelo de las 5 Fuerzas de Porter",
-        "emoji": "⚔️"
-      },
-      {
-        "termino": "Diamante de Porter y ventaja competitiva nacional",
-        "emoji": "💎"
-      },
-      {
-        "termino": "Análisis FODA y estrategias cruzadas",
-        "emoji": "📋"
-      },
-      {
-        "termino": "Proceso de planeamiento estratégico",
-        "emoji": "🎯"
-      }
-    ],
-    "postits_conceptos": [
-      "Sistema abierto",
-      "5 Fuerzas de Porter",
-      "Análisis FODA",
-      "Planeamiento estratégico"
-    ]
-  },
-  "sabias": {
-    "flip_cards": [
-      {
-        "frente": "¿Sabías que...?",
-        "dorso": "Michael Porter desarrolló el modelo de las 5 Fuerzas en 1979, pero recién se popularizó mundialmente en los años 90 cuando empresas como General Electric y Coca-Cola lo adoptaron públicamente. Hoy es imposible estudiar estrategia empresarial sin mencionar a Porter. Su modelo sigue siendo el más utilizado 45 años después de su creación porque es simple, potente y aplicable a cualquier industria.",
-        "emoji": "⚔️",
-        "color": "#F59E0B"
-      },
-      {
-        "frente": "Dato curioso",
-        "dorso": "El análisis FODA fue desarrollado en Stanford en los años 60, pero su nombre es un acrónimo en español. En inglés se llama SWOT (Strengths, Weaknesses, Opportunities, Threats). Curiosamente, en algunos países latinoamericanos se llama DOFA (Debilidades, Oportunidades, Fortalezas, Amenazas), cambiando el orden pero manteniendo el concepto. Tres nombres, una sola herramienta universal.",
-        "emoji": "📋",
-        "color": "#8B5CF6"
-      },
-      {
-        "frente": "¿Lo sabías?",
-        "dorso": "Silicon Valley es el ejemplo perfecto del Diamante de Porter en acción: tiene universidades de élite (Stanford, UC Berkeley) que generan talento especializado, una demanda sofisticada de empresas tech, proveedores de capital de riesgo competitivos, rivalidad intensa entre startups y grandes empresas, y un gobierno que incentiva la innovación. No es casualidad que ahí estén Google, Apple, Facebook, Tesla y cientos de unicornios. Es un ecosistema diseñado para ganar.",
-        "emoji": "💎",
-        "color": "#EF4444"
-      }
-    ],
-    "linea_de_tiempo": [
-      {
-        "year": "1960s",
-        "text": "Se desarrolla el análisis FODA en la Universidad de Stanford como herramienta de planeamiento estratégico",
-        "emoji": "📋"
-      },
-      {
-        "year": "1979",
-        "text": "Michael Porter publica el modelo de las 5 Fuerzas, revolucionando el análisis de competitividad industrial",
-        "emoji": "⚔️"
-      },
-      {
-        "year": "1990",
-        "text": "Porter presenta el modelo del Diamante en 'The Competitive Advantage of Nations', explicando el éxito de países en industrias específicas",
-        "emoji": "💎"
-      },
-      {
-        "year": "1994",
-        "text": "Kaplan y Norton crean el Balanced Scorecard, integrando el planeamiento estratégico con indicadores de gestión",
-        "emoji": "📊"
-      },
-      {
-        "year": "2020-2025",
-        "text": "La pandemia y la transformación digital obligan a las organizaciones a repensar sus modelos de negocio y estrategias competitivas",
-        "emoji": "🌍"
-      }
-    ],
-    "encuesta": {
-      "pregunta": "¿Qué herramienta estratégica te parece más útil para analizar una organización?",
-      "opciones": [
-        {
-          "text": "5 Fuerzas de Porter: entender el entorno competitivo",
-          "emoji": "⚔️",
-          "votos_iniciales": 38
-        },
-        {
-          "text": "Análisis FODA: diagnóstico interno y externo completo",
-          "emoji": "📋",
-          "votos_iniciales": 35
-        },
-        {
-          "text": "Planeamiento estratégico: definir el rumbo a largo plazo",
-          "emoji": "🎯",
-          "votos_iniciales": 27
-        }
-      ]
-    }
-  },
-  "cruces": {
-    "consigna_general": "Elegí un tema de cada bloque que te haya resultado importante y preparalo para explicárselo a un compañero con un ejemplo claro de la unidad.",
-    "bloques": [
-      {
-        "id": "a",
-        "emoji": "🏢",
-        "titulo": "BLOQUE A: Fundamentos de las organizaciones",
-        "color": "#6366F1",
-        "temas_sugeridos": [
-          "Qué es una organización y por qué no es un grupo cualquiera",
-          "Sistema abierto: relación con el entorno",
-          "Diferencia entre estructura y cultura organizacional",
-          "Fines económicos, sociales y de desarrollo humano",
-          "Funciones: planeación, organización, dirección y control"
-        ],
-        "placeholder": "Escribí acá el tema que elegiste del Bloque A y cómo se lo explicarías a un compañero..."
-      },
-      {
-        "id": "b",
-        "emoji": "⚔️",
-        "titulo": "BLOQUE B: Entorno competitivo y ventaja competitiva",
-        "color": "#10B981",
-        "temas_sugeridos": [
-          "Qué analiza el modelo de las 5 Fuerzas de Porter",
-          "Qué explica el Diamante de Porter",
-          "Condiciones de los factores y de la demanda",
-          "Industrias relacionadas, rivalidad y gobierno",
-          "Caso Apple y ventaja competitiva"
-        ],
-        "placeholder": "Escribí acá el tema que elegiste del Bloque B y cómo se lo explicarías a un compañero..."
-      },
-      {
-        "id": "c",
-        "emoji": "📋",
-        "titulo": "BLOQUE C: FODA y planeamiento estratégico",
-        "color": "#F59E0B",
-        "temas_sugeridos": [
-          "Qué muestra el análisis FODA",
-          "Diferencia entre factores internos y externos",
-          "Cómo se usan las estrategias FO, FA, DO y DA",
-          "Etapas del planeamiento estratégico",
-          "Herramientas complementarias: PESTEL y matriz de perfil competitivo"
-        ],
-        "placeholder": "Escribí acá el tema que elegiste del Bloque C y cómo se lo explicarías a un compañero..."
-      }
-    ]
-  },
-  "relectura": {
-    "tribunal": {
-      "titulo_debate": "Las organizaciones deben priorizar la rentabilidad económica por sobre el impacto social. El fin de una empresa es ganar dinero, no resolver problemas sociales.",
-      "contexto": "Algunos argumentan que las empresas existen para generar ganancias a sus accionistas, y que pretender que resuelvan problemas sociales distrae de su función principal. Otros sostienen que las organizaciones tienen responsabilidad social empresarial (RSE) y que el éxito a largo plazo requiere equilibrio entre fines económicos, sociales y ambientales. Usá los conceptos de fines organizacionales, stakeholders, ventaja competitiva sostenible y casos reales.",
-      "roles": [
-        {
-          "id": "favor",
-          "label": "A FAVOR",
-          "emoji": "🟢",
-          "color": "#10B981",
-          "desc": "Defendé que el fin principal de las empresas es la rentabilidad. Argumentá que maximizar ganancias genera empleo, paga impuestos, innova y crea valor económico. La responsabilidad social es secundaria. Usá ejemplos de empresas exitosas centradas en resultados financieros. El mercado premia la eficiencia."
-        },
-        {
-          "id": "contra",
-          "label": "EN CONTRA",
-          "emoji": "🔴",
-          "color": "#EF4444",
-          "desc": "Argumentá que las organizaciones exitosas equilibran fines económicos, sociales y desarrollo humano. Empresas que ignoran el impacto social pierden legitimidad, talento y clientes. Usá ejemplos de empresas con RSE exitosa (Patagonia, Tesla). El largo plazo requiere sostenibilidad integral, no solo ganancias."
-        },
-        {
-          "id": "juez",
-          "label": "JUEZ/A",
-          "emoji": "👨‍⚖️",
-          "color": "#8B5CF6",
-          "desc": "Evaluá ambas posturas con evidencia. ¿Es posible ser rentable y socialmente responsable? ¿Existen casos donde el bien social generó ventaja competitiva? ¿Casos donde la búsqueda exclusiva de ganancias destruyó valor a largo plazo? ¿Qué equilibrio es óptimo? Emití veredicto razonado con matices."
-        }
-      ]
-    },
-    "tesis": {
-      "consigna": "Formulá una tesis sobre: 'Por qué algunas organizaciones argentinas tienen éxito y otras fracasan: análisis desde el modelo de Porter y el análisis FODA'. Elegí una organización argentina real (empresa, ONG, institución) que conozcas o puedas investigar. Aplicá las 5 Fuerzas de Porter para analizar su entorno competitivo y hacé un FODA simplificado. Tu tesis debe explicar: qué fuerzas competitivas enfrenta, cuáles son sus principales fortalezas y debilidades, y qué estrategias debería implementar para mejorar su posición. Incluí evidencia concreta y una conclusión sobre los factores clave del éxito organizacional."
-    },
-    "critica": {
-      "consigna": "Releé la sección sobre el Diamante de Porter (páginas 6-7 del PDF). Identificá: 2 fortalezas del modelo (qué explica bien sobre la ventaja competitiva de las naciones), 1 debilidad o limitación (qué no considera o qué críticas podrías hacerle), 1 pregunta que te quedó sin responder sobre cómo aplicarlo a Argentina, y 1 conexión con la realidad actual: ¿por qué Argentina tiene ventaja en algunos sectores (agro, litio, software) pero no en otros (manufactura avanzada, alta tecnología)? ¿Qué puntas del diamante nos faltan desarrollar?"
-    }
-  },
-  "emocional": {},
-  "autotest": {
-    "banco_respuestas_docente": [
-      "1. B - Una organización es un conjunto de personas y recursos coordinados para alcanzar objetivos comunes. (p. 2)",
-      "2. C - La cultura organizacional establece valores, normas y comportamientos compartidos. (p. 2)",
-      "3. B - Entre los fines sociales aparecen la generación de empleo digno y la contribución a la comunidad. (p. 3)",
-      "4. D - El control sigue resultados, evalúa desempeño y toma acciones correctivas. (p. 4)",
-      "5. A - Las 5 Fuerzas analizan la atractividad y competitividad de un sector. (p. 5)",
-      "6. C - En el Diamante, las condiciones de la demanda aluden a una demanda interna exigente y sofisticada. (p. 6)",
-      "7. B - Apple reduce el poder de proveedores con contratos exclusivos y diseño propietario. (p. 8)",
-      "8. C - En el FODA, fortalezas y debilidades son factores internos. (p. 10)",
-      "9. A - La estrategia DO supera debilidades aprovechando oportunidades. (p. 11)",
-      "10. D - El nivel operativo corresponde a supervisores y al corto plazo. (p. 12)",
-      "11. FALSO - Una organización es un sistema abierto, no cerrado. (p. 2)",
-      "12. VERDADERO - El Diamante de Porter incluye al gobierno como uno de sus determinantes. (p. 7)",
-      "13. FALSO - El FODA no se limita a describir: también orienta estrategias cruzadas. (p. 9-11)",
-      "14. VERDADERO - El planeamiento estratégico es un ciclo que se retroalimenta. (p. 12)",
-      "15. VERDADERO - El análisis PESTEL examina dimensiones políticas, económicas, sociales, tecnológicas, ambientales y legales. (p. 13)"
-    ],
-    "preguntas": [
-      {
-        "pregunta": "¿Qué define mejor a una organización según el PDF?",
-        "opciones": [
-          "Un grupo reunido por costumbre",
-          "Un conjunto de personas y recursos coordinados con objetivos comunes",
-          "Una empresa que solo busca ganancias",
-          "Una estructura sin división del trabajo"
-        ],
-        "correcta": 1,
-        "explicacion": "Correcto. El PDF define a la organización como un conjunto de personas y recursos coordinados para alcanzar objetivos comunes. Revisá la página 2."
-      },
-      {
-        "pregunta": "¿Qué aspecto establece valores, normas y comportamientos compartidos dentro de una organización?",
-        "opciones": [
-          "La planeación",
-          "El control",
-          "La cultura organizacional",
-          "La rivalidad competitiva"
-        ],
-        "correcta": 2,
-        "explicacion": "La respuesta correcta es cultura organizacional, porque allí se ubican los valores, normas y comportamientos compartidos. Repasá la página 2."
-      },
-      {
-        "pregunta": "¿Cuál de las siguientes opciones corresponde a un fin social de la organización?",
-        "opciones": [
-          "Crecimiento y expansión de mercado",
-          "Generación de empleo digno",
-          "Rentabilidad financiera",
-          "Liderazgo en costos"
-        ],
-        "correcta": 1,
-        "explicacion": "Correcto. La generación de empleo digno aparece en el bloque de fines sociales. Podés repasarlo en la página 3."
-      },
-      {
-        "pregunta": "¿Qué función organizacional se ocupa de evaluar resultados y tomar acciones correctivas?",
-        "opciones": [
-          "Planeación",
-          "Dirección",
-          "Organización",
-          "Control"
-        ],
-        "correcta": 3,
-        "explicacion": "La correcta es control, porque sigue resultados, evalúa el desempeño y corrige desvíos. Revisá la página 4."
-      },
-      {
-        "pregunta": "¿Para qué sirve el modelo de las 5 Fuerzas de Michael Porter?",
-        "opciones": [
-          "Para analizar la atractividad y competitividad de un sector",
-          "Para medir el clima laboral de una empresa",
-          "Para clasificar fines sociales y económicos",
-          "Para ordenar niveles jerárquicos"
-        ],
-        "correcta": 0,
-        "explicacion": "Correcto. El modelo se usa para analizar la atractividad y competitividad de una industria o sector. Repasá la página 5."
-      },
-      {
-        "pregunta": "En el Diamante de Porter, las condiciones de la demanda se refieren a:",
-        "opciones": [
-          "La cantidad de empleados del país",
-          "La estructura interna de la empresa",
-          "La naturaleza y sofisticación de la demanda interna",
-          "El costo de los proveedores"
-        ],
-        "correcta": 2,
-        "explicacion": "La opción correcta es la naturaleza y sofisticación de la demanda interna, porque una demanda exigente impulsa innovación y calidad. Más en la página 6."
-      },
-      {
-        "pregunta": "Según el caso Apple, ¿qué práctica ayuda a reducir el poder de negociación de los proveedores?",
-        "opciones": [
-          "Abrir el ecosistema a cualquier competidor",
-          "Usar contratos exclusivos y diseño propietario",
-          "Eliminar la diferenciación de productos",
-          "Depender de un solo cliente"
-        ],
-        "correcta": 1,
-        "explicacion": "Correcto. El PDF explica que Apple usa contratos exclusivos y diseño propietario para reducir el poder de negociación de proveedores. Revisá la página 8."
-      },
-      {
-        "pregunta": "En el análisis FODA, ¿qué tipo de factores son las fortalezas y debilidades?",
-        "opciones": [
-          "Externos y no controlables",
-          "Mixtos y aleatorios",
-          "Internos y controlables",
-          "Solo financieros"
-        ],
-        "correcta": 2,
-        "explicacion": "La correcta es internos y controlables, porque la organización puede modificarlos. Repasá la página 10."
-      },
-      {
-        "pregunta": "¿Qué estrategia cruzada del FODA busca superar debilidades aprovechando oportunidades?",
-        "opciones": [
-          "DO",
-          "FA",
-          "FO",
-          "DA"
-        ],
-        "correcta": 0,
-        "explicacion": "Correcto. La estrategia DO apunta a superar debilidades usando oportunidades del entorno. Podés revisarla en la página 11."
-      },
-      {
-        "pregunta": "¿Qué nivel de planeación corresponde a supervisores y al corto plazo?",
-        "opciones": [
-          "Estratégico",
-          "Táctico",
-          "Directivo",
-          "Operativo"
-        ],
-        "correcta": 3,
-        "explicacion": "La respuesta correcta es operativo, porque el PDF lo ubica en supervisores y en el corto plazo. Repasá la página 12."
-      }
-    ],
-    "verdadero_falso": [
-      {
-        "texto": "Las organizaciones son sistemas cerrados que no interactúan con su entorno.",
-        "correcto": false,
-        "explicacion": "FALSO. El PDF las presenta como sistemas abiertos que reciben insumos, transforman y generan productos o servicios. Revisá la página 2."
-      },
-      {
-        "texto": "El gobierno aparece como uno de los determinantes del Diamante de Porter.",
-        "correcto": true,
-        "explicacion": "VERDADERO. En la quinta punta del diamante se menciona al gobierno como catalizador de la ventaja competitiva. Repasá la página 7."
-      },
-      {
-        "texto": "El análisis FODA solo describe la situación actual y no ayuda a pensar estrategias.",
-        "correcto": false,
-        "explicacion": "FALSO. El material explica que el FODA también sirve para formular estrategias cruzadas y pasar del diagnóstico a la acción. Revisá las páginas 9-11."
-      },
-      {
-        "texto": "El planeamiento estratégico se retroalimenta con los resultados del control.",
-        "correcto": true,
-        "explicacion": "VERDADERO. La unidad indica que los resultados del control nutren el diagnóstico del próximo ciclo. Repasá la página 12."
-      },
-      {
-        "texto": "El análisis PESTEL examina dimensiones políticas, económicas, sociales, tecnológicas, ambientales y legales.",
-        "correcto": true,
-        "explicacion": "VERDADERO. Esa es la definición que aparece en el apartado de herramientas complementarias. Revisá la página 13."
-      }
-    ]
-  },
-  "cierre": {
-    "glosario": [
-      {
-        "termino": "Organización",
-        "definicion": "Conjunto de personas y recursos coordinados con el propósito de alcanzar objetivos comunes. Funciona como sistema abierto que interactúa con su entorno.",
-        "emoji": "🏢",
-        "categoria": "Concepto base"
-      },
-      {
-        "termino": "Sistema abierto",
-        "definicion": "Sistema que interactúa permanentemente con su entorno: recibe insumos (inputs), los transforma mediante procesos internos y genera productos/servicios (outputs). Es vulnerable a cambios externos pero capaz de adaptarse.",
-        "emoji": "🔄",
-        "categoria": "Concepto base"
-      },
-      {
-        "termino": "5 Fuerzas de Porter",
-        "definicion": "Modelo desarrollado por Michael Porter (1979) para analizar la atractividad y competitividad de una industria: rivalidad entre competidores, amenaza de nuevos entrantes, poder de proveedores, poder de clientes, amenaza de sustitutos.",
-        "emoji": "⚔️",
-        "categoria": "Análisis estratégico"
-      },
-      {
-        "termino": "Diamante de Porter",
-        "definicion": "Modelo de Porter (1990) que explica por qué ciertas naciones logran ventaja competitiva en industrias específicas: condiciones de factores, demanda, industrias relacionadas, rivalidad empresarial, rol del gobierno.",
-        "emoji": "💎",
-        "categoria": "Análisis estratégico"
-      },
-      {
-        "termino": "Análisis FODA",
-        "definicion": "Herramienta de diagnóstico estratégico que identifica Fortalezas y Debilidades (factores internos) y Oportunidades y Amenazas (factores externos). Base para formular estrategias cruzadas: FO, FA, DO, DA.",
-        "emoji": "📋",
-        "categoria": "Análisis estratégico"
-      },
-      {
-        "termino": "Ventaja competitiva",
-        "definicion": "Capacidad de una organización para superar a sus competidores de manera sostenible, ya sea mediante diferenciación (ofrecer algo único), liderazgo en costos (producir más barato) o enfoque en nichos específicos.",
-        "emoji": "🏆",
-        "categoria": "Estrategia"
-      },
-      {
-        "termino": "Planeamiento estratégico",
-        "definicion": "Proceso sistemático y continuo de definir la dirección futura de la organización (misión, visión, objetivos) y diseñar acciones para alcanzarla. Etapas: diagnóstico, formulación, implementación, control.",
-        "emoji": "🎯",
-        "categoria": "Planeamiento"
-      },
-      {
-        "termino": "Stakeholders",
-        "definicion": "Grupos de interés que afectan o son afectados por las decisiones de la organización: accionistas, empleados, clientes, proveedores, comunidad, gobierno. Las organizaciones exitosas equilibran intereses de múltiples stakeholders.",
-        "emoji": "👥",
-        "categoria": "Gestión organizacional"
-      }
-    ],
-    "recursos": [
-      {
-        "tipo": "🎬 Video",
-        "title": "Las 5 Fuerzas de Porter explicadas con ejemplos",
-        "desc": "Video animado de 12 minutos que explica cada fuerza competitiva con casos reales de empresas como Uber, Netflix, Apple. Ideal para visualizar conceptos abstractos con ejemplos concretos.",
-        "nivel": "Introductorio",
-        "color": "#8B5CF6"
-      },
-      {
-        "tipo": "📖 Libro",
-        "title": "Ventaja Competitiva — Michael Porter",
-        "desc": "El libro clásico de Porter donde desarrolla sus modelos de estrategia competitiva. Aunque es técnico, los capítulos iniciales son accesibles para estudiantes de secundaria y explican los fundamentos del análisis estratégico.",
-        "nivel": "Avanzado",
-        "color": "#EF4444"
-      },
-      {
-        "tipo": "🌐 Web",
-        "title": "Harvard Business Review en Español",
-        "desc": "Artículos sobre gestión, estrategia y liderazgo organizacional con casos reales de empresas latinoamericanas y globales. Sección de estrategia empresarial muy accesible.",
-        "nivel": "Intermedio",
-        "color": "#F59E0B"
-      },
-      {
-        "tipo": "🎧 Podcast",
-        "title": "Esto no es Hollywood (casos de empresas argentinas)",
-        "desc": "Podcast que analiza casos de éxito y fracaso de empresas argentinas: Mercado Libre, Despegar, Globant. Conecta teoría estratégica con realidad local y decisiones empresariales concretas.",
-        "nivel": "Intermedio",
-        "color": "#3B82F6"
-      },
-      {
-        "tipo": "📄 Artículo",
-        "title": "Casos de estudio de estrategia en INCAE Business School",
-        "desc": "Repositorio de casos latinoamericanos de estrategia empresarial. Permite ver cómo se aplican Porter, FODA y planeamiento estratégico en contextos reales de la región.",
-        "nivel": "Avanzado",
-        "color": "#10B981"
-      }
-    ]
-  },
+
   "nucleo_a": {
     "bloque_info": {
       "id": "a",
       "emoji": "🏢",
       "titulo": "BLOQUE A: Fundamentos de las organizaciones",
       "color": "#6366F1",
-      "paginas": [
-        2,
-        3,
-        4
-      ]
+      "paginas": [2, 3, 4]
     },
+
     "n1_ordenar_cronologicamente": {
-      "consigna": "Ordená la secuencia lógica para entender cómo funciona una organización:",
+      "consigna": "Ordená cronológicamente las etapas de evolución de una organización emprendedora:",
       "paginas_referencia": "2-4",
       "items": [
-        {
-          "id": 0,
-          "text": "Conjunto de personas y recursos coordinados",
-          "emoji": "👥"
-        },
-        {
-          "id": 1,
-          "text": "Objetivos comunes que orientan la acción",
-          "emoji": "🎯"
-        },
-        {
-          "id": 2,
-          "text": "Estructura y cultura que organizan el trabajo",
-          "emoji": "🏗️"
-        },
-        {
-          "id": 3,
-          "text": "Fines que marcan prioridades y estrategias",
-          "emoji": "📌"
-        },
-        {
-          "id": 4,
-          "text": "Funciones de planeación, organización, dirección y control",
-          "emoji": "⚙️"
-        }
+        {"id": 0, "text": "Grupo de personas con idea común (nacimiento de la organización)", "emoji": "💡"},
+        {"id": 1, "text": "Definición de objetivos y estructura básica", "emoji": "🎯"},
+        {"id": 2, "text": "División del trabajo y asignación de roles", "emoji": "📋"},
+        {"id": 3, "text": "Establecimiento de jerarquía y líneas de autoridad", "emoji": "⚙️"},
+        {"id": 4, "text": "Consolidación de cultura organizacional y valores compartidos", "emoji": "🏢"}
       ],
-      "orden_correcto": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
+      "orden_correcto": [0, 1, 2, 3, 4]
     },
+
     "n2_clasificador": {
-      "consigna": "Clasificá cada elemento según corresponda a ESTRUCTURA/CULTURA o a FUNCIONES ORGANIZACIONALES:",
-      "paginas_referencia": "2-4",
+      "consigna": "Clasificá cada fin organizacional según corresponda:",
+      "paginas_referencia": "3",
       "categorias": [
-        {
-          "name": "Estructura y cultura",
-          "color": "#6366F1",
-          "emoji": "🏢"
-        },
-        {
-          "name": "Funciones organizacionales",
-          "color": "#3B82F6",
-          "emoji": "⚙️"
-        }
+        {"name": "Fines Económicos", "emoji": "💰", "color": "#3B82F6"},
+        {"name": "Fines Sociales", "emoji": "🤝", "color": "#10B981"}
       ],
       "items": [
-        {
-          "id": 0,
-          "text": "División del trabajo y especialización",
-          "categoria_correcta": 0
-        },
-        {
-          "id": 1,
-          "text": "Jerarquía y líneas de autoridad",
-          "categoria_correcta": 0
-        },
-        {
-          "id": 2,
-          "text": "Comunicación formal e informal",
-          "categoria_correcta": 0
-        },
-        {
-          "id": 3,
-          "text": "Planeación",
-          "categoria_correcta": 1
-        },
-        {
-          "id": 4,
-          "text": "Dirección",
-          "categoria_correcta": 1
-        },
-        {
-          "id": 5,
-          "text": "Control",
-          "categoria_correcta": 1
-        }
+        {"id": 0, "text": "Rentabilidad y sostenibilidad financiera", "categoria_correcta": 0},
+        {"id": 1, "text": "Generación de empleo digno", "categoria_correcta": 1},
+        {"id": 2, "text": "Eficiencia en el uso de recursos", "categoria_correcta": 0},
+        {"id": 3, "text": "Contribución a la comunidad", "categoria_correcta": 1},
+        {"id": 4, "text": "Crecimiento y expansión de mercado", "categoria_correcta": 0},
+        {"id": 5, "text": "Responsabilidad social empresarial", "categoria_correcta": 1}
       ]
     },
+
     "n3_completar_mapa": {
-      "consigna": "Completá las ideas clave del bloque:",
+      "consigna": "Completá los conceptos clave de fundamentos organizacionales:",
       "paginas_referencia": "2-4",
       "blanks": [
         {
-          "id": "a1",
-          "texto_antes": "Una organización busca alcanzar objetivos",
-          "respuesta_correcta": "comunes",
-          "pista": "C______"
+          "id": "b1",
+          "texto_antes": "Una organización es un conjunto de personas y recursos",
+          "respuesta_correcta": "coordinados",
+          "pista": "C__________"
         },
         {
-          "id": "a2",
-          "texto_antes": "La organización interactúa con su entorno porque es un sistema",
-          "respuesta_correcta": "abierto",
-          "pista": "A______"
+          "id": "b2",
+          "texto_antes": "La organización como ________ abierto interactúa permanentemente con su entorno",
+          "respuesta_correcta": "sistema",
+          "pista": "S______"
         },
         {
-          "id": "a3",
-          "texto_antes": "Las funciones organizacionales se articulan en un ciclo continuo y",
-          "respuesta_correcta": "complementario",
-          "pista": "C____________"
+          "id": "b3",
+          "texto_antes": "La función que define metas, estrategias y caminos para alcanzarlas se llama",
+          "respuesta_correcta": "planeación",
+          "pista": "P_________"
         }
       ]
     },
+
     "n4_verdadero_falso": {
       "paginas_referencia": "2-4",
       "afirmaciones": [
         {
-          "texto": "Una organización es solo un grupo de personas reunidas sin objetivos compartidos.",
+          "texto": "Una organización es simplemente un grupo de individuos sin estructura intencional",
           "correcto": false,
-          "explicacion": "Falso. El PDF aclara que una organización no es simplemente un grupo de individuos: hay coordinación, roles y objetivos comunes."
+          "explicacion": "Falso. Una organización NO es simplemente un grupo de individuos, sino una estructura intencional donde cada elemento cumple un rol específico orientado a resultados compartidos (página 2)."
         },
         {
-          "texto": "La cultura organizacional establece valores, normas y comportamientos compartidos.",
+          "texto": "El sistema abierto recibe insumos del entorno, los transforma y genera productos o servicios",
           "correcto": true,
-          "explicacion": "Verdadero. En la unidad se explica que la cultura marca la identidad de la organización y orienta cómo actúan las personas."
+          "explicacion": "Verdadero. Como sistema abierto, la organización interactúa permanentemente con su entorno: recibe inputs, los transforma mediante procesos internos y genera outputs. Esta dinámica la hace vulnerable pero también capaz de adaptarse (página 2)."
         },
         {
-          "texto": "El control consiste en liderar equipos y comunicar la visión.",
-          "correcto": false,
-          "explicacion": "Falso. Eso corresponde a la dirección. El control se ocupa de seguir resultados, evaluar desempeño y corregir desvíos."
+          "texto": "Las funciones organizacionales se articulan en un ciclo continuo: planeación → organización → dirección → control",
+          "correcto": true,
+          "explicacion": "Verdadero. Las cuatro funciones organizacionales representan un ciclo continuo y complementario que permite a cualquier organización operar coherentemente y alcanzar sus objetivos (página 4)."
         }
       ]
     },
+
     "n5_relacionar_columnas": {
-      "paginas_referencia": "2-4",
+      "paginas_referencia": "3-4",
       "pares": [
         {
-          "izquierda": "Sistema abierto",
-          "derecha": "Interactúa con el entorno, recibe insumos y genera productos o servicios",
-          "emoji": "🔄"
+          "izquierda": "Planeación",
+          "derecha": "Definir metas, estrategias y caminos para alcanzarlas",
+          "emoji": "🎯"
         },
         {
-          "izquierda": "Fines económicos",
-          "derecha": "Rentabilidad, eficiencia y crecimiento",
-          "emoji": "💰"
-        },
-        {
-          "izquierda": "Fines sociales",
-          "derecha": "Generación de empleo digno y contribución a la comunidad",
-          "emoji": "🤝"
+          "izquierda": "Organización",
+          "derecha": "Asignar recursos, responsabilidades y establecer estructura",
+          "emoji": "📊"
         },
         {
           "izquierda": "Dirección",
-          "derecha": "Liderar, motivar y comunicar la visión",
-          "emoji": "🧭"
+          "derecha": "Liderar equipos, motivar personas y comunicar la visión",
+          "emoji": "👥"
+        },
+        {
+          "izquierda": "Control",
+          "derecha": "Dar seguimiento a resultados y tomar acciones correctivas",
+          "emoji": "📈"
         }
       ]
     },
+
     "n6_palabra_intrusa": {
-      "consigna": "Encontrá la palabra intrusa en cada grupo:",
       "paginas_referencia": "2-4",
       "grupos": [
         {
           "id": 0,
           "emoji": "🏢",
-          "pregunta": "¿Cuál NO pertenece a los elementos de estructura y cultura?",
+          "pregunta": "¿Cuál NO es un elemento básico de las organizaciones según el PDF?",
           "paginas": "2",
           "palabras": [
-            {
-              "text": "División del trabajo",
-              "es_intrusa": false
-            },
-            {
-              "text": "Jerarquía",
-              "es_intrusa": false
-            },
-            {
-              "text": "Control",
-              "es_intrusa": true
-            },
-            {
-              "text": "Comunicación formal e informal",
-              "es_intrusa": false
-            }
+            {"text": "Personas", "es_intrusa": false},
+            {"text": "Recursos", "es_intrusa": false},
+            {"text": "Rentabilidad", "es_intrusa": true},
+            {"text": "Objetivos comunes", "es_intrusa": false}
           ],
-          "explicacion": "Control es una función organizacional, no un elemento de estructura y cultura."
+          "explicacion": "Rentabilidad es un FIN posible de las organizaciones, no un elemento constitutivo. Los elementos básicos son: personas, recursos coordinados y objetivos comunes (página 2)."
         },
         {
           "id": 1,
           "emoji": "🎯",
-          "pregunta": "¿Cuál NO es un fin de la organización presentado en el PDF?",
-          "paginas": "3",
+          "pregunta": "¿Cuál NO es una función organizacional básica?",
+          "paginas": "4",
           "palabras": [
-            {
-              "text": "Rentabilidad",
-              "es_intrusa": false
-            },
-            {
-              "text": "Contribución a la comunidad",
-              "es_intrusa": false
-            },
-            {
-              "text": "Desarrollo humano",
-              "es_intrusa": false
-            },
-            {
-              "text": "Monopolio absoluto",
-              "es_intrusa": true
-            }
+            {"text": "Planeación", "es_intrusa": false},
+            {"text": "Organización", "es_intrusa": false},
+            {"text": "Competencia", "es_intrusa": true},
+            {"text": "Dirección", "es_intrusa": false}
           ],
-          "explicacion": "El PDF presenta fines económicos, sociales y de desarrollo humano. 'Monopolio absoluto' no aparece como fin organizacional."
+          "explicacion": "Competencia es un factor del entorno externo, no una función organizacional interna. Las 4 funciones básicas son: planeación, organización, dirección y control (página 4)."
         }
       ]
     },
+
     "n7_defini_con_tus_palabras": {
       "paginas_referencia": "2-4",
       "conceptos": [
         {
-          "termino": "Organización",
-          "pista": "¿Qué la diferencia de un simple grupo de personas?",
-          "palabras_clave": [
-            "personas",
-            "recursos",
-            "coordinados",
-            "objetivos",
-            "comunes",
-            "roles"
-          ]
-        },
-        {
           "termino": "Sistema abierto",
-          "pista": "¿Cómo se relaciona la organización con su entorno?",
-          "palabras_clave": [
-            "entorno",
-            "insumos",
-            "transforma",
-            "productos",
-            "servicios",
-            "adaptarse"
-          ]
+          "pista": "¿Cómo interactúa una organización con su entorno?",
+          "palabras_clave": ["entorno", "insumos", "transforma", "productos", "servicios", "interactúa", "recibe", "genera"]
         },
         {
-          "termino": "Planeación",
-          "pista": "¿Qué pregunta responde dentro de las funciones organizacionales?",
-          "palabras_clave": [
-            "metas",
-            "estrategias",
-            "caminos",
-            "qué",
-            "cómo",
-            "lograr"
-          ]
+          "termino": "Cultura organizacional",
+          "pista": "¿Qué establece los valores, normas y comportamientos compartidos en una organización?",
+          "palabras_clave": ["valores", "normas", "comportamientos", "compartidos", "identidad", "creencias"]
+        },
+        {
+          "termino": "Dirección",
+          "pista": "¿Qué función organizacional lidera equipos y motiva personas?",
+          "palabras_clave": ["liderar", "motivar", "comunicar", "visión", "equipos", "movilizar", "metas"]
         }
       ]
     },
+
     "n8_causa_efecto": {
       "paginas_referencia": "2-4",
       "causas": [
         {
           "id": 0,
-          "text": "La organización interactúa permanentemente con su entorno",
-          "emoji": "🌍"
+          "emoji": "🔄",
+          "text": "La organización funciona como sistema abierto"
         },
         {
           "id": 1,
-          "text": "La estructura define cómo se dividen y coordinan las tareas",
-          "emoji": "🏗️"
+          "emoji": "📋",
+          "text": "Se establece una estructura organizacional clara"
         },
         {
           "id": 2,
-          "text": "Los fines determinan prioridades y estrategias",
-          "emoji": "🎯"
+          "emoji": "🎯",
+          "text": "Se aplica la función de planeación"
         },
         {
           "id": 3,
-          "text": "El control detecta desvíos en los resultados",
-          "emoji": "📊"
+          "emoji": "📊",
+          "text": "Se implementa el control de resultados"
         }
       ],
       "efectos": [
         {
           "id": 0,
-          "text": "Puede adaptarse a cambios externos",
           "causa_id": 0,
-          "emoji": "🔄"
+          "emoji": "🌍",
+          "text": "Puede adaptarse a cambios del entorno y mantener su competitividad"
         },
         {
           "id": 1,
-          "text": "Se organiza el trabajo de manera coherente",
           "causa_id": 1,
-          "emoji": "🧩"
+          "emoji": "⚙️",
+          "text": "Se definen roles, jerarquía y coordinación eficiente de tareas"
         },
         {
           "id": 2,
-          "text": "La gestión de recursos sigue un propósito claro",
           "causa_id": 2,
-          "emoji": "📌"
+          "emoji": "🗺️",
+          "text": "Se definen metas, estrategias y caminos para alcanzar objetivos"
         },
         {
           "id": 3,
-          "text": "Se toman acciones correctivas cuando hace falta",
           "causa_id": 3,
-          "emoji": "✅"
+          "emoji": "✅",
+          "text": "Se evalúa desempeño y se toman acciones correctivas oportunas"
         }
       ]
     },
+
     "n9_ordenar_proceso": {
-      "consigna": "Ordená el ciclo lógico de las funciones organizacionales:",
+      "consigna": "Ordená las etapas del ciclo de funciones organizacionales:",
       "paginas_referencia": "4",
       "pasos_en_orden_correcto": [
         {
           "id": 0,
-          "text": "Planeación: definir metas y estrategias",
-          "emoji": "📝"
+          "emoji": "🎯",
+          "text": "PLANEACIÓN: Definir qué queremos lograr y cómo (metas y estrategias)"
         },
         {
           "id": 1,
-          "text": "Organización: asignar recursos y responsabilidades",
-          "emoji": "🏗️"
+          "emoji": "📊",
+          "text": "ORGANIZACIÓN: Asignar recursos y responsabilidades para ejecutar el plan"
         },
         {
           "id": 2,
-          "text": "Dirección: liderar y movilizar a las personas",
-          "emoji": "🧭"
+          "emoji": "👥",
+          "text": "DIRECCIÓN: Liderar equipos y movilizar a la organización hacia las metas"
         },
         {
           "id": 3,
-          "text": "Control: evaluar resultados y corregir",
-          "emoji": "📊"
+          "emoji": "📈",
+          "text": "CONTROL: Evaluar resultados y tomar acciones correctivas"
         },
         {
           "id": 4,
-          "text": "El ciclo vuelve a empezar con nuevas decisiones",
-          "emoji": "🔁"
+          "emoji": "🔄",
+          "text": "RETROALIMENTACIÓN: Los resultados nutren la próxima etapa de planeación"
         }
       ]
     },
+
     "n10_comparador": {
-      "paginas_referencia": "2-3",
+      "paginas_referencia": "3",
       "concepto_a": {
-        "nombre": "Estructura organizacional",
-        "emoji": "🏗️",
-        "color": "#6366F1"
+        "nombre": "Empresas",
+        "emoji": "🏭",
+        "color": "#3B82F6"
       },
       "concepto_b": {
-        "nombre": "Cultura organizacional",
-        "emoji": "💬",
-        "color": "#8B5CF6"
+        "nombre": "ONG",
+        "emoji": "❤️",
+        "color": "#EC4899"
       }
     }
   },
+
   "nucleo_b": {
     "bloque_info": {
       "id": "b",
       "emoji": "⚔️",
-      "titulo": "BLOQUE B: Entorno competitivo y ventaja competitiva",
+      "titulo": "BLOQUE B: Análisis del entorno competitivo",
       "color": "#10B981",
-      "paginas": [
-        5,
-        6,
-        7,
-        8
-      ]
+      "paginas": [5, 6, 7, 8]
     },
+
     "n1_ordenar_cronologicamente": {
-      "consigna": "Ordená las 5 puntas del Diamante de Porter según aparecen en el PDF:",
-      "paginas_referencia": "6-7",
+      "consigna": "Ordená cronológicamente el desarrollo de los modelos de Porter:",
+      "paginas_referencia": "5-7",
       "items": [
-        {
-          "id": 0,
-          "text": "Condiciones de los factores",
-          "emoji": "🏭"
-        },
-        {
-          "id": 1,
-          "text": "Condiciones de la demanda",
-          "emoji": "🛍️"
-        },
-        {
-          "id": 2,
-          "text": "Industrias relacionadas y de apoyo",
-          "emoji": "🔗"
-        },
-        {
-          "id": 3,
-          "text": "Estrategia, estructura y rivalidad de las empresas",
-          "emoji": "⚔️"
-        },
-        {
-          "id": 4,
-          "text": "Gobierno",
-          "emoji": "🏛️"
-        }
+        {"id": 0, "text": "Michael Porter desarrolla el modelo de las 5 Fuerzas (1979)", "emoji": "⚔️"},
+        {"id": 1, "text": "El modelo se vuelve una de las herramientas más utilizadas para analizar sectores", "emoji": "📊"},
+        {"id": 2, "text": "Porter desarrolla el modelo del Diamante (1990)", "emoji": "💎"},
+        {"id": 3, "text": "El Diamante explica la ventaja competitiva de naciones en industrias específicas", "emoji": "🌍"},
+        {"id": 4, "text": "Ambos modelos se aplican de forma complementaria en análisis estratégico actual", "emoji": "🔄"}
       ],
-      "orden_correcto": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
+      "orden_correcto": [0, 1, 2, 3, 4]
     },
+
     "n2_clasificador": {
-      "consigna": "Clasificá cada concepto según corresponda al modelo de las 5 FUERZAS o al DIAMANTE de Porter:",
-      "paginas_referencia": "5-8",
+      "consigna": "Clasificá cada elemento según corresponda al modelo correcto:",
+      "paginas_referencia": "5-7",
       "categorias": [
-        {
-          "name": "5 Fuerzas",
-          "color": "#10B981",
-          "emoji": "⚔️"
-        },
-        {
-          "name": "Diamante de Porter",
-          "color": "#F59E0B",
-          "emoji": "💎"
-        }
+        {"name": "5 Fuerzas de Porter", "emoji": "⚔️", "color": "#10B981"},
+        {"name": "Diamante de Porter", "emoji": "💎", "color": "#F59E0B"}
       ],
       "items": [
-        {
-          "id": 0,
-          "text": "Amenaza de productos sustitutos",
-          "categoria_correcta": 0
-        },
-        {
-          "id": 1,
-          "text": "Poder de negociación de clientes",
-          "categoria_correcta": 0
-        },
-        {
-          "id": 2,
-          "text": "Rivalidad entre competidores existentes",
-          "categoria_correcta": 0
-        },
-        {
-          "id": 3,
-          "text": "Condiciones de los factores",
-          "categoria_correcta": 1
-        },
-        {
-          "id": 4,
-          "text": "Industrias relacionadas y de apoyo",
-          "categoria_correcta": 1
-        },
-        {
-          "id": 5,
-          "text": "Gobierno",
-          "categoria_correcta": 1
-        }
+        {"id": 0, "text": "Rivalidad entre competidores existentes", "categoria_correcta": 0},
+        {"id": 1, "text": "Condiciones de los factores productivos", "categoria_correcta": 1},
+        {"id": 2, "text": "Amenaza de nuevos entrantes", "categoria_correcta": 0},
+        {"id": 3, "text": "Condiciones de la demanda interna", "categoria_correcta": 1},
+        {"id": 4, "text": "Poder de negociación de clientes", "categoria_correcta": 0},
+        {"id": 5, "text": "Industrias relacionadas y de apoyo", "categoria_correcta": 1}
       ]
     },
+
     "n3_completar_mapa": {
-      "consigna": "Completá las frases con los conceptos correctos:",
+      "consigna": "Completá los conceptos clave de los modelos de Porter:",
       "paginas_referencia": "5-8",
       "blanks": [
         {
           "id": "b1",
-          "texto_antes": "El modelo de las 5 Fuerzas fue desarrollado por Michael Porter en",
-          "respuesta_correcta": "1979",
-          "pista": "1___"
+          "texto_antes": "El modelo de las 5 Fuerzas analiza la atractividad y ____________ de un sector",
+          "respuesta_correcta": "competitividad",
+          "pista": "C_____________"
         },
         {
           "id": "b2",
-          "texto_antes": "El Diamante de Porter ayuda a explicar la ventaja competitiva",
-          "respuesta_correcta": "nacional",
-          "pista": "N_______"
+          "texto_antes": "Apple reduce el poder de proveedores mediante contratos __________ y diseño propietario",
+          "respuesta_correcta": "exclusivos",
+          "pista": "E_________"
         },
         {
           "id": "b3",
-          "texto_antes": "Apple crea ecosistemas cerrados que fidelizan clientes y elevan las barreras de",
-          "respuesta_correcta": "sustitución",
-          "pista": "S__________"
+          "texto_antes": "El Diamante de Porter distingue entre factores básicos y factores",
+          "respuesta_correcta": "avanzados",
+          "pista": "A_________"
         }
       ]
     },
+
     "n4_verdadero_falso": {
       "paginas_referencia": "5-8",
       "afirmaciones": [
         {
-          "texto": "Las 5 Fuerzas de Porter sirven para analizar la atractividad y competitividad de un sector.",
-          "correcto": true,
-          "explicacion": "Verdadero. El PDF presenta el modelo como una herramienta para identificar las presiones competitivas de una industria."
-        },
-        {
-          "texto": "El Diamante de Porter analiza exactamente lo mismo que las 5 Fuerzas.",
+          "texto": "Las 5 Fuerzas de Porter solo analizan la rivalidad entre competidores existentes",
           "correcto": false,
-          "explicacion": "Falso. Las 5 Fuerzas se enfocan en la industria; el Diamante explica el éxito competitivo de naciones o regiones."
+          "explicacion": "Falso. El modelo analiza CINCO fuerzas competitivas: rivalidad entre competidores, amenaza de nuevos entrantes, poder de proveedores, poder de clientes y amenaza de sustitutos. Analizar solo rivalidad sería incompleto (página 5)."
         },
         {
-          "texto": "Una demanda interna exigente puede empujar a las empresas a innovar y mejorar la calidad.",
+          "texto": "El Diamante de Porter explica por qué ciertas naciones logran ventaja competitiva en industrias específicas",
           "correcto": true,
-          "explicacion": "Verdadero. El apartado sobre condiciones de la demanda señala que una demanda sofisticada presiona a las empresas a diferenciarse."
+          "explicacion": "Verdadero. Desarrollado por Porter en 1990, el Diamante identifica los factores clave que interactúan para crear un entorno propicio para la innovación y productividad nacional en sectores determinados (página 6)."
+        },
+        {
+          "texto": "Los factores avanzados (personal especializado, centros de investigación) son más cruciales que los básicos para la ventaja competitiva de largo plazo",
+          "correcto": true,
+          "explicacion": "Verdadero. Porter distingue entre factores básicos (recursos naturales, mano de obra no calificada) y avanzados (personal altamente especializado, centros de investigación), siendo estos últimos cruciales para ventaja competitiva sostenida (página 6)."
         }
       ]
     },
+
     "n5_relacionar_columnas": {
-      "paginas_referencia": "5-8",
+      "paginas_referencia": "5-7",
       "pares": [
         {
+          "izquierda": "Rivalidad entre competidores",
+          "derecha": "Intensidad de competencia en el sector actual",
+          "emoji": "⚔️"
+        },
+        {
+          "izquierda": "Amenaza de nuevos entrantes",
+          "derecha": "Facilidad para que nuevas empresas entren al mercado",
+          "emoji": "🚪"
+        },
+        {
           "izquierda": "Poder de negociación de proveedores",
-          "derecha": "Capacidad para imponer condiciones en la industria",
-          "emoji": "🏭"
+          "derecha": "Capacidad de proveedores de imponer condiciones",
+          "emoji": "📦"
         },
         {
-          "izquierda": "Condiciones de la demanda",
-          "derecha": "Exigencia y sofisticación del mercado interno",
-          "emoji": "🛍️"
-        },
-        {
-          "izquierda": "Caso Apple",
-          "derecha": "Contratos exclusivos y diseño propietario para reducir poder de proveedores",
-          "emoji": "🍎"
-        },
-        {
-          "izquierda": "Ventaja competitiva",
-          "derecha": "Puede construirse con diferenciación, liderazgo en costos o enfoque en nichos",
-          "emoji": "🏆"
+          "izquierda": "Amenaza de productos sustitutos",
+          "derecha": "Productos alternativos que satisfacen la misma necesidad",
+          "emoji": "🔄"
         }
       ]
     },
+
     "n6_palabra_intrusa": {
-      "consigna": "Encontrá la palabra intrusa en cada grupo:",
       "paginas_referencia": "5-8",
       "grupos": [
         {
           "id": 0,
           "emoji": "⚔️",
-          "pregunta": "¿Cuál NO es una fuerza del modelo de las 5 Fuerzas?",
+          "pregunta": "¿Cuál NO es una de las 5 Fuerzas de Porter?",
           "paginas": "5",
           "palabras": [
-            {
-              "text": "Rivalidad entre competidores",
-              "es_intrusa": false
-            },
-            {
-              "text": "Poder de negociación de clientes",
-              "es_intrusa": false
-            },
-            {
-              "text": "Gobierno",
-              "es_intrusa": true
-            },
-            {
-              "text": "Amenaza de sustitutos",
-              "es_intrusa": false
-            }
+            {"text": "Rivalidad entre competidores", "es_intrusa": false},
+            {"text": "Cultura organizacional", "es_intrusa": true},
+            {"text": "Poder de negociación de clientes", "es_intrusa": false},
+            {"text": "Amenaza de nuevos entrantes", "es_intrusa": false}
           ],
-          "explicacion": "Gobierno no forma parte de las 5 Fuerzas; aparece en el Diamante de Porter."
+          "explicacion": "Cultura organizacional es un factor INTERNO de las organizaciones, no una fuerza competitiva externa. Las 5 fuerzas son: rivalidad, nuevos entrantes, poder de proveedores, poder de clientes, y productos sustitutos (página 5)."
         },
         {
           "id": 1,
           "emoji": "💎",
-          "pregunta": "¿Cuál NO pertenece a las puntas del Diamante de Porter?",
+          "pregunta": "¿Cuál NO es una punta del Diamante de Porter?",
           "paginas": "6-7",
           "palabras": [
-            {
-              "text": "Condiciones de los factores",
-              "es_intrusa": false
-            },
-            {
-              "text": "Industrias relacionadas y de apoyo",
-              "es_intrusa": false
-            },
-            {
-              "text": "Control",
-              "es_intrusa": true
-            },
-            {
-              "text": "Estrategia, estructura y rivalidad",
-              "es_intrusa": false
-            }
+            {"text": "Condiciones de factores", "es_intrusa": false},
+            {"text": "Condiciones de demanda", "es_intrusa": false},
+            {"text": "Rentabilidad financiera", "es_intrusa": true},
+            {"text": "Industrias relacionadas y de apoyo", "es_intrusa": false}
           ],
-          "explicacion": "Control es una función organizacional, no una punta del Diamante de Porter."
+          "explicacion": "Rentabilidad financiera no es una punta del Diamante. Las 5 puntas son: condiciones de factores, condiciones de demanda, industrias relacionadas y de apoyo, estrategia/estructura/rivalidad empresarial, y rol del gobierno (páginas 6-7)."
         }
       ]
     },
+
     "n7_defini_con_tus_palabras": {
       "paginas_referencia": "5-8",
       "conceptos": [
         {
-          "termino": "5 Fuerzas de Porter",
-          "pista": "¿Para qué sirve este modelo cuando analizás un sector?",
-          "palabras_clave": [
-            "industria",
-            "competitividad",
-            "sector",
-            "fuerzas",
-            "presiones",
-            "estrategias"
-          ]
+          "termino": "Ventaja competitiva",
+          "pista": "¿Qué permite a una organización superar a sus competidores de manera sostenible?",
+          "palabras_clave": ["superar", "competidores", "sostenible", "diferenciación", "costos", "único", "mejores"]
         },
         {
-          "termino": "Diamante de Porter",
-          "pista": "¿Qué intenta explicar sobre naciones o regiones?",
-          "palabras_clave": [
-            "naciones",
-            "regiones",
-            "ventaja",
-            "competitiva",
-            "factores",
-            "innovación"
-          ]
+          "termino": "Barreras de entrada",
+          "pista": "¿Qué dificulta que nuevas empresas ingresen a un sector?",
+          "palabras_clave": ["dificulta", "nuevas", "empresas", "entrar", "mercado", "obstáculos", "sector"]
         },
         {
-          "termino": "Posición competitiva",
-          "pista": "¿Qué necesita saber una empresa sobre sí misma frente a sus rivales?",
-          "palabras_clave": [
-            "empresa",
-            "rivales",
-            "amenaza",
-            "oportunidad",
-            "posicionamiento",
-            "sector"
-          ]
+          "termino": "Clústeres industriales",
+          "pista": "¿Qué se forma cuando hay concentración de industrias relacionadas y proveedores competitivos en un área?",
+          "palabras_clave": ["concentración", "industrias", "proveedores", "área", "región", "agrupación", "relacionadas"]
         }
       ]
     },
+
     "n8_causa_efecto": {
       "paginas_referencia": "5-8",
       "causas": [
         {
           "id": 0,
-          "text": "La rivalidad en el sector tecnológico es extremadamente alta",
-          "emoji": "⚔️"
+          "emoji": "📱",
+          "text": "Apple crea ecosistemas cerrados y diseño propietario"
         },
         {
           "id": 1,
-          "text": "Una demanda local es exigente y anticipa tendencias",
-          "emoji": "🛍️"
+          "emoji": "🌍",
+          "text": "Una demanda interna exigente y sofisticada presiona a las empresas"
         },
         {
           "id": 2,
-          "text": "Hay proveedores competitivos y sectores de apoyo fuertes",
-          "emoji": "🔗"
+          "emoji": "🔍",
+          "text": "Se aplica el modelo de las 5 Fuerzas de Porter"
         },
         {
           "id": 3,
-          "text": "Apple crea ecosistemas cerrados",
-          "emoji": "🍎"
+          "emoji": "🏆",
+          "text": "Hay rivalidad local robusta entre empresas del sector"
         }
       ],
       "efectos": [
         {
           "id": 0,
-          "text": "Las empresas necesitan diseñar mejores estrategias de posicionamiento",
           "causa_id": 0,
-          "emoji": "📍"
+          "emoji": "🔒",
+          "text": "Reduce el poder de proveedores y eleva barreras de sustitución para clientes"
         },
         {
           "id": 1,
-          "text": "Las empresas innovan, mejoran calidad y se diferencian",
           "causa_id": 1,
-          "emoji": "💡"
+          "emoji": "💡",
+          "text": "Las empresas innovan, mejoran calidad y se preparan mejor para competir globalmente"
         },
         {
           "id": 2,
-          "text": "Se forman clústeres que refuerzan la competitividad",
           "causa_id": 2,
-          "emoji": "🌐"
+          "emoji": "📊",
+          "text": "Se identifican presiones competitivas y se diseñan estrategias de posicionamiento"
         },
         {
           "id": 3,
-          "text": "Los clientes se fidelizan y suben las barreras de sustitución",
           "causa_id": 3,
-          "emoji": "🔒"
+          "emoji": "⚡",
+          "text": "Las empresas se vuelven más eficientes e invierten en innovación continua"
         }
       ]
     },
+
     "n9_ordenar_proceso": {
-      "consigna": "Ordená una aplicación estratégica básica del modelo de Porter:",
-      "paginas_referencia": "8",
+      "consigna": "Ordená los pasos para aplicar el modelo de las 5 Fuerzas en un análisis sectorial:",
+      "paginas_referencia": "5-8",
       "pasos_en_orden_correcto": [
         {
           "id": 0,
-          "text": "Analizar la intensidad de las fuerzas o determinantes",
-          "emoji": "🔍"
+          "emoji": "🎯",
+          "text": "Definir claramente la industria o sector que vas a analizar"
         },
         {
           "id": 1,
-          "text": "Reconocer la posición competitiva de la empresa",
-          "emoji": "📍"
+          "emoji": "⚔️",
+          "text": "Identificar competidores actuales y evaluar la rivalidad existente"
         },
         {
           "id": 2,
-          "text": "Detectar amenazas y oportunidades para el posicionamiento",
-          "emoji": "⚠️"
+          "emoji": "🚪",
+          "text": "Analizar barreras de entrada y amenaza de nuevos competidores"
         },
         {
           "id": 3,
-          "text": "Diseñar una estrategia de diferenciación, costos o nicho",
-          "emoji": "📝"
+          "emoji": "🤝",
+          "text": "Evaluar el poder de negociación de proveedores y clientes"
         },
         {
           "id": 4,
-          "text": "Actuar proactivamente para sostener la ventaja competitiva",
-          "emoji": "🚀"
+          "emoji": "📋",
+          "text": "Determinar amenaza de sustitutos y diseñar estrategias competitivas"
         }
       ]
     },
+
     "n10_comparador": {
       "paginas_referencia": "5-7",
       "concepto_a": {
@@ -1365,366 +628,716 @@
       }
     }
   },
+
   "nucleo_c": {
     "bloque_info": {
       "id": "c",
       "emoji": "📋",
-      "titulo": "BLOQUE C: FODA y planeamiento estratégico",
+      "titulo": "BLOQUE C: Análisis FODA y planeamiento estratégico",
       "color": "#F59E0B",
-      "paginas": [
-        9,
-        10,
-        11,
-        12,
-        13
-      ]
+      "paginas": [9, 10, 11, 12, 13]
     },
+
     "n1_ordenar_cronologicamente": {
-      "consigna": "Ordená las etapas del proceso de planeamiento estratégico:",
+      "consigna": "Ordená cronológicamente las etapas del proceso de planeamiento estratégico:",
       "paginas_referencia": "12",
       "items": [
-        {
-          "id": 0,
-          "text": "Diagnóstico",
-          "emoji": "🔍"
-        },
-        {
-          "id": 1,
-          "text": "Formulación",
-          "emoji": "📝"
-        },
-        {
-          "id": 2,
-          "text": "Implementación",
-          "emoji": "⚙️"
-        },
-        {
-          "id": 3,
-          "text": "Control",
-          "emoji": "📊"
-        },
-        {
-          "id": 4,
-          "text": "Retroalimentación del próximo ciclo",
-          "emoji": "🔄"
-        }
+        {"id": 0, "text": "DIAGNÓSTICO: análisis FODA, identificación de fortalezas, debilidades, oportunidades y amenazas", "emoji": "🔍"},
+        {"id": 1, "text": "FORMULACIÓN: definición de misión, visión, objetivos estratégicos y estrategias cruzadas", "emoji": "📝"},
+        {"id": 2, "text": "IMPLEMENTACIÓN: asignación de recursos, responsables, plazos y ejecución de planes", "emoji": "⚙️"},
+        {"id": 3, "text": "CONTROL: seguimiento de indicadores, evaluación de resultados y acciones correctivas", "emoji": "📊"},
+        {"id": 4, "text": "RETROALIMENTACIÓN: los resultados nutren el próximo ciclo de diagnóstico (proceso continuo)", "emoji": "🔄"}
       ],
-      "orden_correcto": [
-        0,
-        1,
-        2,
-        3,
-        4
-      ]
+      "orden_correcto": [0, 1, 2, 3, 4]
     },
+
     "n2_clasificador": {
-      "consigna": "Clasificá cada factor del caso de la clínica según sea INTERNO o EXTERNO:",
-      "paginas_referencia": "10-11",
+      "consigna": "Clasificá cada factor según corresponda en el análisis FODA:",
+      "paginas_referencia": "9-11",
       "categorias": [
-        {
-          "name": "Interno",
-          "color": "#3B82F6",
-          "emoji": "🏢"
-        },
-        {
-          "name": "Externo",
-          "color": "#10B981",
-          "emoji": "🌍"
-        }
+        {"name": "Factores Internos (Fortalezas/Debilidades)", "emoji": "🏢", "color": "#3B82F6"},
+        {"name": "Factores Externos (Oportunidades/Amenazas)", "emoji": "🌍", "color": "#10B981"}
       ],
       "items": [
-        {
-          "id": 0,
-          "text": "Equipo médico altamente calificado",
-          "categoria_correcta": 0
-        },
-        {
-          "id": 1,
-          "text": "Sistema de turnos desactualizado",
-          "categoria_correcta": 0
-        },
-        {
-          "id": 2,
-          "text": "Poca presencia digital",
-          "categoria_correcta": 0
-        },
-        {
-          "id": 3,
-          "text": "Crecimiento de la telemedicina",
-          "categoria_correcta": 1
-        },
-        {
-          "id": 4,
-          "text": "Inflación en insumos médicos",
-          "categoria_correcta": 1
-        },
-        {
-          "id": 5,
-          "text": "Cambios regulatorios en el sector",
-          "categoria_correcta": 1
-        }
+        {"id": 0, "text": "Equipo médico altamente calificado", "categoria_correcta": 0},
+        {"id": 1, "text": "Crecimiento de la telemedicina", "categoria_correcta": 1},
+        {"id": 2, "text": "Sistema de turnos desactualizado", "categoria_correcta": 0},
+        {"id": 3, "text": "Inflación en insumos médicos", "categoria_correcta": 1},
+        {"id": 4, "text": "Reputación consolidada en la zona", "categoria_correcta": 0},
+        {"id": 5, "text": "Competencia de grandes grupos médicos", "categoria_correcta": 1}
       ]
     },
+
     "n3_completar_mapa": {
-      "consigna": "Completá los conceptos principales del bloque:",
-      "paginas_referencia": "9-13",
+      "consigna": "Completá los conceptos clave del análisis FODA y planeamiento:",
+      "paginas_referencia": "9-12",
       "blanks": [
         {
-          "id": "c1",
-          "texto_antes": "Fortalezas y debilidades son factores",
+          "id": "b1",
+          "texto_antes": "El análisis FODA fue desarrollado en la década de",
+          "respuesta_correcta": "1960",
+          "pista": "1___"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "Las fortalezas y debilidades son factores ________ que la organización puede modificar",
           "respuesta_correcta": "internos",
           "pista": "I_______"
         },
         {
-          "id": "c2",
-          "texto_antes": "La estrategia DO busca superar debilidades aprovechando",
-          "respuesta_correcta": "oportunidades",
-          "pista": "O____________"
-        },
-        {
-          "id": "c3",
-          "texto_antes": "PESTEL examina el macroentorno en seis dimensiones, incluida la dimensión",
-          "respuesta_correcta": "legal",
-          "pista": "L____"
+          "id": "b3",
+          "texto_antes": "El planeamiento __________ es de largo plazo (3-5 años) y lo realiza la alta dirección",
+          "respuesta_correcta": "estratégico",
+          "pista": "E__________"
         }
       ]
     },
+
     "n4_verdadero_falso": {
-      "paginas_referencia": "9-13",
+      "paginas_referencia": "9-12",
       "afirmaciones": [
         {
-          "texto": "El FODA vincula el análisis interno con el externo.",
+          "texto": "En el FODA, las oportunidades y amenazas son factores externos que la organización no puede controlar",
           "correcto": true,
-          "explicacion": "Verdadero. El PDF lo presenta como una herramienta integral que une lo que pasa dentro de la organización con lo que ocurre en el entorno."
+          "explicacion": "Verdadero. Las oportunidades y amenazas son factores EXTERNOS que la organización debe monitorear y a los que debe responder estratégicamente, pero no puede controlarlos directamente. Los factores controlables son las fortalezas y debilidades (página 10)."
         },
         {
-          "texto": "La estrategia FO consiste en minimizar debilidades y evitar amenazas.",
+          "texto": "El planeamiento estratégico es un evento único que se realiza una sola vez",
           "correcto": false,
-          "explicacion": "Falso. Esa es la lógica de la estrategia DA. La FO usa fortalezas para aprovechar oportunidades."
+          "explicacion": "Falso. El planeamiento estratégico NO es un evento único, sino un CICLO CONTINUO que integra diagnóstico, decisión y acción. Los resultados del control nutren el diagnóstico del próximo ciclo (página 12)."
         },
         {
-          "texto": "El planeamiento estratégico es un evento único que se hace una sola vez.",
-          "correcto": false,
-          "explicacion": "Falso. La unidad aclara que es un ciclo continuo que se retroalimenta."
+          "texto": "El análisis PESTEL examina seis dimensiones del macroentorno: Político, Económico, Social, Tecnológico, Ambiental y Legal",
+          "correcto": true,
+          "explicacion": "Verdadero. El análisis PESTEL es una herramienta complementaria al FODA que examina el macroentorno en estas seis dimensiones, siendo ideal para anticipar cambios externos de largo alcance (página 13)."
         }
       ]
     },
+
     "n5_relacionar_columnas": {
-      "paginas_referencia": "11-13",
+      "paginas_referencia": "11",
       "pares": [
         {
-          "izquierda": "FO",
+          "izquierda": "Estrategia FO",
           "derecha": "Usar fortalezas para aprovechar oportunidades",
-          "emoji": "🚀"
+          "emoji": "💪"
         },
         {
-          "izquierda": "FA",
+          "izquierda": "Estrategia FA",
           "derecha": "Usar fortalezas para neutralizar amenazas",
           "emoji": "🛡️"
         },
         {
-          "izquierda": "DO",
+          "izquierda": "Estrategia DO",
           "derecha": "Superar debilidades aprovechando oportunidades",
-          "emoji": "📱"
+          "emoji": "🔧"
         },
         {
-          "izquierda": "DA",
+          "izquierda": "Estrategia DA",
           "derecha": "Minimizar debilidades y evitar amenazas",
           "emoji": "⚠️"
         }
       ]
     },
+
     "n6_palabra_intrusa": {
-      "consigna": "Encontrá la palabra intrusa en cada grupo:",
       "paginas_referencia": "9-13",
       "grupos": [
         {
           "id": 0,
-          "emoji": "📋",
-          "pregunta": "¿Cuál NO es un componente del FODA?",
-          "paginas": "10",
+          "emoji": "📊",
+          "pregunta": "¿Cuál NO es un componente del análisis FODA?",
+          "paginas": "9-10",
           "palabras": [
-            {
-              "text": "Fortalezas",
-              "es_intrusa": false
-            },
-            {
-              "text": "Oportunidades",
-              "es_intrusa": false
-            },
-            {
-              "text": "Debilidades",
-              "es_intrusa": false
-            },
-            {
-              "text": "Rivalidad",
-              "es_intrusa": true
-            }
+            {"text": "Fortalezas", "es_intrusa": false},
+            {"text": "Oportunidades", "es_intrusa": false},
+            {"text": "Competitividad", "es_intrusa": true},
+            {"text": "Amenazas", "es_intrusa": false}
           ],
-          "explicacion": "Rivalidad es una noción asociada a Porter, no uno de los cuatro componentes del FODA."
+          "explicacion": "Competitividad es un resultado o concepto general, no un componente del FODA. Los 4 componentes son: Fortalezas, Oportunidades, Debilidades y Amenazas (página 10)."
         },
         {
           "id": 1,
-          "emoji": "🧰",
-          "pregunta": "¿Cuál NO es una herramienta complementaria nombrada en el PDF?",
-          "paginas": "13",
+          "emoji": "🎯",
+          "pregunta": "¿Cuál NO es un nivel de planeación jerárquica?",
+          "paginas": "12",
           "palabras": [
-            {
-              "text": "PESTEL",
-              "es_intrusa": false
-            },
-            {
-              "text": "Matriz de Perfil Competitivo",
-              "es_intrusa": false
-            },
-            {
-              "text": "FODA",
-              "es_intrusa": false
-            },
-            {
-              "text": "Balance Scorecard",
-              "es_intrusa": true
-            }
+            {"text": "Estratégico", "es_intrusa": false},
+            {"text": "Táctico", "es_intrusa": false},
+            {"text": "Financiero", "es_intrusa": true},
+            {"text": "Operativo", "es_intrusa": false}
           ],
-          "explicacion": "En esta unidad se nombran FODA, Porter, PESTEL y la Matriz de Perfil Competitivo. Balance Scorecard no aparece en el PDF."
+          "explicacion": "Financiero no es un nivel jerárquico de planeación. Los 3 niveles son: Estratégico (alta dirección, largo plazo), Táctico (mandos medios, mediano plazo) y Operativo (supervisores, corto plazo) (página 12)."
         }
       ]
     },
+
     "n7_defini_con_tus_palabras": {
       "paginas_referencia": "9-13",
       "conceptos": [
         {
           "termino": "Análisis FODA",
-          "pista": "¿Qué diagnóstico permite hacer de una organización?",
-          "palabras_clave": [
-            "fortalezas",
-            "debilidades",
-            "oportunidades",
-            "amenazas",
-            "interno",
-            "externo"
-          ]
+          "pista": "¿Qué herramienta diagnostica factores internos y externos de una organización?",
+          "palabras_clave": ["diagnóstico", "fortalezas", "debilidades", "oportunidades", "amenazas", "interno", "externo", "estratégico"]
         },
         {
-          "termino": "Planeamiento estratégico",
-          "pista": "¿Qué define una organización cuando piensa su dirección futura?",
-          "palabras_clave": [
-            "dirección",
-            "futura",
-            "acciones",
-            "diagnóstico",
-            "decisión",
-            "ciclo"
-          ]
+          "termino": "Estrategias cruzadas",
+          "pista": "¿Qué combina elementos del FODA para generar acciones estratégicas?",
+          "palabras_clave": ["combinar", "fortalezas", "debilidades", "oportunidades", "amenazas", "FO", "FA", "DO", "DA", "acciones"]
         },
         {
-          "termino": "Análisis PESTEL",
-          "pista": "¿Qué tipo de cambios ayuda a anticipar en el macroentorno?",
-          "palabras_clave": [
-            "político",
-            "económico",
-            "social",
-            "tecnológico",
-            "ambiental",
-            "legal"
-          ]
+          "termino": "Planeamiento táctico",
+          "pista": "¿Qué nivel de planeación lo realizan mandos medios a mediano plazo?",
+          "palabras_clave": ["mediano", "plazo", "mandos", "medios", "intermedio", "departamental", "1-2 años"]
         }
       ]
     },
+
     "n8_causa_efecto": {
-      "paginas_referencia": "11-13",
+      "paginas_referencia": "9-13",
       "causas": [
         {
           "id": 0,
-          "text": "La clínica tiene equipo médico calificado y crece la telemedicina",
-          "emoji": "🏥"
+          "emoji": "🏥",
+          "text": "Una clínica tiene sistema de turnos desactualizado (debilidad) pero crece la telemedicina (oportunidad)"
         },
         {
           "id": 1,
-          "text": "La clínica tiene reputación consolidada y enfrenta grandes grupos médicos",
-          "emoji": "⭐"
+          "emoji": "📊",
+          "text": "Se realiza un análisis FODA completo de la organización"
         },
         {
           "id": 2,
-          "text": "El sistema de turnos está desactualizado y hay pacientes online",
-          "emoji": "💻"
+          "emoji": "🎯",
+          "text": "El planeamiento es estratégico (largo plazo) en vez de operativo (corto plazo)"
         },
         {
           "id": 3,
-          "text": "Se integran FODA, Porter, PESTEL y matriz competitiva",
-          "emoji": "🧰"
+          "emoji": "🔄",
+          "text": "El control detecta desviaciones entre resultados planeados y reales"
         }
       ],
       "efectos": [
         {
           "id": 0,
-          "text": "Puede lanzarse una plataforma de telemedicina",
           "causa_id": 0,
-          "emoji": "📱"
+          "emoji": "💻",
+          "text": "Se aplica estrategia DO: digitalizar turnos para captar pacientes online"
         },
         {
           "id": 1,
-          "text": "Se puede destacar la reputación frente a la competencia",
           "causa_id": 1,
-          "emoji": "🛡️"
+          "emoji": "🗺️",
+          "text": "Se formulan estrategias cruzadas (FO, FA, DO, DA) alineadas a la realidad"
         },
         {
           "id": 2,
-          "text": "Conviene digitalizar el sistema de turnos",
           "causa_id": 2,
-          "emoji": "🔄"
+          "emoji": "🌟",
+          "text": "Se define visión de 3-5 años con orientación al futuro y flexibilidad"
         },
         {
           "id": 3,
-          "text": "Las decisiones estratégicas se vuelven más robustas y con menos puntos ciegos",
           "causa_id": 3,
-          "emoji": "🎯"
+          "emoji": "⚙️",
+          "text": "Se toman acciones correctivas para reencauzar hacia los objetivos"
         }
       ]
     },
+
     "n9_ordenar_proceso": {
-      "consigna": "Ordená un recorrido lógico para pasar del diagnóstico a la acción estratégica:",
-      "paginas_referencia": "9-13",
+      "consigna": "Ordená los pasos para realizar un análisis FODA completo y aplicarlo:",
+      "paginas_referencia": "9-11",
       "pasos_en_orden_correcto": [
         {
           "id": 0,
-          "text": "Identificar fortalezas, debilidades, oportunidades y amenazas",
-          "emoji": "🔍"
+          "emoji": "🔍",
+          "text": "Identificar fortalezas y debilidades internas de la organización"
         },
         {
           "id": 1,
-          "text": "Cruzar variables para formular estrategias FO, FA, DO y DA",
-          "emoji": "➕"
+          "emoji": "🌍",
+          "text": "Analizar oportunidades y amenazas del entorno externo"
         },
         {
           "id": 2,
-          "text": "Definir acciones según el nivel estratégico, táctico u operativo",
-          "emoji": "📐"
+          "emoji": "📊",
+          "text": "Construir la matriz FODA cruzando factores internos y externos"
         },
         {
           "id": 3,
-          "text": "Implementar las acciones planificadas",
-          "emoji": "⚙️"
+          "emoji": "💡",
+          "text": "Formular estrategias cruzadas: FO, FA, DO, DA"
         },
         {
           "id": 4,
-          "text": "Controlar resultados y retroalimentar el próximo ciclo",
-          "emoji": "📊"
+          "emoji": "⚙️",
+          "text": "Implementar las estrategias priorizadas y hacer seguimiento"
         }
       ]
     },
+
     "n10_comparador": {
-      "paginas_referencia": "9-13",
+      "paginas_referencia": "12",
       "concepto_a": {
-        "nombre": "Análisis FODA",
-        "emoji": "📋",
+        "nombre": "Planeamiento Estratégico",
+        "emoji": "🎯",
         "color": "#EC4899"
       },
       "concepto_b": {
-        "nombre": "Análisis PESTEL",
-        "emoji": "🌍",
-        "color": "#10B981"
+        "nombre": "Planeamiento Operativo",
+        "emoji": "⚙️",
+        "color": "#6366F1"
       }
     }
+  },
+
+  "senales": {
+    "conceptos_clave": [
+      {
+        "emoji": "🏢",
+        "termino": "Sistema Abierto",
+        "color": "#6366F1",
+        "definicion": "La organización interactúa permanentemente con su entorno: recibe insumos del exterior, los transforma mediante procesos internos y genera productos o servicios. Esta dinámica la hace vulnerable a cambios externos pero también capaz de adaptarse y evolucionar.",
+        "importancia": "Sin entender que las organizaciones son sistemas abiertos, no se puede comprender cómo sobreviven y prosperan. Toda estrategia debe considerar esta interacción constante con el entorno competitivo."
+      },
+      {
+        "emoji": "⚔️",
+        "termino": "5 Fuerzas de Porter",
+        "color": "#10B981",
+        "definicion": "Modelo estratégico que identifica cinco presiones competitivas que determinan la atractividad de un sector: rivalidad entre competidores, amenaza de nuevos entrantes, poder de proveedores, poder de clientes y amenaza de productos sustitutos.",
+        "importancia": "Sin analizar las 5 fuerzas, no se puede diseñar una estrategia competitiva sólida. Cada fuerza impacta directamente en la rentabilidad y supervivencia de la organización en su sector."
+      },
+      {
+        "emoji": "📋",
+        "termino": "Análisis FODA",
+        "color": "#F59E0B",
+        "definicion": "Herramienta de diagnóstico estratégico que cruza factores internos (fortalezas y debilidades que la organización controla) con factores externos (oportunidades y amenazas del entorno que no controla). Genera estrategias cruzadas: FO, FA, DO, DA.",
+        "importancia": "Sin FODA, la planeación estratégica es ciega. Es el punto de partida para entender la situación real de la organización y diseñar acciones concretas basadas en la realidad, no en deseos."
+      },
+      {
+        "emoji": "🎯",
+        "termino": "Planeamiento Estratégico",
+        "color": "#EC4899",
+        "definicion": "Proceso sistemático y continuo de definir la dirección futura de la organización (misión, visión, objetivos estratégicos) y diseñar las acciones para alcanzarla. Incluye diagnóstico → formulación → implementación → control → retroalimentación.",
+        "importancia": "Sin planeamiento estratégico, la organización navega sin rumbo. Es la diferencia entre reaccionar al entorno (modo supervivencia) y anticiparse activamente para crear ventajas competitivas sostenibles."
+      }
+    ],
+    "semaforo_conceptos": [
+      {"emoji": "🏢", "termino": "Sistema abierto"},
+      {"emoji": "⚔️", "termino": "5 Fuerzas de Porter"},
+      {"emoji": "💎", "termino": "Diamante de Porter"},
+      {"emoji": "📋", "termino": "Análisis FODA"},
+      {"emoji": "🎯", "termino": "Planeamiento estratégico"}
+    ],
+    "postits_conceptos": [
+      "Sistema Abierto",
+      "5 Fuerzas de Porter",
+      "Análisis FODA",
+      "Planeamiento Estratégico"
+    ]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {
+        "emoji": "💎",
+        "color": "#F59E0B",
+        "frente": "Silicon Valley: el clúster más exitoso del planeta",
+        "dorso": "Silicon Valley es el ejemplo perfecto del Diamante de Porter: factores avanzados (Stanford, MIT, ingenieros top), demanda sofisticada (early adopters tecnológicos), industrias de apoyo (capital de riesgo, incubadoras), rivalidad feroz (Google vs Meta vs Apple) y gobierno promotor (inversión en I+D). Todo esto convirtió un valle californiano en el epicentro mundial de la innovación tecnológica."
+      },
+      {
+        "emoji": "📊",
+        "color": "#6366F1",
+        "frente": "Netflix destruyó a Blockbuster aplicando las 5 Fuerzas",
+        "dorso": "Blockbuster ignoró la amenaza de nuevos entrantes digitales (Netflix) y la amenaza de productos sustitutos (streaming vs DVD físico). Netflix aprovechó bajo poder de proveedores (contenido digital), alto poder de clientes (cancelación fácil) y baja rivalidad inicial en streaming. Resultado: Blockbuster quebró en 2010 mientras Netflix llegó a 230 millones de suscriptores. Las 5 Fuerzas explicaron todo el proceso."
+      },
+      {
+        "emoji": "🌍",
+        "color": "#10B981",
+        "frente": "El FODA nació en una guerra empresarial",
+        "dorso": "El análisis FODA fue desarrollado en Stanford en los años 60 durante estudios de competitividad empresarial en la Guerra Fría. Originalmente se llamaba SOFT (Satisfactory, Opportunity, Fault, Threat) pero evolucionó al SWOT/FODA actual. Lo que empezó como herramienta militar de inteligencia competitiva se convirtió en el diagnóstico estratégico más usado del mundo empresarial."
+      }
+    ],
+    "linea_de_tiempo": [
+      {
+        "emoji": "📚",
+        "year": "1960",
+        "text": "Desarrollo del análisis FODA en Stanford Research Institute durante estudios de competitividad"
+      },
+      {
+        "emoji": "⚔️",
+        "year": "1979",
+        "text": "Michael Porter publica el modelo de las 5 Fuerzas en Harvard Business Review"
+      },
+      {
+        "emoji": "💎",
+        "year": "1990",
+        "text": "Porter desarrolla el modelo del Diamante para explicar ventaja competitiva de naciones"
+      },
+      {
+        "emoji": "🌐",
+        "year": "2000s",
+        "text": "Internet revoluciona la aplicación de estos modelos: aparecen nuevas fuerzas digitales"
+      },
+      {
+        "emoji": "🤖",
+        "year": "2020s",
+        "text": "IA y análisis de big data transforman el planeamiento estratégico y el análisis competitivo"
+      }
+    ],
+    "encuesta": {
+      "pregunta": "¿Qué dato te voló la cabeza?",
+      "opciones": [
+        {
+          "emoji": "💎",
+          "text": "Que Silicon Valley es el Diamante de Porter perfecto",
+          "votos_iniciales": 45
+        },
+        {
+          "emoji": "📊",
+          "text": "Que las 5 Fuerzas explicaron la caída de Blockbuster",
+          "votos_iniciales": 38
+        },
+        {
+          "emoji": "🌍",
+          "text": "Que el FODA nació como herramienta militar",
+          "votos_iniciales": 32
+        }
+      ]
+    }
+  },
+
+  "cruces": {
+    "consigna_general": "Elegí un tema de cada bloque que te haya interesado y preparate para explicárselo a un compañero. Podés usar esquemas, dibujos, ejemplos... ¡lo que quieras!",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "🏢",
+        "titulo": "BLOQUE A: Fundamentos de las organizaciones",
+        "color": "#6366F1",
+        "temas_sugeridos": [
+          "Por qué las organizaciones son sistemas abiertos",
+          "Diferencia entre estructura y cultura organizacional",
+          "Los tres tipos de fines: económicos, sociales y desarrollo humano",
+          "El ciclo de las cuatro funciones: planeación → organización → dirección → control",
+          "Por qué empresas, ONG e instituciones públicas tienen fines distintos"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+      },
+      {
+        "id": "b",
+        "emoji": "⚔️",
+        "titulo": "BLOQUE B: Análisis del entorno competitivo",
+        "color": "#10B981",
+        "temas_sugeridos": [
+          "Las 5 Fuerzas de Porter y cómo aplicarlas a un sector real (ej: restaurantes, tecnología, retail)",
+          "Por qué Apple controla tan bien sus fuerzas competitivas",
+          "El Diamante de Porter: cómo explica el éxito de Silicon Valley",
+          "Diferencia entre factores básicos y avanzados en la competitividad nacional",
+          "Cómo transformar el diagnóstico de Porter en decisiones estratégicas"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+      },
+      {
+        "id": "c",
+        "emoji": "📋",
+        "titulo": "BLOQUE C: Análisis FODA y planeamiento estratégico",
+        "color": "#F59E0B",
+        "temas_sugeridos": [
+          "Cómo diferenciar factores internos (F-D) de externos (O-A) en un FODA",
+          "Las 4 estrategias cruzadas: FO, FA, DO, DA con ejemplos reales",
+          "El proceso completo del planeamiento: diagnóstico → formulación → implementación → control",
+          "Diferencia entre planeamiento estratégico, táctico y operativo",
+          "Herramientas complementarias: PESTEL y matriz de perfil competitivo"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+      }
+    ]
+  },
+
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "Las organizaciones deberían priorizar exclusivamente la rentabilidad económica por sobre los fines sociales",
+      "contexto": "Algunas empresas argumentan que su única responsabilidad es generar ganancias para los accionistas. Otras sostienen que deben equilibrar rentabilidad con impacto social, ambiental y desarrollo humano. ¿Qué postura es la correcta?",
+      "roles": [
+        {
+          "id": "fiscal",
+          "emoji": "💰",
+          "label": "A favor de rentabilidad exclusiva",
+          "desc": "Argumentá por qué las empresas deben enfocarse solo en maximizar ganancias y dejar lo social al Estado y las ONG",
+          "color": "#EF4444"
+        },
+        {
+          "id": "defensa",
+          "emoji": "🤝",
+          "label": "A favor del equilibrio",
+          "desc": "Argumentá por qué las organizaciones deben equilibrar rentabilidad, impacto social y desarrollo humano simultáneamente",
+          "color": "#10B981"
+        },
+        {
+          "id": "juez",
+          "emoji": "⚖️",
+          "label": "Posición integradora",
+          "desc": "Proponé un modelo que integre ambos enfoques: ¿cómo puede una empresa ser rentable Y socialmente responsable?",
+          "color": "#6366F1"
+        }
+      ]
+    },
+    "tesis": {
+      "consigna": "Formulá una tesis sobre cómo el análisis estratégico (Porter + FODA + Planeamiento) puede ayudar a una organización argentina a competir globalmente. Incluí: (1) Tu tesis principal, (2) Dos evidencias del PDF que la apoyen (con páginas), (3) Dos contraargumentos posibles, (4) Una conclusión que defienda tu postura integrando los tres modelos estudiados."
+    },
+    "critica": {
+      "consigna": "Analizá críticamente las herramientas estratégicas estudiadas (5 Fuerzas, Diamante, FODA): ¿Qué fortalezas tienen para el análisis organizacional? ¿Qué limitaciones o puntos ciegos presentan? ¿Son suficientes para enfrentar la incertidumbre del contexto actual (pandemia, inflación, tecnología disruptiva)? ¿Qué agregarías o modificarías para hacerlas más útiles?"
+    }
+  },
+
+  "autotest": {
+    "banco_respuestas_docente": [
+      "1. B - Sistema abierto significa que interactúa con el entorno: recibe insumos, transforma y genera productos. (p. 2)",
+      "2. C - Planeación: define metas y estrategias. (p. 4)",
+      "3. A - Rivalidad entre competidores existentes. (p. 5)",
+      "4. C - Condiciones de demanda sofisticada. (p. 6)",
+      "5. B - Usar fortalezas para aprovechar oportunidades (FO). (p. 11)",
+      "6. C - Diagnóstico → Formulación → Implementación → Control. (p. 12)",
+      "7. B - El Diamante analiza por qué naciones logran ventaja en industrias específicas. (p. 6)",
+      "8. A - Contratos exclusivos con proveedores y ecosistemas cerrados. (p. 8)",
+      "9. D - Factores internos controlables. (p. 10)",
+      "10. C - Estratégico: largo plazo (3-5 años), alta dirección. (p. 12)",
+      "11. VERDADERO - Recibe insumos, transforma y genera productos, siendo vulnerable pero adaptable. (p. 2)",
+      "12. FALSO - Las 5 Fuerzas analizan CINCO dimensiones competitivas, no solo rivalidad. (p. 5)",
+      "13. VERDADERO - Fortalezas/Debilidades son internas; Oportunidades/Amenazas son externas. (p. 10)",
+      "14. FALSO - Es un ciclo continuo que se retroalimenta, no un evento único. (p. 12)",
+      "15. VERDADERO - Factores avanzados (personal especializado, I+D) son cruciales para ventaja de largo plazo. (p. 6)"
+    ],
+    "preguntas": [
+      {
+        "pregunta": "¿Qué significa que una organización funcione como 'sistema abierto'?",
+        "opciones": [
+          "Que tiene puertas abiertas al público todos los días",
+          "Que interactúa con el entorno: recibe insumos, transforma y genera productos/servicios",
+          "Que no tiene jerarquía ni estructura organizacional definida",
+          "Que permite que cualquiera pueda ser parte de la organización"
+        ],
+        "correcta": 1,
+        "explicacion": "Como sistema abierto, la organización interactúa permanentemente con su entorno: recibe insumos (inputs), los transforma mediante procesos internos y genera productos o servicios (outputs). Esta dinámica la hace vulnerable a cambios externos pero también capaz de adaptarse. Revisá la página 2 para profundizar este concepto fundamental."
+      },
+      {
+        "pregunta": "¿Cuál de las siguientes es una FUNCIÓN organizacional básica?",
+        "opciones": [
+          "Competencia",
+          "Rentabilidad",
+          "Planeación",
+          "Innovación"
+        ],
+        "correcta": 2,
+        "explicacion": "Planeación es una de las 4 funciones organizacionales básicas: Planeación (definir metas y estrategias), Organización (asignar recursos y estructura), Dirección (liderar equipos) y Control (evaluar resultados). Competencia y rentabilidad son conceptos relacionados pero no son funciones organizacionales. Repasá la página 4 para entender el ciclo completo."
+      },
+      {
+        "pregunta": "En el modelo de las 5 Fuerzas de Porter, ¿cuál fuerza representa la intensidad de competencia actual en el sector?",
+        "opciones": [
+          "Rivalidad entre competidores existentes",
+          "Amenaza de nuevos entrantes",
+          "Poder de negociación de clientes",
+          "Amenaza de productos sustitutos"
+        ],
+        "correcta": 0,
+        "explicacion": "La rivalidad entre competidores existentes mide la intensidad de competencia actual en el sector (cuántos competidores hay, qué tan agresiva es la competencia). Las otras 4 fuerzas son amenazas o presiones adicionales. Revisá las páginas 5 y 8 para ver cómo se aplica cada fuerza estratégicamente."
+      },
+      {
+        "pregunta": "Según el Diamante de Porter, ¿qué factor se refiere a la sofisticación y exigencia del mercado local?",
+        "opciones": [
+          "Condiciones de factores productivos",
+          "Industrias relacionadas y de apoyo",
+          "Condiciones de demanda",
+          "Estrategia y rivalidad empresarial"
+        ],
+        "correcta": 2,
+        "explicacion": "Las condiciones de demanda se refieren a la naturaleza y sofisticación de la demanda interna. Una demanda local exigente, anticipatoria y de gran volumen presiona a las empresas a innovar constantemente, preparándolas mejor para competir internacionalmente. Consultá la página 6 para ver ejemplos de demanda sofisticada."
+      },
+      {
+        "pregunta": "Una clínica con 'equipo médico calificado' (fortaleza) que aprovecha el 'crecimiento de la telemedicina' (oportunidad) está aplicando una estrategia:",
+        "opciones": [
+          "FA (Fortaleza-Amenaza)",
+          "FO (Fortaleza-Oportunidad)",
+          "DO (Debilidad-Oportunidad)",
+          "DA (Debilidad-Amenaza)"
+        ],
+        "correcta": 1,
+        "explicacion": "Es una estrategia FO (Fortaleza-Oportunidad): usa una fortaleza interna (equipo calificado) para aprovechar una oportunidad externa (crecimiento de telemedicina). Ejemplo: 'Lanzar plataforma de telemedicina aprovechando el equipo médico calificado'. Las estrategias cruzadas se explican en la página 11 con el caso de la clínica."
+      },
+      {
+        "pregunta": "¿Cuál es el orden correcto del proceso de planeamiento estratégico?",
+        "opciones": [
+          "Implementación → Diagnóstico → Formulación → Control",
+          "Formulación → Implementación → Diagnóstico → Control",
+          "Diagnóstico → Formulación → Implementación → Control",
+          "Control → Diagnóstico → Formulación → Implementación"
+        ],
+        "correcta": 2,
+        "explicacion": "El proceso de planeamiento estratégico es un ciclo que sigue este orden: 1) Diagnóstico (análisis FODA, situación actual), 2) Formulación (definir misión, visión, objetivos, estrategias), 3) Implementación (ejecutar planes, asignar recursos), 4) Control (evaluar resultados, acciones correctivas). Los resultados del control nutren el próximo ciclo de diagnóstico. Repasá la página 12 para entender el ciclo completo."
+      },
+      {
+        "pregunta": "¿Qué analiza principalmente el modelo del Diamante de Porter?",
+        "opciones": [
+          "La atractividad de una industria mediante 5 fuerzas competitivas",
+          "Por qué ciertas naciones logran ventaja competitiva en industrias específicas a nivel global",
+          "Los factores internos de fortalezas y debilidades organizacionales",
+          "El ciclo de planeamiento estratégico de una empresa"
+        ],
+        "correcta": 1,
+        "explicacion": "El Diamante de Porter (1990) analiza por qué ciertas naciones o regiones logran ventaja competitiva sostenida en industrias específicas a nivel global. Examina 5 factores clave: condiciones de factores, demanda, industrias relacionadas, rivalidad empresarial y rol del gobierno. Ejemplo clásico: Silicon Valley en tecnología. Consultá las páginas 6-7 para ver los ejemplos de aplicación."
+      },
+      {
+        "pregunta": "¿Cómo logra Apple reducir el poder de negociación de sus proveedores según el caso del PDF?",
+        "opciones": [
+          "Mediante contratos exclusivos y diseño propietario",
+          "Comprando solo a proveedores argentinos",
+          "Permitiendo que los proveedores fijen los precios libremente",
+          "Usando solo proveedores pequeños sin poder de mercado"
+        ],
+        "correcta": 0,
+        "explicacion": "Apple gestiona su cadena de proveedores con contratos exclusivos y diseño propietario, reduciendo el poder de negociación de proveedores. Además, crea ecosistemas cerrados que fidelizan clientes y elevan las barreras de sustitución. Este es un ejemplo de aplicación estratégica del modelo de Porter. Revisá la página 8 para ver el caso completo de Apple."
+      },
+      {
+        "pregunta": "En el análisis FODA, las fortalezas y debilidades son:",
+        "opciones": [
+          "Factores externos que la organización no puede controlar",
+          "Factores que solo importan en el sector tecnológico",
+          "Solo relevantes para empresas grandes",
+          "Factores internos que la organización puede modificar"
+        ],
+        "correcta": 3,
+        "explicacion": "Fortalezas y Debilidades son factores INTERNOS que la organización puede modificar (controlables). Oportunidades y Amenazas son factores EXTERNOS que debe monitorear pero no puede controlar directamente. Esta distinción es fundamental para formular estrategias realistas. Repasá la página 10 para entender la diferencia entre interno/externo."
+      },
+      {
+        "pregunta": "¿Qué caracteriza al planeamiento de nivel ESTRATÉGICO?",
+        "opciones": [
+          "Corto plazo, realizado por supervisores",
+          "Mediano plazo, realizado por mandos medios",
+          "Largo plazo (3-5 años), realizado por alta dirección",
+          "Diario, realizado por empleados operativos"
+        ],
+        "correcta": 2,
+        "explicacion": "El planeamiento estratégico es de largo plazo (3-5 años), lo realiza la alta dirección y define la visión, misión y objetivos generales de la organización. El táctico es de mediano plazo (1-2 años) por mandos medios. El operativo es de corto plazo (días a meses) por supervisores. Consultá la página 12 para ver la comparación de los 3 niveles jerárquicos."
+      }
+    ],
+    "verdadero_falso": [
+      {
+        "texto": "Una organización como sistema abierto recibe insumos del entorno, los transforma y genera productos/servicios",
+        "correcto": true,
+        "explicacion": "VERDADERO. La organización interactúa permanentemente con su entorno: recibe insumos (inputs), los transforma mediante procesos internos y genera productos o servicios (outputs). Esta dinámica la hace vulnerable a cambios externos pero también capaz de adaptarse. Más información en la página 2."
+      },
+      {
+        "texto": "El modelo de las 5 Fuerzas de Porter analiza solo la rivalidad entre competidores existentes",
+        "correcto": false,
+        "explicacion": "FALSO. El modelo analiza CINCO fuerzas competitivas: 1) Rivalidad entre competidores existentes, 2) Amenaza de nuevos entrantes, 3) Poder de negociación de proveedores, 4) Poder de negociación de clientes, y 5) Amenaza de productos sustitutos. Analizar solo rivalidad sería incompleto. Repasá la página 5 para entender las 5 fuerzas completas."
+      },
+      {
+        "texto": "En el FODA, las fortalezas y debilidades son factores internos, mientras que oportunidades y amenazas son externos",
+        "correcto": true,
+        "explicacion": "VERDADERO. Fortalezas y Debilidades son factores INTERNOS que la organización puede modificar (controlables). Oportunidades y Amenazas son factores EXTERNOS que debe monitorear y a los que debe responder estratégicamente, pero no puede controlarlos directamente. Esta distinción es clave para el diagnóstico correcto. Consultá la página 10."
+      },
+      {
+        "texto": "El planeamiento estratégico es un evento único que se realiza una sola vez en la vida de la organización",
+        "correcto": false,
+        "explicacion": "FALSO. El planeamiento estratégico NO es un evento único, sino un CICLO CONTINUO que integra diagnóstico, decisión y acción. Los resultados del control nutren el diagnóstico del próximo ciclo, creando un proceso de mejora continua y adaptación permanente al entorno cambiante. Revisá la página 12 para entender el ciclo completo."
+      },
+      {
+        "texto": "Según el Diamante de Porter, los factores avanzados (personal especializado, I+D) son más cruciales que los básicos para ventaja competitiva de largo plazo",
+        "correcto": true,
+        "explicacion": "VERDADERO. Porter distingue entre factores básicos (recursos naturales, mano de obra no calificada) y factores avanzados (personal altamente especializado, centros de investigación), siendo estos últimos cruciales para la ventaja competitiva sostenida en el tiempo. Los factores básicos pueden copiarse, los avanzados son difíciles de replicar. Más detalles en la página 6."
+      }
+    ]
+  },
+
+  "cierre": {
+    "glosario": [
+      {
+        "emoji": "🏢",
+        "termino": "Organización",
+        "categoria": "Concepto base",
+        "definicion": "Conjunto de personas y recursos coordinados con el propósito de alcanzar objetivos comunes. Funciona como sistema abierto que interactúa con su entorno."
+      },
+      {
+        "emoji": "🔄",
+        "termino": "Sistema abierto",
+        "categoria": "Concepto base",
+        "definicion": "Sistema que interactúa permanentemente con su entorno: recibe insumos, los transforma mediante procesos internos y genera productos/servicios. Es vulnerable a cambios externos pero capaz de adaptarse."
+      },
+      {
+        "emoji": "⚔️",
+        "termino": "5 Fuerzas de Porter",
+        "categoria": "Análisis estratégico",
+        "definicion": "Modelo de Porter (1979) para analizar atractividad y competitividad de una industria: rivalidad entre competidores, amenaza de nuevos entrantes, poder de proveedores, poder de clientes, amenaza de sustitutos."
+      },
+      {
+        "emoji": "💎",
+        "termino": "Diamante de Porter",
+        "categoria": "Análisis estratégico",
+        "definicion": "Modelo de Porter (1990) que explica por qué ciertas naciones logran ventaja competitiva en industrias específicas: condiciones de factores, demanda, industrias relacionadas, rivalidad empresarial, rol del gobierno."
+      },
+      {
+        "emoji": "📋",
+        "termino": "Análisis FODA",
+        "categoria": "Análisis estratégico",
+        "definicion": "Herramienta de diagnóstico que identifica Fortalezas y Debilidades (factores internos controlables) y Oportunidades y Amenazas (factores externos no controlables). Base para estrategias cruzadas FO, FA, DO, DA."
+      },
+      {
+        "emoji": "🏆",
+        "termino": "Ventaja competitiva",
+        "categoria": "Estrategia",
+        "definicion": "Capacidad de una organización para superar a sus competidores de manera sostenible, mediante diferenciación (ofrecer algo único), liderazgo en costos (producir más barato) o enfoque en nichos."
+      },
+      {
+        "emoji": "🎯",
+        "termino": "Planeamiento estratégico",
+        "categoria": "Planeamiento",
+        "definicion": "Proceso sistemático y continuo de definir la dirección futura de la organización (misión, visión, objetivos) y diseñar acciones para alcanzarla. Ciclo: diagnóstico → formulación → implementación → control."
+      },
+      {
+        "emoji": "👥",
+        "termino": "Stakeholders",
+        "categoria": "Gestión organizacional",
+        "definicion": "Grupos de interés afectados por las decisiones de la organización: accionistas, empleados, clientes, proveedores, comunidad, gobierno. Las organizaciones exitosas equilibran intereses múltiples."
+      }
+    ],
+    "recursos": [
+      {
+        "tipo": "🎬 Video",
+        "title": "Las 5 Fuerzas de Porter explicadas con ejemplos — Platzi",
+        "desc": "Video animado de 12 minutos que explica cada fuerza competitiva con casos reales de empresas como Uber, Netflix y Apple. Ideal para visualizar conceptos abstractos.",
+        "nivel": "Introductorio",
+        "color": "#8B5CF6"
+      },
+      {
+        "tipo": "📖 Libro",
+        "title": "Ventaja Competitiva — Michael Porter",
+        "desc": "El libro clásico donde Porter desarrolla sus modelos de estrategia competitiva. Aunque técnico, los capítulos iniciales son accesibles y explican fundamentos del análisis estratégico.",
+        "nivel": "Avanzado",
+        "color": "#EF4444"
+      },
+      {
+        "tipo": "🌐 Web",
+        "title": "Harvard Business Review en Español",
+        "desc": "Artículos sobre gestión, estrategia y liderazgo organizacional con casos de empresas latinoamericanas y globales. Sección de estrategia empresarial muy accesible.",
+        "nivel": "Intermedio",
+        "color": "#F59E0B"
+      },
+      {
+        "tipo": "🎧 Podcast",
+        "title": "Esto no es Hollywood — Casos de empresas argentinas",
+        "desc": "Podcast que analiza casos de éxito y fracaso de empresas argentinas: Mercado Libre, Despegar, Globant. Conecta teoría estratégica con realidad local y decisiones concretas.",
+        "nivel": "Intermedio",
+        "color": "#3B82F6"
+      },
+      {
+        "tipo": "📄 Artículo",
+        "title": "Casos de estudio de estrategia — INCAE Business School",
+        "desc": "Repositorio de casos latinoamericanos de estrategia empresarial. Permite ver cómo se aplican Porter, FODA y planeamiento estratégico en contextos reales de la región.",
+        "nivel": "Avanzado",
+        "color": "#10B981"
+      }
+    ]
   }
 }
