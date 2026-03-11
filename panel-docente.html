@@ -262,20 +262,29 @@ function renderTab(){
 
 // ----- TAB 0: ALUMNOS -----
 function renderAlumnos(){
-  // Guardar el valor actual del input ANTES de re-renderizar
-  var valorBusqueda = (document.getElementById("searchAlumno")||{value:""}).value;
-  var cursoSeleccionado = (document.getElementById("filterCurso")||{value:""}).value;
+  // Si es la primera vez, crear el input y los filtros
+  var existeInput = document.getElementById("searchAlumno");
+  if(!existeInput){
+    var h = '<div class="search-row">';
+    h += '<input class="search-input" type="text" placeholder="🔍 Buscar alumno..." id="searchAlumno">';
+    h += '<select class="filter-select" id="filterCurso"><option value="">Todos los cursos</option>';
+    var cursos = [...new Set(allAlumnos.map(function(a){return a.curso}))].sort();
+    cursos.forEach(function(c){ h += '<option>'+c+'</option>'; });
+    h += '</select></div>';
+    h += '<div id="tablaAlumnos"></div>';
+    document.getElementById("tabContent").innerHTML = h;
+    
+    // Agregar eventos DESPUÉS de crear el HTML
+    document.getElementById("searchAlumno").addEventListener("input", filtrarAlumnos);
+    document.getElementById("filterCurso").addEventListener("change", filtrarAlumnos);
+  }
   
-  var h = '<div class="search-row">';
-  h += '<input class="search-input" type="text" placeholder="🔍 Buscar alumno..." id="searchAlumno" value="'+valorBusqueda+'" oninput="renderAlumnos()">';
-  h += '<select class="filter-select" id="filterCurso" onchange="renderAlumnos()">';
-  h += '<option value="">Todos los cursos</option>';
-  var cursos = [...new Set(allAlumnos.map(function(a){return a.curso}))].sort();
-  cursos.forEach(function(c){ h += '<option'+(c===cursoSeleccionado?' selected':'')+'>'+c+'</option>'; });
-  h += '</select></div>';
+  filtrarAlumnos();
+}
 
-  var q = valorBusqueda.toLowerCase().trim();
-  var fc = cursoSeleccionado;
+function filtrarAlumnos(){
+  var q = (document.getElementById("searchAlumno")||{value:""}).value.toLowerCase().trim();
+  var fc = (document.getElementById("filterCurso")||{value:""}).value;
   var filtered = allAlumnos.filter(function(a){
     // Buscar en nombre completo, código y separar por palabras
     var nombreCompleto = a.nombre.toLowerCase();
@@ -290,26 +299,30 @@ function renderAlumnos(){
     return matchQ && matchC;
   });
 
-  if(!filtered.length){ h += '<div class="empty-state">No se encontraron alumnos</div>'; document.getElementById("tabContent").innerHTML=h; return; }
-
-  h += '<div class="table-wrap"><table>';
-  h += '<thead><tr><th>Alumno</th><th>Curso</th><th>Clave</th><th>Ingresos</th><th>Actividades</th><th>Última visita</th></tr></thead><tbody>';
-  filtered.forEach(function(a){
-    var sesiones = allSesiones.filter(function(s){return s.alumno_codigo===a.codigo}).length;
-    var actividades = allProgreso.filter(function(p){return p.alumno_codigo===a.codigo}).length;
-    var ultimas = allSesiones.filter(function(s){return s.alumno_codigo===a.codigo}).sort(function(x,y){return new Date(y.fecha)-new Date(x.fecha)});
-    var ultima = ultimas.length ? new Date(ultimas[0].fecha).toLocaleDateString("es-AR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}) : "—";
-    h += '<tr>';
-    h += '<td><strong>'+a.nombre+'</strong></td>';
-    h += '<td><span class="badge badge-blue">'+a.curso+'</span></td>';
-    h += '<td><code style="background:#0F172A;padding:3px 8px;border-radius:6px;font-size:12px;color:#A78BFA">'+a.codigo+'</code></td>';
-    h += '<td>'+sesiones+'</td>';
-    h += '<td>'+actividades+'</td>';
-    h += '<td style="font-size:12px;color:#64748B">'+ultima+'</td>';
-    h += '</tr>';
-  });
-  h += '</tbody></table></div>';
-  document.getElementById("tabContent").innerHTML = h;
+  var h = '';
+  if(!filtered.length){ 
+    h = '<div class="empty-state">No se encontraron alumnos</div>'; 
+  } else {
+    h += '<div class="table-wrap"><table>';
+    h += '<thead><tr><th>Alumno</th><th>Curso</th><th>Clave</th><th>Ingresos</th><th>Actividades</th><th>Última visita</th></tr></thead><tbody>';
+    filtered.forEach(function(a){
+      var sesiones = allSesiones.filter(function(s){return s.alumno_codigo===a.codigo}).length;
+      var actividades = allProgreso.filter(function(p){return p.alumno_codigo===a.codigo}).length;
+      var ultimas = allSesiones.filter(function(s){return s.alumno_codigo===a.codigo}).sort(function(x,y){return new Date(y.fecha)-new Date(x.fecha)});
+      var ultima = ultimas.length ? new Date(ultimas[0].fecha).toLocaleDateString("es-AR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}) : "—";
+      h += '<tr>';
+      h += '<td><strong>'+a.nombre+'</strong></td>';
+      h += '<td><span class="badge badge-blue">'+a.curso+'</span></td>';
+      h += '<td><code style="background:#0F172A;padding:3px 8px;border-radius:6px;font-size:12px;color:#A78BFA">'+a.codigo+'</code></td>';
+      h += '<td>'+sesiones+'</td>';
+      h += '<td>'+actividades+'</td>';
+      h += '<td style="font-size:12px;color:#64748B">'+ultima+'</td>';
+      h += '</tr>';
+    });
+    h += '</tbody></table></div>';
+  }
+  
+  document.getElementById("tablaAlumnos").innerHTML = h;
 }
 
 // ----- TAB 1: PROGRESO -----
