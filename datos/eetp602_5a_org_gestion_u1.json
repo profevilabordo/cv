@@ -46,7 +46,7 @@
       {
         "id": "A",
         "title": "BLOQUE A",
-        "subtitle": "Fundamentos de las organizaciones",
+        "subtitle": "Fundamentos de las organizaciones (páginas 2-4)",
         "items": ["Concepto: conjunto de personas y recursos con objetivos comunes", "Sistema abierto: interacción con el entorno", "Estructura organizacional y cultura", "Fines: económicos, sociales y desarrollo humano", "Funciones: planeación, organización, dirección y control"],
         "emoji": "🏢",
         "color": "#6366F1"
@@ -54,7 +54,7 @@
       {
         "id": "B",
         "title": "BLOQUE B",
-        "subtitle": "Análisis del entorno competitivo",
+        "subtitle": "Análisis del entorno competitivo (páginas 5-8)",
         "items": ["Modelo de las 5 Fuerzas de Porter: rivalidad, nuevos entrantes, poder de proveedores, poder de clientes, productos sustitutos", "Diamante de Porter: condiciones de factores, demanda, industrias relacionadas, rivalidad empresarial, rol del gobierno", "Aplicación estratégica: posición competitiva y ventaja competitiva", "Caso Apple: gestión de fuerzas competitivas"],
         "emoji": "⚔️",
         "color": "#10B981"
@@ -62,7 +62,7 @@
       {
         "id": "C",
         "title": "BLOQUE C",
-        "subtitle": "Análisis FODA y planeamiento estratégico",
+        "subtitle": "Análisis FODA y planeamiento estratégico (páginas 9-13)",
         "items": ["Componentes del FODA: fortalezas, oportunidades, debilidades, amenazas", "Matriz de estrategias cruzadas: FO, FA, DO, DA", "Proceso de planeamiento: diagnóstico → formulación → implementación → control", "Niveles jerárquicos: estratégico, táctico, operativo", "Herramientas complementarias: PESTEL, matriz de perfil competitivo"],
         "emoji": "📋",
         "color": "#F59E0B"
@@ -1341,3 +1341,4 @@
     ]
   }
 }
+
