@@ -4,6 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Campus Cuaderno Vivo</title>
+
+<!-- PWA Meta Tags -->
+<meta name="theme-color" content="#0F172A">
+<meta name="description" content="Plataforma de actividades interactivas para estudiantes de nivel secundario">
+<link rel="manifest" href="manifest.json">
+
+<!-- iOS PWA -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Campus Vivo">
+<link rel="apple-touch-icon" href="icon-192.png">
+
+<!-- Favicon y Fonts -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 <style>
@@ -29,9 +42,9 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 .stat span{font-size:20px;font-weight:800;font-family:'Space Grotesk',sans-serif;background:linear-gradient(135deg,#A78BFA,#6366F1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .stat small{display:block;font-size:11px;color:#94A3B8;font-weight:600;text-transform:uppercase;letter-spacing:1px}
 .quick-links{display:flex;gap:12px;justify-content:center;margin-top:20px;margin-bottom:20px;flex-wrap:wrap}
-.quick-link{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border-radius:14px;background:linear-gradient(135deg,#1E293B,#1a2332);border:2px solid rgba(255,255,255,0.1);color:#E2E8F0;font-size:14px;font-weight:700;text-decoration:none;transition:all 0.3s ease;box-shadow:0 2px 8px rgba(0,0,0,0.2)}
-.quick-link:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(99,102,241,0.3);border-color:#6366F1;background:linear-gradient(135deg,#6366F1,#8B5CF6)}
-.quick-link-icon{font-size:20px}
+.quick-link{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:10px;background:rgba(232,197,71,0.08);border:1px solid rgba(232,197,71,0.25);color:#e8c547;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.3s ease;box-shadow:0 2px 8px rgba(232,197,71,0.15)}
+.quick-link:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(232,197,71,0.3);border-color:rgba(232,197,71,0.5);background:rgba(232,197,71,0.15)}
+.quick-link-icon{font-size:16px}
 .quick-link-text{font-family:'Space Grotesk',sans-serif;letter-spacing:-0.3px}
 .school{margin-bottom:40px;animation:fadeUp 0.8s ease both}
 .school-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.1)}
@@ -697,6 +710,19 @@ document.addEventListener('click', function(e) {
   // NO permitir cerrar modal ciudad haciendo clic fuera
   // Solo se cierra cuando ingresa una ciudad válida
 });
+
+// ============================================================================
+// REGISTRO DE SERVICE WORKER (PWA ONLINE-ONLY)
+// ============================================================================
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+      console.log('SW registrado correctamente');
+    }).catch(function(error) {
+      console.log('Error al registrar SW:', error);
+    });
+  });
+}
 
 </script>
 </body>
