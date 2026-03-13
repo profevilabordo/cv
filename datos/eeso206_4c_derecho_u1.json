@@ -958,74 +958,27 @@
 
   "sabias": {
     "flip_cards": [
-      {
-        "emoji": "📜",
-        "color": "#DC2626",
-        "frente": "El Código Civil de Vélez duró 144 años",
-        "dorso": "El primer Código Civil argentino fue redactado por Dalmacio Vélez Sarsfield y entró en vigencia en 1871. Estuvo vigente hasta el 1° de agosto de 2015, cuando fue reemplazado por el nuevo Código Civil y Comercial. Son 144 años de historia jurídica argentina regidos por el mismo código, una de las legislaciones más longevas de Latinoamérica."
-      },
-      {
-        "emoji": "⚖️",
-        "color": "#F59E0B",
-        "frente": "La palabra 'Derecho' tiene el mismo origen que 'dirigir'",
-        "dorso": "La palabra 'derecho' y sus equivalentes en otros idiomas (droit en francés, diritto en italiano, direito en portugués) derivan del latín 'directum', que significa 'dirigido' o 'recto'. Esto refleja la idea de un orden, de seguir una regla o dirección determinada. El Derecho, entonces, desde su etimología, ya nos indica que consiste en dirigir las conductas hacia un orden social justo."
-      },
-      {
-        "emoji": "🌍",
-        "color": "#3B82F6",
-        "frente": "El Pacto de San José limita tus derechos (y está bien)",
-        "dorso": "El artículo 32 del Pacto de San José de Costa Rica establece que 'los derechos de cada persona están limitados por los derechos de los demás'. Esto significa que ningún derecho es absoluto: tu libertad termina donde empieza la del otro. Este principio fue incorporado al Código Civil y Comercial argentino en 2015 (art. 10), que establece que 'la ley no ampara el ejercicio abusivo de los derechos'. Es la base de la convivencia pacífica en democracia."
-      }
+      {"frente": "¿Sabías que 'derecho' viene del latín 'directum'?", "dorso": "La palabra 'derecho' y sus equivalentes en francés (droit), italiano (dirito) y portugués (direito) derivan del latín 'directum', que significa 'dirigido' o 'lo que va en línea recta'. Esto refleja la idea del Derecho como una guía que dirige el comportamiento hacia el orden y la justicia. ¡El nombre mismo sugiere seguir el camino correcto!", "emoji": "📜", "color": "#DC2626"},
+      {"frente": "El Código Civil argentino estuvo vigente 145 años", "dorso": "El Código Civil redactado por Dalmacio Vélez Sarsfield entró en vigencia en 1871 y rigió en Argentina hasta el 31 de julio de 2015, cuando fue reemplazado por el nuevo Código Civil y Comercial. ¡Durante casi un siglo y medio fue la base del derecho privado argentino! Su reemplazo fue uno de los acontecimientos jurídicos más importantes de la historia del país.", "emoji": "⚖️", "color": "#3B82F6"},
+      {"frente": "Las hormigas y abejas son completamente gregarias", "dorso": "A diferencia de los humanos que somos semigregarios (tenemos impulsos sociales Y solitarios), las hormigas y las abejas son completamente gregarias: no pueden sobrevivir solas y toda su existencia depende de la colonia. Los tigres y leopardos son el extremo opuesto: totalmente solitarios. Los humanos estamos en el medio: necesitamos del grupo pero también valoramos nuestra individualidad.", "emoji": "👥", "color": "#10B981"}
     ],
     "linea_de_tiempo": [
-      {
-        "emoji": "📜",
-        "year": "1871",
-        "text": "Entra en vigencia el Código Civil redactado por Dalmacio Vélez Sarsfield con más de 4.000 artículos"
-      },
-      {
-        "emoji": "🌎",
-        "year": "1969",
-        "text": "Argentina firma el Pacto de San José de Costa Rica sobre Derechos Humanos"
-      },
-      {
-        "emoji": "🇦🇷",
-        "year": "1994",
-        "text": "Reforma constitucional: el Pacto de San José adquiere jerarquía constitucional en Argentina"
-      },
-      {
-        "emoji": "📝",
-        "year": "2014",
-        "text": "El Congreso aprueba el nuevo Código Civil y Comercial unificado (Ley 26.994)"
-      },
-      {
-        "emoji": "⚖️",
-        "year": "2015",
-        "text": "1° de agosto: entra en vigencia el CCyC, reemplazando al Código de Vélez después de 144 años"
-      }
+      {"year": "1853", "text": "Constitución Nacional Argentina", "emoji": "📜"},
+      {"year": "1871", "text": "Primer Código Civil argentino (Vélez Sarsfield)", "emoji": "⚖️"},
+      {"year": "1969", "text": "Pacto de San José de Costa Rica sobre Derechos Humanos", "emoji": "🌎"},
+      {"year": "1994", "text": "Reforma de la Constitución Nacional", "emoji": "📝"},
+      {"year": "2015", "text": "Nuevo Código Civil y Comercial (Ley 26.994)", "emoji": "🆕"}
     ],
     "encuesta": {
-      "pregunta": "¿Qué dato te voló más la cabeza?",
+      "pregunta": "¿Qué dato te sorprendió más?",
       "opciones": [
-        {
-          "emoji": "📜",
-          "text": "Que el Código de Vélez duró 144 años vigente",
-          "votos_iniciales": 45
-        },
-        {
-          "emoji": "⚖️",
-          "text": "Que 'derecho' viene de 'dirigir' en latín",
-          "votos_iniciales": 32
-        },
-        {
-          "emoji": "🌍",
-          "text": "Que el Pacto de San José limita tus derechos legalmente",
-          "votos_iniciales": 38
-        }
+        {"text": "Que 'derecho' significa 'camino recto' en latín", "emoji": "📜", "votos_iniciales": 42},
+        {"text": "Que el Código Civil de Vélez duró 145 años", "emoji": "⚖️", "votos_iniciales": 38},
+        {"text": "Que los humanos somos semigregarios, no totalmente sociales", "emoji": "👥", "votos_iniciales": 20}
       ]
     }
   },
-
+  
   "cruces": {
     "consigna_general": "Elegí un tema de cada bloque que te haya interesado y preparate para explicárselo a un compañero. Podés usar esquemas, dibujos, ejemplos... ¡lo que quieras!",
     "bloques": [
