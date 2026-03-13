@@ -4,46 +4,46 @@
   "unidad": 1,
   "titulo": "Fundamentos económicos para comprender el mundo que nos rodea",
   "emoji": "📊",
-  "color_primario": "#2563EB",
-  "color_secundario": "#10B981",
+  "color_primario": "#1D4ED8",
+  "color_secundario": "#0EA5E9",
 
   "umbral": {
     "preguntas_disparadoras": [
       {
         "emoji": "🛒",
-        "texto": "Si tuvieras dinero limitado, ¿cómo decidirías qué comprar primero?",
-        "pista": "Pensá que las necesidades son muchas pero los recursos no alcanzan para todo."
+        "texto": "¿Por qué a veces tenés plata pero igual no podés comprar todo lo que querés?",
+        "pista": "Pensá en la diferencia entre lo que necesitás, lo que querés y lo que alcanza con tus recursos..."
       },
       {
-        "emoji": "⏳",
-        "texto": "Si decidís estudiar en lugar de trabajar, ¿qué estás dejando de ganar?",
-        "pista": "La economía analiza el valor de las decisiones y lo que se sacrifica."
+        "emoji": "⏰",
+        "texto": "Si hoy tenés tiempo libre, ¿estudiar, salir con amigos o trabajar? ¿Qué perdés cuando elegís uno?",
+        "pista": "Cada vez que elegís algo, dejás de lado otra opción que también tenía valor. Eso tiene un nombre en economía..."
       },
       {
-        "emoji": "🏭",
-        "texto": "¿Quién decide qué bienes se producen en una economía?",
-        "pista": "Distintos actores participan en la actividad económica."
+        "emoji": "💸",
+        "texto": "¿Por qué el Estado cobra impuestos y en qué los gasta?",
+        "pista": "Pensá en todo lo que usás que no pagás directamente: la escuela pública, el hospital, las rutas..."
       }
     ],
     "situaciones_conecta": [
       {
-        "emoji": "💸",
-        "label": "Elegí gastar mi dinero en ropa en lugar de ahorrar"
+        "emoji": "🍕",
+        "label": "Dudé entre comprar dos cosas y elegí una"
       },
       {
         "emoji": "📱",
-        "label": "Comparé precios antes de comprar un celular"
+        "label": "Vi cómo suben los precios en el súper"
       },
       {
-        "emoji": "🏫",
-        "label": "Decidí estudiar para una prueba en vez de salir"
+        "emoji": "🏭",
+        "label": "Conozco alguien que trabaja en una fábrica"
       },
       {
-        "emoji": "🍔",
-        "label": "Elegí entre comprar comida o guardar dinero"
+        "emoji": "🏛️",
+        "label": "Usé un servicio público (escuela, hospital, colectivo)"
       }
     ],
-    "termometro_pregunta": "¿Cuánto sabés sobre cómo funciona la economía en la vida cotidiana?"
+    "termometro_pregunta": "¿Cuánto sabés sobre cómo funciona la economía en tu vida diaria?"
   },
 
   "mapa": {
@@ -51,260 +51,1621 @@
       {
         "id": 1,
         "emoji": "📚",
-        "title": "Qué es la economía",
-        "desc": "La economía como ciencia que estudia decisiones frente a recursos limitados",
+        "title": "¿Qué es la Economía?",
+        "desc": "Concepto, objeto de estudio y por qué es importante en la vida cotidiana",
         "color": "#6366F1"
       },
       {
         "id": 2,
-        "emoji": "⚖️",
-        "title": "Escasez y decisiones",
-        "desc": "La escasez obliga a elegir y genera el concepto de costo de oportunidad",
+        "emoji": "⚠️",
+        "title": "Escasez y Costo de Oportunidad",
+        "desc": "El problema central de la economía: elegir implica renunciar",
         "color": "#3B82F6"
       },
       {
         "id": 3,
         "emoji": "👥",
-        "title": "Agentes económicos",
-        "desc": "Familias, empresas, Estado y sector externo",
+        "title": "Agentes Económicos",
+        "desc": "Familias, empresas, Estado y sector externo: roles e interacciones",
         "color": "#10B981"
       },
       {
         "id": 4,
-        "emoji": "🏭",
-        "title": "Producción y empresas",
-        "desc": "Cómo se organizan las empresas y su actividad económica",
+        "emoji": "🔑",
+        "title": "Conceptos Clave: Bienes, Necesidades y Factores",
+        "desc": "Bienes, servicios, necesidades, Maslow y factores de producción",
         "color": "#F59E0B"
       },
       {
         "id": 5,
         "emoji": "🔄",
-        "title": "Flujo económico",
-        "desc": "Relación entre producción, ingresos y consumo en la economía",
-        "color": "#EF4444"
+        "title": "Proceso Económico y Flujo Circular",
+        "desc": "Las fases de la actividad económica y cómo se conectan los agentes",
+        "color": "#EC4899"
       }
-    ]
+    ],
+
+    "panoramica_bloques": [
+      {
+        "id": "A",
+        "emoji": "📚",
+        "title": "BLOQUE A",
+        "subtitle": "Economía, Escasez y Agentes (págs. 2-5)",
+        "color": "#6366F1",
+        "items": [
+          "Concepto de Economía",
+          "El problema de la escasez",
+          "Las 3 preguntas básicas",
+          "Costo de Oportunidad",
+          "Los 4 agentes económicos"
+        ]
+      },
+      {
+        "id": "B",
+        "emoji": "🏢",
+        "title": "BLOQUE B",
+        "subtitle": "Familias, Empresas y Estado (págs. 6-11)",
+        "color": "#3B82F6",
+        "items": [
+          "Familias como agentes económicos",
+          "Tipos y clasificación de empresas",
+          "Beneficio, ingresos y costos",
+          "El Estado: roles y política fiscal",
+          "Presupuesto público y déficit fiscal"
+        ]
+      },
+      {
+        "id": "C",
+        "emoji": "⚙️",
+        "title": "BLOQUE C",
+        "subtitle": "Conceptos, Factores y Flujo Circular (págs. 12-16)",
+        "color": "#10B981",
+        "items": [
+          "Bienes, servicios y necesidades",
+          "Pirámide de Maslow",
+          "Factores productivos",
+          "Proceso económico y sus fases",
+          "Flujo circular de la economía"
+        ]
+      }
+    ],
+
+    "mapa_mental": {
+      "centro": {
+        "emoji": "📊",
+        "title": "LA ECONOMÍA"
+      },
+      "ramas": [
+        {
+          "id": "que",
+          "emoji": "❓",
+          "title": "¿Qué es?",
+          "color": "#6366F1",
+          "items": [
+            "Ciencia social de las decisiones",
+            "Estudia recursos escasos y necesidades ilimitadas",
+            "Analiza producción, distribución y consumo",
+            "Presente en cada decisión cotidiana"
+          ]
+        },
+        {
+          "id": "quienes",
+          "emoji": "👥",
+          "title": "¿Quiénes participan?",
+          "color": "#3B82F6",
+          "items": [
+            "Familias / Consumidores",
+            "Empresas / Productores",
+            "Estado / Gobierno",
+            "Sector Externo"
+          ]
+        },
+        {
+          "id": "como",
+          "emoji": "🔧",
+          "title": "¿Cómo funciona?",
+          "color": "#10B981",
+          "items": [
+            "A través del flujo circular",
+            "Con mercados de bienes y de factores",
+            "Mediante decisiones de asignación",
+            "Con un proceso: producción → circulación → consumo"
+          ]
+        },
+        {
+          "id": "porque",
+          "emoji": "💡",
+          "title": "¿Por qué importa?",
+          "color": "#F59E0B",
+          "items": [
+            "Para entender por qué suben los precios",
+            "Para tomar mejores decisiones personales",
+            "Para ser ciudadanos más críticos e informados",
+            "Para comprender el rol del Estado y las empresas"
+          ]
+        }
+      ]
+    }
   },
 
   "nucleo_a": {
-    "titulo": "Introducción a la Economía y el problema de la escasez",
-    "paginas": "2-4",
-    "conceptos_clave": [
-      "Economía como ciencia social",
-      "Escasez de recursos",
-      "Necesidades ilimitadas",
-      "Tres preguntas básicas de la economía",
-      "Costo de oportunidad"
-    ],
-    "explicacion": "La economía estudia cómo las personas y las sociedades toman decisiones para satisfacer necesidades ilimitadas con recursos limitados. La escasez obliga a elegir entre distintas alternativas, lo que genera el concepto de costo de oportunidad: el valor de la mejor alternativa que no se elige.",
-    "actividad": {
-      "consigna": "Pensá tres decisiones que tomaste esta semana donde tuviste que elegir entre dos opciones.",
-      "preguntas": [
-        "¿Qué opciones tenías?",
-        "¿Cuál elegiste?",
-        "¿Cuál fue el costo de oportunidad de tu decisión?"
+    "bloque_info": {
+      "id": "A",
+      "emoji": "📚",
+      "titulo": "BLOQUE A: Economía, Escasez y Agentes Económicos",
+      "color": "#6366F1",
+      "paginas": [2, 3, 4, 5]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los pasos del proceso de decisión económica frente a la escasez:",
+      "paginas_referencia": "3-4",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "😟",
+          "text": "Existe una necesidad insatisfecha o un deseo"
+        },
+        {
+          "id": 1,
+          "emoji": "🔍",
+          "text": "Se identifican las opciones disponibles con los recursos existentes"
+        },
+        {
+          "id": 2,
+          "emoji": "⚖️",
+          "text": "Se evalúan las alternativas y sus consecuencias"
+        },
+        {
+          "id": 3,
+          "emoji": "✅",
+          "text": "Se toma una decisión eligiendo una opción"
+        },
+        {
+          "id": 4,
+          "emoji": "💡",
+          "text": "Se asume el costo de oportunidad: lo que se sacrificó"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada ejemplo según el agente económico que corresponde:",
+      "paginas_referencia": "5",
+      "categorias": [
+        {
+          "name": "Familias / Consumidores",
+          "emoji": "🏠",
+          "color": "#6366F1"
+        },
+        {
+          "name": "Empresas / Productores",
+          "emoji": "🏭",
+          "color": "#3B82F6"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Ofrecen trabajo y capital a cambio de salarios",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Combinan factores para producir bienes y servicios",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Son propietarias de los factores de producción",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "Buscan maximizar sus ganancias",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Ahorran e invierten parte de sus ingresos",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Generan empleo e impulsan el crecimiento económico",
+          "categoria_correcta": 1
+        }
       ]
+    },
+
+    "n3_completar_mapa": {
+      "consigna": "Completá las siguientes ideas clave del bloque:",
+      "paginas_referencia": "2-5",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "La economía es la ciencia que estudia cómo satisfacer necesidades ________ con recursos limitados",
+          "respuesta_correcta": "ilimitadas",
+          "pista": "I_________"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "El valor de la mejor alternativa a la que renunciamos al elegir se llama costo de",
+          "respuesta_correcta": "oportunidad",
+          "pista": "O_________"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "Los cuatro agentes económicos son: familias, empresas, Estado y sector",
+          "respuesta_correcta": "externo",
+          "pista": "E______"
+        }
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "afirmaciones": [
+        {
+          "texto": "La economía solo le interesa a expertos y gobiernos, no a las personas comunes",
+          "correcto": false,
+          "explicacion": "Falso. La economía está presente en cada decisión cotidiana: qué comprar, cómo gastar el tiempo, qué estudiar. Revisá la página 2 para profundizar."
+        },
+        {
+          "texto": "La escasez nos obliga a elegir, y toda elección implica renunciar a algo",
+          "correcto": true,
+          "explicacion": "Verdadero. Como los recursos son limitados y los deseos ilimitados, siempre debemos elegir. El costo de oportunidad es lo que resignamos. Ver página 3."
+        },
+        {
+          "texto": "El sector externo representa solo las exportaciones de un país",
+          "correcto": false,
+          "explicacion": "Falso. El sector externo incluye exportaciones, importaciones e inversiones extranjeras que influyen en la economía local. Revisá la página 5."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "5",
+      "pares": [
+        {
+          "izquierda": "Familias",
+          "derecha": "Demandan bienes y son propietarias de factores productivos",
+          "emoji": "🏠"
+        },
+        {
+          "izquierda": "Empresas",
+          "derecha": "Organizan recursos para producir y maximizar ganancias",
+          "emoji": "🏭"
+        },
+        {
+          "izquierda": "Estado",
+          "derecha": "Regula, provee servicios públicos y redistribuye ingresos",
+          "emoji": "🏛️"
+        },
+        {
+          "izquierda": "Sector Externo",
+          "derecha": "Representa el comercio e intercambio con otros países",
+          "emoji": "🌍"
+        }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "2-5",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "⚠️",
+          "pregunta": "¿Cuál NO es una de las 3 preguntas básicas de la economía?",
+          "paginas": "3",
+          "palabras": [
+            {
+              "text": "¿Qué producir?",
+              "es_intrusa": false
+            },
+            {
+              "text": "¿Cómo producir?",
+              "es_intrusa": false
+            },
+            {
+              "text": "¿Cuánto ganar?",
+              "es_intrusa": true
+            },
+            {
+              "text": "¿Para quién producir?",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Las 3 preguntas básicas son: ¿Qué producir?, ¿Cómo producir? y ¿Para quién producir? La ganancia no es una pregunta fundamental de asignación de recursos."
+        },
+        {
+          "id": 1,
+          "emoji": "👥",
+          "pregunta": "¿Cuál NO es un agente económico según el PDF?",
+          "paginas": "5",
+          "palabras": [
+            {
+              "text": "Familias",
+              "es_intrusa": false
+            },
+            {
+              "text": "Empresas",
+              "es_intrusa": false
+            },
+            {
+              "text": "Bancos",
+              "es_intrusa": true
+            },
+            {
+              "text": "Estado",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Los 4 agentes económicos son familias, empresas, Estado y sector externo. Los bancos forman parte del sector empresarial, no son un agente diferenciado en este modelo."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "2-4",
+      "conceptos": [
+        {
+          "termino": "Economía",
+          "pista": "¿Qué ciencia estudia cómo tomamos decisiones con recursos limitados?",
+          "palabras_clave": ["decisiones", "recursos", "limitados", "necesidades", "sociedad", "ciencia"]
+        },
+        {
+          "termino": "Escasez",
+          "pista": "¿Por qué no podemos tener todo lo que queremos?",
+          "palabras_clave": ["limitados", "insuficiente", "falta", "recursos", "necesidades", "elegir"]
+        },
+        {
+          "termino": "Costo de Oportunidad",
+          "pista": "¿Qué perdés cuando tomás una decisión?",
+          "palabras_clave": ["renuncia", "alternativa", "sacrificar", "elegir", "mejor", "valor"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "3-4",
+      "causas": [
+        {
+          "id": 0,
+          "emoji": "📦",
+          "text": "Los recursos son limitados y las necesidades ilimitadas"
+        },
+        {
+          "id": 1,
+          "emoji": "🤔",
+          "text": "Una persona elige estudiar en lugar de trabajar"
+        },
+        {
+          "id": 2,
+          "emoji": "🌍",
+          "text": "El sector externo comercia con otros países"
+        },
+        {
+          "id": 3,
+          "emoji": "🏭",
+          "text": "Las empresas combinan factores de producción"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 0,
+          "causa_id": 0,
+          "emoji": "⚖️",
+          "text": "Surge el problema económico: hay que elegir y asignar"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "💸",
+          "text": "El costo de oportunidad es el ingreso que dejó de ganar"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "📈",
+          "text": "Influye en la economía local mediante exportaciones e importaciones"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "🛍️",
+          "text": "Se crean bienes y servicios para satisfacer necesidades"
+        }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el proceso de cómo el costo de oportunidad entra en juego al tomar una decisión:",
+      "paginas_referencia": "4",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 0,
+          "emoji": "🎯",
+          "text": "Me enfrento a una situación donde debo elegir"
+        },
+        {
+          "id": 1,
+          "emoji": "🔍",
+          "text": "Evalúo las distintas alternativas disponibles"
+        },
+        {
+          "id": 2,
+          "emoji": "✅",
+          "text": "Tomo una decisión eligiendo una opción sobre las demás"
+        },
+        {
+          "id": 3,
+          "emoji": "❌",
+          "text": "Renuncio a la mejor alternativa no elegida"
+        },
+        {
+          "id": 4,
+          "emoji": "💡",
+          "text": "Identifico el costo de oportunidad: el valor de lo que resigné"
+        }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "2-5",
+      "concepto_a": {
+        "nombre": "Recursos",
+        "emoji": "📦",
+        "color": "#6366F1"
+      },
+      "concepto_b": {
+        "nombre": "Necesidades",
+        "emoji": "💭",
+        "color": "#EC4899"
+      }
     }
   },
 
   "nucleo_b": {
-    "titulo": "Agentes económicos",
-    "paginas": "5-11",
-    "conceptos_clave": [
-      "Familias o consumidores",
-      "Empresas o productores",
-      "Estado o gobierno",
-      "Sector externo",
-      "Tipos de empresas"
-    ],
-    "explicacion": "En la economía participan distintos agentes económicos que cumplen roles específicos. Las familias consumen bienes y ofrecen factores productivos. Las empresas organizan recursos para producir bienes y servicios. El Estado regula la actividad económica y provee servicios públicos. El sector externo representa el intercambio con otros países.",
-    "actividad": {
-      "consigna": "Identificá el agente económico en cada situación.",
-      "casos": [
-        "Una empresa contrata trabajadores para fabricar zapatillas.",
-        "Una familia compra alimentos en el supermercado.",
-        "El gobierno construye una escuela pública.",
-        "Una empresa exporta productos a otro país."
+    "bloque_info": {
+      "id": "B",
+      "emoji": "🏢",
+      "titulo": "BLOQUE B: Familias, Empresas y Estado",
+      "color": "#3B82F6",
+      "paginas": [6, 7, 8, 9, 10, 11]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená el circuito económico de una empresa desde que obtiene recursos hasta que genera ganancia:",
+      "paginas_referencia": "7",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "⚙️",
+          "text": "Obtiene factores de producción (tierra, trabajo, capital)"
+        },
+        {
+          "id": 1,
+          "emoji": "🔄",
+          "text": "Lleva adelante el proceso productivo"
+        },
+        {
+          "id": 2,
+          "emoji": "📦",
+          "text": "Genera bienes y servicios terminados"
+        },
+        {
+          "id": 3,
+          "emoji": "🏪",
+          "text": "Distribuye y vende en el mercado"
+        },
+        {
+          "id": 4,
+          "emoji": "💰",
+          "text": "Obtiene ingresos y calcula la ganancia"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada ejemplo según el tipo de empresa por sector económico:",
+      "paginas_referencia": "8",
+      "categorias": [
+        {
+          "name": "Sector Primario",
+          "emoji": "🌾",
+          "color": "#10B981"
+        },
+        {
+          "name": "Sector Secundario",
+          "emoji": "🏭",
+          "color": "#3B82F6"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Empresa agrícola que cosecha soja",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Fábrica que produce autos",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Empresa minera que extrae minerales",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "Planta industrial de energía",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Empresa de pesca artesanal",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Empresa constructora de edificios",
+          "categoria_correcta": 1
+        }
       ]
+    },
+
+    "n3_completar_mapa": {
+      "consigna": "Completá las siguientes ideas clave del bloque:",
+      "paginas_referencia": "6-11",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "El ingreso disponible es el dinero que le queda a una familia para gastar o ahorrar después de pagar los",
+          "respuesta_correcta": "impuestos",
+          "pista": "I_________"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "El beneficio de una empresa se calcula restando los costos totales a los",
+          "respuesta_correcta": "ingresos totales",
+          "pista": "I_______ T_____"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "Cuando el Estado gasta más de lo que recauda se produce un",
+          "respuesta_correcta": "déficit fiscal",
+          "pista": "D______ F_____"
+        }
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "afirmaciones": [
+        {
+          "texto": "Las familias solo consumen; no tienen ningún rol productivo en la economía",
+          "correcto": false,
+          "explicacion": "Falso. Las familias son propietarias de los factores de producción (trabajo, tierra, capital) que ofrecen a las empresas. También ahorran e invierten. Ver páginas 6."
+        },
+        {
+          "texto": "Una Sociedad Anónima (SA) tiene su capital dividido en acciones y puede cotizar en bolsa",
+          "correcto": true,
+          "explicacion": "Verdadero. La SA es una forma jurídica donde el capital se divide en acciones y puede cotizar en bolsa, a diferencia de la SRL. Ver página 8."
+        },
+        {
+          "texto": "El objetivo principal del Estado como agente económico es maximizar sus ganancias",
+          "correcto": false,
+          "explicacion": "Falso. El objetivo del Estado no es el lucro sino el bienestar general: asegurar servicios públicos, corregir fallas de mercado y reducir la desigualdad. Ver página 10."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "10-11",
+      "pares": [
+        {
+          "izquierda": "Regulador",
+          "derecha": "Establece normas para el funcionamiento de la economía",
+          "emoji": "📜"
+        },
+        {
+          "izquierda": "Productor",
+          "derecha": "Provee educación, salud y seguridad que el mercado no da",
+          "emoji": "🏥"
+        },
+        {
+          "izquierda": "Redistribuidor",
+          "derecha": "Recauda impuestos y los destina a subsidios y pensiones",
+          "emoji": "⚖️"
+        },
+        {
+          "izquierda": "Consumidor",
+          "derecha": "Adquiere bienes de privados para operar sus funciones",
+          "emoji": "🛒"
+        }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "8-11",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🏢",
+          "pregunta": "¿Cuál NO es una clasificación de empresas por forma jurídica?",
+          "paginas": "8",
+          "palabras": [
+            {
+              "text": "SRL",
+              "es_intrusa": false
+            },
+            {
+              "text": "SA",
+              "es_intrusa": false
+            },
+            {
+              "text": "PYME",
+              "es_intrusa": true
+            },
+            {
+              "text": "Empresa pública",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "PYME es una clasificación por tamaño (entre 50 y 250 empleados), no por forma jurídica. SRL, SA y empresa pública son formas jurídicas de organización."
+        },
+        {
+          "id": 1,
+          "emoji": "🏛️",
+          "pregunta": "¿Cuál NO es una fuente de recursos del Estado?",
+          "paginas": "11",
+          "palabras": [
+            {
+              "text": "Impuestos",
+              "es_intrusa": false
+            },
+            {
+              "text": "Deuda pública",
+              "es_intrusa": false
+            },
+            {
+              "text": "Salarios de empleados",
+              "es_intrusa": true
+            },
+            {
+              "text": "Empresas estatales",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Los salarios de empleados son un gasto del Estado, no una fuente de recursos. El Estado obtiene recursos mediante impuestos, deuda pública, empresas estatales y tasas."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "6-11",
+      "conceptos": [
+        {
+          "termino": "Ingreso disponible",
+          "pista": "¿Qué queda del sueldo de una familia después de pagar impuestos?",
+          "palabras_clave": ["dinero", "queda", "gastar", "ahorrar", "impuestos", "familia"]
+        },
+        {
+          "termino": "Beneficio empresarial",
+          "pista": "¿Qué obtiene una empresa cuando sus ingresos superan sus costos?",
+          "palabras_clave": ["ganancia", "ingresos", "costos", "diferencia", "resultado", "ventas"]
+        },
+        {
+          "termino": "Política fiscal",
+          "pista": "¿Cómo usa el Estado el gasto y los impuestos para influir en la economía?",
+          "palabras_clave": ["Estado", "impuestos", "gasto", "economía", "influir", "estabilizar"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "9-11",
+      "causas": [
+        {
+          "id": 0,
+          "emoji": "💼",
+          "text": "La familia ofrece su trabajo a una empresa"
+        },
+        {
+          "id": 1,
+          "emoji": "🏭",
+          "text": "Una empresa aumenta su producción y ventas"
+        },
+        {
+          "id": 2,
+          "emoji": "💸",
+          "text": "El Estado recauda impuestos"
+        },
+        {
+          "id": 3,
+          "emoji": "📉",
+          "text": "El Estado gasta más de lo que recauda"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 0,
+          "causa_id": 0,
+          "emoji": "💰",
+          "text": "Recibe un salario con el que satisface sus necesidades"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "📈",
+          "text": "Sus ingresos superan los costos y obtiene beneficio"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "🏥",
+          "text": "Financia servicios públicos como educación y salud"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "🔴",
+          "text": "Se genera déficit fiscal y necesidad de endeudamiento"
+        }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená cómo el Estado obtiene y distribuye sus recursos:",
+      "paginas_referencia": "11",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 0,
+          "emoji": "📋",
+          "text": "El Estado elabora el Presupuesto Público estimando ingresos y gastos"
+        },
+        {
+          "id": 1,
+          "emoji": "💵",
+          "text": "Recauda recursos mediante impuestos, tasas y empresas estatales"
+        },
+        {
+          "id": 2,
+          "emoji": "⚖️",
+          "text": "Compara ingresos con gastos: superávit o déficit"
+        },
+        {
+          "id": 3,
+          "emoji": "🏗️",
+          "text": "Destina el gasto a educación, salud, seguridad e infraestructura"
+        },
+        {
+          "id": 4,
+          "emoji": "📊",
+          "text": "Aplica política fiscal para estabilizar la economía"
+        }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "6-11",
+      "concepto_a": {
+        "nombre": "Costos Fijos",
+        "emoji": "📌",
+        "color": "#3B82F6"
+      },
+      "concepto_b": {
+        "nombre": "Costos Variables",
+        "emoji": "📈",
+        "color": "#10B981"
+      }
     }
   },
 
   "nucleo_c": {
-    "titulo": "Necesidades, factores productivos y flujo económico",
-    "paginas": "12-16",
+    "bloque_info": {
+      "id": "C",
+      "emoji": "⚙️",
+      "titulo": "BLOQUE C: Conceptos Clave, Factores y Flujo Circular",
+      "color": "#10B981",
+      "paginas": [12, 13, 14, 15, 16]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los niveles de la Pirámide de Maslow de la base (más básica) hacia arriba:",
+      "paginas_referencia": "12-13",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "🍞",
+          "text": "Necesidades Fisiológicas: comer, dormir, respirar, abrigo"
+        },
+        {
+          "id": 1,
+          "emoji": "🛡️",
+          "text": "Necesidades de Seguridad: estabilidad, empleo, salud, hogar"
+        },
+        {
+          "id": 2,
+          "emoji": "👫",
+          "text": "Necesidades Sociales: amor, amistad, pertenencia a grupos"
+        },
+        {
+          "id": 3,
+          "emoji": "🏆",
+          "text": "Necesidades de Estima: reconocimiento, logro, autoconfianza"
+        },
+        {
+          "id": 4,
+          "emoji": "🌟",
+          "text": "Autorrealización: creatividad, propósito, desarrollo pleno"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada ejemplo según sea un factor productivo o un ingreso que genera:",
+      "paginas_referencia": "14-15",
+      "categorias": [
+        {
+          "name": "Factor Productivo",
+          "emoji": "⚙️",
+          "color": "#10B981"
+        },
+        {
+          "name": "Ingreso que genera",
+          "emoji": "💵",
+          "color": "#F59E0B"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Tierra (recursos naturales)",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Salario",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Capital (maquinaria, herramientas)",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "Renta (por uso de la tierra)",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Trabajo (esfuerzo físico e intelectual)",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Interés (por el capital prestado)",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "consigna": "Completá las siguientes ideas clave del bloque:",
+      "paginas_referencia": "14-16",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "El capital como factor productivo no es dinero en sí, sino maquinaria, herramientas y",
+          "respuesta_correcta": "edificios",
+          "pista": "E_______"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "La fase del proceso económico donde los bienes llegan desde la producción al consumidor se llama",
+          "respuesta_correcta": "circulación",
+          "pista": "C_________"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "En el flujo circular, las familias ofrecen trabajo y capital a las empresas, que a cambio les pagan salarios y",
+          "respuesta_correcta": "dividendos",
+          "pista": "D________"
+        }
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "afirmaciones": [
+        {
+          "texto": "El capital como factor productivo es sinónimo de dinero",
+          "correcto": false,
+          "explicacion": "Falso. El capital son los bienes producidos que se usan para producir otros bienes: maquinaria, herramientas, edificios. No es el dinero en sí. Ver página 14."
+        },
+        {
+          "texto": "La tecnología es un factor productivo que permite producir más con menos recursos",
+          "correcto": true,
+          "explicacion": "Verdadero. La tecnología es el conocimiento técnico y científico aplicado al proceso productivo para hacerlo más eficiente. Ver página 14."
+        },
+        {
+          "texto": "En el flujo circular de la economía, el Estado y el sector externo no tienen ningún rol",
+          "correcto": false,
+          "explicacion": "Falso. El Estado interviene cobrando impuestos y gastando en servicios públicos. El sector externo participa con exportaciones e importaciones. Ver página 16."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "15",
+      "pares": [
+        {
+          "izquierda": "Tierra",
+          "derecha": "Genera renta para su propietario",
+          "emoji": "🌾"
+        },
+        {
+          "izquierda": "Trabajo",
+          "derecha": "Genera salario para el trabajador",
+          "emoji": "👷"
+        },
+        {
+          "izquierda": "Capital",
+          "derecha": "Genera interés para quien lo presta",
+          "emoji": "🏭"
+        },
+        {
+          "izquierda": "Capacidad Empresarial",
+          "derecha": "Genera beneficio para el empresario",
+          "emoji": "💼"
+        }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "12-16",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "⚙️",
+          "pregunta": "¿Cuál NO es uno de los 5 factores productivos del PDF?",
+          "paginas": "14",
+          "palabras": [
+            {
+              "text": "Tierra",
+              "es_intrusa": false
+            },
+            {
+              "text": "Trabajo",
+              "es_intrusa": false
+            },
+            {
+              "text": "Mercado",
+              "es_intrusa": true
+            },
+            {
+              "text": "Capital",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Los 5 factores productivos son: Tierra, Trabajo, Capital, Tecnología y Capacidad Empresarial. El mercado es el espacio de intercambio, no un factor de producción."
+        },
+        {
+          "id": 1,
+          "emoji": "🔄",
+          "pregunta": "¿Cuál NO es una fase del proceso económico?",
+          "paginas": "15",
+          "palabras": [
+            {
+              "text": "Producción",
+              "es_intrusa": false
+            },
+            {
+              "text": "Circulación",
+              "es_intrusa": false
+            },
+            {
+              "text": "Exportación",
+              "es_intrusa": true
+            },
+            {
+              "text": "Consumo",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Las fases del proceso económico son: producción, circulación, distribución, consumo e inversión. La exportación es una actividad del sector externo, no una fase del proceso."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "12-16",
+      "conceptos": [
+        {
+          "termino": "Factores productivos",
+          "pista": "¿Qué recursos necesita una empresa para poder producir?",
+          "palabras_clave": ["recursos", "producir", "tierra", "trabajo", "capital", "tecnología"]
+        },
+        {
+          "termino": "Flujo circular de la economía",
+          "pista": "¿Cómo se relacionan familias, empresas y Estado en la economía?",
+          "palabras_clave": ["familias", "empresas", "intercambio", "bienes", "salarios", "circular"]
+        },
+        {
+          "termino": "Necesidades primarias",
+          "pista": "¿Qué necesidades son indispensables para sobrevivir?",
+          "palabras_clave": ["básicas", "sobrevivir", "vitales", "alimentación", "abrigo", "salud"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "13-16",
+      "causas": [
+        {
+          "id": 0,
+          "emoji": "🍞",
+          "text": "Una persona satisface sus necesidades fisiológicas"
+        },
+        {
+          "id": 1,
+          "emoji": "⚙️",
+          "text": "Una empresa invierte en nueva maquinaria (capital)"
+        },
+        {
+          "id": 2,
+          "emoji": "👨‍👩‍👧",
+          "text": "Las familias ofrecen su trabajo en el mercado laboral"
+        },
+        {
+          "id": 3,
+          "emoji": "💡",
+          "text": "Una empresa incorpora tecnología al proceso productivo"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 0,
+          "causa_id": 0,
+          "emoji": "🏠",
+          "text": "Busca satisfacer necesidades de seguridad (nivel superior de Maslow)"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "📈",
+          "text": "Aumenta su capacidad productiva y su competitividad"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "💵",
+          "text": "Reciben salarios que usan para consumir bienes y servicios"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "✅",
+          "text": "Produce más con menos recursos, reduciendo sus costos"
+        }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená las fases del proceso económico en el orden en que ocurren:",
+      "paginas_referencia": "15",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 0,
+          "emoji": "🏭",
+          "text": "Producción: se crean bienes y servicios combinando factores"
+        },
+        {
+          "id": 1,
+          "emoji": "🚚",
+          "text": "Circulación: los productos se distribuyen hasta llegar al consumidor"
+        },
+        {
+          "id": 2,
+          "emoji": "💵",
+          "text": "Distribución: se reparten los ingresos entre los agentes que participaron"
+        },
+        {
+          "id": 3,
+          "emoji": "🛒",
+          "text": "Consumo: se usan los bienes y servicios para satisfacer necesidades"
+        },
+        {
+          "id": 4,
+          "emoji": "📊",
+          "text": "Inversión: se destinan recursos para aumentar la capacidad productiva futura"
+        }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "12-13",
+      "concepto_a": {
+        "nombre": "Bienes",
+        "emoji": "📦",
+        "color": "#10B981"
+      },
+      "concepto_b": {
+        "nombre": "Servicios",
+        "emoji": "🤝",
+        "color": "#6366F1"
+      }
+    }
+  },
+
+  "senales": {
     "conceptos_clave": [
-      "Necesidades humanas",
-      "Factores de producción",
-      "Trabajo",
-      "Tierra",
-      "Capital",
-      "Flujo circular de la economía"
+      {
+        "emoji": "⚠️",
+        "termino": "Escasez",
+        "color": "#6366F1",
+        "definicion": "La tensión entre recursos limitados y necesidades ilimitadas. Es el motor de toda la actividad económica y nos obliga a elegir entre alternativas.",
+        "importancia": "Sin entender la escasez, no hay forma de comprender por qué hay que elegir. Es el punto de partida de toda decisión económica."
+      },
+      {
+        "emoji": "💡",
+        "termino": "Costo de Oportunidad",
+        "color": "#3B82F6",
+        "definicion": "El valor de la mejor alternativa que descartamos cuando tomamos una decisión. Toda elección implica una renuncia.",
+        "importancia": "Es el concepto más poderoso de la economía porque cambia cómo vemos cada decisión: el verdadero costo de algo es lo que sacrificamos para tenerlo."
+      },
+      {
+        "emoji": "👥",
+        "termino": "Agentes Económicos",
+        "color": "#10B981",
+        "definicion": "Los actores que participan en la economía: familias, empresas, Estado y sector externo. Cada uno cumple un rol específico y sus decisiones se interrelacionan.",
+        "importancia": "Sin conocer quiénes participan y qué hace cada uno, es imposible entender cómo funciona el sistema económico."
+      },
+      {
+        "emoji": "🔄",
+        "termino": "Flujo Circular",
+        "color": "#F59E0B",
+        "definicion": "Modelo que muestra cómo se relacionan familias y empresas: las familias ofrecen factores y las empresas pagan salarios; con esos ingresos, las familias compran bienes.",
+        "importancia": "Permite ver la economía como un sistema integrado donde todos los actores están conectados. Lo que afecta a uno, afecta a todos."
+      }
     ],
-    "explicacion": "Para producir bienes y servicios se utilizan factores productivos: trabajo, tierra y capital. Estos factores permiten generar producción que luego se distribuye en forma de ingresos. El flujo circular de la economía muestra la relación entre familias y empresas a través de la producción, el consumo y los ingresos.",
-    "actividad": {
-      "consigna": "Observá el flujo circular de la economía y respondé.",
-      "preguntas": [
-        "¿Qué ofrecen las familias a las empresas?",
-        "¿Qué reciben las familias a cambio?",
-        "¿Qué producen las empresas?",
-        "¿Qué relación existe entre producción e ingresos?"
+    "semaforo_conceptos": [
+      {
+        "emoji": "⚠️",
+        "termino": "Escasez"
+      },
+      {
+        "emoji": "💡",
+        "termino": "Costo de oportunidad"
+      },
+      {
+        "emoji": "👥",
+        "termino": "Agentes económicos"
+      },
+      {
+        "emoji": "⚙️",
+        "termino": "Factores productivos"
+      },
+      {
+        "emoji": "🔄",
+        "termino": "Flujo circular"
+      }
+    ],
+    "postits_conceptos": [
+      "Escasez",
+      "Costo de Oportunidad",
+      "Agentes Económicos",
+      "Flujo Circular"
+    ]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {
+        "emoji": "🏦",
+        "color": "#6366F1",
+        "frente": "El costo de oportunidad de ir a la universidad puede superar los $50 millones en Argentina",
+        "dorso": "Estudiar 5 años implica no solo el costo de la carrera, sino los ingresos resignados por no trabajar. En Argentina, un técnico de nivel medio gana en promedio entre $500.000 y $800.000 por mes. Cinco años resignados suman cifras enormes, aunque la inversión educativa suele recuperarse con creces."
+      },
+      {
+        "emoji": "🌍",
+        "color": "#10B981",
+        "frente": "Hay países donde el 40% de la economía pasa por las manos del Estado",
+        "dorso": "En países nórdicos como Suecia o Dinamarca, el gasto público representa más del 50% del PBI. En Argentina ronda el 38-42%. Esto significa que casi la mitad de todos los bienes y servicios producidos son distribuidos o financiados por el Estado, lo que muestra su enorme rol como agente económico."
+      },
+      {
+        "emoji": "📊",
+        "color": "#F59E0B",
+        "frente": "Abraham Maslow nunca dibujó la famosa pirámide que lleva su nombre",
+        "dorso": "Maslow publicó su teoría de la jerarquía de necesidades en 1943, pero la icónica representación triangular fue creada por otros autores años después. El propio Maslow cuestionó hacia el final de su vida que las necesidades fueran tan rígidamente jerárquicas, ya que las personas pueden buscar autorrealización incluso sin satisfacer plenamente otras necesidades."
+      }
+    ],
+    "linea_de_tiempo": [
+      {
+        "emoji": "📜",
+        "year": "1776",
+        "text": "Adam Smith publica 'La riqueza de las naciones', fundando la economía como ciencia moderna"
+      },
+      {
+        "emoji": "🏭",
+        "year": "1848",
+        "text": "Karl Marx analiza el capitalismo industrial y el conflicto entre trabajo y capital en sus escritos"
+      },
+      {
+        "emoji": "🧠",
+        "year": "1943",
+        "text": "Abraham Maslow publica su teoría de la jerarquía de necesidades humanas"
+      },
+      {
+        "emoji": "💰",
+        "year": "1976",
+        "text": "Milton Friedman gana el Nobel de Economía por sus estudios sobre el rol del dinero y la política fiscal"
+      },
+      {
+        "emoji": "🌐",
+        "year": "2008",
+        "text": "La crisis financiera global demuestra cómo las decisiones económicas de unos afectan a todos en el flujo circular mundial"
+      }
+    ],
+    "encuesta": {
+      "pregunta": "¿Qué dato te voló la cabeza?",
+      "opciones": [
+        {
+          "emoji": "💸",
+          "text": "Que el costo de oportunidad de estudiar puede ser millonario",
+          "votos_iniciales": 47
+        },
+        {
+          "emoji": "🏛️",
+          "text": "Que el Estado maneja casi la mitad de la economía en algunos países",
+          "votos_iniciales": 35
+        },
+        {
+          "emoji": "📐",
+          "text": "Que Maslow nunca dibujó la pirámide que lleva su nombre",
+          "votos_iniciales": 41
+        }
       ]
     }
   },
 
-  "senales": [
-    "La economía está presente en decisiones cotidianas.",
-    "La escasez obliga a elegir entre alternativas.",
-    "Las decisiones económicas implican costos de oportunidad."
-  ],
-
-  "sabias": [
-    "El costo de oportunidad no siempre es dinero: puede ser tiempo o una experiencia perdida.",
-    "Las familias no solo consumen: también ofrecen trabajo y otros recursos.",
-    "El flujo circular muestra cómo circula el dinero en la economía."
-  ],
-
-  "cruces": [
-    {
-      "materia": "Matemática",
-      "relacion": "Análisis de costos, ingresos y decisiones económicas."
-    },
-    {
-      "materia": "Geografía",
-      "relacion": "Relación entre recursos naturales y producción."
-    },
-    {
-      "materia": "Historia",
-      "relacion": "Evolución de los sistemas económicos."
-    }
-  ],
-
-  "relectura": {
-    "preguntas": [
-      "¿Por qué la escasez es el problema central de la economía?",
-      "¿Qué es el costo de oportunidad?",
-      "¿Qué agentes participan en la economía?",
-      "¿Qué factores productivos existen?"
+  "cruces": {
+    "consigna_general": "Elegí un tema de cada bloque que te haya interesado y preparalo para explicárselo a un compañero. Podés usar esquemas, dibujos, ejemplos... ¡lo que quieras!",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "📚",
+        "titulo": "BLOQUE A: Economía, Escasez y Agentes",
+        "color": "#6366F1",
+        "temas_sugeridos": [
+          "Qué estudia la economía y por qué es importante para la vida cotidiana",
+          "Por qué la escasez es el problema central de la economía",
+          "Las 3 preguntas básicas que toda sociedad debe responder",
+          "Qué es el costo de oportunidad con un ejemplo tuyo",
+          "Los 4 agentes económicos y qué hace cada uno",
+          "Diferencia entre recursos limitados y necesidades ilimitadas"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+      },
+      {
+        "id": "b",
+        "emoji": "🏢",
+        "titulo": "BLOQUE B: Familias, Empresas y Estado",
+        "color": "#3B82F6",
+        "temas_sugeridos": [
+          "Qué aportan las familias al mercado y qué reciben a cambio",
+          "Cómo se clasifica una empresa por tamaño, sector y forma jurídica",
+          "Cómo calcular el beneficio de una empresa con un ejemplo",
+          "Los 4 roles del Estado como agente económico",
+          "Cómo obtiene y en qué gasta sus recursos el Estado",
+          "Qué es el déficit fiscal y por qué importa"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+      },
+      {
+        "id": "c",
+        "emoji": "⚙️",
+        "titulo": "BLOQUE C: Conceptos, Factores y Flujo Circular",
+        "color": "#10B981",
+        "temas_sugeridos": [
+          "Diferencia entre bienes y servicios, con ejemplos cotidianos",
+          "Las necesidades primarias y secundarias según el PDF",
+          "Los 5 niveles de la Pirámide de Maslow y su conexión con la economía",
+          "Los 5 factores productivos y qué ingreso genera cada uno",
+          "Las 5 fases del proceso económico (producción → inversión)",
+          "Cómo funciona el flujo circular de la economía"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+      }
     ]
   },
 
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "El Estado debería intervenir más en la economía para garantizar equidad, aunque eso limite la libertad de mercado",
+      "contexto": "En Argentina y el mundo, siempre se debate cuánto debe intervenir el Estado en la economía. Algunos dicen que sin regulación hay desigualdad; otros, que demasiada intervención frena el crecimiento. ¿Cuál postura te parece más razonable?",
+      "roles": [
+        {
+          "id": "fiscal",
+          "emoji": "🏛️",
+          "label": "A favor del Estado activo",
+          "desc": "Argumentá por qué el Estado debe intervenir para corregir desigualdades, proteger a los más vulnerables y garantizar servicios públicos",
+          "color": "#6366F1"
+        },
+        {
+          "id": "defensa",
+          "emoji": "🏭",
+          "label": "A favor del mercado libre",
+          "desc": "Argumentá por qué el mercado sin intervención asigna mejor los recursos, genera eficiencia y promueve el crecimiento",
+          "color": "#EC4899"
+        },
+        {
+          "id": "juez",
+          "emoji": "⚖️",
+          "label": "Posición equilibrada",
+          "desc": "Proponé un modelo donde Estado y mercado colaboren: ¿dónde interviene cada uno? ¿cómo se complementan?",
+          "color": "#10B981"
+        }
+      ]
+    },
+    "tesis": {
+      "consigna": "Formulá una tesis sobre cuál de los 4 agentes económicos tiene más poder real para cambiar las condiciones de vida de las personas. Incluí: (1) Tu tesis principal, (2) Dos evidencias del PDF que la apoyen, (3) Dos contraargumentos posibles, (4) Una conclusión que defienda tu postura."
+    },
+    "critica": {
+      "consigna": "Analizá críticamente el modelo de flujo circular de la economía: ¿Qué aspectos de la realidad argentina explica bien? ¿Qué situaciones concretas de tu entorno NO encajan con ese modelo? ¿Qué le agregarías o cambiarías para que sea más realista?"
+    }
+  },
+
   "autotest": {
+    "banco_respuestas_docente": [
+      "1. B - Ciencia social que estudia cómo tomar decisiones con recursos escasos para satisfacer necesidades ilimitadas. (p. 2)",
+      "2. C - ¿Qué producir?, ¿Cómo producir?, ¿Para quién producir? (p. 3)",
+      "3. A - El valor de la mejor alternativa no elegida al tomar una decisión. (p. 3-4)",
+      "4. B - Regula la economía, provee servicios públicos y redistribuye ingresos. (p. 10)",
+      "5. C - Sector Terciario. (p. 8)",
+      "6. B - Beneficio = Ingresos totales − Costos totales. (p. 9)",
+      "7. A - Son las propietarias de los factores de producción (trabajo, tierra y capital). (p. 6)",
+      "8. D - Capacidad Empresarial. (p. 14)",
+      "9. C - Circulación. (p. 15)",
+      "10. B - Las familias ofrecen factores y las empresas pagan salarios; con esos ingresos las familias compran bienes. (p. 16)",
+      "11. VERDADERO - La escasez implica elegir y toda elección tiene un costo de oportunidad. (p. 3)",
+      "12. FALSO - El capital son bienes como maquinaria, herramientas y edificios, no dinero en sí. (p. 14)",
+      "13. VERDADERO - El Estado puede generar déficit fiscal si gasta más de lo que recauda. (p. 11)",
+      "14. FALSO - Las necesidades primarias son las indispensables para sobrevivir; las secundarias mejoran la calidad de vida. (p. 12-13)",
+      "15. VERDADERO - Las familias ofrecen trabajo, tierra y capital y reciben salarios, rentas e intereses respectivamente. (p. 15)"
+    ],
     "preguntas": [
       {
-        "pregunta": "¿Qué estudia la economía?",
+        "pregunta": "¿Cómo define el PDF a la Economía?",
         "opciones": [
-          "Cómo se satisfacen necesidades ilimitadas con recursos limitados",
-          "Solo el comercio internacional",
-          "Solo el funcionamiento de las empresas",
-          "El comportamiento de los gobiernos únicamente"
+          "La ciencia que estudia cómo los gobiernos manejan el dinero del país",
+          "La ciencia social que estudia cómo tomar decisiones con recursos escasos para satisfacer necesidades ilimitadas",
+          "La disciplina que analiza los precios de los productos en el mercado",
+          "El conjunto de normas que regulan el comercio entre países"
         ],
-        "correcta": 0,
-        "explicacion": "La economía analiza cómo se utilizan recursos limitados para satisfacer necesidades."
+        "correcta": 1,
+        "explicacion": "La economía estudia cómo personas y sociedades toman decisiones para satisfacer necesidades ilimitadas con recursos limitados. Revisá la página 2 para profundizar este concepto."
       },
       {
-        "pregunta": "¿Qué significa escasez en economía?",
+        "pregunta": "¿Cuáles son las 3 preguntas básicas que toda sociedad debe responder según la economía?",
         "opciones": [
-          "Que los recursos son ilimitados",
-          "Que las necesidades humanas son pocas",
-          "Que los recursos son limitados frente a necesidades ilimitadas",
-          "Que todo se produce en exceso"
+          "¿Cuánto ganar?, ¿Cómo ahorrar?, ¿Cómo invertir?",
+          "¿Cuándo producir?, ¿Dónde producir?, ¿Cuánto producir?",
+          "¿Qué producir?, ¿Cómo producir?, ¿Para quién producir?",
+          "¿Qué comprar?, ¿Cuánto pagar?, ¿Dónde vender?"
         ],
         "correcta": 2,
-        "explicacion": "La escasez surge porque los recursos no alcanzan para satisfacer todas las necesidades."
+        "explicacion": "La escasez obliga a responder: ¿Qué producir? (qué bienes son prioritarios), ¿Cómo producir? (con qué recursos) y ¿Para quién producir? (quiénes recibirán los bienes). Ver página 3."
       },
       {
-        "pregunta": "¿Qué es el costo de oportunidad?",
+        "pregunta": "¿Qué es el Costo de Oportunidad?",
         "opciones": [
-          "El precio de un producto",
-          "El valor de la mejor alternativa no elegida",
-          "El costo de producir un bien",
-          "El salario de los trabajadores"
-        ],
-        "correcta": 1,
-        "explicacion": "El costo de oportunidad es aquello a lo que se renuncia al tomar una decisión."
-      },
-      {
-        "pregunta": "¿Quiénes son considerados agentes económicos?",
-        "opciones": [
-          "Solo las empresas",
-          "Familias, empresas, Estado y sector externo",
-          "Solo el Estado",
-          "Solo los consumidores"
-        ],
-        "correcta": 1,
-        "explicacion": "Todos esos actores participan en la actividad económica."
-      },
-      {
-        "pregunta": "¿Qué hacen las empresas en la economía?",
-        "opciones": [
-          "Producen bienes y servicios",
-          "Solo consumen",
-          "Solo regulan la economía",
-          "Solo recaudan impuestos"
+          "El valor de la mejor alternativa no elegida al tomar una decisión",
+          "El precio que se paga en el mercado por un bien",
+          "El costo de producir un bien más el margen de ganancia",
+          "El gasto total de una empresa en un período"
         ],
         "correcta": 0,
-        "explicacion": "Las empresas organizan recursos para producir bienes y servicios."
+        "explicacion": "El costo de oportunidad es el valor de aquello que sacrificamos al tomar una decisión: la mejor alternativa que no elegimos. Por ejemplo, estudiar implica resignar los ingresos que podría haber generado trabajar. Ver página 3-4."
       },
       {
-        "pregunta": "¿Qué ofrecen las familias a las empresas?",
+        "pregunta": "¿Cuál es el objetivo principal del Estado como agente económico?",
         "opciones": [
-          "Impuestos",
-          "Factores de producción",
-          "Productos terminados",
-          "Exportaciones"
+          "Maximizar las ganancias de las empresas públicas",
+          "Garantizar el bienestar general, corregir fallas de mercado y reducir la desigualdad",
+          "Controlar todos los precios del mercado",
+          "Eliminar la competencia entre empresas privadas"
         ],
         "correcta": 1,
-        "explicacion": "Las familias ofrecen trabajo, tierra y capital."
+        "explicacion": "El Estado actúa como regulador, productor, consumidor y redistribuidor. Su objetivo no es el lucro sino el bienestar general. Repasá la página 10 para más detalles."
       },
       {
-        "pregunta": "¿Qué factor productivo representa el esfuerzo humano?",
+        "pregunta": "Una empresa que ofrece servicios de educación, salud o transporte pertenece al:",
         "opciones": [
-          "Capital",
+          "Sector Primario",
+          "Sector Secundario",
+          "Sector Terciario",
+          "Sector Cuaternario"
+        ],
+        "correcta": 2,
+        "explicacion": "El sector terciario incluye la prestación de servicios intangibles: comercio, turismo, educación, salud y transporte. Los sectores primario y secundario son de extracción y transformación. Ver página 8."
+      },
+      {
+        "pregunta": "Si una panadería tiene ingresos de $100.000 y costos totales de $65.000, ¿cuál es su beneficio?",
+        "opciones": [
+          "$165.000",
+          "$100.000",
+          "$65.000",
+          "$35.000"
+        ],
+        "correcta": 3,
+        "explicacion": "Beneficio = Ingresos totales − Costos totales = $100.000 − $65.000 = $35.000. Este es el ejemplo concreto del PDF en la página 9."
+      },
+      {
+        "pregunta": "¿Cuál es el rol de las familias respecto a los factores de producción?",
+        "opciones": [
+          "Son propietarias de los factores y los ofrecen a las empresas a cambio de ingresos",
+          "Solo los consumen pero nunca los producen",
+          "Los administran en nombre del Estado",
+          "Los importan del sector externo"
+        ],
+        "correcta": 0,
+        "explicacion": "Las familias son dueñas de los factores (trabajo, tierra, capital) y los ofrecen a las empresas a cambio de salarios, rentas e intereses. Ver página 6."
+      },
+      {
+        "pregunta": "¿Cuál de los siguientes NO es uno de los 5 factores productivos mencionados en el PDF?",
+        "opciones": [
           "Tierra",
           "Trabajo",
-          "Tecnología"
+          "Capital",
+          "Capacidad Empresarial"
+        ],
+        "correcta": 3,
+        "explicacion": "Los 5 factores productivos son: Tierra, Trabajo, Capital, Tecnología y Capacidad Empresarial. Todos están incluidos en las opciones; revisá la página 14 para ver las definiciones de cada uno."
+      },
+      {
+        "pregunta": "¿Cómo se llama la fase del proceso económico donde los productos se distribuyen desde la producción hasta los consumidores?",
+        "opciones": [
+          "Distribución",
+          "Inversión",
+          "Circulación",
+          "Consumo"
         ],
         "correcta": 2,
-        "explicacion": "El trabajo representa el esfuerzo físico e intelectual humano."
+        "explicacion": "La circulación es la distribución y transporte de los productos desde el lugar de producción hasta los consumidores. No confundir con 'distribución', que es el reparto de ingresos entre agentes. Ver página 15."
       },
       {
-        "pregunta": "¿Qué muestra el flujo circular de la economía?",
+        "pregunta": "¿Qué representa el flujo circular de la economía?",
         "opciones": [
-          "La relación entre familias y empresas",
-          "El comercio internacional",
-          "Solo la producción industrial",
-          "Solo el consumo"
-        ],
-        "correcta": 0,
-        "explicacion": "El flujo circular explica cómo circulan bienes, servicios e ingresos."
-      },
-      {
-        "pregunta": "¿Cuál es una de las tres preguntas básicas de la economía?",
-        "opciones": [
-          "¿Dónde vivir?",
-          "¿Qué producir?",
-          "¿Quién gobierna?",
-          "¿Qué estudiar?"
+          "El ciclo de vida de los productos desde que se fabrican hasta que se desechan",
+          "Cómo familias y empresas se relacionan intercambiando factores, ingresos y bienes",
+          "El movimiento del dinero en el sistema bancario",
+          "El circuito de importaciones y exportaciones entre países"
         ],
         "correcta": 1,
-        "explicacion": "Las preguntas básicas son qué producir, cómo producir y para quién producir."
+        "explicacion": "El flujo circular muestra cómo familias ofrecen trabajo y capital a las empresas, que pagan salarios; con esos ingresos las familias compran bienes. El Estado y sector externo también participan. Ver página 16."
+      }
+    ],
+    "verdadero_falso": [
+      {
+        "texto": "La escasez nos obliga a elegir, y toda elección implica renunciar a algo valioso",
+        "correcto": true,
+        "explicacion": "Verdadero. La escasez es la tensión entre recursos limitados y necesidades ilimitadas. Elegir una opción significa resignar otra; ese valor resignado es el costo de oportunidad. Ver página 3."
       },
       {
-        "pregunta": "¿Qué agente regula la economía y provee servicios públicos?",
-        "opciones": [
-          "Las empresas",
-          "Las familias",
-          "El Estado",
-          "Los consumidores"
-        ],
-        "correcta": 2,
-        "explicacion": "El Estado regula la actividad económica y brinda servicios públicos."
+        "texto": "El capital como factor productivo es sinónimo del dinero que tiene una empresa",
+        "correcto": false,
+        "explicacion": "Falso. El capital son los bienes producidos que se usan para producir otros bienes: maquinaria, herramientas, edificios e infraestructura. No es el dinero en sí. Ver página 14."
+      },
+      {
+        "texto": "Si el Estado gasta más de lo que recauda en impuestos, se produce un déficit fiscal",
+        "correcto": true,
+        "explicacion": "Verdadero. El déficit fiscal ocurre cuando los gastos del Estado superan sus ingresos, lo que generalmente implica la necesidad de endeudamiento. Ver página 11."
+      },
+      {
+        "texto": "Las necesidades primarias son las que mejoran la calidad de vida, como el entretenimiento y la tecnología",
+        "correcto": false,
+        "explicacion": "Falso. Las necesidades primarias son las indispensables para sobrevivir: alimentación, abrigo, salud, vivienda. Las que mejoran la calidad de vida (entretenimiento, tecnología) son las necesidades secundarias. Ver página 12-13."
+      },
+      {
+        "texto": "Las familias ofrecen trabajo a cambio de salarios, tierra a cambio de rentas y capital a cambio de intereses",
+        "correcto": true,
+        "explicacion": "Verdadero. Cada factor tiene su retribución: trabajo → salario, tierra → renta, capital → interés, capacidad empresarial → beneficio. Ver página 15."
       }
     ]
   },
 
   "cierre": {
-    "idea_final": "Comprender la economía permite analizar las decisiones que tomamos cada día y entender cómo interactúan las familias, las empresas y el Estado en la sociedad.",
-    "pregunta_reflexion": "¿Cómo cambiarían tus decisiones si pensaras siempre en el costo de oportunidad?"
+    "glosario": [
+      {
+        "emoji": "📊",
+        "termino": "Economía",
+        "categoria": "Concepto base",
+        "definicion": "Ciencia social que estudia cómo las personas y sociedades toman decisiones para satisfacer necesidades ilimitadas con recursos que son limitados."
+      },
+      {
+        "emoji": "⚠️",
+        "termino": "Escasez",
+        "categoria": "Concepto base",
+        "definicion": "Tensión entre los recursos limitados y las necesidades ilimitadas. Es el motor de toda la actividad económica y obliga a elegir."
+      },
+      {
+        "emoji": "💡",
+        "termino": "Costo de Oportunidad",
+        "categoria": "Concepto clave",
+        "definicion": "El valor de la mejor alternativa que se descarta cuando se toma una decisión. Toda elección implica una renuncia."
+      },
+      {
+        "emoji": "👥",
+        "termino": "Agentes Económicos",
+        "categoria": "Actores",
+        "definicion": "Actores que participan en la economía: familias (consumen y ofrecen factores), empresas (producen), Estado (regula y redistribuye) y sector externo (comercia con otros países)."
+      },
+      {
+        "emoji": "⚙️",
+        "termino": "Factores Productivos",
+        "categoria": "Producción",
+        "definicion": "Recursos que se usan para producir bienes y servicios: tierra, trabajo, capital, tecnología y capacidad empresarial."
+      },
+      {
+        "emoji": "🔄",
+        "termino": "Flujo Circular",
+        "categoria": "Modelo",
+        "definicion": "Modelo que representa cómo se relacionan familias, empresas, Estado y sector externo en el intercambio de factores, ingresos, bienes y servicios."
+      },
+      {
+        "emoji": "💰",
+        "termino": "Beneficio Empresarial",
+        "categoria": "Empresa",
+        "definicion": "Resultado económico de una empresa. Se calcula como la diferencia entre sus ingresos totales y sus costos totales."
+      },
+      {
+        "emoji": "🏛️",
+        "termino": "Déficit Fiscal",
+        "categoria": "Estado",
+        "definicion": "Situación en que el Estado gasta más de lo que recauda, lo que generalmente implica la necesidad de endeudamiento público."
+      }
+    ],
+    "recursos": [
+      {
+        "tipo": "🎬 Video",
+        "title": "¿Qué es la Economía? - Canal Encuentro / YouTube",
+        "desc": "Serie de videos cortos que explican los conceptos económicos básicos de forma visual y con ejemplos argentinos",
+        "nivel": "Introductorio",
+        "color": "#6366F1"
+      },
+      {
+        "tipo": "📖 Libro",
+        "title": "Economía en colores - Diego Valenzuela",
+        "desc": "Libro accesible sobre economía argentina con ejemplos cotidianos; ideal para entender cómo los conceptos básicos se aplican en nuestro país",
+        "nivel": "Introductorio",
+        "color": "#3B82F6"
+      },
+      {
+        "tipo": "🌐 Web",
+        "title": "INDEC - Instituto Nacional de Estadística y Censos",
+        "desc": "Fuente oficial de datos económicos de Argentina: inflación, PBI, empleo y más indicadores reales para analizar la economía",
+        "nivel": "Intermedio",
+        "color": "#10B981"
+      },
+      {
+        "tipo": "🎧 Podcast",
+        "title": "La Economía en 30 minutos - Spotify / Google Podcasts",
+        "desc": "Podcast argentino que explica en términos sencillos los temas económicos de actualidad, ideal para conectar la teoría con las noticias",
+        "nivel": "Introductorio",
+        "color": "#F59E0B"
+      },
+      {
+        "tipo": "📄 Artículo",
+        "title": "El Banco Central explica la economía - BCRA",
+        "desc": "Sección educativa del Banco Central de la República Argentina con explicaciones claras sobre conceptos económicos fundamentales",
+        "nivel": "Intermedio",
+        "color": "#8B5CF6"
+      }
+    ]
   }
 }
