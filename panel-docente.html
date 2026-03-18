@@ -34,7 +34,7 @@ body{background:#0F172A;color:#E2E8F0;min-height:100vh}
 /* STATS TOP */
 .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:28px}
 .stat-card{background:#1E293B;border:1px solid rgba(255,255,255,0.07);border-radius:16px;padding:20px 22px}
-.stat-card .val{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:800;background:linear-gradient(135deg,#A78BFA,#6366F1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat-card .val{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:800;background:linear-gradient(135deg,#A78BFA,#6366F1);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .stat-card .lbl{font-size:12px;color:#64748B;font-weight:600;text-transform:uppercase;letter-spacing:.8px;margin-top:4px}
 
 /* TABS */
@@ -95,20 +95,26 @@ body{background:#0F172A;color:#E2E8F0;min-height:100vh}
 
 .nota-circle{width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:800}
 
-/* MODAL DETALLE */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
-.modal-content{background:#1E293B;border:1px solid rgba(255,255,255,0.1);border-radius:24px;width:100%;max-width:600px;max-height:90vh;overflow-y:auto;position:relative;animation:fadeUp .3s ease}
-.modal-header{padding:20px 24px;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:#1E293B;z-index:10}
-.modal-close{background:none;border:none;color:#64748B;font-size:24px;cursor:pointer}
-.modal-body{padding:24px}
-.detail-item{margin-bottom:20px;padding:12px;border-radius:12px;background:#0F172A;border:1px solid rgba(255,255,255,0.05)}
-.detail-label{font-size:11px;font-weight:700;color:#6366F1;text-transform:uppercase;margin-bottom:4px}
-.detail-val{font-size:14px;color:#F1F5F9;line-height:1.5;white-space:pre-wrap}
-.comment-box{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.07)}
-.comment-label{display:block;font-size:13px;font-weight:700;color:#10B981;margin-bottom:8px}
-.comment-textarea{width:100%;background:#0F172A;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;color:#F1F5F9;font-size:14px;min-height:100px;margin-bottom:12px;outline:none}
-.comment-textarea:focus{border-color:#10B981}
-.save-btn{width:100%;padding:12px;border-radius:10px;background:#10B981;color:#fff;font-weight:700;border:none;cursor:pointer}
+/* MAPA DE CALOR */
+.heatmap-container{overflow-x:auto;background:#1E293B;border-radius:16px;border:1px solid rgba(255,255,255,0.07)}
+.heatmap-table{width:100%;border-collapse:separate;border-spacing:2px;font-size:11px}
+.heatmap-table th{padding:8px;font-size:9px;color:#64748B;text-transform:uppercase;letter-spacing:.5px;background:#0F172A;position:sticky;top:0;z-index:2}
+.heatmap-table td{padding:8px;text-align:center;border-radius:4px;transition:all .2s;min-width:30px}
+.cell-done{background:#10B98130;color:#34D399;border:1px solid #10B98150}
+.cell-partial{background:#F59E0B20;color:#FBBF24;border:1px solid #F59E0B40}
+.cell-empty{background:#0F172A;border:1px solid rgba(255,255,255,0.03)}
+.heatmap-name{text-align:left !important;position:sticky;left:0;background:#1E293B;z-index:1;font-weight:700;padding-left:12px !important;white-space:nowrap}
+
+/* ALERTAS */
+.alert-icon{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;font-size:12px;margin-right:6px}
+.alert-inactivity{background:#EF444420;color:#F87171;border:1px solid #EF444440}
+.alert-warning{background:#F59E0B20;color:#FBBF24;border:1px solid #F59E0B40}
+
+/* MEDALLERO */
+.medallero-mini{display:flex;gap:4px;margin-top:6px}
+.medals-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-top:12px}
+.medal-card-mini{padding:6px 10px;border-radius:10px;display:flex;align-items:center;gap:6px;font-size:11px;background:#0F172A;border:1px solid rgba(255,255,255,0.05);opacity:0.2;filter:grayscale(1)}
+.medal-card-mini.on{opacity:1;filter:grayscale(0);border-color:#F59E0B50;background:rgba(245,158,11,0.05)}
 
 @media(max-width:600px){
   .form-row{grid-template-columns:1fr}
@@ -158,9 +164,10 @@ body{background:#0F172A;color:#E2E8F0;min-height:100vh}
     <!-- TABS -->
     <div class="tabs">
       <button class="tab on" onclick="switchTab(0,this)">👥 Alumnos</button>
-      <button class="tab" onclick="switchTab(1,this)">📊 Progreso</button>
+      <button class="tab" id="tabProgreso" onclick="switchTab(1,this)">📊 Progreso</button>
+      <button class="tab" id="tabHeatmap" onclick="switchTab(4,this)">🗺️ Mapa de Calor</button>
       <button class="tab" onclick="switchTab(2,this)">📝 Autotests</button>
-      <button class="tab" onclick="switchTab(3,this)">⚙️ Gestionar claves</button>
+      <button class="tab" onclick="switchTab(3,this)">⚙️ Gestionar</button>
     </div>
 
     <div id="tabContent"></div>
@@ -284,6 +291,7 @@ function switchTab(idx, btn){
 function renderTab(){
   if(currentTab===0) renderAlumnos();
   else if(currentTab===1) renderProgreso();
+  else if(currentTab===4) renderHeatmap();
   else if(currentTab===2) renderAutotests();
   else renderGestionar();
 }
@@ -456,13 +464,46 @@ function filtrarAlumnos(){
   document.getElementById("tablaAlumnos").innerHTML = h;
 }
 
+// ----- HELPERS PARA SEGUIMIENTO -----
+function getInactividadIcon(alumnoCodigo) {
+  var ultimas = allSesiones.filter(function(s){return s.alumno_codigo===alumnoCodigo}).sort(function(x,y){return new Date(y.fecha)-new Date(x.fecha)});
+  if(!ultimas.length) return '<span class="alert-icon alert-inactivity" title="Nunca ingresó">⌛</span>';
+  var ultima = new Date(ultimas[0].fecha);
+  var diff = (new Date() - ultima) / (1000 * 60 * 60 * 24);
+  if(diff > 4) return '<span class="alert-icon alert-inactivity" title="Inactivo hace ' + Math.floor(diff) + ' días">⏰</span>';
+  return '';
+}
+
+function calcularMedallas(progMateriaUnidad) {
+  var secs = progMateriaUnidad.map(function(p){return p.seccion});
+  var autotest = progMateriaUnidad.find(function(p){return (p.seccion==="autotest_1er_intento"||p.seccion==="autotest") && p.nota!==null});
+  var m1 = secs.indexOf("umbral") >= 0;
+  var m2 = ["nucleo_a","nucleo_b","nucleo_c"].every(function(s){return secs.indexOf(s)>=0});
+  var m3 = autotest && autotest.nota >= 80;
+  var m4 = secs.indexOf("relectura") >= 0;
+  var m5 = secs.indexOf("cruces") >= 0;
+  var m6 = secs.indexOf("emocional") >= 0;
+  var m7 = secs.indexOf("sabias") >= 0;
+  var m8 = secs.filter(function(s){return SECCIONES.indexOf(s)>=0}).length >= 12;
+  return [m1, m2, m3, m4, m5, m6, m7, m8];
+}
+
 // ----- TAB 1: PROGRESO -----
 var SECCIONES = ["umbral","mapa","nucleo_a","nucleo_b","nucleo_c","senales","sabias","cruces","relectura","emocional","autotest","cierre"];
 var SECCIONES_LABELS = {
-  "umbral":"🚪 Umbral","mapa":"🗺️ Mapa","nucleo_a":"⚛️ Núcleo A","nucleo_b":"⚛️ Núcleo B","nucleo_c":"⚛️ Núcleo C","senales":"🚦 Señales",
-  "sabias":"✨ Sabías","cruces":"🔀 Cruces","relectura":"📖 Relectura",
-  "emocional":"🫶 Emocional","autotest":"📝 Autotest","cierre":"🔚 Cierre"
+  "umbral":"🚪 Umbral","mapa":"🗺️ Mapa","nucleo_a":"⚛️ A","nucleo_b":"⚛️ B","nucleo_c":"⚛️ C","senales":"🚦 Señales",
+  "sabias":"✨ Sabías","cruces":"🔀 Cruces","relectura":"📖 Relec.","emocional":"🫶 Emoc.","autotest":"📝 Test","cierre":"🔚 Cierre"
 };
+var MEDALLAS_DEF = [
+  {id:"m1", icon:"🚀", label:"Explorador/a"},
+  {id:"m2", icon:"🧠", label:"Científico/a"},
+  {id:"m3", icon:"💎", label:"Maestro/a"},
+  {id:"m4", icon:"📖", label:"Lector/a"},
+  {id:"m5", icon:"🔀", label:"Crítico/a"},
+  {id:"m6", icon:"🫶", label:"Empático/a"},
+  {id:"m7", icon:"✨", label:"Curioso/a"},
+  {id:"m8", icon:"🏆", label:"Perfecto"}
+];
 function renderProgreso(){
   // Obtener valores actuales de los filtros
   var fc = (document.getElementById("filterCursoP")||{value:""}).value;
@@ -516,13 +557,12 @@ function renderProgreso(){
     // Si hay filtro de materia, mostrar solo esa
     if(fm) materiasDelAlumno = materiasDelAlumno.filter(function(m){return m===fm});
 
-    // Calcular totales
     var totalActividades = progAlumno.length;
     var totalMaterias = materiasDelAlumno.length;
 
     h += '<div class="alumno-card">';
     h += '<div class="alumno-header"><div>';
-    h += '<div class="alumno-name">👤 '+a.nombre+'</div>';
+    h += '<div class="alumno-name">'+getInactividadIcon(a.codigo)+' '+a.nombre+'</div>';
     h += '<div class="alumno-meta">'+a.curso+' · '+totalMaterias+' materia'+(totalMaterias===1?'':'s')+' · '+totalActividades+' act.</div>';
     h += '</div></div>';
 
@@ -535,21 +575,16 @@ function renderProgreso(){
     // Renderizar cada materia
     materiasDelAlumno.forEach(function(materia){
       var progMateria = progAlumno.filter(function(p){return p.materia===materia;});
-      
-      // Agrupar por unidad
       var unidades = [...new Set(progMateria.map(function(p){return p.unidad}))].sort();
       
       unidades.forEach(function(unidad){
-        var secsCompletadas = progMateria.filter(function(p){return p.unidad===unidad;}).map(function(p){return p.seccion;});
+        var progMateriaUnidad = progMateria.filter(function(p){return p.unidad===unidad;});
+        var secsCompletadas = progMateriaUnidad.map(function(p){return p.seccion;});
         var totalSecciones = SECCIONES.length;
         var pct = Math.round(secsCompletadas.length / totalSecciones * 100);
-        
-        // Color según porcentaje
         var color = pct >= 70 ? '#10B981' : pct >= 40 ? '#F59E0B' : '#6366F1';
         
         h += '<div style="margin-top:16px;padding:14px;border-radius:12px;background:#0F172A;border:1px solid rgba(255,255,255,0.05)">';
-        
-        // Header de la materia
         h += '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">';
         h += '<div style="font-size:13px;font-weight:700;color:#F8FAFC">📚 '+materia+' ('+unidad.toUpperCase()+')</div>';
         h += '<div style="display:flex;align-items:center;gap:8px">';
@@ -557,28 +592,27 @@ function renderProgreso(){
         h += '<span style="font-size:13px;font-weight:800;color:'+color+'">'+pct+'%</span>';
         h += '</div></div>';
         
-        // Barra de progreso
         h += '<div style="height:6px;background:#1E293B;border-radius:6px;overflow:hidden;margin-bottom:12px">';
         h += '<div style="height:100%;width:'+pct+'%;background:'+color+';border-radius:6px;transition:width .5s"></div>';
         h += '</div>';
         
-        // Chips de secciones
-        h += '<div style="display:flex;flex-wrap:wrap;gap:6px">';
-        SECCIONES.forEach(function(sec){
-          var progSec = progMateria.find(function(p){return p.unidad===unidad && p.seccion===sec});
-          var completada = !!progSec;
-          h += '<span onclick="'+(completada?'verDetalle(\''+progSec.id+'\')':'')+'" style="font-size:11px;padding:4px 10px;border-radius:8px;font-weight:600;'+(completada?'cursor:pointer;':'')+'"';
-          h += completada
-            ? ' style="background:#10B98115;color:#34D399;border:1px solid #10B98130"'
-            : ' style="background:#1E293B;color:#64748B;border:1px solid #334155"';
-          h += '>'+(completada?'✓':'⏳')+' '+(SECCIONES_LABELS[sec]||sec)+'</span>';
+        // MEDALLAS Logradas
+        var mStatus = calcularMedallas(progMateriaUnidad);
+        h += '<div class="medallero-mini">';
+        MEDALLAS_DEF.forEach(function(m, i){
+          if(mStatus[i]) h += '<span title="'+m.label+'" style="font-size:16px">'+m.icon+'</span>';
         });
         h += '</div>';
-        
-        h += '</div>';
+
+        h += '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:12px">';
+        SECCIONES.forEach(function(sec){
+          var progSec = progMateriaUnidad.find(function(p){return p.seccion===sec});
+          var completada = !!progSec;
+          h += '<span onclick="'+(completada?'verDetalle(\''+progSec.id+'\')':'')+'" class="badge '+(completada?'badge-green':'')+'" style="'+(completada?'cursor:pointer;':'')+'opacity:'+(completada?1:0.3)+'">'+(SECCIONES_LABELS[sec]||sec)+'</span>';
+        });
+        h += '</div></div>';
       });
     });
-
     h += '</div>';
   });
 
@@ -723,6 +757,64 @@ function renderAutotests(){
   // NOTA AL PIE
   h += '<div style="margin-top:16px;padding:12px 16px;border-radius:12px;background:#1E293B;border:1px solid rgba(255,255,255,0.07)">';
   h += '<p style="margin:0;font-size:12px;color:#64748B">💡 <strong>Nota:</strong> Solo se muestra el <strong>primer intento</strong> de cada alumno (es la nota oficial). Los reintentos son solo para práctica.</p>';
+  h += '</div>';
+
+  document.getElementById("tabContent").innerHTML = h;
+}
+
+// ----- TAB 4: MAPA DE CALOR -----
+function renderHeatmap(){
+  var fc = (document.getElementById("filterCursoH")||{value:""}).value;
+  var fm = (document.getElementById("filterMateriaH")||{value:""}).value;
+
+  var h = '<div class="search-row">';
+  h += '<select class="filter-select" id="filterCursoH" onchange="renderHeatmap()">';
+  h += '<option value="">Todos los cursos</option>';
+  var cursos = [...new Set(allAlumnos.map(function(a){return a.curso}))].sort();
+  cursos.forEach(function(c){ h += '<option'+(fc===c?' selected':'')+'>'+c+'</option>'; });
+  h += '</select>';
+
+  var todasMaterias = [...new Set(allProgreso.map(function(p){return p.materia}))].sort();
+  h += '<select class="filter-select" id="filterMateriaH" onchange="renderHeatmap()">';
+  h += '<option value="">Seleccioná materia</option>';
+  todasMaterias.forEach(function(m){ h += '<option'+(fm===m?' selected':'')+'>'+m+'</option>'; });
+  h += '</select>';
+  h += '</div>';
+
+  if(!fm) {
+    h += '<div class="empty-state">Seleccioná una materia para ver el mapa de calor de la clase</div>';
+    document.getElementById("tabContent").innerHTML = h;
+    return;
+  }
+
+  var filtAlumnos = fc ? allAlumnos.filter(function(a){return a.curso===fc}) : allAlumnos;
+  
+  h += '<div class="heatmap-container"><table class="heatmap-table"><thead><tr>';
+  h += '<th class="heatmap-name">Estudiante</th>';
+  SECCIONES.forEach(function(s){ h += '<th>' + (SECCIONES_LABELS[s]||s).replace(/[🚪🗺️⚛️🚦✨🔀📖🫶📝🔚]/g,"").trim() + '</th>'; });
+  h += '<th>🏅</th></tr></thead><tbody>';
+
+  filtAlumnos.forEach(function(a){
+    var prog = allProgreso.filter(function(p){return p.alumno_codigo===a.codigo && p.materia===fm});
+    var meds = calcularMedallas(prog);
+    var medCount = meds.filter(function(m){return m}).length;
+
+    h += '<tr>';
+    h += '<td class="heatmap-name">'+getInactividadIcon(a.codigo)+' '+a.nombre+'</td>';
+    SECCIONES.forEach(function(s){
+      var pSec = prog.find(function(p){return p.seccion===s});
+      var cls = pSec ? 'cell-done' : 'cell-empty';
+      var action = pSec ? 'onclick="verDetalle(\''+pSec.id+'\')"' : '';
+      h += '<td class="'+cls+'" '+(pSec?'style="cursor:pointer" ':'')+action+'>'+(pSec?'✓':'')+'</td>';
+    });
+    h += '<td style="font-weight:800;color:#F59E0B">'+medCount+'</td>';
+    h += '</tr>';
+  });
+
+  h += '</tbody></table></div>';
+  h += '<div style="margin-top:16px;display:flex;gap:16px;font-size:11px;color:#64748B">';
+  h += '<span><span style="display:inline-block;width:12px;height:12px;background:#10B98130;border:1px solid #10B98150;border-radius:2px;vertical-align:middle;margin-right:4px"></span> Completado</span>';
+  h += '<span><span style="display:inline-block;width:12px;height:12px;background:#0F172A;border:1px solid rgba(255,255,255,0.03);border-radius:2px;vertical-align:middle;margin-right:4px"></span> Pendiente</span>';
   h += '</div>';
 
   document.getElementById("tabContent").innerHTML = h;
@@ -1018,18 +1110,42 @@ async function verDetalle(progId){
 
 function renderObjetoS(S){
   var h = '';
+  // Mapeo de claves técnicas a etiquetas amigables
+  var labels = {
+    "q1":"Pregunta 1", "q2":"Pregunta 2", "q3":"Pregunta 3", "q4":"Pregunta 4",
+    "p1":"Respuesta 1", "p2":"Respuesta 2", "p3":"Respuesta 3",
+    "obs":"Observaciones", "texto":"Reflexión", "resp":"Respuesta",
+    "primerIntento":"Primer Intento", "reintento":"Reintento",
+    "nota":"Calificación", "fecha":"Fecha"
+  };
+
   for(var k in S){
     var val = S[k];
-    if(!val) continue;
+    if(val === null || val === undefined || val === '') continue;
+    
+    var label = labels[k] || (k.charAt(0).toUpperCase() + k.slice(1));
+    
     if(typeof val === 'object'){
-      var sub = '';
-      for(var sk in val){ if(val[sk]) sub += '<div style="margin-left:12px;font-size:12px">🔹 '+sk+': '+val[sk]+'</div>'; }
-      if(sub) h += '<div class="detail-item"><div class="detail-label">Sección: '+k+'</div>'+sub+'</div>';
-    } else if(typeof val === 'string' && val.length > 0){
-      h += '<div class="detail-item"><div class="detail-label">Campo: '+k+'</div><div class="detail-val">'+val+'</div></div>';
+      h += '<div class="detail-item"><div class="detail-label">'+label+'</div>';
+      for(var sk in val){
+        var sval = val[sk];
+        if(sval !== null && sval !== undefined && sval !== ''){
+          var slabel = labels[sk] || sk;
+          h += '<div style="margin-top:8px;padding-left:12px;border-left:2px solid rgba(99,102,241,0.3)">';
+          h += '<div style="font-size:10px;color:#64748B;text-transform:uppercase;font-weight:700">'+slabel+'</div>';
+          h += '<div style="font-size:13px;color:#F1F5F9">'+sval+'</div>';
+          h += '</div>';
+        }
+      }
+      h += '</div>';
+    } else {
+      h += '<div class="detail-item">';
+      h += '<div class="detail-label">'+label+'</div>';
+      h += '<div class="detail-val">'+val+'</div>';
+      h += '</div>';
     }
   }
-  if(!h) h = '<pre style="font-size:11px;color:#64748B">' + JSON.stringify(S, null, 2) + '</pre>';
+  if(!h) h = '<div class="empty-state">No hay datos legibles.</div>';
   return h;
 }
 
