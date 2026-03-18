@@ -1093,6 +1093,23 @@ async function verDetalle(progId){
   var p = allProgreso.find(function(x){return x.id == progId});
   if(!p) return;
   var alumno = allAlumnos.find(function(a){return a.codigo === p.alumno_codigo});
+
+  // FALLBACK: Si no hay datos, buscar en el autoguardado global __ESTADO_UNIDAD__
+  if(!p.datos){
+    var live = allProgreso.find(function(lp){
+      return lp.alumno_codigo === p.alumno_codigo && 
+             lp.materia === p.materia && 
+             lp.unidad === p.unidad && 
+             lp.seccion === "__ESTADO_UNIDAD__";
+    });
+    if(live && live.datos) {
+      // Usamos los datos del autoguardado como respaldo
+      p.datos = live.datos;
+
+      // Opcional: Si queremos filtrar solo lo de esta sección, podríamos
+      // pero el docente prefiere ver el contexto completo de las respuestas.
+    }
+  }
   
   document.getElementById('modalTitle').innerHTML = '👤 ' + (alumno?alumno.nombre:p.alumno_codigo) + ' <br> <small style="color:#64748B;font-size:12px">' + p.materia + ' · ' + (SECCIONES_LABELS[p.seccion]||p.seccion) + '</small>';
   document.getElementById('modalDetalle').style.display = 'flex';
@@ -1131,7 +1148,9 @@ function renderObjetoS(S){
     "p1":"Respuesta 1", "p2":"Respuesta 2", "p3":"Respuesta 3",
     "obs":"Observaciones", "texto":"Reflexión", "resp":"Respuesta",
     "primerIntento":"Primer Intento", "reintento":"Reintento",
-    "nota":"Calificación", "fecha":"Fecha"
+    "nota":"Calificación", "fecha":"Fecha",
+    "u1":"Preguntas Disparadoras", "u2s":"Situación Seleccionada", "u2t":"Comentario del alumno", "u3v":"Conocimiento previo",
+    "m1":"Ruta Visual", "at":"Autotest", "ci1":"Reflexión Final", "ci2":"Glosario consultado"
   };
 
   for(var k in S){

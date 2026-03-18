@@ -160,7 +160,7 @@ function marcarSeccion(tabKey){
   localStorage.setItem(getCheckKey(tabKey), "1");
   // Guardar en Supabase si está activo
   if(typeof SUPABASE_ACTIVO !== "undefined" && SUPABASE_ACTIVO){
-    trackProgreso(tabKey);
+    trackProgreso(tabKey, undefined, S);
   }
   actualizarBarra();
   render(); // re-render para mostrar el estado done
@@ -1550,7 +1550,7 @@ async function registrarSesion(codigo){
 // ----- REGISTRAR PROGRESO -----
 // Llamá a esta función cuando el alumno completa una sección
 // Ejemplo: trackProgreso("nucleo") — se llama automáticamente al cambiar de tab
-async function trackProgreso(seccion, nota){
+async function trackProgreso(seccion, nota, datos){
   var codigo = getAlumnoCodigo();
   if(!D) return;
 
@@ -1572,6 +1572,7 @@ async function trackProgreso(seccion, nota){
       completada: true
     };
     if(nota !== undefined) payload.nota = nota;
+    if(datos !== undefined) payload.datos = datos;
 
     await fetch(SUPABASE_URL + "/rest/v1/progreso", {
       method: "POST",
