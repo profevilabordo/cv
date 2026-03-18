@@ -1183,21 +1183,21 @@ function renderObjetoS(obj){
     if(label === k) label = k.charAt(0).toUpperCase() + k.slice(1);
 
     if(typeof val === 'object' && !Array.isArray(val)){
-      h += '<div class="detail-item"><div class="detail-label" style="text-transform:uppercase; font-size:11px; color:#4F46E5; margin-bottom:8px">'+label+'</div>';
-      h += '<div style="margin-left:12px; border-left:2px solid #6366F130; padding-left:12px">' + renderObjetoS(val) + '</div>';
+      h += '<div class="detail-item"><div class="detail-label" style="text-transform:uppercase; font-size:11px; color:#818CF8; margin-bottom:8px">'+label+'</div>';
+      h += '<div style="margin-left:12px; border-left:2px solid rgba(255,255,255,0.1); padding-left:12px">' + renderObjetoS(val) + '</div>';
       h += '</div>';
     } else if (Array.isArray(val)) {
       h += '<div class="detail-item"><div class="detail-label">'+label+'</div>';
       val.forEach(function(item){ h += renderObjetoS(item); });
       h += '</div>';
     } else {
-      h += '<div class="detail-item" style="margin-bottom:12px; border-left:3px solid #6366F120; padding-left:12px">';
-      h += '<div class="detail-label" style="color:#64748B; font-size:10px; margin-bottom:2px">'+label+'</div>';
-      h += '<div class="detail-val" style="font-size:14px; color:#1E293B">'+val+'</div>';
+      h += '<div class="detail-item" style="margin-bottom:12px; border-left:3px solid rgba(255,255,255,0.05); padding-left:12px; background:rgba(0,0,0,0.2)">';
+      h += '<div class="detail-label" style="color:#94A3B8; font-size:10px; margin-bottom:2px">'+label+'</div>';
+      h += '<div class="detail-val" style="font-size:14px; color:#F1F5F9">'+val+'</div>';
       h += '</div>';
     }
   }
-  return h || '<div class="empty-state">No hay datos legibles.</div>';
+  return h || '<div class="empty-state" style="color:#64748B">No hay datos legibles.</div>';
 }
 
 async function guardarComentario(id){
