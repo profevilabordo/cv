@@ -96,8 +96,10 @@ function loadData(){
     })
     .then(async function(data){ 
       D = data; 
-      // Cargar datos de autotest desde Supabase
+      D = data; 
+      // Cargar datos de autotest y estado S desde Supabase
       AUTOTEST_DATA = await obtenerDatosAutotest();
+      await sincronizarEstadoDesdeSupabase();
       render(); 
       actualizarBarra(); 
       // Sincronizar progreso desde Supabase
@@ -444,11 +446,11 @@ function rNucleoA(){
   return secHeader(info.emoji,"NÚCLEO A",info.titulo + " — Páginas " + info.paginas.join(", "),TABS[2].g)
     +'<div class="sb">'
     +actWrap("na1","\u{1F4CB} 1. Ordenar","Tocá en orden correcto","Organizar",info.color,rN1("nucleo_a"),true)
+    +actWrap("na2","\u{1F5C2}\uFE0F 2. Clasificar","Asigná categorías","Clasificar",info.color,rN2("nucleo_a"))
+    +actWrap("na3","\u270F\uFE0F 3. Completar","Rellenás los blancos","Definir",info.color,rN3("nucleo_a"))
     +actWrap("na4","\u2705 4. V o F","Evaluá afirmaciones","Analizar",info.color,rN4("nucleo_a"))
     +actWrap("na5","\u{1F517} 5. Relacionar","Conectá pares","Relacionar",info.color,rN5("nucleo_a"))
     +actWrap("na6","\u{1F6AB} 6. Intrusa","Encontrá la que no pertenece","Diferenciar",info.color,rN6("nucleo_a"))
-    +actWrap("na2","\u{1F5C2}\uFE0F 2. Clasificar","Asigná categorías","Clasificar",info.color,rN2("nucleo_a"))
-    +actWrap("na3","\u270F\uFE0F 3. Completar","Rellenás los blancos","Definir",info.color,rN3("nucleo_a"))
     +actWrap("na7","\u{1F4AC} 7. Definí","Escribí con tus palabras","Explicar",info.color,rN7("nucleo_a"))
     +actWrap("na8","\u26A1 8. Causa\u2192Efecto","Conectá causas","Aplicar",info.color,rN8("nucleo_a"))
     +actWrap("na9","\u{1F522} 9. Proceso","Ordená los pasos","Estructurar",info.color,rN9("nucleo_a"))
@@ -462,11 +464,11 @@ function rNucleoB(){
   return secHeader(info.emoji,"NÚCLEO B",info.titulo + " — Páginas " + info.paginas.join(", "),TABS[3].g)
     +'<div class="sb">'
     +actWrap("nb1","\u{1F4CB} 1. Ordenar","Tocá en orden correcto","Organizar",info.color,rN1("nucleo_b"),true)
+    +actWrap("nb2","\u{1F5C2}\uFE0F 2. Clasificar","Asigná categorías","Clasificar",info.color,rN2("nucleo_b"))
+    +actWrap("nb3","\u270F\uFE0F 3. Completar","Rellenás los blancos","Definir",info.color,rN3("nucleo_b"))
     +actWrap("nb4","\u2705 4. V o F","Evaluá afirmaciones","Analizar",info.color,rN4("nucleo_b"))
     +actWrap("nb5","\u{1F517} 5. Relacionar","Conectá pares","Relacionar",info.color,rN5("nucleo_b"))
     +actWrap("nb6","\u{1F6AB} 6. Intrusa","Encontrá la que no pertenece","Diferenciar",info.color,rN6("nucleo_b"))
-    +actWrap("nb2","\u{1F5C2}\uFE0F 2. Clasificar","Asigná categorías","Clasificar",info.color,rN2("nucleo_b"))
-    +actWrap("nb3","\u270F\uFE0F 3. Completar","Rellenás los blancos","Definir",info.color,rN3("nucleo_b"))
     +actWrap("nb7","\u{1F4AC} 7. Definí","Escribí con tus palabras","Explicar",info.color,rN7("nucleo_b"))
     +actWrap("nb8","\u26A1 8. Causa\u2192Efecto","Conectá causas","Aplicar",info.color,rN8("nucleo_b"))
     +actWrap("nb9","\u{1F522} 9. Proceso","Ordená los pasos","Estructurar",info.color,rN9("nucleo_b"))
@@ -480,11 +482,11 @@ function rNucleoC(){
   return secHeader(info.emoji,"NÚCLEO C",info.titulo + " — Páginas " + info.paginas.join(", "),TABS[4].g)
     +'<div class="sb">'
     +actWrap("nc1","\u{1F4CB} 1. Ordenar","Tocá en orden correcto","Organizar",info.color,rN1("nucleo_c"),true)
+    +actWrap("nc2","\u{1F5C2}\uFE0F 2. Clasificar","Asigná categorías","Clasificar",info.color,rN2("nucleo_c"))
+    +actWrap("nc3","\u270F\uFE0F 3. Completar","Rellenás los blancos","Definir",info.color,rN3("nucleo_c"))
     +actWrap("nc4","\u2705 4. V o F","Evaluá afirmaciones","Analizar",info.color,rN4("nucleo_c"))
     +actWrap("nc5","\u{1F517} 5. Relacionar","Conectá pares","Relacionar",info.color,rN5("nucleo_c"))
     +actWrap("nc6","\u{1F6AB} 6. Intrusa","Encontrá la que no pertenece","Diferenciar",info.color,rN6("nucleo_c"))
-    +actWrap("nc2","\u{1F5C2}\uFE0F 2. Clasificar","Asigná categorías","Clasificar",info.color,rN2("nucleo_c"))
-    +actWrap("nc3","\u270F\uFE0F 3. Completar","Rellenás los blancos","Definir",info.color,rN3("nucleo_c"))
     +actWrap("nc7","\u{1F4AC} 7. Definí","Escribí con tus palabras","Explicar",info.color,rN7("nucleo_c"))
     +actWrap("nc8","\u26A1 8. Causa\u2192Efecto","Conectá causas","Aplicar",info.color,rN8("nucleo_c"))
     +actWrap("nc9","\u{1F522} 9. Proceso","Ordená los pasos","Estructurar",info.color,rN9("nucleo_c"))
@@ -1599,6 +1601,86 @@ async function sincronizarProgresoDesdeSupabase(){
   } catch(e){ 
     console.warn("No se pudo sincronizar desde Supabase:", e); 
   }
+}
+
+// ----- MOSTRAR BIENVENIDA -----
+function mostrarBienvenida(nombre){
+  var toast = document.createElement("div");
+  toast.style.cssText = "position:fixed;bottom:20px;right:20px;background:#1E293B;border:1px solid rgba(99,102,241,.4);border-radius:14px;padding:12px 18px;color:#F8FAFC;font-size:14px;font-weight:600;z-index:9999;animation:fadeIn .3s ease;box-shadow:0 8px 24px rgba(0,0,0,.3)";
+  toast.textContent = "👋 ¡Hola " + nombre.split(" ")[0] + "! Avance recuperado de la nube.";
+  document.body.appendChild(toast);
+  setTimeout(function(){ toast.remove(); }, 3500);
+}
+
+// ----- PERSISTENCIA DE ESTADO S (RESPUESTAS) -----
+var _saveTimeout = null;
+function autoGuardarS(){
+  if(_saveTimeout) clearTimeout(_saveTimeout);
+  console.log("Pendiente de guardado...");
+  _saveTimeout = setTimeout(async function(){
+    var codigo = localStorage.getItem("campus_alumno_codigo");
+    if(!SUPABASE_ACTIVO || !codigo || !D) return;
+    
+    try {
+      await fetch(SUPABASE_URL + "/rest/v1/progreso", {
+        method: "POST",
+        headers: {
+          "apikey": SUPABASE_KEY,
+          "Authorization": "Bearer " + SUPABASE_KEY,
+          "Content-Type": "application/json",
+          "Prefer": "resolution=merge-duplicates"
+        },
+        body: JSON.stringify({
+          alumno_codigo: codigo,
+          materia: D.materia,
+          unidad: "u" + D.unidad,
+          seccion: "__ESTADO_UNIDAD__",
+          datos: S,
+          completada: false
+        })
+      });
+      console.log("Estado guardado en Supabase ✅");
+    } catch(e){ console.warn("Error al guardar estado en la nube"); }
+  }, 2000);
+}
+
+// Interceptar cambios en S para disparar autoguardado
+var _S = S;
+S = new Proxy(_S, {
+  get(target, prop) {
+    if (typeof target[prop] === 'object' && target[prop] !== null) {
+      return new Proxy(target[prop], this);
+    }
+    return target[prop];
+  },
+  set(target, prop, value) {
+    target[prop] = value;
+    autoGuardarS();
+    return true;
+  }
+});
+
+async function sincronizarEstadoDesdeSupabase(){
+  if(!SUPABASE_ACTIVO || !D) return;
+  var codigo = localStorage.getItem("campus_alumno_codigo");
+  if(!codigo) return;
+
+  try {
+    var url = SUPABASE_URL + "/rest/v1/progreso?alumno_codigo=eq." + codigo + 
+              "&materia=eq." + encodeURIComponent(D.materia) + 
+              "&unidad=eq.u" + D.unidad + 
+              "&seccion=eq.__ESTADO_UNIDAD__&select=datos";
+    
+    var response = await fetch(url, {
+      headers: { "apikey": SUPABASE_KEY, "Authorization": "Bearer " + SUPABASE_KEY }
+    });
+    var data = await response.json();
+    if(data && data.length > 0 && data[0].datos){
+      // Actualizar S sin disparar el Proxy infinitamente
+      Object.assign(_S, data[0].datos);
+      console.log("Avance recuperado de Supabase ☁️");
+    }
+  } catch(e){ console.warn("Error al recuperar estado"); }
 }
 
 // ----- MOSTRAR PROGRESO DEL ALUMNO -----
