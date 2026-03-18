@@ -1121,7 +1121,22 @@ async function verDetalle(progId){
     h += '<div class="detail-label">Respuestas del alumno:</div>';
     var d = p.datos;
     if(typeof d === 'object'){
-      h += renderObjetoS(d);
+      // FILTRADO POR SECCIÓN
+      var filtered = {};
+      var prefixes = {
+        "umbral":/^u[0-9]+|u2[st]|u3v/, "mapa":/^m[123]/, "nucleo_a":/^na[0-9]+/, "nucleo_b":/^nb[0-9]+/, 
+        "nucleo_c":/^nc[0-9]+/, "senales":/^s[123]/, "sabias":/^sb[123]/, "cruces":/^cr[123]/, 
+        "relectura":/^re[123]/, "emocional":/^em[123]/, "autotest":/^at/, "cierre":/^ci[123]/
+      };
+      
+      var reg = prefixes[p.seccion];
+      if(reg){
+        for(var k in d){ if(reg.test(k)) filtered[k] = d[k]; }
+      } else {
+        filtered = d;
+      }
+      
+      h += renderObjetoS(Object.keys(filtered).length ? filtered : d);
     } else {
       h += '<div class="detail-val">' + d + '</div>';
     }
@@ -1140,9 +1155,10 @@ async function verDetalle(progId){
   document.getElementById('modalBody').innerHTML = h;
 }
 
-function renderObjetoS(S){
+function renderObjetoS(obj){
+  if (!obj || typeof obj !== 'object') return '<div class="detail-val">' + obj + '</div>';
+  
   var h = '';
-  // Mapeo de claves técnicas a etiquetas amigables
   var labels = {
     "q1":"Pregunta 1", "q2":"Pregunta 2", "q3":"Pregunta 3", "q4":"Pregunta 4",
     "p1":"Respuesta 1", "p2":"Respuesta 2", "p3":"Respuesta 3",
@@ -1150,37 +1166,38 @@ function renderObjetoS(S){
     "primerIntento":"Primer Intento", "reintento":"Reintento",
     "nota":"Calificación", "fecha":"Fecha",
     "u1":"Preguntas Disparadoras", "u2s":"Situación Seleccionada", "u2t":"Comentario del alumno", "u3v":"Conocimiento previo",
-    "m1":"Ruta Visual", "at":"Autotest", "ci1":"Reflexión Final", "ci2":"Glosario consultado"
+    "m1":"Ruta Visual", "at":"Autotest", "ci1":"Reflexión Final", "ci2":"Glosario consultado",
+    "inp": "Respuesta del alumno", "cur": "Índice actual", "sub": "Enviado", "sel": "Selección", "args": "Argumentos", "val": "Valor", "a": "Respuesta"
   };
 
-  for(var k in S){
-    var val = S[k];
+  for(var k in obj){
+    var val = obj[k];
     if(val === null || val === undefined || val === '') continue;
     
-    var label = labels[k] || (k.charAt(0).toUpperCase() + k.slice(1));
-    
-    if(typeof val === 'object'){
+    // Traducción de clave (ej: na7 -> Actividad 7)
+    var label = labels[k] || k;
+    if(/^[a-z]+[0-9]+$/.test(k)) label = "Actividad " + k.replace(/^[a-z]+/, '');
+    if(k.indexOf('nucleo_a_n') === 0) label = "Núcleo A - Actividad " + k.replace('nucleo_a_n', '');
+    if(k.indexOf('nucleo_b_n') === 0) label = "Núcleo B - Actividad " + k.replace('nucleo_b_n', '');
+    if(k.indexOf('nucleo_c_n') === 0) label = "Núcleo C - Actividad " + k.replace('nucleo_c_n', '');
+    if(label === k) label = k.charAt(0).toUpperCase() + k.slice(1);
+
+    if(typeof val === 'object' && !Array.isArray(val)){
+      h += '<div class="detail-item"><div class="detail-label" style="text-transform:uppercase; font-size:11px; color:#4F46E5; margin-bottom:8px">'+label+'</div>';
+      h += '<div style="margin-left:12px; border-left:2px solid #6366F130; padding-left:12px">' + renderObjetoS(val) + '</div>';
+      h += '</div>';
+    } else if (Array.isArray(val)) {
       h += '<div class="detail-item"><div class="detail-label">'+label+'</div>';
-      for(var sk in val){
-        var sval = val[sk];
-        if(sval !== null && sval !== undefined && sval !== ''){
-          var slabel = labels[sk] || sk;
-          h += '<div style="margin-top:8px;padding-left:12px;border-left:2px solid rgba(99,102,241,0.3)">';
-          h += '<div style="font-size:10px;color:#64748B;text-transform:uppercase;font-weight:700">'+slabel+'</div>';
-          h += '<div style="font-size:13px;color:#F1F5F9">'+sval+'</div>';
-          h += '</div>';
-        }
-      }
+      val.forEach(function(item){ h += renderObjetoS(item); });
       h += '</div>';
     } else {
-      h += '<div class="detail-item">';
-      h += '<div class="detail-label">'+label+'</div>';
-      h += '<div class="detail-val">'+val+'</div>';
+      h += '<div class="detail-item" style="margin-bottom:12px; border-left:3px solid #6366F120; padding-left:12px">';
+      h += '<div class="detail-label" style="color:#64748B; font-size:10px; margin-bottom:2px">'+label+'</div>';
+      h += '<div class="detail-val" style="font-size:14px; color:#1E293B">'+val+'</div>';
       h += '</div>';
     }
   }
-  if(!h) h = '<div class="empty-state">No hay datos legibles.</div>';
-  return h;
+  return h || '<div class="empty-state">No hay datos legibles.</div>';
 }
 
 async function guardarComentario(id){
