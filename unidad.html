@@ -47,7 +47,7 @@ input[type=text]{width:100%;padding:10px 14px;border-radius:10px;border:2px soli
 #progressBar .pb-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,#6366F1,#10B981);transition:width .4s ease}
 #progressBar .pb-count{font-size:13px;font-weight:800;color:#6366F1;white-space:nowrap;min-width:36px;text-align:right}
 #progressBar .pb-dots{display:flex;gap:3px;align-items:center}
-#progressBar .pb-dot{width:16px;height:16px;border-radius:50%;border:2px solid #E5E7EB;background:#fff;font-size:8px;display:flex;align-items:center;justify-content:center;transition:all .3s;flex-shrink:0;cursor:default;title:attr(data-title)}
+#progressBar .pb-dot{width:16px;height:16px;border-radius:50%;border:2px solid #E5E7EB;background:#fff;font-size:8px;display:flex;align-items:center;justify-content:center;transition:all .3s;flex-shrink:0;cursor:default}
 #progressBar .pb-dot.done{background:#10B981;border-color:#10B981;color:#fff}
 #progressBar .pb-dot.active{border-color:#6366F1;background:#EEF2FF}
 body{padding-top:52px}
@@ -55,13 +55,23 @@ body{padding-top:52px}
 .check-section-btn:hover{background:#D1FAE5;transform:translateY(-1px);box-shadow:0 4px 12px rgba(16,185,129,.2)}
 .check-section-done{display:flex;align-items:center;justify-content:center;gap:8px;margin:24px auto 0;padding:12px 28px;border-radius:14px;background:#065F4610;color:#065F46;font-size:14px;font-weight:700;width:100%;max-width:400px;border:2px solid #10B98140;box-sizing:border-box}
 
-/* FEEDBACK & MEDALLAS */
+/* FEEDBACK & LOGROS */
 .docente-feedback{background:#F0F9FF;border:2px solid #3B82F6;border-radius:18px;padding:18px;margin-bottom:24px;position:relative;animation:fadeIn .5s ease;box-shadow:0 4px 15px rgba(59,130,246,0.1)}
 .docente-feedback::before{content:'👨‍🏫 Comentario de la Profe:';display:block;font-size:11px;font-weight:800;color:#2563EB;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
 .docente-feedback p{font-size:15px;color:#1E40AF;line-height:1.5;margin:0;font-style:italic}
-.medallas-bar{display:flex;gap:8px;margin-top:12px;justify-content:center}
-.medalla-item{width:45px;height:45px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:#F1F5F9;border:2px solid #E2E8F0;opacity:.3;transition:all .5s}
-.medalla-item.on{opacity:1;background:#fff;border-color:#F59E0B;box-shadow:0 4px 12px rgba(245,158,11,0.2);transform:scale(1.1)}
+
+.achievements-section{margin-top:20px;animation:fadeIn 0.8s ease both}
+.achievements-grid{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;max-width:800px;margin:0 auto}
+.achievement-card{background:#fff;border:1px solid #E5E7EB;border-radius:12px;padding:6px 10px;display:flex;align-items:center;gap:8px;transition:all 0.4s;opacity:0.15;filter:grayscale(1);transform:scale(0.95);flex: 0 1 calc(25% - 8px);min-width:130px}
+.achievement-card.unlocked{opacity:1;filter:grayscale(0);border-color:#F59E0B;background:#FFFBEB;box-shadow:0 2px 8px rgba(245,158,11,0.15);transform:scale(1)}
+.achievement-icon{font-size:18px}
+.achievement-info{text-align:left}
+.achievement-info h4{font-size:10px;font-weight:800;color:#1F2937;margin:0;font-family:'Space Grotesk';text-transform:uppercase;letter-spacing:0.5px}
+.achievement-info p{font-size:9px;color:#6B7280;margin:0;line-height:1.1}
+
+@media (max-width: 600px) {
+  .achievement-card { flex: 0 1 calc(50% - 8px); }
+}
 </style>
 </head>
 <body>
@@ -308,13 +318,32 @@ function renderFeedback(){
 function renderMedallas(){
   var m1 = isChecked("umbral");
   var m2 = isChecked("nucleo_a") && isChecked("nucleo_b") && isChecked("nucleo_c");
-  var m3 = AUTOTEST_DATA && AUTOTEST_DATA.nota >= 80;
+  var m3 = AUTOTEST_DATA && (AUTOTEST_DATA.nota >= 80 || (AUTOTEST_DATA.primerIntento && AUTOTEST_DATA.primerIntento.nota >= 80));
+  var m4 = isChecked("relectura");
+  var m5 = isChecked("cruces");
+  var m6 = isChecked("emocional");
+  var m7 = isChecked("sabias");
+  var m8 = getCheckedCount() === 12;
   
-  var h = '<div class="medallas-bar">';
-  h += '<div class="medalla-item '+(m1?'on':'')+'" title="Explorador/a (Umbral listo)">🚀</div>';
-  h += '<div class="medalla-item '+(m2?'on':'')+'" title="Científico/a (Núcleos A, B y C listos)">🧠</div>';
-  h += '<div class="medalla-item '+(m3?'on':'')+'" title="Experto/a (Autotest > 80%)">💎</div>';
-  h += '</div>';
+  var meds = [
+    {on: m1, icon: "🚀", title: "Explorador/a", desc: "Umbral listo"},
+    {on: m2, icon: "🧠", title: "Científico/a", desc: "Núcleos A, B y C"},
+    {on: m3, icon: "💎", title: "Maestro/a", desc: "Autotest +80%"},
+    {on: m4, icon: "📖", title: "Lector/a", desc: "Relectura lista"},
+    {on: m5, icon: "🔀", title: "Crítico/a", desc: "Cruces listos"},
+    {on: m6, icon: "🫶", title: "Empático/a", desc: "Emocional listo"},
+    {on: m7, icon: "✨", title: "Curioso/a", desc: "Sabías que..."},
+    {on: m8, icon: "🏆", title: "Perfecto", desc: "Unidad al 100%"}
+  ];
+
+  var h = '<div class="achievements-section"><div class="achievements-grid">';
+  meds.forEach(function(m){
+    h += '<div class="achievement-card '+(m.on?'unlocked':'')+'" title="'+m.desc+'">';
+    h += '<div class="achievement-icon">'+m.icon+'</div>';
+    h += '<div class="achievement-info"><h4>'+m.title+'</h4><p>'+m.desc+'</p></div>';
+    h += '</div>';
+  });
+  h += '</div></div>';
   return h;
 }
 

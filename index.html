@@ -35,11 +35,11 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 .container{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:40px 20px;background:#0F172A;min-height:100vh}
 .header{text-align:center;margin-bottom:48px;animation:fadeUp 0.8s ease}
 .header .logo{font-size:48px;margin-bottom:12px}
-.header h1{font-size:36px;font-weight:900;font-family:'Space Grotesk',sans-serif;letter-spacing:-2px;background:linear-gradient(135deg,#A78BFA,#EC4899,#F59E0B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.2}
+.header h1{font-size:36px;font-weight:900;font-family:'Space Grotesk',sans-serif;letter-spacing:-2px;background:linear-gradient(135deg,#A78BFA,#EC4899,#F59E0B);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1.2}
 .header p{font-size:16px;color:#94A3B8;margin-top:8px;font-weight:500}
 .stats{display:flex;gap:16px;justify-content:center;margin-top:24px;flex-wrap:wrap}
 .stat{padding:8px 20px;border-radius:12px;background:#1E293B;border:1px solid rgba(255,255,255,0.1)}
-.stat span{font-size:20px;font-weight:800;font-family:'Space Grotesk',sans-serif;background:linear-gradient(135deg,#A78BFA,#6366F1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.stat span{font-size:20px;font-weight:800;font-family:'Space Grotesk',sans-serif;background:linear-gradient(135deg,#A78BFA,#6366F1);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .stat small{display:block;font-size:11px;color:#94A3B8;font-weight:600;text-transform:uppercase;letter-spacing:1px}
 .quick-links{display:flex;gap:12px;justify-content:center;margin-top:20px;margin-bottom:20px;flex-wrap:wrap}
 .quick-link{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:10px;background:rgba(232,197,71,0.08);border:1px solid rgba(232,197,71,0.25);color:#e8c547;font-size:13px;font-weight:600;text-decoration:none;transition:all 0.3s ease;box-shadow:0 2px 8px rgba(232,197,71,0.15)}
@@ -93,7 +93,7 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 .login-overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:#0F172A;z-index:9999;display:flex;align-items:center;justify-content:center}
 .login-box{background:#1E293B;border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:40px 36px;max-width:380px;width:90%;text-align:center;animation:fadeUp 0.6s ease}
 .login-box .lgo{font-size:48px;margin-bottom:16px}
-.login-box h2{font-size:24px;font-weight:900;font-family:'Space Grotesk',sans-serif;background:linear-gradient(135deg,#A78BFA,#EC4899,#F59E0B);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
+.login-box h2{font-size:24px;font-weight:900;font-family:'Space Grotesk',sans-serif;background:linear-gradient(135deg,#A78BFA,#EC4899,#F59E0B);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px}
 .login-box p{font-size:14px;color:#94A3B8;margin-bottom:24px}
 .login-input{width:100%;padding:14px 18px;border-radius:14px;border:2px solid rgba(255,255,255,0.1);background:#0F172A;color:#F8FAFC;font-size:16px;font-family:'DM Sans',sans-serif;outline:none;box-sizing:border-box;text-align:center;letter-spacing:2px;transition:border-color 0.3s}
 .login-input:focus{border-color:#6366F1}
@@ -142,15 +142,6 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 /* Pizarra de Novedades */
 .pizarra-status { font-size: 12px; color: #10B981; font-weight: 600; text-align: right; height: 18px; }
 
-/* LOGROS / MEDALLAS */
-.achievements-section{margin-top:32px;display:none;animation:fadeUp 0.8s ease both}
-.achievements-grid{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.achievement-card{background:#1E293B;border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:10px 14px;display:flex;align-items:center;gap:10px;transition:all 0.4s;opacity:0.15;filter:grayscale(1);transform:scale(0.95)}
-.achievement-card.unlocked{opacity:1;filter:grayscale(0);border-color:#F59E0B;background:rgba(245,158,11,0.05);box-shadow:0 4px 15px rgba(245,158,11,0.1);transform:scale(1)}
-.achievement-icon{font-size:22px}
-.achievement-info{text-align:left}
-.achievement-info h4{font-size:12px;font-weight:800;color:#F8FAFC;margin:0;font-family:'Space Grotesk'}
-.achievement-info p{font-size:10px;color:#64748B;margin:0}
 
 </style>
 </head>
@@ -248,23 +239,6 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
       <div class="stat"><span>25+</span><small>Actividades</small></div>
     </div>
 
-    <!-- Sección de Logros -->
-    <div class="achievements-section" id="achievementsSection">
-      <div class="achievements-grid">
-        <div class="achievement-card" id="medalExplorador">
-          <div class="achievement-icon">🚀</div>
-          <div class="achievement-info"><h4>Explorador/a</h4><p>Pasaste el Umbral</p></div>
-        </div>
-        <div class="achievement-card" id="medalCientifico">
-          <div class="achievement-icon">🧠</div>
-          <div class="achievement-info"><h4>Científico/a</h4><p>Núcleos A, B y C</p></div>
-        </div>
-        <div class="achievement-card" id="medalExperto">
-          <div class="achievement-icon">💎</div>
-          <div class="achievement-info"><h4>Maestro/a</h4><p>Autotest +80%</p></div>
-        </div>
-      </div>
-    </div>
   </div>
 
   <div id="content"></div>
@@ -648,37 +622,8 @@ function mostrarSaludo(nombre, esDocente){
   saludoBar.style.display = "block";
   mainContainer.classList.add("container-with-saludo");
   
-  // Cargar pizarra y logros
+  // Pizarra cargada
   cargarPizarra();
-  actualizarLogrosAlumno();
-}
-
-async function actualizarLogrosAlumno(){
-  var codigo = sessionStorage.getItem("alumno_codigo");
-  if(!codigo || sessionStorage.getItem("is_docente") === "true") return;
-  
-  try {
-    var url = SUPABASE_URL + "/rest/v1/progreso?alumno_codigo=eq." + codigo + "&select=seccion,nota";
-    var response = await fetch(url, {
-      headers: { "apikey": SUPABASE_KEY, "Authorization": "Bearer " + SUPABASE_KEY }
-    });
-    var data = await response.json();
-    if(!data) return;
-
-    document.getElementById("achievementsSection").style.display = "block";
-    
-    // Evaluar logros
-    var hasUmbral = data.some(function(p){return p.seccion === "umbral"});
-    var hasA = data.some(function(p){return p.seccion === "nucleo_a"});
-    var hasB = data.some(function(p){return p.seccion === "nucleo_b"});
-    var hasC = data.some(function(p){return p.seccion === "nucleo_c"});
-    var highNota = data.some(function(p){return p.nota >= 80});
-
-    if(hasUmbral) document.getElementById("medalExplorador").classList.add("unlocked");
-    if(hasA && hasB && hasC) document.getElementById("medalCientifico").classList.add("unlocked");
-    if(highNota) document.getElementById("medalExperto").classList.add("unlocked");
-
-  } catch(e){ console.warn("Error cargando logros:", e); }
 }
 
 // ============================================================================
