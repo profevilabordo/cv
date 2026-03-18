@@ -139,8 +139,20 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 .saludo-btn-logout:hover{background:rgba(239,68,68,0.25);transform:translateY(-1px)}
 .container-with-saludo{padding-top:60px}
 
-/* Área Docente */
-#areaDocente{display:none}
+/* Pizarra de Novedades */
+.pizarra-section { margin-top: 48px; min-height: 180px; animation: fadeUp 0.8s ease both; padding-bottom: 20px; }
+.pizarra-card { background: #1E293B; border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 24px; position: relative; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
+.pizarra-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.05), transparent 70%); pointer-events: none; }
+.pizarra-display { color: #E2E8F0; font-size: 15px; line-height: 1.6; font-family: 'DM Sans', sans-serif; white-space: pre-wrap; transition: all 0.3s }
+.pizarra-textarea { width: 100%; min-height: 130px; background: #0F172A; border: 2px solid rgba(255,255,255,0.1); border-radius: 12px; color: #F8FAFC; padding: 14px; font-family: 'DM Sans', sans-serif; font-size: 14px; resize: vertical; outline: none; transition: border-color 0.3s; margin-bottom: 14px; }
+.pizarra-textarea:focus { border-color: #10B981; }
+.pizarra-actions { display: flex; gap: 12px; justify-content: flex-end; align-items: center; }
+.pizarra-btn { padding: 10px 20px; border-radius: 10px; border: none; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: 'DM Sans', sans-serif; display: inline-flex; align-items: center; gap: 8px; }
+.pizarra-btn.send { background: linear-gradient(135deg, #10B981, #059669); color: #fff; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); }
+.pizarra-btn.send:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4); }
+.pizarra-btn.clear { background: rgba(239, 68, 68, 0.1); color: #EF4444; border: 1px solid rgba(239, 68, 68, 0.2); }
+.pizarra-btn.clear:hover { background: rgba(239, 68, 68, 0.2); }
+.pizarra-status { font-size: 12px; color: #10B981; font-weight: 600; text-align: right; height: 18px; }
 
 </style>
 </head>
@@ -264,7 +276,20 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
           <p>Todo el contenido compacto: respuestas correctas, conceptos clave, glosario y actividades resueltas. Tu hoja de ruta para la clase.</p>
           <span class="tool-badge">⬇ JSON → PDF sin espacios</span>
         </a>
+    </div>
+  </div>
+
+  <!-- Pizarra de Novedades -->
+  <div id="pizarraSection" class="pizarra-section" style="display:none">
+    <div class="school-header" style="margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.1)">
+      <div class="school-icon" style="background:#10B98124;border:2px solid #10B98140">📢</div>
+      <div>
+        <div class="school-name">Pizarra de Novedades</div>
+        <div class="school-sub">Instrucciones y recomendaciones del día</div>
       </div>
+    </div>
+    <div class="pizarra-card" id="pizarraCard">
+      <p style="color:#64748B;font-size:13px;text-align:center;padding:20px">Cargando pizarra... ⏳</p>
     </div>
   </div>
 
@@ -592,7 +617,9 @@ function mostrarSaludo(nombre, esDocente){
   var areaDocente = document.getElementById("areaDocente");
   
   if(esDocente){
-    saludoText.innerHTML = "👨‍🏫 Hola Profe";
+    var dayNum = getDayOfYear();
+    var pass = getTodayPassword();
+    saludoText.innerHTML = "👨‍🏫 Hola Profe <span style='opacity:0.75;margin-left:12px;font-weight:400;font-size:12px;display:inline-flex;align-items:center;gap:8px'>| 📅 Día " + dayNum + " · 🔑 Clave alumnos: <code style='background:rgba(167,139,250,0.15);padding:2px 8px;border-radius:6px;color:#A78BFA;font-weight:700;border:1px solid rgba(167,139,250,0.3)'>" + pass + "</code></span>";
     btnPanel.style.display = "inline-flex";
     areaDocente.style.display = "block";
   } else {
@@ -603,6 +630,9 @@ function mostrarSaludo(nombre, esDocente){
   
   saludoBar.style.display = "block";
   mainContainer.classList.add("container-with-saludo");
+  
+  // Cargar pizarra
+  cargarPizarra();
 }
 
 // ============================================================================
@@ -712,16 +742,76 @@ document.addEventListener('click', function(e) {
 });
 
 // ============================================================================
-// REGISTRO DE SERVICE WORKER (PWA ONLINE-ONLY)
+// LÓGICA DE LA PIZARRA (SUPABASE)
 // ============================================================================
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js').then(function(registration) {
-      console.log('SW registrado correctamente');
-    }).catch(function(error) {
-      console.log('Error al registrar SW:', error);
+async function cargarPizarra() {
+  document.getElementById("pizarraSection").style.display = "block";
+  var card = document.getElementById("pizarraCard");
+  
+  try {
+    var response = await fetch(SUPABASE_URL + "/rest/v1/pizarra?id=eq.1&select=*", {
+      headers: {
+        "apikey": SUPABASE_KEY,
+        "Authorization": "Bearer " + SUPABASE_KEY
+      }
     });
-  });
+    
+    var data = await response.json();
+    var contenido = (data && data.length > 0) ? data[0].contenido : "";
+    if(!contenido && sessionStorage.getItem("is_docente") !== "true") {
+      contenido = "Aún no hay anuncios para hoy. ✨";
+    }
+    
+    var esDocente = sessionStorage.getItem("is_docente") === "true";
+    
+    if (esDocente) {
+      card.innerHTML = `
+        <textarea id="pizarraInput" class="pizarra-textarea" placeholder="Escribí acá las instrucciones para tus alumnos...">${contenido}</textarea>
+        <div class="pizarra-actions">
+          <span id="pizarraStatus" class="pizarra-status" style="margin-right:auto"></span>
+          <button class="pizarra-btn clear" onclick="limpiarPizarra()">🗑 Limpiar</button>
+          <button class="pizarra-btn send" onclick="guardarPizarra()">🚀 Publicar</button>
+        </div>
+      `;
+    } else {
+      card.innerHTML = `<div class="pizarra-display">${contenido ? contenido.replace(/\n/g, '<br>') : 'Aún no hay anuncios para hoy. ✨'}</div>`;
+    }
+  } catch (error) {
+    console.warn("Pizarra error (posiblemente falta tabla):", error);
+    card.innerHTML = "<p style='color:#EF4444;font-size:12px;text-align:center'>Pizarra no disponible.</p>";
+  }
+}
+
+async function guardarPizarra() {
+  var texto = document.getElementById("pizarraInput").value.trim();
+  var status = document.getElementById("pizarraStatus");
+  status.textContent = "Publicando... ⏳";
+  
+  try {
+    // Usamos POST con x-upsert para que reemplace si ya existe el ID 1
+    var response = await fetch(SUPABASE_URL + "/rest/v1/pizarra", {
+      method: "POST",
+      headers: {
+        "apikey": SUPABASE_KEY,
+        "Authorization": "Bearer " + SUPABASE_KEY,
+        "Content-Type": "application/json",
+        "Prefer": "resolution=merge-duplicates"
+      },
+      body: JSON.stringify({ id: 1, contenido: texto })
+    });
+    
+    status.textContent = "¡Pizarra actualizada! ✅";
+    setTimeout(() => { status.textContent = ""; }, 3000);
+  } catch (error) {
+    status.textContent = "❌ Error al conectar";
+  }
+}
+
+function limpiarPizarra() {
+  if (confirm("¿Vaciar la pizarra?")) {
+    document.getElementById("pizarraInput").value = "";
+    guardarPizarra();
+  }
 }
 
 </script>
