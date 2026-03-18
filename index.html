@@ -140,7 +140,7 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 .container-with-saludo{padding-top:60px}
 
 /* Pizarra de Novedades */
-.pizarra-section { margin-top: 40px; position: relative; }
+.pizarra-section { margin-bottom: 48px; position: relative; }
 .pizarra-card {
   background: #064e3b; 
   background-image: 
@@ -320,6 +320,25 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 
   </div>
 
+  <!-- Pizarra de Novedades -->
+  <div id="pizarraSection" class="pizarra-section" style="display:none">
+    <div class="school-header" style="margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.1)">
+      <div class="school-icon" style="background:#10B98124;border:2px solid #10B98140">📢</div>
+      <div>
+        <div class="school-name">Pizarra de Novedades</div>
+        <div class="school-sub">Instrucciones y recomendaciones del día</div>
+      </div>
+    </div>
+    <div class="pizarra-card" id="pizarraCard">
+      <p style="color:#64748B;font-size:13px;text-align:center;padding:20px">Cargando pizarra... ⏳</p>
+    </div>
+    <div class="pizarra-tray">
+      <div class="chalk"></div>
+      <div class="chalk yellow"></div>
+      <div class="chalk blue"></div>
+    </div>
+  </div>
+
   <div id="content"></div>
 
   <!-- Área Docente -->
@@ -346,25 +365,6 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
           <span class="tool-badge">⬇ JSON → PDF sin espacios</span>
         </a>
       </div>
-    </div>
-  </div>
-
-  <!-- Pizarra de Novedades -->
-  <div id="pizarraSection" class="pizarra-section" style="display:none">
-    <div class="school-header" style="margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.1)">
-      <div class="school-icon" style="background:#10B98124;border:2px solid #10B98140">📢</div>
-      <div>
-        <div class="school-name">Pizarra de Novedades</div>
-        <div class="school-sub">Instrucciones y recomendaciones del día</div>
-      </div>
-    </div>
-    <div class="pizarra-card" id="pizarraCard">
-      <p style="color:#64748B;font-size:13px;text-align:center;padding:20px">Cargando pizarra... ⏳</p>
-    </div>
-    <div class="pizarra-tray">
-      <div class="chalk"></div>
-      <div class="chalk yellow"></div>
-      <div class="chalk blue"></div>
     </div>
   </div>
 
