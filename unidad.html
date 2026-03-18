@@ -54,6 +54,14 @@ body{padding-top:52px}
 .check-section-btn{display:flex;align-items:center;justify-content:center;gap:10px;margin:24px auto 0;padding:14px 28px;border-radius:14px;border:2px solid #10B981;background:#ECFDF5;color:#065F46;font-size:15px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .3s;width:100%;max-width:400px;box-sizing:border-box}
 .check-section-btn:hover{background:#D1FAE5;transform:translateY(-1px);box-shadow:0 4px 12px rgba(16,185,129,.2)}
 .check-section-done{display:flex;align-items:center;justify-content:center;gap:8px;margin:24px auto 0;padding:12px 28px;border-radius:14px;background:#065F4610;color:#065F46;font-size:14px;font-weight:700;width:100%;max-width:400px;border:2px solid #10B98140;box-sizing:border-box}
+
+/* FEEDBACK & MEDALLAS */
+.docente-feedback{background:#F0F9FF;border:2px solid #3B82F6;border-radius:18px;padding:18px;margin-bottom:24px;position:relative;animation:fadeIn .5s ease;box-shadow:0 4px 15px rgba(59,130,246,0.1)}
+.docente-feedback::before{content:'👨‍🏫 Comentario de la Profe:';display:block;font-size:11px;font-weight:800;color:#2563EB;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.docente-feedback p{font-size:15px;color:#1E40AF;line-height:1.5;margin:0;font-style:italic}
+.medallas-bar{display:flex;gap:8px;margin-top:12px;justify-content:center}
+.medalla-item{width:45px;height:45px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;background:#F1F5F9;border:2px solid #E2E8F0;opacity:.3;transition:all .5s}
+.medalla-item.on{opacity:1;background:#fff;border-color:#F59E0B;box-shadow:0 4px 12px rgba(245,158,11,0.2);transform:scale(1.1)}
 </style>
 </head>
 <body>
@@ -270,6 +278,7 @@ function render(){
   h+='<span style="font-size:32px">\u{1F4D3}</span> ';
   h+='<h1 style="display:inline;background:linear-gradient(135deg,'+D.color_primario+','+D.color_secundario+');-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">'+D.materia+'</h1>';
   h+='<p style="font-size:14px;color:#6B7280;margin-top:4px">'+D.emoji+' Unidad '+D.unidad+': '+D.titulo+'</p>';
+  h += renderMedallas();
   h+='</div>';
   
   h+='<div class="tabs">';
@@ -282,11 +291,31 @@ function render(){
   }
   h+='</div>';
   
-  h+='<div class="cnt">'+renderSection()+'</div>';
+  h+='<div class="cnt">'+renderFeedback()+renderSection()+'</div>';
   h+='<div class="foot">\u{1F4A1} <strong>Campus Cuaderno Vivo</strong> \u2014 '+D.materia+' \u00b7 Unidad '+D.unidad+'</div>';
   
   document.getElementById("app").innerHTML=h;
   actualizarBarra();
+}
+
+function renderFeedback(){
+  var tabK = TABS[CT].k;
+  var msg = window.DOCENTE_FEEDBACK && window.DOCENTE_FEEDBACK[tabK];
+  if(!msg) return '';
+  return '<div class="docente-feedback"><p>'+msg+'</p></div>';
+}
+
+function renderMedallas(){
+  var m1 = isChecked("umbral");
+  var m2 = isChecked("nucleo_a") && isChecked("nucleo_b") && isChecked("nucleo_c");
+  var m3 = AUTOTEST_DATA && AUTOTEST_DATA.nota >= 80;
+  
+  var h = '<div class="medallas-bar">';
+  h += '<div class="medalla-item '+(m1?'on':'')+'" title="Explorador/a (Umbral listo)">🚀</div>';
+  h += '<div class="medalla-item '+(m2?'on':'')+'" title="Científico/a (Núcleos A, B y C listos)">🧠</div>';
+  h += '<div class="medalla-item '+(m3?'on':'')+'" title="Experto/a (Autotest > 80%)">💎</div>';
+  h += '</div>';
+  return h;
 }
 
 function renderSection(){
@@ -1664,24 +1693,30 @@ async function sincronizarEstadoDesdeSupabase(){
   if(!SUPABASE_ACTIVO || !D) return;
   var codigo = localStorage.getItem("campus_alumno_codigo");
   if(!codigo) return;
-
   try {
     var url = SUPABASE_URL + "/rest/v1/progreso?alumno_codigo=eq." + codigo + 
               "&materia=eq." + encodeURIComponent(D.materia) + 
-              "&unidad=eq.u" + D.unidad + 
-              "&seccion=eq.__ESTADO_UNIDAD__&select=datos";
+              "&unidad=eq.u" + D.unidad + "&select=seccion,datos,comentario_docente";
     
     var response = await fetch(url, {
       headers: { "apikey": SUPABASE_KEY, "Authorization": "Bearer " + SUPABASE_KEY }
     });
     var data = await response.json();
-    if(data && data.length > 0 && data[0].datos){
-      // Actualizar S sin disparar el Proxy infinitamente
-      Object.assign(_S, data[0].datos);
-      console.log("Avance recuperado de Supabase ☁️");
+    
+    window.DOCENTE_FEEDBACK = {}; // Limpiar previos
+    if(data && data.length > 0){
+      data.forEach(function(p){
+        if(p.seccion === "__ESTADO_UNIDAD__" && p.datos){
+          Object.assign(_S, p.datos);
+        } else if(p.comentario_docente){
+          window.DOCENTE_FEEDBACK[p.seccion] = p.comentario_docente;
+        }
+      });
+      console.log("Avance y comentarios recuperados ☁️");
     }
-  } catch(e){ console.warn("Error al recuperar estado"); }
+  } catch(e){ console.warn("No se pudo sincronizar desde Supabase:", e); }
 }
+
 
 // ----- MOSTRAR PROGRESO DEL ALUMNO -----
 // Agrega indicadores visuales en los tabs del alumno

@@ -95,6 +95,21 @@ body{background:#0F172A;color:#E2E8F0;min-height:100vh}
 
 .nota-circle{width:36px;height:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:800}
 
+/* MODAL DETALLE */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.8);z-index:2000;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}
+.modal-content{background:#1E293B;border:1px solid rgba(255,255,255,0.1);border-radius:24px;width:100%;max-width:600px;max-height:90vh;overflow-y:auto;position:relative;animation:fadeUp .3s ease}
+.modal-header{padding:20px 24px;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;background:#1E293B;z-index:10}
+.modal-close{background:none;border:none;color:#64748B;font-size:24px;cursor:pointer}
+.modal-body{padding:24px}
+.detail-item{margin-bottom:20px;padding:12px;border-radius:12px;background:#0F172A;border:1px solid rgba(255,255,255,0.05)}
+.detail-label{font-size:11px;font-weight:700;color:#6366F1;text-transform:uppercase;margin-bottom:4px}
+.detail-val{font-size:14px;color:#F1F5F9;line-height:1.5;white-space:pre-wrap}
+.comment-box{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,0.07)}
+.comment-label{display:block;font-size:13px;font-weight:700;color:#10B981;margin-bottom:8px}
+.comment-textarea{width:100%;background:#0F172A;border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px;color:#F1F5F9;font-size:14px;min-height:100px;margin-bottom:12px;outline:none}
+.comment-textarea:focus{border-color:#10B981}
+.save-btn{width:100%;padding:12px;border-radius:10px;background:#10B981;color:#fff;font-weight:700;border:none;cursor:pointer}
+
 @media(max-width:600px){
   .form-row{grid-template-columns:1fr}
   .stats-grid{grid-template-columns:1fr 1fr}
@@ -149,6 +164,19 @@ body{background:#0F172A;color:#E2E8F0;min-height:100vh}
     </div>
 
     <div id="tabContent"></div>
+  </div>
+</div>
+
+<!-- MODAL DETALLE -->
+<div class="modal-overlay" id="modalDetalle">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="modalTitle" style="font-size:18px;font-family:'Space Grotesk'">Detalle de Respuesta</h2>
+      <button class="modal-close" onclick="cerrarModal()">&times;</button>
+    </div>
+    <div class="modal-body" id="modalBody">
+      <!-- Se llena dinámicamente -->
+    </div>
   </div>
 </div>
 
@@ -537,12 +565,13 @@ function renderProgreso(){
         // Chips de secciones
         h += '<div style="display:flex;flex-wrap:wrap;gap:6px">';
         SECCIONES.forEach(function(sec){
-          var completada = secsCompletadas.indexOf(sec) >= 0;
-          h += '<span style="font-size:11px;padding:4px 10px;border-radius:8px;font-weight:600;';
+          var progSec = progMateria.find(function(p){return p.unidad===unidad && p.seccion===sec});
+          var completada = !!progSec;
+          h += '<span onclick="'+(completada?'verDetalle(\''+progSec.id+'\')':'')+'" style="font-size:11px;padding:4px 10px;border-radius:8px;font-weight:600;'+(completada?'cursor:pointer;':'')+'"';
           h += completada
-            ? 'background:#10B98115;color:#34D399;border:1px solid #10B98130'
-            : 'background:#1E293B;color:#64748B;border:1px solid #334155';
-          h += '">'+(completada?'✓':'⏳')+' '+(SECCIONES_LABELS[sec]||sec)+'</span>';
+            ? ' style="background:#10B98115;color:#34D399;border:1px solid #10B98130"'
+            : ' style="background:#1E293B;color:#64748B;border:1px solid #334155"';
+          h += '>'+(completada?'✓':'⏳')+' '+(SECCIONES_LABELS[sec]||sec)+'</span>';
         });
         h += '</div>';
         
@@ -948,6 +977,85 @@ function imprimirProgreso(){
   setTimeout(function(){
     ventana.print();
   }, 500);
+}
+
+// ----- FEEDBACK SYSTEM -----
+function cerrarModal(){ document.getElementById('modalDetalle').style.display='none'; }
+
+async function verDetalle(progId){
+  var p = allProgreso.find(function(x){return x.id == progId});
+  if(!p) return;
+  var alumno = allAlumnos.find(function(a){return a.codigo === p.alumno_codigo});
+  
+  document.getElementById('modalTitle').innerHTML = '👤 ' + (alumno?alumno.nombre:p.alumno_codigo) + ' <br> <small style="color:#64748B;font-size:12px">' + p.materia + ' · ' + (SECCIONES_LABELS[p.seccion]||p.seccion) + '</small>';
+  document.getElementById('modalDetalle').style.display = 'flex';
+  
+  var h = '';
+  
+  // Renderizar DATOS (JSON)
+  if(p.datos){
+    h += '<div class="detail-label">Respuestas del alumno:</div>';
+    var d = p.datos;
+    if(typeof d === 'object'){
+      h += renderObjetoS(d);
+    } else {
+      h += '<div class="detail-val">' + d + '</div>';
+    }
+  } else {
+    h += '<div class="empty-state">No hay respuestas registradas para esta sección.</div>';
+  }
+  
+  // Cuadro de comentario
+  h += '<div class="comment-box">';
+  h += '<label class="comment-label">💬 Dejar comentario o consejo:</label>';
+  h += '<textarea class="comment-textarea" id="nuevoComentario" placeholder="Ej: ¡Excelente punto! Profundizá más en la causa económica...">'+(p.comentario_docente||'')+'</textarea>';
+  h += '<button class="save-btn" onclick="guardarComentario(\''+p.id+'\')">Guardar Comentario</button>';
+  h += '<p id="saveMsg" style="text-align:center;font-size:12px;color:#10B981;margin-top:8px;display:none">✅ Comentario guardado</p>';
+  h += '</div>';
+  
+  document.getElementById('modalBody').innerHTML = h;
+}
+
+function renderObjetoS(S){
+  var h = '';
+  for(var k in S){
+    var val = S[k];
+    if(!val) continue;
+    if(typeof val === 'object'){
+      var sub = '';
+      for(var sk in val){ if(val[sk]) sub += '<div style="margin-left:12px;font-size:12px">🔹 '+sk+': '+val[sk]+'</div>'; }
+      if(sub) h += '<div class="detail-item"><div class="detail-label">Sección: '+k+'</div>'+sub+'</div>';
+    } else if(typeof val === 'string' && val.length > 0){
+      h += '<div class="detail-item"><div class="detail-label">Campo: '+k+'</div><div class="detail-val">'+val+'</div></div>';
+    }
+  }
+  if(!h) h = '<pre style="font-size:11px;color:#64748B">' + JSON.stringify(S, null, 2) + '</pre>';
+  return h;
+}
+
+async function guardarComentario(id){
+  var txt = document.getElementById('nuevoComentario').value.trim();
+  try {
+    await fetch(SUPABASE_URL + "/rest/v1/progreso?id=eq." + id, {
+      method: "PATCH",
+      headers: {
+        "apikey": SUPABASE_KEY,
+        "Authorization": "Bearer " + SUPABASE_KEY,
+        "Content-Type": "application/json",
+        "Prefer": "return=representation"
+      },
+      body: JSON.stringify({ comentario_docente: txt })
+    });
+    
+    var p = allProgreso.find(function(x){return x.id == id});
+    if(p) p.comentario_docente = txt;
+    
+    document.getElementById('saveMsg').style.display = 'block';
+    setTimeout(function(){ 
+      document.getElementById('saveMsg').style.display = 'none';
+      cerrarModal(); 
+    }, 1500);
+  } catch(e){ alert("Error al guardar comentario"); }
 }
 
 </script>

@@ -140,19 +140,17 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
 .container-with-saludo{padding-top:60px}
 
 /* Pizarra de Novedades */
-.pizarra-section { margin-top: 48px; min-height: 180px; animation: fadeUp 0.8s ease both; padding-bottom: 20px; }
-.pizarra-card { background: #1E293B; border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 24px; position: relative; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.2); }
-.pizarra-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at top right, rgba(16, 185, 129, 0.05), transparent 70%); pointer-events: none; }
-.pizarra-display { color: #E2E8F0; font-size: 15px; line-height: 1.6; font-family: 'DM Sans', sans-serif; white-space: pre-wrap; transition: all 0.3s }
-.pizarra-textarea { width: 100%; min-height: 130px; background: #0F172A; border: 2px solid rgba(255,255,255,0.1); border-radius: 12px; color: #F8FAFC; padding: 14px; font-family: 'DM Sans', sans-serif; font-size: 14px; resize: vertical; outline: none; transition: border-color 0.3s; margin-bottom: 14px; }
-.pizarra-textarea:focus { border-color: #10B981; }
-.pizarra-actions { display: flex; gap: 12px; justify-content: flex-end; align-items: center; }
-.pizarra-btn { padding: 10px 20px; border-radius: 10px; border: none; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.3s; font-family: 'DM Sans', sans-serif; display: inline-flex; align-items: center; gap: 8px; }
-.pizarra-btn.send { background: linear-gradient(135deg, #10B981, #059669); color: #fff; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); }
-.pizarra-btn.send:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4); }
-.pizarra-btn.clear { background: rgba(239, 68, 68, 0.1); color: #EF4444; border: 1px solid rgba(239, 68, 68, 0.2); }
-.pizarra-btn.clear:hover { background: rgba(239, 68, 68, 0.2); }
 .pizarra-status { font-size: 12px; color: #10B981; font-weight: 600; text-align: right; height: 18px; }
+
+/* LOGROS / MEDALLAS */
+.achievements-section{margin-top:32px;display:none;animation:fadeUp 0.8s ease both}
+.achievements-grid{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.achievement-card{background:#1E293B;border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:10px 14px;display:flex;align-items:center;gap:10px;transition:all 0.4s;opacity:0.15;filter:grayscale(1);transform:scale(0.95)}
+.achievement-card.unlocked{opacity:1;filter:grayscale(0);border-color:#F59E0B;background:rgba(245,158,11,0.05);box-shadow:0 4px 15px rgba(245,158,11,0.1);transform:scale(1)}
+.achievement-icon{font-size:22px}
+.achievement-info{text-align:left}
+.achievement-info h4{font-size:12px;font-weight:800;color:#F8FAFC;margin:0;font-family:'Space Grotesk'}
+.achievement-info p{font-size:10px;color:#64748B;margin:0}
 
 </style>
 </head>
@@ -248,6 +246,24 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
       <div class="stat"><span>14</span><small>Asignaturas</small></div>
       <div class="stat"><span>10</span><small>Secciones</small></div>
       <div class="stat"><span>25+</span><small>Actividades</small></div>
+    </div>
+
+    <!-- Sección de Logros -->
+    <div class="achievements-section" id="achievementsSection">
+      <div class="achievements-grid">
+        <div class="achievement-card" id="medalExplorador">
+          <div class="achievement-icon">🚀</div>
+          <div class="achievement-info"><h4>Explorador/a</h4><p>Pasaste el Umbral</p></div>
+        </div>
+        <div class="achievement-card" id="medalCientifico">
+          <div class="achievement-icon">🧠</div>
+          <div class="achievement-info"><h4>Científico/a</h4><p>Núcleos A, B y C</p></div>
+        </div>
+        <div class="achievement-card" id="medalExperto">
+          <div class="achievement-icon">💎</div>
+          <div class="achievement-info"><h4>Maestro/a</h4><p>Autotest +80%</p></div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -632,8 +648,37 @@ function mostrarSaludo(nombre, esDocente){
   saludoBar.style.display = "block";
   mainContainer.classList.add("container-with-saludo");
   
-  // Cargar pizarra
+  // Cargar pizarra y logros
   cargarPizarra();
+  actualizarLogrosAlumno();
+}
+
+async function actualizarLogrosAlumno(){
+  var codigo = sessionStorage.getItem("alumno_codigo");
+  if(!codigo || sessionStorage.getItem("is_docente") === "true") return;
+  
+  try {
+    var url = SUPABASE_URL + "/rest/v1/progreso?alumno_codigo=eq." + codigo + "&select=seccion,nota";
+    var response = await fetch(url, {
+      headers: { "apikey": SUPABASE_KEY, "Authorization": "Bearer " + SUPABASE_KEY }
+    });
+    var data = await response.json();
+    if(!data) return;
+
+    document.getElementById("achievementsSection").style.display = "block";
+    
+    // Evaluar logros
+    var hasUmbral = data.some(function(p){return p.seccion === "umbral"});
+    var hasA = data.some(function(p){return p.seccion === "nucleo_a"});
+    var hasB = data.some(function(p){return p.seccion === "nucleo_b"});
+    var hasC = data.some(function(p){return p.seccion === "nucleo_c"});
+    var highNota = data.some(function(p){return p.nota >= 80});
+
+    if(hasUmbral) document.getElementById("medalExplorador").classList.add("unlocked");
+    if(hasA && hasB && hasC) document.getElementById("medalCientifico").classList.add("unlocked");
+    if(highNota) document.getElementById("medalExperto").classList.add("unlocked");
+
+  } catch(e){ console.warn("Error cargando logros:", e); }
 }
 
 // ============================================================================
