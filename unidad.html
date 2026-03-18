@@ -1409,15 +1409,22 @@ var SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
 // Si Supabase no está configurado, el tracking funciona solo con localStorage (sin overlay)
 var SUPABASE_ACTIVO = SUPABASE_URL.indexOf("TU_PROYECTO") === -1;
 
-// ----- LOGIN DEL ALUMNO -----
-// Solo se muestra si Supabase está configurado Y el alumno no tiene clave guardada
+// ----- IDENTIFICACIÓN DEL ALUMNO -----
+function getAlumnoCodigo(){
+  return sessionStorage.getItem("alumno_codigo") || localStorage.getItem("campus_alumno_codigo");
+}
+
 (function initAlumnoLogin(){
   // 🔑 Si es docente (1126 O is_docente), no pedir login de alumno
   var esDocente = sessionStorage.getItem("campus_auth") === "1126" || sessionStorage.getItem("is_docente") === "true";
   if(esDocente) return;  // Docente puede ver todo sin login
   
   if(!SUPABASE_ACTIVO) return;           // sin Supabase → no pedir clave
-  if(localStorage.getItem("campus_alumno_codigo")) return; // ya identificado → no pedir de nuevo
+  var codigo = getAlumnoCodigo();
+  if(codigo) {
+    if(codigo !== "docente_1126") registrarSesion(codigo);
+    return;
+  }
 
   var overlay = document.createElement("div");
   overlay.id = "alumnoLoginOverlay";
@@ -1466,6 +1473,7 @@ async function verificarAlumno(){
     if(data && data.length > 0){
       var alumno = data[0];
       localStorage.setItem("campus_alumno_codigo", alumno.codigo);
+      sessionStorage.setItem("alumno_codigo", alumno.codigo);
       localStorage.setItem("campus_alumno_nombre", alumno.nombre);
       localStorage.setItem("campus_alumno_curso", alumno.curso);
       document.getElementById("alumnoLoginOverlay").remove();
@@ -1514,7 +1522,7 @@ async function registrarSesion(codigo){
 // Llamá a esta función cuando el alumno completa una sección
 // Ejemplo: trackProgreso("nucleo") — se llama automáticamente al cambiar de tab
 async function trackProgreso(seccion, nota){
-  var codigo = localStorage.getItem("campus_alumno_codigo");
+  var codigo = getAlumnoCodigo();
   if(!D) return;
 
   // Guardar en localStorage siempre (funciona offline y sin Supabase)
@@ -1553,7 +1561,7 @@ async function trackProgreso(seccion, nota){
 async function obtenerDatosAutotest(){
   if(!SUPABASE_ACTIVO || !D) return {primeraVez: true, primerIntento: null, reintentos: []};
   
-  var codigo = localStorage.getItem("campus_alumno_codigo");
+  var codigo = getAlumnoCodigo();
   if(!codigo || codigo === "docente_1126") return {primeraVez: true, primerIntento: null, reintentos: []}; // Docente no trackea
   
   try {
@@ -1591,7 +1599,7 @@ async function obtenerDatosAutotest(){
 async function sincronizarProgresoDesdeSupabase(){
   if(!SUPABASE_ACTIVO || !D) return;
   
-  var codigo = localStorage.getItem("campus_alumno_codigo");
+  var codigo = getAlumnoCodigo();
   if(!codigo) return;
 
   try {
@@ -1647,7 +1655,7 @@ function autoGuardarS(){
   if(_saveTimeout) clearTimeout(_saveTimeout);
   console.log("Pendiente de guardado...");
   _saveTimeout = setTimeout(async function(){
-    var codigo = localStorage.getItem("campus_alumno_codigo");
+    var codigo = getAlumnoCodigo();
     if(!SUPABASE_ACTIVO || !codigo || !D) return;
     
     try {
@@ -1691,7 +1699,7 @@ S = new Proxy(_S, {
 
 async function sincronizarEstadoDesdeSupabase(){
   if(!SUPABASE_ACTIVO || !D) return;
-  var codigo = localStorage.getItem("campus_alumno_codigo");
+  var codigo = getAlumnoCodigo();
   if(!codigo) return;
   try {
     var url = SUPABASE_URL + "/rest/v1/progreso?alumno_codigo=eq." + codigo + 
