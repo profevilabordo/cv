@@ -218,6 +218,21 @@ var TABS=[
 
 
 function switchTab(i){CT=i;render();}
+function uN7(sk){
+  var s=S[sk], d=D[sk.split("_")[0]].n7_defini_con_tus_palabras, c=d.conceptos[s.cur];
+  var matched=c.palabras_clave.filter(function(k){return s.inp.toLowerCase().indexOf(k)>=0});
+  var q=matched.length, btn=document.getElementById("btn_enviar_"+sk), dots=document.getElementById("qdots_"+sk);
+  if(btn) btn.disabled=s.inp.length<5;
+  if(dots && s.inp.length>10){
+    var h=""; for(var l=1;l<=3;l++) h+='<div style="flex:1;height:4px;border-radius:4px;background:'+(q>=l?'#10B981':'#E5E7EB')+'"></div>';
+    dots.innerHTML=h; dots.style.display="flex";
+  } else if(dots) { dots.innerHTML=""; }
+}
+function uN10(sk){
+  var s=S[sk], f=[s.s1,s.s2,s.d1,s.d2,s.d3,s.d4].filter(function(v){return v.trim().length>3}).length;
+  var bar=document.getElementById("barfill_"+sk), txt=document.getElementById("txt_"+sk);
+  if(bar) bar.style.width=(f/6*100)+"%"; if(txt) txt.textContent=f+"/6";
+}
 function tog(id){S["o_"+id]=!S["o_"+id];render();}
 
 function secHeader(icon,title,sub,grad){
@@ -741,17 +756,13 @@ function rN7(nucleo){
   var q=matched.length;
   var h='';
   if(d.paginas_referencia) h+='<div style="margin-bottom:10px">'+mostrarPaginas(d.paginas_referencia)+'</div>';
-  h+='<p style="font-size:12px;color:#9CA3AF;margin:0 0 10px">'+(s.cur+1)+'/'+d.conceptos.length+'</p>';
-  h+='<div style="padding:18px;border-radius:16px;background:linear-gradient(135deg,#EEF2FF,#E0E7FF);margin-bottom:14px;text-align:center">';
-  h+='<p style="margin:0;font-size:22px;font-weight:800;color:#4338CA">'+c.termino+'</p></div>';
-  h+='<p style="font-size:13px;color:#92400E;font-style:italic;margin-bottom:12px">\u{1F4A1} '+c.pista+'</p>';
-  h+='<textarea oninput="S.'+sk+'.inp=this.value;S.'+sk+'.sub=false;render()" placeholder="Definí con tus palabras...">'+s.inp+'</textarea>';
+  h+='<textarea oninput="S.'+sk+'.inp=this.value;S.'+sk+'.sub=false;uN7(\''+sk+'\')" placeholder="Definí con tus palabras...">'+s.inp+'</textarea>';
   if(s.inp.length>10){
-    h+='<div style="display:flex;gap:4px;margin-top:8px">';
+    h+='<div id="qdots_'+sk+'" style="display:flex;gap:4px;margin-top:8px">';
     for(var l=1;l<=3;l++) h+='<div style="flex:1;height:4px;border-radius:4px;background:'+(q>=l?'#10B981':'#E5E7EB')+'"></div>';
     h+='</div>';
-  }
-  h+='<button class="btn" onclick="S.'+sk+'.sub=true;render()"'+(s.inp.length<5?' disabled':'')+'>Enviar</button>';
+  } else { h+='<div id="qdots_'+sk+'"></div>'; }
+  h+='<button id="btn_enviar_'+sk+'" class="btn" onclick="S.'+sk+'.sub=true;render()"'+(s.inp.length<5?' disabled':'')+'>Enviar</button>';
   if(s.sub){
     var fb=q>=3?{t:"\u{1F31F} \u00a1Excelente!",b:"#D1FAE5",c:"#065F46"}:q>=2?{t:"\u{1F44D} \u00a1Buena!",b:"#FEF3C7",c:"#92400E"}:{t:"\u{1F914} Intentá de nuevo",b:"#FEE2E2",c:"#991B1B"};
     h+='<div class="fb" style="background:'+fb.b+'"><p style="margin:0;font-size:14px;font-weight:600;color:'+fb.c+'">'+fb.t+'</p></div>';
@@ -852,7 +863,7 @@ function rN10(nucleo){
   if(!S[sk]) S[sk]={s1:"",s2:"",d1:"",d2:"",d3:"",d4:""};
   var s=S[sk];
   var filled=[s.s1,s.s2,s.d1,s.d2,s.d3,s.d4].filter(function(v){return v.trim().length>3}).length;
-  function inp(k,ph){return '<input type="text" value="'+s[k]+'" oninput="S.'+sk+'.'+k+'=this.value;render()" placeholder="'+ph+'" style="padding:8px;border-radius:8px;border:1px solid #D1D5DB;font-size:13px;margin-bottom:6px">';}
+  function inp(k,ph){return '<input type="text" value="'+s[k]+'" oninput="S.'+sk+'.'+k+'=this.value;uN10(\''+sk+'\')" placeholder="'+ph+'" style="padding:8px;border-radius:8px;border:1px solid #D1D5DB;font-size:13px;margin-bottom:6px">';}
   var h='';
   if(d.consigna || d.paginas_referencia) {
     h+='<p style="font-size:14px;font-weight:600;color:#374151;margin:0 0 14px">';
@@ -869,7 +880,7 @@ function rN10(nucleo){
   h+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">';
   h+='<div style="padding:12px;border-radius:12px;background:'+d.concepto_a.color+'10"><p style="margin:0 0 8px;font-size:13px;font-weight:700;color:'+d.concepto_a.color+'">'+d.concepto_a.emoji+' Diferencias</p>'+inp("d1","Dif 1")+inp("d2","Dif 2")+'</div>';
   h+='<div style="padding:12px;border-radius:12px;background:'+d.concepto_b.color+'10"><p style="margin:0 0 8px;font-size:13px;font-weight:700;color:'+d.concepto_b.color+'">'+d.concepto_b.emoji+' Diferencias</p>'+inp("d3","Dif 1")+inp("d4","Dif 2")+'</div></div>';
-  h+='<div style="margin-top:14px;display:flex;align-items:center;gap:10px"><div class="bar" style="flex:1"><div class="barfill" style="width:'+(filled/6*100)+'%;background:linear-gradient(90deg,#6366F1,#8B5CF6)"></div></div><span style="font-size:12px;color:#6B7280">'+filled+'/6</span></div>';
+  h+='<div style="margin-top:14px;display:flex;align-items:center;gap:10px"><div class="bar" style="flex:1"><div id="barfill_'+sk+'" class="barfill" style="width:'+(filled/6*100)+'%;background:linear-gradient(90deg,#6366F1,#8B5CF6)"></div></div><span id="txt_'+sk+'" style="font-size:12px;color:#6B7280">'+filled+'/6</span></div>';
   return h;
 }
 
