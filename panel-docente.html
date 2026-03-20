@@ -278,9 +278,9 @@ async function sbDelete(table, eq){
 async function loadAllData(){
   document.getElementById("tabContent").innerHTML = '<div class="loading">Cargando datos... ⏳</div>';
   try {
-    allAlumnos = await sb("alumnos", "select=*&order=nombre.asc");
-    allProgreso = await sb("progreso", "select=*&order=fecha.desc");
-    allSesiones = await sb("sesiones", "select=*");
+    allAlumnos = await sb("alumnos", "select=*&order=nombre.asc&limit=1000");
+    allProgreso = await sb("progreso", "select=*&order=fecha.desc&limit=50000");
+    allSesiones = await sb("sesiones", "select=*&limit=10000");
     updateStats();
     renderTab();
   } catch(e){
@@ -603,11 +603,35 @@ function renderProgreso(){
     // Renderizar cada materia
     materiasDelAlumno.forEach(function(materia){
       var progMateria = progAlumno.filter(function(p){return p.materia===materia;});
-      var unidades = [...new Set(progMateria.map(function(p){return p.unidad}))].sort();
+      var unidades = [...new Set(progMateria.map(function(p){return p.unidad}))].filter(Boolean).sort();
       
       unidades.forEach(function(unidad){
         var progMateriaUnidad = progMateria.filter(function(p){return p.unidad===unidad;});
-        var secsCompletadas = progMateriaUnidad.map(function(p){return p.seccion;});
+        
+        // Detectar secciones completas (explícitas o en el estado autoguardado)
+        var stateRec = progMateriaUnidad.find(function(p){return p.seccion === "__ESTADO_UNIDAD__"});
+        var stateData = (stateRec && stateRec.datos) ? stateRec.datos : {};
+        
+        var secsCompletadas = progMateriaUnidad.filter(function(p){return p.seccion !== "__ESTADO_UNIDAD__"}).map(function(p){return p.seccion;});
+        
+        // Si no está "marcada", pero hay datos en el estado autoguardado para esa sección, considerarla "en proceso/completa"
+        var prefixes = {
+          "umbral":/^u[1-3]/, "mapa":/^m[1-3]/, "nucleo_a":/^na/, "nucleo_b":/^nb/, 
+          "nucleo_c":/^nc/, "senales":/^s[1-3]/, "sabias":/^sb[1-3]/, "cruces":/^cr[1-3]/, 
+          "relectura":/^re[1-3]/, "emocional":/^em[1-3]/, "autotest":/^at/, "cierre":/^ci/
+        };
+        
+        Object.keys(prefixes).forEach(function(sKey){
+          if(secsCompletadas.indexOf(sKey) === -1){
+            var reg = prefixes[sKey];
+            var tieneDatos = Object.keys(stateData).some(function(k){ return reg.test(k) && stateData[k]; });
+            if(tieneDatos) {
+              // Solo la agregamos si tiene al menos un par de respuestas (evitar falsos positivos)
+              secsCompletadas.push(sKey);
+            }
+          }
+        });
+        
         var totalSecciones = SECCIONES.length;
         var pct = Math.round(secsCompletadas.length / totalSecciones * 100);
         var color = pct >= 70 ? '#10B981' : pct >= 40 ? '#F59E0B' : '#6366F1';
