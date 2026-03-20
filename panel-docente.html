@@ -677,7 +677,22 @@ function renderProgreso(){
         SECCIONES.forEach(function(sec){
           var progSec = progMateriaUnidad.find(function(p){return p.seccion===sec});
           var completada = !!progSec;
-          h += '<span onclick="'+(completada?'verDetalle(\''+progSec.id+'\')':'')+'" class="badge '+(completada?'badge-green':'')+'" style="'+(completada?'cursor:pointer;':'')+'opacity:'+(completada?1:0.3)+'">'+(SECCIONES_LABELS[sec]||sec)+'</span>';
+          
+          // Ver si tiene progreso parcial en el autoguardado
+          var tieneParcial = false;
+          if(!completada && stateRec){
+             var reg = prefixes[sec];
+             tieneParcial = Object.keys(stateData).some(function(k){ return reg.test(k) && stateData[k]; });
+          }
+
+          if(!completada && !tieneParcial) {
+            h += '<span class="badge" style="opacity:0.2">'+(SECCIONES_LABELS[sec]||sec)+'</span>';
+          } else {
+            var badgeClass = completada ? 'badge-green' : 'badge-blue';
+            var pId = completada ? progSec.id : stateRec.id;
+            var clickAction = "verDetalle('" + pId + "'" + (completada ? "" : ", '" + sec + "'") + ")";
+            h += '<span onclick="'+clickAction+'" class="badge '+badgeClass+'" style="cursor:pointer">'+(SECCIONES_LABELS[sec]||sec)+'</span>';
+          }
         });
         h += '</div></div>';
       });
@@ -1152,13 +1167,15 @@ function imprimirProgreso(){
 // ----- FEEDBACK SYSTEM -----
 function cerrarModal(){ document.getElementById('modalDetalle').style.display='none'; }
 
-async function verDetalle(progId){
+async function verDetalle(progId, forcedSection){
   var p = allProgreso.find(function(x){return x.id == progId});
   if(!p) return;
   var aCode = (p.alumno_codigo||"").toString().trim().toLowerCase();
   var alumno = allAlumnos.find(function(a){
     return (a.codigo||"").toString().trim().toLowerCase() === aCode;
   });
+
+  var seccionParaMostrar = forcedSection || p.seccion;
 
   // FALLBACK: Si no hay datos, buscar en el autoguardado global __ESTADO_UNIDAD__
   if(!p.datos){
@@ -1177,7 +1194,7 @@ async function verDetalle(progId){
     }
   }
   
-  document.getElementById('modalTitle').innerHTML = '👤 ' + (alumno?alumno.nombre:p.alumno_codigo) + ' <br> <small style="color:#64748B;font-size:12px">' + p.materia + ' · ' + (SECCIONES_LABELS[p.seccion]||p.seccion) + '</small>';
+  document.getElementById('modalTitle').innerHTML = '👤 ' + (alumno?alumno.nombre:p.alumno_codigo) + ' <br> <small style="color:#64748B;font-size:12px">' + p.materia + ' · ' + (SECCIONES_LABELS[seccionParaMostrar]||seccionParaMostrar) + (forcedSection?' <span class="badge badge-blue">En proceso</span>':'') + '</small>';
   document.getElementById('modalDetalle').style.display = 'flex';
   
   var h = '';
@@ -1195,7 +1212,7 @@ async function verDetalle(progId){
         "relectura":/^re[123]/, "emocional":/^em[123]/, "autotest":/^at/, "cierre":/^ci[123]/
       };
       
-      var reg = prefixes[p.seccion];
+      var reg = prefixes[seccionParaMostrar];
       if(reg){
         for(var k in d){ if(reg.test(k)) filtered[k] = d[k]; }
       } else {
