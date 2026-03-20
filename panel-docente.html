@@ -280,15 +280,6 @@ async function loadAllData(){
   try {
     allAlumnos = await sb("alumnos", "select=*&order=nombre.asc");
     allProgreso = await sb("progreso", "select=*&order=fecha.desc");
-    
-    // Normalizar unidad (ej: de "eeso206_3a_economia_u1" a "u1")
-    allProgreso.forEach(function(p){
-      if(p.unidad && p.unidad.includes("_u")) {
-        p.unidad = p.unidad.split("_u").pop();
-        if(!p.unidad.startsWith("u")) p.unidad = "u" + p.unidad;
-      }
-    });
-
     allSesiones = await sb("sesiones", "select=*");
     updateStats();
     renderTab();
@@ -608,16 +599,17 @@ function renderProgreso(){
         var pct = Math.round(secsCompletadas.length / totalSecciones * 100);
         var color = pct >= 70 ? '#10B981' : pct >= 40 ? '#F59E0B' : '#6366F1';
         
+        var displayUnidad = unidad.includes("_") ? unidad.split("_").pop().toUpperCase() : unidad.toUpperCase();
         h += '<div style="margin-top:16px;padding:14px;border-radius:12px;background:#0F172A;border:1px solid rgba(255,255,255,0.05)">';
         h += '<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">';
-        h += '<div style="font-size:13px;font-weight:700;color:#F8FAFC">📚 '+materia+' ('+unidad.toUpperCase()+')</div>';
+        h += '<div style="font-size:13px;font-weight:700;color:#F8FAFC">📚 '+materia+' ('+displayUnidad+')</div>';
         h += '<div style="display:flex;align-items:center;gap:8px">';
         h += '<span style="font-size:11px;color:#64748B">['+secsCompletadas.length+'/'+totalSecciones+']</span>';
         h += '<span style="font-size:13px;font-weight:800;color:'+color+'">'+pct+'%</span>';
         h += '</div></div>';
         
         h += '<div style="height:6px;background:#1E293B;border-radius:6px;overflow:hidden;margin-bottom:12px">';
-        h += '<div style="height:100%;width:'+pct+'%;background:'+color+';border-radius:6px;transition:width .5s"></div>';
+        h += '<div style="height:100%;width:'+(pct>100?100:pct)+'%;background:'+color+';border-radius:6px;transition:width .5s"></div>';
         h += '</div>';
         
         // MEDALLAS Logradas

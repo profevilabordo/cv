@@ -1567,7 +1567,7 @@ async function trackProgreso(seccion, nota, datos){
     var payload = {
       alumno_codigo: codigo,
       materia: D.materia,
-      unidad: "u" + D.unidad,
+      unidad: D.id,
       seccion: seccion,
       completada: true
     };
@@ -1597,7 +1597,7 @@ async function obtenerDatosAutotest(){
   try {
     var url = SUPABASE_URL + "/rest/v1/progreso?alumno_codigo=eq." + codigo + 
               "&materia=eq." + encodeURIComponent(D.materia) +
-              "&unidad=eq.u" + D.unidad +
+              "&unidad=eq." + encodeURIComponent(D.id) +
               "&seccion=like.autotest*" +
               "&select=*&order=fecha.asc";
     
@@ -1635,7 +1635,7 @@ async function sincronizarProgresoDesdeSupabase(){
   try {
     var url = SUPABASE_URL + "/rest/v1/progreso?alumno_codigo=eq." + codigo + 
               "&materia=eq." + encodeURIComponent(D.materia) + 
-              "&unidad=eq.u" + D.unidad + 
+              "&unidad=eq." + encodeURIComponent(D.id) + 
               "&select=*";
     
     var response = await fetch(url, {
@@ -1700,7 +1700,7 @@ function autoGuardarS(){
         body: JSON.stringify({
           alumno_codigo: codigo,
           materia: D.materia,
-          unidad: "u" + D.unidad,
+          unidad: D.id,
           seccion: "__ESTADO_UNIDAD__",
           datos: S,
           completada: false
@@ -1734,7 +1734,7 @@ async function sincronizarEstadoDesdeSupabase(){
   try {
     var url = SUPABASE_URL + "/rest/v1/progreso?alumno_codigo=eq." + codigo + 
               "&materia=eq." + encodeURIComponent(D.materia) + 
-              "&unidad=eq.u" + D.unidad + "&select=seccion,datos,comentario_docente";
+              "&unidad=eq." + encodeURIComponent(D.id) + "&select=seccion,datos,comentario_docente";
     
     var response = await fetch(url, {
       headers: { "apikey": SUPABASE_KEY, "Authorization": "Bearer " + SUPABASE_KEY }
