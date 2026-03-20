@@ -1597,7 +1597,7 @@ async function obtenerDatosAutotest(){
   try {
     var url = SUPABASE_URL + "/rest/v1/progreso?alumno_codigo=eq." + codigo + 
               "&materia=eq." + encodeURIComponent(D.materia) +
-              "&unidad=eq." + encodeURIComponent(D.id) +
+              "&unidad=eq.u" + D.unidad +
               "&seccion=like.autotest*" +
               "&select=*&order=fecha.asc";
     
@@ -1761,7 +1761,7 @@ async function sincronizarEstadoDesdeSupabase(){
 function actualizarIndicadoresTabs(){
   if(!D) return;
   var tabs = document.querySelectorAll(".tab");
-  var tabKeys = ["umbral","mapa","nucleo","senales","sabias","cruces","relectura","emocional","autotest","cierre"];
+  var tabKeys = ["umbral","mapa","nucleo_a","nucleo_b","nucleo_c","senales","sabias","cruces","relectura","emocional","autotest","cierre"];
   tabs.forEach(function(tab, i){
     if(i >= tabKeys.length) return;
     var lsKey = "campus_prog_" + D.id + "_" + tabKeys[i];

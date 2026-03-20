@@ -280,6 +280,15 @@ async function loadAllData(){
   try {
     allAlumnos = await sb("alumnos", "select=*&order=nombre.asc");
     allProgreso = await sb("progreso", "select=*&order=fecha.desc");
+    
+    // Normalizar unidad (ej: de "eeso206_3a_economia_u1" a "u1")
+    allProgreso.forEach(function(p){
+      if(p.unidad && p.unidad.includes("_u")) {
+        p.unidad = p.unidad.split("_u").pop();
+        if(!p.unidad.startsWith("u")) p.unidad = "u" + p.unidad;
+      }
+    });
+
     allSesiones = await sb("sesiones", "select=*");
     updateStats();
     renderTab();
@@ -291,7 +300,7 @@ async function loadAllData(){
 function updateStats(){
   document.getElementById("statAlumnos").textContent = allAlumnos.length;
   document.getElementById("statSesiones").textContent = allSesiones.length;
-  document.getElementById("statActividades").textContent = allProgreso.filter(function(p){return !p.nota}).length;
+  document.getElementById("statActividades").textContent = allProgreso.filter(function(p){return p.nota === null || p.nota === undefined}).length;
   var notas = allProgreso.filter(function(p){return p.nota !== null && p.nota !== undefined});
   document.getElementById("statPromedio").textContent = notas.length ? Math.round(notas.reduce(function(s,p){return s+p.nota},0)/notas.length) + "%" : "—";
 }
