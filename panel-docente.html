@@ -683,7 +683,8 @@ function renderProgreso(){
     h += '<div class="alumno-header"><div>';
     h += '<div class="alumno-name">'+getInactividadIcon(a.codigo)+' '+a.nombre+'</div>';
     h += '<div class="alumno-meta">'+a.curso+' · '+totalMaterias+' materia'+(totalMaterias===1?'':'s')+' · '+totalActividades+' act.</div>';
-    h += '</div><button class="tab on" style="padding:6px 14px;font-size:12px" onclick="abrirModalAvance(\''+a.codigo+'\')">👁️ Ver Avance Detallado</button></div>';
+    var fm = (document.getElementById("filterMateriaP")||{value:""}).value;
+    h += '</div><button class="tab on" style="padding:6px 14px;font-size:12px" onclick="abrirModalAvance(\''+a.codigo+'\',\''+fm+'\')">👁️ Ver Avance Detallado</button></div>';
 
     if(!progAlumno.length){
       h += '<p style="font-size:13px;color:#64748B;margin-top:8px">Aún no completó actividades</p>';
@@ -1387,25 +1388,44 @@ async function guardarComentario(id){
 // ----- NUEVAS FUNCIONES DETALLE AVANCE -----
 function cerrarModalAvance(){ document.getElementById('modalAvance').style.display='none'; }
 
-async function abrirModalAvance(codigo){
+async function abrirModalAvance(codigo, forcedMateria, forcedUnidad){
   var alumno = allAlumnos.find(function(a){return a.codigo === codigo});
   if(!alumno) return;
 
   document.getElementById('avNombre').textContent = alumno.nombre;
   document.getElementById('avMeta').textContent = alumno.curso + (alumno.institucion ? ' · ' + alumno.institucion : '');
   document.getElementById('modalAvance').style.display = 'flex';
+  document.getElementById('avGrid').innerHTML = '<div class="empty-state">Buscando progreso...</div>';
   
-  // Buscar progreso del alumno para obtener materia y unidad más reciente
+  // Buscar progreso del alumno para obtener materia y unidad
   var prog = allProgreso.filter(function(p){return p.alumno_codigo === codigo});
-  var materia = prog.length ? prog[0].materia : "Economía";
-  var unidad = prog.length ? prog[0].unidad : "u1";
+  var materia = forcedMateria || (prog.length ? prog[prog.length-1].materia : "");
+  var unidad = forcedUnidad || (prog.length ? prog[prog.length-1].unidad : "");
+
+  // Si no hay materia/unidad, intentar buscar de la más reciente en general
+  if(!materia && allProgreso.length) materia = allProgreso[allProgreso.length-1].materia;
+  if(!unidad && allProgreso.length) unidad = allProgreso[allProgreso.length-1].unidad;
   
-  document.getElementById('avUnidadNumero').textContent = "Unidad " + (unidad.replace(/[^0-9]/g,'') || "1");
+  document.getElementById('avUnidadNumero').textContent = unidad.toUpperCase();
   document.getElementById('avUnidadTitulo').textContent = "Cargando títulos...";
 
-  // Intentar cargar títulos desde el JSON si es posible (aquí simplificamos)
-  // En un entorno real, cargaríamos el JSON correspondiente
-  
+  // Cargar títulos desde el JSON
+  window.CURRENT_UNIT_DATA = null;
+  if(unidad){
+    try {
+      var r = await fetch("datos/" + unidad + ".json");
+      if(r.ok){
+        var unitData = await r.json();
+        window.CURRENT_UNIT_DATA = unitData;
+        document.getElementById('avUnidadTitulo').textContent = unitData.titulo || "Sin título";
+      } else {
+        document.getElementById('avUnidadTitulo').textContent = "Unidad: " + unidad;
+      }
+    } catch(e){
+      document.getElementById('avUnidadTitulo').textContent = "Error al cargar títulos";
+    }
+  }
+
   renderGridAvance(codigo, materia, unidad);
 }
 
@@ -1441,20 +1461,36 @@ function renderGridAvance(codigo, materia, unidad){
     var bgColor = isDone ? 'rgba(16,185,129,0.08)' : (isStarted ? 'rgba(14,165,233,0.08)' : 'rgba(255,255,255,0.04)');
     var borderColor = isDone ? 'rgba(16,185,129,0.3)' : (isStarted ? 'rgba(14,165,233,0.3)' : 'rgba(255,255,255,0.05)');
 
+    // Título de la sección desde el JSON si existe
+    var labelBase = (SECCIONES_LABELS[sec]||sec).replace(/[🚪🗺️⚛️🚦✨🔀📖🫶📝🔚]/g,"").trim();
+    var realTitle = labelBase;
+    if(window.CURRENT_UNIT_DATA && window.CURRENT_UNIT_DATA[sec] && window.CURRENT_UNIT_DATA[sec].titulo){
+      realTitle = window.CURRENT_UNIT_DATA[sec].titulo;
+    }
+
     h += '<div class="avance-block-card '+(isDone?'done':(isStarted?'':'pending'))+'" style="background:'+bgColor+'; border-color:'+borderColor+'">';
-    h += '<div class="block-tag">'+(SECCIONES_LABELS[sec]||sec).replace(/[🚪🗺️⚛️🚦✨🔀📖🫶📝🔚]/g,"").trim()+'</div>';
-    h += '<div class="block-title">'+(SECCIONES_LABELS[sec]||sec)+'</div>';
-    h += '<div class="block-status">'+(isDone?'✅':'⏳')+'</div>';
+    h += '<div class="block-tag">'+labelBase+'</div>';
+    h += '<div class="block-title">'+realTitle+'</div>';
+    h += '<div class="block-status" onclick="if(\''+(pSec?pSec.id:'')+'\') verDetalle(\''+(pSec?pSec.id:'')+'\')" style="cursor:pointer" title="Ver detalle completo">'+(isDone?'✅':'⏳')+'</div>';
     
+    // Vista previa de respuestas
+    if(isStarted || isDone){
+      var d = (pSec && pSec.datos) ? pSec.datos : stateData;
+      var count = 0;
+      if(typeof d === 'object'){
+        for(var k in d){ if(reg.test(k) && d[k]) count++; }
+      }
+      if(count > 0){
+        h += '<div style="font-size:11px;color:#94A3B8;margin-top:4px">📝 '+count+' respuestas</div>';
+        if(isDone) h += '<div style="font-size:10px;color:#64748B;font-style:italic;cursor:pointer" onclick="verDetalle(\''+pSec.id+'\')">Ver respuestas →</div>';
+      }
+    }
+
     // Feedback area
     var currentFeedback = (pSec && pSec.comentario_docente) || "";
-    // Si no hay record de sección pero sí hay en __ESTADO_UNIDAD__ (poco probable para comentario, pero por las dudas)
-    if(!currentFeedback && stateRec && stateRec.comentario_docente && sec === "__ESTADO_UNIDAD__") currentFeedback = stateRec.comentario_docente;
-
     h += '<div class="feedback-area">';
     h += '<label class="feedback-label">💬 Feedback:</label>';
     h += '<textarea class="feedback-input" placeholder="Escribí un comentario..." onfocus="this.dataset.old=this.value" onblur="if(this.value!==this.dataset.old)guardarFeedbackAvance(\''+codigo+'\',\''+materia+'\',\''+unidad+'\',\''+sec+'\',this.value)">'+currentFeedback+'</textarea>';
-    h += '<button class="save-feedback-btn">Guardar</button>';
     h += '</div>';
     h += '</div>';
   });
