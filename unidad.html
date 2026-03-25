@@ -220,10 +220,11 @@ var TABS=[
 function switchTab(i){CT=i;render();}
 function uN7(sk){
   var s=S[sk], d=D[sk.split("_")[0]].n7_defini_con_tus_palabras, c=d.conceptos[s.cur];
-  var matched=c.palabras_clave.filter(function(k){return s.inp.toLowerCase().indexOf(k)>=0});
+  var inp = S[sk + "_inp_" + s.cur] || "";
+  var matched=c.palabras_clave.filter(function(k){return inp.toLowerCase().indexOf(k)>=0});
   var q=matched.length, btn=document.getElementById("btn_enviar_"+sk), dots=document.getElementById("qdots_"+sk);
-  if(btn) btn.disabled=s.inp.length<5;
-  if(dots && s.inp.length>10){
+  if(btn) btn.disabled=inp.length<5;
+  if(dots && inp.length>10){
     var h=""; for(var l=1;l<=3;l++) h+='<div style="flex:1;height:4px;border-radius:4px;background:'+(q>=l?'#10B981':'#E5E7EB')+'"></div>';
     dots.innerHTML=h; dots.style.display="flex";
   } else if(dots) { dots.innerHTML=""; }
@@ -750,30 +751,42 @@ function rN6(nucleo){
 function rN7(nucleo){
   var d=D[nucleo].n7_defini_con_tus_palabras;
   var sk=nucleo+"_n7";
-  if(!S[sk]) S[sk]={cur:0,inp:"",sub:false};
+  if(!S[sk]) S[sk]={cur:0};
   var s=S[sk], c=d.conceptos[s.cur];
-  var matched=c.palabras_clave.filter(function(k){return s.inp.toLowerCase().indexOf(k)>=0});
+  var curInp = S[sk + "_inp_" + s.cur] || "";
+  var curSub = S[sk + "_sub_" + s.cur] || false;
+  
+  var matched=c.palabras_clave.filter(function(k){return curInp.toLowerCase().indexOf(k)>=0});
   var q=matched.length;
   var h='';
+  
+  h+='<div style="background:#F3F4F6;padding:12px;border-radius:12px;margin-bottom:14px;border-left:4px solid #6366F1">';
+  h+='<p style="margin:0;font-size:12px;color:#6366F1;font-weight:800;text-transform:uppercase">Concepto '+(s.cur+1)+'/'+d.conceptos.length+'</p>';
+  h+='<p style="margin:4px 0 0;font-size:16px;font-weight:700;color:#1F2937">'+c.termino+'</p></div>';
+
   if(d.paginas_referencia) h+='<div style="margin-bottom:10px">'+mostrarPaginas(d.paginas_referencia)+'</div>';
-  h+='<textarea oninput="S.'+sk+'.inp=this.value;S.'+sk+'.sub=false;uN7(\''+sk+'\')" placeholder="Definí con tus palabras...">'+s.inp+'</textarea>';
-  if(s.inp.length>10){
+  
+  h+='<textarea oninput="S[\''+sk+'_inp_'+s.cur+'\']=this.value; uN7(\''+sk+'\')" placeholder="Definí con tus palabras...">'+curInp+'</textarea>';
+  
+  if(curInp.length>10){
     h+='<div id="qdots_'+sk+'" style="display:flex;gap:4px;margin-top:8px">';
     for(var l=1;l<=3;l++) h+='<div style="flex:1;height:4px;border-radius:4px;background:'+(q>=l?'#10B981':'#E5E7EB')+'"></div>';
     h+='</div>';
   } else { h+='<div id="qdots_'+sk+'"></div>'; }
-  h+='<button id="btn_enviar_'+sk+'" class="btn" onclick="S.'+sk+'.sub=true;render()"'+(s.inp.length<5?' disabled':'')+'>Enviar</button>';
-  if(s.sub){
+  
+  h+='<button id="btn_enviar_'+sk+'" class="btn" onclick="S[\''+sk+'_sub_'+s.cur+'\']=true;render()"'+(curInp.length<5?' disabled':'')+'>Enviar</button>';
+  
+  if(curSub){
     var fb=q>=3?{t:"\u{1F31F} \u00a1Excelente!",b:"#D1FAE5",c:"#065F46"}:q>=2?{t:"\u{1F44D} \u00a1Buena!",b:"#FEF3C7",c:"#92400E"}:{t:"\u{1F914} Intentá de nuevo",b:"#FEE2E2",c:"#991B1B"};
     h+='<div class="fb" style="background:'+fb.b+'"><p style="margin:0;font-size:14px;font-weight:600;color:'+fb.c+'">'+fb.t+'</p></div>';
   }
   
   h += '<div style="display:flex;justify-content:space-between;margin-top:14px;gap:10px">';
-  if(s.cur > 0) h += '<button class="btn2" onclick="S.'+sk+'.cur--;S.'+sk+'.inp=\'\';S.'+sk+'.sub=false;render()" style="flex:1;background:#6B7280">\u2190 Anterior</button>';
-  if(s.sub && s.cur < d.conceptos.length - 1) {
-    h += '<button class="btn2" onclick="S.'+sk+'.cur++;S.'+sk+'.inp=\'\';S.'+sk+'.sub=false;render()" style="flex:1;background:#10B981">Siguiente \u2192</button>';
-  } else if (!s.sub && s.cur < d.conceptos.length - 1) {
-    h += '<button class="btn2" onclick="S.'+sk+'.cur++;S.'+sk+'.inp=\'\';S.'+sk+'.sub=false;render()" style="flex:1;background:#9CA3AF;opacity:0.5">Siguiente \u2192</button>';
+  if(s.cur > 0) h += '<button class="btn2" onclick="S.'+sk+'.cur--;render()" style="flex:1;background:#6B7280">\u2190 Anterior</button>';
+  if(curSub && s.cur < d.conceptos.length - 1) {
+    h += '<button class="btn2" onclick="S.'+sk+'.cur++;render()" style="flex:1;background:#10B981">Siguiente \u2192</button>';
+  } else if (!curSub && s.cur < d.conceptos.length - 1) {
+    h += '<button class="btn2" onclick="S.'+sk+'.cur++;render()" style="flex:1;background:#9CA3AF;opacity:0.5">Siguiente \u2192</button>';
   }
   h += '</div>';
   return h;
