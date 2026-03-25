@@ -1400,7 +1400,9 @@ async function abrirModalAvance(codigo, forcedMateria, forcedUnidad){
   // Buscar progreso del alumno para obtener materia y unidad
   var prog = allProgreso.filter(function(p){return p.alumno_codigo === codigo});
   var materia = forcedMateria || (prog.length ? prog[prog.length-1].materia : "");
-  var unidad = forcedUnidad || (prog.length ? prog[prog.length-1].unidad : "");
+  
+  var progMat = materia ? prog.filter(function(p){return p.materia === materia}) : prog;
+  var unidad = forcedUnidad || (progMat.length ? progMat[progMat.length-1].unidad : "");
 
   // Si no hay materia/unidad, intentar buscar de la más reciente en general
   if(!materia && allProgreso.length) materia = allProgreso[allProgreso.length-1].materia;
@@ -1473,16 +1475,20 @@ function renderGridAvance(codigo, materia, unidad){
     h += '<div class="block-title">'+realTitle+'</div>';
     h += '<div class="block-status" onclick="if(\''+(pSec?pSec.id:'')+'\') verDetalle(\''+(pSec?pSec.id:'')+'\')" style="cursor:pointer" title="Ver detalle completo">'+(isDone?'✅':'⏳')+'</div>';
     
-    // Vista previa de respuestas
+    // Vista previa de respuestas (REALES)
     if(isStarted || isDone){
       var d = (pSec && pSec.datos) ? pSec.datos : stateData;
-      var count = 0;
       if(typeof d === 'object'){
-        for(var k in d){ if(reg.test(k) && d[k]) count++; }
-      }
-      if(count > 0){
-        h += '<div style="font-size:11px;color:#94A3B8;margin-top:4px">📝 '+count+' respuestas</div>';
-        if(isDone) h += '<div style="font-size:10px;color:#64748B;font-style:italic;cursor:pointer" onclick="verDetalle(\''+pSec.id+'\')">Ver respuestas →</div>';
+        var filtered = {};
+        for(var k in d){ if(reg.test(k) && d[k]) filtered[k] = d[k]; }
+        
+        if(Object.keys(filtered).length){
+          h += '<div class="ans-preview" style="max-height:150px; overflow-y:auto; margin-top:8px; background:rgba(0,0,0,0.2); border-radius:8px; padding:8px; font-size:11px">';
+          h += renderObjetoS(filtered);
+          h += '</div>';
+        } else {
+          h += '<div style="font-size:11px;color:#64748B;margin-top:4px">No hay respuestas cargadas aún</div>';
+        }
       }
     }
 
