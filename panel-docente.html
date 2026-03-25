@@ -1409,7 +1409,7 @@ async function abrirModalAvance(codigo, forcedMateria, forcedUnidad){
   var nMateria = normalizeString(forcedMateria);
   var progMat = nMateria ? prog.filter(function(p){return normalizeString(p.materia) === nMateria}) : prog;
   
-  var materiaId = forcedMateria || (progMat.length ? progMat[0].materia : "");
+  var materia = forcedMateria || (progMat.length ? progMat[0].materia : "");
   var unidad = forcedUnidad;
   if(!unidad && progMat.length){
     var lastRec = progMat.find(function(r){return r.seccion && normalizeString(r.seccion) !== normalizeString("__ESTADO_UNIDAD__")}) || progMat[progMat.length-1];
