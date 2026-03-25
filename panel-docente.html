@@ -318,6 +318,18 @@ function getUnifiedAlumnos(registrados, progreso, sesiones){
   return res.sort(function(a,b){return a.nombre.localeCompare(b.nombre)});
 }
 
+function countUniqueAct(progArray){
+  if(!progArray) return 0;
+  var tags = new Set();
+  progArray.forEach(function(p){
+    var s = normalizeString(p.seccion);
+    if(s && s !== "__ESTADO_UNIDAD__" && SECCIONES.indexOf(s) !== -1){
+      tags.add(norm(p.alumno_codigo) + "|" + normalizeString(p.materia) + "|" + normalizeString(p.unidad) + "|" + s);
+    }
+  });
+  return tags.size;
+}
+
 // ----- AUTH -----
 function checkLogin(){
   var val = document.getElementById("loginInput").value.trim();
@@ -411,7 +423,11 @@ async function loadAllData(){
 function updateStats(){
   document.getElementById("statAlumnos").textContent = allAlumnos.length;
   document.getElementById("statSesiones").textContent = allSesiones.length;
-  document.getElementById("statActividades").textContent = allProgreso.filter(function(p){return p.nota === null || p.nota === undefined}).length;
+  
+  // Contar actividades ÚNICAS (sin contar estados de autoguardado)
+  var uniqueActCount = countUniqueAct(allProgreso.filter(function(p){return p.nota === null || p.nota === undefined}));
+  document.getElementById("statActividades").textContent = uniqueActCount;
+  
   var notas = allProgreso.filter(function(p){return p.nota !== null && p.nota !== undefined});
   document.getElementById("statPromedio").textContent = notas.length ? Math.round(notas.reduce(function(s,p){return s+p.nota},0)/notas.length) + "%" : "—";
 }
@@ -477,7 +493,7 @@ function copiarTablaAlumnos(){
   filtered.forEach(function(a){
     var aCode = norm(a.codigo);
     var sesiones = allSesiones.filter(function(s){return norm(s.alumno_codigo)===aCode}).length;
-    var actividades = allProgreso.filter(function(p){return norm(p.alumno_codigo)===aCode}).length;
+    var actividades = countUniqueAct(allProgreso.filter(function(p){return norm(p.alumno_codigo)===aCode}));
     var ultimas = allSesiones.filter(function(s){return norm(s.alumno_codigo)===aCode}).sort(function(x,y){return new Date(y.fecha)-new Date(x.fecha)});
     var ultima = ultimas.length ? new Date(ultimas[0].fecha).toLocaleDateString("es-AR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}) : "—";
     
@@ -535,9 +551,9 @@ function imprimirAlumnos(){
     var sesiones = allSesiones.filter(function(s){
       return norm(s.alumno_codigo) === aCode;
     }).length;
-    var actividades = allProgreso.filter(function(p){
+    var actividades = countUniqueAct(allProgreso.filter(function(p){
       return norm(p.alumno_codigo) === aCode;
-    }).length;
+    }));
     var ultimas = allSesiones.filter(function(s){
       return norm(s.alumno_codigo) === aCode;
     }).sort(function(x,y){return new Date(y.fecha)-new Date(x.fecha)});
@@ -592,7 +608,7 @@ function filtrarAlumnos(){
     filtered.forEach(function(a){
       var aCode = norm(a.codigo);
       var sesiones = allSesiones.filter(function(s){return norm(s.alumno_codigo)===aCode}).length;
-      var actividades = allProgreso.filter(function(p){return norm(p.alumno_codigo)===aCode}).length;
+      var actividades = countUniqueAct(allProgreso.filter(function(p){return norm(p.alumno_codigo)===aCode}));
       var ultimas = allSesiones.filter(function(s){return norm(s.alumno_codigo)===aCode}).sort(function(x,y){return new Date(y.fecha)-new Date(x.fecha)});
       var ultima = ultimas.length ? new Date(ultimas[0].fecha).toLocaleDateString("es-AR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}) : "—";
       h += '<tr>';
@@ -1145,8 +1161,8 @@ function copiarProgreso(){
       var unidades = [...new Set(progMateria.map(function(p){return p.unidad}))].sort();
       
       unidades.forEach(function(unidad){
-        var secsCompletadas = progMateria.filter(function(p){return unitsMatch(p.unidad, unidad);}).map(function(p){return p.seccion;});
-        var pct = Math.round(secsCompletadas.length / SECCIONES.length * 100);
+        var progMateriaUnidad = progMateria.filter(function(p){return unitsMatch(p.unidad, unidad);});
+        var pct = Math.round(countUniqueAct(progMateriaUnidad) / SECCIONES.length * 100);
         
         // Nombre del alumno (con aclaraciones si hay múltiples materias/unidades)
         texto += a.nombre;
@@ -1542,8 +1558,7 @@ function renderGridAvance(codigo, materia, unidad){
   var stateData = (stateRec && stateRec.datos) ? stateRec.datos : {};
   
   var totalSecciones = SECCIONES.length;
-  var completadas = progAlumno.filter(function(p){return SECCIONES.indexOf(normalizeString(p.seccion)) !== -1}).length;
-  var pct = Math.round(completadas / totalSecciones * 100);
+  var pct = Math.round(countUniqueAct(progAlumno) / totalSecciones * 100);
   
   document.getElementById('avPct').textContent = pct + "%";
   document.getElementById('avPct').style.color = pct >= 70 ? '#10B981' : pct >= 40 ? '#F59E0B' : '#0EA5E9';
