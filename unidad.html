@@ -774,7 +774,7 @@ function rN7(nucleo){
     h+='</div>';
   } else { h+='<div id="qdots_'+sk+'"></div>'; }
   
-  h+='<button id="btn_enviar_'+sk+'" class="btn" onclick="S[\''+sk+'_sub_'+s.cur+'\']=true;render()"'+(curInp.length<5?' disabled':'')+'>Enviar</button>';
+  h+='<button id="btn_enviar_'+sk+'" class="btn" onclick="S[\''+sk+'_sub_'+s.cur+'\']=true; autoGuardarS(); render()"'+(curInp.length<5?' disabled':'')+'>Enviar</button>';
   
   if(curSub){
     var fb=q>=3?{t:"\u{1F31F} \u00a1Excelente!",b:"#D1FAE5",c:"#065F46"}:q>=2?{t:"\u{1F44D} \u00a1Buena!",b:"#FEF3C7",c:"#92400E"}:{t:"\u{1F914} Intentá de nuevo",b:"#FEE2E2",c:"#991B1B"};
@@ -782,11 +782,11 @@ function rN7(nucleo){
   }
   
   h += '<div style="display:flex;justify-content:space-between;margin-top:14px;gap:10px">';
-  if(s.cur > 0) h += '<button class="btn2" onclick="S.'+sk+'.cur--;render()" style="flex:1;background:#6B7280">\u2190 Anterior</button>';
+  if(s.cur > 0) h += '<button class="btn2" onclick="S.'+sk+'.cur--; autoGuardarS(); render()" style="flex:1;background:#6B7280">\u2190 Anterior</button>';
   if(curSub && s.cur < d.conceptos.length - 1) {
-    h += '<button class="btn2" onclick="S.'+sk+'.cur++;render()" style="flex:1;background:#10B981">Siguiente \u2192</button>';
+    h += '<button class="btn2" onclick="S.'+sk+'.cur++; autoGuardarS(); render()" style="flex:1;background:#10B981">Siguiente \u2192</button>';
   } else if (!curSub && s.cur < d.conceptos.length - 1) {
-    h += '<button class="btn2" onclick="S.'+sk+'.cur++;render()" style="flex:1;background:#9CA3AF;opacity:0.5">Siguiente \u2192</button>';
+    h += '<button class="btn2" onclick="S.'+sk+'.cur++; autoGuardarS(); render()" style="flex:1;background:#9CA3AF;opacity:0.5">Siguiente \u2192</button>';
   }
   h += '</div>';
   return h;

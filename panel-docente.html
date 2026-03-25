@@ -1352,9 +1352,12 @@ async function verDetalle(progId, forcedSection){
       // FILTRADO POR SECCIÓN
       var filtered = {};
       var prefixes = {
-        "umbral":/^u[0-9]+|u2[st]|u3v/, "mapa":/^m[123]/, "nucleo_a":/^na[0-9]+/, "nucleo_b":/^nb[0-9]+/, 
-        "nucleo_c":/^nc[0-9]+/, "senales":/^s[123]/, "sabias":/^sb[123]/, "cruces":/^cr[123]/, 
-        "relectura":/^re[123]/, "emocional":/^em[123]/, "autotest":/^at/, "cierre":/^ci[123]/
+        "umbral":/^u[0-9]+|u2[st]|u3v|umbral/, "mapa":/^m[123]|mapa/, 
+        "nucleo_a":/^na|nucleo_a/, "nucleo_b":/^nb|nucleo_b/, 
+        "nucleo_c":/^nc|nucleo_c/, "senales":/^s[123]|senales/, 
+        "sabias":/^sb[123]|sabias/, "cruces":/^cr[123]|cruces/, 
+        "relectura":/^re|relectura/, "emocional":/^em|e[1-3]|emocional/, 
+        "autotest":/^at|autotest/, "cierre":/^ci|cierre/
       };
       
       var reg = prefixes[seccionParaMostrar];
@@ -1408,6 +1411,7 @@ function renderObjetoS(obj){
     if(k.indexOf('nucleo_a_n') === 0) label = "Núcleo A - Actividad " + k.replace('nucleo_a_n', '');
     if(k.indexOf('nucleo_b_n') === 0) label = "Núcleo B - Actividad " + k.replace('nucleo_b_n', '');
     if(k.indexOf('nucleo_c_n') === 0) label = "Núcleo C - Actividad " + k.replace('nucleo_c_n', '');
+    if(/_inp_/.test(k)) label = "Concepto " + (parseInt(k.split('_').pop())+1);
     if(label === k) label = k.charAt(0).toUpperCase() + k.slice(1);
 
     if(typeof val === 'object' && !Array.isArray(val)){
