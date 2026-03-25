@@ -1399,10 +1399,22 @@ async function abrirModalAvance(codigo, forcedMateria, forcedUnidad){
   
   // Buscar progreso del alumno para obtener materia y unidad
   var prog = allProgreso.filter(function(p){return p.alumno_codigo === codigo});
+  
+  // Priorizar materia actual del filtro
   var materia = forcedMateria || (prog.length ? prog[prog.length-1].materia : "");
   
   var progMat = materia ? prog.filter(function(p){return p.materia === materia}) : prog;
-  var unidad = forcedUnidad || (progMat.length ? progMat[progMat.length-1].unidad : "");
+  
+  // Obtener la unidad real (el ID completo de Supabase)
+  var unidad = forcedUnidad;
+  if(!unidad && progMat.length){
+    // Buscar la unidad que no sea "__ESTADO_UNIDAD__" si es posible, o la última
+    var lastRec = progMat.find(function(r){return r.seccion !== "__ESTADO_UNIDAD__"}) || progMat[progMat.length-1];
+    unidad = lastRec.unidad;
+  }
+  
+  // Último recurso: cualquier unidad en allProgreso
+  if(!unidad && allProgreso.length) unidad = allProgreso[allProgreso.length-1].unidad;
 
   // Si no hay materia/unidad, intentar buscar de la más reciente en general
   if(!materia && allProgreso.length) materia = allProgreso[allProgreso.length-1].materia;
@@ -1453,9 +1465,9 @@ function renderGridAvance(codigo, materia, unidad){
     
     // Ver si tiene algo en el estado aunque no esté marcado como completado
     var prefixes = {
-      "umbral":/^u[0-9]+|u2[st]|u3v/, "mapa":/^m[123]/, "nucleo_a":/^na[0-9]+/, "nucleo_b":/^nb[0-9]+/, 
-      "nucleo_c":/^nc[0-9]+/, "senales":/^s[123]/, "sabias":/^sb[123]/, "cruces":/^cr[123]/, 
-      "relectura":/^re[123]/, "emocional":/^em[123]/, "autotest":/^at/, "cierre":/^ci[123]/
+      "umbral":/u[1-3]/, "mapa":/m[1-3]/, "nucleo_a":/na/, "nucleo_b":/nb/, 
+      "nucleo_c":/nc/, "senales":/s[1-3]/, "sabias":/sb[1-3]/, "cruces":/cr[1-3]/, 
+      "relectura":/re[123]/, "emocional":/em[123]|e[1-3]/, "autotest":/at/, "cierre":/ci[123]/
     };
     var reg = prefixes[sec];
     var isStarted = isDone || Object.keys(stateData).some(function(k){ return reg.test(k) && stateData[k]; });
@@ -1477,17 +1489,21 @@ function renderGridAvance(codigo, materia, unidad){
     
     // Vista previa de respuestas (REALES)
     if(isStarted || isDone){
-      var d = (pSec && pSec.datos) ? pSec.datos : stateData;
+      var d = (pSec && pSec.datos && Object.keys(pSec.datos).length) ? pSec.datos : stateData;
       if(typeof d === 'object'){
         var filtered = {};
-        for(var k in d){ if(reg.test(k) && d[k]) filtered[k] = d[k]; }
+        // Si los datos vienen de la sección específica, los usamos todos. 
+        // Si vienen del estado general, filtramos por prefijo.
+        if(pSec && pSec.datos && Object.keys(pSec.datos).length){
+          filtered = d;
+        } else {
+          for(var k in d){ if(reg.test(k) && d[k]) filtered[k] = d[k]; }
+        }
         
         if(Object.keys(filtered).length){
-          h += '<div class="ans-preview" style="max-height:150px; overflow-y:auto; margin-top:8px; background:rgba(0,0,0,0.2); border-radius:8px; padding:8px; font-size:11px">';
+          h += '<div class="ans-preview" style="max-height:160px; overflow-y:auto; margin-top:8px; background:rgba(0,0,0,0.3); border-radius:12px; padding:12px; font-size:12px; border:1px solid rgba(255,255,255,0.05)">';
           h += renderObjetoS(filtered);
           h += '</div>';
-        } else {
-          h += '<div style="font-size:11px;color:#64748B;margin-top:4px">No hay respuestas cargadas aún</div>';
         }
       }
     }
