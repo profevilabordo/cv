@@ -292,6 +292,11 @@ var allProgreso = [];
 var allSesiones = [];
 var currentTab = 0;
 
+function norm(c){
+  if(!c) return "";
+  return c.toString().trim().toLowerCase();
+}
+
 // ----- AUTH -----
 function checkLogin(){
   var val = document.getElementById("loginInput").value.trim();
@@ -557,9 +562,10 @@ function filtrarAlumnos(){
     h += '<div class="table-wrap"><table>';
     h += '<thead><tr><th>Alumno</th><th>Curso</th><th>Clave</th><th>Ingresos</th><th>Actividades</th><th>Última visita</th></tr></thead><tbody>';
     filtered.forEach(function(a){
-      var sesiones = allSesiones.filter(function(s){return s.alumno_codigo===a.codigo}).length;
-      var actividades = allProgreso.filter(function(p){return p.alumno_codigo===a.codigo}).length;
-      var ultimas = allSesiones.filter(function(s){return s.alumno_codigo===a.codigo}).sort(function(x,y){return new Date(y.fecha)-new Date(x.fecha)});
+      var aCode = norm(a.codigo);
+      var sesiones = allSesiones.filter(function(s){return norm(s.alumno_codigo)===aCode}).length;
+      var actividades = allProgreso.filter(function(p){return norm(p.alumno_codigo)===aCode}).length;
+      var ultimas = allSesiones.filter(function(s){return norm(s.alumno_codigo)===aCode}).sort(function(x,y){return new Date(y.fecha)-new Date(x.fecha)});
       var ultima = ultimas.length ? new Date(ultimas[0].fecha).toLocaleDateString("es-AR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}) : "—";
       h += '<tr>';
       h += '<td><strong>'+a.nombre+'</strong></td>';
@@ -579,7 +585,8 @@ function filtrarAlumnos(){
 
 // ----- HELPERS PARA SEGUIMIENTO -----
 function getInactividadIcon(alumnoCodigo) {
-  var ultimas = allSesiones.filter(function(s){return s.alumno_codigo===alumnoCodigo}).sort(function(x,y){return new Date(y.fecha)-new Date(x.fecha)});
+  var aCode = norm(alumnoCodigo);
+  var ultimas = allSesiones.filter(function(s){return norm(s.alumno_codigo)===aCode}).sort(function(x,y){return new Date(y.fecha)-new Date(x.fecha)});
   if(!ultimas.length) return '<span class="alert-icon alert-inactivity" title="Nunca ingresó">⌛</span>';
   var ultima = new Date(ultimas[0].fecha);
   var diff = (new Date() - ultima) / (1000 * 60 * 60 * 24);
@@ -665,9 +672,9 @@ function renderProgreso(){
   }
 
   filtAlumnos.forEach(function(a){
-    var aCode = (a.codigo||"").toString().trim().toLowerCase();
+    var aCode = norm(a.codigo);
     var progAlumno = allProgreso.filter(function(p){
-      return (p.alumno_codigo||"").toString().trim().toLowerCase() === aCode;
+      return norm(p.alumno_codigo) === aCode;
     });
     
     // Obtener todas las materias del alumno
@@ -809,9 +816,9 @@ function renderAutotests(){
   // 📊 AGRUPAR POR ALUMNO + MATERIA + UNIDAD
   var grupos = {};
   autotests.forEach(function(p){
-    var pCode = (p.alumno_codigo||"").toString().trim().toLowerCase();
+    var pCode = norm(p.alumno_codigo);
     var alumno = allAlumnos.find(function(a){
-      return (a.codigo||"").toString().trim().toLowerCase() === pCode;
+      return norm(a.codigo) === pCode;
     });
     if(!alumno) return;
     
@@ -959,7 +966,8 @@ function renderHeatmap(){
   h += '<th>🏅</th></tr></thead><tbody>';
 
   filtAlumnos.forEach(function(a){
-    var prog = allProgreso.filter(function(p){return p.alumno_codigo===a.codigo && p.materia===fm});
+    var aCode = norm(a.codigo);
+    var prog = allProgreso.filter(function(p){return norm(p.alumno_codigo)===aCode && p.materia===fm});
     var meds = calcularMedallas(prog);
     var medCount = meds.filter(function(m){return m}).length;
 
@@ -1247,9 +1255,9 @@ function cerrarModal(){ document.getElementById('modalDetalle').style.display='n
 async function verDetalle(progId, forcedSection){
   var p = allProgreso.find(function(x){return x.id == progId});
   if(!p) return;
-  var aCode = (p.alumno_codigo||"").toString().trim().toLowerCase();
+  var aCode = norm(p.alumno_codigo);
   var alumno = allAlumnos.find(function(a){
-    return (a.codigo||"").toString().trim().toLowerCase() === aCode;
+    return norm(a.codigo) === aCode;
   });
 
   var seccionParaMostrar = forcedSection || p.seccion;
@@ -1403,7 +1411,8 @@ async function abrirModalAvance(codigo, forcedMateria, forcedUnidad){
   document.getElementById('avGrid').innerHTML = '<div class="empty-state">Buscando progreso...</div>';
   
   // Buscar progreso del alumno para obtener materia y unidad
-  var prog = allProgreso.filter(function(p){return p.alumno_codigo === codigo});
+  var aCode = norm(codigo);
+  var prog = allProgreso.filter(function(p){return norm(p.alumno_codigo) === aCode});
   
   // Normalización para búsqueda de materia
   var nMateria = normalizeString(forcedMateria);
@@ -1414,6 +1423,14 @@ async function abrirModalAvance(codigo, forcedMateria, forcedUnidad){
   if(!unidad && progMat.length){
     var lastRec = progMat.find(function(r){return r.seccion && normalizeString(r.seccion) !== normalizeString("__ESTADO_UNIDAD__")}) || progMat[progMat.length-1];
     unidad = lastRec.unidad;
+  }
+  
+  // RÓBUSTO: Si unidad es genérica (u1, u2...), intentar buscar un nombre más completo en otros alumnos de la misma materia
+  if(unidad && unidad.length <= 3 && materia){
+    var betterUnidadRec = allProgreso.find(function(p){
+      return normalizeString(p.materia) === normalizeString(materia) && p.unidad && p.unidad.length > 3;
+    });
+    if(betterUnidadRec) unidad = betterUnidadRec.unidad;
   }
   
   if(!unidad && allProgreso.length) unidad = allProgreso[allProgreso.length-1].unidad;
@@ -1446,11 +1463,12 @@ async function abrirModalAvance(codigo, forcedMateria, forcedUnidad){
 }
 
 function renderGridAvance(codigo, materia, unidad){
+  var aCode = norm(codigo);
   var nMateria = normalizeString(materia);
   var nUnidad = normalizeString(unidad);
 
   var progAlumno = allProgreso.filter(function(p){
-    return p.alumno_codigo === codigo && normalizeString(p.materia) === nMateria && normalizeString(p.unidad) === nUnidad;
+    return norm(p.alumno_codigo) === aCode && normalizeString(p.materia) === nMateria && normalizeString(p.unidad) === nUnidad;
   });
 
   var stateRec = progAlumno.find(function(p){return normalizeString(p.seccion) === normalizeString("__ESTADO_UNIDAD__")});
@@ -1527,9 +1545,10 @@ function renderGridAvance(codigo, materia, unidad){
 }
 
 async function guardarFeedbackAvance(codigo, materia, unidad, seccion, texto){
+  var aCode = norm(codigo);
   // Buscar si existe el registro
   var p = allProgreso.find(function(x){
-    return x.alumno_codigo === codigo && x.materia === materia && x.unidad === unidad && x.seccion === seccion;
+    return norm(x.alumno_codigo) === aCode && x.materia === materia && x.unidad === unidad && x.seccion === seccion;
   });
 
   if(p){
