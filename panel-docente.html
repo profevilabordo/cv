@@ -297,6 +297,27 @@ function norm(c){
   return c.toString().trim().toLowerCase();
 }
 
+function getUnifiedAlumnos(registrados, progreso, sesiones){
+  var res = [...registrados];
+  var regsCodes = new Set(registrados.map(function(a){return norm(a.codigo)}));
+  
+  var codesActivos = new Set();
+  progreso.forEach(function(p){ codesActivos.add(norm(p.alumno_codigo)) });
+  sesiones.forEach(function(s){ codesActivos.add(norm(s.alumno_codigo)) });
+  
+  codesActivos.forEach(function(code){
+    if(code && !regsCodes.has(code)){
+      res.push({
+        nombre: "(No registrado: " + code + ")",
+        codigo: code,
+        curso: "Sin asignar",
+        institucion: ""
+      });
+    }
+  });
+  return res.sort(function(a,b){return a.nombre.localeCompare(b.nombre)});
+}
+
 // ----- AUTH -----
 function checkLogin(){
   var val = document.getElementById("loginInput").value.trim();
@@ -373,9 +394,13 @@ async function sbDelete(table, eq){
 async function loadAllData(){
   document.getElementById("tabContent").innerHTML = '<div class="loading">Cargando datos... ⏳</div>';
   try {
-    allAlumnos = await sb("alumnos", "select=*&order=nombre.asc");
+    var rawAlumnos = await sb("alumnos", "select=*&order=nombre.asc");
     allProgreso = await sb("progreso", "select=*&order=fecha.desc");
     allSesiones = await sb("sesiones", "select=*&order=fecha.desc");
+    
+    // Unificar alumnos registrados con "fantasmas" que tengan actividad
+    allAlumnos = getUnifiedAlumnos(rawAlumnos, allProgreso, allSesiones);
+    
     updateStats();
     renderTab();
   } catch(e){
@@ -414,8 +439,10 @@ function renderAlumnos(){
     var h = '<div class="search-row">';
     h += '<input class="search-input" type="text" placeholder="🔍 Buscar alumno..." id="searchAlumno">';
     h += '<select class="filter-select" id="filterCurso"><option value="">Todos los cursos</option>';
+    var fc = (document.getElementById("filterCurso")||{value:""}).value;
+    var nFC = normalizeString(fc);
     var cursos = [...new Set(allAlumnos.map(function(a){return a.curso}))].sort();
-    cursos.forEach(function(c){ h += '<option>'+c+'</option>'; });
+    cursos.forEach(function(c){ h += '<option'+(nFC===normalizeString(c)?' selected':'')+'>'+c+'</option>'; });
     h += '</select>';
     h += '<button class="refresh-btn" onclick="copiarTablaAlumnos()" style="background:#10B98115;border-color:#10B98140;color:#34D399">📋 Copiar</button>';
     h += '<button class="refresh-btn" onclick="imprimirAlumnos()">🖨️ Imprimir</button>';
@@ -440,7 +467,7 @@ function copiarTablaAlumnos(){
     var nombreCompleto = a.nombre.toLowerCase();
     var palabras = nombreCompleto.split(/[\s,]+/);
     var matchQ = !q || nombreCompleto.includes(q) || a.codigo.toLowerCase().includes(q) || palabras.some(function(palabra){ return palabra.startsWith(q); });
-    var matchC = !fc || a.curso === fc;
+    var matchC = !fc || normalizeString(a.curso) === normalizeString(fc);
     return matchQ && matchC;
   });
   
@@ -474,7 +501,7 @@ function imprimirAlumnos(){
     var nombreCompleto = a.nombre.toLowerCase();
     var palabras = nombreCompleto.split(/[\s,]+/);
     var matchQ = !q || nombreCompleto.includes(q) || a.codigo.toLowerCase().includes(q) || palabras.some(function(palabra){ return palabra.startsWith(q); });
-    var matchC = !fc || a.curso === fc;
+    var matchC = !fc || normalizeString(a.curso) === normalizeString(fc);
     return matchQ && matchC;
   });
   
@@ -552,7 +579,7 @@ function filtrarAlumnos(){
       a.codigo.toLowerCase().includes(q) ||  // Busca en el código
       palabras.some(function(palabra){ return palabra.startsWith(q); });  // Busca si alguna palabra empieza con lo escrito
     
-    var matchC = !fc || a.curso === fc;
+    var matchC = !fc || normalizeString(a.curso) === normalizeString(fc);
     return matchQ && matchC;
   });
 
@@ -642,9 +669,10 @@ function renderProgreso(){
 
   // Filtro materia (se arma desde el progreso registrado)
   var todasMaterias = [...new Set(allProgreso.map(function(p){return p.materia}))].sort();
+  var nFM = normalizeString(fm);
   h += '<select class="filter-select" id="filterMateriaP" onchange="renderProgreso()">';
   h += '<option value="">Todas las materias</option>';
-  todasMaterias.forEach(function(m){ h += '<option'+(fm===m?' selected':'')+'>'+m+'</option>'; });
+  todasMaterias.forEach(function(m){ h += '<option'+(nFM===normalizeString(m)?' selected':'')+'>'+m+'</option>'; });
   h += '</select>';
   
   // Botones de exportar
@@ -654,14 +682,15 @@ function renderProgreso(){
   h += '</div>';
 
   // Filtrar alumnos por curso
-  var filtAlumnos = fc ? allAlumnos.filter(function(a){return a.curso===fc}) : allAlumnos;
+  var nFC = normalizeString(fc);
+  var filtAlumnos = fc ? allAlumnos.filter(function(a){return normalizeString(a.curso)===nFC}) : allAlumnos;
 
   // Si hay filtro de materia, quedarse solo con alumnos que tienen progreso en esa materia
   if(fm){
     filtAlumnos = filtAlumnos.filter(function(a){
-      var aCode = (a.codigo||"").toString().trim().toLowerCase();
+      var aCode = norm(a.codigo);
       return allProgreso.some(function(p){ 
-        return (p.alumno_codigo||"").toString().trim().toLowerCase() === aCode && p.materia === fm; 
+        return norm(p.alumno_codigo) === aCode && matsMatch(p.materia, fm); 
       });
     });
   }
