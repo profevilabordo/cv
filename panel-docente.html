@@ -1386,6 +1386,11 @@ async function guardarComentario(id){
 }
 
 // ----- NUEVAS FUNCIONES DETALLE AVANCE -----
+function normalizeString(s){
+  if(!s) return "";
+  return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+}
+
 function cerrarModalAvance(){ document.getElementById('modalAvance').style.display='none'; }
 
 async function abrirModalAvance(codigo, forcedMateria, forcedUnidad){
@@ -1400,20 +1405,17 @@ async function abrirModalAvance(codigo, forcedMateria, forcedUnidad){
   // Buscar progreso del alumno para obtener materia y unidad
   var prog = allProgreso.filter(function(p){return p.alumno_codigo === codigo});
   
-  // Priorizar materia actual del filtro
-  var materia = forcedMateria || (prog.length ? prog[prog.length-1].materia : "");
+  // Normalización para búsqueda de materia
+  var nMateria = normalizeString(forcedMateria);
+  var progMat = nMateria ? prog.filter(function(p){return normalizeString(p.materia) === nMateria}) : prog;
   
-  var progMat = materia ? prog.filter(function(p){return p.materia === materia}) : prog;
-  
-  // Obtener la unidad real (el ID completo de Supabase)
+  var materiaId = forcedMateria || (progMat.length ? progMat[0].materia : "");
   var unidad = forcedUnidad;
   if(!unidad && progMat.length){
-    // Buscar la unidad que no sea "__ESTADO_UNIDAD__" si es posible, o la última
-    var lastRec = progMat.find(function(r){return r.seccion !== "__ESTADO_UNIDAD__"}) || progMat[progMat.length-1];
+    var lastRec = progMat.find(function(r){return r.seccion && normalizeString(r.seccion) !== normalizeString("__ESTADO_UNIDAD__")}) || progMat[progMat.length-1];
     unidad = lastRec.unidad;
   }
   
-  // Último recurso: cualquier unidad en allProgreso
   if(!unidad && allProgreso.length) unidad = allProgreso[allProgreso.length-1].unidad;
 
   // Si no hay materia/unidad, intentar buscar de la más reciente en general
@@ -1444,15 +1446,18 @@ async function abrirModalAvance(codigo, forcedMateria, forcedUnidad){
 }
 
 function renderGridAvance(codigo, materia, unidad){
+  var nMateria = normalizeString(materia);
+  var nUnidad = normalizeString(unidad);
+
   var progAlumno = allProgreso.filter(function(p){
-    return p.alumno_codigo === codigo && p.materia === materia && p.unidad === unidad;
+    return p.alumno_codigo === codigo && normalizeString(p.materia) === nMateria && normalizeString(p.unidad) === nUnidad;
   });
 
-  var stateRec = progAlumno.find(function(p){return p.seccion === "__ESTADO_UNIDAD__"});
+  var stateRec = progAlumno.find(function(p){return normalizeString(p.seccion) === normalizeString("__ESTADO_UNIDAD__")});
   var stateData = (stateRec && stateRec.datos) ? stateRec.datos : {};
   
   var totalSecciones = SECCIONES.length;
-  var completadas = progAlumno.filter(function(p){return SECCIONES.indexOf(p.seccion) !== -1}).length;
+  var completadas = progAlumno.filter(function(p){return SECCIONES.indexOf(normalizeString(p.seccion)) !== -1}).length;
   var pct = Math.round(completadas / totalSecciones * 100);
   
   document.getElementById('avPct').textContent = pct + "%";
@@ -1460,14 +1465,15 @@ function renderGridAvance(codigo, materia, unidad){
 
   var h = '';
   SECCIONES.forEach(function(sec){
-    var pSec = progAlumno.find(function(p){return p.seccion === sec});
+    var nSec = normalizeString(sec);
+    var pSec = progAlumno.find(function(p){return normalizeString(p.seccion) === nSec});
     var isDone = !!pSec;
     
     // Ver si tiene algo en el estado aunque no esté marcado como completado
     var prefixes = {
-      "umbral":/u[1-3]/, "mapa":/m[1-3]/, "nucleo_a":/na/, "nucleo_b":/nb/, 
-      "nucleo_c":/nc/, "senales":/s[1-3]/, "sabias":/sb[1-3]/, "cruces":/cr[1-3]/, 
-      "relectura":/re[123]/, "emocional":/em[123]|e[1-3]/, "autotest":/at/, "cierre":/ci[123]/
+      "umbral":/u[1-3]|umbral/, "mapa":/m[1-3]|mapa/, "nucleo_a":/na|nucleo_a/, "nucleo_b":/nb|nucleo_b/, 
+      "nucleo_c":/nc|nucleo_c/, "senales":/s[1-3]|senales/, "sabias":/sb[1-3]|sabias/, "cruces":/cr[1-3]|cruces/, 
+      "relectura":/re[123]|relectura/, "emocional":/em[123]|e[1-3]|emocional/, "autotest":/at|autotest/, "cierre":/ci[123]|cierre/
     };
     var reg = prefixes[sec];
     var isStarted = isDone || Object.keys(stateData).some(function(k){ return reg.test(k) && stateData[k]; });
