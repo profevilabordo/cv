@@ -448,9 +448,10 @@ function copiarTablaAlumnos(){
   var texto = "Alumno\tCurso\tClave\tIngresos\tActividades\tÚltima visita\n";
   
   filtered.forEach(function(a){
-    var sesiones = allSesiones.filter(function(s){return s.alumno_codigo===a.codigo}).length;
-    var actividades = allProgreso.filter(function(p){return p.alumno_codigo===a.codigo}).length;
-    var ultimas = allSesiones.filter(function(s){return s.alumno_codigo===a.codigo}).sort(function(x,y){return new Date(y.fecha)-new Date(x.fecha)});
+    var aCode = norm(a.codigo);
+    var sesiones = allSesiones.filter(function(s){return norm(s.alumno_codigo)===aCode}).length;
+    var actividades = allProgreso.filter(function(p){return norm(p.alumno_codigo)===aCode}).length;
+    var ultimas = allSesiones.filter(function(s){return norm(s.alumno_codigo)===aCode}).sort(function(x,y){return new Date(y.fecha)-new Date(x.fecha)});
     var ultima = ultimas.length ? new Date(ultimas[0].fecha).toLocaleDateString("es-AR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}) : "—";
     
     texto += a.nombre + "\t" + a.curso + "\t" + a.codigo + "\t" + sesiones + "\t" + actividades + "\t" + ultima + "\n";
@@ -503,15 +504,15 @@ function imprimirAlumnos(){
   html += '<tbody>';
   
   filtered.forEach(function(a){
-    var aCode = (a.codigo||"").toString().trim().toLowerCase();
+    var aCode = norm(a.codigo);
     var sesiones = allSesiones.filter(function(s){
-      return (s.alumno_codigo||"").toString().trim().toLowerCase() === aCode;
+      return norm(s.alumno_codigo) === aCode;
     }).length;
     var actividades = allProgreso.filter(function(p){
-      return (p.alumno_codigo||"").toString().trim().toLowerCase() === aCode;
+      return norm(p.alumno_codigo) === aCode;
     }).length;
     var ultimas = allSesiones.filter(function(s){
-      return (s.alumno_codigo||"").toString().trim().toLowerCase() === aCode;
+      return norm(s.alumno_codigo) === aCode;
     }).sort(function(x,y){return new Date(y.fecha)-new Date(x.fecha)});
     var ultima = ultimas.length ? new Date(ultimas[0].fecha).toLocaleDateString("es-AR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}) : "—";
     
@@ -705,7 +706,7 @@ function renderProgreso(){
       var unidades = [...new Set(progMateria.map(function(p){return p.unidad}))].filter(Boolean).sort();
       
       unidades.forEach(function(unidad){
-        var progMateriaUnidad = progMateria.filter(function(p){return p.unidad===unidad;});
+        var progMateriaUnidad = progMateria.filter(function(p){return unitsMatch(p.unidad, unidad);});
         
         // Detectar secciones completas (explícitas o en el estado autoguardado)
         var stateRec = progMateriaUnidad.find(function(p){return p.seccion === "__ESTADO_UNIDAD__"});
@@ -967,7 +968,7 @@ function renderHeatmap(){
 
   filtAlumnos.forEach(function(a){
     var aCode = norm(a.codigo);
-    var prog = allProgreso.filter(function(p){return norm(p.alumno_codigo)===aCode && p.materia===fm});
+    var prog = allProgreso.filter(function(p){return norm(p.alumno_codigo)===aCode && matsMatch(p.materia, fm)});
     var meds = calcularMedallas(prog);
     var medCount = meds.filter(function(m){return m}).length;
 
@@ -1050,7 +1051,8 @@ function copiarProgreso(){
   var filtAlumnos = fc ? allAlumnos.filter(function(a){return a.curso===fc}) : allAlumnos;
   if(fm){
     filtAlumnos = filtAlumnos.filter(function(a){
-      return allProgreso.some(function(p){ return p.alumno_codigo===a.codigo && p.materia===fm; });
+      var aCode = norm(a.codigo);
+      return allProgreso.some(function(p){ return norm(p.alumno_codigo)===aCode && matsMatch(p.materia, fm); });
     });
   }
   
@@ -1063,11 +1065,14 @@ function copiarProgreso(){
   // Detectar unidades
   var unidadesEncontradas = [];
   filtAlumnos.forEach(function(a){
-    var progAlumno = allProgreso.filter(function(p){ return p.alumno_codigo===a.codigo; });
+    var aCode = norm(a.codigo);
+    var progAlumno = allProgreso.filter(function(p){ return norm(p.alumno_codigo)===aCode; });
     var materiasDelAlumno = [...new Set(progAlumno.map(function(p){return p.materia}))].sort();
-    if(fm) materiasDelAlumno = materiasDelAlumno.filter(function(m){return m===fm});
+    if(fm) {
+        materiasDelAlumno = materiasDelAlumno.filter(function(m){return matsMatch(m, fm)});
+    }
     materiasDelAlumno.forEach(function(materia){
-      var progMateria = progAlumno.filter(function(p){return p.materia===materia;});
+      var progMateria = progAlumno.filter(function(p){return matsMatch(p.materia, materia);});
       var unidades = [...new Set(progMateria.map(function(p){return p.unidad}))].sort();
       unidades.forEach(function(u){
         if(unidadesEncontradas.indexOf(u) === -1) unidadesEncontradas.push(u);
@@ -1087,9 +1092,13 @@ function copiarProgreso(){
   
   // Datos por alumno
   filtAlumnos.forEach(function(a){
-    var progAlumno = allProgreso.filter(function(p){ return p.alumno_codigo===a.codigo; });
+    var aCode = norm(a.codigo);
+    var progAlumno = allProgreso.filter(function(p){ return norm(p.alumno_codigo)===aCode; });
     var materiasDelAlumno = [...new Set(progAlumno.map(function(p){return p.materia}))].sort();
-    if(fm) materiasDelAlumno = materiasDelAlumno.filter(function(m){return m===fm});
+    if(fm) {
+        var nMateriaMatch = normalizeString(fm);
+        materiasDelAlumno = materiasDelAlumno.filter(function(m){return normalizeString(m)===nMateriaMatch});
+    }
     
     if(!materiasDelAlumno.length){
       // Sin actividades
@@ -1103,11 +1112,11 @@ function copiarProgreso(){
     }
     
     materiasDelAlumno.forEach(function(materia){
-      var progMateria = progAlumno.filter(function(p){return p.materia===materia;});
+      var progMateria = progAlumno.filter(function(p){return matsMatch(p.materia, materia);});
       var unidades = [...new Set(progMateria.map(function(p){return p.unidad}))].sort();
       
       unidades.forEach(function(unidad){
-        var secsCompletadas = progMateria.filter(function(p){return p.unidad===unidad;}).map(function(p){return p.seccion;});
+        var secsCompletadas = progMateria.filter(function(p){return unitsMatch(p.unidad, unidad);}).map(function(p){return p.seccion;});
         var pct = Math.round(secsCompletadas.length / SECCIONES.length * 100);
         
         // Nombre del alumno (con aclaraciones si hay múltiples materias/unidades)
@@ -1140,23 +1149,28 @@ function imprimirProgreso(){
   
   var filtAlumnos = fc ? allAlumnos.filter(function(a){return a.curso===fc}) : allAlumnos;
   if(fm){
+    var nMateriaMatch = normalizeString(fm);
     filtAlumnos = filtAlumnos.filter(function(a){
-      return allProgreso.some(function(p){ return p.alumno_codigo===a.codigo && p.materia===fm; });
+      var aCode = norm(a.codigo);
+      return allProgreso.some(function(p){ return norm(p.alumno_codigo)===aCode && normalizeString(p.materia)===nMateriaMatch; });
     });
   }
   
   // Recopilar todas las unidades para mostrar en el header
   var unidadesEncontradas = [];
   filtAlumnos.forEach(function(a){
-    var aCode = (a.codigo||"").toString().trim().toLowerCase();
+    var aCode = norm(a.codigo);
     var progAlumno = allProgreso.filter(function(p){ 
-      return (p.alumno_codigo||"").toString().trim().toLowerCase() === aCode; 
+      return norm(p.alumno_codigo) === aCode; 
     });
     var materiasDelAlumno = [...new Set(progAlumno.map(function(p){return p.materia}))].filter(Boolean).sort();
-    if(fm) materiasDelAlumno = materiasDelAlumno.filter(function(m){return m===fm});
+    if(fm) {
+        var nMateriaMatch = normalizeString(fm);
+        materiasDelAlumno = materiasDelAlumno.filter(function(m){return normalizeString(m)===nMateriaMatch});
+    }
     
     materiasDelAlumno.forEach(function(materia){
-      var progMateria = progAlumno.filter(function(p){return p.materia===materia;});
+      var progMateria = progAlumno.filter(function(p){return matsMatch(p.materia, materia);});
       var unidades = [...new Set(progMateria.map(function(p){return p.unidad}))].sort();
       unidades.forEach(function(u){
         if(unidadesEncontradas.indexOf(u) === -1) unidadesEncontradas.push(u);
@@ -1196,9 +1210,9 @@ function imprimirProgreso(){
   html += '<th style="width:8%">Avance</th></tr></thead><tbody>';
   
   filtAlumnos.forEach(function(a){
-    var aCode = (a.codigo||"").toString().trim().toLowerCase();
+    var aCode = norm(a.codigo);
     var progAlumno = allProgreso.filter(function(p){ 
-      return (p.alumno_codigo||"").toString().trim().toLowerCase() === aCode; 
+      return norm(p.alumno_codigo) === aCode; 
     });
     var materiasDelAlumno = [...new Set(progAlumno.map(function(p){return p.materia}))].filter(Boolean).sort();
     if(fm) materiasDelAlumno = materiasDelAlumno.filter(function(m){return m===fm});
@@ -1218,7 +1232,8 @@ function imprimirProgreso(){
       var unidades = [...new Set(progMateria.map(function(p){return p.unidad}))].sort();
       
       unidades.forEach(function(unidad){
-        var secsCompletadas = progMateria.filter(function(p){return p.unidad===unidad;}).map(function(p){return p.seccion;});
+        var nUnidMatch = normalizeString(unidad);
+        var secsCompletadas = progMateria.filter(function(p){return normalizeString(p.unidad)===nUnidMatch;}).map(function(p){return p.seccion;});
         var pct = Math.round(secsCompletadas.length / SECCIONES.length * 100);
         
         html += '<tr><td>' + a.nombre;
@@ -1265,9 +1280,9 @@ async function verDetalle(progId, forcedSection){
   // FALLBACK: Si no hay datos, buscar en el autoguardado global __ESTADO_UNIDAD__
   if(!p.datos){
     var live = allProgreso.find(function(lp){
-      return (lp.alumno_codigo||"").toString().trim().toLowerCase() === aCode && 
-             lp.materia === p.materia && 
-             lp.unidad === p.unidad && 
+      return norm(lp.alumno_codigo) === aCode && 
+             matsMatch(lp.materia, p.materia) && 
+             unitsMatch(lp.unidad, p.unidad) && 
              lp.seccion === "__ESTADO_UNIDAD__";
     });
     if(live && live.datos) {
@@ -1399,10 +1414,25 @@ function normalizeString(s){
   return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
 }
 
+function matsMatch(m1, m2){
+  return normalizeString(m1) === normalizeString(m2);
+}
+
+function unitsMatch(u1, u2){
+  var nu1 = normalizeString(u1);
+  var nu2 = normalizeString(u2);
+  if(nu1 === nu2) return true;
+  // Manejar casos de u1 vs xxxx_u1
+  if(nu1.length <= 3 && nu2.includes(nu1)) return true;
+  if(nu2.length <= 3 && nu1.includes(nu2)) return true;
+  return false;
+}
+
 function cerrarModalAvance(){ document.getElementById('modalAvance').style.display='none'; }
 
 async function abrirModalAvance(codigo, forcedMateria, forcedUnidad){
-  var alumno = allAlumnos.find(function(a){return a.codigo === codigo});
+  var aCode = norm(codigo);
+  var alumno = allAlumnos.find(function(a){return norm(a.codigo) === aCode});
   if(!alumno) return;
 
   document.getElementById('avNombre').textContent = alumno.nombre;
@@ -1425,12 +1455,22 @@ async function abrirModalAvance(codigo, forcedMateria, forcedUnidad){
     unidad = lastRec.unidad;
   }
   
-  // RÓBUSTO: Si unidad es genérica (u1, u2...), intentar buscar un nombre más completo en otros alumnos de la misma materia
-  if(unidad && unidad.length <= 3 && materia){
+  // RÓBUSTO: Si unidad es genérica (u1, u2...), intentar buscar un nombre más completo en otros alumnos
+  if(unidad && (unidad.length <= 3 || unidad.toLowerCase() === "unidad 1") && materia){
+    var nMateriaMatch = normalizeString(materia);
     var betterUnidadRec = allProgreso.find(function(p){
-      return normalizeString(p.materia) === normalizeString(materia) && p.unidad && p.unidad.length > 3;
+      return normalizeString(p.materia) === nMateriaMatch && p.unidad && p.unidad.length > 5;
     });
-    if(betterUnidadRec) unidad = betterUnidadRec.unidad;
+    if(betterUnidadRec) {
+      unidad = betterUnidadRec.unidad;
+    } else {
+      // Intento desesperado: buscar en el curso del alumno
+      var nCursoMatch = normalizeString(alumno.curso);
+      var betterCourseRec = allProgreso.find(function(p){
+        return normalizeString(p.materia) === nMateriaMatch && p.unidad && p.unidad.toLowerCase().includes(nCursoMatch);
+      });
+      if(betterCourseRec) unidad = betterCourseRec.unidad;
+    }
   }
   
   if(!unidad && allProgreso.length) unidad = allProgreso[allProgreso.length-1].unidad;
@@ -1464,11 +1504,9 @@ async function abrirModalAvance(codigo, forcedMateria, forcedUnidad){
 
 function renderGridAvance(codigo, materia, unidad){
   var aCode = norm(codigo);
-  var nMateria = normalizeString(materia);
-  var nUnidad = normalizeString(unidad);
 
   var progAlumno = allProgreso.filter(function(p){
-    return norm(p.alumno_codigo) === aCode && normalizeString(p.materia) === nMateria && normalizeString(p.unidad) === nUnidad;
+    return norm(p.alumno_codigo) === aCode && matsMatch(p.materia, materia) && unitsMatch(p.unidad, unidad);
   });
 
   var stateRec = progAlumno.find(function(p){return normalizeString(p.seccion) === normalizeString("__ESTADO_UNIDAD__")});
@@ -1548,7 +1586,7 @@ async function guardarFeedbackAvance(codigo, materia, unidad, seccion, texto){
   var aCode = norm(codigo);
   // Buscar si existe el registro
   var p = allProgreso.find(function(x){
-    return norm(x.alumno_codigo) === aCode && x.materia === materia && x.unidad === unidad && x.seccion === seccion;
+    return norm(x.alumno_codigo) === aCode && matsMatch(x.materia, materia) && unitsMatch(x.unidad, unidad) && x.seccion === seccion;
   });
 
   if(p){
