@@ -1783,8 +1783,12 @@ async function sincronizarEstadoDesdeSupabase(){
       data.forEach(function(p){
         if(p.seccion === "__ESTADO_UNIDAD__" && p.datos){
           Object.assign(_S, p.datos);
-        } else if(p.comentario_docente){
+        }
+        
+        if(p.comentario_docente !== undefined && p.comentario_docente !== null && p.comentario_docente !== ""){
           window.DOCENTE_FEEDBACK[p.seccion] = p.comentario_docente;
+        } else if (p.comentario_docente === "") {
+          delete window.DOCENTE_FEEDBACK[p.seccion];
         }
       });
       console.log("Avance y comentarios recuperados ☁️");
