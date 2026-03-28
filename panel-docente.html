@@ -1020,10 +1020,12 @@ function renderHeatmap(){
     h += '<tr>';
     h += '<td class="heatmap-name">'+getInactividadIcon(a.codigo)+' '+a.nombre+'</td>';
     SECCIONES.forEach(function(s){
+      var isNucleo = s.startsWith('nucleo_');
       var pSec = prog.find(function(p){return p.seccion===s});
       var cls = pSec ? 'cell-done' : 'cell-empty';
       var action = pSec ? 'onclick="verDetalle(\''+pSec.id+'\')"' : '';
-      h += '<td class="'+cls+'" '+(pSec?'style="cursor:pointer" ':'')+action+'>'+(pSec?'✓':'')+'</td>';
+      var extraStyle = isNucleo ? 'border-left:2px solid rgba(99,102,241,0.2); border-right:2px solid rgba(99,102,241,0.2); background-color:' + (pSec ? 'rgba(99,102,241,0.2)' : 'rgba(99,102,241,0.05)') + ';' : '';
+      h += '<td class="'+cls+'" '+(pSec?'style="cursor:pointer;'+extraStyle+'" ':'style="'+extraStyle+'"')+action+'>'+(pSec?'✓':'')+'</td>';
     });
     h += '<td style="font-weight:800;color:#F59E0B">'+medCount+'</td>';
     h += '</tr>';
@@ -1367,7 +1369,11 @@ async function verDetalle(progId, forcedSection){
         filtered = d;
       }
       
-      h += renderObjetoS(Object.keys(filtered).length ? filtered : d);
+      if (seccionParaMostrar.startsWith("nucleo_")) {
+        h += renderNucleoCustom(filtered, seccionParaMostrar, p.comentario_docente);
+      } else {
+        h += renderObjetoS(Object.keys(filtered).length ? filtered : d);
+      }
     } else {
       h += '<div class="detail-val">' + d + '</div>';
     }
@@ -1376,14 +1382,153 @@ async function verDetalle(progId, forcedSection){
   }
   
   // Cuadro de comentario
-  h += '<div class="comment-box">';
-  h += '<label class="comment-label">💬 Dejar comentario o consejo:</label>';
-  h += '<textarea class="comment-textarea" id="nuevoComentario" placeholder="Ej: ¡Excelente punto! Profundizá más en la causa económica...">'+(p.comentario_docente||'')+'</textarea>';
-  h += '<button class="save-btn" onclick="guardarComentario(\''+p.id+'\')">Guardar Comentario</button>';
-  h += '<p id="saveMsg" style="text-align:center;font-size:12px;color:#10B981;margin-top:8px;display:none">✅ Comentario guardado</p>';
-  h += '</div>';
+  if (!seccionParaMostrar.startsWith("nucleo_")) {
+      h += '<div class="comment-box">';
+      h += '<label class="comment-label">💬 Dejar comentario o consejo:</label>';
+      h += '<textarea class="comment-textarea" id="nuevoComentario" placeholder="Ej: ¡Excelente punto! Profundizá más en la causa económica...">'+(p.comentario_docente||'')+'</textarea>';
+      h += '<button class="save-btn" onclick="guardarComentario(\''+p.id+'\')">Guardar Comentario</button>';
+      h += '<p id="saveMsg" style="text-align:center;font-size:12px;color:#10B981;margin-top:8px;display:none">✅ Comentario guardado</p>';
+      h += '</div>';
+  } else {
+      // Para núcleos, el botón de guardado flota abajo de los comentarios individuales
+      h += '<div class="comment-box" style="border-top:none; text-align:right">';
+      h += '<button class="save-btn" onclick="guardarComentario(\''+p.id+'\')" style="width:auto; padding:12px 24px; font-size:15px">💾 Guardar Comentarios del Núcleo</button>';
+      h += '<p id="saveMsg" style="text-align:right;font-size:12px;color:#10B981;margin-top:8px;display:none">✅ Comentarios guardados correctamente</p>';
+      h += '</div>';
+  }
   
   document.getElementById('modalBody').innerHTML = h;
+}
+
+function renderNucleoCustom(filtered, nuc, comentarioGlobal) {
+  var h = '';
+  
+  // Extraer comentarios previos
+  var c7 = "";
+  var c10 = "";
+  var comm = comentarioGlobal || "";
+  if (comm) {
+    if (comm.indexOf("[Actividad 7]") >= 0 || comm.indexOf("[Actividad 10]") >= 0) {
+      if (comm.indexOf("[Actividad 7]") >= 0) {
+        var p7 = comm.indexOf("[Actividad 7]");
+        var p10 = comm.indexOf("[Actividad 10]");
+        if (p10 > p7) {
+          c7 = comm.substring(p7 + 13, p10).trim();
+          c10 = comm.substring(p10 + 14).trim();
+        } else if (p10 !== -1) {
+          c10 = comm.substring(p10 + 14, p7).trim();
+          c7 = comm.substring(p7 + 13).trim();
+        } else {
+          c7 = comm.substring(p7 + 13).trim();
+        }
+      } else {
+        c10 = comm.substring(comm.indexOf("[Actividad 10]") + 14).trim();
+      }
+    } else {
+      c7 = comm.trim(); // Legacy fallback
+    }
+  }
+
+  // Actividades automáticas con Check
+  var checks = [1, 2, 3, 4, 5, 6, 8, 9];
+  h += '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:20px;">';
+  
+  checks.forEach(function(n) {
+    var keyObj = nuc + '_n' + n;
+    var data = filtered[keyObj];
+    
+    // Validar si realmente hizo algo en la actividad
+    var hizoAlgo = false;
+    if (data) {
+      if (n === 1 && (data.nx > 1 || (data.pl && Object.keys(data.pl).length > 0))) hizoAlgo = true;
+      if (n === 2 && data.a && Object.keys(data.a).length > 0) hizoAlgo = true;
+      if (n === 3 && data.a && Object.keys(data.a).length > 0) hizoAlgo = true;
+      if (n === 4 && data.a && Object.keys(data.a).length > 0) hizoAlgo = true;
+      if (n === 5 && data.mt && Object.keys(data.mt).length > 0) hizoAlgo = true;
+      if (n === 6 && (data.sel !== null || data.ci > 0)) hizoAlgo = true;
+      if (n === 8 && (data.sc !== null || (data.cn && Object.keys(data.cn).length > 0))) hizoAlgo = true;
+      if (n === 9 && (data.pl && data.pl.length > 0)) hizoAlgo = true;
+    }
+
+    var bgColor = hizoAlgo ? '#10B98120' : '#0F172A';
+    var borderColor = hizoAlgo ? '#10B98150' : 'rgba(255,255,255,0.05)';
+    var textColor = hizoAlgo ? '#34D399' : '#64748B';
+    var icon = hizoAlgo ? '✅' : '⏳';
+    
+    h += '<div style="padding:10px;border-radius:10px;background:'+bgColor+';border:1px solid '+borderColor+';display:flex;align-items:center;gap:8px;">';
+    h += '<span style="font-size:16px;">'+icon+'</span>';
+    h += '<span style="font-size:13px;font-weight:700;color:'+textColor+'">Actividad '+n+'</span>';
+    h += '</div>';
+  });
+  h += '</div>';
+
+  // Actividad 7: Texto
+  h += '<div class="detail-item" style="margin-bottom:12px; border-left:3px solid #6366F1; padding-left:12px; background:rgba(0,0,0,0.2)">';
+  h += '<div class="detail-label" style="font-size:12px;color:#818CF8;margin-bottom:8px">📝 Actividad 7: Definí con tus palabras</div>';
+  
+  var act7Answers = false;
+  // Búsqueda de entradas n7_inp
+  for(var k in filtered) {
+    if(k.indexOf(nuc + '_n7_inp_') === 0) {
+      var val = filtered[k];
+      if(val && val.toString().trim().length > 0) {
+        act7Answers = true;
+        var part = k.split('_inp_');
+        var conceptIndex = parseInt(part[part.length-1]) + 1;
+        h += '<div style="margin-bottom:10px;padding-left:12px;border-left:1px solid rgba(255,255,255,0.1)">';
+        h += '<div style="font-size:11px;color:#94A3B8;margin-bottom:2px;text-transform:uppercase;font-weight:700">Concepto '+conceptIndex+'</div>';
+        h += '<div style="font-size:14px;color:#F1F5F9;font-style:italic">"'+val+'"</div>';
+        h += '</div>';
+      }
+    }
+  }
+  if(!act7Answers) h += '<div style="font-size:13px;color:#64748B;font-style:italic;margin-bottom:12px">No hay respuestas escritas.</div>';
+  
+  // Agregar textarea de feedback 7
+  h += '<div style="margin-top:12px; padding-top:12px; border-top:1px dashed rgba(255,255,255,0.1)">';
+  h += '<label style="display:block;font-size:12px;font-weight:700;color:#10B981;margin-bottom:6px">💬 Comentario Docente (Actividad 7):</label>';
+  h += '<textarea id="coment_n7" class="comment-textarea" style="min-height:70px;margin-bottom:0" placeholder="Escribe un comentario sobre las definiciones...">'+c7+'</textarea>';
+  h += '</div>';
+
+  h += '</div>';
+
+  // Actividad 10: Comparar (Texto)
+  h += '<div class="detail-item" style="margin-bottom:12px; border-left:3px solid #6366F1; padding-left:12px; background:rgba(0,0,0,0.2)">';
+  h += '<div class="detail-label" style="font-size:12px;color:#818CF8;margin-bottom:8px">⚖️ Actividad 10: Comparar</div>';
+  var n10 = filtered[nuc + '_n10'];
+  if(n10) {
+      var hasData = false;
+      var renderF = function(lbl, val) {
+          if(val && val.toString().trim().length > 0) {
+              hasData = true;
+              h += '<div style="margin-bottom:10px;padding-left:12px;border-left:1px solid rgba(255,255,255,0.1)">';
+              h += '<div style="font-size:11px;color:#94A3B8;margin-bottom:2px;text-transform:uppercase;font-weight:700">'+lbl+'</div>';
+              h += '<div style="font-size:14px;color:#F1F5F9;font-style:italic">"'+val+'"</div>';
+              h += '</div>';
+          }
+      };
+      
+      renderF('Similitud 1', n10.s1);
+      renderF('Similitud 2', n10.s2);
+      renderF('Diferencia 1 (Lado A)', n10.d1);
+      renderF('Diferencia 2 (Lado B)', n10.d2);
+      renderF('Diferencia 3 (Lado A)', n10.d3);
+      renderF('Diferencia 4 (Lado B)', n10.d4);
+      
+      if(!hasData) h += '<div style="font-size:13px;color:#64748B;font-style:italic;margin-bottom:12px">No hay respuestas escritas.</div>';
+  } else {
+      h += '<div style="font-size:13px;color:#64748B;font-style:italic;margin-bottom:12px">No hay respuestas escritas.</div>';
+  }
+  
+  // Agregar textarea de feedback 10
+  h += '<div style="margin-top:12px; padding-top:12px; border-top:1px dashed rgba(255,255,255,0.1)">';
+  h += '<label style="display:block;font-size:12px;font-weight:700;color:#10B981;margin-bottom:6px">💬 Comentario Docente (Actividad 10):</label>';
+  h += '<textarea id="coment_n10" class="comment-textarea" style="min-height:70px;margin-bottom:0" placeholder="Escribe un comentario sobre las comparaciones...">'+c10+'</textarea>';
+  h += '</div>';
+  
+  h += '</div>';
+
+  return h;
 }
 
 function renderObjetoS(obj){
@@ -1433,7 +1578,18 @@ function renderObjetoS(obj){
 }
 
 async function guardarComentario(id){
-  var txt = document.getElementById('nuevoComentario').value.trim();
+  var txt = "";
+  if (document.getElementById('coment_n7') || document.getElementById('coment_n10')) {
+     var t7 = document.getElementById('coment_n7') ? document.getElementById('coment_n7').value.trim() : "";
+     var t10 = document.getElementById('coment_n10') ? document.getElementById('coment_n10').value.trim() : "";
+     
+     if (t7) txt += "[Actividad 7]\n" + t7 + "\n\n";
+     if (t10) txt += "[Actividad 10]\n" + t10 + "\n\n";
+     txt = txt.trim();
+  } else if (document.getElementById('nuevoComentario')) {
+     txt = document.getElementById('nuevoComentario').value.trim();
+  }
+
   try {
     await fetch(SUPABASE_URL + "/rest/v1/progreso?id=eq." + id, {
       method: "PATCH",
@@ -1449,11 +1605,14 @@ async function guardarComentario(id){
     var p = allProgreso.find(function(x){return x.id == id});
     if(p) p.comentario_docente = txt;
     
-    document.getElementById('saveMsg').style.display = 'block';
-    setTimeout(function(){ 
-      document.getElementById('saveMsg').style.display = 'none';
-      cerrarModal(); 
-    }, 1500);
+    var msgObj = document.getElementById('saveMsg');
+    if (msgObj) {
+      msgObj.style.display = 'block';
+      setTimeout(function(){ 
+        msgObj.style.display = 'none';
+        cerrarModal(); 
+      }, 1500);
+    }
   } catch(e){ alert("Error al guardar comentario"); }
 }
 
