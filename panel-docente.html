@@ -1324,21 +1324,19 @@ async function verDetalle(progId, forcedSection){
 
   var seccionParaMostrar = forcedSection || p.seccion;
 
-  // FALLBACK: Si no hay datos, buscar en el autoguardado global __ESTADO_UNIDAD__
-  if(!p.datos){
-    var live = allProgreso.find(function(lp){
-      return norm(lp.alumno_codigo) === aCode && 
-             matsMatch(lp.materia, p.materia) && 
-             unitsMatch(lp.unidad, p.unidad) && 
-             lp.seccion === "__ESTADO_UNIDAD__";
-    });
-    if(live && live.datos) {
-      // Usamos los datos del autoguardado como respaldo
-      p.datos = live.datos;
-
-      // Opcional: Si queremos filtrar solo lo de esta sección, podríamos
-      // pero el docente prefiere ver el contexto completo de las respuestas.
-    }
+  // FALLBACK & MERGE: Si no hay datos, o si hay datos parciales, mezclamos con el autoguardado global 
+  // __ESTADO_UNIDAD__ para no perder inputs (como textos) ingresados después de haber marcado check.
+  var live = allProgreso.find(function(lp){
+    return norm(lp.alumno_codigo) === aCode && 
+           matsMatch(lp.materia, p.materia) && 
+           unitsMatch(lp.unidad, p.unidad) && 
+           lp.seccion === "__ESTADO_UNIDAD__";
+  });
+  
+  if(!p.datos) {
+    if(live && live.datos) p.datos = live.datos;
+  } else if (typeof p.datos === 'object' && live && live.datos && typeof live.datos === 'object') {
+    p.datos = Object.assign({}, p.datos, live.datos);
   }
   
   document.getElementById('modalTitle').innerHTML = '👤 ' + (alumno?alumno.nombre:p.alumno_codigo) + ' <br> <small style="color:#64748B;font-size:12px">' + p.materia + ' · ' + (SECCIONES_LABELS[seccionParaMostrar]||seccionParaMostrar) + (forcedSection?' <span class="badge badge-blue">En proceso</span>':'') + '</small>';
@@ -1356,9 +1354,9 @@ async function verDetalle(progId, forcedSection){
       var prefixes = {
         "umbral":/^u[0-9]+|u2[st]|u3v|umbral/, "mapa":/^m[123]|mapa/, 
         "nucleo_a":/^na|nucleo_a/, "nucleo_b":/^nb|nucleo_b/, 
-        "nucleo_c":/^nc|nucleo_c/, "senales":/^s[123]|senales/, 
-        "sabias":/^sb[123]|sabias/, "cruces":/^cr[123]|cruces/, 
-        "relectura":/^re|relectura/, "emocional":/^em|e[1-3]|emocional/, 
+        "nucleo_c":/^nc|nucleo_c/, "senales":/^(s[1-3]|senales)/, 
+        "sabias":/^sb[1-3]|sabias/, "cruces":/^cr[1-3]|cruce/, 
+        "relectura":/^re[1-3]|relectura/, "emocional":/^em[1-3]|e[1-3]|emocional/, 
         "autotest":/^at|autotest/, "cierre":/^ci|cierre/
       };
       
@@ -1543,7 +1541,8 @@ function renderObjetoS(obj){
     "nota":"Calificación", "fecha":"Fecha",
     "u1":"Preguntas Disparadoras", "u2s":"Situación Seleccionada", "u2t":"Comentario del alumno", "u3v":"Conocimiento previo",
     "m1":"Ruta Visual", "at":"Autotest", "ci1":"Reflexión Final", "ci2":"Glosario consultado",
-    "inp": "Respuesta del alumno", "cur": "Índice actual", "sub": "Enviado", "sel": "Selección", "args": "Argumentos", "val": "Valor", "a": "Respuesta"
+    "inp": "Respuesta del alumno", "cur": "Índice actual", "sub": "Enviado", "sel": "Selección", "args": "Argumentos", "val": "Valor", "a": "Respuesta",
+    "s1": "Tarjetas Clave", "s2": "Semáforo", "s3": "Post-its"
   };
 
   for(var k in obj){
@@ -1735,8 +1734,8 @@ function renderGridAvance(codigo, materia, unidad){
     // Ver si tiene algo en el estado aunque no esté marcado como completado
     var prefixes = {
       "umbral":/u[1-3]|umbral/, "mapa":/m[1-3]|mapa/, "nucleo_a":/na|nucleo_a/, "nucleo_b":/nb|nucleo_b/, 
-      "nucleo_c":/nc|nucleo_c/, "senales":/s[1-3]|senales/, "sabias":/sb[1-3]|sabias/, "cruces":/cr[1-3]|cruces/, 
-      "relectura":/re[123]|relectura/, "emocional":/em[123]|e[1-3]|emocional/, "autotest":/at|autotest/, "cierre":/ci[123]|cierre/
+      "nucleo_c":/nc|nucleo_c/, "senales":/^(s[1-3]|senales)/, "sabias":/sb[1-3]|sabias/, "cruces":/cr[1-3]|cruces/, 
+      "relectura":/re[1-3]|relectura/, "emocional":/em[1-3]|e[1-3]|emocional/, "autotest":/at|autotest/, "cierre":/ci[123]|cierre/
     };
     var reg = prefixes[sec];
     var isStarted = isDone || Object.keys(stateData).some(function(k){ return reg.test(k) && stateData[k]; });

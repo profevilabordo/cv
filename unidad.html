@@ -160,7 +160,7 @@ function marcarSeccion(tabKey){
   localStorage.setItem(getCheckKey(tabKey), "1");
   // Guardar en Supabase si está activo
   if(typeof SUPABASE_ACTIVO !== "undefined" && SUPABASE_ACTIVO){
-    trackProgreso(tabKey, undefined, S);
+    trackProgreso(tabKey, undefined, _S);
   }
   actualizarBarra();
   render(); // re-render para mostrar el estado done
@@ -949,7 +949,7 @@ function rS3(){
   for(var i=0;i<cs.length;i++){
     h+='<div style="padding:12px;border-radius:12px;background:'+cols[i]+';transform:rotate('+(i%2===0?-1:1)+'deg)">';
     h+='<p style="margin:0 0 6px;font-size:12px;font-weight:700;color:#374151;text-transform:uppercase">\u{1F4CC} '+cs[i]+'</p>';
-    h+='<textarea oninput="S.s3['+i+']=this.value" placeholder="Explicalo..." style="min-height:60px;padding:8px;border:none;background:rgba(255,255,255,.6);font-size:13px;border-radius:8px">'+(S.s3[i]||'')+'</textarea></div>';
+    h+='<textarea oninput="S.s3['+i+']=this.value; autoGuardarS()" placeholder="Explicalo..." style="min-height:60px;padding:8px;border:none;background:rgba(255,255,255,.6);font-size:13px;border-radius:8px">'+(S.s3[i]||'')+'</textarea></div>';
   }
   h+='</div>';
   return h;
