@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generador de CV · Mi Primer Curriculum</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,900;1,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── EDITOR UI ── */
+:root {
+  --bg: #0D0D12; --surface: #14141C; --card: #1A1A24; --border: #26263A;
+  --text: #E6E2DA; --muted: #9490A8; --soft: #5A5670;
+  --accent: #6C8EF5; --accent2: #A78BFA; --rose: #F06080;
+  /* CV palette (overridable) */
+  --cv1: #1E3A5F;   /* sidebar bg      */
+  --cv2: #2E6CB8;   /* accent / titles */
+  --cv3: #EAF1FB;   /* sidebar sections light bg */
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-weight:300;min-height:100vh;}
+
+/* layout */
+.app{display:grid;grid-template-columns:420px 1fr;min-height:100vh;}
+
+/* ── SIDEBAR FORM ── */
+.sidebar{background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;height:100vh;position:sticky;top:0;overflow:hidden;}
+.sb-top{padding:1.5rem 1.5rem 0;border-bottom:1px solid var(--border);flex-shrink:0;}
+.sb-badge{display:inline-flex;align-items:center;gap:.4rem;border:1px solid rgba(108,142,245,.35);color:var(--accent);font-size:.6rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:.3rem .8rem;border-radius:100px;background:rgba(108,142,245,.06);margin-bottom:.75rem;}
+.sb-title{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:900;line-height:1.15;margin-bottom:.3rem;}
+.sb-title em{font-style:italic;font-weight:300;color:var(--accent);}
+.sb-sub{color:var(--muted);font-size:.78rem;line-height:1.6;padding-bottom:1rem;}
+
+/* tabs */
+.tabs{display:flex;margin-top:.5rem;border-bottom:1px solid var(--border);}
+.tab{flex:1;padding:.65rem .4rem;font-family:'Outfit',sans-serif;font-size:.7rem;font-weight:500;color:var(--muted);background:transparent;border:none;cursor:pointer;transition:all .2s;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;}
+.tab:hover{color:var(--text);}
+.tab.on{color:var(--accent);border-bottom-color:var(--accent);}
+.panel{display:none;} .panel.on{display:block;}
+
+/* form scroll */
+.form-scroll{flex:1;overflow-y:auto;padding:1.25rem 1.5rem 2rem;}
+.form-scroll::-webkit-scrollbar{width:4px;}
+.form-scroll::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
+
+/* fields */
+.fg{margin-bottom:1.1rem;}
+.fl{display:block;font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.4rem;}
+.fh{font-size:.7rem;color:var(--soft);font-style:italic;margin-bottom:.35rem;}
+input[type=text],input[type=email],input[type=tel],textarea,select{width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.65rem .9rem;font-family:'Outfit',sans-serif;font-size:.83rem;color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s;line-height:1.5;}
+input::placeholder,textarea::placeholder{color:var(--soft);}
+input:focus,textarea:focus,select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(108,142,245,.1);background:var(--bg);}
+textarea{resize:vertical;min-height:70px;}
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239490A8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;cursor:pointer;}
+select option{background:#1A1A24;}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
+input[type=color]{width:36px;height:36px;padding:0;border:none;background:none;cursor:pointer;border-radius:8px;}
+.cpw{display:flex;align-items:center;gap:.75rem;}
+
+/* dynamic list */
+.litems{display:flex;flex-direction:column;gap:.6rem;margin-bottom:.7rem;}
+.litem{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:.75rem;}
+.lihead{display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem;}
+.lititle{font-size:.78rem;font-weight:600;color:var(--text);}
+.rm{background:none;border:none;color:var(--soft);cursor:pointer;font-size:1rem;padding:0;transition:color .2s;}
+.rm:hover{color:var(--rose);}
+.add-btn{display:flex;align-items:center;justify-content:center;gap:.4rem;width:100%;padding:.6rem;background:rgba(108,142,245,.06);border:1px dashed rgba(108,142,245,.3);border-radius:10px;color:var(--accent);font-size:.78rem;font-weight:500;cursor:pointer;transition:all .2s;font-family:'Outfit',sans-serif;}
+.add-btn:hover{background:rgba(108,142,245,.12);border-color:var(--accent);}
+.sec-lbl{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);font-weight:600;margin:1.2rem 0 .75rem;padding-bottom:.4rem;border-bottom:1px solid var(--border);}
+
+/* bottom bar */
+.sb-bot{padding:1rem 1.5rem;border-top:1px solid var(--border);flex-shrink:0;}
+.btn-print{width:100%;padding:.9rem;background:var(--accent);color:#fff;border:none;border-radius:100px;font-family:'Outfit',sans-serif;font-size:.85rem;font-weight:600;cursor:pointer;transition:all .25s;display:flex;align-items:center;justify-content:center;gap:.5rem;}
+.btn-print:hover{background:var(--accent2);box-shadow:0 6px 20px rgba(108,142,245,.3);}
+
+/* ── PREVIEW ── */
+.preview{background:#D8DCE8;display:flex;flex-direction:column;align-items:center;padding:2.5rem 2rem;min-height:100vh;overflow-y:auto;}
+.preview-lbl{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:#888;margin-bottom:1.5rem;text-align:center;}
+
+/* ══════════════════════════════
+   CV DOCUMENT — Elegant Sidebar
+══════════════════════════════ */
+.cv{width:210mm;min-height:297mm;background:#fff;box-shadow:0 8px 60px rgba(0,0,0,.25);display:grid;grid-template-columns:72mm 1fr;font-family:'Outfit',sans-serif;color:#1C1C2E;}
+
+/* ── CV LEFT COLUMN ── */
+.cv-left{background:var(--cv1);display:flex;flex-direction:column;position:relative;overflow:hidden;}
+
+/* decorative circles */
+.cv-left::before{content:'';position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.04);bottom:-60px;left:-60px;pointer-events:none;}
+.cv-left::after{content:'';position:absolute;width:110px;height:110px;border-radius:50%;background:rgba(255,255,255,.04);top:220px;right:-30px;pointer-events:none;}
+
+/* photo block */
+.cv-photo-wrap{padding:2rem 1.4rem 1.4rem;text-align:center;border-bottom:1px solid rgba(255,255,255,.1);position:relative;z-index:1;}
+.cv-photo-ring{width:88px;height:88px;border-radius:50%;border:2.5px solid rgba(255,255,255,.35);margin:0 auto .9rem;overflow:hidden;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .25s;position:relative;}
+.cv-photo-ring:hover{border-color:rgba(255,255,255,.75);}
+.cv-photo-ring img{width:100%;height:100%;object-fit:cover;display:none;}
+.cv-photo-ph{display:flex;flex-direction:column;align-items:center;gap:.25rem;}
+.cv-photo-ph .ph-icon{font-size:1.8rem;opacity:.55;}
+.cv-photo-ph .ph-lbl{font-size:.5rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);}
+input.photo-input{display:none;}
+.cv-lname{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:900;color:#fff;line-height:1.15;margin-bottom:.25rem;}
+.cv-lname em{font-style:italic;font-weight:300;display:block;font-size:1rem;}
+.cv-lrole{font-size:.64rem;font-weight:500;color:rgba(255,255,255,.6);letter-spacing:.03em;line-height:1.5;}
+
+/* left sections */
+.cv-ls{padding:1.1rem 1.4rem;border-bottom:1px solid rgba(255,255,255,.08);position:relative;z-index:1;}
+.cv-ls:last-child{border-bottom:none;flex:1;}
+.cv-lst{font-size:.52rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:.65rem;}
+
+/* contact items */
+.cv-contact-item{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.45rem;}
+.cv-contact-item:last-child{margin-bottom:0;}
+.cv-ci-dot{width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:.6rem;flex-shrink:0;margin-top:.05rem;}
+.cv-ci-text{font-size:.68rem;color:rgba(255,255,255,.75);line-height:1.4;word-break:break-all;}
+
+/* profile text (left) */
+.cv-profile{font-size:.7rem;color:rgba(255,255,255,.7);line-height:1.75;}
+
+/* skills */
+.cv-skill{margin-bottom:.55rem;}
+.cv-skill-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:.22rem;}
+.cv-skill-name{font-size:.68rem;font-weight:500;color:rgba(255,255,255,.85);}
+.cv-skill-lv{font-size:.6rem;color:rgba(255,255,255,.45);}
+.cv-skill-track{height:3px;background:rgba(255,255,255,.12);border-radius:3px;overflow:hidden;}
+.cv-skill-fill{height:100%;border-radius:3px;background:rgba(255,255,255,.55);}
+
+/* languages */
+.cv-lang{display:flex;justify-content:space-between;align-items:center;padding:.3rem 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:.68rem;}
+.cv-lang:last-child{border-bottom:none;}
+.cv-lang-name{color:rgba(255,255,255,.8);}
+.cv-lang-lv{font-size:.6rem;font-weight:600;color:var(--cv2);background:rgba(255,255,255,.1);padding:.1rem .45rem;border-radius:100px;}
+
+/* interests */
+.cv-tags{display:flex;flex-wrap:wrap;gap:.3rem;}
+.cv-tag{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:.18rem .6rem;font-size:.62rem;color:rgba(255,255,255,.7);}
+
+/* ── CV RIGHT COLUMN ── */
+.cv-right{background:#fff;padding:2rem 1.8rem;display:flex;flex-direction:column;gap:1.4rem;}
+
+/* right section title */
+.cv-rt{display:flex;align-items:center;gap:.6rem;margin-bottom:.75rem;}
+.cv-rt-line{flex:1;height:1.5px;background:var(--cv3);}
+.cv-rt-text{font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--cv2);white-space:nowrap;}
+.cv-rt-dot{width:7px;height:7px;border-radius:50%;background:var(--cv2);flex-shrink:0;}
+
+/* entries */
+.cv-entry{margin-bottom:.9rem;padding-bottom:.9rem;border-bottom:1px solid #F0F2F8;}
+.cv-entry:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none;}
+.cv-e-header{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem;margin-bottom:.15rem;}
+.cv-e-title{font-size:.82rem;font-weight:600;color:#1C1C2E;line-height:1.3;}
+.cv-e-badge{font-size:.6rem;font-weight:600;color:#fff;background:var(--cv2);padding:.15rem .55rem;border-radius:100px;white-space:nowrap;flex-shrink:0;}
+.cv-e-sub{font-size:.7rem;font-weight:500;color:var(--cv2);margin-bottom:.25rem;}
+.cv-e-desc{font-size:.7rem;color:#6A6880;line-height:1.65;}
+.cv-e-status{display:inline-block;font-size:.6rem;font-weight:500;color:var(--cv2);background:var(--cv3);padding:.1rem .5rem;border-radius:100px;margin-top:.2rem;}
+
+/* values */
+.cv-values{display:flex;flex-wrap:wrap;gap:.35rem;}
+.cv-value{background:var(--cv3);border:1px solid rgba(46,108,184,.2);border-radius:100px;padding:.22rem .7rem;font-size:.67rem;font-weight:500;color:var(--cv2);}
+
+/* activities */
+.cv-activity{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.5rem;font-size:.72rem;}
+.cv-activity:last-child{margin-bottom:0;}
+.cv-act-dot{width:6px;height:6px;border-radius:50%;background:var(--cv2);flex-shrink:0;margin-top:.32rem;}
+.cv-act-name{font-weight:500;color:#1C1C2E;}
+.cv-act-desc{color:#6A6880;font-size:.68rem;}
+
+/* empty */
+.cv-empty{font-size:.72rem;color:#C8CADC;font-style:italic;}
+
+/* ── PRINT ── */
+@media print {
+  body{background:#fff!important;}
+  .sidebar,.preview-lbl{display:none!important;}
+  .app{display:block!important;}
+  .preview{padding:0!important;background:#fff!important;}
+  .cv{width:100%!important;box-shadow:none!important;}
+  @page{margin:0;size:A4;}
+}
+
+@media(max-width:900px){
+  .app{grid-template-columns:1fr;}
+  .sidebar{height:auto;position:relative;}
+  .cv{width:100%;}
+  .cv-left,.cv-right{min-width:0;}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ══ SIDEBAR FORM ══ -->
+<aside class="sidebar">
+  <div class="sb-top">
+    <div class="sb-badge">✦ Generador de CV</div>
+    <div class="sb-title">Tu primer<br><em>Curriculum Vitae</em></div>
+    <p class="sb-sub">Completá los datos y tu CV se arma en tiempo real.</p>
+    <div class="tabs">
+      <button class="tab on"  onclick="showTab('p-personal',this)">Personal</button>
+      <button class="tab"     onclick="showTab('p-perfil',this)">Perfil</button>
+      <button class="tab"     onclick="showTab('p-exp',this)">Exp.</button>
+      <button class="tab"     onclick="showTab('p-edu',this)">Educ.</button>
+      <button class="tab"     onclick="showTab('p-extra',this)">Extra</button>
+      <button class="tab"     onclick="showTab('p-diseno',this)">Diseño</button>
+    </div>
+  </div>
+
+  <div class="form-scroll">
+
+    <!-- PERSONAL -->
+    <div class="panel on" id="p-personal">
+      <div class="sec-lbl">Información básica</div>
+      <div class="fg"><label class="fl">Nombre</label><input type="text" id="f-nombre" placeholder="Ej: Valentina" oninput="upd()"></div>
+      <div class="fg"><label class="fl">Apellido</label><input type="text" id="f-apellido" placeholder="Ej: González" oninput="upd()"></div>
+      <div class="fg"><label class="fl">Título / Rol buscado</label><div class="fh">¿Qué puesto o área te interesa?</div><input type="text" id="f-rol" placeholder="Ej: Estudiante en búsqueda de primera experiencia" oninput="upd()"></div>
+      <div class="sec-lbl">Foto de perfil</div>
+      <div class="fg"><div class="fh">Hacé clic en la foto del CV para subir tu imagen (opcional).</div></div>
+      <div class="sec-lbl">Contacto</div>
+      <div class="fg"><label class="fl">Email</label><input type="email" id="f-email" placeholder="tucorreo@gmail.com" oninput="upd()"></div>
+      <div class="fr">
+        <div class="fg"><label class="fl">Teléfono</label><input type="tel" id="f-tel" placeholder="2262 000000" oninput="upd()"></div>
+        <div class="fg"><label class="fl">Ciudad</label><input type="text" id="f-ciudad" placeholder="Venado Tuerto" oninput="upd()"></div>
+      </div>
+      <div class="fg"><label class="fl">LinkedIn / Portfolio</label><input type="text" id="f-linkedin" placeholder="linkedin.com/in/tunombre" oninput="upd()"></div>
+    </div>
+
+    <!-- PERFIL -->
+    <div class="panel" id="p-perfil">
+      <div class="sec-lbl">Perfil profesional</div>
+      <div class="fg"><label class="fl">Resumen personal</label><div class="fh">2–3 oraciones sobre quién sos y qué buscás.</div><textarea id="f-perfil" rows="4" placeholder="Ej: Soy estudiante del último año del secundario con interés en el área comercial. Soy proactivo/a, responsable y me gusta trabajar en equipo..." oninput="upd()"></textarea></div>
+      <div class="sec-lbl">Habilidades</div>
+      <div class="litems" id="skills-list"></div>
+      <button class="add-btn" onclick="addSkill()">+ Agregar habilidad</button>
+      <div class="sec-lbl">Idiomas</div>
+      <div class="litems" id="lang-list"></div>
+      <button class="add-btn" onclick="addLang()">+ Agregar idioma</button>
+    </div>
+
+    <!-- EXPERIENCIA -->
+    <div class="panel" id="p-exp">
+      <div class="sec-lbl">Experiencia laboral</div>
+      <div class="fh" style="margin-bottom:.75rem">Incluí trabajos formales, informales, voluntariados o ayuda familiar.</div>
+      <div class="litems" id="exp-list"></div>
+      <button class="add-btn" onclick="addExp()">+ Agregar experiencia</button>
+    </div>
+
+    <!-- EDUCACIÓN -->
+    <div class="panel" id="p-edu">
+      <div class="sec-lbl">Formación académica</div>
+      <div class="litems" id="edu-list"></div>
+      <button class="add-btn" onclick="addEdu()">+ Agregar institución</button>
+      <div class="sec-lbl">Cursos y certificaciones</div>
+      <div class="litems" id="curso-list"></div>
+      <button class="add-btn" onclick="addCurso()">+ Agregar curso</button>
+    </div>
+
+    <!-- EXTRA -->
+    <div class="panel" id="p-extra">
+      <div class="sec-lbl">Intereses y hobbies</div>
+      <div class="fg"><div class="fh">Separados por coma. Ej: Fútbol, Fotografía, Cocina</div><input type="text" id="f-intereses" placeholder="Fútbol, Música, Tecnología..." oninput="upd()"></div>
+      <div class="sec-lbl">Fortalezas</div>
+      <div class="fg"><div class="fh">Separados por coma. Ej: Responsable, Creativo/a</div><input type="text" id="f-valores" placeholder="Responsable, Empático/a, Organizado/a..." oninput="upd()"></div>
+      <div class="sec-lbl">Actividades extracurriculares</div>
+      <div class="litems" id="extra-list"></div>
+      <button class="add-btn" onclick="addExtra()">+ Agregar actividad</button>
+    </div>
+
+    <!-- DISEÑO -->
+    <div class="panel" id="p-diseno">
+      <div class="sec-lbl">Paletas rápidas</div>
+      <div id="palettes-wrap" style="display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.25rem"></div>
+      <div class="sec-lbl">Color personalizado</div>
+      <div class="fg"><label class="fl">Color de la columna lateral</label>
+        <div class="cpw"><input type="color" id="color-cv1" value="#1E3A5F" oninput="updColors()"><span style="font-size:.8rem;color:var(--muted)">Tocá para personalizar</span></div>
+      </div>
+      <div class="fg"><label class="fl">Color de acento (títulos, fechas)</label>
+        <div class="cpw"><input type="color" id="color-cv2" value="#2E6CB8" oninput="updColors()"><span style="font-size:.8rem;color:var(--muted)">Barras, etiquetas, bordes</span></div>
+      </div>
+    </div>
+
+  </div><!-- /form-scroll -->
+
+  <div class="sb-bot">
+    <button class="btn-print" onclick="window.print()">🖨️ Imprimir / Guardar PDF</button>
+  </div>
+</aside>
+
+<!-- ══ PREVIEW ══ -->
+<div class="preview">
+  <div class="preview-lbl">✦ Vista previa en tiempo real ✦</div>
+
+  <div class="cv" id="cvDoc">
+
+    <!-- CV LEFT -->
+    <div class="cv-left">
+
+      <!-- Photo + Name -->
+      <div class="cv-photo-wrap">
+        <div class="cv-photo-ring" onclick="document.getElementById('photo-input').click()" title="Clic para agregar foto">
+          <img id="cv-photo-img" src="" alt="foto">
+          <div class="cv-photo-ph" id="cv-photo-ph">
+            <span class="ph-icon">👤</span>
+            <span class="ph-lbl">+ Foto</span>
+          </div>
+        </div>
+        <input type="file" id="photo-input" class="photo-input" accept="image/*" onchange="loadPhoto(this)">
+        <div class="cv-lname" id="cv-lname">Tu Nombre<em>Completo</em></div>
+        <div class="cv-lrole" id="cv-lrole">Título o área de interés</div>
+      </div>
+
+      <!-- Contact -->
+      <div class="cv-ls" id="cv-sec-contact">
+        <div class="cv-lst">Contacto</div>
+        <div id="cv-contact-items"><span class="cv-empty">Completá tus datos…</span></div>
+      </div>
+
+      <!-- Profile -->
+      <div class="cv-ls" id="cv-sec-perfil">
+        <div class="cv-lst">Perfil</div>
+        <div class="cv-profile" id="cv-perfil-text"><span class="cv-empty">Tu resumen aparecerá aquí…</span></div>
+      </div>
+
+      <!-- Skills -->
+      <div class="cv-ls" id="cv-sec-skills">
+        <div class="cv-lst">Habilidades</div>
+        <div id="cv-skills-list"><span class="cv-empty">Agregá habilidades…</span></div>
+      </div>
+
+      <!-- Languages -->
+      <div class="cv-ls" id="cv-sec-lang">
+        <div class="cv-lst">Idiomas</div>
+        <div id="cv-lang-list"><span class="cv-empty">Agregá idiomas…</span></div>
+      </div>
+
+      <!-- Interests -->
+      <div class="cv-ls">
+        <div class="cv-lst">Intereses</div>
+        <div class="cv-tags" id="cv-intereses-tags"><span class="cv-empty">Tus intereses…</span></div>
+      </div>
+
+    </div><!-- /cv-left -->
+
+    <!-- CV RIGHT -->
+    <div class="cv-right">
+
+      <!-- Experience -->
+      <div>
+        <div class="cv-rt"><div class="cv-rt-dot"></div><div class="cv-rt-text">Experiencia</div><div class="cv-rt-line"></div></div>
+        <div id="cv-exp-list"><span class="cv-empty">Agregá experiencias…</span></div>
+      </div>
+
+      <!-- Education -->
+      <div>
+        <div class="cv-rt"><div class="cv-rt-dot"></div><div class="cv-rt-text">Educación</div><div class="cv-rt-line"></div></div>
+        <div id="cv-edu-list"><span class="cv-empty">Agregá tu formación…</span></div>
+      </div>
+
+      <!-- Courses -->
+      <div>
+        <div class="cv-rt"><div class="cv-rt-dot"></div><div class="cv-rt-text">Cursos y Certificaciones</div><div class="cv-rt-line"></div></div>
+        <div id="cv-curso-list"><span class="cv-empty">Agregá cursos…</span></div>
+      </div>
+
+      <!-- Fortalezas -->
+      <div>
+        <div class="cv-rt"><div class="cv-rt-dot"></div><div class="cv-rt-text">Fortalezas</div><div class="cv-rt-line"></div></div>
+        <div class="cv-values" id="cv-valores-tags"><span class="cv-empty">Tus fortalezas…</span></div>
+      </div>
+
+      <!-- Activities -->
+      <div>
+        <div class="cv-rt"><div class="cv-rt-dot"></div><div class="cv-rt-text">Actividades</div><div class="cv-rt-line"></div></div>
+        <div id="cv-extra-list"><span class="cv-empty">Actividades extracurriculares…</span></div>
+      </div>
+
+    </div><!-- /cv-right -->
+  </div><!-- /cv -->
+</div><!-- /preview -->
+</div><!-- /app -->
+
+<script>
+// ── TABS ──
+function showTab(id, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('on'));
+  document.querySelectorAll('.tab').forEach(b => b.classList.remove('on'));
+  document.getElementById(id).classList.add('on');
+  btn.classList.add('on');
+}
+
+// ── STATE ──
+let skills=[], langs=[], exps=[], edus=[], cursos=[], extras=[];
+
+// ── DYNAMIC FORMS ──
+function addSkill(){
+  const id=Date.now(); skills.push({id,name:'',level:3}); renderSkills();
+}
+function removeSkill(id){ skills=skills.filter(s=>s.id!==id); renderSkills(); upd(); }
+function renderSkills(){
+  document.getElementById('skills-list').innerHTML=skills.map(s=>`
+    <div class="litem">
+      <div class="lihead"><span class="lititle">Habilidad</span><button class="rm" onclick="removeSkill(${s.id})">✕</button></div>
+      <div class="fr">
+        <input type="text" placeholder="Ej: Microsoft Excel" value="${s.name}" oninput="skills.find(x=>x.id==${s.id}).name=this.value;upd()">
+        <select onchange="skills.find(x=>x.id==${s.id}).level=parseInt(this.value);upd()">
+          <option value="1" ${s.level==1?'selected':''}>Básico</option>
+          <option value="2" ${s.level==2?'selected':''}>Intermedio</option>
+          <option value="3" ${s.level==3?'selected':''}>Avanzado</option>
+          <option value="4" ${s.level==4?'selected':''}>Experto</option>
+        </select>
+      </div>
+    </div>`).join('');
+  upd();
+}
+
+function addLang(){
+  const id=Date.now(); langs.push({id,name:'',level:'Básico'}); renderLangs();
+}
+function removeLang(id){ langs=langs.filter(l=>l.id!==id); renderLangs(); upd(); }
+function renderLangs(){
+  document.getElementById('lang-list').innerHTML=langs.map(l=>`
+    <div class="litem">
+      <div class="lihead"><span class="lititle">Idioma</span><button class="rm" onclick="removeLang(${l.id})">✕</button></div>
+      <div class="fr">
+        <input type="text" placeholder="Ej: Inglés" value="${l.name}" oninput="langs.find(x=>x.id==${l.id}).name=this.value;upd()">
+        <select onchange="langs.find(x=>x.id==${l.id}).level=this.value;upd()">
+          ${['Básico','Intermedio','Avanzado','Nativo'].map(v=>`<option ${l.level===v?'selected':''}>${v}</option>`).join('')}
+        </select>
+      </div>
+    </div>`).join('');
+  upd();
+}
+
+function addExp(){
+  const id=Date.now(); exps.push({id,puesto:'',empresa:'',periodo:'',desc:''}); renderExps();
+}
+function removeExp(id){ exps=exps.filter(e=>e.id!==id); renderExps(); upd(); }
+function renderExps(){
+  document.getElementById('exp-list').innerHTML=exps.map(e=>`
+    <div class="litem">
+      <div class="lihead"><span class="lititle">Experiencia</span><button class="rm" onclick="removeExp(${e.id})">✕</button></div>
+      <div class="fg"><input type="text" placeholder="Puesto / Rol" value="${e.puesto}" oninput="exps.find(x=>x.id==${e.id}).puesto=this.value;upd()"></div>
+      <div class="fr">
+        <input type="text" placeholder="Empresa / Lugar" value="${e.empresa}" oninput="exps.find(x=>x.id==${e.id}).empresa=this.value;upd()">
+        <input type="text" placeholder="Ej: 2023–2024" value="${e.periodo}" oninput="exps.find(x=>x.id==${e.id}).periodo=this.value;upd()">
+      </div>
+      <textarea placeholder="Descripción breve…" rows="2" oninput="exps.find(x=>x.id==${e.id}).desc=this.value;upd()">${e.desc}</textarea>
+    </div>`).join('');
+  upd();
+}
+
+function addEdu(){
+  const id=Date.now(); edus.push({id,titulo:'',institucion:'',periodo:'',estado:''}); renderEdus();
+}
+function removeEdu(id){ edus=edus.filter(e=>e.id!==id); renderEdus(); upd(); }
+function renderEdus(){
+  document.getElementById('edu-list').innerHTML=edus.map(e=>`
+    <div class="litem">
+      <div class="lihead"><span class="lititle">Institución</span><button class="rm" onclick="removeEdu(${e.id})">✕</button></div>
+      <div class="fg"><input type="text" placeholder="Título o nivel" value="${e.titulo}" oninput="edus.find(x=>x.id==${e.id}).titulo=this.value;upd()"></div>
+      <div class="fr">
+        <input type="text" placeholder="Institución" value="${e.institucion}" oninput="edus.find(x=>x.id==${e.id}).institucion=this.value;upd()">
+        <input type="text" placeholder="Ej: 2020–2025" value="${e.periodo}" oninput="edus.find(x=>x.id==${e.id}).periodo=this.value;upd()">
+      </div>
+      <select onchange="edus.find(x=>x.id==${e.id}).estado=this.value;upd()">
+        <option value="">Estado…</option>
+        ${['En curso','Completado','Incompleto'].map(v=>`<option ${e.estado===v?'selected':''}>${v}</option>`).join('')}
+      </select>
+    </div>`).join('');
+  upd();
+}
+
+function addCurso(){
+  const id=Date.now(); cursos.push({id,nombre:'',institucion:'',anio:''}); renderCursos();
+}
+function removeCurso(id){ cursos=cursos.filter(c=>c.id!==id); renderCursos(); upd(); }
+function renderCursos(){
+  document.getElementById('curso-list').innerHTML=cursos.map(c=>`
+    <div class="litem">
+      <div class="lihead"><span class="lititle">Curso</span><button class="rm" onclick="removeCurso(${c.id})">✕</button></div>
+      <div class="fg"><input type="text" placeholder="Nombre del curso" value="${c.nombre}" oninput="cursos.find(x=>x.id==${c.id}).nombre=this.value;upd()"></div>
+      <div class="fr">
+        <input type="text" placeholder="Institución" value="${c.institucion}" oninput="cursos.find(x=>x.id==${c.id}).institucion=this.value;upd()">
+        <input type="text" placeholder="Año" value="${c.anio}" oninput="cursos.find(x=>x.id==${c.id}).anio=this.value;upd()">
+      </div>
+    </div>`).join('');
+  upd();
+}
+
+function addExtra(){
+  const id=Date.now(); extras.push({id,nombre:'',desc:''}); renderExtras();
+}
+function removeExtra(id){ extras=extras.filter(e=>e.id!==id); renderExtras(); upd(); }
+function renderExtras(){
+  document.getElementById('extra-list').innerHTML=extras.map(e=>`
+    <div class="litem">
+      <div class="lihead"><span class="lititle">Actividad</span><button class="rm" onclick="removeExtra(${e.id})">✕</button></div>
+      <input type="text" placeholder="Ej: Delegado, Deporte, Voluntariado…" value="${e.nombre}" oninput="extras.find(x=>x.id==${e.id}).nombre=this.value;upd()" style="margin-bottom:.5rem">
+      <input type="text" placeholder="Descripción breve (opcional)" value="${e.desc}" oninput="extras.find(x=>x.id==${e.id}).desc=this.value;upd()">
+    </div>`).join('');
+  upd();
+}
+
+// ── PHOTO ──
+function loadPhoto(input){
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const img = document.getElementById('cv-photo-img');
+    img.src = e.target.result;
+    img.style.display = 'block';
+    document.getElementById('cv-photo-ph').style.display = 'none';
+  };
+  reader.readAsDataURL(file);
+}
+
+// ── CV UPDATE ──
+function upd(){
+  const nombre   = document.getElementById('f-nombre').value.trim();
+  const apellido = document.getElementById('f-apellido').value.trim();
+  const rol      = document.getElementById('f-rol').value.trim();
+  const email    = document.getElementById('f-email').value.trim();
+  const tel      = document.getElementById('f-tel').value.trim();
+  const ciudad   = document.getElementById('f-ciudad').value.trim();
+  const linkedin = document.getElementById('f-linkedin').value.trim();
+  const perfil   = document.getElementById('f-perfil').value.trim();
+  const intereses= document.getElementById('f-intereses').value.trim();
+  const valores  = document.getElementById('f-valores').value.trim();
+
+  // Name
+  const full = [nombre, apellido].filter(Boolean);
+  if(full.length===2){
+    document.getElementById('cv-lname').innerHTML = `${nombre}<em>${apellido}</em>`;
+  } else {
+    document.getElementById('cv-lname').innerHTML = full.join(' ') || 'Tu Nombre<em>Completo</em>';
+  }
+
+  // Role
+  document.getElementById('cv-lrole').textContent = rol || 'Título o área de interés';
+
+  // Contact
+  const icons = { email:'✉', tel:'📞', ciudad:'📍', linkedin:'🔗' };
+  const cItems = [
+    email    ? {icon:'✉', text:email}    : null,
+    tel      ? {icon:'📞', text:tel}     : null,
+    ciudad   ? {icon:'📍', text:ciudad}  : null,
+    linkedin ? {icon:'🔗', text:linkedin}: null,
+  ].filter(Boolean);
+  document.getElementById('cv-contact-items').innerHTML = cItems.length
+    ? cItems.map(c=>`<div class="cv-contact-item"><div class="cv-ci-dot">${c.icon}</div><div class="cv-ci-text">${c.text}</div></div>`).join('')
+    : '<span class="cv-empty">Completá tus datos…</span>';
+
+  // Profile
+  document.getElementById('cv-perfil-text').innerHTML = perfil || '<span class="cv-empty">Tu resumen aparecerá aquí…</span>';
+
+  // Skills
+  const lvPct  = [0,25,50,75,100];
+  const lvName = ['','Básico','Intermedio','Avanzado','Experto'];
+  document.getElementById('cv-skills-list').innerHTML = skills.length
+    ? skills.filter(s=>s.name).map(s=>`
+        <div class="cv-skill">
+          <div class="cv-skill-row">
+            <span class="cv-skill-name">${s.name}</span>
+            <span class="cv-skill-lv">${lvName[s.level]}</span>
+          </div>
+          <div class="cv-skill-track"><div class="cv-skill-fill" style="width:${lvPct[s.level]}%"></div></div>
+        </div>`).join('') || '<span class="cv-empty">Completá los nombres…</span>'
+    : '<span class="cv-empty">Agregá habilidades…</span>';
+
+  // Languages
+  document.getElementById('cv-lang-list').innerHTML = langs.length
+    ? langs.filter(l=>l.name).map(l=>`
+        <div class="cv-lang">
+          <span class="cv-lang-name">${l.name}</span>
+          <span class="cv-lang-lv">${l.level}</span>
+        </div>`).join('') || '<span class="cv-empty">Completá los idiomas…</span>'
+    : '<span class="cv-empty">Agregá idiomas…</span>';
+
+  // Interests
+  const intArr = intereses ? intereses.split(',').map(i=>i.trim()).filter(Boolean) : [];
+  document.getElementById('cv-intereses-tags').innerHTML = intArr.length
+    ? intArr.map(i=>`<span class="cv-tag">${i}</span>`).join('')
+    : '<span class="cv-empty">Tus intereses…</span>';
+
+  // Values
+  const valArr = valores ? valores.split(',').map(v=>v.trim()).filter(Boolean) : [];
+  document.getElementById('cv-valores-tags').innerHTML = valArr.length
+    ? valArr.map(v=>`<span class="cv-value">${v}</span>`).join('')
+    : '<span class="cv-empty">Tus fortalezas…</span>';
+
+  // Experience
+  document.getElementById('cv-exp-list').innerHTML = exps.length
+    ? exps.map((e,i)=>`
+        ${i>0?'<div style="height:1px;background:#F0F2F8;margin:.6rem 0"></div>':''}
+        <div class="cv-entry">
+          <div class="cv-e-header">
+            <div class="cv-e-title">${e.puesto||'Puesto'}</div>
+            ${e.periodo?`<div class="cv-e-badge">${e.periodo}</div>`:''}
+          </div>
+          ${e.empresa?`<div class="cv-e-sub">${e.empresa}</div>`:''}
+          ${e.desc?`<div class="cv-e-desc">${e.desc}</div>`:''}
+        </div>`).join('')
+    : '<span class="cv-empty">Agregá experiencias…</span>';
+
+  // Education
+  document.getElementById('cv-edu-list').innerHTML = edus.length
+    ? edus.map((e,i)=>`
+        ${i>0?'<div style="height:1px;background:#F0F2F8;margin:.6rem 0"></div>':''}
+        <div class="cv-entry">
+          <div class="cv-e-header">
+            <div class="cv-e-title">${e.titulo||'Título'}</div>
+            ${e.periodo?`<div class="cv-e-badge">${e.periodo}</div>`:''}
+          </div>
+          ${e.institucion?`<div class="cv-e-sub">${e.institucion}</div>`:''}
+          ${e.estado?`<span class="cv-e-status">${e.estado}</span>`:''}
+        </div>`).join('')
+    : '<span class="cv-empty">Agregá tu formación…</span>';
+
+  // Cursos
+  document.getElementById('cv-curso-list').innerHTML = cursos.length
+    ? cursos.map((c,i)=>`
+        ${i>0?'<div style="height:1px;background:#F0F2F8;margin:.6rem 0"></div>':''}
+        <div class="cv-entry">
+          <div class="cv-e-header">
+            <div class="cv-e-title">${c.nombre||'Curso'}</div>
+            ${c.anio?`<div class="cv-e-badge">${c.anio}</div>`:''}
+          </div>
+          ${c.institucion?`<div class="cv-e-sub">${c.institucion}</div>`:''}
+        </div>`).join('')
+    : '<span class="cv-empty">Agregá cursos…</span>';
+
+  // Extras
+  document.getElementById('cv-extra-list').innerHTML = extras.length
+    ? extras.filter(e=>e.nombre).map(e=>`
+        <div class="cv-activity">
+          <div class="cv-act-dot"></div>
+          <div>
+            <div class="cv-act-name">${e.nombre}</div>
+            ${e.desc?`<div class="cv-act-desc">${e.desc}</div>`:''}
+          </div>
+        </div>`).join('') || '<span class="cv-empty">Completá las actividades…</span>'
+    : '<span class="cv-empty">Actividades extracurriculares…</span>';
+}
+
+// ── COLORS ──
+function updColors(){
+  const c1 = document.getElementById('color-cv1').value;
+  const c2 = document.getElementById('color-cv2').value;
+  // lighten c2 for bg areas
+  document.documentElement.style.setProperty('--cv1', c1);
+  document.documentElement.style.setProperty('--cv2', c2);
+  // derive light version from c2 at low opacity
+  document.documentElement.style.setProperty('--cv3', hexToRgba(c2, 0.1));
+  // update cv-lang-lv background
+  document.querySelectorAll('.cv-lang-lv').forEach(el => el.style.color = c2);
+}
+
+function hexToRgba(hex, alpha){
+  const r=parseInt(hex.slice(1,3),16);
+  const g=parseInt(hex.slice(3,5),16);
+  const b=parseInt(hex.slice(5,7),16);
+  return `rgba(${r},${g},${b},${alpha})`;
+}
+
+function setPalette(c1, c2){
+  document.getElementById('color-cv1').value = c1;
+  document.getElementById('color-cv2').value = c2;
+  updColors();
+}
+
+// ── INIT ──
+window.addEventListener('load', () => {
+  // Paletas rápidas
+  const PALETTES = [
+    ['#1E3A5F','#2E6CB8','🔵 Azul marino'],
+    ['#1A3A35','#2E8B6E','🟢 Verde bosque'],
+    ['#3A1E5F','#7B4CB8','🟣 Violeta'],
+    ['#5F1E1E','#B84C4C','🔴 Borgoña'],
+    ['#3A2A1A','#8B6E2E','🟤 Café dorado'],
+    ['#1A1A2E','#4A4A7A','⚫ Azul noche'],
+  ];
+  const wrap = document.getElementById('palettes-wrap');
+  PALETTES.forEach(([c1,c2,name]) => {
+    const btn = document.createElement('button');
+    btn.style.cssText = 'display:flex;align-items:center;gap:.45rem;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.5rem .85rem;cursor:pointer;font-family:Outfit,sans-serif;font-size:.73rem;color:var(--muted);transition:all .2s;';
+    btn.innerHTML = `<span style="display:flex;gap:2px"><span style="width:14px;height:14px;border-radius:4px;background:${c1};display:block"></span><span style="width:14px;height:14px;border-radius:4px;background:${c2};display:block"></span></span>${name}`;
+    btn.addEventListener('click', () => setPalette(c1, c2));
+    btn.addEventListener('mouseover', () => { btn.style.borderColor='rgba(255,255,255,.25)'; btn.style.color='var(--text)'; });
+    btn.addEventListener('mouseout',  () => { btn.style.borderColor='var(--border)'; btn.style.color='var(--muted)'; });
+    wrap.appendChild(btn);
+  });
+
+  // Precarga educación — EESO N°206
+  addEdu();
+  const eduInputs = document.querySelectorAll('#edu-list input[type=text]');
+  if(eduInputs[0]) eduInputs[0].value = 'Bachiller en Economía y Administración';
+  if(eduInputs[1]) eduInputs[1].value = 'EESO N°206 "Rosa Turner de Estrugamou"';
+  if(eduInputs[2]) eduInputs[2].value = '2020 – 2025';
+  const sel = document.querySelector('#edu-list select');
+  if(sel) sel.value = 'En curso';
+  upd();
+});
+</script>
+</body>
+</html>
