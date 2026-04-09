@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Autoconocimiento · Mi Primer CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0F0F14;
+  --surface: #16161E;
+  --card: #1C1C26;
+  --border: #2A2A38;
+  --text: #E8E4DC;
+  --muted: #9A96AA;        /* subido de #6B6880 → ratio ~6:1 sobre --bg */
+  --muted-soft: #6B6880;   /* para bordes/líneas decorativas únicamente */
+  --gold: #D4A843;
+  --gold2: #F0C96A;
+  --teal: #4ABFB0;
+  --rose: #E0607A;         /* ligeramente más brillante para mejor contraste */
+  --violet: #A98EE8;       /* aclarado de #8B6FD4 → ratio ~5:1 sobre --bg */
+  --amber: #E08040;
+  --green: #6DC98A;        /* aclarado de #5BAF7A → ratio ~5.5:1 sobre --bg */
+  /* Colores de texto para tags activos (oscuro sobre color) */
+  --on-gold: #1A1208;
+  --on-teal: #041412;
+  --on-rose: #1A0508;
+  --on-violet: #100C1A;
+  --on-amber: #1A0C04;
+  --on-green: #061209;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; font-weight: 300; min-height: 100vh; overflow-x: hidden; }
+
+/* COVER */
+#cover { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 2rem; text-align: center; position: relative; overflow: hidden; }
+.glow { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(90px); opacity: 0.15; }
+.g1 { width: 500px; height: 500px; background: var(--gold); top: -150px; left: -150px; }
+.g2 { width: 400px; height: 400px; background: var(--teal); bottom: -100px; right: -100px; }
+.g3 { width: 320px; height: 320px; background: var(--violet); top: 50%; left: 50%; transform: translate(-50%,-50%); opacity: 0.08; }
+
+.cover-badge { display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid rgba(212,168,67,0.4); color: var(--gold); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.45rem 1.2rem; border-radius: 100px; margin-bottom: 2rem; background: rgba(212,168,67,0.06); animation: fadeUp 0.8s ease both; }
+.cover-h1 { font-family: 'Fraunces', serif; font-size: clamp(2.5rem, 9vw, 5rem); font-weight: 900; line-height: 1.05; margin-bottom: 1.2rem; animation: fadeUp 0.8s 0.1s ease both; }
+.cover-h1 em { font-style: italic; font-weight: 300; color: var(--gold); }
+.cover-p { color: var(--muted); font-size: 0.95rem; max-width: 380px; line-height: 1.8; margin: 0 auto 2.5rem; animation: fadeUp 0.8s 0.2s ease both; }
+.name-wrap { margin-bottom: 2rem; animation: fadeUp 0.8s 0.3s ease both; }
+.name-label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; }
+.name-input { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; color: var(--text); font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 700; text-align: center; padding: 0.75rem 1.5rem; width: 300px; outline: none; transition: border-color 0.3s, box-shadow 0.3s; }
+.name-input::placeholder { color: var(--border); }
+.name-input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(212,168,67,0.1); }
+.btn-start { background: var(--gold); color: var(--on-gold); border: none; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 1rem 2.8rem; border-radius: 100px; cursor: pointer; transition: all 0.3s; animation: fadeUp 0.8s 0.4s ease both; }
+.btn-start:hover { background: var(--gold2); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(212,168,67,0.25); }
+
+/* MAIN */
+#main { display: none; }
+.page-wrap { max-width: 760px; margin: 0 auto; padding: 3rem 1.25rem 5rem; }
+
+.step-header { text-align: center; margin-bottom: 3rem; }
+.step-eyebrow { font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; }
+.step-title { font-family: 'Fraunces', serif; font-size: clamp(1.8rem, 6vw, 3rem); font-weight: 900; line-height: 1.15; }
+.step-title em { font-style: italic; font-weight: 300; color: var(--gold); }
+.step-sub { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-top: 0.75rem; }
+
+.progress-strip { display: flex; gap: 0.35rem; margin-bottom: 2.5rem; }
+.pd { flex: 1; height: 3px; border-radius: 3px; background: var(--border); transition: background 0.4s; }
+.pd.done { background: var(--gold); }
+
+/* MAP SECTIONS */
+.map-section { margin-bottom: 2rem; background: var(--card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.map-section.vis { opacity: 1; transform: translateY(0); }
+.sec-head { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 1.4rem; border-bottom: 1px solid var(--border); }
+.sec-icon-ring { width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; }
+.sec-num { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.15rem; }
+.sec-name { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 700; }
+.sec-count { font-size: 0.75rem; color: var(--muted); margin-left: auto; white-space: nowrap; }
+.sec-desc { padding: 0.9rem 1.4rem; font-size: 0.82rem; color: var(--muted); line-height: 1.6; border-bottom: 1px solid var(--border); font-style: italic; }
+.tag-cloud { padding: 1.2rem 1.4rem; display: flex; flex-wrap: wrap; gap: 0.55rem; }
+
+.tag { background: var(--surface); border: 1px solid var(--border); border-radius: 100px; padding: 0.42rem 1rem; font-size: 0.8rem; color: var(--text); cursor: pointer; transition: all 0.2s; user-select: none; opacity: 0.72; }
+.tag:hover { border-color: rgba(255,255,255,0.3); opacity: 1; }
+.tag.on { opacity: 1; font-weight: 600; transform: scale(1.04); }
+
+/* accent colors */
+.a-gold  .sec-num, .a-gold  .sec-count { color: var(--gold);   }
+.a-teal  .sec-num, .a-teal  .sec-count { color: var(--teal);   }
+.a-rose  .sec-num, .a-rose  .sec-count { color: var(--rose);   }
+.a-viol  .sec-num, .a-viol  .sec-count { color: var(--violet); }
+.a-amb   .sec-num, .a-amb   .sec-count { color: var(--amber);  }
+.a-grn   .sec-num, .a-grn   .sec-count { color: var(--green);  }
+
+.a-gold .sec-icon-ring { background: rgba(212,168,67,0.12); }
+.a-teal .sec-icon-ring { background: rgba(74,191,176,0.12); }
+.a-rose .sec-icon-ring { background: rgba(212,96,122,0.12); }
+.a-viol .sec-icon-ring { background: rgba(139,111,212,0.12);}
+.a-amb  .sec-icon-ring { background: rgba(224,128,64,0.12); }
+.a-grn  .sec-icon-ring { background: rgba(91,175,122,0.12); }
+
+.a-gold .tag.on { background: var(--gold);   border-color: var(--gold);   color: var(--on-gold);   }
+.a-teal .tag.on { background: var(--teal);   border-color: var(--teal);   color: var(--on-teal);   }
+.a-rose .tag.on { background: var(--rose);   border-color: var(--rose);   color: var(--on-rose);   }
+.a-viol .tag.on { background: var(--violet); border-color: var(--violet); color: var(--on-violet); }
+.a-amb  .tag.on { background: var(--amber);  border-color: var(--amber);  color: var(--on-amber);  }
+.a-grn  .tag.on { background: var(--green);  border-color: var(--green);  color: var(--on-green);  }
+
+/* DIVIDER */
+.section-divider { display: flex; align-items: center; gap: 1rem; margin: 2.5rem 0; opacity: 0; transform: translateY(10px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.section-divider.vis { opacity: 1; transform: translateY(0); }
+.div-line { flex: 1; height: 1px; background: var(--border); }
+.div-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+
+/* WRITE SECTIONS */
+.write-section { margin-bottom: 2rem; opacity: 0; transform: translateY(16px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.write-section.vis { opacity: 1; transform: translateY(0); }
+.write-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+.write-icon { font-size: 1.3rem; }
+.write-label { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.15rem; }
+.write-title { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 700; }
+.q-block { margin-bottom: 1.4rem; }
+.q-text { font-size: 0.9rem; font-weight: 500; margin-bottom: 0.4rem; line-height: 1.55; }
+.q-hint { font-size: 0.75rem; color: var(--muted); font-style: italic; margin-bottom: 0.5rem; }
+textarea, input[type=text] { width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 0.8rem 1rem; font-family: 'Outfit', sans-serif; font-size: 0.87rem; color: var(--text); outline: none; resize: vertical; min-height: 80px; line-height: 1.65; transition: border-color 0.25s, box-shadow 0.25s; }
+input[type=text] { min-height: unset; }
+textarea:focus, input[type=text]:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(212,168,67,0.08); background: var(--surface); }
+
+.nav-bottom { display: flex; gap: 0.75rem; margin-top: 2.5rem; flex-wrap: wrap; }
+.btn-nav { flex: 1; min-width: 130px; padding: 0.95rem 1.5rem; border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: all 0.25s; border: 1px solid var(--border); background: transparent; color: var(--muted); }
+.btn-nav:hover { color: var(--text); border-color: rgba(255,255,255,0.25); }
+.btn-nav.primary { background: var(--gold); color: var(--on-gold); border-color: var(--gold); font-weight: 600; }
+.btn-nav.primary:hover { background: var(--gold2); border-color: var(--gold2); box-shadow: 0 8px 24px rgba(212,168,67,0.2); }
+
+/* RESULTS */
+#results { display: none; }
+.results-wrap { max-width: 760px; margin: 0 auto; padding: 3rem 1.25rem 5rem; }
+.results-hero { text-align: center; padding: 2rem 0 3rem; }
+.results-confetti { font-size: 2.5rem; margin-bottom: 1rem; }
+.results-h1 { font-family: 'Fraunces', serif; font-size: clamp(2rem, 7vw, 3.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 0.75rem; }
+.results-h1 em { font-style: italic; font-weight: 300; color: var(--gold); }
+.results-sub { color: var(--muted); font-size: 0.88rem; line-height: 1.7; }
+
+.profile-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+.profile-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.2rem; text-align: center; }
+.profile-card-icon { font-size: 1.8rem; margin-bottom: 0.6rem; }
+.profile-card-title { font-family: 'Fraunces', serif; font-size: 0.9rem; font-weight: 700; margin-bottom: 0.4rem; }
+.profile-card-count { font-size: 2rem; font-weight: 700; font-family: 'Fraunces', serif; line-height: 1; margin-bottom: 0.3rem; }
+.profile-card-sub { font-size: 0.72rem; color: var(--muted); }
+
+.traits-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 1.5rem 1.4rem; margin-bottom: 2.5rem; }
+.traits-title { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 0.25rem; }
+.traits-sub { font-size: 0.78rem; color: var(--muted); margin-bottom: 1.2rem; }
+.bar-item { margin-bottom: 0.9rem; }
+.bar-label { display: flex; justify-content: space-between; font-size: 0.8rem; margin-bottom: 0.3rem; }
+.bar-name { font-weight: 500; color: var(--text); }
+.bar-val { color: var(--muted); }
+.bar-track { height: 6px; background: var(--border); border-radius: 6px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 6px; width: 0; transition: width 0.8s cubic-bezier(0.4,0,0.2,1); }
+
+.tag-summary { margin-bottom: 2.5rem; }
+.tag-summary-title { font-family: 'Fraunces', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 1rem; }
+.summary-block { background: var(--card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin-bottom: 1rem; }
+.summary-head { display: flex; align-items: center; gap: 0.75rem; padding: 0.85rem 1.2rem; background: var(--surface); border-bottom: 1px solid var(--border); }
+.summary-head-name { font-family: 'Fraunces', serif; font-size: 0.95rem; font-weight: 700; }
+.summary-tags { padding: 1rem 1.2rem; display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.s-tag { border-radius: 100px; padding: 0.28rem 0.8rem; font-size: 0.75rem; font-weight: 600; }
+/* s-tag text color per accent — set inline via JS using --on-X vars */
+
+.written-result { background: var(--card); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; margin-bottom: 1.5rem; }
+.wr-head { padding: 0.9rem 1.3rem; background: var(--surface); border-bottom: 1px solid var(--border); font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 700; display: flex; align-items: center; gap: 0.6rem; }
+.wr-item { padding: 0.9rem 1.3rem; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.wr-item:last-child { border-bottom: none; }
+.wr-q { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.3rem; }
+.wr-a { font-size: 0.88rem; color: var(--text); line-height: 1.6; }
+.wr-a.empty { color: var(--muted-soft); font-style: italic; }
+
+.action-row { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2rem; }
+.btn-action { width: 100%; padding: 1rem; border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: all 0.25s; background: var(--gold); color: var(--on-gold); border: 1px solid var(--gold); }
+.btn-action:hover { background: var(--gold2); border-color: var(--gold2); }
+.btn-action.ghost { background: transparent; color: var(--muted); border-color: var(--border); }
+.btn-action.ghost:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+@media print {
+  #cover, #main { display: none !important; }
+  #results { display: block !important; }
+  body { background: #fff; color: #000; }
+  .action-row, .results-confetti { display: none; }
+  .profile-card, .traits-wrap, .summary-block, .written-result { border: 1px solid #ccc !important; background: #fff !important; }
+  .s-tag { border: 1px solid #aaa; color: #000 !important; background: #eee !important; }
+  .results-h1, .profile-card-title, .traits-title, .tag-summary-title, .summary-head-name, .wr-head { color: #000 !important; }
+  .wr-a, .wr-q, .bar-name, .profile-card-sub, .results-sub, .traits-sub { color: #333 !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section id="cover">
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+  <div class="glow g3"></div>
+  <div class="cover-badge">✦ Autoconocimiento · Mi Primer CV</div>
+  <h1 class="cover-h1">¿Quién sos<br><em>realmente?</em></h1>
+  <p class="cover-p">Antes de escribir tu CV, explorá quién sos. Marcá lo que te representa, descubrí tu perfil y después contá tu historia.</p>
+  <div class="name-wrap">
+    <div class="name-label">Tu nombre completo</div>
+    <input type="text" class="name-input" id="studentName" placeholder="Escribí tu nombre…" autocomplete="off">
+  </div>
+  <button class="btn-start" onclick="startApp()">Empezar mi exploración →</button>
+</section>
+
+<!-- MAIN -->
+<section id="main">
+  <div class="page-wrap">
+    <div class="step-header">
+      <div class="step-eyebrow">Tu Mapa Personal · 6 dimensiones</div>
+      <h2 class="step-title">Marcá todo lo que<br><em>te representa</em></h2>
+      <p class="step-sub">Tocá las palabras que sientas que son parte de vos. No hay respuestas correctas — cuanto más honesto/a seas, mejor será tu perfil.</p>
+    </div>
+    <div class="progress-strip" id="progressStrip"></div>
+
+    <!-- SECCIÓN 1: Personalidad -->
+    <div class="map-section a-gold" id="ms1">
+      <div class="sec-head">
+        <div class="sec-icon-ring">🧠</div>
+        <div>
+          <div class="sec-num">Sección 1 · Personalidad y Carácter</div>
+          <div class="sec-name">¿Cómo sos?</div>
+        </div>
+        <div class="sec-count" id="cnt1">0 elegidas</div>
+      </div>
+      <div class="sec-desc">Rasgos de tu forma de ser. Marcá los que genuinamente te identifican.</div>
+      <div class="tag-cloud">
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Curioso/a</span>
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Perfeccionista</span>
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Tranquilo/a</span>
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Apasionado/a</span>
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Observador/a</span>
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Persistente</span>
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Espontáneo/a</span>
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Reflexivo/a</span>
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Divertido/a</span>
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Serio/a</span>
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Honesto/a</span>
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Ambicioso/a</span>
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Humilde</span>
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Seguro/a de mí</span>
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Introvertido/a</span>
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Extrovertido/a</span>
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Adaptable</span>
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Leal</span>
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Disciplinado/a</span>
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Libre</span>
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Sensible</span>
+        <span class="tag" onclick="tog(this,'ms1','cnt1')">Detallista</span>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 2: Habilidades sociales -->
+    <div class="map-section a-teal" id="ms2">
+      <div class="sec-head">
+        <div class="sec-icon-ring">🤝</div>
+        <div>
+          <div class="sec-num">Sección 2 · Habilidades Sociales</div>
+          <div class="sec-name">¿Cómo te relacionás?</div>
+        </div>
+        <div class="sec-count" id="cnt2">0 elegidas</div>
+      </div>
+      <div class="sec-desc">Cómo te vinculás con los demás dice mucho de vos en el trabajo.</div>
+      <div class="tag-cloud">
+        <span class="tag" onclick="tog(this,'ms2','cnt2')">Sé escuchar</span>
+        <span class="tag" onclick="tog(this,'ms2','cnt2')">Me expreso bien</span>
+        <span class="tag" onclick="tog(this,'ms2','cnt2')">Trabajo en equipo</span>
+        <span class="tag" onclick="tog(this,'ms2','cnt2')">Resuelvo conflictos</span>
+        <span class="tag" onclick="tog(this,'ms2','cnt2')">Hago amigos fácil</span>
+        <span class="tag" onclick="tog(this,'ms2','cnt2')">Soy empático/a</span>
+        <span class="tag" onclick="tog(this,'ms2','cnt2')">Lidero grupos</span>
+        <span class="tag" onclick="tog(this,'ms2','cnt2')">Apoyo a los demás</span>
+        <span class="tag" onclick="tog(this,'ms2','cnt2')">Negocio bien</span>
+        <span class="tag" onclick="tog(this,'ms2','cnt2')">Confío en la gente</span>
+        <span class="tag" onclick="tog(this,'ms2','cnt2')">Doy buen clima</span>
+        <span class="tag" onclick="tog(this,'ms2','cnt2')">Soy directo/a</span>
+        <span class="tag" onclick="tog(this,'ms2','cnt2')">Cuido mis vínculos</span>
+        <span class="tag" onclick="tog(this,'ms2','cnt2')">Me adapto a distintas personas</span>
+        <span class="tag" onclick="tog(this,'ms2','cnt2')">Respeto las diferencias</span>
+        <span class="tag" onclick="tog(this,'ms2','cnt2')">Soy buen/a compañero/a</span>
+        <span class="tag" onclick="tog(this,'ms2','cnt2')">Genero confianza</span>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 3: Forma de trabajar -->
+    <div class="map-section a-rose" id="ms3">
+      <div class="sec-head">
+        <div class="sec-icon-ring">📚</div>
+        <div>
+          <div class="sec-num">Sección 3 · Forma de Trabajar y Estudiar</div>
+          <div class="sec-name">¿Cómo rendís?</div>
+        </div>
+        <div class="sec-count" id="cnt3">0 elegidas</div>
+      </div>
+      <div class="sec-desc">Tu estilo de trabajo es una fortaleza real. Marcá lo que se acerca a tu manera de encarar las tareas.</div>
+      <div class="tag-cloud">
+        <span class="tag" onclick="tog(this,'ms3','cnt3')">Me organizo bien</span>
+        <span class="tag" onclick="tog(this,'ms3','cnt3')">Soy puntual</span>
+        <span class="tag" onclick="tog(this,'ms3','cnt3')">Entrego en tiempo</span>
+        <span class="tag" onclick="tog(this,'ms3','cnt3')">Aprendo rápido</span>
+        <span class="tag" onclick="tog(this,'ms3','cnt3')">Me esfuerzo</span>
+        <span class="tag" onclick="tog(this,'ms3','cnt3')">Me concentro fácil</span>
+        <span class="tag" onclick="tog(this,'ms3','cnt3')">Trabajo bajo presión</span>
+        <span class="tag" onclick="tog(this,'ms3','cnt3')">Soy metódico/a</span>
+        <span class="tag" onclick="tog(this,'ms3','cnt3')">Tomo la iniciativa</span>
+        <span class="tag" onclick="tog(this,'ms3','cnt3')">Busco soluciones</span>
+        <span class="tag" onclick="tog(this,'ms3','cnt3')">Me autoevalúo</span>
+        <span class="tag" onclick="tog(this,'ms3','cnt3')">Soy multitarea</span>
+        <span class="tag" onclick="tog(this,'ms3','cnt3')">Me gusta el orden</span>
+        <span class="tag" onclick="tog(this,'ms3','cnt3')">Priorizo bien</span>
+        <span class="tag" onclick="tog(this,'ms3','cnt3')">Soy responsable</span>
+        <span class="tag" onclick="tog(this,'ms3','cnt3')">Pido ayuda cuando la necesito</span>
+        <span class="tag" onclick="tog(this,'ms3','cnt3')">Termino lo que empiezo</span>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 4: Valores -->
+    <div class="map-section a-viol" id="ms4">
+      <div class="sec-head">
+        <div class="sec-icon-ring">🌟</div>
+        <div>
+          <div class="sec-num">Sección 4 · Valores y Actitudes</div>
+          <div class="sec-name">¿Qué te mueve?</div>
+        </div>
+        <div class="sec-count" id="cnt4">0 elegidas</div>
+      </div>
+      <div class="sec-desc">Los valores son los motores que guían tus decisiones. Elegí los que más te representan.</div>
+      <div class="tag-cloud">
+        <span class="tag" onclick="tog(this,'ms4','cnt4')">Justicia</span>
+        <span class="tag" onclick="tog(this,'ms4','cnt4')">Respeto</span>
+        <span class="tag" onclick="tog(this,'ms4','cnt4')">Compromiso</span>
+        <span class="tag" onclick="tog(this,'ms4','cnt4')">Solidaridad</span>
+        <span class="tag" onclick="tog(this,'ms4','cnt4')">Superación</span>
+        <span class="tag" onclick="tog(this,'ms4','cnt4')">Familia</span>
+        <span class="tag" onclick="tog(this,'ms4','cnt4')">Libertad</span>
+        <span class="tag" onclick="tog(this,'ms4','cnt4')">Honestidad</span>
+        <span class="tag" onclick="tog(this,'ms4','cnt4')">Esfuerzo</span>
+        <span class="tag" onclick="tog(this,'ms4','cnt4')">Creatividad</span>
+        <span class="tag" onclick="tog(this,'ms4','cnt4')">Igualdad</span>
+        <span class="tag" onclick="tog(this,'ms4','cnt4')">Excelencia</span>
+        <span class="tag" onclick="tog(this,'ms4','cnt4')">Cuidado del otro</span>
+        <span class="tag" onclick="tog(this,'ms4','cnt4')">Responsabilidad</span>
+        <span class="tag" onclick="tog(this,'ms4','cnt4')">Bien común</span>
+        <span class="tag" onclick="tog(this,'ms4','cnt4')">Lealtad</span>
+        <span class="tag" onclick="tog(this,'ms4','cnt4')">Aprendizaje continuo</span>
+        <span class="tag" onclick="tog(this,'ms4','cnt4')">Integridad</span>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 5: Inteligencia Emocional -->
+    <div class="map-section a-amb" id="ms5">
+      <div class="sec-head">
+        <div class="sec-icon-ring">❤️</div>
+        <div>
+          <div class="sec-num">Sección 5 · Inteligencia Emocional</div>
+          <div class="sec-name">¿Cómo manejás tus emociones?</div>
+        </div>
+        <div class="sec-count" id="cnt5">0 elegidas</div>
+      </div>
+      <div class="sec-desc">La inteligencia emocional es cada vez más valorada en el mundo laboral. Marcá lo que podés hacer.</div>
+      <div class="tag-cloud">
+        <span class="tag" onclick="tog(this,'ms5','cnt5')">Reconozco mis emociones</span>
+        <span class="tag" onclick="tog(this,'ms5','cnt5')">Me calmo ante el estrés</span>
+        <span class="tag" onclick="tog(this,'ms5','cnt5')">No me rindo fácil</span>
+        <span class="tag" onclick="tog(this,'ms5','cnt5')">Acepto críticas</span>
+        <span class="tag" onclick="tog(this,'ms5','cnt5')">Me recupero de los errores</span>
+        <span class="tag" onclick="tog(this,'ms5','cnt5')">Entiendo a los demás</span>
+        <span class="tag" onclick="tog(this,'ms5','cnt5')">Controlo mis impulsos</span>
+        <span class="tag" onclick="tog(this,'ms5','cnt5')">Soy positivo/a</span>
+        <span class="tag" onclick="tog(this,'ms5','cnt5')">Pido perdón cuando me equivoco</span>
+        <span class="tag" onclick="tog(this,'ms5','cnt5')">Me cuido</span>
+        <span class="tag" onclick="tog(this,'ms5','cnt5')">Soy resiliente</span>
+        <span class="tag" onclick="tog(this,'ms5','cnt5')">Gestiono la frustración</span>
+        <span class="tag" onclick="tog(this,'ms5','cnt5')">Tengo autoconfianza</span>
+        <span class="tag" onclick="tog(this,'ms5','cnt5')">Me motivo solo/a</span>
+        <span class="tag" onclick="tog(this,'ms5','cnt5')">Soy paciente</span>
+        <span class="tag" onclick="tog(this,'ms5','cnt5')">Pido ayuda cuando la necesito</span>
+      </div>
+    </div>
+
+    <!-- SECCIÓN 6: Creatividad -->
+    <div class="map-section a-grn" id="ms6">
+      <div class="sec-head">
+        <div class="sec-icon-ring">💡</div>
+        <div>
+          <div class="sec-num">Sección 6 · Creatividad e Innovación</div>
+          <div class="sec-name">¿Cómo pensás?</div>
+        </div>
+        <div class="sec-count" id="cnt6">0 elegidas</div>
+      </div>
+      <div class="sec-desc">El pensamiento creativo es una de las habilidades más buscadas hoy. Marcá las formas en que tu mente trabaja.</div>
+      <div class="tag-cloud">
+        <span class="tag" onclick="tog(this,'ms6','cnt6')">Tengo ideas originales</span>
+        <span class="tag" onclick="tog(this,'ms6','cnt6')">Pienso diferente</span>
+        <span class="tag" onclick="tog(this,'ms6','cnt6')">Me gusta experimentar</span>
+        <span class="tag" onclick="tog(this,'ms6','cnt6')">Encuentro soluciones nuevas</span>
+        <span class="tag" onclick="tog(this,'ms6','cnt6')">Conecto ideas distintas</span>
+        <span class="tag" onclick="tog(this,'ms6','cnt6')">Me adapto a los cambios</span>
+        <span class="tag" onclick="tog(this,'ms6','cnt6')">Imagino lo que no existe</span>
+        <span class="tag" onclick="tog(this,'ms6','cnt6')">Disfruto los desafíos</span>
+        <span class="tag" onclick="tog(this,'ms6','cnt6')">Me pregunto el porqué</span>
+        <span class="tag" onclick="tog(this,'ms6','cnt6')">Propongo mejoras</span>
+        <span class="tag" onclick="tog(this,'ms6','cnt6')">Me gusta diseñar</span>
+        <span class="tag" onclick="tog(this,'ms6','cnt6')">Improviso bien</span>
+        <span class="tag" onclick="tog(this,'ms6','cnt6')">Busco lo distinto</span>
+        <span class="tag" onclick="tog(this,'ms6','cnt6')">Pienso en grande</span>
+        <span class="tag" onclick="tog(this,'ms6','cnt6')">Aprendo de lo que no funciona</span>
+        <span class="tag" onclick="tog(this,'ms6','cnt6')">Veo oportunidades</span>
+      </div>
+    </div>
+
+    <!-- DIVIDER -->
+    <div class="section-divider" id="divider">
+      <div class="div-line"></div>
+      <div class="div-label">✦ Ahora contá un poco más ✦</div>
+      <div class="div-line"></div>
+    </div>
+
+    <!-- ESCRITURA 1 -->
+    <div class="write-section" id="ws1">
+      <div class="write-head">
+        <span class="write-icon">💪</span>
+        <div>
+          <div class="write-label">Sección escrita 1 de 4</div>
+          <div class="write-title">Habilidades y Fortalezas</div>
+        </div>
+      </div>
+      <div class="q-block">
+        <div class="q-text">1. ¿Cuáles son las tres cosas que hacés mejor? Pueden ser académicas, deportivas, artísticas o de cualquier tipo.</div>
+        <div class="q-hint">Ej: organizarme, escuchar a los demás, resolver problemas con la compu…</div>
+        <textarea id="q1" placeholder="Escribí tus tres fortalezas…"></textarea>
+      </div>
+      <div class="q-block">
+        <div class="q-text">2. ¿Qué habilidades tecnológicas tenés?</div>
+        <div class="tag-cloud" style="padding:0;margin-top:0.5rem">
+          <span class="tag a-gold" onclick="togChip(this,'tech')">Office (Word, Excel)</span>
+          <span class="tag a-gold" onclick="togChip(this,'tech')">Redes sociales</span>
+          <span class="tag a-gold" onclick="togChip(this,'tech')">Diseño gráfico</span>
+          <span class="tag a-gold" onclick="togChip(this,'tech')">Fotografía / Video</span>
+          <span class="tag a-gold" onclick="togChip(this,'tech')">Programación</span>
+          <span class="tag a-gold" onclick="togChip(this,'tech')">Edición de audio</span>
+          <span class="tag a-gold" onclick="togChip(this,'tech')">Manejo de internet</span>
+          <span class="tag a-gold" onclick="togChip(this,'tech')">Otra</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ESCRITURA 2 -->
+    <div class="write-section" id="ws2">
+      <div class="write-head">
+        <span class="write-icon">🏆</span>
+        <div>
+          <div class="write-label">Sección escrita 2 de 4</div>
+          <div class="write-title">Experiencias y Logros</div>
+        </div>
+      </div>
+      <div class="q-block">
+        <div class="q-text">3. ¿Tuviste alguna experiencia laboral, aunque sea informal? (cuidado de personas, ventas, ayuda familiar…)</div>
+        <textarea id="q3" placeholder="Describí brevemente qué hiciste…"></textarea>
+      </div>
+      <div class="q-block">
+        <div class="q-text">4. ¿Participaste en alguna actividad extracurricular?</div>
+        <div class="tag-cloud" style="padding:0;margin-top:0.5rem">
+          <span class="tag a-teal" onclick="togChip(this,'act')">Deporte</span>
+          <span class="tag a-teal" onclick="togChip(this,'act')">Arte / Música</span>
+          <span class="tag a-teal" onclick="togChip(this,'act')">Teatro / Danza</span>
+          <span class="tag a-teal" onclick="togChip(this,'act')">Voluntariado</span>
+          <span class="tag a-teal" onclick="togChip(this,'act')">Centro de estudiantes</span>
+          <span class="tag a-teal" onclick="togChip(this,'act')">Curso / Taller</span>
+          <span class="tag a-teal" onclick="togChip(this,'act')">Emprendimiento propio</span>
+          <span class="tag a-teal" onclick="togChip(this,'act')">Ninguna aún</span>
+        </div>
+      </div>
+      <div class="q-block">
+        <div class="q-text">5. Contá un logro del que te sentís orgulloso/a. Puede ser pequeño.</div>
+        <div class="q-hint">Ej: aprendí a manejar, terminé algo difícil, ayudé a alguien de verdad…</div>
+        <textarea id="q5" placeholder="Tu logro…"></textarea>
+      </div>
+    </div>
+
+    <!-- ESCRITURA 3 -->
+    <div class="write-section" id="ws3">
+      <div class="write-head">
+        <span class="write-icon">🌿</span>
+        <div>
+          <div class="write-label">Sección escrita 3 de 4</div>
+          <div class="write-title">Valores e Intereses</div>
+        </div>
+      </div>
+      <div class="q-block">
+        <div class="q-text">6. ¿Qué es lo más importante para vos en un trabajo? Elegí hasta 3.</div>
+        <div class="tag-cloud" style="padding:0;margin-top:0.5rem">
+          <span class="tag a-viol" onclick="togChip(this,'val')">Ganar bien</span>
+          <span class="tag a-viol" onclick="togChip(this,'val')">Horario flexible</span>
+          <span class="tag a-viol" onclick="togChip(this,'val')">Buen equipo</span>
+          <span class="tag a-viol" onclick="togChip(this,'val')">Ayudar a otros</span>
+          <span class="tag a-viol" onclick="togChip(this,'val')">Aprender siempre</span>
+          <span class="tag a-viol" onclick="togChip(this,'val')">Estabilidad</span>
+          <span class="tag a-viol" onclick="togChip(this,'val')">Creatividad</span>
+          <span class="tag a-viol" onclick="togChip(this,'val')">Reconocimiento</span>
+        </div>
+      </div>
+      <div class="q-block">
+        <div class="q-text">7. ¿Qué temas o actividades te apasionan más allá del colegio?</div>
+        <textarea id="q7" placeholder="Ej: tecnología, cocina, moda, animales, fútbol, música…"></textarea>
+      </div>
+      <div class="q-block">
+        <div class="q-text">8. ¿Cómo te describirían tus amigos o familia en una sola frase?</div>
+        <input type="text" id="q8" placeholder="Ej: siempre dispuesto a ayudar, muy creativo…">
+      </div>
+    </div>
+
+    <!-- ESCRITURA 4 -->
+    <div class="write-section" id="ws4">
+      <div class="write-head">
+        <span class="write-icon">🎯</span>
+        <div>
+          <div class="write-label">Sección escrita 4 de 4</div>
+          <div class="write-title">Objetivos y Metas Laborales</div>
+        </div>
+      </div>
+      <div class="q-block">
+        <div class="q-text">9. ¿En qué área o rubro te gustaría trabajar cuando terminés el colegio?</div>
+        <div class="q-hint">Si no estás seguro/a, escribí varias opciones o "todavía no lo sé".</div>
+        <textarea id="q9" placeholder="Ej: gastronomía, comercio, tecnología, salud…"></textarea>
+      </div>
+      <div class="q-block">
+        <div class="q-text">10. ¿Qué tipo de trabajo preferís?</div>
+        <div class="tag-cloud" style="padding:0;margin-top:0.5rem">
+          <span class="tag a-amb" onclick="togChip(this,'job')">En oficina</span>
+          <span class="tag a-amb" onclick="togChip(this,'job')">Al aire libre</span>
+          <span class="tag a-amb" onclick="togChip(this,'job')">Con personas</span>
+          <span class="tag a-amb" onclick="togChip(this,'job')">Con computadora</span>
+          <span class="tag a-amb" onclick="togChip(this,'job')">Con mis manos</span>
+          <span class="tag a-amb" onclick="togChip(this,'job')">Desde casa</span>
+          <span class="tag a-amb" onclick="togChip(this,'job')">Emprendimiento propio</span>
+        </div>
+      </div>
+      <div class="q-block">
+        <div class="q-text">11. ¿Hay algo más que quieras que un empleador sepa sobre vos?</div>
+        <textarea id="q11" placeholder="Cualquier cosa que te parezca importante contar…"></textarea>
+      </div>
+    </div>
+
+    <div class="nav-bottom">
+      <button class="btn-nav" onclick="goHome()">← Inicio</button>
+      <button class="btn-nav primary" onclick="showResults()">Ver mi perfil →</button>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results">
+  <div class="results-wrap">
+    <div class="results-hero">
+      <div class="results-confetti">🌟</div>
+      <h2 class="results-h1" id="resultsTitle">Tu <em>perfil</em> personal</h2>
+      <p class="results-sub">Este resumen refleja quién sos hoy. Usalo como base para tu CV y para hablar de vos en una entrevista.</p>
+    </div>
+    <div class="profile-grid" id="profileGrid"></div>
+    <div class="traits-wrap">
+      <div class="traits-title">Tus áreas más fuertes</div>
+      <div class="traits-sub">Cantidad de rasgos marcados por categoría</div>
+      <div id="traitBars"></div>
+    </div>
+    <div class="tag-summary">
+      <div class="tag-summary-title">Tus palabras clave</div>
+      <div id="tagSummaryContent"></div>
+    </div>
+    <div id="writtenSummary"></div>
+    <div class="action-row">
+      <button class="btn-action" onclick="window.print()">🖨️ Imprimir / Guardar como PDF</button>
+      <button class="btn-action ghost" onclick="restart()">↺ Volver a empezar</button>
+    </div>
+  </div>
+</section>
+
+<script>
+const chipState = {};
+
+const MAP_SECS = [
+  { id:'ms1', cntId:'cnt1', label:'Personalidad y Carácter',     icon:'🧠', color:'var(--gold)',   textColor:'var(--on-gold)'   },
+  { id:'ms2', cntId:'cnt2', label:'Habilidades Sociales',         icon:'🤝', color:'var(--teal)',   textColor:'var(--on-teal)'   },
+  { id:'ms3', cntId:'cnt3', label:'Forma de Trabajar',            icon:'📚', color:'var(--rose)',   textColor:'var(--on-rose)'   },
+  { id:'ms4', cntId:'cnt4', label:'Valores y Actitudes',          icon:'🌟', color:'var(--violet)', textColor:'var(--on-violet)' },
+  { id:'ms5', cntId:'cnt5', label:'Inteligencia Emocional',       icon:'❤️', color:'var(--amber)',  textColor:'var(--on-amber)'  },
+  { id:'ms6', cntId:'cnt6', label:'Creatividad e Innovación',     icon:'💡', color:'var(--green)',  textColor:'var(--on-green)'  },
+];
+
+function buildProgress() {
+  const strip = document.getElementById('progressStrip');
+  const total = 10;
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('div');
+    d.className = 'pd'; d.id = 'pd' + i;
+    strip.appendChild(d);
+  }
+}
+
+function updateProgress() {
+  MAP_SECS.forEach((sec, i) => {
+    const c = document.querySelectorAll(`#${sec.id} .tag.on`).length;
+    const dot = document.getElementById('pd' + i);
+    if (dot) dot.classList.toggle('done', c > 0);
+  });
+  const wIds = ['q1','q3','q7','q9'];
+  wIds.forEach((id, i) => {
+    const el = document.getElementById(id);
+    const dot = document.getElementById('pd' + (6 + i));
+    if (dot && el) dot.classList.toggle('done', el.value.trim().length > 0);
+  });
+}
+
+function tog(el, secId, cntId) {
+  el.classList.toggle('on');
+  const c = document.querySelectorAll(`#${secId} .tag.on`).length;
+  document.getElementById(cntId).textContent = c + (c === 1 ? ' elegida' : ' elegidas');
+  updateProgress();
+}
+
+function togChip(el, group) {
+  el.classList.toggle('on');
+  if (!chipState[group]) chipState[group] = [];
+  const val = el.textContent;
+  if (el.classList.contains('on')) { if (!chipState[group].includes(val)) chipState[group].push(val); }
+  else chipState[group] = chipState[group].filter(v => v !== val);
+}
+
+function startApp() {
+  document.getElementById('cover').style.display = 'none';
+  document.getElementById('main').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(() => {
+    const els = document.querySelectorAll('.map-section, .section-divider, .write-section');
+    els.forEach((el, i) => setTimeout(() => el.classList.add('vis'), i * 70));
+  }, 80);
+}
+
+function goHome() {
+  document.getElementById('main').style.display = 'none';
+  document.getElementById('cover').style.display = 'flex';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function showResults() {
+  document.getElementById('main').style.display = 'none';
+  document.getElementById('results').style.display = 'block';
+  buildResults();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function gv(id) { const el = document.getElementById(id); return el && el.value.trim() ? el.value.trim() : null; }
+function gc(g) { return (chipState[g] || []); }
+function gcs(g) { const c = gc(g); return c.length ? c.join(', ') : null; }
+
+function buildResults() {
+  const name = document.getElementById('studentName').value.trim() || 'Estudiante';
+  document.getElementById('resultsTitle').innerHTML = `El perfil de<br><em>${name}</em>`;
+
+  const counts = MAP_SECS.map(s => document.querySelectorAll(`#${s.id} .tag.on`).length);
+  const total = counts.reduce((a,b) => a+b, 0);
+  const maxIdx = counts.indexOf(Math.max(...counts));
+  const maxSec = MAP_SECS[maxIdx];
+  const areasActivas = counts.filter(c => c > 0).length;
+
+  // Grid
+  document.getElementById('profileGrid').innerHTML = `
+    <div class="profile-card">
+      <div class="profile-card-icon">🏷️</div>
+      <div class="profile-card-title">Rasgos marcados</div>
+      <div class="profile-card-count" style="color:var(--gold)">${total}</div>
+      <div class="profile-card-sub">en total</div>
+    </div>
+    <div class="profile-card">
+      <div class="profile-card-icon">${maxSec.icon}</div>
+      <div class="profile-card-title">Área dominante</div>
+      <div class="profile-card-count" style="color:${maxSec.color};font-size:1rem;margin:0.5rem 0">${maxSec.label}</div>
+      <div class="profile-card-sub">${counts[maxIdx]} rasgos elegidos</div>
+    </div>
+    <div class="profile-card">
+      <div class="profile-card-icon">📋</div>
+      <div class="profile-card-title">Áreas exploradas</div>
+      <div class="profile-card-count" style="color:var(--teal)">${areasActivas}</div>
+      <div class="profile-card-sub">de 6 categorías</div>
+    </div>`;
+
+  // Bars
+  const maxC = Math.max(...counts, 1);
+  document.getElementById('traitBars').innerHTML = MAP_SECS.map((s, i) => `
+    <div class="bar-item">
+      <div class="bar-label">
+        <span class="bar-name">${s.icon} ${s.label}</span>
+        <span class="bar-val">${counts[i]}</span>
+      </div>
+      <div class="bar-track">
+        <div class="bar-fill" style="background:${s.color}" data-w="${Math.round((counts[i]/maxC)*100)}"></div>
+      </div>
+    </div>`).join('');
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    document.querySelectorAll('.bar-fill').forEach(b => b.style.width = b.dataset.w + '%');
+  }));
+
+  // Tag summary
+  const tsc = document.getElementById('tagSummaryContent');
+  tsc.innerHTML = '';
+  MAP_SECS.forEach(s => {
+    const sel = Array.from(document.querySelectorAll(`#${s.id} .tag.on`)).map(t => t.textContent);
+    if (!sel.length) return;
+    tsc.innerHTML += `<div class="summary-block">
+      <div class="summary-head"><span>${s.icon}</span><span class="summary-head-name">${s.label}</span></div>
+      <div class="summary-tags">${sel.map(t => `<span class="s-tag" style="background:${s.color};color:${s.textColor}">${t}</span>`).join('')}</div>
+    </div>`;
+  });
+
+  // Written
+  const ws = document.getElementById('writtenSummary');
+  ws.innerHTML = '<div style="font-family:\'Fraunces\',serif;font-size:1.2rem;font-weight:700;margin:2rem 0 1rem">Tus respuestas escritas</div>';
+  const wSecs = [
+    { icon:'💪', title:'Habilidades y Fortalezas', items:[
+      { q:'Mis tres fortalezas', a: gv('q1') },
+      { q:'Habilidades tecnológicas', a: gcs('tech') },
+    ]},
+    { icon:'🏆', title:'Experiencias y Logros', items:[
+      { q:'Experiencia laboral informal', a: gv('q3') },
+      { q:'Actividades extracurriculares', a: gcs('act') },
+      { q:'Un logro personal', a: gv('q5') },
+    ]},
+    { icon:'🌿', title:'Valores e Intereses', items:[
+      { q:'Lo más importante en un trabajo', a: gcs('val') },
+      { q:'Temas que me apasionan', a: gv('q7') },
+      { q:'Cómo me describen los demás', a: gv('q8') },
+    ]},
+    { icon:'🎯', title:'Objetivos Laborales', items:[
+      { q:'Área en la que quiero trabajar', a: gv('q9') },
+      { q:'Tipo de trabajo preferido', a: gcs('job') },
+      { q:'Lo que quiero que sepan de mí', a: gv('q11') },
+    ]},
+  ];
+  wSecs.forEach(sec => {
+    ws.innerHTML += `<div class="written-result">
+      <div class="wr-head"><span>${sec.icon}</span>${sec.title}</div>
+      ${sec.items.map(it => `<div class="wr-item">
+        <div class="wr-q">${it.q}</div>
+        <div class="wr-a ${!it.a?'empty':''}">${it.a||'Sin respuesta'}</div>
+      </div>`).join('')}
+    </div>`;
+  });
+}
+
+function restart() {
+  document.getElementById('results').style.display = 'none';
+  document.getElementById('cover').style.display = 'flex';
+  document.getElementById('studentName').value = '';
+  document.querySelectorAll('.tag.on').forEach(t => t.classList.remove('on'));
+  document.querySelectorAll('textarea, input[type=text]').forEach(t => t.value = '');
+  MAP_SECS.forEach(s => document.getElementById(s.cntId).textContent = '0 elegidas');
+  Object.keys(chipState).forEach(k => chipState[k] = []);
+  document.querySelectorAll('.pd').forEach(d => d.classList.remove('done'));
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+buildProgress();
+document.querySelectorAll('textarea, input[type=text]').forEach(el => el.addEventListener('input', updateProgress));
+</script>
+</body>
+</html>
