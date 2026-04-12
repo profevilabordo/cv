@@ -575,37 +575,32 @@ content.innerHTML = html;
 // ============================================================================
 // FUNCIONES DE LOGIN
 // ============================================================================
-function getDayOfYear(){
-  var now = new Date();
-  var start = new Date(now.getFullYear(), 0, 0);
-  var diff = now - start;
-  var oneDay = 1000 * 60 * 60 * 24;
-  return Math.floor(diff / oneDay);
+async function hashClave(string) {
+  const utf8 = new TextEncoder().encode(string);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', utf8);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
-function getTodayPassword(){
-  var dayNum = getDayOfYear();
-  var code = dayNum * 27;
-  return "campusvvb" + code;
-}
-
-function checkLogin(){
+async function checkLogin(){
   var input = document.getElementById("loginInput").value.trim().toLowerCase();
-  var correct = getTodayPassword();
+  var hash = await hashClave(input);
   
-  // Clave docente especial: 1126
-  if(input === "1126"){
-    sessionStorage.setItem("campus_auth", "1126");
+  var hashDocente = "5817ae4948371f9b6b7d94615c0704e6a13ba5a773938351ebd832d0fcdbdf2f"; // 1126
+  var hashAlumno = "afcf1117d0035e556f4b1a57453516cd247feb68ab616e780199637821d7172a"; // campusvvb2026
+
+  // Clave docente
+  if(hash === hashDocente){
+    sessionStorage.setItem("campus_auth", hashDocente);
     sessionStorage.setItem("is_docente", "true");
     document.getElementById("loginOverlay").style.display = "none";
     mostrarSaludo("Profe", true);
     return;
   }
   
-  // Clave alumno (diaria)
-  if(input === correct){
-    sessionStorage.setItem("campus_auth", correct);
-    // NO cerrar loginOverlay todavía, solo ocultarlo y mostrar modal ciudad
+  // Clave alumno
+  if(hash === hashAlumno){
+    sessionStorage.setItem("campus_auth", hashAlumno);
     document.getElementById("loginOverlay").style.display = "none";
     mostrarModalCiudad();
   } else {
@@ -618,8 +613,8 @@ function checkLogin(){
   }
 }
 
-document.getElementById("loginInput").addEventListener("keypress", function(e){
-  if(e.key === "Enter") checkLogin();
+document.getElementById("loginInput").addEventListener("keypress", async function(e){
+  if(e.key === "Enter") await checkLogin();
 });
 
 // ============================================================================
@@ -692,9 +687,7 @@ function mostrarSaludo(nombre, esDocente){
   var areaDocente = document.getElementById("areaDocente");
   
   if(esDocente){
-    var dayNum = getDayOfYear();
-    var pass = getTodayPassword();
-    saludoText.innerHTML = "👨‍🏫 Hola Profe <span style='opacity:0.75;margin-left:12px;font-weight:400;font-size:12px;display:inline-flex;align-items:center;gap:8px'>| 📅 Día " + dayNum + " · 🔑 Clave alumnos: <code style='background:rgba(167,139,250,0.15);padding:2px 8px;border-radius:6px;color:#A78BFA;font-weight:700;border:1px solid rgba(167,139,250,0.3)'>" + pass + "</code></span>";
+    saludoText.innerHTML = "👨‍🏫 Hola Profe <span style='opacity:0.75;margin-left:12px;font-weight:400;font-size:12px;display:inline-flex;align-items:center;gap:8px'>| 🔑 Clave alumnos: <code style='background:rgba(167,139,250,0.15);padding:2px 8px;border-radius:6px;color:#A78BFA;font-weight:700;border:1px solid rgba(167,139,250,0.3)'>campusvvb2026</code></span>";
     btnPanel.style.display = "inline-flex";
     areaDocente.style.display = "block";
   } else {
@@ -722,10 +715,13 @@ function logout(){
 // VERIFICACIÓN INICIAL
 // ============================================================================
 var authActual = sessionStorage.getItem("campus_auth");
-if(authActual === getTodayPassword() || authActual === "1126"){
+var hashDocente = "5817ae4948371f9b6b7d94615c0704e6a13ba5a773938351ebd832d0fcdbdf2f";
+var hashAlumno = "afcf1117d0035e556f4b1a57453516cd247feb68ab616e780199637821d7172a";
+
+if(authActual === hashAlumno || authActual === hashDocente){
   document.getElementById("loginOverlay").style.display = "none";
   
-  if(authActual === "1126"){
+  if(authActual === hashDocente){
     // Es docente
     mostrarSaludo("Profe", true);
   } else {

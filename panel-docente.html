@@ -285,7 +285,7 @@ var SUPABASE_URL = "https://ygafevogfxwupmgwksto.supabase.co";
 var SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlnYWZldm9nZnh3dXBtZ3drc3RvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MDA5NDMsImV4cCI6MjA4ODI3Njk0M30.5LoSWrwtFCR4qoQnmNY6UZB1SuiVpx-G9N1AG6cOev8";
 // ============================================================
 
-var CLAVE_DOCENTE = "1126";
+var hashDocente = "5817ae4948371f9b6b7d94615c0704e6a13ba5a773938351ebd832d0fcdbdf2f";
 
 var allAlumnos = [];
 var allProgreso = [];
@@ -331,9 +331,18 @@ function countUniqueAct(progArray){
 }
 
 // ----- AUTH -----
-function checkLogin(){
+async function hashClave(string) {
+  const utf8 = new TextEncoder().encode(string);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', utf8);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+async function checkLogin(){
   var val = document.getElementById("loginInput").value.trim();
-  if(val === CLAVE_DOCENTE){
+  var hash = await hashClave(val);
+  
+  if(hash === hashDocente){
     document.getElementById("loginOverlay").style.display = "none";
     document.getElementById("appPanel").style.display = "block";
     sessionStorage.setItem("docente_auth","ok");
@@ -343,7 +352,7 @@ function checkLogin(){
     setTimeout(function(){ document.getElementById("loginError").style.display = "none"; }, 2500);
   }
 }
-document.getElementById("loginInput").addEventListener("keypress", function(e){ if(e.key==="Enter") checkLogin(); });
+document.getElementById("loginInput").addEventListener("keypress", async function(e){ if(e.key==="Enter") await checkLogin(); });
 if(sessionStorage.getItem("docente_auth")==="ok"){
   document.getElementById("loginOverlay").style.display = "none";
   document.getElementById("appPanel").style.display = "block";
@@ -761,8 +770,8 @@ function renderProgreso(){
         var secsInProceso = [];
         
         var prefixes = {
-          "umbral":/^u[1-3]/, "mapa":/^m[1-3]/, "nucleo_a":/^na/, "nucleo_b":/^nb/, 
-          "nucleo_c":/^nc/, "senales":/^s[1-3]/, "sabias":/^sb[1-3]/, "cruces":/^cr[1-3]/, 
+          "umbral":/^u[1-3]/, "mapa":/^m[1-3]/, "nucleo_a":/^nucleo_a/, "nucleo_b":/^nucleo_b/, 
+          "nucleo_c":/^nucleo_c/, "senales":/^(s[1-3]|senales)/, "sabias":/^sb[1-3]/, "cruces":/^cr[1-3]/, 
           "relectura":/^re[1-3]/, "emocional":/^em[1-3]/, "autotest":/^at/, "cierre":/^ci/
         };
         
@@ -1353,8 +1362,8 @@ async function verDetalle(progId, forcedSection){
       var filtered = {};
       var prefixes = {
         "umbral":/^u[0-9]+|u2[st]|u3v|umbral/, "mapa":/^m[123]|mapa/, 
-        "nucleo_a":/^na|nucleo_a/, "nucleo_b":/^nb|nucleo_b/, 
-        "nucleo_c":/^nc|nucleo_c/, "senales":/^(s[1-3]|senales)/, 
+        "nucleo_a":/^nucleo_a/, "nucleo_b":/^nucleo_b/, 
+        "nucleo_c":/^nucleo_c/, "senales":/^(s[1-3]|senales)/, 
         "sabias":/^sb[1-3]|sabias/, "cruces":/^cr[1-3]|cruce/, 
         "relectura":/^re[1-3]|relectura/, "emocional":/^em[1-3]|e[1-3]|emocional/, 
         "autotest":/^at|autotest/, "cierre":/^ci|cierre/
@@ -1733,8 +1742,8 @@ function renderGridAvance(codigo, materia, unidad){
     
     // Ver si tiene algo en el estado aunque no esté marcado como completado
     var prefixes = {
-      "umbral":/u[1-3]|umbral/, "mapa":/m[1-3]|mapa/, "nucleo_a":/na|nucleo_a/, "nucleo_b":/nb|nucleo_b/, 
-      "nucleo_c":/nc|nucleo_c/, "senales":/^(s[1-3]|senales)/, "sabias":/sb[1-3]|sabias/, "cruces":/cr[1-3]|cruces/, 
+      "umbral":/u[1-3]|umbral/, "mapa":/m[1-3]|mapa/, "nucleo_a":/nucleo_a/, "nucleo_b":/nucleo_b/, 
+      "nucleo_c":/nucleo_c/, "senales":/^(s[1-3]|senales)/, "sabias":/sb[1-3]|sabias/, "cruces":/cr[1-3]|cruces/, 
       "relectura":/re[1-3]|relectura/, "emocional":/em[1-3]|e[1-3]|emocional/, "autotest":/at|autotest/, "cierre":/ci[123]|cierre/
     };
     var reg = prefixes[sec];

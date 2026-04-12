@@ -89,17 +89,11 @@ body{padding-top:52px}
 <script>
 
 // Auth check - redirect to index if not authenticated
-function getDayOfYear(){
-  var now = new Date();
-  var start = new Date(now.getFullYear(), 0, 0);
-  var diff = now - start;
-  return Math.floor(diff / (1000*60*60*24));
-}
-function getTodayPassword(){
-  return "campusvvb" + (getDayOfYear() * 27);
-}
 var auth = sessionStorage.getItem("campus_auth");
-if(auth !== getTodayPassword() && auth !== "1126"){
+var hashDocente = "5817ae4948371f9b6b7d94615c0704e6a13ba5a773938351ebd832d0fcdbdf2f";
+var hashAlumno = "afcf1117d0035e556f4b1a57453516cd247feb68ab616e780199637821d7172a";
+
+if(auth !== hashDocente && auth !== hashAlumno){
   window.location.href = "index.html";
 }
 var D = null;
@@ -279,7 +273,8 @@ function render(){
   var t=TABS[CT];
   
   // 👤 Obtener info del usuario
-  var esDocente = sessionStorage.getItem("campus_auth") === "1126" || sessionStorage.getItem("is_docente") === "true";
+  var hashDocente = "5817ae4948371f9b6b7d94615c0704e6a13ba5a773938351ebd832d0fcdbdf2f";
+  var esDocente = sessionStorage.getItem("campus_auth") === hashDocente || sessionStorage.getItem("is_docente") === "true";
   var nombreAlumno = localStorage.getItem("campus_alumno_nombre") || "";
   var saludo = esDocente ? "👨‍🏫 Hola Profe" : (nombreAlumno ? "👋 Hola " + nombreAlumno : "");
   
@@ -582,7 +577,7 @@ function rN1(nucleo){
   h+='</p>';
   for(var i=0;i<d.items.length;i++){
     var it=d.items[i], placed=s.pl[it.id];
-    h+='<div onclick="if(!S.'+sk+'.dn&&!S.'+sk+'.pl['+it.id+']){S.'+sk+'.pl['+it.id+']=S.'+sk+'.nx;S.'+sk+'.nx++;if(S.'+sk+'.nx>'+d.items.length+')S.'+sk+'.dn=true;render()}" style="padding:12px 16px;border-radius:12px;border:2px solid '+(placed?'#6366F1':'#E5E7EB')+';background:'+(placed?'#EEF2FF':'#fff')+';cursor:'+(placed?'default':'pointer')+';display:flex;align-items:center;gap:12px;margin-bottom:8px">';
+    h+='<div onclick="if(!S.'+sk+'.dn&&!S.'+sk+'.pl['+it.id+']){S.'+sk+'.pl['+it.id+']=S.'+sk+'.nx;S.'+sk+'.nx++;if(S.'+sk+'.nx>'+d.items.length+')S.'+sk+'.dn=true;autoGuardarS();render()}" style="padding:12px 16px;border-radius:12px;border:2px solid '+(placed?'#6366F1':'#E5E7EB')+';background:'+(placed?'#EEF2FF':'#fff')+';cursor:'+(placed?'default':'pointer')+';display:flex;align-items:center;gap:12px;margin-bottom:8px">';
     if(placed){
       h+='<span style="width:30px;height:30px;border-radius:50%;background:#6366F1;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px">'+placed+'</span>';
     }else{
@@ -596,9 +591,16 @@ function rN1(nucleo){
     var ok=JSON.stringify(ids)===JSON.stringify(d.orden_correcto);
     h+='<div class="fb" style="background:'+(ok?'#D1FAE5':'#FEF3C7')+';text-align:center">';
     h+='<p style="margin:0;font-size:14px;font-weight:600;color:'+(ok?'#065F46':'#92400E')+'">'+(ok?'\u{1F389} \u00a1Perfecto!':'\u{1F504} Revisá el orden...')+'</p>';
-    h+='<button class="btn2" onclick="S.'+sk+'={nx:1,dn:false,pl:{}};render()" style="margin-top:8px">Reintentar</button></div>';
+    h+='<button class="btn2" onclick="S.'+sk+'={nx:1,dn:false,pl:{}};autoGuardarS();render()" style="margin-top:8px">Reintentar</button></div>';
   }
   return h;
+}
+
+function n2click(sk,i,cat){
+  if(S[sk].a[i]!==undefined)return;
+  S[sk].a[i]=cat;
+  autoGuardarS();
+  render();
 }
 
 function rN2(nucleo){
@@ -623,11 +625,11 @@ function rN2(nucleo){
     h+='<span style="font-size:14px;font-weight:500">'+it.text+'</span><div style="display:flex;gap:6px">';
     for(var c=0;c<d.categorias.length;c++){
       var cat=d.categorias[c], sel=s.a[it.id]===c;
-      h+='<button onclick="S.'+sk+'.a['+it.id+']='+c+';S.'+sk+'.sh=false;render()" style="width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;border:'+(sel?'3px solid '+cat.color:'2px solid #D1D5DB')+';background:'+(sel?cat.color+'20':'#F9FAFB')+';transform:'+(sel?'scale(1.15)':'scale(1)')+'">'+cat.emoji+'</button>';
+      h+='<button onclick="n2click(\''+sk+'\','+it.id+','+c+')" style="width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;border:'+(sel?'3px solid '+cat.color:'2px solid #D1D5DB')+';background:'+(sel?cat.color+'20':'#F9FAFB')+';transform:'+(sel?'scale(1.15)':'scale(1)')+'">'+cat.emoji+'</button>';
     }
     h+='</div></div>';
   }
-  if(allDone) h+='<button class="btn" onclick="S.'+sk+'.sh=true;render()">Verificar \u2713</button>';
+  if(allDone) h+='<button class="btn" onclick="S.'+sk+'.sh=true;autoGuardarS();render()">Verificar \u2713</button>';
   if(s.sh){
     var correct=d.items.filter(function(x){return s.a[x.id]===x.categoria_correcta}).length;
     h+='<p style="text-align:center;margin-top:10px;font-size:14px;font-weight:600;color:'+(correct===d.items.length?'#065F46':'#92400E')+'">'+(correct===d.items.length?'\u{1F389} \u00a1Excelente!':'Correcté '+(d.items.length-correct)+' concepto(s)')+'</p>';
@@ -648,11 +650,11 @@ function rN3(nucleo){
     var ok=s.c&&v.toLowerCase().trim()===b.respuesta_correcta.toLowerCase();
     var bad=s.c&&!ok&&v.length>0;
     h+='<div style="margin-bottom:14px"><p style="font-size:14px;color:#374151;margin:0 0 6px">'+b.texto_antes+' <span style="color:#9CA3AF;font-size:12px">('+b.pista+')</span></p>';
-    h+='<input type="text" value="'+v+'" oninput="S.'+sk+'.a[\''+b.id+'\']=this.value;S.'+sk+'.c=false" placeholder="..." style="border-color:'+(ok?'#10B981':bad?'#EF4444':'#E5E7EB')+';background:'+(ok?'#D1FAE5':bad?'#FEE2E2':'#fff')+'">';
+    h+='<input type="text" value="'+v+'" oninput="S.'+sk+'.a[\''+b.id+'\']=this.value;S.'+sk+'.c=false;autoGuardarS()" placeholder="..." style="border-color:'+(ok?'#10B981':bad?'#EF4444':'#E5E7EB')+';background:'+(ok?'#D1FAE5':bad?'#FEE2E2':'#fff')+'">';
     if(bad) h+='<p style="font-size:12px;color:#EF4444;margin:4px 0 0">\u{1F4A1} '+b.pista+'</p>';
     h+='</div>';
   }
-  h+='<button class="btn" onclick="S.'+sk+'.c=true;render()">Comprobar \u2713</button>';
+  h+='<button class="btn" onclick="S.'+sk+'.c=true;autoGuardarS();render()">Comprobar \u2713</button>';
   return h;
 }
 
@@ -699,7 +701,7 @@ function rN5(nucleo){
   h+='</div><div>';
   for(var i=0;i<s.sr.length;i++){
     var p=s.sr[i], iMat=matched.indexOf(p.derecha)>=0;
-    h+='<div onclick="n5click(\''+p.derecha.replace(/'/g,"\\'")+ '\',\'' +nucleo+'\')" style="padding:12px;border-radius:12px;border:2px solid '+(iMat?'#10B981':'#E5E7EB')+';background:'+(iMat?'#ECFDF5':s.sel!==null&&!iMat?'#FEF3C7':'#fff')+';cursor:pointer;font-size:14px;font-weight:500;margin-bottom:8px;opacity:'+(iMat?.6:1)+'">'+p.emoji+' '+p.derecha+'</div>';
+    h+='<div onclick="n5click(\''+p.derecha.replace(/'/g,"\\'")+ '\',\'' +nucleo+'\')" style="padding:12px;border-radius:12px;border:2px solid '+(iMat?'#10B981':'#E5E7EB')+';background:'+(iMat?'#ECFDF5':s.sel!==null&&!iMat?'#FEF3C7':'#F9FAFB')+';cursor:pointer;font-size:14px;font-weight:500;margin-bottom:8px;opacity:'+(iMat?.6:1)+'">'+p.emoji+' '+p.derecha+'</div>';
   }
   h+='</div></div>';
   if(Object.keys(s.mt).length===d.pares.length) h+='<p style="text-align:center;margin-top:12px;font-size:15px;font-weight:700;color:#065F46">\u{1F389} \u00a1Todas conectadas!</p>';
@@ -707,10 +709,12 @@ function rN5(nucleo){
 }
 function n5click(right,nucleo){
   var sk=nucleo+"_n5";
-  var s=S[sk], d=D[nucleo].n5_relacionar_columnas;
+  var s=S[sk];
+  var d=D[nucleo].n5_relacionar_columnas;
   if(s.sel===null) return;
   if(d.pares[s.sel].derecha===right) s.mt[s.sel]=right;
   s.sel=null;
+  autoGuardarS();
   render();
 }
 
@@ -731,7 +735,7 @@ function rN6(nucleo){
     var w=g.palabras[i], iSel=s.sel===i;
     var showOk=s.sel!==null&&w.es_intrusa;
     var isWrong=iSel&&!w.es_intrusa;
-    h+='<div onclick="if(S.'+sk+'.sel===null){S.'+sk+'.sel='+i+';render()}" style="padding:16px;border-radius:14px;border:'+(showOk?'3px solid #10B981':isWrong?'3px solid #EF4444':'2px solid #E5E7EB')+';background:'+(showOk?'#ECFDF5':isWrong?'#FEF2F2':'#fff')+';cursor:pointer;text-align:center;font-size:16px;font-weight:700;color:#374151">'+(showOk?'\u{1F6AB} ':'')+w.text+'</div>';
+    h+='<div onclick="if(S.'+sk+'.sel===null){S.'+sk+'.sel='+i+';autoGuardarS();render()}" style="padding:16px;border-radius:14px;border:'+(showOk?'3px solid #10B981':isWrong?'3px solid #EF4444':'2px solid #E5E7EB')+';background:'+(showOk?'#ECFDF5':isWrong?'#FEF2F2':'#fff')+';cursor:pointer;text-align:center;font-size:16px;font-weight:700;color:#374151">'+(showOk?'\u{1F6AB} ':'')+w.text+'</div>';
   }
   h+='</div>';
   if(s.sel!==null){
@@ -825,6 +829,7 @@ function n8click(eid,pid,nucleo){
   if(s.sc===null)return;
   if(pid===s.sc)s.cn[s.sc]=eid;
   s.sc=null;
+  autoGuardarS();
   render();
 }
 
@@ -850,12 +855,12 @@ function rN9(nucleo){
     h+='<span style="font-size:13px;font-weight:500">'+s.pl[i].emoji+' '+s.pl[i].text+'</span></div>';
   }
   h+='</div>';
-  if(s.pl.length>0&&!done) h+='<button onclick="S.'+sk+'.pl.pop();render()" style="display:block;margin:0 auto 12px;padding:6px 14px;border-radius:8px;border:1px solid #D1D5DB;background:#fff;cursor:pointer;font-size:12px;color:#6B7280;font-family:inherit">\u21A9 Quitar \u00faltimo</button>';
+  if(s.pl.length>0&&!done) h+='<button onclick="S.'+sk+'.pl.pop();autoGuardarS();render()" style="display:block;margin:0 auto 12px;padding:6px 14px;border-radius:8px;border:1px solid #D1D5DB;background:#fff;cursor:pointer;font-size:12px;color:#6B7280;font-family:inherit">\u21A9 Quitar \u00faltimo</button>';
   if(!done){
     h+='<div style="display:flex;flex-wrap:wrap;gap:8px">';
     for(var i=0;i<avail.length;i++){
       var x=avail[i];
-      h+='<div onclick="S.'+sk+'.pl.push({id:'+x.id+',text:\''+x.text.replace(/'/g,"\\'")+'\',emoji:\''+x.emoji+'\'});render()" style="padding:10px 16px;border-radius:12px;border:2px solid #E5E7EB;background:#fff;cursor:pointer;font-size:13px;font-weight:500">'+x.emoji+' '+x.text+'</div>';
+      h+='<div onclick="S.'+sk+'.pl.push({id:'+x.id+',text:\''+x.text.replace(/'/g,"\\'")+'\',emoji:\''+x.emoji+'\'});autoGuardarS();render()" style="padding:10px 16px;border-radius:12px;border:2px solid #E5E7EB;background:#fff;cursor:pointer;font-size:13px;font-weight:500">'+x.emoji+' '+x.text+'</div>';
     }
     h+='</div>';
   }
@@ -864,7 +869,7 @@ function rN9(nucleo){
     for(var i=0;i<s.pl.length;i++){if(s.pl[i].id!==d.pasos_en_orden_correcto[i].id){ok=false;break;}}
     h+='<div class="fb" style="background:'+(ok?'#D1FAE5':'#FEF3C7')+';text-align:center">';
     h+='<p style="margin:0;font-size:14px;font-weight:600;color:'+(ok?'#065F46':'#92400E')+'">'+(ok?'\u{1F389} \u00a1Proceso perfecto!':'\u{1F504} El orden no es correcto')+'</p>';
-    if(!ok) h+='<button class="btn2" onclick="S.'+sk+'.pl=[];render()" style="margin-top:8px">Reintentar</button>';
+    if(!ok) h+='<button class="btn2" onclick="S.'+sk+'.pl=[];autoGuardarS();render()" style="margin-top:8px">Reintentar</button>';
     h+='</div>';
   }
   return h;
@@ -876,7 +881,7 @@ function rN10(nucleo){
   if(!S[sk]) S[sk]={s1:"",s2:"",d1:"",d2:"",d3:"",d4:""};
   var s=S[sk];
   var filled=[s.s1,s.s2,s.d1,s.d2,s.d3,s.d4].filter(function(v){return v.trim().length>3}).length;
-  function inp(k,ph){return '<input type="text" value="'+s[k]+'" oninput="S.'+sk+'.'+k+'=this.value;uN10(\''+sk+'\')" placeholder="'+ph+'" style="padding:8px;border-radius:8px;border:1px solid #D1D5DB;font-size:13px;margin-bottom:6px">';}
+  function inp(k,ph){return '<input type="text" value="'+(s[k]||"")+'" oninput="S.'+sk+'.'+k+'=this.value;uN10(\''+sk+'\');autoGuardarS()" placeholder="'+ph+'" style="padding:8px;border-radius:8px;border:1px solid #D1D5DB;font-size:13px;margin-bottom:6px">';}
   var h='';
   if(d.consigna || d.paginas_referencia) {
     h+='<p style="font-size:14px;font-weight:600;color:#374151;margin:0 0 14px">';
@@ -913,7 +918,7 @@ function rS1(){
     h+='<div style="border-radius:14px;overflow:hidden;border:2px solid '+(star?c.color:'#E5E7EB')+';margin-bottom:10px">';
     h+='<div onclick="S[\'s1f_'+i+'\']=!S[\'s1f_'+i+'\'];render()" style="padding:14px 18px;background:'+(open?c.color+'08':'#fff')+';cursor:pointer;display:flex;align-items:center;justify-content:space-between">';
     h+='<div style="display:flex;align-items:center;gap:10px"><span style="font-size:22px">'+c.emoji+'</span><span style="font-size:15px;font-weight:700">'+c.termino+'</span></div>';
-    h+='<button onclick="event.stopPropagation();S[\'s1s_'+i+'\']=!S[\'s1s_'+i+'\'];render()" style="background:none;border:none;font-size:22px;cursor:pointer">'+(star?'\u2B50':'\u2606')+'</button></div>';
+    h+='<button onclick="event.stopPropagation();S[\'s1s_'+i+'\']=!S[\'s1s_'+i+'\'];autoGuardarS();render()" style="background:none;border:none;font-size:22px;cursor:pointer">'+(star?'\u2B50':'\u2606')+'</button></div>';
     if(open){
       h+='<div style="padding:12px 18px;border-top:1px solid '+c.color+'15;animation:fadeIn .3s">';
       h+='<p style="margin:0 0 8px;font-size:14px;color:#374151;line-height:1.5">'+c.definicion+'</p>';
@@ -934,7 +939,7 @@ function rS2(){
     h+='<div style="padding:10px 14px;border-radius:12px;border:1px solid #E5E7EB;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between">';
     h+='<span style="font-size:14px;font-weight:600">'+c.emoji+' '+c.termino+'</span><div style="display:flex;gap:4px">';
     for(var j=0;j<cols.length;j++){
-      h+='<button onclick="S[\'s2_'+i+'\']='+j+';render()" style="width:28px;height:28px;border-radius:50%;border:'+(lv===j?'3px solid '+cols[j].c:'2px solid #D1D5DB')+';background:'+(lv===j?cols[j].b:'#F9FAFB')+';cursor:pointer;font-size:12px;transform:'+(lv===j?'scale(1.2)':'scale(1)')+'">'+cols[j].l+'</button>';
+      h+='<button onclick="S[\'s2_'+i+'\']='+j+';autoGuardarS();render()" style="width:28px;height:28px;border-radius:50%;border:'+(lv===j?'3px solid '+cols[j].c:'2px solid #D1D5DB')+';background:'+(lv===j?cols[j].b:'#F9FAFB')+';cursor:pointer;font-size:12px;transform:'+(lv===j?'scale(1.2)':'scale(1)')+'">'+cols[j].l+'</button>';
     }
     h+='</div></div>';
   }
@@ -1004,7 +1009,7 @@ function rSB3(){
   for(var i=0;i<d.opciones.length;i++){
     var o=d.opciones[i], isV=S.enc_v===i;
     var pct=Math.round(((o.votos_iniciales+(isV?1:0))/total)*100);
-    h+='<div onclick="if(S.enc_v===undefined){S.enc_v='+i+';render()}" style="padding:12px 16px;border-radius:12px;border:'+(isV?'2px solid #6366F1':'1px solid #E5E7EB')+';position:relative;overflow:hidden;cursor:'+(voted?'default':'pointer')+';margin-bottom:8px">';
+    h+='<div onclick="if(S.enc_v===undefined){S.enc_v='+i+';autoGuardarS();render()}" style="padding:12px 16px;border-radius:12px;border:'+(isV?'2px solid #6366F1':'1px solid #E5E7EB')+';position:relative;overflow:hidden;cursor:'+(voted?'default':'pointer')+';margin-bottom:8px">';
     if(voted) h+='<div style="position:absolute;left:0;top:0;bottom:0;width:'+pct+'%;border-radius:12px;background:'+(isV?'#EEF2FF':'#F3F4F6')+'"></div>';
     h+='<div style="position:relative;display:flex;align-items:center;justify-content:space-between">';
     h+='<span style="font-size:13px;font-weight:'+(isV?700:500)+'">'+o.emoji+' '+o.text+'</span>';
@@ -1046,7 +1051,7 @@ function rCruces(){
         h += '</ul>';
         
         h += '<p style="margin:0 0 8px;font-size:13px;font-weight:600;color:#374151">📝 Tema elegido y plan de exposición:</p>';
-        h += '<textarea oninput="S.cruces[\'' + bloque.id + '\']=this.value;render()" placeholder="' + bloque.placeholder + '" style="min-height:100px;width:100%;padding:12px;border-radius:10px;border:2px solid ' + bloque.color + '40;font-size:13px;font-family:inherit;box-sizing:border-box">' + val + '</textarea>';
+        h += '<textarea oninput="S.cruces[\'' + bloque.id + '\']=this.value;autoGuardarS();render()" placeholder="' + bloque.placeholder + '" style="min-height:100px;width:100%;padding:12px;border-radius:10px;border:2px solid ' + bloque.color + '40;font-size:13px;font-family:inherit;box-sizing:border-box">' + val + '</textarea>';
         
         if(wc > 0) {
           h += '<p style="margin:8px 0 0;font-size:12px;color:#9CA3AF;text-align:right">' + wc + ' palabra' + (wc === 1 ? '' : 's') + '</p>';
@@ -1079,15 +1084,15 @@ function rR1(){
   h+='<p style="margin:4px 0 0;font-size:13px;color:#6B7280">'+d.contexto+'</p></div>';
   for(var i=0;i<d.roles.length;i++){
     var r=d.roles[i], sel=s.rol===r.id;
-    h+='<div onclick="S.r1.rol=\''+r.id+'\';S.r1.sub=false;render()" style="padding:12px 16px;border-radius:12px;border:2px solid '+(sel?r.color:'#E5E7EB')+';background:'+(sel?r.color+'08':'#fff')+';cursor:pointer;display:flex;align-items:center;gap:12px;margin-bottom:8px">';
+    h+='<div onclick="S.r1.rol=\''+r.id+'\';S.r1.sub=false;autoGuardarS();render()" style="padding:12px 16px;border-radius:12px;border:2px solid '+(sel?r.color:'#E5E7EB')+';background:'+(sel?r.color+'08':'#fff')+';cursor:pointer;display:flex;align-items:center;gap:12px;margin-bottom:8px">';
     h+='<span style="font-size:22px">'+r.emoji+'</span><div><span style="font-size:14px;font-weight:700;color:'+(sel?r.color:'#374151')+'">'+r.label+'</span>';
     h+='<p style="margin:2px 0 0;font-size:12px;color:#6B7280">'+r.desc+'</p></div></div>';
   }
   if(s.rol){
     h+='<div style="animation:fadeIn .3s">';
-    h+='<textarea oninput="S.r1.args=this.value;S.r1.sub=false" placeholder="Escrib\u00ed tus argumentos..." style="min-height:120px">'+s.args+'</textarea>';
+    h+='<textarea oninput="S.r1.args=this.value;S.r1.sub=false;autoGuardarS()" placeholder="Escrib\u00ed tus argumentos..." style="min-height:120px">'+s.args+'</textarea>';
     h+='<p style="margin:8px 0 0;font-size:12px;color:#9CA3AF">'+wc+' palabras</p>';
-    h+='<button class="btn" onclick="S.r1.sub=true;render()"'+(wc<10?' disabled':'')+'>Presentar</button>';
+    h+='<button class="btn" onclick="S.r1.sub=true;autoGuardarS();render()"'+(wc<10?' disabled':'')+'>Presentar</button>';
     if(s.sub){
       var fb=wc>=50?{t:"\u{1F31F} Argumentaci\u00f3n s\u00f3lida",b:"#D1FAE5",c:"#065F46"}:wc>=30?{t:"\u{1F44D} Buen desarrollo",b:"#FEF3C7",c:"#92400E"}:{t:"\u{1F4AA} Segu\u00ed desarrollando",b:"#DBEAFE",c:"#1E40AF"};
       h+='<div class="fb" style="background:'+fb.b+'"><p style="margin:0;font-size:14px;font-weight:600;color:'+fb.c+'">'+fb.t+'</p></div>';
@@ -1107,9 +1112,9 @@ function rR2(){
     h+='<div style="margin-bottom:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">';
     h+='<span style="width:28px;height:28px;border-radius:50%;background:'+st.c+';color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px">'+(i+1)+'</span>';
     h+='<span style="font-size:14px;font-weight:700;color:'+st.c+'">'+st.l+'</span></div>';
-    h+='<textarea oninput="S.r2.'+st.k+'=this.value;S.r2.sub=false" placeholder="..." style="border-color:'+st.c+'30;min-height:60px">'+(s[st.k]||"")+'</textarea></div>';
+    h+='<textarea oninput="S.r2.'+st.k+'=this.value;S.r2.sub=false;autoGuardarS()" placeholder="..." style="border-color:'+st.c+'30;min-height:60px">'+(s[st.k]||"")+'</textarea></div>';
   }
-  h+='<button class="btn" onclick="S.r2.sub=true;render()"'+(filled<2?' disabled':'')+'>Enviar</button>';
+  h+='<button class="btn" onclick="S.r2.sub=true;autoGuardarS();render()"'+(filled<2?' disabled':'')+'>Enviar</button>';
   if(s.sub) h+='<div class="fb" style="background:#D1FAE5;text-align:center"><p style="margin:0;font-size:14px;font-weight:600;color:#065F46">'+(filled>=4?'\u{1F31F} \u00a1Tesis completa!':'\u{1F44D} Segu\u00ed completando')+'</p></div>';
   return h;
 }
@@ -1122,9 +1127,9 @@ function rR3(){
   for(var i=0;i<fields.length;i++){
     var f=fields[i];
     h+='<div style="margin-bottom:12px"><span style="font-size:13px;font-weight:700;color:'+f.c+'">'+f.l+'</span>';
-    h+='<textarea oninput="S.r3.'+f.k+'=this.value;S.r3.sub=false" placeholder="'+f.ph+'" style="border-color:'+f.c+'40;margin-top:6px">'+(s[f.k]||"")+'</textarea></div>';
+    h+='<textarea oninput="S.r3.'+f.k+'=this.value;S.r3.sub=false;autoGuardarS()" placeholder="'+f.ph+'" style="border-color:'+f.c+'40;margin-top:6px">'+(s[f.k]||"")+'</textarea></div>';
   }
-  h+='<button class="btn" onclick="S.r3.sub=true;render()"'+(filled<2?' disabled':'')+'>Enviar</button>';
+  h+='<button class="btn" onclick="S.r3.sub=true;autoGuardarS();render()"'+(filled<2?' disabled':'')+'>Enviar</button>';
   if(s.sub) h+='<div class="fb" style="background:#D1FAE5;text-align:center"><p style="margin:0;font-size:14px;font-weight:600;color:#065F46">'+(filled>=3?'\u{1F31F} \u00a1An\u00e1lisis completo!':'\u{1F44D} Segu\u00ed completando')+'</p></div>';
   return h;
 }
@@ -1145,7 +1150,7 @@ function rE1(){
   var h='<p style="font-size:14px;font-weight:600;color:#374151;margin:0 0 14px">\u00bfC\u00f3mo te sent\u00eds con lo que aprendiste?</p>';
   for(var i=0;i<esc.length;i++){
     var e=esc[i], sel=s.sel===i;
-    h+='<div onclick="S.e1.sel='+i+';render()" style="padding:14px 18px;border-radius:14px;border:'+(sel?'3px solid '+e.c:'2px solid #E5E7EB')+';background:'+(sel?e.c+'15':'#fff')+';cursor:pointer;display:flex;align-items:center;gap:14px;margin-bottom:8px">';
+    h+='<div onclick="S.e1.sel='+i+';autoGuardarS();render()" style="padding:14px 18px;border-radius:14px;border:'+(sel?'3px solid '+e.c:'2px solid #E5E7EB')+';background:'+(sel?e.c+'15':'#fff')+';cursor:pointer;display:flex;align-items:center;gap:14px;margin-bottom:8px">';
     h+='<span style="font-size:32px;transform:'+(sel?'scale(1.2)':'scale(1)')+'">'+e.e+'</span>';
     h+='<span style="font-size:15px;font-weight:700;color:'+(sel?e.c:'#1F2937')+'">'+e.l+'</span>';
     if(sel) h+='<span style="margin-left:auto;font-size:20px">\u2713</span>';
@@ -1154,7 +1159,7 @@ function rE1(){
   if(s.sel!==null){
     var prompt=s.sel<=1?'\u{1F31F} \u00bfQu\u00e9 te ayud\u00f3 a entender?':s.sel===2?'\u{1F4A1} \u00bfQu\u00e9 parte releer\u00edas?':'\u{1F4AA} \u00bfQu\u00e9 te confunde m\u00e1s?';
     h+='<div style="animation:fadeIn .3s;margin-top:10px"><p style="font-size:13px;font-weight:600;color:#374151;margin:0 0 8px">'+prompt+'</p>';
-    h+='<textarea oninput="S.e1.ref=this.value" placeholder="Tu reflexi\u00f3n...">'+s.ref+'</textarea></div>';
+    h+='<textarea oninput="S.e1.ref=this.value;autoGuardarS()" placeholder="Tu reflexi\u00f3n...">'+s.ref+'</textarea></div>';
   }
   return h;
 }
@@ -1167,7 +1172,7 @@ function rE2(){
     var m=ms[i];
     h+='<div style="margin-bottom:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">';
     h+='<span style="font-size:18px">'+m.e+'</span><span style="font-size:13px;font-weight:700;color:'+m.c+'">'+m.l+'</span></div>';
-    h+='<textarea oninput="S.e2.'+m.k+'=this.value" placeholder="'+m.ph+'" style="border-color:'+m.c+'30">'+(s[m.k]||"")+'</textarea></div>';
+    h+='<textarea oninput="S.e2.'+m.k+'=this.value;autoGuardarS()" placeholder="'+m.ph+'" style="border-color:'+m.c+'30">'+(s[m.k]||"")+'</textarea></div>';
   }
   return h;
 }
@@ -1190,7 +1195,8 @@ function rAT(){
   var s=S.at;
   
   // Verificar si es docente (por clave 1126 O por flag is_docente)
-  var esDocente = sessionStorage.getItem("campus_auth") === "1126" || sessionStorage.getItem("is_docente") === "true";
+  var hashDocente = "5817ae4948371f9b6b7d94615c0704e6a13ba5a773938351ebd832d0fcdbdf2f";
+  var esDocente = sessionStorage.getItem("campus_auth") === hashDocente || sessionStorage.getItem("is_docente") === "true";
   
   // Generar banco de respuestas para docente
   var bancoHtml = '';
@@ -1331,7 +1337,7 @@ function rAT(){
       var opt=p.opciones[j], iSel=s.ans[s.cur]===j;
       var isCorrect=answered&&j===p.correcta;
       var isWrong=iSel&&!ok;
-      h+='<div onclick="if(S.at.ans[S.at.cur]===undefined){S.at.ans[S.at.cur]='+j+';render()}" style="padding:12px 16px;border-radius:12px;border:'+(isCorrect?'2px solid #10B981':isWrong?'2px solid #EF4444':iSel?'2px solid #6366F1':'2px solid #E5E7EB')+';background:'+(isCorrect?'#ECFDF5':isWrong?'#FEF2F2':iSel?'#EEF2FF':'#fff')+';cursor:'+(answered?'default':'pointer')+';display:flex;align-items:center;gap:10px;margin-bottom:8px">';
+      h+='<div onclick="if(S.at.ans[S.at.cur]===undefined){S.at.ans[S.at.cur]='+j+';autoGuardarS();render()}" style="padding:12px 16px;border-radius:12px;border:'+(isCorrect?'2px solid #10B981':isWrong?'2px solid #EF4444':iSel?'2px solid #6366F1':'2px solid #E5E7EB')+';background:'+(isCorrect?'#ECFDF5':isWrong?'#FEF2F2':iSel?'#EEF2FF':'#fff')+';cursor:'+(answered?'default':'pointer')+';display:flex;align-items:center;gap:10px;margin-bottom:8px">';
       h+='<span style="width:28px;height:28px;border-radius:50%;border:2px solid '+(isCorrect?'#10B981':isWrong?'#EF4444':'#D1D5DB')+';background:'+(isCorrect?'#10B981':isWrong?'#EF4444':'transparent')+';color:'+(isCorrect||isWrong?'#fff':'#6B7280')+';display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px">'+(isCorrect?'\u2713':isWrong?'\u2717':String.fromCharCode(65+j))+'</span>';
       h+='<span style="font-size:14px;font-weight:'+(iSel?600:400)+'">'+opt+'</span></div>';
     }
@@ -1482,13 +1488,14 @@ function getAlumnoCodigo(){
 
 (function initAlumnoLogin(){
   // 🔑 Si es docente (1126 O is_docente), no pedir login de alumno
-  var esDocente = sessionStorage.getItem("campus_auth") === "1126" || sessionStorage.getItem("is_docente") === "true";
+  var hashDocente = "5817ae4948371f9b6b7d94615c0704e6a13ba5a773938351ebd832d0fcdbdf2f";
+  var esDocente = sessionStorage.getItem("campus_auth") === hashDocente || sessionStorage.getItem("is_docente") === "true";
   if(esDocente) return;  // Docente puede ver todo sin login
   
   if(!SUPABASE_ACTIVO) return;           // sin Supabase → no pedir clave
   var codigo = getAlumnoCodigo();
   if(codigo) {
-    if(codigo !== "docente_1126") registrarSesion(codigo);
+    if(codigo !== "docente_hash") registrarSesion(codigo);
     return;
   }
 
@@ -1521,10 +1528,18 @@ async function verificarAlumno(){
   var codigo = document.getElementById("alumnoCodigo").value.trim().toLowerCase();
   if(!codigo) return;
   
+  const hash = await (async (str) => {
+    const utf8 = new TextEncoder().encode(str);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', utf8);
+    return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+  })(codigo);
+
+  var hashDocente = "5817ae4948371f9b6b7d94615c0704e6a13ba5a773938351ebd832d0fcdbdf2f";
+
   // 🔑 Si ingresa 1126, es docente
-  if(codigo === "1126"){
-    sessionStorage.setItem("campus_auth", "1126");
-    localStorage.setItem("campus_alumno_codigo", "docente_1126"); // Para que no trackee
+  if(hash === hashDocente){
+    sessionStorage.setItem("campus_auth", hashDocente);
+    localStorage.setItem("campus_alumno_codigo", "docente_hash"); // Para que no trackee
     localStorage.setItem("campus_alumno_nombre", "Docente");
     document.getElementById("alumnoLoginOverlay").remove();
     return;
@@ -1629,7 +1644,8 @@ async function obtenerDatosAutotest(){
   if(!SUPABASE_ACTIVO || !D) return {primeraVez: true, primerIntento: null, reintentos: []};
   
   var codigo = getAlumnoCodigo();
-  if(!codigo || codigo === "docente_1126") return {primeraVez: true, primerIntento: null, reintentos: []}; // Docente no trackea
+  var hashDocente = "5817ae4948371f9b6b7d94615c0704e6a13ba5a773938351ebd832d0fcdbdf2f";
+  if(!codigo || codigo === "docente_hash" || codigo === hashDocente) return {primeraVez: true, primerIntento: null, reintentos: []}; // Docente no trackea
   
   try {
     var url = SUPABASE_URL + "/rest/v1/progreso?alumno_codigo=eq." + codigo + 
