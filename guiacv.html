@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía CV · Kit Vocacional Completo</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0C0C10;--surface:#13131A;--card:#18181F;--card2:#1E1E28;--border:#252535;
+  --text:#E8E4DC;--muted:#9A96AA;--soft:#5A5670;
+  --c1:#D4A843; /* autoconocimiento */
+  --c2:#5A9FD4; /* holland */
+  --c3:#6DC98A; /* cv builder */
+  --c4:#A98EE8; /* guia perfil */
+  --c5:#E07860; /* entrevista */
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-weight:300;min-height:100vh;overflow-x:hidden;}
+
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(ellipse 700px 500px at 5% 15%,rgba(212,168,67,.06) 0%,transparent 60%),
+    radial-gradient(ellipse 600px 500px at 95% 80%,rgba(90,159,212,.05) 0%,transparent 60%),
+    radial-gradient(ellipse 400px 400px at 50% 50%,rgba(169,142,232,.03) 0%,transparent 60%);}
+
+.wrap{max-width:920px;margin:0 auto;padding:0 1.5rem;position:relative;z-index:1;}
+
+/* ── HERO ── */
+header{padding:5rem 0 3.5rem;text-align:center;}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(212,168,67,.3);color:var(--c1);font-size:.62rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;padding:.4rem 1.1rem;border-radius:100px;background:rgba(212,168,67,.06);margin-bottom:2rem;animation:fadeUp .8s ease both;}
+.hero-h1{font-family:'Fraunces',serif;font-size:clamp(2.8rem,9vw,5.5rem);font-weight:900;line-height:.95;margin-bottom:1.5rem;animation:fadeUp .8s .1s ease both;}
+.hero-h1 .l1{display:block;}
+.hero-h1 .l2{display:block;font-weight:300;font-style:italic;color:var(--c1);}
+.hero-h1 .l3{display:block;}
+.hero-p{color:var(--muted);font-size:.98rem;line-height:1.8;max-width:500px;margin:0 auto 3rem;animation:fadeUp .8s .2s ease both;}
+
+/* flow pills */
+.flow{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:.4rem;margin-bottom:.75rem;animation:fadeUp .8s .3s ease both;}
+.f-pill{font-size:.68rem;font-weight:600;padding:.3rem .9rem;border-radius:100px;border:1px solid;}
+.f-arrow{color:var(--soft);font-size:1rem;}
+.scroll-cue{display:flex;flex-direction:column;align-items:center;gap:.35rem;color:var(--soft);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;margin-top:2.5rem;animation:fadeUp .8s .5s ease both;}
+.bounce{animation:bounce 2s infinite;}
+
+/* ── SECTION INTRO ── */
+.section-intro{text-align:center;padding:2.5rem 0 2rem;}
+.section-intro h2{font-family:'Fraunces',serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:700;margin-bottom:.4rem;}
+.section-intro h2 em{font-style:italic;font-weight:300;color:var(--c1);}
+.section-intro p{color:var(--muted);font-size:.88rem;line-height:1.7;max-width:440px;margin:0 auto;}
+
+/* ── TOOL CARDS ── */
+.cards{display:flex;flex-direction:column;gap:0;padding-bottom:4rem;}
+
+/* connector */
+.connector{display:flex;justify-content:center;height:52px;position:relative;}
+.conn-line{width:2px;height:100%;opacity:.25;}
+.conn-dot{position:absolute;width:8px;height:8px;border-radius:50%;top:50%;transform:translateY(-50%);box-shadow:0 0 10px currentColor;}
+
+/* card */
+.tool-card{background:var(--card);border:1px solid var(--border);border-radius:24px;overflow:hidden;opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease,box-shadow .3s;}
+.tool-card.vis{opacity:1;transform:translateY(0);}
+.tool-card:hover{box-shadow:0 20px 60px rgba(0,0,0,.4);}
+
+.tc-body{padding:2rem 2rem 1.5rem;position:relative;overflow:hidden;}
+.tc-body::after{content:'';position:absolute;width:180px;height:180px;border-radius:50%;bottom:-70px;right:-50px;pointer-events:none;background:var(--glow);opacity:1;}
+
+.tc-step{display:inline-flex;align-items:center;gap:.4rem;font-size:.58rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:.28rem .8rem;border-radius:100px;margin-bottom:1.2rem;border:1px solid;}
+.tc-icon{font-size:2.8rem;margin-bottom:.9rem;line-height:1;}
+.tc-title{font-family:'Fraunces',serif;font-size:1.7rem;font-weight:900;line-height:1.1;margin-bottom:.5rem;}
+.tc-title em{font-style:italic;font-weight:300;}
+.tc-desc{color:var(--muted);font-size:.87rem;line-height:1.7;max-width:560px;margin-bottom:1.4rem;}
+
+.tc-feats{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.6rem;}
+.feat{display:flex;align-items:center;gap:.3rem;background:var(--card2);border:1px solid var(--border);border-radius:100px;padding:.28rem .8rem;font-size:.72rem;color:var(--muted);}
+.feat-dot{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+
+.btn-go{display:inline-flex;align-items:center;gap:.55rem;padding:.85rem 1.7rem;border-radius:100px;font-family:'Outfit',sans-serif;font-size:.83rem;font-weight:600;text-decoration:none;border:none;cursor:pointer;transition:all .25s;letter-spacing:.04em;}
+.btn-go:hover{transform:translateY(-2px);}
+.btn-go .arr{transition:transform .2s;}
+.btn-go:hover .arr{transform:translateX(4px);}
+
+.tc-foot{padding:1.1rem 2rem;border-top:1px solid var(--border);background:var(--card2);display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.tc-time{font-size:.73rem;color:var(--soft);display:flex;align-items:center;gap:.4rem;}
+.tc-tip{font-size:.73rem;color:var(--soft);font-style:italic;max-width:340px;text-align:right;}
+
+/* ── TIPS SECTION ── */
+.tips-section{padding:1rem 0 4rem;border-top:1px solid var(--border);}
+.tips-title{text-align:center;font-family:'Fraunces',serif;font-size:1.5rem;font-weight:700;margin-bottom:.3rem;}
+.tips-sub{text-align:center;color:var(--muted);font-size:.85rem;margin-bottom:2rem;}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.85rem;}
+.tip-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:1.2rem;opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease;}
+.tip-card.vis{opacity:1;transform:translateY(0);}
+.tip-icon{font-size:1.4rem;margin-bottom:.5rem;}
+.tip-title{font-family:'Fraunces',serif;font-size:.92rem;font-weight:700;margin-bottom:.3rem;}
+.tip-text{font-size:.76rem;color:var(--muted);line-height:1.65;}
+
+/* ── FOOTER ── */
+footer{border-top:1px solid var(--border);padding:2rem 0;text-align:center;}
+.footer-logo{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:900;color:var(--c1);margin-bottom:.3rem;}
+.footer-text{font-size:.73rem;color:var(--soft);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header>
+  <div class="wrap">
+    <div class="eyebrow">✦ Kit Vocacional · Orientación Laboral</div>
+    <h1 class="hero-h1">
+      <span class="l1">Tu camino</span>
+      <span class="l2">hacia el trabajo</span>
+      <span class="l3">empieza aquí</span>
+    </h1>
+    <p class="hero-p">Cinco herramientas para conocerte, descubrir tu vocación, escribir tu CV y prepararte para tu primera entrevista. Seguí el orden — cada paso prepara el siguiente.</p>
+
+    <div class="flow">
+      <span class="f-pill" style="color:var(--c1);border-color:rgba(212,168,67,.35);background:rgba(212,168,67,.07)">01 · Autoconocimiento</span>
+      <span class="f-arrow">→</span>
+      <span class="f-pill" style="color:var(--c2);border-color:rgba(90,159,212,.35);background:rgba(90,159,212,.07)">02 · Holland</span>
+      <span class="f-arrow">→</span>
+      <span class="f-pill" style="color:var(--c4);border-color:rgba(169,142,232,.35);background:rgba(169,142,232,.07)">03 · Perfil</span>
+      <span class="f-arrow">→</span>
+      <span class="f-pill" style="color:var(--c3);border-color:rgba(109,201,138,.35);background:rgba(109,201,138,.07)">04 · CV</span>
+      <span class="f-arrow">→</span>
+      <span class="f-pill" style="color:var(--c5);border-color:rgba(224,120,96,.35);background:rgba(224,120,96,.07)">05 · Entrevista</span>
+    </div>
+
+    <div class="scroll-cue">
+      <span>Explorá las herramientas</span>
+      <span class="bounce">↓</span>
+    </div>
+  </div>
+</header>
+
+<!-- TOOLS -->
+<section>
+  <div class="wrap">
+    <div class="section-intro">
+      <h2>El <em>recorrido</em> completo</h2>
+      <p>Hacé cada paso con calma y honestidad. No hay respuestas correctas ni incorrectas — solo las tuyas.</p>
+    </div>
+
+    <div class="cards">
+
+      <!-- 01 AUTOCONOCIMIENTO -->
+      <div class="tool-card" id="tc1">
+        <div class="tc-body" style="--glow:rgba(212,168,67,.06)">
+          <div class="tc-step" style="color:var(--c1);border-color:rgba(212,168,67,.3);background:rgba(212,168,67,.07)">Paso 01 · Empezá aquí</div>
+          <div class="tc-icon">🗺️</div>
+          <h3 class="tc-title">Cuestionario de<br><em>Autoconocimiento</em></h3>
+          <p class="tc-desc">Antes de escribir tu CV necesitás saber quién sos. Explorá tu personalidad, habilidades, valores, inteligencia emocional y creatividad a través de botones interactivos. Al final obtenés un perfil completo con tus palabras clave.</p>
+          <div class="tc-feats">
+            <span class="feat"><span class="feat-dot" style="background:var(--c1)"></span>6 dimensiones personales</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c1)"></span>Personalidad y carácter</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c1)"></span>Valores y actitudes</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c1)"></span>Inteligencia emocional</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c1)"></span>Preguntas guiadas</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c1)"></span>Perfil visual al final</span>
+          </div>
+          <a href="autoconocimiento-cv.html" class="btn-go" style="background:var(--c1);color:#1A1208">Comenzar el cuestionario <span class="arr">→</span></a>
+        </div>
+        <div class="tc-foot">
+          <span class="tc-time">⏱️ 15–20 minutos aprox.</span>
+          <span class="tc-tip">Tip: respondé con honestidad — no hay respuestas buenas ni malas.</span>
+        </div>
+      </div>
+
+      <div class="connector"><div class="conn-line" style="background:linear-gradient(var(--c1),var(--c2))"></div><div class="conn-dot" style="background:var(--c2);color:var(--c2)"></div></div>
+
+      <!-- 02 HOLLAND -->
+      <div class="tool-card" id="tc2">
+        <div class="tc-body" style="--glow:rgba(90,159,212,.06)">
+          <div class="tc-step" style="color:var(--c2);border-color:rgba(90,159,212,.3);background:rgba(90,159,212,.07)">Paso 02 · Descubrí tu vocación</div>
+          <div class="tc-icon">🧭</div>
+          <h3 class="tc-title">Test Vocacional<br><em>Tipo Holland</em></h3>
+          <p class="tc-desc">Descubrí cuál de los 6 perfiles vocacionales (RIASEC) te representa mejor. Respondé 36 preguntas con escala de acuerdo y obtené un gráfico radar con tus resultados y carreras recomendadas para Argentina.</p>
+          <div class="tc-feats">
+            <span class="feat"><span class="feat-dot" style="background:var(--c2)"></span>36 preguntas escala 1–5</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c2)"></span>6 perfiles RIASEC</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c2)"></span>Gráfico radar visual</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c2)"></span>Carreras para Argentina</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c2)"></span>Podio con tus 3 perfiles</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c2)"></span>Imprimible al final</span>
+          </div>
+          <a href="test-holland.html" class="btn-go" style="background:var(--c2);color:#04101A">Hacer el test Holland <span class="arr">→</span></a>
+        </div>
+        <div class="tc-foot">
+          <span class="tc-time">⏱️ 10–15 minutos aprox.</span>
+          <span class="tc-tip">Tip: respondé según cómo sos hoy, no cómo te gustaría ser.</span>
+        </div>
+      </div>
+
+      <div class="connector"><div class="conn-line" style="background:linear-gradient(var(--c2),var(--c4))"></div><div class="conn-dot" style="background:var(--c4);color:var(--c4)"></div></div>
+
+      <!-- 03 GUÍA PERFIL -->
+      <div class="tool-card" id="tc3">
+        <div class="tc-body" style="--glow:rgba(169,142,232,.06)">
+          <div class="tc-step" style="color:var(--c4);border-color:rgba(169,142,232,.3);background:rgba(169,142,232,.07)">Paso 03 · Redactá tu presentación</div>
+          <div class="tc-icon">✍️</div>
+          <h3 class="tc-title">Guía para escribir<br>tu <em>Perfil Profesional</em></h3>
+          <p class="tc-desc">El perfil es lo primero que lee el empleador. Aprendé la fórmula de 3 partes, elegí tus palabras clave y construí tu perfil paso a paso con un constructor interactivo y lista de verificación. Después lo pegás directo en el CV.</p>
+          <div class="tc-feats">
+            <span class="feat"><span class="feat-dot" style="background:var(--c4)"></span>Fórmula de 3 partes</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c4)"></span>Banco de palabras clave</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c4)"></span>Constructor interactivo</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c4)"></span>Vista previa en tiempo real</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c4)"></span>Ejemplos buenos y malos</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c4)"></span>Lista de verificación</span>
+          </div>
+          <a href="guia-perfil.html" class="btn-go" style="background:var(--c4);color:#100C1A">Ver la guía <span class="arr">→</span></a>
+        </div>
+        <div class="tc-foot">
+          <span class="tc-time">⏱️ 10–15 minutos aprox.</span>
+          <span class="tc-tip">Tip: copiá el perfil que construyas y pegalo en el generador de CV.</span>
+        </div>
+      </div>
+
+      <div class="connector"><div class="conn-line" style="background:linear-gradient(var(--c4),var(--c3))"></div><div class="conn-dot" style="background:var(--c3);color:var(--c3)"></div></div>
+
+      <!-- 04 CV BUILDER -->
+      <div class="tool-card" id="tc4">
+        <div class="tc-body" style="--glow:rgba(109,201,138,.06)">
+          <div class="tc-step" style="color:var(--c3);border-color:rgba(109,201,138,.3);background:rgba(109,201,138,.07)">Paso 04 · Armá tu CV</div>
+          <div class="tc-icon">📄</div>
+          <h3 class="tc-title">Generador de<br><em>Curriculum Vitae</em></h3>
+          <p class="tc-desc">Con tu perfil ya escrito y tu autoconocimiento claro, completá el formulario y tu CV se construye en tiempo real. Diseño moderno con columna lateral y foto, elegí entre 6 paletas de colores y descargalo listo para entregar.</p>
+          <div class="tc-feats">
+            <span class="feat"><span class="feat-dot" style="background:var(--c3)"></span>Vista previa en tiempo real</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c3)"></span>Columna lateral con foto</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c3)"></span>Habilidades con nivel visual</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c3)"></span>6 paletas de colores</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c3)"></span>Exp., educación y cursos</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c3)"></span>Descarga en PDF</span>
+          </div>
+          <a href="cv-builder.html" class="btn-go" style="background:var(--c3);color:#061209">Armar mi CV <span class="arr">→</span></a>
+        </div>
+        <div class="tc-foot">
+          <span class="tc-time">⏱️ 20–30 minutos aprox.</span>
+          <span class="tc-tip">Tip: pegá el perfil del paso anterior en la pestaña "Perfil" del generador.</span>
+        </div>
+      </div>
+
+      <div class="connector"><div class="conn-line" style="background:linear-gradient(var(--c4),var(--c5))"></div><div class="conn-dot" style="background:var(--c5);color:var(--c5)"></div></div>
+
+      <!-- 05 SIMULADOR -->
+      <div class="tool-card" id="tc5">
+        <div class="tc-body" style="--glow:rgba(224,120,96,.06)">
+          <div class="tc-step" style="color:var(--c5);border-color:rgba(224,120,96,.3);background:rgba(224,120,96,.07)">Paso 05 · Preparate para la entrevista</div>
+          <div class="tc-icon">🎤</div>
+          <h3 class="tc-title">Simulador de<br><em>Entrevista Laboral</em></h3>
+          <p class="tc-desc">Practicá las preguntas más frecuentes de una primera entrevista laboral. Respondé en modo básico (6 preguntas) o completo (12 preguntas) y recibí feedback con consejos para cada respuesta.</p>
+          <div class="tc-feats">
+            <span class="feat"><span class="feat-dot" style="background:var(--c5)"></span>Modo básico y completo</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c5)"></span>12 preguntas reales</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c5)"></span>Pistas y estructura sugerida</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c5)"></span>Ejemplos de respuesta</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c5)"></span>Feedback por pregunta</span>
+            <span class="feat"><span class="feat-dot" style="background:var(--c5)"></span>Resumen imprimible</span>
+          </div>
+          <a href="simulador-entrevista.html" class="btn-go" style="background:var(--c5);color:#1A0C08">Practicar la entrevista <span class="arr">→</span></a>
+        </div>
+        <div class="tc-foot">
+          <span class="tc-time">⏱️ 15–25 minutos aprox.</span>
+          <span class="tc-tip">Tip: hacelo más de una vez — con la práctica las respuestas mejoran notablemente.</span>
+        </div>
+      </div>
+
+    </div><!-- /cards -->
+  </div>
+</section>
+
+<!-- TIPS -->
+<section class="tips-section">
+  <div class="wrap">
+    <div class="tips-title">Consejos para la actividad</div>
+    <div class="tips-sub">Para sacarle el máximo provecho al kit</div>
+    <div class="tips-grid">
+      <div class="tip-card" id="t1"><div class="tip-icon">🗂️</div><div class="tip-title">Seguí el orden</div><div class="tip-text">Cada herramienta alimenta a la siguiente. El autoconocimiento te da las palabras para el CV, y el CV te prepara para la entrevista.</div></div>
+      <div class="tip-card" id="t2"><div class="tip-icon">🖨️</div><div class="tip-title">Guardá tus resultados</div><div class="tip-text">Al terminar cada herramienta, imprimí o guardá como PDF. Vas a necesitar esas respuestas en el paso siguiente.</div></div>
+      <div class="tip-card" id="t3"><div class="tip-icon">💬</div><div class="tip-title">Sé auténtico/a</div><div class="tip-text">Respondé con honestidad. Cuanto más auténtico/a seas, más útil va a ser tu perfil y más genuino tu CV.</div></div>
+      <div class="tip-card" id="t4"><div class="tip-icon">🔄</div><div class="tip-title">Podés repetir</div><div class="tip-text">Si querés cambiar respuestas o probar colores distintos, podés volver cuando quieras. Todo funciona sin internet.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="footer-logo">Mi Primer CV ✦</div>
+    <div class="footer-text">Kit vocacional para estudiantes secundarios · Todos los archivos funcionan sin conexión a internet</div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('vis'); });
+}, {threshold:.1});
+document.querySelectorAll('.tool-card, .tip-card').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

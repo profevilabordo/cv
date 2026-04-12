@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Vocacional · Tipo Holland</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0F0F14;
+  --surface: #16161E;
+  --card: #1C1C26;
+  --border: #2A2A38;
+  --text: #E8E4DC;
+  --muted: #9A96AA;
+  --muted-soft: #6B6880;
+
+  /* Holland 6 colors */
+  --R: #E07840;   /* Realista    — naranja tierra */
+  --I: #5A9FD4;   /* Investigador — azul */
+  --A: #C46ED4;   /* Artístico   — violeta */
+  --S: #5BAF7A;   /* Social      — verde */
+  --E: #D4A843;   /* Emprendedor — dorado */
+  --C: #4ABFB0;   /* Convencional— teal */
+
+  --on-R: #1A0C04;
+  --on-I: #04101A;
+  --on-A: #160A1A;
+  --on-S: #061209;
+  --on-E: #1A1208;
+  --on-C: #041412;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'Outfit', sans-serif; font-weight: 300; min-height: 100vh; overflow-x: hidden; }
+
+/* ===== COVER ===== */
+#cover {
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  padding: 2rem; text-align: center; position: relative; overflow: hidden;
+}
+.glow { position: absolute; border-radius: 50%; pointer-events: none; filter: blur(100px); }
+.g1 { width: 500px; height: 500px; background: var(--E); opacity: 0.1; top: -160px; left: -160px; }
+.g2 { width: 400px; height: 400px; background: var(--A); opacity: 0.1; bottom: -120px; right: -120px; }
+.g3 { width: 300px; height: 300px; background: var(--I); opacity: 0.07; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+
+.cover-badge { display: inline-flex; align-items: center; gap: 0.5rem; border: 1px solid rgba(212,168,67,0.4); color: var(--E); font-size: 0.65rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.45rem 1.2rem; border-radius: 100px; margin-bottom: 2rem; background: rgba(212,168,67,0.06); animation: fadeUp 0.8s ease both; }
+.cover-h1 { font-family: 'Fraunces', serif; font-size: clamp(2.5rem, 9vw, 5rem); font-weight: 900; line-height: 1.05; margin-bottom: 1.2rem; animation: fadeUp 0.8s 0.1s ease both; }
+.cover-h1 em { font-style: italic; font-weight: 300; color: var(--E); }
+.cover-p { color: var(--muted); font-size: 0.95rem; max-width: 400px; line-height: 1.8; margin: 0 auto 1.5rem; animation: fadeUp 0.8s 0.2s ease both; }
+
+.holland-pills {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem;
+  max-width: 440px; margin: 0 auto 2.5rem;
+  animation: fadeUp 0.8s 0.3s ease both;
+}
+.h-pill {
+  border-radius: 100px; padding: 0.35rem 0.9rem;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.05em;
+}
+
+.name-wrap { margin-bottom: 2rem; animation: fadeUp 0.8s 0.4s ease both; }
+.name-label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; }
+.name-input { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; color: var(--text); font-family: 'Fraunces', serif; font-size: 1.3rem; font-weight: 700; text-align: center; padding: 0.75rem 1.5rem; width: 300px; outline: none; transition: border-color 0.3s, box-shadow 0.3s; }
+.name-input::placeholder { color: var(--border); }
+.name-input:focus { border-color: var(--E); box-shadow: 0 0 0 3px rgba(212,168,67,0.1); }
+
+.btn-start { background: var(--E); color: var(--on-E); border: none; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 1rem 2.8rem; border-radius: 100px; cursor: pointer; transition: all 0.3s; animation: fadeUp 0.8s 0.5s ease both; }
+.btn-start:hover { filter: brightness(1.1); transform: translateY(-2px); box-shadow: 0 12px 30px rgba(212,168,67,0.2); }
+
+/* ===== QUIZ ===== */
+#quiz { display: none; }
+.page-wrap { max-width: 720px; margin: 0 auto; padding: 3rem 1.25rem 5rem; }
+
+/* Progress */
+.progress-wrap { margin-bottom: 2.5rem; }
+.progress-top { display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--muted); margin-bottom: 0.6rem; }
+.progress-track { height: 4px; background: var(--border); border-radius: 4px; overflow: hidden; }
+.progress-fill { height: 100%; background: linear-gradient(90deg, var(--E), var(--A)); border-radius: 4px; transition: width 0.4s ease; width: 0%; }
+
+/* Block header */
+.block-header {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1.1rem 1.4rem;
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px 16px 0 0;
+  border-bottom: none;
+}
+.block-color-bar { width: 4px; height: 40px; border-radius: 4px; flex-shrink: 0; }
+.block-eyebrow { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.2rem; }
+.block-title { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 700; }
+.block-desc { font-size: 0.78rem; color: var(--muted); margin-top: 0.1rem; font-style: italic; }
+
+/* Questions */
+.questions-wrap {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 0 0 16px 16px;
+  margin-bottom: 1.75rem;
+  overflow: hidden;
+}
+
+.q-row {
+  padding: 1rem 1.4rem;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  display: flex; flex-direction: column; gap: 0.7rem;
+  opacity: 0; transform: translateY(8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.q-row.vis { opacity: 1; transform: translateY(0); }
+.q-row:last-child { border-bottom: none; }
+
+.q-text { font-size: 0.9rem; font-weight: 400; line-height: 1.55; color: var(--text); }
+
+.scale-row { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+.scale-ends { font-size: 0.68rem; color: var(--muted); min-width: 60px; }
+.scale-ends:last-child { text-align: right; }
+.scale-btns { display: flex; gap: 0.35rem; flex: 1; justify-content: center; }
+
+.s-btn {
+  width: 38px; height: 38px; border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--muted); font-size: 0.8rem; font-weight: 500;
+  cursor: pointer; transition: all 0.18s;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.s-btn:hover { border-color: rgba(255,255,255,0.25); color: var(--text); }
+.s-btn.sel { font-weight: 700; color: var(--bg); border-color: transparent; transform: scale(1.12); }
+
+/* Nav */
+.nav-bottom { display: flex; gap: 0.75rem; margin-top: 1rem; flex-wrap: wrap; }
+.btn-nav { flex: 1; min-width: 130px; padding: 0.95rem 1.5rem; border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: all 0.25s; border: 1px solid var(--border); background: transparent; color: var(--muted); }
+.btn-nav:hover { color: var(--text); border-color: rgba(255,255,255,0.25); }
+.btn-nav.primary { background: var(--E); color: var(--on-E); border-color: var(--E); font-weight: 600; }
+.btn-nav.primary:hover { filter: brightness(1.1); box-shadow: 0 8px 24px rgba(212,168,67,0.2); }
+.btn-nav:disabled { opacity: 0.35; cursor: not-allowed; }
+
+/* Warning */
+.warn-msg { font-size: 0.78rem; color: var(--R); text-align: center; margin-top: 0.75rem; min-height: 1.2em; transition: opacity 0.3s; }
+
+/* ===== RESULTS ===== */
+#results { display: none; }
+.results-wrap { max-width: 720px; margin: 0 auto; padding: 3rem 1.25rem 5rem; }
+
+.results-hero { text-align: center; padding: 2rem 0 2.5rem; }
+.results-emoji { font-size: 2.5rem; margin-bottom: 1rem; }
+.results-h1 { font-family: 'Fraunces', serif; font-size: clamp(2rem, 7vw, 3.5rem); font-weight: 900; line-height: 1.1; margin-bottom: 0.75rem; }
+.results-h1 em { font-style: italic; font-weight: 300; }
+.results-sub { color: var(--muted); font-size: 0.88rem; line-height: 1.7; max-width: 480px; margin: 0 auto; }
+
+/* Hexagon radar — pure CSS */
+.radar-wrap { display: flex; justify-content: center; margin: 2.5rem 0; }
+.radar-svg { width: min(340px, 90vw); height: min(340px, 90vw); }
+
+/* Podium top 3 */
+.podium-wrap { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2.5rem; }
+.podium-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 20px; padding: 1.3rem 1rem;
+  text-align: center; position: relative; overflow: hidden;
+}
+.podium-card::before { content: ''; position: absolute; inset: 0; opacity: 0.06; }
+.podium-card.rank-1::before { background: var(--accent); }
+.podium-rank { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+.podium-letter { font-family: 'Fraunces', serif; font-size: 2.8rem; font-weight: 900; line-height: 1; margin-bottom: 0.3rem; }
+.podium-name { font-family: 'Fraunces', serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.4rem; }
+.podium-score { font-size: 0.75rem; color: var(--muted); }
+.podium-bar-wrap { height: 4px; background: var(--border); border-radius: 4px; margin-top: 0.75rem; overflow: hidden; }
+.podium-bar { height: 100%; border-radius: 4px; }
+
+/* Detail cards */
+.detail-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 20px; overflow: hidden; margin-bottom: 1.25rem;
+}
+.detail-head {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1rem 1.3rem; border-bottom: 1px solid var(--border);
+}
+.detail-letter-badge {
+  width: 44px; height: 44px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 900;
+  flex-shrink: 0;
+}
+.detail-name { font-family: 'Fraunces', serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.1rem; }
+.detail-score-label { font-size: 0.72rem; color: var(--muted); }
+.detail-score-bar-wrap { flex: 1; }
+.detail-score-track { height: 5px; background: var(--border); border-radius: 5px; overflow: hidden; margin-top: 0.4rem; }
+.detail-score-fill { height: 100%; border-radius: 5px; width: 0; transition: width 0.8s cubic-bezier(0.4,0,0.2,1); }
+
+.detail-body { padding: 1rem 1.3rem; }
+.detail-desc { font-size: 0.85rem; color: var(--muted); line-height: 1.7; margin-bottom: 1rem; }
+.careers-label { font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem; }
+.careers-wrap { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+.career-tag { border-radius: 100px; padding: 0.3rem 0.85rem; font-size: 0.76rem; font-weight: 600; }
+
+/* Action row */
+.action-row { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 2.5rem; }
+.btn-action { width: 100%; padding: 1rem; border-radius: 100px; font-family: 'Outfit', sans-serif; font-size: 0.88rem; font-weight: 600; cursor: pointer; transition: all 0.25s; background: var(--E); color: var(--on-E); border: 1px solid var(--E); }
+.btn-action:hover { filter: brightness(1.1); }
+.btn-action.ghost { background: transparent; color: var(--muted); border-color: var(--border); }
+.btn-action.ghost:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 480px) {
+  .podium-wrap { grid-template-columns: 1fr; }
+  .scale-btns { gap: 0.25rem; }
+  .s-btn { width: 32px; height: 32px; font-size: 0.72rem; }
+}
+
+@media print {
+  #cover, #quiz { display: none !important; }
+  #results { display: block !important; }
+  body { background: #fff; color: #000; }
+  .action-row { display: none; }
+  .detail-card, .podium-card { border: 1px solid #ccc; background: #fff; }
+  .career-tag { border: 1px solid #aaa; background: #eee !important; color: #000 !important; }
+  .detail-name, .podium-name, .results-h1 { color: #000 !important; }
+  .detail-desc, .detail-score-label, .careers-label, .podium-score, .results-sub { color: #444 !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== COVER ===== -->
+<section id="cover">
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+  <div class="glow g3"></div>
+
+  <div class="cover-badge">✦ Test Vocacional · Modelo Holland</div>
+  <h1 class="cover-h1">¿Hacia dónde<br>va tu <em>vocación?</em></h1>
+  <p class="cover-p">Respondé 36 preguntas cortas y descubrí cuál de los 6 perfiles Holland te representa mejor — con carreras y áreas recomendadas para vos.</p>
+
+  <div class="holland-pills">
+    <span class="h-pill" style="background:var(--R);color:var(--on-R)">R · Realista</span>
+    <span class="h-pill" style="background:var(--I);color:var(--on-I)">I · Investigador</span>
+    <span class="h-pill" style="background:var(--A);color:var(--on-A)">A · Artístico</span>
+    <span class="h-pill" style="background:var(--S);color:var(--on-S)">S · Social</span>
+    <span class="h-pill" style="background:var(--E);color:var(--on-E)">E · Emprendedor</span>
+    <span class="h-pill" style="background:var(--C);color:var(--on-C)">C · Convencional</span>
+  </div>
+
+  <div class="name-wrap">
+    <div class="name-label">Tu nombre completo</div>
+    <input type="text" class="name-input" id="studentName" placeholder="Escribí tu nombre…" autocomplete="off">
+  </div>
+  <button class="btn-start" onclick="startQuiz()">Comenzar el test →</button>
+</section>
+
+<!-- ===== QUIZ ===== -->
+<section id="quiz">
+  <div class="page-wrap">
+    <div class="progress-wrap">
+      <div class="progress-top">
+        <span id="progressLabel">Pregunta 1 de 36</span>
+        <span id="progressPct">0%</span>
+      </div>
+      <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+
+    <div id="quizContent"></div>
+
+    <div class="warn-msg" id="warnMsg"></div>
+
+    <div class="nav-bottom">
+      <button class="btn-nav" id="btnPrev" onclick="prevBlock()">← Anterior</button>
+      <button class="btn-nav primary" id="btnNext" onclick="nextBlock()">Siguiente →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESULTS ===== -->
+<section id="results">
+  <div class="results-wrap">
+    <div class="results-hero">
+      <div class="results-emoji">🧭</div>
+      <h2 class="results-h1" id="resultsTitle">Tu perfil <em>vocacional</em></h2>
+      <p class="results-sub">Estos son tus resultados según el modelo Holland (RIASEC). Recordá que todos los perfiles tienen valor — lo importante es conocerte.</p>
+    </div>
+
+    <div class="radar-wrap">
+      <svg class="radar-svg" id="radarSvg" viewBox="0 0 340 340" xmlns="http://www.w3.org/2000/svg"></svg>
+    </div>
+
+    <div class="podium-wrap" id="podiumWrap"></div>
+
+    <div id="detailCards"></div>
+
+    <div class="action-row">
+      <button class="btn-action" onclick="window.print()">🖨️ Imprimir / Guardar como PDF</button>
+      <button class="btn-action ghost" onclick="restart()">↺ Hacer el test de nuevo</button>
+    </div>
+  </div>
+</section>
+
+<script>
+// ===== DATA =====
+const TYPES = [
+  {
+    key: 'R', name: 'Realista', color: 'var(--R)', onColor: 'var(--on-R)',
+    hex: '#E07840',
+    emoji: '🔧',
+    desc: 'Te gustan las actividades concretas y físicas. Preferís trabajar con herramientas, máquinas, plantas o animales. Sos práctico/a, directo/a y te sentís bien cuando ves resultados tangibles de tu trabajo.',
+    careers: ['Ingeniería Civil','Ingeniería Mecánica','Arquitectura','Agronomía','Veterinaria','Electricidad','Construcción','Mecánica automotriz','Informática técnica','Bombero/a','Guardabosques'],
+  },
+  {
+    key: 'I', name: 'Investigador', color: 'var(--I)', onColor: 'var(--on-I)',
+    hex: '#5A9FD4',
+    emoji: '🔬',
+    desc: 'Te atraen los problemas complejos y disfrutás pensar, analizar y descubrir cosas nuevas. Sos curioso/a, analítico/a y preferís trabajar de forma independiente con ideas y datos.',
+    careers: ['Medicina','Biología','Química','Física','Psicología','Estadística','Matemática','Ciencias de datos','Investigación científica','Biotecnología','Farmacia'],
+  },
+  {
+    key: 'A', name: 'Artístico', color: 'var(--A)', onColor: 'var(--on-A)',
+    hex: '#C46ED4',
+    emoji: '🎨',
+    desc: 'Valorás la creatividad, la expresión y la originalidad. Te gustan entornos poco estructurados donde puedas crear e innovar. Sos imaginativo/a, sensible y con un estilo propio muy marcado.',
+    careers: ['Diseño Gráfico','Comunicación Social','Arquitectura','Música','Teatro','Cine y TV','Fotografía','Publicidad','Diseño de indumentaria','Literatura','Animación digital'],
+  },
+  {
+    key: 'S', name: 'Social', color: 'var(--S)', onColor: 'var(--on-S)',
+    hex: '#6DC98A',
+    emoji: '🤝',
+    desc: 'Disfrutás ayudar, enseñar y trabajar con personas. Sos empático/a, comunicativo/a y te sentís realizado/a cuando contribuís al bienestar de los demás. Los entornos de trabajo en equipo te motivan.',
+    careers: ['Educación','Trabajo Social','Enfermería','Psicología','Medicina','Recursos Humanos','Terapia Ocupacional','Fonoaudiología','Nutrición','Sociología','Comunicación'],
+  },
+  {
+    key: 'E', name: 'Emprendedor', color: 'var(--E)', onColor: 'var(--on-E)',
+    hex: '#D4A843',
+    emoji: '🚀',
+    desc: 'Te sentís atraído/a por liderar, persuadir y tomar decisiones. Tenés energía, ambición y confianza para encarar proyectos. Buscás posiciones de influencia donde puedas organizar y motivar a otros.',
+    careers: ['Administración de Empresas','Comercio Exterior','Marketing','Derecho','Ciencias Políticas','Economía','Emprendedurismo','Periodismo','Relaciones Públicas','Gestión pública'],
+  },
+  {
+    key: 'C', name: 'Convencional', color: 'var(--C)', onColor: 'var(--on-C)',
+    hex: '#4ABFB0',
+    emoji: '📊',
+    desc: 'Preferís entornos organizados, con reglas claras y procedimientos definidos. Sos detallista, preciso/a y confiable. Te sentís cómodo/a con tareas administrativas, numéricas y de gestión de información.',
+    careers: ['Contabilidad','Administración','Secretariado Ejecutivo','Finanzas','Sistemas','Auditoría','Logística','Gestión documental','Derecho','Recursos Humanos','Economía'],
+  },
+];
+
+const QUESTIONS = [
+  // R
+  { type:'R', text:'Me gusta arreglar o construir cosas con mis manos.' },
+  { type:'R', text:'Prefiero trabajar al aire libre antes que en una oficina.' },
+  { type:'R', text:'Me interesan las máquinas, herramientas o equipos técnicos.' },
+  { type:'R', text:'Disfruto de actividades físicas como la carpintería, plomería o electricidad.' },
+  { type:'R', text:'Me sentiría bien trabajando en el campo, con animales o en la naturaleza.' },
+  { type:'R', text:'Me resulta satisfactorio ver un resultado concreto de mi trabajo.' },
+  // I
+  { type:'I', text:'Me gusta investigar y buscar explicaciones a los fenómenos.' },
+  { type:'I', text:'Disfruto resolver problemas difíciles que requieren pensar mucho.' },
+  { type:'I', text:'Me interesan las ciencias como Biología, Química o Matemática.' },
+  { type:'I', text:'Prefiero trabajar solo/a en una tarea compleja antes que en grupo.' },
+  { type:'I', text:'Me gusta leer sobre temas científicos o técnicos por curiosidad propia.' },
+  { type:'I', text:'Cuando encuentro un problema interesante, no puedo dejar de pensar en él.' },
+  // A
+  { type:'A', text:'Me expreso mejor a través del arte, la música o la escritura.' },
+  { type:'A', text:'Me gusta crear cosas originales que nadie más haría igual.' },
+  { type:'A', text:'Prefiero entornos creativos donde puedo improvisar y no seguir reglas fijas.' },
+  { type:'A', text:'Disfruto mucho de ir al cine, museos, recitales o espectáculos.' },
+  { type:'A', text:'Me resulta natural usar mi imaginación para resolver situaciones.' },
+  { type:'A', text:'Me gusta diseñar, decorar o darle una estética especial a las cosas.' },
+  // S
+  { type:'S', text:'Me gusta enseñar o explicarle algo a alguien que no entiende.' },
+  { type:'S', text:'Disfruto ayudar a otras personas cuando tienen un problema.' },
+  { type:'S', text:'Me siento bien cuando trabajo en equipo y todos colaboran.' },
+  { type:'S', text:'Me importa mucho el bienestar de las personas que me rodean.' },
+  { type:'S', text:'Me resulta fácil escuchar y entender lo que otros sienten.' },
+  { type:'S', text:'Prefiero una carrera donde pueda impactar positivamente en la sociedad.' },
+  // E
+  { type:'E', text:'Me gusta convencer a otras personas de mis ideas.' },
+  { type:'E', text:'Disfruto tomar la iniciativa y organizar a un grupo.' },
+  { type:'E', text:'Me imagino teniendo mi propio negocio o emprendimiento.' },
+  { type:'E', text:'Me siento cómodo/a hablando en público y liderando.' },
+  { type:'E', text:'Me motivan las metas ambiciosas y los desafíos grandes.' },
+  { type:'E', text:'Disfruto de las negociaciones y de buscar acuerdos ventajosos.' },
+  // C
+  { type:'C', text:'Me gusta organizar información, archivos o datos de forma ordenada.' },
+  { type:'C', text:'Prefiero trabajos con instrucciones claras y pasos definidos.' },
+  { type:'C', text:'Soy detallista y me molestan los errores o la imprecisión.' },
+  { type:'C', text:'Me siento cómodo/a con tareas administrativas o contables.' },
+  { type:'C', text:'Disfruto hacer listas, planillas o cronogramas para organizar mi tiempo.' },
+  { type:'C', text:'Me resulta satisfactorio completar un trámite o proceso sin errores.' },
+];
+
+// Group questions in blocks of 6 (one per type, shown together)
+// Actually show all 36 one type at a time: 6 blocks × 6 questions
+const BLOCKS = TYPES.map((t, ti) => ({
+  type: t,
+  questions: QUESTIONS.filter(q => q.type === t.key),
+}));
+
+// State
+const answers = {}; // key: questionIndex → value 1-5
+let currentBlock = 0;
+
+// ===== INIT =====
+function startQuiz() {
+  document.getElementById('cover').style.display = 'none';
+  document.getElementById('quiz').style.display = 'block';
+  renderBlock(0);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function getQIndex(blockIdx, qIdx) {
+  return blockIdx * 6 + qIdx;
+}
+
+function renderBlock(bi) {
+  currentBlock = bi;
+  const block = BLOCKS[bi];
+  const t = block.type;
+
+  // Progress
+  const answered = Object.keys(answers).length;
+  const pct = Math.round((answered / 36) * 100);
+  document.getElementById('progressLabel').textContent = `Bloque ${bi + 1} de 6 · ${t.name}`;
+  document.getElementById('progressPct').textContent = pct + '%';
+  document.getElementById('progressFill').style.width = pct + '%';
+
+  // Prev/Next
+  document.getElementById('btnPrev').style.display = bi === 0 ? 'none' : 'flex';
+  document.getElementById('btnNext').textContent = bi === 5 ? 'Ver mi perfil →' : 'Siguiente →';
+  document.getElementById('warnMsg').textContent = '';
+
+  // Content
+  const html = `
+    <div class="block-header">
+      <div class="block-color-bar" style="background:${t.hex}"></div>
+      <div>
+        <div class="block-eyebrow" style="color:${t.hex}">${t.emoji} Perfil ${t.key} · ${t.name}</div>
+        <div class="block-title">${blockTitles[bi]}</div>
+        <div class="block-desc">${t.desc.split('.')[0]}.</div>
+      </div>
+    </div>
+    <div class="questions-wrap">
+      ${block.questions.map((q, qi) => {
+        const idx = getQIndex(bi, qi);
+        const val = answers[idx] || null;
+        return `<div class="q-row" id="qrow-${idx}">
+          <div class="q-text">${qi + 1}. ${q.text}</div>
+          <div class="scale-row">
+            <span class="scale-ends">Nada<br>de acuerdo</span>
+            <div class="scale-btns">
+              ${[1,2,3,4,5].map(v => `
+                <button class="s-btn ${val===v?'sel':''}" 
+                  id="sb-${idx}-${v}"
+                  onclick="selectAnswer(${idx},${v},'${t.hex}')"
+                  style="${val===v ? `background:${t.hex};border-color:${t.hex}` : ''}"
+                >${v}</button>
+              `).join('')}
+            </div>
+            <span class="scale-ends">Muy de<br>acuerdo</span>
+          </div>
+        </div>`;
+      }).join('')}
+    </div>`;
+
+  document.getElementById('quizContent').innerHTML = html;
+
+  // Animate rows
+  setTimeout(() => {
+    document.querySelectorAll('.q-row').forEach((el, i) => {
+      setTimeout(() => el.classList.add('vis'), i * 60);
+    });
+  }, 30);
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+const blockTitles = [
+  '¿Te gustan las actividades prácticas y físicas?',
+  '¿Te atrae investigar y analizar?',
+  '¿Sos una persona creativa?',
+  '¿Disfrutás ayudar y conectar con otros?',
+  '¿Te ves liderando y emprendiendo?',
+  '¿Preferís el orden y la precisión?',
+];
+
+function selectAnswer(idx, val, hex) {
+  answers[idx] = val;
+  // Update buttons in this block
+  const blockIdx = Math.floor(idx / 6);
+  const qIdx = idx % 6;
+  for (let v = 1; v <= 5; v++) {
+    const btn = document.getElementById(`sb-${idx}-${v}`);
+    if (!btn) continue;
+    if (v === val) {
+      btn.classList.add('sel');
+      btn.style.background = hex;
+      btn.style.borderColor = hex;
+      btn.style.color = '#0F0F14';
+    } else {
+      btn.classList.remove('sel');
+      btn.style.background = '';
+      btn.style.borderColor = '';
+      btn.style.color = '';
+    }
+  }
+  // Update progress
+  const answered = Object.keys(answers).length;
+  const pct = Math.round((answered / 36) * 100);
+  document.getElementById('progressPct').textContent = pct + '%';
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('warnMsg').textContent = '';
+}
+
+function blockComplete(bi) {
+  for (let qi = 0; qi < 6; qi++) {
+    if (!answers[getQIndex(bi, qi)]) return false;
+  }
+  return true;
+}
+
+function nextBlock() {
+  if (!blockComplete(currentBlock)) {
+    document.getElementById('warnMsg').textContent = '⚠️ Respondé todas las preguntas de este bloque antes de continuar.';
+    // Highlight unanswered
+    for (let qi = 0; qi < 6; qi++) {
+      const idx = getQIndex(currentBlock, qi);
+      if (!answers[idx]) {
+        const row = document.getElementById(`qrow-${idx}`);
+        if (row) { row.style.outline = '1.5px solid var(--R)'; row.style.borderRadius = '8px'; }
+      }
+    }
+    return;
+  }
+  if (currentBlock === 5) { showResults(); return; }
+  renderBlock(currentBlock + 1);
+}
+
+function prevBlock() {
+  if (currentBlock > 0) renderBlock(currentBlock - 1);
+}
+
+// ===== RESULTS =====
+function computeScores() {
+  const scores = {};
+  TYPES.forEach(t => scores[t.key] = 0);
+  for (let i = 0; i < 36; i++) {
+    const type = QUESTIONS[i].type;
+    scores[type] += (answers[i] || 0);
+  }
+  return scores;
+}
+
+function showResults() {
+  document.getElementById('quiz').style.display = 'none';
+  document.getElementById('results').style.display = 'block';
+  buildResults();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function buildResults() {
+  const name = document.getElementById('studentName').value.trim() || 'Estudiante';
+  const scores = computeScores();
+  const maxScore = 30; // 6 questions × 5
+
+  // Sort by score
+  const ranked = TYPES.map(t => ({ ...t, score: scores[t.key] }))
+    .sort((a, b) => b.score - a.score);
+
+  const top = ranked[0];
+
+  // Title
+  document.getElementById('resultsTitle').innerHTML =
+    `Tu perfil es <em style="color:${top.hex}">${top.emoji} ${top.name}</em>`;
+
+  // Radar SVG
+  buildRadar(scores, maxScore);
+
+  // Podium top 3
+  const podium = document.getElementById('podiumWrap');
+  podium.innerHTML = ranked.slice(0, 3).map((t, i) => `
+    <div class="podium-card rank-${i+1}" style="--accent:${t.hex}; border-top: 3px solid ${t.hex}">
+      <div class="podium-rank">${['🥇 1er lugar','🥈 2do lugar','🥉 3er lugar'][i]}</div>
+      <div class="podium-letter" style="color:${t.hex}">${t.key}</div>
+      <div class="podium-name">${t.name}</div>
+      <div class="podium-score">${t.score} / ${maxScore} puntos</div>
+      <div class="podium-bar-wrap">
+        <div class="podium-bar" style="background:${t.hex}; width:${Math.round((t.score/maxScore)*100)}%"></div>
+      </div>
+    </div>`).join('');
+
+  // Detail cards (all 6, sorted)
+  const dc = document.getElementById('detailCards');
+  dc.innerHTML = `<div style="font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;margin-bottom:1rem">Los 6 perfiles en detalle</div>`;
+  ranked.forEach(t => {
+    const pct = Math.round((t.score / maxScore) * 100);
+    dc.innerHTML += `
+      <div class="detail-card">
+        <div class="detail-head">
+          <div class="detail-letter-badge" style="background:${t.hex}20; color:${t.hex}">
+            ${t.key}
+          </div>
+          <div style="flex:1">
+            <div class="detail-name">${t.emoji} ${t.name}</div>
+            <div class="detail-score-label">${t.score} / ${maxScore} pts · ${pct}%</div>
+            <div class="detail-score-track">
+              <div class="detail-score-fill" style="background:${t.hex}" data-w="${pct}"></div>
+            </div>
+          </div>
+        </div>
+        <div class="detail-body">
+          <div class="detail-desc">${t.desc}</div>
+          <div class="careers-label">Carreras y áreas relacionadas</div>
+          <div class="careers-wrap">
+            ${t.careers.map(c => `<span class="career-tag" style="background:${t.hex}20; color:${t.hex}; border: 1px solid ${t.hex}40">${c}</span>`).join('')}
+          </div>
+        </div>
+      </div>`;
+  });
+
+  // Animate score bars
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    document.querySelectorAll('.detail-score-fill').forEach(b => {
+      b.style.width = b.dataset.w + '%';
+    });
+  }));
+}
+
+function buildRadar(scores, maxScore) {
+  const cx = 170, cy = 170, r = 120;
+  const keys = ['R','I','A','S','E','C'];
+  const labels = ['Realista','Investigador','Artístico','Social','Emprendedor','Convencional'];
+  const colors = { R:'#E07840', I:'#5A9FD4', A:'#C46ED4', S:'#6DC98A', E:'#D4A843', C:'#4ABFB0' };
+  const n = 6;
+
+  // angles: start from top (-90deg), go clockwise
+  const angles = keys.map((_, i) => (Math.PI * 2 * i / n) - Math.PI / 2);
+
+  function polar(angle, radius) {
+    return { x: cx + radius * Math.cos(angle), y: cy + radius * Math.sin(angle) };
+  }
+
+  let svg = '';
+
+  // Grid hexagons
+  [0.2, 0.4, 0.6, 0.8, 1].forEach(f => {
+    const pts = angles.map(a => polar(a, r * f));
+    svg += `<polygon points="${pts.map(p => `${p.x},${p.y}`).join(' ')}" fill="none" stroke="#2A2A38" stroke-width="1"/>`;
+  });
+
+  // Axes
+  angles.forEach(a => {
+    const end = polar(a, r);
+    svg += `<line x1="${cx}" y1="${cy}" x2="${end.x}" y2="${end.y}" stroke="#2A2A38" stroke-width="1"/>`;
+  });
+
+  // Data polygon
+  const dataPoints = keys.map((k, i) => {
+    const ratio = scores[k] / maxScore;
+    return polar(angles[i], r * ratio);
+  });
+  svg += `<polygon points="${dataPoints.map(p => `${p.x},${p.y}`).join(' ')}" 
+    fill="rgba(212,168,67,0.15)" stroke="rgba(212,168,67,0.7)" stroke-width="2"/>`;
+
+  // Dots
+  keys.forEach((k, i) => {
+    const ratio = scores[k] / maxScore;
+    const p = polar(angles[i], r * ratio);
+    svg += `<circle cx="${p.x}" cy="${p.y}" r="5" fill="${colors[k]}" stroke="#0F0F14" stroke-width="2"/>`;
+  });
+
+  // Labels
+  keys.forEach((k, i) => {
+    const p = polar(angles[i], r + 22);
+    const score = scores[k];
+    let anchor = 'middle';
+    if (p.x < cx - 10) anchor = 'end';
+    else if (p.x > cx + 10) anchor = 'start';
+    svg += `<text x="${p.x}" y="${p.y - 6}" text-anchor="${anchor}" 
+      font-family="Fraunces, serif" font-size="13" font-weight="700" fill="${colors[k]}">${k}</text>`;
+    svg += `<text x="${p.x}" y="${p.y + 9}" text-anchor="${anchor}" 
+      font-family="Outfit, sans-serif" font-size="9" fill="#9A96AA">${score}pts</text>`;
+  });
+
+  document.getElementById('radarSvg').innerHTML = svg;
+}
+
+function restart() {
+  Object.keys(answers).forEach(k => delete answers[k]);
+  currentBlock = 0;
+  document.getElementById('results').style.display = 'none';
+  document.getElementById('cover').style.display = 'flex';
+  document.getElementById('studentName').value = '';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>

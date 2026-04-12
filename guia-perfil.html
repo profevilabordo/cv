@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cómo escribir mi Perfil Profesional</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;0,900;1,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#0D0D14; --surface:#14141E; --card:#1A1A26; --border:#262638;
+  --text:#E8E4DC; --muted:#9A96AA; --soft:#5A5670;
+  --gold:#D4A843; --gold2:#F0C96A; --teal:#4ABFB0; --rose:#E06080;
+  --violet:#A98EE8; --green:#6DC98A;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Outfit',sans-serif;font-weight:300;min-height:100vh;}
+
+.wrap{max-width:740px;margin:0 auto;padding:0 1.25rem;}
+
+/* HERO */
+header{padding:4rem 0 3rem;text-align:center;position:relative;}
+header::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:radial-gradient(ellipse 600px 400px at 20% 20%,rgba(212,168,67,.07) 0%,transparent 60%),
+             radial-gradient(ellipse 500px 400px at 80% 80%,rgba(74,191,176,.05) 0%,transparent 60%);}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(212,168,67,.35);color:var(--gold);font-size:.62rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:.4rem 1.1rem;border-radius:100px;background:rgba(212,168,67,.06);margin-bottom:1.75rem;animation:fadeUp .8s ease both;}
+h1{font-family:'Fraunces',serif;font-size:clamp(2rem,7vw,3.5rem);font-weight:900;line-height:1.1;margin-bottom:1rem;animation:fadeUp .8s .1s ease both;}
+h1 em{font-style:italic;font-weight:300;color:var(--gold);}
+.hero-sub{color:var(--muted);font-size:.95rem;line-height:1.8;max-width:480px;margin:0 auto 2.5rem;animation:fadeUp .8s .2s ease both;}
+
+/* STEPS NAV */
+.steps-nav{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:center;margin-bottom:3rem;animation:fadeUp .8s .3s ease both;}
+.step-pill{display:flex;align-items:center;gap:.4rem;padding:.45rem 1rem;border-radius:100px;border:1px solid var(--border);background:var(--card);font-size:.72rem;color:var(--muted);cursor:pointer;transition:all .2s;user-select:none;}
+.step-pill:hover{border-color:rgba(255,255,255,.2);color:var(--text);}
+.step-pill.done{border-color:rgba(212,168,67,.4);color:var(--gold);background:rgba(212,168,67,.06);}
+.step-num{width:18px;height:18px;border-radius:50%;background:var(--border);display:flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:700;flex-shrink:0;}
+.step-pill.done .step-num{background:var(--gold);color:#1A1208;}
+
+/* SECTION CARD */
+.section-card{background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-bottom:2rem;opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease;}
+.section-card.vis{opacity:1;transform:translateY(0);}
+.card-head{padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:1rem;}
+.card-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;}
+.card-eyebrow{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:.15rem;}
+.card-title{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;}
+.card-body{padding:1.4rem 1.5rem;}
+.card-desc{font-size:.86rem;color:var(--muted);line-height:1.75;margin-bottom:1.25rem;}
+
+/* FORMULA BLOCK */
+.formula{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1rem 1.25rem;margin-bottom:1.25rem;}
+.formula-part{display:flex;flex-direction:column;align-items:center;gap:.2rem;}
+.fp-chip{border-radius:8px;padding:.35rem .75rem;font-size:.76rem;font-weight:600;color:#fff;}
+.fp-label{font-size:.6rem;color:var(--muted);text-align:center;}
+.formula-plus{font-size:1.1rem;color:var(--soft);font-weight:300;}
+.formula-eq{font-size:.8rem;font-weight:600;color:var(--gold);white-space:nowrap;}
+
+/* EXAMPLES */
+.example-block{border-radius:12px;padding:1rem 1.25rem;margin-bottom:.75rem;font-size:.84rem;line-height:1.7;position:relative;}
+.example-block.bad{background:rgba(224,96,128,.08);border:1px solid rgba(224,96,128,.2);}
+.example-block.good{background:rgba(109,201,138,.08);border:1px solid rgba(109,201,138,.2);}
+.ex-badge{display:inline-flex;align-items:center;gap:.3rem;font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;border-radius:100px;margin-bottom:.5rem;}
+.ex-badge.bad{background:rgba(224,96,128,.15);color:var(--rose);}
+.ex-badge.good{background:rgba(109,201,138,.15);color:var(--green);}
+.ex-text{color:var(--text);}
+.ex-note{font-size:.75rem;color:var(--muted);margin-top:.4rem;font-style:italic;}
+
+/* WORD BANK */
+.word-bank{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1rem;}
+.word-chip{background:var(--surface);border:1px solid var(--border);border-radius:100px;padding:.3rem .85rem;font-size:.76rem;color:var(--muted);cursor:pointer;transition:all .2s;user-select:none;}
+.word-chip:hover{border-color:rgba(255,255,255,.2);color:var(--text);}
+.word-chip.picked{color:#1A1208;font-weight:600;border-color:transparent;}
+
+/* BUILDER */
+.builder{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.25rem;margin-bottom:1rem;}
+.builder-label{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;font-weight:600;}
+.builder-row{margin-bottom:.85rem;}
+.builder-row-label{font-size:.72rem;font-weight:500;color:var(--muted);margin-bottom:.35rem;display:flex;align-items:center;gap:.4rem;}
+.row-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+input.bi,textarea.bi{width:100%;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:.65rem .9rem;font-family:'Outfit',sans-serif;font-size:.83rem;color:var(--text);outline:none;transition:border-color .2s,box-shadow .2s;line-height:1.5;}
+textarea.bi{min-height:60px;resize:vertical;}
+input.bi:focus,textarea.bi:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,168,67,.08);}
+input.bi::placeholder,textarea.bi::placeholder{color:var(--soft);}
+
+/* PREVIEW BOX */
+.preview-box{background:#fff;border-radius:14px;padding:1.25rem 1.5rem;margin-bottom:1rem;min-height:80px;transition:all .3s;}
+.preview-box p{font-family:'Outfit',sans-serif;font-size:.84rem;color:#1C1C2E;line-height:1.75;}
+.preview-box .empty-ph{font-size:.8rem;color:#C0BDD0;font-style:italic;}
+.char-count{font-size:.7rem;color:var(--muted);text-align:right;}
+.char-count.warn{color:var(--rose);}
+.char-count.ok{color:var(--green);}
+
+/* COPY BTN */
+.btn-copy{display:flex;align-items:center;gap:.5rem;padding:.7rem 1.4rem;background:var(--gold);color:#1A1208;border:none;border-radius:100px;font-family:'Outfit',sans-serif;font-size:.8rem;font-weight:600;cursor:pointer;transition:all .25s;}
+.btn-copy:hover{background:var(--gold2);transform:translateY(-1px);}
+.btn-copy.copied{background:var(--green);color:#061209;}
+
+/* CHECKLIST */
+.checklist{display:flex;flex-direction:column;gap:.55rem;}
+.check-item{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;cursor:pointer;transition:all .2s;user-select:none;}
+.check-item:hover{border-color:rgba(255,255,255,.15);}
+.check-item.checked{background:rgba(109,201,138,.07);border-color:rgba(109,201,138,.3);}
+.check-box{width:22px;height:22px;border-radius:6px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.75rem;transition:all .2s;}
+.check-item.checked .check-box{background:var(--green);border-color:var(--green);color:#061209;}
+.check-text{font-size:.82rem;color:var(--muted);transition:color .2s;}
+.check-item.checked .check-text{color:var(--text);}
+
+/* TIPS */
+.tip-row{display:flex;gap:.75rem;padding:.9rem 1rem;background:rgba(74,191,176,.06);border:1px solid rgba(74,191,176,.2);border-radius:12px;margin-bottom:.6rem;font-size:.8rem;color:var(--muted);line-height:1.6;}
+.tip-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem;}
+
+/* BOTTOM NAV */
+.bottom-nav{padding:3rem 0 4rem;text-align:center;}
+.btn-back{display:inline-flex;align-items:center;gap:.5rem;padding:.85rem 2rem;border-radius:100px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:'Outfit',sans-serif;font-size:.83rem;cursor:pointer;transition:all .25s;text-decoration:none;}
+.btn-back:hover{color:var(--text);border-color:rgba(255,255,255,.2);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">✦ Herramienta 4 · Redacción de CV</div>
+  <h1>Cómo escribir<br>tu <em>perfil profesional</em></h1>
+  <p class="hero-sub">El perfil es la primera cosa que lee un empleador. En 3–4 oraciones tenés que contar quién sos, qué sabés hacer y qué buscás. Acá te enseñamos cómo.</p>
+
+  <div class="steps-nav" id="stepsNav">
+    <div class="step-pill" id="sp1"><span class="step-num">1</span>Qué es el perfil</div>
+    <div class="step-pill" id="sp2"><span class="step-num">2</span>La fórmula</div>
+    <div class="step-pill" id="sp3"><span class="step-num">3</span>Palabras clave</div>
+    <div class="step-pill" id="sp4"><span class="step-num">4</span>Escribí el tuyo</div>
+    <div class="step-pill" id="sp5"><span class="step-num">5</span>Revisá</div>
+  </div>
+</header>
+
+<!-- ═══ SECCIÓN 1: QUÉ ES ═══ -->
+<div class="section-card" id="sec1">
+  <div class="card-head">
+    <div class="card-icon" style="background:rgba(212,168,67,.12)">📋</div>
+    <div>
+      <div class="card-eyebrow" style="color:var(--gold)">Paso 1 · Entendé el objetivo</div>
+      <div class="card-title">¿Qué es el perfil profesional?</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <p class="card-desc">Es un párrafo corto al inicio del CV donde te presentás. No es una carta de presentación — es un <strong style="color:var(--text)">resumen de quién sos como trabajador/a</strong>. El reclutador lo lee en 10 segundos y decide si sigue leyendo.</p>
+
+    <div class="example-block bad">
+      <div class="ex-badge bad">✗ Ejemplo malo</div>
+      <div class="ex-text">"Soy una persona responsable y puntual que busca trabajar."</div>
+      <div class="ex-note">Muy vago. No dice nada concreto sobre vos. Cualquier persona podría escribir esto.</div>
+    </div>
+
+    <div class="example-block good">
+      <div class="ex-badge good">✓ Ejemplo bueno</div>
+      <div class="ex-text">"Estudiante del último año del Bachillerato en Economía y Administración, con interés en el área comercial y atención al cliente. Me destaco por mi capacidad de organización y trabajo en equipo. Busco una primera experiencia laboral donde pueda aplicar lo aprendido y seguir creciendo."</div>
+      <div class="ex-note">Concreto, honesto y con dirección clara. Muestra quién sos y qué buscás.</div>
+    </div>
+
+    <div class="tip-row"><span class="tip-icon">💡</span><span>El perfil <strong style="color:var(--text)">no tiene que ser perfecto</strong> — tiene que ser auténtico. Los empleadores valoran la honestidad, especialmente en el primer trabajo.</span></div>
+  </div>
+</div>
+
+<!-- ═══ SECCIÓN 2: FÓRMULA ═══ -->
+<div class="section-card" id="sec2">
+  <div class="card-head">
+    <div class="card-icon" style="background:rgba(74,191,176,.12)">🧩</div>
+    <div>
+      <div class="card-eyebrow" style="color:var(--teal)">Paso 2 · Aprendé la estructura</div>
+      <div class="card-title">La fórmula de 3 partes</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <p class="card-desc">Todo buen perfil tiene tres elementos. No hace falta que estén en este orden exacto, pero sí que estén los tres.</p>
+
+    <div class="formula">
+      <div class="formula-part">
+        <div class="fp-chip" style="background:#1E3A5F">👤 Quién soy</div>
+        <div class="fp-label">Formación y<br>características</div>
+      </div>
+      <div class="formula-plus">+</div>
+      <div class="formula-part">
+        <div class="fp-chip" style="background:#1A4A35">💪 Qué sé hacer</div>
+        <div class="fp-label">Habilidades y<br>fortalezas</div>
+      </div>
+      <div class="formula-plus">+</div>
+      <div class="formula-part">
+        <div class="fp-chip" style="background:#3A1A3A">🎯 Qué busco</div>
+        <div class="fp-label">Objetivo<br>laboral</div>
+      </div>
+      <div class="formula-plus">=</div>
+      <div class="formula-eq">✨ Perfil profesional</div>
+    </div>
+
+    <div class="example-block good">
+      <div class="ex-badge good">Ejemplo con las 3 partes marcadas</div>
+      <div class="ex-text">
+        <span style="background:rgba(30,58,95,.3);padding:.1rem .3rem;border-radius:4px">"Estudiante del último año del Bachillerato en Economía"</span>
+        <span style="color:var(--muted)"> [quién soy] + </span>
+        <span style="background:rgba(26,74,53,.3);padding:.1rem .3rem;border-radius:4px">"con capacidad de organización, comunicación y trabajo bajo presión"</span>
+        <span style="color:var(--muted)"> [qué sé hacer] + </span>
+        <span style="background:rgba(58,26,58,.3);padding:.1rem .3rem;border-radius:4px">"busco mi primera experiencia en el área de ventas o administración"</span>
+        <span style="color:var(--muted)"> [qué busco]</span>
+      </div>
+    </div>
+
+    <div class="tip-row"><span class="tip-icon">📏</span><span>El perfil ideal tiene entre <strong style="color:var(--text)">40 y 80 palabras</strong>. Más de 100 palabras es demasiado largo — los empleadores no lo van a leer completo.</span></div>
+  </div>
+</div>
+
+<!-- ═══ SECCIÓN 3: PALABRAS CLAVE ═══ -->
+<div class="section-card" id="sec3">
+  <div class="card-head">
+    <div class="card-icon" style="background:rgba(169,142,232,.12)">🔑</div>
+    <div>
+      <div class="card-eyebrow" style="color:var(--violet)">Paso 3 · Elegí tus palabras</div>
+      <div class="card-title">Banco de palabras clave</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <p class="card-desc">Tocá las palabras que te representen. Las vas a poder usar cuando escribas tu perfil en el paso siguiente.</p>
+
+    <div class="sec-lbl-sm" style="font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--violet);font-weight:600;margin-bottom:.6rem">Fortalezas personales</div>
+    <div class="word-bank" id="wb-fortalezas">
+      <span class="word-chip" style="--pick:var(--violet)" onclick="pickWord(this,'violet')">Responsable</span>
+      <span class="word-chip" onclick="pickWord(this,'violet')">Puntual</span>
+      <span class="word-chip" onclick="pickWord(this,'violet')">Organizado/a</span>
+      <span class="word-chip" onclick="pickWord(this,'violet')">Proactivo/a</span>
+      <span class="word-chip" onclick="pickWord(this,'violet')">Comprometido/a</span>
+      <span class="word-chip" onclick="pickWord(this,'violet')">Detallista</span>
+      <span class="word-chip" onclick="pickWord(this,'violet')">Creativo/a</span>
+      <span class="word-chip" onclick="pickWord(this,'violet')">Adaptable</span>
+      <span class="word-chip" onclick="pickWord(this,'violet')">Perseverante</span>
+      <span class="word-chip" onclick="pickWord(this,'violet')">Honesto/a</span>
+    </div>
+
+    <div class="sec-lbl-sm" style="font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);font-weight:600;margin:.85rem 0 .6rem">Habilidades sociales</div>
+    <div class="word-bank">
+      <span class="word-chip" onclick="pickWord(this,'teal')">Trabajo en equipo</span>
+      <span class="word-chip" onclick="pickWord(this,'teal')">Comunicación efectiva</span>
+      <span class="word-chip" onclick="pickWord(this,'teal')">Atención al cliente</span>
+      <span class="word-chip" onclick="pickWord(this,'teal')">Liderazgo</span>
+      <span class="word-chip" onclick="pickWord(this,'teal')">Empatía</span>
+      <span class="word-chip" onclick="pickWord(this,'teal')">Escucha activa</span>
+      <span class="word-chip" onclick="pickWord(this,'teal')">Resolución de conflictos</span>
+    </div>
+
+    <div class="sec-lbl-sm" style="font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:.85rem 0 .6rem">Forma de trabajar</div>
+    <div class="word-bank">
+      <span class="word-chip" onclick="pickWord(this,'gold')">Trabajo bajo presión</span>
+      <span class="word-chip" onclick="pickWord(this,'gold')">Gestión del tiempo</span>
+      <span class="word-chip" onclick="pickWord(this,'gold')">Capacidad de aprendizaje</span>
+      <span class="word-chip" onclick="pickWord(this,'gold')">Orientado/a a resultados</span>
+      <span class="word-chip" onclick="pickWord(this,'gold')">Multitarea</span>
+      <span class="word-chip" onclick="pickWord(this,'gold')">Iniciativa propia</span>
+      <span class="word-chip" onclick="pickWord(this,'gold')">Pensamiento crítico</span>
+    </div>
+
+    <div id="selected-words-wrap" style="display:none;margin-top:1rem;padding:.85rem 1rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;">
+      <div style="font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem">Tus palabras elegidas</div>
+      <div id="selected-words" style="display:flex;flex-wrap:wrap;gap:.35rem;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SECCIÓN 4: ESCRIBIR ═══ -->
+<div class="section-card" id="sec4">
+  <div class="card-head">
+    <div class="card-icon" style="background:rgba(109,201,138,.12)">✍️</div>
+    <div>
+      <div class="card-eyebrow" style="color:var(--green)">Paso 4 · Manos a la obra</div>
+      <div class="card-title">Escribí tu perfil</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <p class="card-desc">Completá las tres partes y tu perfil se arma automáticamente abajo. Después podés copiarlo directo al generador de CV.</p>
+
+    <div class="builder">
+      <div class="builder-label">🧱 Constructor de perfil</div>
+
+      <div class="builder-row">
+        <div class="builder-row-label">
+          <span class="row-dot" style="background:#2E6CB8"></span>
+          Parte 1 — ¿Quién sos? (formación + características)
+        </div>
+        <input class="bi" id="b-quien" placeholder="Ej: Estudiante del último año del Bachillerato en Economía y Administración" oninput="buildProfile()">
+      </div>
+
+      <div class="builder-row">
+        <div class="builder-row-label">
+          <span class="row-dot" style="background:#1A8B6E"></span>
+          Parte 2 — ¿Qué sabés hacer? (habilidades y fortalezas)
+        </div>
+        <input class="bi" id="b-habilidades" placeholder="Ej: con capacidad de organización, trabajo en equipo y atención al cliente" oninput="buildProfile()">
+      </div>
+
+      <div class="builder-row">
+        <div class="builder-row-label">
+          <span class="row-dot" style="background:#7B4CB8"></span>
+          Parte 3 — ¿Qué buscás? (objetivo laboral)
+        </div>
+        <input class="bi" id="b-objetivo" placeholder="Ej: Busco mi primera experiencia laboral en el área comercial o administrativa" oninput="buildProfile()">
+      </div>
+    </div>
+
+    <div style="font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:.5rem">Vista previa de tu perfil</div>
+    <div class="preview-box" id="profile-preview">
+      <span class="empty-ph">Tu perfil aparecerá aquí mientras escribís…</span>
+    </div>
+    <div class="char-count" id="char-count">0 palabras</div>
+
+    <div style="display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1rem">
+      <button class="btn-copy" id="btn-copy" onclick="copyProfile()">📋 Copiar perfil</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SECCIÓN 5: REVISAR ═══ -->
+<div class="section-card" id="sec5">
+  <div class="card-head">
+    <div class="card-icon" style="background:rgba(224,96,128,.12)">✅</div>
+    <div>
+      <div class="card-eyebrow" style="color:var(--rose)">Paso 5 · Revisá antes de pegar</div>
+      <div class="card-title">Lista de verificación</div>
+    </div>
+  </div>
+  <div class="card-body">
+    <p class="card-desc">Antes de copiar tu perfil al CV, revisá estos puntos. Hacé clic en cada uno cuando lo hayas verificado.</p>
+
+    <div class="checklist" id="checklist">
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">Tiene entre 40 y 80 palabras (ni muy corto ni muy largo)</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">Menciona mi carrera o área de estudio</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">Incluye al menos dos habilidades concretas</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">Dice claramente qué tipo de trabajo busco</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">No tiene frases vacías como "soy responsable" sin contexto</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">Está escrito en primera persona ("Soy...", "Busco...", "Me destaco...")</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">No tiene errores de ortografía</div>
+      </div>
+      <div class="check-item" onclick="toggleCheck(this)">
+        <div class="check-box">✓</div>
+        <div class="check-text">Lo leí en voz alta y suena natural</div>
+      </div>
+    </div>
+
+    <div id="checklist-result" style="margin-top:1.25rem;font-size:.85rem;color:var(--muted);text-align:center;min-height:1.5em"></div>
+
+    <div class="tip-row" style="margin-top:1rem"><span class="tip-icon">🎯</span><span>Cuando tengas el perfil listo, <strong style="color:var(--text)">copialo y pegalo en el Generador de CV</strong>, en la pestaña "Perfil".</span></div>
+  </div>
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <a href="guiacv.html" class="btn-back">← Volver al inicio</a>
+</div>
+
+</div><!-- /wrap -->
+
+<script>
+// Animate on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('vis'); markStep(e.target.id); } });
+}, {threshold:.12});
+document.querySelectorAll('.section-card').forEach(c => obs.observe(c));
+
+const stepMap = {sec1:'sp1',sec2:'sp2',sec3:'sp3',sec4:'sp4',sec5:'sp5'};
+function markStep(secId){
+  const sp = document.getElementById(stepMap[secId]);
+  if(sp) sp.classList.add('done');
+}
+
+// Word bank
+const colors = {violet:'#A98EE8',teal:'#4ABFB0',gold:'#D4A843'};
+const picked = [];
+function pickWord(el, colorKey){
+  const word = el.textContent;
+  if(el.classList.contains('picked')){
+    el.classList.remove('picked'); el.style.background=''; el.style.color='';
+    const i = picked.indexOf(word); if(i>-1) picked.splice(i,1);
+  } else {
+    el.classList.add('picked');
+    el.style.background = colors[colorKey];
+    el.style.color = '#0D0D14';
+    picked.push(word);
+  }
+  renderPicked();
+}
+function renderPicked(){
+  const wrap = document.getElementById('selected-words-wrap');
+  const list = document.getElementById('selected-words');
+  if(picked.length===0){ wrap.style.display='none'; return; }
+  wrap.style.display='block';
+  list.innerHTML = picked.map(w=>`<span style="background:var(--card);border:1px solid var(--border);border-radius:100px;padding:.22rem .7rem;font-size:.72rem;color:var(--text)">${w}</span>`).join('');
+}
+
+// Profile builder
+function buildProfile(){
+  const quien = document.getElementById('b-quien').value.trim();
+  const hab   = document.getElementById('b-habilidades').value.trim();
+  const obj   = document.getElementById('b-objetivo').value.trim();
+  const parts = [quien, hab, obj].filter(Boolean);
+  const preview = document.getElementById('profile-preview');
+  const countEl = document.getElementById('char-count');
+
+  if(parts.length === 0){
+    preview.innerHTML = '<span class="empty-ph">Tu perfil aparecerá aquí mientras escribís…</span>';
+    countEl.textContent = '0 palabras'; countEl.className = 'char-count';
+    return;
+  }
+
+  let text = '';
+  if(quien && hab) text = `${quien}, ${hab.toLowerCase()}.`;
+  else if(quien) text = `${quien}.`;
+  if(obj) text += ` ${obj.charAt(0).toUpperCase()}${obj.slice(1)}${obj.endsWith('.')?'':'.'}`;
+  if(!obj && hab && !quien) text = `${hab}.`;
+
+  preview.innerHTML = `<p>${text}</p>`;
+
+  const words = text.split(/\s+/).filter(Boolean).length;
+  countEl.textContent = `${words} palabras`;
+  if(words < 20) countEl.className='char-count warn';
+  else if(words >= 40 && words <= 80) countEl.className='char-count ok';
+  else countEl.className='char-count';
+
+  preview._text = text;
+}
+
+function copyProfile(){
+  const preview = document.getElementById('profile-preview');
+  const text = preview._text || preview.innerText;
+  if(!text || text.includes('aparecerá aquí')) return;
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn = document.getElementById('btn-copy');
+    btn.textContent = '✓ ¡Copiado!'; btn.classList.add('copied');
+    setTimeout(()=>{ btn.textContent='📋 Copiar perfil'; btn.classList.remove('copied'); }, 2500);
+  });
+}
+
+// Checklist
+function toggleCheck(el){
+  el.classList.toggle('checked');
+  const total = document.querySelectorAll('.check-item').length;
+  const done  = document.querySelectorAll('.check-item.checked').length;
+  const res   = document.getElementById('checklist-result');
+  if(done === total){
+    res.innerHTML = '🎉 <strong style="color:var(--green)">¡Tu perfil está listo para el CV!</strong>';
+  } else if(done >= 6){
+    res.innerHTML = `✨ Casi listo — ${total-done} punto${total-done>1?'s':''} por revisar`;
+    res.style.color = 'var(--gold)';
+  } else {
+    res.textContent = `${done} de ${total} puntos verificados`;
+    res.style.color = 'var(--muted)';
+  }
+}
+</script>
+</body>
+</html>
