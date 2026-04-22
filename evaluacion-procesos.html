@@ -186,7 +186,9 @@
                 },
                 body: JSON.stringify(data)
             });
-            return await r.json();
+            const result = await r.json();
+            console.log("Supabase insert result:", result);
+            return result;
         } catch (e) {
             console.error("Error saving to Supabase:", e);
         }
@@ -431,7 +433,7 @@
         }, 1000);
     }
 
-    function finishQuiz(auto = false) {
+    async function finishQuiz(auto = false) {
         if (!auto) {
             const unanswered = userAnswers.filter(a => a === null).length;
             if (unanswered > 0) {
@@ -442,10 +444,15 @@
         clearInterval(timerInterval);
         
         let score = 0;
-        currentQuestions.forEach((q, i) => {
-            if (userAnswers[i] === q.newCorrectIdx) {
-                score++;
-            }
+        const processedAnswers = currentQuestions.map((q, i) => {
+            const selectedIdx = userAnswers[i];
+            const isCorrect = selectedIdx === q.newCorrectIdx;
+            if (isCorrect) score++;
+            
+            return {
+                text: selectedIdx !== null ? q.a[selectedIdx] : "Sin respuesta",
+                isCorrect: isCorrect
+            };
         });
 
         const timeUsed = 20 * 60 - timeLeft;
@@ -457,7 +464,9 @@
         const studentName = document.getElementById('student-name-display').textContent;
         const studentCode = document.getElementById('student-name-display').dataset.code;
         
-        sbInsert("progreso", {
+        document.getElementById('result-title').textContent = "Guardando resultados...";
+        
+        await sbInsert("progreso", {
             alumno_codigo: studentCode,
             materia: "Procesos Productivos",
             unidad: "Evaluación 30",
@@ -466,7 +475,7 @@
             datos: {
                 alumno_nombre: studentName,
                 tiempo_usado: timeStr,
-                respuestas: userAnswers,
+                respuestas: processedAnswers,
                 preguntas: currentQuestions.map(q => q.q),
                 fecha: new Date().toISOString()
             }
