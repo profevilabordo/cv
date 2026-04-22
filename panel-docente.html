@@ -224,6 +224,7 @@ body{background:#0F172A;color:#E2E8F0;min-height:100vh}
       <button class="tab on" onclick="switchTab(0,this)">👥 Alumnos</button>
       <button class="tab" id="tabProgreso" onclick="switchTab(1,this)">📊 Progreso</button>
       <button class="tab" id="tabHeatmap" onclick="switchTab(4,this)">🗺️ Mapa de Calor</button>
+      <button class="tab" onclick="switchTab(5,this)">📝 Evaluaciones</button>
       <button class="tab" onclick="switchTab(2,this)">📝 Autotests</button>
       <button class="tab" onclick="switchTab(3,this)">⚙️ Gestionar</button>
     </div>
@@ -452,6 +453,7 @@ function renderTab(){
   if(currentTab===0) renderAlumnos();
   else if(currentTab===1) renderProgreso();
   else if(currentTab===4) renderHeatmap();
+  else if(currentTab===5) renderEvaluaciones();
   else if(currentTab===2) renderAutotests();
   else renderGestionar();
 }
@@ -1049,6 +1051,47 @@ function renderHeatmap(){
   document.getElementById("tabContent").innerHTML = h;
 }
 
+// ----- TAB 5: EVALUACIONES -----
+function renderEvaluaciones(){
+  var fc = (document.getElementById("filterCursoE")||{value:""}).value;
+  var h = '<div class="search-row">';
+  h += '<select class="filter-select" id="filterCursoE" onchange="renderEvaluaciones()"><option value="">Todos los cursos</option>';
+  var cursos = [...new Set(allAlumnos.map(function(a){return a.curso}))].sort();
+  cursos.forEach(function(c){ h += '<option'+(fc===c?' selected':'')+'>'+c+'</option>'; });
+  h += '</select></div>';
+
+  var evals = allProgreso.filter(function(p){return p.seccion === "EVALUACION" || p.seccion === "EVAL_PROCESOS"});
+  if(fc) {
+    var codes = new Set(allAlumnos.filter(function(a){return a.curso===fc}).map(function(a){return norm(a.codigo)}));
+    evals = evals.filter(function(p){return codes.has(norm(p.alumno_codigo))});
+  }
+
+  if(!evals.length){
+    h += '<div class="empty-state">No hay evaluaciones registradas todavía.</div>';
+  } else {
+    h += '<div class="table-wrap"><table>';
+    h += '<thead><tr><th>Fecha</th><th>Alumno</th><th>Materia</th><th>Nota</th><th>Tiempo</th><th></th></tr></thead><tbody>';
+    evals.sort(function(a,b){return new Date(b.fecha)-new Date(a.fecha)}).forEach(function(ev){
+      var al = allAlumnos.find(function(a){return norm(a.codigo)===norm(ev.alumno_codigo)});
+      var nombre = al ? al.nombre : (ev.datos?.alumno_nombre || ev.alumno_codigo);
+      var fecha = new Date(ev.fecha).toLocaleDateString("es-AR",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"});
+      var notaColor = ev.nota >= 70 ? '#34D399' : ev.nota >= 40 ? '#FBBF24' : '#F87171';
+      var tiempo = ev.datos?.tiempo_usado || "—";
+      
+      h += '<tr>';
+      h += '<td style="font-size:12px;color:#64748B">'+fecha+'</td>';
+      h += '<td><strong>'+nombre+'</strong></td>';
+      h += '<td><span class="badge badge-blue">'+ev.materia+'</span></td>';
+      h += '<td><span class="nota-circle" style="background:'+notaColor+'20;color:'+notaColor+';border:1px solid '+notaColor+'40">'+ev.nota+'</span></td>';
+      h += '<td>'+tiempo+'</td>';
+      h += '<td style="text-align:right"><button class="tab on" style="padding:5px 10px;font-size:11px" onclick="verDetalle(\''+ev.id+'\')">📋 Detalle</button></td>';
+      h += '</tr>';
+    });
+    h += '</tbody></table></div>';
+  }
+  document.getElementById("tabContent").innerHTML = h;
+}
+
 // ----- TAB 3: GESTIONAR -----
 function renderGestionar(){
   var h = '<div class="add-form"><h3>➕ Agregar alumno</h3>';
@@ -1376,7 +1419,9 @@ async function verDetalle(progId, forcedSection){
         filtered = d;
       }
       
-      if (seccionParaMostrar.startsWith("nucleo_")) {
+      if (seccionParaMostrar === "EVALUACION" || seccionParaMostrar === "EVAL_PROCESOS") {
+        h += renderEvaluacionCustom(filtered);
+      } else if (seccionParaMostrar.startsWith("nucleo_")) {
         h += renderNucleoCustom(filtered, seccionParaMostrar, p.comentario_docente);
       } else {
         h += renderObjetoS(Object.keys(filtered).length ? filtered : d);
@@ -1405,6 +1450,41 @@ async function verDetalle(progId, forcedSection){
   }
   
   document.getElementById('modalBody').innerHTML = h;
+}
+
+function renderEvaluacionCustom(d) {
+    var h = '<div style="background:rgba(0,0,0,0.2); padding:15px; border-radius:15px; border:1px solid rgba(255,255,255,0.05); margin-bottom:20px">';
+    h += '<div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px">';
+    h += '<div><span style="font-size:11px; color:#64748B; text-transform:uppercase">Tiempo Usado</span><br><strong style="color:#F8FAFC">' + (d.tiempo_usado || "—") + '</strong></div>';
+    h += '<div><span style="font-size:11px; color:#64748B; text-transform:uppercase">Fecha</span><br><strong style="color:#F8FAFC">' + (d.fecha ? new Date(d.fecha).toLocaleString() : "—") + '</strong></div>';
+    h += '</div></div>';
+
+    if (d.preguntas && d.respuestas) {
+        h += '<div style="display:flex; flex-direction:column; gap:12px">';
+        d.preguntas.forEach((q, i) => {
+            const ans = d.respuestas[i];
+            const isCorrect = ans && ans.isCorrect;
+            const borderColor = isCorrect ? 'rgba(16,185,129,0.3)' : (ans ? 'rgba(239,68,68,0.3)' : 'rgba(255,255,255,0.05)');
+            const bgColor = isCorrect ? 'rgba(16,185,129,0.05)' : (ans ? 'rgba(239,68,68,0.05)' : 'transparent');
+            
+            h += `<div style="padding:12px; border-radius:12px; border:1px solid ${borderColor}; background:${bgColor}">`;
+            h += `<div style="font-size:11px; color:#64748B; margin-bottom:4px">Pregunta ${i+1}</div>`;
+            h += `<div style="font-size:14px; color:#F8FAFC; font-weight:600; margin-bottom:8px">${q}</div>`;
+            
+            if (ans) {
+                h += `<div style="font-size:13px; color:${isCorrect ? '#34D399' : '#F87171'}">`;
+                h += `${isCorrect ? '✅' : '❌'} Respuesta: ${ans.text}`;
+                h += '</div>';
+            } else {
+                h += '<div style="font-size:13px; color:#64748B">⏳ No respondida</div>';
+            }
+            h += '</div>';
+        });
+        h += '</div>';
+    } else {
+        h += '<div class="empty-state">No se encontraron detalles de las preguntas.</div>';
+    }
+    return h;
 }
 
 function renderNucleoCustom(filtered, nuc, comentarioGlobal) {
