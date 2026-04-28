@@ -100,7 +100,7 @@
     <!-- Screen 1: Setup -->
     <div id="setup-screen" class="setup-card">
         <h2>Bienvenido/a</h2>
-        <p style="margin-bottom: 30px;">Esta evaluación consta de 10 preguntas seleccionadas al azar de un banco de 30. Tenés 20 minutos para completar.</p>
+        <p style="margin-bottom: 30px;">Esta evaluación consta de 10 preguntas seleccionadas al azar de un banco de 30. Tenés 10 minutos para completar.</p>
         
         <div class="select-wrapper">
             <label for="student-select">Seleccioná tu nombre:</label>
@@ -124,7 +124,7 @@
                 <div class="progress-bar" id="progress-bar"></div>
             </div>
             <div class="timer">
-                <span>⏱️</span> <span id="timer-val">20:00</span>
+                <span>⏱️</span> <span id="timer-val">10:00</span>
             </div>
         </div>
 
@@ -278,7 +278,7 @@
     let userAnswers = [];
     let currentIdx = 0;
     let timerInterval;
-    let timeLeft = 20 * 60; // 20 minutes
+    let timeLeft = 10 * 60; // 10 minutes
     let startTime;
 
     // --- INITIALIZATION ---
@@ -469,7 +469,7 @@
             };
         });
 
-        const timeUsed = 20 * 60 - timeLeft;
+        const timeUsed = 10 * 60 - timeLeft;
         const mins = Math.floor(timeUsed / 60);
         const secs = timeUsed % 60;
         const timeStr = `${mins}:${secs.toString().padStart(2, '0')}`;
