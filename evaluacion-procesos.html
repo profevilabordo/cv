@@ -104,10 +104,13 @@
         
         <div class="select-wrapper">
             <label for="student-select">Seleccioná tu nombre:</label>
-            <select id="student-select">
+            <select id="student-select" style="margin-bottom: 16px;">
                 <option value="" disabled selected>Elegí tu nombre de la lista...</option>
                 <!-- Students will be populated here -->
             </select>
+            
+            <label for="student-password">Palabra Clave:</label>
+            <input type="password" id="student-password" placeholder="Ingresá tu palabra clave" style="width: 100%; padding: 14px; border-radius: 12px; background: var(--bg); border: 2px solid rgba(255,255,255,0.1); color: white; font-size: 16px; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
         </div>
 
         <button class="btn-start" onclick="startQuiz()">Comenzar Evaluación 🚀</button>
@@ -233,8 +236,8 @@
         { name: "RODRIGUEZ, JOSEFINA ABRIL", code: "yangtsé" },
         { name: "TORRILLA, LOURDES AIMÉ", code: "orinoco" },
         { name: "ZUVIRIA, AGUSTINA", code: "zuviria" }, // Fallback
-        { name: "TEST 1", code: "test1" },
-        { name: "TEST 2", code: "test2" }
+        { name: "PROFE 1", code: "profe1" },
+        { name: "PROFE 2", code: "profe2" }
     ];
 
     const questionBank = [
@@ -300,14 +303,25 @@
     async function startQuiz() {
         const studentCode = document.getElementById('student-select').value;
         const student = students.find(s => s.code === studentCode);
+        const enteredPassword = document.getElementById('student-password').value.trim().toLowerCase();
         
         if (!studentCode) {
             alert("Por favor, seleccioná tu nombre.");
             return;
         }
+        
+        if (!enteredPassword) {
+            alert("Por favor, ingresá tu palabra clave.");
+            return;
+        }
+        
+        if (enteredPassword !== studentCode.toLowerCase()) {
+            alert("Palabra clave incorrecta. Por favor, verificá y volvé a intentar.");
+            return;
+        }
 
         // Check for previous attempt (except test users)
-        if (studentCode !== "test1" && studentCode !== "test2") {
+        if (studentCode !== "profe1" && studentCode !== "profe2") {
             const btn = document.querySelector('.setup-card button');
             const originalText = btn.textContent;
             btn.disabled = true;
@@ -480,6 +494,30 @@
                 fecha: new Date().toISOString()
             }
         });
+        
+        // Enviar email con los resultados vía FormSubmit
+        try {
+            await fetch("https://formsubmit.co/ajax/profevilabordo@gmail.com", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    "Evaluación": "Procesos Productivos",
+                    "Estudiante": studentName,
+                    "Nota": (score * 10) + "/100",
+                    "Respuestas Correctas": score + "/10",
+                    "Tiempo Utilizado": timeStr,
+                    "_subject": "✅ Resultado de Evaluación: " + studentName,
+                    "_captcha": "false"
+                })
+            });
+        } catch (e) {
+            console.error("Error al enviar el correo:", e);
+        }
+
+        alert("✅ Evaluación finalizada y guardada con éxito.");
 
         document.getElementById('quiz-screen').style.display = 'none';
         document.getElementById('results-screen').style.display = 'block';
