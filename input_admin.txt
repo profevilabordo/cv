@@ -1,134 +1,134 @@
-1. Según el material base, ¿cuál de los siguientes NO es un objetivo de la gestión del capital humano como activo estratégico?
-   a) Aumentar la rotación de personal
-   b) Asegurar la adaptabilidad a los cambios del mercado
-   c) Fomentar la capacidad de innovación
-   d) Mejorar la productividad general
+1. ¿Qué es el capital humano según el texto?
+   a) Conjunto de recursos financieros de una empresa
+   b) El conocimiento, habilidades y experiencias de los empleados
+   c) La infraestructura tecnológica de una organización
+   d) La estructura jerárquica de la empresa
 
-2. En el contexto del reclutamiento, ¿qué ventaja principal ofrece el reclutamiento interno?
-   a) Incorporación de nuevas perspectivas y habilidades externas
-   b) Mayor tiempo de adaptación al puesto
-   c) Reducción de costos y menor tiempo de adaptación
-   d) Fomentar la diversidad de perfiles
+2. ¿Cuál es el principal beneficio de la inversión en capacitación para la eficiencia de una empresa?
+   a) Disminución de la rotación de personal
+   b) Aumento de la motivación del personal
+   c) Mayor eficiencia
+   d) Mejora del clima laboral
 
-3. ¿Cuál de las siguientes herramientas es fundamental para guiar el proceso de mejora continua y asegurar un avance constante en el desarrollo profesional de un empleado, según el material?
-   a) Entrevistas no estructuradas
-   b) Dinámicas de grupo
-   c) Plan de Desarrollo Individual (PDI) y metas SMART
-   d) Reclutamiento externo masivo
+3. ¿Qué factor es determinante para la competitividad de una organización en entornos dinámicos?
+   a) La infraestructura física
+   b) El capital humano
+   c) La publicidad masiva
+   d) Las regulaciones gubernamentales
 
-4. La Evaluación 360° se describe como una metodología que permite obtener una visión del desempeño de un empleado desde múltiples perspectivas. ¿Cuál de las siguientes NO es una de estas perspectivas mencionadas?
-   a) Superiores jerárquicos
-   b) Pares
-   c) Clientes externos
-   d) Subordinados directos
+4. ¿Cuál de las siguientes opciones NO es un factor clave para que el capital humano sea un activo estratégico?
+   a) Adaptación rápida a cambios
+   b) Capacidad de innovación
+   c) Alta rotación de personal
+   d) Motivación y compromiso
 
-5. ¿Qué representan los KPIs (Key Performance Indicators) en el contexto de la gestión del desempeño?
-   a) Indicadores cualitativos de satisfacción laboral
-   b) Métricas tangibles para cuantificar y monitorear la efectividad
-   c) Herramientas para la selección de personal
-   d) Métodos para la capacitación técnica específica
+5. ¿Qué se busca principalmente al implementar un proceso de selección y reclutamiento eficaz?
+   a) Reducir los costos operativos
+   b) Identificar y atraer el talento adecuado
+   c) Aumentar la burocracia interna
+   d) Disminuir la innovación
 
-6. Según las teorías de Maslow y Herzberg mencionadas en el texto, ¿qué necesidad humana destaca el reconocimiento como un potente incentivo?
-   a) Seguridad
-   b) Afiliación
-   c) Estima y logro
-   d) Autorrealización
+6. ¿Cuál es una ventaja del reclutamiento interno?
+   a) Incorporación de nuevas perspectivas
+   b) Reducción de costos y menor tiempo de adaptación
+   c) Mayor diversidad de habilidades
+   d) Atracción de talento externo
 
-7. ¿Cuál de los siguientes programas de bienestar laboral se enfoca en un equilibrio saludable entre la vida profesional y personal del empleado?
-   a) Capacitación técnica específica
-   b) Evaluación 360°
-   c) Programas de salud física y mental, conciliación trabajo-vida personal
-   d) Reclutamiento interno
+7. ¿Qué tipo de entrevistas se caracterizan por tener preguntas predefinidas?
+   a) No estructuradas
+   b) Semiestructuradas
+   c) Estructuradas
+   d) De grupo
 
-8. La cultura organizacional se define como el conjunto de:
-   a) Estructuras jerárquicas y organigramas
-   b) Valores, normas, creencias y comportamientos compartidos
-   c) Políticas de remuneración y beneficios
-   d) Procesos de producción y logística
+8. ¿Qué método de selección permite observar habilidades blandas, liderazgo y trabajo en equipo en situaciones simuladas?
+   a) Pruebas psicotécnicas
+   b) Entrevistas no estructuradas
+   c) Dinámicas de grupo
+   d) Evaluación por competencias
 
-9. ¿Qué modalidad de aprendizaje continuo implica la adquisición constante de nuevas habilidades y conocimientos para mantenerse competitivo?
-   a) Plan de Desarrollo Individual (PDI)
-   b) Evaluación 360°
-   c) Lifelong learning (aprendizaje continuo)
-   d) Descuento de pagaré
+9. ¿Qué abarca el desarrollo de habilidades blandas en la capacitación?
+   a) Manejo de software específico
+   b) Conocimientos técnicos del puesto
+   c) Comunicación efectiva, liderazgo y resolución de conflictos
+   d) Uso de herramientas especializadas
 
-10. En el contexto de la administración, ¿qué implica el "Cash Flow"?
-   a) La gestión de inventarios de materia prima
-   b) El flujo de efectivo en caja chica
-   c) El análisis de los costos directos e indirectos
-   d) La planificación de la producción
+10. ¿Qué son los planes de carrera dentro de una organización?
+   a) Trayectorias de desarrollo planificadas dentro de la organización
+   b) Evaluaciones de desempeño anuales
+   c) Programas de reclutamiento externo
+   d) Sistemas de bonificación por rendimiento
 
-11. ¿Qué tipo de depósito bancario se caracteriza por permitir el acceso al dinero en cualquier momento sin previo aviso?
-   a) Depósito a plazo fijo
-   b) Cuenta corriente
-   c) Cuenta de ahorro
-   d) Depósito de seguridad
+11. ¿Cuál es el propósito de las evaluaciones de desempeño periódicas?
+   a) Aumentar la burocracia
+   b) Identificar brechas de competencias y áreas de oportunidad
+   c) Reducir la capacitación
+   d) Disminuir la motivación
 
-12. ¿Cuál de las siguientes opciones describe mejor el "descuento de pagaré" en el ámbito de las actividades financieras?
-   a) Un método para calcular el impuesto a las ganancias
-   b) Una operación financiera donde se anticipa el cobro de un documento a cambio de un descuento
-   c) La emisión de nuevos pagarés para saldar deudas
-   d) La conciliación de los saldos bancarios
+12. ¿Qué metodología de evaluación del desempeño ofrece una visión completa al ser evaluado desde múltiples perspectivas?
+   a) KPIs
+   b) Plan de Desarrollo Individual (PDI)
+   c) Evaluación 360°
+   d) Entrevistas one-on-one
 
-13. En contabilidad industrial, ¿qué diferencia a los costos directos de los costos indirectos?
-   a) Los costos directos se relacionan con la mano de obra y los indirectos con los materiales
-   b) Los costos directos son variables y los indirectos fijos
-   c) Los costos directos se pueden asignar directamente a un producto o servicio, mientras que los indirectos no
-   d) Los costos directos son fijos y los indirectos variables
+13. ¿Qué son los KPIs (Key Performance Indicators)?
+   a) Indicadores de satisfacción laboral
+   b) Métricas para cuantificar y monitorear la efectividad del personal
+   c) Planes de desarrollo personalizados
+   d) Herramientas de reclutamiento
 
-14. ¿Qué significan las siglas ISO en el contexto de las normas de calidad?
-   a) International Standardization Organization
-   b) Internal Systems Operations
-   c) Industrial Safety Oversight
-   d) Information Security Office
+14. ¿Cuál es un incentivo no monetario para el reconocimiento del personal?
+   a) Bono por desempeño
+   b) Aumento salarial
+   c) Reconocimiento público en reuniones
+   d) Participación en ganancias
 
-15. Según el material, en entornos dinámicos y competitivos, ¿cuál es un factor clave para el éxito de una organización?
-   a) Minimizar la inversión en capacitación
-   b) Fomentar la rotación de personal
-   c) La gestión eficaz de Recursos Humanos y el capital humano
-   d) Reducir la comunicación interna
+15. ¿Qué tipo de programas de bienestar laboral incluyen iniciativas para la salud física y mental?
+   a) Programas de conciliación
+   b) Programas de desarrollo profesional
+   c) Programas de bienestar laboral
+   d) Programas de reclutamiento
 
-16. El objetivo principal de la administración es la maximización de las ganancias a corto plazo, sin considerar el bienestar del personal.
+16. El capital humano es un activo tangible y fácil de replicar por la competencia.
    ( ) Verdadero  /  ( ) Falso
 
-17. El fondo fijo es una cantidad de dinero designada para cubrir gastos menores y recurrentes, permitiendo una gestión ágil de la caja chica.
+17. Una gestión ineficaz del capital humano puede llevar a una menor productividad.
    ( ) Verdadero  /  ( ) Falso
 
-18. Un presupuesto económico y un presupuesto financiero son redundantes y no aportan información adicional el uno al otro.
+18. El reclutamiento externo se enfoca en promocionar a empleados actuales dentro de la empresa.
    ( ) Verdadero  /  ( ) Falso
 
-19. El dinero, en su función como medio de pago, es un elemento que facilita las transacciones comerciales y elimina la necesidad de trueque.
+19. Las pruebas psicotécnicas se utilizan para evaluar la capacidad de liderazgo y trabajo en equipo.
    ( ) Verdadero  /  ( ) Falso
 
-20. La conciliación bancaria es un proceso que busca identificar y registrar las transacciones que solo aparecen en los registros del banco y no en los de la empresa.
+20. La capacitación técnica se centra en el manejo de herramientas, software y procesos específicos del puesto.
    ( ) Verdadero  /  ( ) Falso
 
-21. El crédito es una herramienta que permite a las empresas obtener financiación para sus operaciones, pero siempre implica un riesgo para el prestamista.
+21. Los planes de carrera son trayectorias de desarrollo no planificadas dentro de la organización.
    ( ) Verdadero  /  ( ) Falso
 
-22. Los costos indirectos en contabilidad industrial son aquellos que se pueden rastrear directamente hasta la producción de un bien o servicio específico.
+22. Las evaluaciones de desempeño periódicas ayudan a identificar brechas de competencias.
    ( ) Verdadero  /  ( ) Falso
 
-23. Las normas ISO buscan estandarizar procesos y productos para mejorar la calidad y la seguridad, pero no tienen un impacto en la competitividad de las empresas.
+23. La Evaluación 360° solo considera la opinión de los superiores jerárquicos.
    ( ) Verdadero  /  ( ) Falso
 
-24. El capital humano, al ser etéreo y difícil de replicar, se considera un factor secundario en la competitividad de una organización moderna.
+24. Los KPIs transforman aspectos cualitativos en métricas tangibles para la evaluación.
    ( ) Verdadero  /  ( ) Falso
 
-25. La motivación y el compromiso del personal no influyen significativamente en la productividad de una empresa.
+25. Un clima laboral desfavorable incrementa la satisfacción y productividad de los empleados.
    ( ) Verdadero  /  ( ) Falso
 
-26. El reclutamiento externo se enfoca en promover a los empleados actuales dentro de la organización.
+26. Los incentivos monetarios incluyen días libres adicionales y felicitaciones personalizadas.
    ( ) Verdadero  /  ( ) Falso
 
-27. Las pruebas psicotécnicas se utilizan para evaluar la experiencia laboral previa de un candidato.
+27. La cultura organizacional se impone desde la alta gerencia sin intervención de los empleados.
    ( ) Verdadero  /  ( ) Falso
 
-28. El Plan de Desarrollo Individual (PDI) es una herramienta exclusiva para la evaluación de desempeño y no tiene relación con el crecimiento profesional del empleado.
+28. El aprendizaje continuo, o lifelong learning, es fundamental en un entorno empresarial en constante evolución.
    ( ) Verdadero  /  ( ) Falso
 
-29. El reconocimiento no monetario, como una felicitación personalizada, tiene poco impacto en la moral del personal.
+29. La colaboración es un obstáculo para la innovación y la generación de nuevas ideas.
    ( ) Verdadero  /  ( ) Falso
 
-30. La cultura organizacional se impone desde la alta gerencia y no se ve influenciada por las acciones diarias de los empleados.
+30. La tecnología, como software de RRHH, ayuda a optimizar la gestión del talento.
    ( ) Verdadero  /  ( ) Falso
