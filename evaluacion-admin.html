@@ -561,11 +561,17 @@
 
             const previous = await sbFetch("progreso", `select=nota&alumno_codigo=eq.${studentCode}&seccion=eq.EVALUACION&materia=eq.Administración%20III`);
             
-            if (previous && previous.length > 0) {
-                alert(`Lo sentimos, ${student.name}. Ya has realizado esta evaluación.\nTu calificación registrada fue: ${previous[0].nota}/100.`);
+            if (previous && previous.length >= 2) {
+                alert(`Lo sentimos, ${student.name}. Ya has utilizado tus 2 intentos permitidos para esta evaluación.\nTus calificaciones registradas fueron: ${previous.map(p => p.nota + '/100').join(' y ')}.`);
                 btn.disabled = false;
                 btn.textContent = originalText;
                 return;
+            } else if (previous && previous.length === 1) {
+                if (!confirm(`Hola ${student.name}. Ya realizaste un intento previo y obtuviste ${previous[0].nota}/100.\n¿Deseas utilizar tu segundo y último intento?`)) {
+                    btn.disabled = false;
+                    btn.textContent = originalText;
+                    return;
+                }
             }
             btn.disabled = false;
             btn.textContent = originalText;
