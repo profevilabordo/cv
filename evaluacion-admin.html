@@ -567,6 +567,7 @@
                 btn.textContent = originalText;
                 return;
             } else if (previous && previous.length === 1) {
+                window.firstAttemptScore = previous[0].nota;
                 if (!confirm(`Hola ${student.name}. Ya realizaste un intento previo y obtuviste ${previous[0].nota}/100.\n¿Deseas utilizar tu segundo y último intento?`)) {
                     btn.disabled = false;
                     btn.textContent = originalText;
@@ -718,18 +719,23 @@
         
         document.getElementById('result-title').textContent = "Guardando resultados...";
         
+        const notaActual = Math.round((score / 10) * 100);
+        const notaFinal = window.firstAttemptScore !== undefined ? Math.max(window.firstAttemptScore, notaActual) : notaActual;
+
         await sbInsert("progreso", {
             alumno_codigo: studentCode,
             materia: "Administración III",
             unidad: "Evaluación MC",
             seccion: "EVALUACION",
-            nota: score * 10,
+            nota: notaActual,
             datos: {
                 alumno_nombre: studentName,
                 tiempo_usado: timeStr,
                 respuestas: processedAnswers,
                 preguntas: currentQuestions.map(q => q.q),
-                fecha: new Date().toISOString()
+                fecha: new Date().toISOString(),
+                intento: window.firstAttemptScore !== undefined ? 2 : 1,
+                nota_definitiva: notaFinal
             }
         });
         
@@ -776,6 +782,23 @@
             status.style.color = "#F59E0B";
             document.getElementById('result-emoji').textContent = "📚";
             document.getElementById('result-title').textContent = "Sigue practicando";
+        }
+
+        // Mostrar comparación si es el segundo intento
+        if (window.firstAttemptScore !== undefined) {
+            const extraInfo = document.createElement('div');
+            extraInfo.style.marginTop = "20px";
+            extraInfo.style.padding = "15px";
+            extraInfo.style.background = "rgba(99, 102, 241, 0.1)";
+            extraInfo.style.border = "1px solid rgba(99, 102, 241, 0.3)";
+            extraInfo.style.borderRadius = "12px";
+            extraInfo.innerHTML = `
+                <h4 style="color: #A78BFA; margin-bottom: 8px;">Resumen de tus 2 intentos:</h4>
+                <p style="font-size: 14px; margin-bottom: 4px;">Nota 1er Intento: <strong>${window.firstAttemptScore}/100</strong></p>
+                <p style="font-size: 14px; margin-bottom: 4px;">Nota 2do Intento: <strong>${notaActual}/100</strong></p>
+                <p style="font-size: 16px; color: #10B981; font-weight: bold; margin-top: 10px;">Nota Definitiva (la más alta): ${notaFinal}/100</p>
+            `;
+            document.querySelector('.result-summary').appendChild(extraInfo);
         }
     }
 </script>
