@@ -1054,7 +1054,14 @@ function renderHeatmap(){
 // ----- TAB 5: EVALUACIONES -----
 function renderEvaluaciones(){
   var fc = (document.getElementById("filterCursoE")||{value:""}).value;
-  var h = '<div class="search-row">';
+  
+  var totalEvals = allProgreso.filter(function(p){return p.seccion === "EVALUACION"}).length;
+  
+  var h = '<div style="background:#6366F120; padding:10px; border-radius:10px; margin-bottom:15px; font-size:12px; color:#A78BFA; border:1px solid #6366F140">';
+  h += '🔍 <strong>Debug:</strong> Se encontraron ' + totalEvals + ' evaluaciones en total en la base de datos (Sin filtros).';
+  h += '</div>';
+
+  h += '<div class="search-row">';
   h += '<select class="filter-select" id="filterCursoE" onchange="renderEvaluaciones()"><option value="">Todos los cursos</option>';
   var cursos = [...new Set(allAlumnos.map(function(a){return a.curso}))].sort();
   cursos.forEach(function(c){ h += '<option'+(fc===c?' selected':'')+'>'+c+'</option>'; });

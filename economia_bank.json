@@ -1,0 +1,722 @@
+[
+  {
+    "q": "¿Qué ciencia social estudia cómo las personas y sociedades toman decisiones ante necesidades ilimitadas y recursos limitados?",
+    "a": [
+      "Sociología",
+      "Psicología",
+      "Economía",
+      "Historia"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Cuál es el principal objetivo de la economía según el material?",
+    "a": [
+      "Maximizar la producción de bienes de lujo",
+      "Entender la producción, distribución y consumo de bienes y servicios",
+      "Eliminar completamente la escasez",
+      "Garantizar la igualdad absoluta de ingresos"
+    ],
+    "c": 1
+  },
+  {
+    "q": "¿Qué concepto fundamental en economía se refiere a la tensión entre recursos limitados y deseos humanos ilimitados?",
+    "a": [
+      "Utilidad",
+      "Valor",
+      "Escasez",
+      "Eficiencia"
+    ],
+    "c": 2
+  },
+  {
+    "q": "Según el texto, ¿cuál de las siguientes NO es una pregunta fundamental que toda sociedad debe responder ante la escasez?",
+    "a": [
+      "¿Qué producir?",
+      "¿Cómo producir?",
+      "¿Para quién producir?",
+      "¿Cuánto producir?"
+    ],
+    "c": 3
+  },
+  {
+    "q": "¿Qué es el costo de oportunidad?",
+    "a": [
+      "El valor total de todos los bienes producidos",
+      "El ingreso que se obtiene al trabajar",
+      "El valor de la mejor alternativa no elegida al tomar una decisión",
+      "El precio de mercado de un bien"
+    ],
+    "c": 2
+  },
+  {
+    "q": "Si decides estudiar en lugar de trabajar, ¿cuál sería el costo de oportunidad?",
+    "a": [
+      "El conocimiento adquirido",
+      "El tiempo libre que disfrutas",
+      "El ingreso que dejaste de ganar",
+      "La experiencia laboral inmediata"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Quiénes son los agentes económicos que demandan bienes y servicios para satisfacer sus necesidades?",
+    "a": [
+      "Empresas",
+      "Estado",
+      "Familias/Consumidores",
+      "Sector Externo"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Cuál es el rol principal de las empresas en la economía?",
+    "a": [
+      "Proveer servicios públicos",
+      "Regir la actividad económica",
+      "Organizar recursos para producir bienes y servicios",
+      "Redistribuir ingresos"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Qué función cumple el Estado en la economía según el material?",
+    "a": [
+      "Maximizar sus ganancias",
+      "Ofrecer trabajo a todas las familias",
+      "Regular la actividad económica y proveer servicios públicos",
+      "Ser el principal consumidor de bienes"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿A qué se refiere el \"Sector Externo\" en economía?",
+    "a": [
+      "Al mercado de trabajo interno",
+      "Al comercio e intercambio con otros países",
+      "A la producción de bienes dentro del país",
+      "A la distribución de bienes a nivel nacional"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Las familias son propietarias de los factores de producción. ¿Cuál de los siguientes NO es un factor de producción que las familias ofrezcan?",
+    "a": [
+      "Trabajo",
+      "Capital",
+      "Tecnología",
+      "Tierra"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Qué reciben las familias a cambio de ofrecer su trabajo a las empresas?",
+    "a": [
+      "Rentas",
+      "Beneficios",
+      "Intereses",
+      "Salarios"
+    ],
+    "c": 3
+  },
+  {
+    "q": "¿Qué es el ingreso disponible para una familia?",
+    "a": [
+      "El ingreso total antes de impuestos",
+      "El dinero que queda para gastar o ahorrar después de impuestos",
+      "Las ganancias obtenidas por inversiones",
+      "El valor de los bienes consumidos"
+    ],
+    "c": 1
+  },
+  {
+    "q": "¿Cuál es el objetivo principal de las empresas?",
+    "a": [
+      "Asegurar el bienestar social",
+      "Maximizar sus ganancias",
+      "Proveer servicios públicos gratuitos",
+      "Reducir la producción"
+    ],
+    "c": 1
+  },
+  {
+    "q": "¿Qué tipo de empresa se caracteriza por tener menos de 10 empleados y gestión familiar?",
+    "a": [
+      "Pequeña empresa",
+      "Microempresa",
+      "Mediana empresa",
+      "Gran empresa"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Una fábrica que transforma materias primas en productos terminados pertenece al sector económico:",
+    "a": [
+      "Primario",
+      "Secundario",
+      "Terciario",
+      "Cuaternario"
+    ],
+    "c": 1
+  },
+  {
+    "q": "¿Qué tipo de empresa vende bienes sin transformarlos?",
+    "a": [
+      "Empresa industrial",
+      "Empresa de servicios",
+      "Empresa comercial",
+      "Empresa pública"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Cómo se calcula el beneficio de una empresa?",
+    "a": [
+      "Ingresos totales + Costos totales",
+      "Ingresos totales / Costos totales",
+      "Ingresos totales - Costos totales",
+      "Costos totales - Ingresos totales"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Qué son los costos fijos para una empresa?",
+    "a": [
+      "Gastos que varían con la producción",
+      "Gastos que no cambian con la producción",
+      "Ingresos por ventas",
+      "Materias primas utilizadas"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Si una empresa tiene ingresos por $50.000 y costos totales por $30.000, ¿cuál es su beneficio?",
+    "a": [
+      "$20.000",
+      "$50.000",
+      "$30.000",
+      "$80.000"
+    ],
+    "c": 0
+  },
+  {
+    "q": "¿Cuál de los siguientes es un ejemplo de bien económico?",
+    "a": [
+      "El aire",
+      "El agua de mar",
+      "Un automóvil",
+      "La luz solar"
+    ],
+    "c": 2
+  },
+  {
+    "q": "La utilidad de un bien se refiere a:",
+    "a": [
+      "Su precio de mercado",
+      "Su capacidad para satisfacer una necesidad",
+      "Su escasez",
+      "Su costo de producción"
+    ],
+    "c": 1
+  },
+  {
+    "q": "¿Qué significa que un recurso sea \"limitado\" en economía?",
+    "a": [
+      "Que su producción es muy costosa",
+      "Que hay suficiente para todos",
+      "Que su disponibilidad es menor a la demanda existente",
+      "Que no tiene valor"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Cuál es la principal diferencia entre un bien libre y un bien económico?",
+    "a": [
+      "El bien libre es intangible y el económico es tangible",
+      "El bien libre es abundante y el económico es escaso",
+      "El bien libre tiene un precio y el económico no",
+      "El bien libre es producido por el Estado y el económico por empresas"
+    ],
+    "c": 1
+  },
+  {
+    "q": "¿Qué factor de la producción se refiere a la maquinaria y herramientas utilizadas en la fabricación?",
+    "a": [
+      "Tierra",
+      "Trabajo",
+      "Capital",
+      "Organización"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Qué es la Frontera de Posibilidades de Producción (FPP)?",
+    "a": [
+      "Un gráfico que muestra los precios de los bienes",
+      "Un modelo que ilustra las combinaciones máximas de producción de dos bienes con recursos dados",
+      "La cantidad total de bienes producidos en una economía",
+      "El costo de oportunidad de un bien"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Un punto *dentro* de la Frontera de Posibilidades de Producción (FPP) indica que la economía está operando:",
+    "a": [
+      "De forma ineficiente",
+      "De forma eficiente",
+      "Con pleno empleo de recursos",
+      "Con un costo de oportunidad cero"
+    ],
+    "c": 0
+  },
+  {
+    "q": "¿Qué concepto económico explica la renuncia a obtener un bien o servicio para obtener otro?",
+    "a": [
+      "Valor",
+      "Utilidad",
+      "Escasez",
+      "Costo de Oportunidad"
+    ],
+    "c": 3
+  },
+  {
+    "q": "Si un país decide aumentar la producción de armas, ¿qué implicaría según el concepto de FPP?",
+    "a": [
+      "Que puede aumentar la producción de todos los bienes",
+      "Que deberá disminuir la producción de otros bienes",
+      "Que sus recursos son ilimitados",
+      "Que el costo de oportunidad es cero"
+    ],
+    "c": 1
+  },
+  {
+    "q": "¿Qué agente económico se encarga de la redistribución de ingresos para buscar mayor equidad social?",
+    "a": [
+      "Empresas",
+      "Familias",
+      "Estado",
+      "Sector Externo"
+    ],
+    "c": 2
+  },
+  {
+    "q": "La economía se ocupa de estudiar cómo las personas toman decisiones ante la abundancia total de recursos.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Las necesidades humanas son ilimitadas, mientras que los recursos para satisfacerlas son limitados.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "El costo de oportunidad es el valor de la alternativa elegida.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Las familias son las principales productoras de bienes y servicios en una economía.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Las empresas buscan principalmente maximizar el bienestar social.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El Estado, en economía, solo actúa como regulador.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Los bienes de capital, como maquinaria, son un ejemplo de factor de producción \"tierra\".",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Una empresa individual tiene la responsabilidad limitada al capital aportado.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Los costos variables de una empresa dependen del nivel de producción.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "El beneficio de una empresa se calcula restando los costos totales a los ingresos totales.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "Un bien es escaso cuando su cantidad disponible es menor que la cantidad deseada.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "La utilidad de un bien se refiere únicamente a su precio.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Los factores de producción son tierra, trabajo, capital y tecnología.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "La Frontera de Posibilidades de Producción (FPP) muestra las combinaciones de producción que son ineficientes.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Un punto fuera de la FPP es alcanzable con los recursos y tecnología actuales.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El sector primario se dedica a la prestación de servicios.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Una Sociedad Anónima (SA) tiene el capital dividido en acciones.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "El ingreso disponible es el dinero que una familia tiene antes de pagar impuestos.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Las empresas de servicios ofrecen productos tangibles.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El sector externo se refiere a las transacciones económicas dentro de las fronteras de un país.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "La economía es una ciencia social que estudia la toma de decisiones frente a recursos limitados.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "Los deseos humanos son finitos y limitados.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El costo de oportunidad se aplica solo a decisiones financieras importantes.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Las empresas ofrecen factores de producción a las familias.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El Estado busca maximizar sus ganancias como principal objetivo.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Un bien libre es aquel que tiene un precio elevado en el mercado.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El capital como factor de producción incluye el dinero y los bienes de inversión.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "Si una empresa opera *dentro* de su FPP, está utilizando todos sus recursos de manera eficiente.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Las empresas industriales transforman materias primas en productos.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "El valor de un bien está determinado únicamente por su utilidad.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Según el material base, ¿cuál es el objetivo principal de la economía como ciencia?",
+    "a": [
+      "Estudiar la producción, distribución y consumo de bienes y servicios.",
+      "Analizar exclusivamente las decisiones de inversión de las grandes corporaciones.",
+      "Identificar la forma de eliminar por completo la escasez de recursos.",
+      "Predecir el comportamiento futuro de los mercados financieros con certeza absoluta."
+    ],
+    "c": 0
+  },
+  {
+    "q": "La tensión entre recursos limitados y necesidades ilimitadas, motor de la actividad económica, se denomina en economía como:",
+    "a": [
+      "Escasez.",
+      "Abundancia.",
+      "Marginalidad.",
+      "Soberanía."
+    ],
+    "c": 0
+  },
+  {
+    "q": "Si un individuo elige invertir su dinero en acciones en lugar de depositarlo en un plazo fijo, ¿cuál de las siguientes opciones representa el costo de oportunidad de esa decisión?",
+    "a": [
+      "La ganancia potencial que se podría haber obtenido con el plazo fijo.",
+      "El monto total invertido en las acciones.",
+      "El riesgo asumido al invertir en bolsa.",
+      "Los dividendos recibidos de las acciones."
+    ],
+    "c": 0
+  },
+  {
+    "q": "¿Cuál de los siguientes es un ejemplo de un recurso limitado que representa un factor de producción según el material?",
+    "a": [
+      "El deseo humano de viajar.",
+      "El aire que respiramos.",
+      "El tiempo disponible para realizar actividades.",
+      "La necesidad de educación superior."
+    ],
+    "c": 2
+  },
+  {
+    "q": "En el marco de las tres preguntas fundamentales que toda sociedad debe responder ante la escasez, ¿a qué pregunta se refiere la siguiente interrogante: \"Con qué recursos y tecnologías\"?",
+    "a": [
+      "¿Qué producir?",
+      "¿Cómo producir?",
+      "¿Para quién producir?",
+      "¿Cuánto producir?"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Según el material, ¿cuál es la función principal de las Familias/Consumidores en la economía?",
+    "a": [
+      "Organizar los recursos para producir bienes y servicios.",
+      "Regular la actividad económica y proveer servicios públicos.",
+      "Demandar bienes y servicios para satisfacer sus necesidades y ofrecer factores de producción.",
+      "Establecer acuerdos comerciales con otros países."
+    ],
+    "c": 2
+  },
+  {
+    "q": "Las empresas, al transformar materias primas en productos terminados, se clasifican dentro del sector económico denominado:",
+    "a": [
+      "Primario.",
+      "Secundario.",
+      "Terciario.",
+      "Cuaternario."
+    ],
+    "c": 1
+  },
+  {
+    "q": "¿Cómo se calcula el beneficio de una empresa según la fórmula presentada en el material?",
+    "a": [
+      "Ingresos totales divididos por costos totales.",
+      "Costos totales menos ingresos totales.",
+      "Ingresos totales menos costos totales.",
+      "Ingresos totales multiplicados por costos totales."
+    ],
+    "c": 2
+  },
+  {
+    "q": "Si una panadería vende 200 panes a $500 cada uno, y sus costos totales ascienden a $65.000, ¿cuál es su beneficio?",
+    "a": [
+      "La panadería no tiene beneficio, solo cubre costos.",
+      "$35.000.",
+      "$100.000.",
+      "$165.000."
+    ],
+    "c": 1
+  },
+  {
+    "q": "El Estado, como agente económico, actúa simultáneamente como regulador, productor, consumidor y redistribuidor. Su objetivo principal es:",
+    "a": [
+      "Maximizar ganancias para el tesoro público.",
+      "Garantizar el bienestar general y corregir fallas de mercado.",
+      "Aumentar la producción de bienes de capital.",
+      "Fomentar la competencia entre empresas privadas."
+    ],
+    "c": 1
+  },
+  {
+    "q": "La economía es la ciencia social que estudia cómo las personas y las sociedades toman decisiones para satisfacer necesidades ilimitadas con recursos que son ilimitados.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El costo de oportunidad se refiere al valor de la mejor alternativa que se elige al tomar una decisión.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Los agentes económicos incluyen únicamente a las familias y a las empresas.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Las microempresas se caracterizan por tener más de 250 empleados y una estructura organizacional compleja.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Las empresas de servicios se dedican a la extracción de recursos naturales.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El ingreso disponible de una familia es el total de sus ingresos antes de pagar impuestos y contribuciones obligatorias.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Los costos variables de una empresa cambian según cuánto se produce.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "El sector externo representa exclusivamente las importaciones de bienes y servicios.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Una Sociedad Anónima (SA) se caracteriza por tener un solo dueño con responsabilidad ilimitada.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El Estado, al proveer educación pública gratuita, está actuando como productor de servicios y buscando el bienestar general.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  }
+]

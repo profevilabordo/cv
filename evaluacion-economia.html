@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación: La Ciencia Económica - 6to B</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981;
+            --primary-dark: #059669;
+            --bg: #0F172A;
+            --card-bg: #1E293B;
+            --text: #F8FAFC;
+            --text-muted: #94A3B8;
+            --accent: #6366F1;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'DM Sans', sans-serif; }
+        body { background-color: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+
+        /* Background Orbs */
+        .orbs { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; }
+        .orb1 { width: 400px; height: 400px; background: var(--primary); top: -100px; right: -100px; animation: float 15s infinite alternate; }
+        .orb2 { width: 350px; height: 350px; background: var(--accent); bottom: -50px; left: -100px; animation: float 18s infinite alternate-reverse; }
+        @keyframes float { from { transform: translate(0,0); } to { transform: translate(40px, 40px); } }
+
+        .container { position: relative; z-index: 1; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+
+        .header { text-align: center; margin-bottom: 40px; }
+        .header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; background: linear-gradient(135deg, #A78BFA, #10B981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
+        .header p { color: var(--text-muted); font-size: 16px; }
+
+        /* Setup Screen */
+        .setup-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 40px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        .setup-card h2 { margin-bottom: 24px; font-family: 'Space Grotesk', sans-serif; }
+        .select-wrapper { margin-bottom: 24px; text-align: left; }
+        .select-wrapper label { display: block; margin-bottom: 8px; color: var(--text-muted); font-size: 14px; font-weight: 600; }
+        select { width: 100%; padding: 14px; border-radius: 12px; background: var(--bg); border: 2px solid rgba(255,255,255,0.1); color: white; font-size: 16px; cursor: pointer; outline: none; transition: border-color 0.3s; }
+        select:focus { border-color: var(--primary); }
+
+        .btn-start { width: 100%; padding: 16px; border-radius: 12px; border: none; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; font-size: 18px; font-weight: 700; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn-start:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3); }
+
+        /* Quiz Screen */
+        #quiz-screen { display: none; }
+        .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: rgba(255,255,255,0.05); padding: 15px 25px; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); position: sticky; top: 20px; z-index: 10; }
+        .timer { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #F59E0B; display: flex; align-items: center; gap: 8px; }
+        .progress-container { flex-grow: 1; margin: 0 30px; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; }
+        .progress-bar { height: 100%; background: var(--primary); width: 0%; transition: width 0.3s; }
+
+        .question-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 35px; margin-bottom: 20px; animation: slideIn 0.5s ease; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .q-number { color: var(--primary); font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: block; }
+        .q-text { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 25px; }
+
+        .options { display: grid; gap: 12px; }
+        .option { padding: 16px 20px; border-radius: 14px; background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.08); cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 15px; }
+        .option:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); transform: translateX(5px); }
+        .option.selected { background: rgba(16, 185, 129, 0.1); border-color: var(--primary); }
+        .option-bullet { width: 20px; height: 20px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; }
+        .option.selected .option-bullet { background: var(--primary); border-color: var(--primary); color: white; }
+
+        .quiz-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; }
+        .btn-nav { padding: 12px 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: var(--card-bg); color: white; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+        .btn-nav:hover:not(:disabled) { background: rgba(255,255,255,0.1); }
+        .btn-nav:disabled { opacity: 0.3; cursor: not-allowed; }
+        .btn-submit { padding: 12px 30px; border-radius: 12px; border: none; background: var(--primary); color: white; font-weight: 700; cursor: pointer; display: none; }
+
+        /* Results Screen */
+        #results-screen { display: none; text-align: center; }
+        .result-card { background: var(--card-bg); border-radius: 24px; padding: 50px; border: 1px solid rgba(255,255,255,0.1); }
+        .score-circle { width: 150px; height: 150px; border-radius: 50%; border: 8px solid var(--primary); margin: 0 auto 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .score-val { font-size: 48px; font-weight: 800; font-family: 'Space Grotesk', sans-serif; }
+        .score-label { font-size: 14px; color: var(--text-muted); text-transform: uppercase; }
+
+        .summary-list { text-align: left; margin: 30px 0; background: rgba(0,0,0,0.2); border-radius: 15px; padding: 20px; }
+        .summary-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .summary-item:last-child { border: none; }
+
+        @media (max-width: 600px) {
+            .quiz-header { flex-wrap: wrap; gap: 10px; }
+            .progress-container { order: 3; width: 100%; margin: 10px 0 0 0; }
+            .header h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="orbs"><div class="orb orb1"></div><div class="orb orb2"></div></div>
+
+<div class="container">
+    <div class="header">
+        <h1>La Ciencia Económica</h1>
+        <p>Evaluación Múltiple Choice · 6to Año "B"</p>
+    </div>
+
+    <!-- Screen 1: Setup -->
+    <div id="setup-screen" class="setup-card">
+        <h2>Bienvenido/a</h2>
+        <p style="margin-bottom: 30px;">Esta evaluación consta de 15 preguntas seleccionadas al azar de un banco de 80. Tenés 15 minutos para completar.</p>
+        
+        <div class="select-wrapper">
+            <label for="student-select">Seleccioná tu nombre:</label>
+            <select id="student-select" style="margin-bottom: 16px;">
+                <option value="" disabled selected>Elegí tu nombre de la lista...</option>
+                <!-- Students will be populated here -->
+            </select>
+            
+            <label for="student-password">Palabra Clave:</label>
+            <input type="password" id="student-password" placeholder="Ingresá tu palabra clave" style="width: 100%; padding: 14px; border-radius: 12px; background: var(--bg); border: 2px solid rgba(255,255,255,0.1); color: white; font-size: 16px; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+        </div>
+
+        <button class="btn-start" onclick="startQuiz()">Comenzar Evaluación 🚀</button>
+    </div>
+
+    <!-- Screen 2: Quiz -->
+    <div id="quiz-screen">
+        <div class="quiz-header">
+            <div id="student-name-display" style="font-weight: 700; font-size: 14px; max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Estudiante</div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <div class="timer">
+                <span>⏱️</span> <span id="timer-val">15:00</span>
+            </div>
+        </div>
+
+        <div id="question-container">
+            <!-- Question content will be injected here -->
+        </div>
+
+        <div class="quiz-footer">
+            <button class="btn-nav" id="btn-prev" onclick="prevQuestion()" disabled>Anterior</button>
+            <div id="page-indicator" style="color: var(--text-muted); font-size: 14px; font-weight: 600;">1 de 15</div>
+            <button class="btn-nav" id="btn-next" onclick="nextQuestion()">Siguiente</button>
+            <button class="btn-submit" id="btn-submit" onclick="finishQuiz()">Finalizar y Entregar</button>
+        </div>
+    </div>
+
+    <!-- Screen 3: Results -->
+    <div id="results-screen">
+        <div class="result-card">
+            <div id="result-emoji" style="font-size: 64px; margin-bottom: 20px;">🎉</div>
+            <h2 id="result-title">¡Evaluación Completada!</h2>
+            <p id="result-student" style="color: var(--text-muted); margin-bottom: 30px;">Estudiante</p>
+            
+            <div class="score-circle">
+                <span class="score-val" id="score-val">8</span>
+                <span class="score-label">Correctas</span>
+            </div>
+
+            <div class="summary-list">
+                <div class="summary-item">
+                    <span>Preguntas respondidas:</span>
+                    <span id="summary-total">15/15</span>
+                </div>
+                <div class="summary-item">
+                    <span>Tiempo utilizado:</span>
+                    <span id="summary-time">04:25</span>
+                </div>
+                <div class="summary-item">
+                    <span>Estado:</span>
+                    <span id="summary-status" style="color: var(--primary); font-weight: 700;">Aprobado</span>
+                </div>
+            </div>
+
+            <button class="btn-start" onclick="location.reload()">Cerrar sesión</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- SUPABASE CONFIG ---
+    const SUPABASE_URL = "https://ygafevogfxwupmgwksto.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlnYWZldm9nZnh3dXBtZ3drc3RvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MDA5NDMsImV4cCI6MjA4ODI3Njk0M30.5LoSWrwtFCR4qoQnmNY6UZB1SuiVpx-G9N1AG6cOev8";
+
+    async function sbInsert(table, data) {
+        try {
+            const r = await fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
+                method: "POST",
+                headers: {
+                    "apikey": SUPABASE_KEY,
+                    "Authorization": `Bearer ${SUPABASE_KEY}`,
+                    "Content-Type": "application/json",
+                    "Prefer": "return=representation"
+                },
+                body: JSON.stringify(data)
+            });
+            const result = await r.json();
+            console.log("Supabase insert result:", result);
+            return result;
+        } catch (e) {
+            console.error("Error saving to Supabase:", e);
+        }
+    }
+
+    async function sbFetch(table, params) {
+        try {
+            const r = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${params}`, {
+                method: "GET",
+                headers: {
+                    "apikey": SUPABASE_KEY,
+                    "Authorization": `Bearer ${SUPABASE_KEY}`,
+                    "Content-Type": "application/json"
+                }
+            });
+            return await r.json();
+        } catch (e) {
+            console.error("Error fetching from Supabase:", e);
+            return [];
+        }
+    }
+
+    // --- DATABASE ---
+        const students = [
+        { name: "CABALLERO, AGUSTIN", code: "milan" },
+        { name: "CHELIA, CANDELA ABIGAIL", code: "florence" },
+        { name: "ECHANIZ ONTIVEROS, LUCAS JEREMÍAS", code: "venice" },
+        { name: "FRETES, YÉSICA", code: "naples" },
+        { name: "POLLINI, JUAN JOSÉ", code: "seattle" },
+        { name: "SANTUCHO, SIMON", code: "houston" },
+        { name: "VALETTI, VÍCTOR ORLANDO", code: "chicago" },
+        { name: "PROFE 1", code: "profe1" },
+        { name: "PROFE 2", code: "profe2" }
+    ];
+
+    const questionBank = [
+  {
+    "q": "¿Qué ciencia social estudia cómo las personas y sociedades toman decisiones ante necesidades ilimitadas y recursos limitados?",
+    "a": [
+      "Sociología",
+      "Psicología",
+      "Economía",
+      "Historia"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Cuál es el principal objetivo de la economía según el material?",
+    "a": [
+      "Maximizar la producción de bienes de lujo",
+      "Entender la producción, distribución y consumo de bienes y servicios",
+      "Eliminar completamente la escasez",
+      "Garantizar la igualdad absoluta de ingresos"
+    ],
+    "c": 1
+  },
+  {
+    "q": "¿Qué concepto fundamental en economía se refiere a la tensión entre recursos limitados y deseos humanos ilimitados?",
+    "a": [
+      "Utilidad",
+      "Valor",
+      "Escasez",
+      "Eficiencia"
+    ],
+    "c": 2
+  },
+  {
+    "q": "Según el texto, ¿cuál de las siguientes NO es una pregunta fundamental que toda sociedad debe responder ante la escasez?",
+    "a": [
+      "¿Qué producir?",
+      "¿Cómo producir?",
+      "¿Para quién producir?",
+      "¿Cuánto producir?"
+    ],
+    "c": 3
+  },
+  {
+    "q": "¿Qué es el costo de oportunidad?",
+    "a": [
+      "El valor total de todos los bienes producidos",
+      "El ingreso que se obtiene al trabajar",
+      "El valor de la mejor alternativa no elegida al tomar una decisión",
+      "El precio de mercado de un bien"
+    ],
+    "c": 2
+  },
+  {
+    "q": "Si decides estudiar en lugar de trabajar, ¿cuál sería el costo de oportunidad?",
+    "a": [
+      "El conocimiento adquirido",
+      "El tiempo libre que disfrutas",
+      "El ingreso que dejaste de ganar",
+      "La experiencia laboral inmediata"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Quiénes son los agentes económicos que demandan bienes y servicios para satisfacer sus necesidades?",
+    "a": [
+      "Empresas",
+      "Estado",
+      "Familias/Consumidores",
+      "Sector Externo"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Cuál es el rol principal de las empresas en la economía?",
+    "a": [
+      "Proveer servicios públicos",
+      "Regir la actividad económica",
+      "Organizar recursos para producir bienes y servicios",
+      "Redistribuir ingresos"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Qué función cumple el Estado en la economía según el material?",
+    "a": [
+      "Maximizar sus ganancias",
+      "Ofrecer trabajo a todas las familias",
+      "Regular la actividad económica y proveer servicios públicos",
+      "Ser el principal consumidor de bienes"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿A qué se refiere el \"Sector Externo\" en economía?",
+    "a": [
+      "Al mercado de trabajo interno",
+      "Al comercio e intercambio con otros países",
+      "A la producción de bienes dentro del país",
+      "A la distribución de bienes a nivel nacional"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Las familias son propietarias de los factores de producción. ¿Cuál de los siguientes NO es un factor de producción que las familias ofrezcan?",
+    "a": [
+      "Trabajo",
+      "Capital",
+      "Tecnología",
+      "Tierra"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Qué reciben las familias a cambio de ofrecer su trabajo a las empresas?",
+    "a": [
+      "Rentas",
+      "Beneficios",
+      "Intereses",
+      "Salarios"
+    ],
+    "c": 3
+  },
+  {
+    "q": "¿Qué es el ingreso disponible para una familia?",
+    "a": [
+      "El ingreso total antes de impuestos",
+      "El dinero que queda para gastar o ahorrar después de impuestos",
+      "Las ganancias obtenidas por inversiones",
+      "El valor de los bienes consumidos"
+    ],
+    "c": 1
+  },
+  {
+    "q": "¿Cuál es el objetivo principal de las empresas?",
+    "a": [
+      "Asegurar el bienestar social",
+      "Maximizar sus ganancias",
+      "Proveer servicios públicos gratuitos",
+      "Reducir la producción"
+    ],
+    "c": 1
+  },
+  {
+    "q": "¿Qué tipo de empresa se caracteriza por tener menos de 10 empleados y gestión familiar?",
+    "a": [
+      "Pequeña empresa",
+      "Microempresa",
+      "Mediana empresa",
+      "Gran empresa"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Una fábrica que transforma materias primas en productos terminados pertenece al sector económico:",
+    "a": [
+      "Primario",
+      "Secundario",
+      "Terciario",
+      "Cuaternario"
+    ],
+    "c": 1
+  },
+  {
+    "q": "¿Qué tipo de empresa vende bienes sin transformarlos?",
+    "a": [
+      "Empresa industrial",
+      "Empresa de servicios",
+      "Empresa comercial",
+      "Empresa pública"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Cómo se calcula el beneficio de una empresa?",
+    "a": [
+      "Ingresos totales + Costos totales",
+      "Ingresos totales / Costos totales",
+      "Ingresos totales - Costos totales",
+      "Costos totales - Ingresos totales"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Qué son los costos fijos para una empresa?",
+    "a": [
+      "Gastos que varían con la producción",
+      "Gastos que no cambian con la producción",
+      "Ingresos por ventas",
+      "Materias primas utilizadas"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Si una empresa tiene ingresos por $50.000 y costos totales por $30.000, ¿cuál es su beneficio?",
+    "a": [
+      "$20.000",
+      "$50.000",
+      "$30.000",
+      "$80.000"
+    ],
+    "c": 0
+  },
+  {
+    "q": "¿Cuál de los siguientes es un ejemplo de bien económico?",
+    "a": [
+      "El aire",
+      "El agua de mar",
+      "Un automóvil",
+      "La luz solar"
+    ],
+    "c": 2
+  },
+  {
+    "q": "La utilidad de un bien se refiere a:",
+    "a": [
+      "Su precio de mercado",
+      "Su capacidad para satisfacer una necesidad",
+      "Su escasez",
+      "Su costo de producción"
+    ],
+    "c": 1
+  },
+  {
+    "q": "¿Qué significa que un recurso sea \"limitado\" en economía?",
+    "a": [
+      "Que su producción es muy costosa",
+      "Que hay suficiente para todos",
+      "Que su disponibilidad es menor a la demanda existente",
+      "Que no tiene valor"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Cuál es la principal diferencia entre un bien libre y un bien económico?",
+    "a": [
+      "El bien libre es intangible y el económico es tangible",
+      "El bien libre es abundante y el económico es escaso",
+      "El bien libre tiene un precio y el económico no",
+      "El bien libre es producido por el Estado y el económico por empresas"
+    ],
+    "c": 1
+  },
+  {
+    "q": "¿Qué factor de la producción se refiere a la maquinaria y herramientas utilizadas en la fabricación?",
+    "a": [
+      "Tierra",
+      "Trabajo",
+      "Capital",
+      "Organización"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Qué es la Frontera de Posibilidades de Producción (FPP)?",
+    "a": [
+      "Un gráfico que muestra los precios de los bienes",
+      "Un modelo que ilustra las combinaciones máximas de producción de dos bienes con recursos dados",
+      "La cantidad total de bienes producidos en una economía",
+      "El costo de oportunidad de un bien"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Un punto *dentro* de la Frontera de Posibilidades de Producción (FPP) indica que la economía está operando:",
+    "a": [
+      "De forma ineficiente",
+      "De forma eficiente",
+      "Con pleno empleo de recursos",
+      "Con un costo de oportunidad cero"
+    ],
+    "c": 0
+  },
+  {
+    "q": "¿Qué concepto económico explica la renuncia a obtener un bien o servicio para obtener otro?",
+    "a": [
+      "Valor",
+      "Utilidad",
+      "Escasez",
+      "Costo de Oportunidad"
+    ],
+    "c": 3
+  },
+  {
+    "q": "Si un país decide aumentar la producción de armas, ¿qué implicaría según el concepto de FPP?",
+    "a": [
+      "Que puede aumentar la producción de todos los bienes",
+      "Que deberá disminuir la producción de otros bienes",
+      "Que sus recursos son ilimitados",
+      "Que el costo de oportunidad es cero"
+    ],
+    "c": 1
+  },
+  {
+    "q": "¿Qué agente económico se encarga de la redistribución de ingresos para buscar mayor equidad social?",
+    "a": [
+      "Empresas",
+      "Familias",
+      "Estado",
+      "Sector Externo"
+    ],
+    "c": 2
+  },
+  {
+    "q": "La economía se ocupa de estudiar cómo las personas toman decisiones ante la abundancia total de recursos.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Las necesidades humanas son ilimitadas, mientras que los recursos para satisfacerlas son limitados.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "El costo de oportunidad es el valor de la alternativa elegida.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Las familias son las principales productoras de bienes y servicios en una economía.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Las empresas buscan principalmente maximizar el bienestar social.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El Estado, en economía, solo actúa como regulador.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Los bienes de capital, como maquinaria, son un ejemplo de factor de producción \"tierra\".",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Una empresa individual tiene la responsabilidad limitada al capital aportado.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Los costos variables de una empresa dependen del nivel de producción.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "El beneficio de una empresa se calcula restando los costos totales a los ingresos totales.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "Un bien es escaso cuando su cantidad disponible es menor que la cantidad deseada.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "La utilidad de un bien se refiere únicamente a su precio.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Los factores de producción son tierra, trabajo, capital y tecnología.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "La Frontera de Posibilidades de Producción (FPP) muestra las combinaciones de producción que son ineficientes.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Un punto fuera de la FPP es alcanzable con los recursos y tecnología actuales.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El sector primario se dedica a la prestación de servicios.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Una Sociedad Anónima (SA) tiene el capital dividido en acciones.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "El ingreso disponible es el dinero que una familia tiene antes de pagar impuestos.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Las empresas de servicios ofrecen productos tangibles.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El sector externo se refiere a las transacciones económicas dentro de las fronteras de un país.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "La economía es una ciencia social que estudia la toma de decisiones frente a recursos limitados.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "Los deseos humanos son finitos y limitados.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El costo de oportunidad se aplica solo a decisiones financieras importantes.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Las empresas ofrecen factores de producción a las familias.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El Estado busca maximizar sus ganancias como principal objetivo.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Un bien libre es aquel que tiene un precio elevado en el mercado.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El capital como factor de producción incluye el dinero y los bienes de inversión.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "Si una empresa opera *dentro* de su FPP, está utilizando todos sus recursos de manera eficiente.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Las empresas industriales transforman materias primas en productos.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "El valor de un bien está determinado únicamente por su utilidad.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Según el material base, ¿cuál es el objetivo principal de la economía como ciencia?",
+    "a": [
+      "Estudiar la producción, distribución y consumo de bienes y servicios.",
+      "Analizar exclusivamente las decisiones de inversión de las grandes corporaciones.",
+      "Identificar la forma de eliminar por completo la escasez de recursos.",
+      "Predecir el comportamiento futuro de los mercados financieros con certeza absoluta."
+    ],
+    "c": 0
+  },
+  {
+    "q": "La tensión entre recursos limitados y necesidades ilimitadas, motor de la actividad económica, se denomina en economía como:",
+    "a": [
+      "Escasez.",
+      "Abundancia.",
+      "Marginalidad.",
+      "Soberanía."
+    ],
+    "c": 0
+  },
+  {
+    "q": "Si un individuo elige invertir su dinero en acciones en lugar de depositarlo en un plazo fijo, ¿cuál de las siguientes opciones representa el costo de oportunidad de esa decisión?",
+    "a": [
+      "La ganancia potencial que se podría haber obtenido con el plazo fijo.",
+      "El monto total invertido en las acciones.",
+      "El riesgo asumido al invertir en bolsa.",
+      "Los dividendos recibidos de las acciones."
+    ],
+    "c": 0
+  },
+  {
+    "q": "¿Cuál de los siguientes es un ejemplo de un recurso limitado que representa un factor de producción según el material?",
+    "a": [
+      "El deseo humano de viajar.",
+      "El aire que respiramos.",
+      "El tiempo disponible para realizar actividades.",
+      "La necesidad de educación superior."
+    ],
+    "c": 2
+  },
+  {
+    "q": "En el marco de las tres preguntas fundamentales que toda sociedad debe responder ante la escasez, ¿a qué pregunta se refiere la siguiente interrogante: \"Con qué recursos y tecnologías\"?",
+    "a": [
+      "¿Qué producir?",
+      "¿Cómo producir?",
+      "¿Para quién producir?",
+      "¿Cuánto producir?"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Según el material, ¿cuál es la función principal de las Familias/Consumidores en la economía?",
+    "a": [
+      "Organizar los recursos para producir bienes y servicios.",
+      "Regular la actividad económica y proveer servicios públicos.",
+      "Demandar bienes y servicios para satisfacer sus necesidades y ofrecer factores de producción.",
+      "Establecer acuerdos comerciales con otros países."
+    ],
+    "c": 2
+  },
+  {
+    "q": "Las empresas, al transformar materias primas en productos terminados, se clasifican dentro del sector económico denominado:",
+    "a": [
+      "Primario.",
+      "Secundario.",
+      "Terciario.",
+      "Cuaternario."
+    ],
+    "c": 1
+  },
+  {
+    "q": "¿Cómo se calcula el beneficio de una empresa según la fórmula presentada en el material?",
+    "a": [
+      "Ingresos totales divididos por costos totales.",
+      "Costos totales menos ingresos totales.",
+      "Ingresos totales menos costos totales.",
+      "Ingresos totales multiplicados por costos totales."
+    ],
+    "c": 2
+  },
+  {
+    "q": "Si una panadería vende 200 panes a $500 cada uno, y sus costos totales ascienden a $65.000, ¿cuál es su beneficio?",
+    "a": [
+      "La panadería no tiene beneficio, solo cubre costos.",
+      "$35.000.",
+      "$100.000.",
+      "$165.000."
+    ],
+    "c": 1
+  },
+  {
+    "q": "El Estado, como agente económico, actúa simultáneamente como regulador, productor, consumidor y redistribuidor. Su objetivo principal es:",
+    "a": [
+      "Maximizar ganancias para el tesoro público.",
+      "Garantizar el bienestar general y corregir fallas de mercado.",
+      "Aumentar la producción de bienes de capital.",
+      "Fomentar la competencia entre empresas privadas."
+    ],
+    "c": 1
+  },
+  {
+    "q": "La economía es la ciencia social que estudia cómo las personas y las sociedades toman decisiones para satisfacer necesidades ilimitadas con recursos que son ilimitados.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El costo de oportunidad se refiere al valor de la mejor alternativa que se elige al tomar una decisión.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Los agentes económicos incluyen únicamente a las familias y a las empresas.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Las microempresas se caracterizan por tener más de 250 empleados y una estructura organizacional compleja.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Las empresas de servicios se dedican a la extracción de recursos naturales.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El ingreso disponible de una familia es el total de sus ingresos antes de pagar impuestos y contribuciones obligatorias.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Los costos variables de una empresa cambian según cuánto se produce.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "El sector externo representa exclusivamente las importaciones de bienes y servicios.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Una Sociedad Anónima (SA) se caracteriza por tener un solo dueño con responsabilidad ilimitada.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El Estado, al proveer educación pública gratuita, está actuando como productor de servicios y buscando el bienestar general.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  }
+];
+
+    // --- STATE ---
+    let currentQuestions = [];
+    let userAnswers = [];
+    let currentIdx = 0;
+    let timerInterval;
+    let timeLeft = 15 * 60; // 15 minutes
+    let startTime;
+
+    // --- INITIALIZATION ---
+    window.onload = () => {
+        const select = document.getElementById('student-select');
+        students.sort((a, b) => a.name.localeCompare(b.name)).forEach(s => {
+            const opt = document.createElement('option');
+            opt.value = s.code; // Use code as value
+            opt.textContent = s.name;
+            select.appendChild(opt);
+        });
+    };
+
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    async function startQuiz() {
+        const studentCode = document.getElementById('student-select').value;
+        const student = students.find(s => s.code === studentCode);
+        const enteredPassword = document.getElementById('student-password').value.trim().toLowerCase();
+        
+        if (!studentCode) {
+            alert("Por favor, seleccioná tu nombre.");
+            return;
+        }
+        
+        if (!enteredPassword) {
+            alert("Por favor, ingresá tu palabra clave.");
+            return;
+        }
+        
+        if (enteredPassword !== studentCode.toLowerCase()) {
+            alert("Palabra clave incorrecta. Por favor, verificá y volvé a intentar.");
+            return;
+        }
+
+        // Check for previous attempt (except test users)
+        if (studentCode !== "profe1" && studentCode !== "profe2") {
+            const btn = document.querySelector('.setup-card button');
+            const originalText = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = "Verificando...";
+
+            const previous = await sbFetch("progreso", `select=nota&alumno_codigo=eq.${studentCode}&seccion=eq.EVALUACION&materia=eq.Economía`);
+            
+            if (previous && previous.length > 0) {
+                alert(`Lo sentimos, ${student.name}. Ya has realizado esta evaluación.\nTu calificación registrada fue: ${previous[0].nota}/100.`);
+                btn.disabled = false;
+                btn.textContent = originalText;
+                return;
+            }
+            btn.disabled = false;
+            btn.textContent = originalText;
+        }
+
+        // Prepare questions: 10 random from 30
+        currentQuestions = shuffle([...questionBank]).slice(0, 15);
+        // Shuffle options for each question
+        currentQuestions.forEach(q => {
+            const correctAnswerText = q.a[q.c];
+            shuffle(q.a);
+            q.newCorrectIdx = q.a.indexOf(correctAnswerText);
+        });
+
+        userAnswers = new Array(15).fill(null);
+        currentIdx = 0;
+        startTime = Date.now();
+
+        document.getElementById('student-name-display').textContent = student.name;
+        document.getElementById('student-name-display').dataset.code = student.code;
+        document.getElementById('setup-screen').style.display = 'none';
+        document.getElementById('quiz-screen').style.display = 'block';
+
+        renderQuestion();
+        startTimer();
+    }
+
+    function renderQuestion() {
+        const q = currentQuestions[currentIdx];
+        const container = document.getElementById('question-container');
+        
+        let optionsHtml = '';
+        const letters = ['A', 'B', 'C', 'D'];
+        
+        q.a.forEach((optText, i) => {
+            const isSelected = userAnswers[currentIdx] === i;
+            optionsHtml += `
+                <div class="option ${isSelected ? 'selected' : ''}" onclick="selectOption(${i})">
+                    <div class="option-bullet">${letters[i]}</div>
+                    <div class="option-text">${optText}</div>
+                </div>
+            `;
+        });
+
+        container.innerHTML = `
+            <div class="question-card">
+                <span class="q-number">Pregunta ${currentIdx + 1} de 15</span>
+                <div class="q-text">${q.q}</div>
+                <div class="options">
+                    ${optionsHtml}
+                </div>
+            </div>
+        `;
+
+        updateNav();
+    }
+
+    function selectOption(idx) {
+        userAnswers[currentIdx] = idx;
+        renderQuestion();
+        
+        // Auto-advance after small delay
+        if (currentIdx < 14) {
+            setTimeout(() => {
+                if (userAnswers[currentIdx] === idx) nextQuestion();
+            }, 600);
+        }
+    }
+
+    function updateNav() {
+        document.getElementById('btn-prev').disabled = currentIdx === 0;
+        const isLast = currentIdx === 14;
+        document.getElementById('btn-next').style.display = isLast ? 'none' : 'block';
+        document.getElementById('btn-submit').style.display = isLast ? 'block' : 'none';
+        
+        const progress = ((currentIdx + 1) / 15) * 100;
+        document.getElementById('progress-bar').style.width = `${progress}%`;
+        document.getElementById('page-indicator').textContent = `${currentIdx + 1} de 15`;
+    }
+
+    function nextQuestion() {
+        if (currentIdx < 9) {
+            currentIdx++;
+            renderQuestion();
+        }
+    }
+
+    function prevQuestion() {
+        if (currentIdx > 0) {
+            currentIdx--;
+            renderQuestion();
+        }
+    }
+
+    function startTimer() {
+        timerInterval = setInterval(() => {
+            timeLeft--;
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                finishQuiz(true);
+            }
+            const mins = Math.floor(timeLeft / 60);
+            const secs = timeLeft % 60;
+            document.getElementById('timer-val').textContent = 
+                `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            
+            if (timeLeft < 60) {
+                document.querySelector('.timer').style.color = '#EF4444';
+                document.querySelector('.timer').style.animation = 'pulse 1s infinite';
+            }
+        }, 1000);
+    }
+
+    async function finishQuiz(auto = false) {
+        if (!auto) {
+            const unanswered = userAnswers.filter(a => a === null).length;
+            if (unanswered > 0) {
+                if (!confirm(`Todavía tenés ${unanswered} preguntas sin responder. ¿Querés entregar igual?`)) return;
+            }
+        }
+
+        clearInterval(timerInterval);
+        
+        let score = 0;
+        const processedAnswers = currentQuestions.map((q, i) => {
+            const selectedIdx = userAnswers[i];
+            const isCorrect = selectedIdx === q.newCorrectIdx;
+            if (isCorrect) score++;
+            
+            return {
+                text: selectedIdx !== null ? q.a[selectedIdx] : "Sin respuesta",
+                isCorrect: isCorrect
+            };
+        });
+
+        const timeUsed = 15 * 60 - timeLeft;
+        const mins = Math.floor(timeUsed / 60);
+        const secs = timeUsed % 60;
+        const timeStr = `${mins}:${secs.toString().padStart(2, '0')}`;
+
+        // Save to Supabase
+        const studentName = document.getElementById('student-name-display').textContent;
+        const studentCode = document.getElementById('student-name-display').dataset.code;
+        
+        document.getElementById('result-title').textContent = "Guardando resultados...";
+        
+        await sbInsert("progreso", {
+            alumno_codigo: studentCode,
+            materia: "Economía", // o "La Ciencia Económica"
+            unidad: "Evaluación MC", // para que el panel docente lo reconozca
+            seccion: "EVALUACION",
+            nota: Math.round((score / 15) * 100),
+            datos: {
+                alumno_nombre: studentName,
+                tiempo_usado: timeStr,
+                respuestas: processedAnswers,
+                preguntas: currentQuestions.map(q => q.q),
+                fecha: new Date().toISOString()
+            }
+        });
+        
+        // Enviar email con los resultados vía FormSubmit
+        try {
+            await fetch("https://formsubmit.co/ajax/14f4f473357c2cd083f563a355a538de", {
+                method: "POST",
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    "Evaluación": "La Ciencia Económica",
+                    "Estudiante": studentName,
+                    "Nota": Math.round((score / 15) * 100) + "/100",
+                    "Respuestas Correctas": score + "/15",
+                    "Tiempo Utilizado": timeStr,
+                    "_subject": "✅ Resultado de Evaluación: " + studentName,
+                    "_captcha": "false"
+                })
+            });
+        } catch (e) {
+            console.error("Error al enviar el correo:", e);
+        }
+
+        alert("✅ Evaluación finalizada y guardada con éxito.");
+
+        document.getElementById('quiz-screen').style.display = 'none';
+        document.getElementById('results-screen').style.display = 'block';
+        
+        document.getElementById('score-val').textContent = score;
+        document.getElementById('result-student').textContent = document.getElementById('student-name-display').textContent;
+        document.getElementById('summary-time').textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+        document.getElementById('summary-total').textContent = `${userAnswers.filter(a => a !== null).length}/15`;
+        
+        const status = document.getElementById('summary-status');
+        if (score >= 9) {
+            status.textContent = "Aprobado";
+            status.style.color = "#10B981";
+            document.getElementById('result-emoji').textContent = "🎉";
+            document.getElementById('result-title').textContent = "¡Excelente Trabajo!";
+        } else {
+            status.textContent = "En Proceso";
+            status.style.color = "#F59E0B";
+            document.getElementById('result-emoji').textContent = "📚";
+            document.getElementById('result-title').textContent = "Sigue practicando";
+        }
+    }
+</script>
+
+</body>
+</html>
