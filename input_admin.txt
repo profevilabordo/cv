@@ -1,0 +1,134 @@
+1. Según el material base, ¿cuál de los siguientes NO es un objetivo de la gestión del capital humano como activo estratégico?
+   a) Aumentar la rotación de personal
+   b) Asegurar la adaptabilidad a los cambios del mercado
+   c) Fomentar la capacidad de innovación
+   d) Mejorar la productividad general
+
+2. En el contexto del reclutamiento, ¿qué ventaja principal ofrece el reclutamiento interno?
+   a) Incorporación de nuevas perspectivas y habilidades externas
+   b) Mayor tiempo de adaptación al puesto
+   c) Reducción de costos y menor tiempo de adaptación
+   d) Fomentar la diversidad de perfiles
+
+3. ¿Cuál de las siguientes herramientas es fundamental para guiar el proceso de mejora continua y asegurar un avance constante en el desarrollo profesional de un empleado, según el material?
+   a) Entrevistas no estructuradas
+   b) Dinámicas de grupo
+   c) Plan de Desarrollo Individual (PDI) y metas SMART
+   d) Reclutamiento externo masivo
+
+4. La Evaluación 360° se describe como una metodología que permite obtener una visión del desempeño de un empleado desde múltiples perspectivas. ¿Cuál de las siguientes NO es una de estas perspectivas mencionadas?
+   a) Superiores jerárquicos
+   b) Pares
+   c) Clientes externos
+   d) Subordinados directos
+
+5. ¿Qué representan los KPIs (Key Performance Indicators) en el contexto de la gestión del desempeño?
+   a) Indicadores cualitativos de satisfacción laboral
+   b) Métricas tangibles para cuantificar y monitorear la efectividad
+   c) Herramientas para la selección de personal
+   d) Métodos para la capacitación técnica específica
+
+6. Según las teorías de Maslow y Herzberg mencionadas en el texto, ¿qué necesidad humana destaca el reconocimiento como un potente incentivo?
+   a) Seguridad
+   b) Afiliación
+   c) Estima y logro
+   d) Autorrealización
+
+7. ¿Cuál de los siguientes programas de bienestar laboral se enfoca en un equilibrio saludable entre la vida profesional y personal del empleado?
+   a) Capacitación técnica específica
+   b) Evaluación 360°
+   c) Programas de salud física y mental, conciliación trabajo-vida personal
+   d) Reclutamiento interno
+
+8. La cultura organizacional se define como el conjunto de:
+   a) Estructuras jerárquicas y organigramas
+   b) Valores, normas, creencias y comportamientos compartidos
+   c) Políticas de remuneración y beneficios
+   d) Procesos de producción y logística
+
+9. ¿Qué modalidad de aprendizaje continuo implica la adquisición constante de nuevas habilidades y conocimientos para mantenerse competitivo?
+   a) Plan de Desarrollo Individual (PDI)
+   b) Evaluación 360°
+   c) Lifelong learning (aprendizaje continuo)
+   d) Descuento de pagaré
+
+10. En el contexto de la administración, ¿qué implica el "Cash Flow"?
+   a) La gestión de inventarios de materia prima
+   b) El flujo de efectivo en caja chica
+   c) El análisis de los costos directos e indirectos
+   d) La planificación de la producción
+
+11. ¿Qué tipo de depósito bancario se caracteriza por permitir el acceso al dinero en cualquier momento sin previo aviso?
+   a) Depósito a plazo fijo
+   b) Cuenta corriente
+   c) Cuenta de ahorro
+   d) Depósito de seguridad
+
+12. ¿Cuál de las siguientes opciones describe mejor el "descuento de pagaré" en el ámbito de las actividades financieras?
+   a) Un método para calcular el impuesto a las ganancias
+   b) Una operación financiera donde se anticipa el cobro de un documento a cambio de un descuento
+   c) La emisión de nuevos pagarés para saldar deudas
+   d) La conciliación de los saldos bancarios
+
+13. En contabilidad industrial, ¿qué diferencia a los costos directos de los costos indirectos?
+   a) Los costos directos se relacionan con la mano de obra y los indirectos con los materiales
+   b) Los costos directos son variables y los indirectos fijos
+   c) Los costos directos se pueden asignar directamente a un producto o servicio, mientras que los indirectos no
+   d) Los costos directos son fijos y los indirectos variables
+
+14. ¿Qué significan las siglas ISO en el contexto de las normas de calidad?
+   a) International Standardization Organization
+   b) Internal Systems Operations
+   c) Industrial Safety Oversight
+   d) Information Security Office
+
+15. Según el material, en entornos dinámicos y competitivos, ¿cuál es un factor clave para el éxito de una organización?
+   a) Minimizar la inversión en capacitación
+   b) Fomentar la rotación de personal
+   c) La gestión eficaz de Recursos Humanos y el capital humano
+   d) Reducir la comunicación interna
+
+16. El objetivo principal de la administración es la maximización de las ganancias a corto plazo, sin considerar el bienestar del personal.
+   ( ) Verdadero  /  ( ) Falso
+
+17. El fondo fijo es una cantidad de dinero designada para cubrir gastos menores y recurrentes, permitiendo una gestión ágil de la caja chica.
+   ( ) Verdadero  /  ( ) Falso
+
+18. Un presupuesto económico y un presupuesto financiero son redundantes y no aportan información adicional el uno al otro.
+   ( ) Verdadero  /  ( ) Falso
+
+19. El dinero, en su función como medio de pago, es un elemento que facilita las transacciones comerciales y elimina la necesidad de trueque.
+   ( ) Verdadero  /  ( ) Falso
+
+20. La conciliación bancaria es un proceso que busca identificar y registrar las transacciones que solo aparecen en los registros del banco y no en los de la empresa.
+   ( ) Verdadero  /  ( ) Falso
+
+21. El crédito es una herramienta que permite a las empresas obtener financiación para sus operaciones, pero siempre implica un riesgo para el prestamista.
+   ( ) Verdadero  /  ( ) Falso
+
+22. Los costos indirectos en contabilidad industrial son aquellos que se pueden rastrear directamente hasta la producción de un bien o servicio específico.
+   ( ) Verdadero  /  ( ) Falso
+
+23. Las normas ISO buscan estandarizar procesos y productos para mejorar la calidad y la seguridad, pero no tienen un impacto en la competitividad de las empresas.
+   ( ) Verdadero  /  ( ) Falso
+
+24. El capital humano, al ser etéreo y difícil de replicar, se considera un factor secundario en la competitividad de una organización moderna.
+   ( ) Verdadero  /  ( ) Falso
+
+25. La motivación y el compromiso del personal no influyen significativamente en la productividad de una empresa.
+   ( ) Verdadero  /  ( ) Falso
+
+26. El reclutamiento externo se enfoca en promover a los empleados actuales dentro de la organización.
+   ( ) Verdadero  /  ( ) Falso
+
+27. Las pruebas psicotécnicas se utilizan para evaluar la experiencia laboral previa de un candidato.
+   ( ) Verdadero  /  ( ) Falso
+
+28. El Plan de Desarrollo Individual (PDI) es una herramienta exclusiva para la evaluación de desempeño y no tiene relación con el crecimiento profesional del empleado.
+   ( ) Verdadero  /  ( ) Falso
+
+29. El reconocimiento no monetario, como una felicitación personalizada, tiene poco impacto en la moral del personal.
+   ( ) Verdadero  /  ( ) Falso
+
+30. La cultura organizacional se impone desde la alta gerencia y no se ve influenciada por las acciones diarias de los empleados.
+   ( ) Verdadero  /  ( ) Falso

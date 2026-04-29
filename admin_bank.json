@@ -1,0 +1,272 @@
+[
+  {
+    "q": "Según el material base, ¿cuál de los siguientes NO es un objetivo de la gestión del capital humano como activo estratégico?",
+    "a": [
+      "Aumentar la rotación de personal",
+      "Asegurar la adaptabilidad a los cambios del mercado",
+      "Fomentar la capacidad de innovación",
+      "Mejorar la productividad general"
+    ],
+    "c": 0
+  },
+  {
+    "q": "En el contexto del reclutamiento, ¿qué ventaja principal ofrece el reclutamiento interno?",
+    "a": [
+      "Incorporación de nuevas perspectivas y habilidades externas",
+      "Mayor tiempo de adaptación al puesto",
+      "Reducción de costos y menor tiempo de adaptación",
+      "Fomentar la diversidad de perfiles"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Cuál de las siguientes herramientas es fundamental para guiar el proceso de mejora continua y asegurar un avance constante en el desarrollo profesional de un empleado, según el material?",
+    "a": [
+      "Entrevistas no estructuradas",
+      "Dinámicas de grupo",
+      "Plan de Desarrollo Individual (PDI) y metas SMART",
+      "Reclutamiento externo masivo"
+    ],
+    "c": 2
+  },
+  {
+    "q": "La Evaluación 360° se describe como una metodología que permite obtener una visión del desempeño de un empleado desde múltiples perspectivas. ¿Cuál de las siguientes NO es una de estas perspectivas mencionadas?",
+    "a": [
+      "Superiores jerárquicos",
+      "Pares",
+      "Clientes externos",
+      "Subordinados directos"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Qué representan los KPIs (Key Performance Indicators) en el contexto de la gestión del desempeño?",
+    "a": [
+      "Indicadores cualitativos de satisfacción laboral",
+      "Métricas tangibles para cuantificar y monitorear la efectividad",
+      "Herramientas para la selección de personal",
+      "Métodos para la capacitación técnica específica"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Según las teorías de Maslow y Herzberg mencionadas en el texto, ¿qué necesidad humana destaca el reconocimiento como un potente incentivo?",
+    "a": [
+      "Seguridad",
+      "Afiliación",
+      "Estima y logro",
+      "Autorrealización"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Cuál de los siguientes programas de bienestar laboral se enfoca en un equilibrio saludable entre la vida profesional y personal del empleado?",
+    "a": [
+      "Capacitación técnica específica",
+      "Evaluación 360°",
+      "Programas de salud física y mental, conciliación trabajo-vida personal",
+      "Reclutamiento interno"
+    ],
+    "c": 2
+  },
+  {
+    "q": "La cultura organizacional se define como el conjunto de:",
+    "a": [
+      "Estructuras jerárquicas y organigramas",
+      "Valores, normas, creencias y comportamientos compartidos",
+      "Políticas de remuneración y beneficios",
+      "Procesos de producción y logística"
+    ],
+    "c": 1
+  },
+  {
+    "q": "¿Qué modalidad de aprendizaje continuo implica la adquisición constante de nuevas habilidades y conocimientos para mantenerse competitivo?",
+    "a": [
+      "Plan de Desarrollo Individual (PDI)",
+      "Evaluación 360°",
+      "Lifelong learning (aprendizaje continuo)",
+      "Descuento de pagaré"
+    ],
+    "c": 2
+  },
+  {
+    "q": "En el contexto de la administración, ¿qué implica el \"Cash Flow\"?",
+    "a": [
+      "La gestión de inventarios de materia prima",
+      "El flujo de efectivo en caja chica",
+      "El análisis de los costos directos e indirectos",
+      "La planificación de la producción"
+    ],
+    "c": 1
+  },
+  {
+    "q": "¿Qué tipo de depósito bancario se caracteriza por permitir el acceso al dinero en cualquier momento sin previo aviso?",
+    "a": [
+      "Depósito a plazo fijo",
+      "Cuenta corriente",
+      "Cuenta de ahorro",
+      "Depósito de seguridad"
+    ],
+    "c": 1
+  },
+  {
+    "q": "¿Cuál de las siguientes opciones describe mejor el \"descuento de pagaré\" en el ámbito de las actividades financieras?",
+    "a": [
+      "Un método para calcular el impuesto a las ganancias",
+      "Una operación financiera donde se anticipa el cobro de un documento a cambio de un descuento",
+      "La emisión de nuevos pagarés para saldar deudas",
+      "La conciliación de los saldos bancarios"
+    ],
+    "c": 1
+  },
+  {
+    "q": "En contabilidad industrial, ¿qué diferencia a los costos directos de los costos indirectos?",
+    "a": [
+      "Los costos directos se relacionan con la mano de obra y los indirectos con los materiales",
+      "Los costos directos son variables y los indirectos fijos",
+      "Los costos directos se pueden asignar directamente a un producto o servicio, mientras que los indirectos no",
+      "Los costos directos son fijos y los indirectos variables"
+    ],
+    "c": 2
+  },
+  {
+    "q": "¿Qué significan las siglas ISO en el contexto de las normas de calidad?",
+    "a": [
+      "International Standardization Organization",
+      "Internal Systems Operations",
+      "Industrial Safety Oversight",
+      "Information Security Office"
+    ],
+    "c": 0
+  },
+  {
+    "q": "Según el material, en entornos dinámicos y competitivos, ¿cuál es un factor clave para el éxito de una organización?",
+    "a": [
+      "Minimizar la inversión en capacitación",
+      "Fomentar la rotación de personal",
+      "La gestión eficaz de Recursos Humanos y el capital humano",
+      "Reducir la comunicación interna"
+    ],
+    "c": 2
+  },
+  {
+    "q": "El objetivo principal de la administración es la maximización de las ganancias a corto plazo, sin considerar el bienestar del personal.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El fondo fijo es una cantidad de dinero designada para cubrir gastos menores y recurrentes, permitiendo una gestión ágil de la caja chica.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "Un presupuesto económico y un presupuesto financiero son redundantes y no aportan información adicional el uno al otro.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El dinero, en su función como medio de pago, es un elemento que facilita las transacciones comerciales y elimina la necesidad de trueque.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "La conciliación bancaria es un proceso que busca identificar y registrar las transacciones que solo aparecen en los registros del banco y no en los de la empresa.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El crédito es una herramienta que permite a las empresas obtener financiación para sus operaciones, pero siempre implica un riesgo para el prestamista.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 0
+  },
+  {
+    "q": "Los costos indirectos en contabilidad industrial son aquellos que se pueden rastrear directamente hasta la producción de un bien o servicio específico.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Las normas ISO buscan estandarizar procesos y productos para mejorar la calidad y la seguridad, pero no tienen un impacto en la competitividad de las empresas.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El capital humano, al ser etéreo y difícil de replicar, se considera un factor secundario en la competitividad de una organización moderna.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "La motivación y el compromiso del personal no influyen significativamente en la productividad de una empresa.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El reclutamiento externo se enfoca en promover a los empleados actuales dentro de la organización.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "Las pruebas psicotécnicas se utilizan para evaluar la experiencia laboral previa de un candidato.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El Plan de Desarrollo Individual (PDI) es una herramienta exclusiva para la evaluación de desempeño y no tiene relación con el crecimiento profesional del empleado.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "El reconocimiento no monetario, como una felicitación personalizada, tiene poco impacto en la moral del personal.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  },
+  {
+    "q": "La cultura organizacional se impone desde la alta gerencia y no se ve influenciada por las acciones diarias de los empleados.",
+    "a": [
+      "Verdadero",
+      "Falso"
+    ],
+    "c": 1
+  }
+]
