@@ -1,0 +1,169 @@
+{
+  "materia": "Materia Ejemplo",
+  "unidad": 2,
+  "titulo": "Título de la Unidad 2",
+  "emoji": "🚀",
+  "color_primario": "#6366F1",
+  "color_secundario": "#8B5CF6",
+  "bloques": [
+    {
+      "id": "A",
+      "titulo": "Bases para pensar",
+      "emoji": "🧠",
+      "color": "#6366F1",
+      "umbral": {
+        "preguntas_disparadoras": [
+          {
+            "emoji": "🤔",
+            "texto": "¿Pregunta disparadora del Bloque A?",
+            "pista": "Pista Bloque A"
+          }
+        ],
+        "situaciones_conecta": [
+          { "emoji": "📝", "label": "Situación 1 Bloque A" }
+        ],
+        "termometro_pregunta": "¿Pregunta termómetro Bloque A?"
+      },
+      "mapa": {
+        "ruta_paradas": [],
+        "panoramica_bloques": [],
+        "mapa_mental": {
+          "centro": { "title": "Centro Bloque A", "emoji": "🎯" },
+          "ramas": []
+        }
+      },
+      "nucleo": {
+        "bloque_info": {
+          "titulo": "Tema Central del Bloque A",
+          "emoji": "⚛️",
+          "color": "#6366F1",
+          "paginas": ["1", "2"]
+        },
+        "n1_ordenar_cronologicamente": { "consigna": "Ordená", "items": [], "orden_correcto": [] },
+        "n2_clasificador": { "consigna": "Clasificá", "categorias": [], "items": [] },
+        "n3_completar_mapa": { "blanks": [] },
+        "n4_verdadero_falso": { "afirmaciones": [] },
+        "n5_relacionar_columnas": { "pares": [] },
+        "n6_palabra_intrusa": { "grupos": [] },
+        "n7_defini_con_tus_palabras": { "conceptos": [] },
+        "n8_causa_efecto": { "causas": [], "efectos": [] },
+        "n9_ordenar_proceso": { "pasos_en_orden_correcto": [] },
+        "n10_comparador": {
+          "concepto_a": { "nombre": "A", "emoji": "A", "color": "#111" },
+          "concepto_b": { "nombre": "B", "emoji": "B", "color": "#222" }
+        }
+      },
+      "senales": {
+        "conceptos_clave": [],
+        "semaforo_conceptos": [],
+        "postits_conceptos": []
+      },
+      "sabias": {
+        "flip_cards": [],
+        "linea_de_tiempo": [],
+        "encuesta": { "pregunta": "Pregunta?", "opciones": [] }
+      },
+      "cruces": {
+        "puentes": [],
+        "telarana": []
+      },
+      "relectura": {
+        "tribunal": { "titulo_debate": "", "contexto": "", "roles": [] },
+        "tesis": { "consigna": "" },
+        "critica": { "consigna": "" }
+      },
+      "emocional": {
+        "_nota": "El motor genera esto automáticamente, no requiere contenido específico."
+      },
+      "autotest": {
+        "preguntas": [
+          {
+            "pregunta": "¿Pregunta de prueba Bloque A?",
+            "opciones": ["Opción 1", "Opción 2"],
+            "correcta": 1,
+            "explicacion": "Explicación"
+          }
+        ]
+      },
+      "cierre": {
+        "glosario": [],
+        "recursos": []
+      }
+    },
+    {
+      "id": "B",
+      "titulo": "Segundo Tema Central",
+      "emoji": "🧩",
+      "color": "#10B981",
+      "umbral": {
+        "preguntas_disparadoras": [],
+        "situaciones_conecta": [],
+        "termometro_pregunta": "¿Termómetro Bloque B?"
+      },
+      "mapa": {
+        "ruta_paradas": [],
+        "panoramica_bloques": [],
+        "mapa_mental": {
+          "centro": { "title": "Centro Bloque B", "emoji": "🎯" },
+          "ramas": []
+        }
+      },
+      "nucleo": {
+        "bloque_info": {
+          "titulo": "Tema Central del Bloque B",
+          "emoji": "⚛️",
+          "color": "#10B981",
+          "paginas": ["3", "4"]
+        },
+        "n1_ordenar_cronologicamente": { "consigna": "Ordená", "items": [], "orden_correcto": [] },
+        "n2_clasificador": { "consigna": "Clasificá", "categorias": [], "items": [] },
+        "n3_completar_mapa": { "blanks": [] },
+        "n4_verdadero_falso": { "afirmaciones": [] },
+        "n5_relacionar_columnas": { "pares": [] },
+        "n6_palabra_intrusa": { "grupos": [] },
+        "n7_defini_con_tus_palabras": { "conceptos": [] },
+        "n8_causa_efecto": { "causas": [], "efectos": [] },
+        "n9_ordenar_proceso": { "pasos_en_orden_correcto": [] },
+        "n10_comparador": {
+          "concepto_a": { "nombre": "C", "emoji": "C", "color": "#333" },
+          "concepto_b": { "nombre": "D", "emoji": "D", "color": "#444" }
+        }
+      },
+      "senales": { "conceptos_clave": [], "semaforo_conceptos": [], "postits_conceptos": [] },
+      "sabias": { "flip_cards": [], "linea_de_tiempo": [], "encuesta": { "pregunta": "Pregunta?", "opciones": [] } },
+      "cruces": { "puentes": [], "telarana": [] },
+      "relectura": { "tribunal": { "titulo_debate": "", "contexto": "", "roles": [] }, "tesis": { "consigna": "" }, "critica": { "consigna": "" } },
+      "emocional": { "_nota": "Automático" },
+      "autotest": { "preguntas": [] },
+      "cierre": { "glosario": [], "recursos": [] }
+    },
+    {
+      "id": "C",
+      "titulo": "Tercer Tema Central",
+      "emoji": "🎯",
+      "color": "#F59E0B",
+      "umbral": { "preguntas_disparadoras": [], "situaciones_conecta": [], "termometro_pregunta": "" },
+      "mapa": { "ruta_paradas": [], "panoramica_bloques": [], "mapa_mental": { "centro": { "title": "C", "emoji": "C" }, "ramas": [] } },
+      "nucleo": {
+        "bloque_info": { "titulo": "Tema Central del Bloque C", "emoji": "⚛️", "color": "#F59E0B", "paginas": ["5"] },
+        "n1_ordenar_cronologicamente": { "consigna": "Ordená", "items": [], "orden_correcto": [] },
+        "n2_clasificador": { "consigna": "Clasificá", "categorias": [], "items": [] },
+        "n3_completar_mapa": { "blanks": [] },
+        "n4_verdadero_falso": { "afirmaciones": [] },
+        "n5_relacionar_columnas": { "pares": [] },
+        "n6_palabra_intrusa": { "grupos": [] },
+        "n7_defini_con_tus_palabras": { "conceptos": [] },
+        "n8_causa_efecto": { "causas": [], "efectos": [] },
+        "n9_ordenar_proceso": { "pasos_en_orden_correcto": [] },
+        "n10_comparador": { "concepto_a": { "nombre": "E", "emoji": "E", "color": "#555" }, "concepto_b": { "nombre": "F", "emoji": "F", "color": "#666" } }
+      },
+      "senales": { "conceptos_clave": [], "semaforo_conceptos": [], "postits_conceptos": [] },
+      "sabias": { "flip_cards": [], "linea_de_tiempo": [], "encuesta": { "pregunta": "Pregunta?", "opciones": [] } },
+      "cruces": { "puentes": [], "telarana": [] },
+      "relectura": { "tribunal": { "titulo_debate": "", "contexto": "", "roles": [] }, "tesis": { "consigna": "" }, "critica": { "consigna": "" } },
+      "emocional": { "_nota": "Automático" },
+      "autotest": { "preguntas": [] },
+      "cierre": { "glosario": [], "recursos": [] }
+    }
+  ]
+}

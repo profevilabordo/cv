@@ -787,7 +787,8 @@ function renderProgreso(){
         var totalCompletadas = [...new Set(secsMarcadas.concat(secsInProceso))];
         var secsCompletadas = totalCompletadas.filter(function(s){ return SECCIONES.indexOf(s) !== -1; });
         
-        var totalSecciones = SECCIONES.length;
+        var isBlocks = secsCompletadas.some(function(s) { return s.startsWith("A_") || s.startsWith("B_"); });
+        var totalSecciones = isBlocks ? 30 : 12;
         var pct = Math.round(secsCompletadas.length / totalSecciones * 100);
         var color = pct >= 70 ? '#10B981' : pct >= 40 ? '#F59E0B' : '#6366F1';
         
