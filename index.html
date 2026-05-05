@@ -610,7 +610,8 @@ escuelas.forEach(function(esc) {
       unitsHtml += "<div class=\"unit-row\">";
       if (archivo) {
         if (!firstReady) firstReady = archivo;
-        unitsHtml += "<a href=\"unidad.html?datos=" + archivo + "\" class=\"unit ready\" style=\"background:" + m.color + "\">U" + (i + 1) + "</a>";
+        var viewer = archivo.includes("marco_jur_u2") ? "unidad2.html" : "unidad.html";
+        unitsHtml += "<a href=\"" + viewer + "?datos=" + archivo + "\" class=\"unit ready\" style=\"background:" + m.color + "\">U" + (i + 1) + "</a>";
       } else {
         unitsHtml += "<span class=\"unit soon\" style=\"background:" + m.color + "\">U" + (i + 1) + "</span>";
       }
