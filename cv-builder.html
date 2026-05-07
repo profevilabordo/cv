@@ -80,10 +80,10 @@ input[type=color]{width:36px;height:36px;padding:0;border:none;background:none;c
 /* ══════════════════════════════
    CV DOCUMENT — Elegant Sidebar
 ══════════════════════════════ */
-.cv{width:210mm;min-height:297mm;background:#fff;box-shadow:0 8px 60px rgba(0,0,0,.25);display:grid;grid-template-columns:72mm 1fr;font-family:'Outfit',sans-serif;color:#1C1C2E;}
+.cv{width:210mm;min-height:297mm;background:linear-gradient(to right, var(--cv1) 0%, var(--cv1) 72mm, #fff 72mm, #fff 100%);box-shadow:0 8px 60px rgba(0,0,0,.25);display:grid;grid-template-columns:72mm 1fr;font-family:'Outfit',sans-serif;color:#1C1C2E;}
 
 /* ── CV LEFT COLUMN ── */
-.cv-left{background:var(--cv1);display:flex;flex-direction:column;position:relative;overflow:hidden;}
+.cv-left{background:transparent;display:flex;flex-direction:column;position:relative;overflow:hidden;}
 
 /* decorative circles */
 .cv-left::before{content:'';position:absolute;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,.04);bottom:-60px;left:-60px;pointer-events:none;}
@@ -169,11 +169,38 @@ input.photo-input{display:none;}
 
 /* ── PRINT ── */
 @media print {
-  body{background:#fff!important;}
+  body{
+    background:#fff!important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
   .sidebar,.preview-lbl{display:none!important;}
   .app{display:block!important;}
   .preview{padding:0!important;background:#fff!important;}
-  .cv{width:100%!important;box-shadow:none!important;}
+  .cv{
+    width:100%!important;
+    box-shadow:none!important;
+    min-height:0!important;
+  }
+  
+  /* Reducir márgenes/espacios para que entre en 1 hoja más fácilmente */
+  .cv-photo-wrap { padding: 1.5rem 1.2rem 1rem !important; }
+  .cv-ls { padding: 0.8rem 1.2rem !important; }
+  .cv-right { padding: 1.5rem 1.5rem !important; gap: 1rem !important; }
+  .cv-entry { margin-bottom: 0.6rem !important; padding-bottom: 0.6rem !important; }
+
+  /* Evitar cortes feos si llega a necesitar 2 hojas */
+  .cv-ls, .cv-entry, .cv-photo-wrap, .cv-rt, .cv-activity {
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  /* Ocultar secciones vacías al imprimir */
+  .cv-ls:has(.cv-empty),
+  .cv-right > div:has(.cv-empty) {
+    display: none !important;
+  }
+
   @page{margin:0;size:A4;}
 }
 
@@ -553,16 +580,12 @@ function upd(){
   document.getElementById('cv-perfil-text').innerHTML = perfil || '<span class="cv-empty">Tu resumen aparecerá aquí…</span>';
 
   // Skills
-  const lvPct  = [0,25,50,75,100];
-  const lvName = ['','Básico','Intermedio','Avanzado','Experto'];
   document.getElementById('cv-skills-list').innerHTML = skills.length
     ? skills.filter(s=>s.name).map(s=>`
         <div class="cv-skill">
           <div class="cv-skill-row">
-            <span class="cv-skill-name">${s.name}</span>
-            <span class="cv-skill-lv">${lvName[s.level]}</span>
+            <span class="cv-skill-name" style="font-size:.72rem;">• ${s.name}</span>
           </div>
-          <div class="cv-skill-track"><div class="cv-skill-fill" style="width:${lvPct[s.level]}%"></div></div>
         </div>`).join('') || '<span class="cv-empty">Completá los nombres…</span>'
     : '<span class="cv-empty">Agregá habilidades…</span>';
 
