@@ -416,9 +416,13 @@ async function sbDelete(table, eq){
 async function loadAllData(){
   document.getElementById("tabContent").innerHTML = '<div class="loading">Cargando datos... ⏳</div>';
   try {
-    var rawAlumnos = await sb("alumnos", "select=*&order=nombre.asc");
-    allProgreso = await sb("progreso", "select=*&order=fecha.desc");
-    allSesiones = await sb("sesiones", "select=*&order=fecha.desc");
+    var [rawAlumnos, progresoData, sesionesData] = await Promise.all([
+      sb("alumnos", "select=*&order=nombre.asc"),
+      sb("progreso", "select=*&order=fecha.desc"),
+      sb("sesiones", "select=*&order=fecha.desc")
+    ]);
+    allProgreso = progresoData;
+    allSesiones = sesionesData;
     
     // Unificar alumnos registrados con "fantasmas" que tengan actividad
     allAlumnos = getUnifiedAlumnos(rawAlumnos, allProgreso, allSesiones);
