@@ -1,0 +1,971 @@
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 1 de 29
+ 
+                                                
+19.550 
+Marco normativo: Código Civil y Comercial de la Nación (Ley 26.994)  —  Ley General de Sociedades 
+ 
+Ciclo lectivo:                 2026 
+Docente:                        Prof. Verónica 
+en Electrónica 
+Personal y Profesional 6° Año “B” – Técnico 
+Cursos:                          5° Año “A” – Técnico en Informática 
+Asignatura:                   Marco Jurídico 
+ 
+Contratos y Sociedades Comerciales
+ 
+UNIDAD 2
+ 
+APUNTE DE CÁTEDRA
+ 
+“Gral. José de San Martín” 
+ESCUELA DE EDUCACIÓN TÉCNICO PROFESIONAL N° 602 
+ 
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (0) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 2 de 29
+ 
+                                                
+•     Síntesis final 
+•     Glosario jurídico 
+◦         11. Tipos societarios 
+◦         10. La personalidad jurídica de las sociedades 
+•     PARTE III – SOCIEDADES COMERCIALES 
+▪            9.4. Leasing 
+▪            9.3. Concesión 
+▪            9.2. Distribución 
+▪            9.1. Franquicia (franchising) 
+◦         9. Contratos empresariales modernos 
+◦         8. Contratos bancarios 
+◦         7. Locación: de cosas, de obra y de servicios 
+◦         6. Compraventa comercial 
+•     PARTE II – CONTRATOS EN PARTICULAR 
+◦         5. Extinción del contrato 
+◦         4. Efectos del contrato 
+◦         3. Obligaciones que nacen del contrato 
+◦         2. Clasificación de los contratos 
+◦         1. Concepto y elementos del contrato 
+•     PARTE I – TEORÍA GENERAL DE LOS CONTRATOS 
+•     Introducción a la Unidad 
+Índice de contenidos 
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (1) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 3 de 29
+ 
+ 
+para crear, regular, modificar, transferir o extinguir relaciones jurídicas patrimoniales. 
+Contrato es el acto jurídico mediante el cual dos o más partes manifiestan su consentimiento 
+Definición legal (Art. 957 CCyC) 
+1. Concepto y elementos del contrato 
+ 
+TEORÍA GENERAL DE LOS CONTRATOS
+ 
+PARTE I
+ 
+Privado argentino actual. 
+N°  19.550  (texto  reformado  por  la  Ley  26.994).  Estas  dos  leyes  son  el  corazón  del  Derecho 
+Nación (Ley 26.994, vigente desde el 1° de agosto de 2015) y la  Ley General de Sociedades 
+Marco normativo principal:  trabajaremos sobre la base del  Código Civil y Comercial de la 
+en la Argentina. 
+comerciales: cómo se constituyen, qué es la personalidad jurídica y qué tipos societarios existen 
+empresariales  como  el  leasing  y  la  franquicia.  La  tercera  parte  analiza  las  sociedades 
+empresarial:   compraventa,   locaciones,   contratos   bancarios   y   los   modernos   contratos 
+segunda  se  mete  en  contratos  específicos  que  aparecen  todos  los  dí as  en  la  actividad 
+de los contratos: qué son, cómo se clasifican, qué efectos producen y cómo se extinguen. La 
+La unidad se divide en tres partes claramente diferenciadas. La primera estudia la teoría general 
+sociedades comerciales. 
+técnicos electrónicos: en todos esos momentos van a estar usando contratos y, eventualmente, 
+algún  día  decidan  formar  su  propia  empresa  para  vender  desarrollos  de  software  o  servicios 
+cuando  firmen  un  contrato  de  trabajo,  cuando  compren  una  computadora  en  cuotas,  cuando 
+Esta unidad les va a resultar muy útil más allá de la escuela. Cuando alquilen un departamento, 
+esos cimientos al mundo concreto de los negocios. 
+y cómo se manejan los hechos y actos jurídicos. Todo eso era la “base”. Ahora vamos a aplicar 
+cómo se estructura el ordenamiento jurídico argentino, qué son las personas humanas y jurídicas, 
+En la Unidad 1 trabajamos con los conceptos fundamentales del Derecho: qué es una norma, 
+Introducción a la Unidad 
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (2) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 4 de 29
+ 
+valoración económica. 
+se  contrata).  Debe  ser  lícito,  posible,  determinado  o  determinable,  y  susceptible  de 
+•     Objeto: es lo que se quiere lograr con el contrato (la cosa que se vende, el servicio que 
+personas con capacidad restringida y los inhabilitados tienen limitaciones. 
+toda persona mayor de 18 años con discernimiento puede contratar. Los menores, las 
+•     Capacidad: las partes deben tener aptitud legal para contratar. La regla general es que 
+violencia, dolo (engaño) o error, el contrato es anulable. 
+una  parte  y  la  aceptación  de  la  otra.  Debe ser  libre  y  consciente:  si  fue arrancado  por 
+•     Consentimiento: el acuerdo de voluntades entre las partes. Se forma con la oferta de 
+cuatro: 
+Son  aquellos  sin  los  cuales  el  contrato  no  puede  existir.  Si falta  alguno, no  hay  contrato.  Son 
+a) Elementos esenciales 
+naturales y accidentales. 
+Para que un contrato exista y sea válido, deben concurrir tres tipos de elementos: esenciales, 
+1.1. Elementos del contrato 
+ 
+no es un contrato en sentido técnico porque no es estrictamente patrimonial. 
+patrimonio (bienes, derechos económicamente valorables). El matrimonio, por ejemplo, 
+•     Relaciones  jurídicas  patrimoniales: el  contrato  se  mueve  siempre  en  el  terreno  del 
+existentes, traspasarlas o ponerles fin. 
+cosas distintas, no solo para “crear” obligaciones nuevas. También para cambiar las 
+•     Para crear, regular, modificar, transferir o extinguir: los contratos sirven para muchas 
+góndola y la paga, manifiesta su consentimiento de comprar). 
+escrita, oral, por gestos o incluso por la conducta (cuando uno toma la mercadería en una 
+•     Manifiestan su consentimiento: las partes deben expresar su acuerdo, ya sea en forma 
+heredado, por ejemplo). 
+puede estar formada por varias personas (varios hermanos que venden juntos un campo 
+No puede haber contrato consigo mismo. “Parte” no es lo mismo que “persona”: una parte 
+•     Dos o más partes: el contrato siempre supone, como mínimo, dos voluntades distintas. 
+consecuencias en el Derecho. 
+de  producir  efectos  jurídicos.  No  es  cualquier  hecho,  es  una  conducta  deliberada  con 
+•     Es un acto jurídico:  es decir, una acción humana voluntaria realizada con la intención 
+por parte para entenderla bien: 
+Esta definición del Código Civil y Comercial es muy técnica, así que vamos a desarmarla parte 
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (3) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 5 de 29
+ 
+2.1. Por las prestaciones de las partes 
+obligaciones y los riesgos de las partes. Veamos las clasificaciones más importantes. 
+una  cuestión teórica:  cada  categoría  tiene  consecuencias  prácticas  concretas  en  cuanto  a  las 
+Existen muchas clasificaciones de los contratos, según distintos criterios. Conocerlas no es solo 
+2. Clasificación de los contratos 
+ 
+cargo de construir una capilla. 
+•     Cargo: obligación accesoria impuesta a una de las partes. Ej.: te dono este terreno con 
+Ej.: “el alquiler comienza el 1° de marzo”. 
+•     Plazo: fija un momento futuro pero cierto a partir del cual o hasta el cual produce efectos. 
+si me dan el préstamo”. 
+•     Condición: hace depender el contrato de un hecho futuro e incierto. Ej.: “te vendo el auto 
+estarían. Modifican los efectos típicos del contrato. Los principales son: 
+Son  aquellos  que  las  partes  incorporan  voluntariamente  al  contrato  y  que  normalmente  no 
+c) Elementos accidentales 
+ 
+tenga la cosa al momento de la venta. 
+•     La garantía por vicios ocultos:  el vendedor responde por defectos no aparentes que 
+pueden ampliarla o limitarla. 
+por  un  tercero  con  mejor  derecho.  Existe  sin  necesidad  de  pactarla,  pero  las  partes 
+•     La garantía de evicción: el vendedor responde si el comprador es desplazado de la cosa 
+excluirlos. Ejemplos: 
+Acompañan “naturalmente” a cada tipo de contrato. Si las partes quieren, pueden modificarlos o 
+Son aquellos que la ley considera incluidos en el contrato aunque las partes no los mencionen. 
+b) Elementos naturales 
+ 
+esencial. 
+debe hacerse por escritura pública). En esos casos, la forma también pasa a ser un elemento 
+Algunos contratos exigen además forma escrita (por ejemplo, la compraventa de un inmueble 
+ 
+soborno, el contrato es nulo por causa ilícita. 
+personas firman un “contrato de compraventa” pero en realidad la causa es ocultar un 
+•     Causa: es el fin perseguido por las partes al contratar. Debe ser lícita. Por ejemplo, si dos 
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (4) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 6 de 29
+ 
+consumibles). 
+Ejemplo: depósito, comodato, mutuo (préstamo de cosas 
+REALES                    Requieren la entrega de la cosa además del consentimiento. 
+Ejemplo: compraventa. 
+CONSENSUALES            Se perfeccionan con el solo consentimiento de las partes. 
+2.5. Por el modo de perfeccionarse 
+ 
+muebles. 
+etc.). Ejemplo: la mayoría de las compraventas de cosas 
+NO FORMALES              Las partes pueden elegir libremente la forma (oral, escrita, 
+(escritura pública). 
+instrumento privado). Ejemplo: compraventa de inmuebles 
+FORMALES                 La ley exige una forma determinada (escritura pública, 
+2.4. Por la forma 
+ 
+vitalicia. 
+futuro e incierto. Ejemplo: contrato de seguro, juego, renta 
+ALEATORIOS                Las ventajas o pérdidas dependen de un acontecimiento 
+televisor. 
+momento de contratar. Ejemplo: la compraventa de un 
+CONMUTATIVOS             Las ventajas y los sacrificios son ciertos y conocidos al 
+2.3. Por la previsibilidad de la ganancia o pérdida  
+ 
+gratuito). 
+parte. Ejemplo: donación, comodato (préstamo de uso 
+GRATUITOS                 Una parte recibe una ventaja sin sacrificio económico de su 
+ventaja. Ejemplo: compraventa, locación. 
+ONEROSOS                 Cada parte hace un sacrificio económico para obtener una 
+2.2. Por el sacrificio económico 
+ 
+entrega la cosa, el otro paga el precio). 
+deudora y acreedora de la otra. Ejemplo: compraventa (uno 
+BILATERALES               Las partes se obligan recíprocamente. Cada una es a la vez 
+típico: la donación pura y simple. 
+UNILATERALES              Solo una de las partes se obliga. La otra solo recibe. Ejemplo 
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (5) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 7 de 29
+ 
+ordenamiento jurídico. 
+•     Vínculo  jurídico:   la  relación  que  une  al  acreedor  y  deudor,  respaldada  por  el 
+•     Objeto (prestación): es la conducta que el deudor debe cumplir. Puede ser de tres tipos. 
+En los contratos bilaterales, cada parte es deudora y acreedora a la vez. 
+•     Sujetos: el acreedor (titular del derecho) y el  deudor (sobre quien recae la obligación). 
+3.1. Elementos de la obligación 
+ 
+incumplimiento, a obtener forzadamente la satisfacción de dicho interés. 
+exigir  del  deudor  una  prestación  destinada  a  satisfacer  un  interés  lícito  y,  ante  el 
+La  obligación  es  una  relación  jurídica  en  virtud  de  la  cual  el  acreedor  tiene  el  derecho  a 
+Definición de obligación (Art. 724 CCyC) 
+3. Obligaciones que nacen del contrato 
+1092 a 1122 del CCyC. 
+protección especial dada por la Ley de Defensa del Consumidor (Ley 24.240) y los arts. 
+•     De consumo:  celebrados entre un consumidor y un proveedor profesional. Tienen una 
+paritarios, las partes negocian todas las cláusulas en pie de igualdad. 
+puede  aceptar  o  rechazar  (contratos  bancarios,  telefonía,  servicios  públicos).  En  los 
+•     De adhesión / paritarios:  en los de adhesión una parte fija las cláusulas y la otra solo 
+accesorios dependen de otro contrato (la fianza accesoria a un préstamo). 
+•     Principales   /   accesorios:  los   principales   tienen   vida   propia   (compraventa);   los 
+tiempo (locación, suministro). 
+cumplen  en  un  solo  acto  (compraventa  de  contado);  los  segundos  se  prolongan  en  el 
+•     De  ejecución  instantánea  /  de  ejecución  continuada  o  periódica: los  primeros  se 
+2.7. Otras clasificaciones importantes 
+ 
+modernos antes de ser regulados. 
+virtud de la libertad contractual. Ejemplo: muchos contratos 
+INNOMINADOS              No tienen una regulación específica. Las partes los crean en 
+Ejemplo: compraventa, locación, mandato, depósito. 
+NOMINADOS                Tienen un nombre y una regulación específica en el Código. 
+2.6. Por su regulación legal 
+ 
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (6) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 8 de 29
+ 
+Distinguimos los efectos entre las partes y respecto de terceros. 
+Una vez celebrado, el contrato produce consecuencias jurídicas que se conocen como “efectos”. 
+4. Efectos del contrato 
+cuándo hay incumplimiento. 
+(entregar el sistema andando). Saber qué tipo de obligación se está asumiendo determina 
+mientras que un contrato de “desarrollo de software a medida” suele ser de resultado 
+contrato  de  “mantenimiento  preventivo”  suele  ser  de  medios  (chequeos  periódicos), 
+En el sector tecnológico la diferencia entre obligación de medios y resultado es central. Un 
+Aplicación a sus orientaciones 
+ 
+se obliga a entregar un sistema funcionando bajo determinadas especificaciones. 
+incumple. Ejemplo: el contratista que se obliga a construir una obra; el desarrollador que 
+•     Obligaciones de resultado:  el deudor garantiza un resultado concreto. Si no lo logra, 
+esfuerzo, pero no siempre puede garantizar la reparación. 
+orientaciones: el técnico que diagnostica una falla compleja se obliga a hacer su mejor 
+conocimiento,  pero  no  garantiza  el  resultado.  Clásicos:  el  médico,  el  abogado.  En  sus 
+•     Obligaciones  de  medios:  el  deudor  se  compromete  a  poner  toda  su  diligencia  y 
+3.3. Otra clasificación útil: medios y resultados 
+ 
+en otra empresa. 
+dos años; el dueño del software cedido se compromete a no usarlo 
+NO HACER           Ejemplo: el ex empleado se obliga a no competir con la empresa por 
+OBLIGACIONES DE    El deudor debe abstenerse de realizar determinada conducta. 
+software desarrollado. 
+HACER               debe reparar el equipo electrónico; el programador debe entregar el 
+OBLIGACIONES DE    El deudor debe realizar una conducta o actividad. Ejemplo: el técnico 
+deudor debe pagar la suma adeudada. 
+DAR                 Ejemplo: el vendedor debe entregar la computadora vendida; el 
+OBLIGACIONES DE    El deudor debe entregar una cosa (mueble, inmueble, dinero). 
+3.2. Tipos de obligaciones según el objeto (prestación) 
+ 
+fuente es siempre el contrato. 
+•     Causa fuente: el hecho jurídico del que nace la obligación. En nuestra unidad, la causa 
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (7) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 9 de 29
+ 
+5. Extinción del contrato 
+a nombre de terceros, etc. 
+Hay excepciones: contratos a favor de terceros (un seguro de vida a favor del cónyuge), contratos 
+el efecto relativo de los contratos. Las partes son las únicas vinculadas. 
+Principio: el contrato no perjudica ni beneficia a terceros (art. 1021 CCyC). Esto se conoce como 
+4.2. Efectos respecto de terceros 
+ 
+de obligatoriedad. 
+resolución o la adecuación del contrato (art. 1091 CCyC). Es una excepción al principio 
+prestación  de  una  parte  se  torna  excesivamente  onerosa,  esa  parte  puede  pedir  la 
+•     Teoría  de  la  imprevisión:  si  por  circunstancias  extraordinarias  e  imprevisibles  la 
+del contrato (dejarlo sin efecto) además del pago de daños y perjuicios. 
+•     Pacto comisorio: ante el incumplimiento de una parte, la otra puede pedir la resolución 
+mercadería. 
+Ejemplo:  el  comprador  no  está  obligado  a  pagar  si  el  vendedor  no  le  entregó  la 
+bilaterales, una parte puede negarse a cumplir su obligación si la otra no cumple la suya. 
+•     Excepción de incumplimiento (exceptio non adimpleti contractus): en los contratos 
+consecuencias razonablemente previsibles. 
+CCyC).   No   solo   obligan   a   lo   expresamente   pactado,   sino   también   a   todas   las 
+•     Buena fe: los contratos deben celebrarse, interpretarse y ejecutarse de buena fe (art. 961 
+la otra puede exigir el cumplimiento forzado o reclamar daños y perjuicios. 
+•     Fuerza obligatoria: las partes están obligadas como si la ley lo dijera. Si una incumple, 
+Principales efectos entre las partes: 
+es obligatorio. 
+cumplidos). Es la base de la seguridad jurídica en los negocios: las partes saben que lo acordado 
+Este  principio  se  conoce  con  el  latinazgo “pacta sunt servanda”   (los  pactos  deben  ser 
+ 
+ser modificado o extinguido por acuerdo de partes o en los supuestos en que la ley lo prevé. 
+Todo contrato válidamente celebrado es obligatorio para las partes. Su contenido sólo puede 
+Principio fundamental (Art. 959 CCyC) 
+4.1. Efectos entre las partes 
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (8) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 10 de 29
+ 
+ 
+objeto ilícito.  
+que el contrato nunca existió. Ejemplo: contrato celebrado por un      menor incapaz, contrato con 
+Como la causa de la nulidad existe desde el origen, sus efectos son retroactivos: se considera 
+Es la sanción legal por la falta de algún elemento esencial al momento de celebrar el contrato. 
+d) Nulidad 
+mandatario) o la donación (el donante puede revocar la donación por in  gratitud del donatario).  
+especialmente. Es típica de algunos contratos como el mandato (el mandante puede revocar al 
+Es  la  extinción  del  contrato  por  voluntad  unilateral  de  una  parte  cuando  la  ley  se  lo  permite 
+c) Revocación  
+anterior. La parte cumplidora puede pedir la resolución y,   además, los daños y perjuicios.  
+parte. A diferencia de la rescisión, sus efectos suelen ser retroactivos: las cosas vuelven al estado 
+Es la extinción del contrato por una causa sobreviniente, generalmente el incumplimiento de una 
+b) Resolución  
+ 
+avisando con anticipación.  
+contrato lo autorizan. Ejemplo: en muchos contratos de servicios el cliente puede rescindir 
+•     Rescisión unilateral: una parte puede dejar el contrato sin efecto sola, si la ley o el propio 
+“distracto”. 
+•     Rescisión bilateral:  ambas partes acuerdan dejar sin efecto el contrato. Es el llamado 
+hacia el futuro: las prestaciones ya cumplidas quedan f irmes. 
+cuando la ley o el contrato lo permiten (rescisión unilateral). No requiere incumplimiento. Opera 
+Es la extinción del contrato por acuerdo de las partes (rescisión bilateral) o por voluntad unilateral 
+a) Rescisión  
+5.2. Modos anormales de extinción  
+“se agota”. El comprador pagó, el vendedor entregó la cosa: el contrato terminó por cumplimiento. 
+Es la forma esperada de terminar un contrato: cada parte cumple con su obligación y el contrato 
+5.1. Cumplimiento (modo normal)  
+nulidad). 
+extinguir  por  causas  normales  (cumplimiento)  o  anormales  (rescisión,  resolución,  revocación, 
+La extinción es la conclusión del contrato, el momento en que deja de producir efectos. Se puede 
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (9) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 11 de 29
+ 
+                                                
+por ley; nulidad = vicio de origen.  
+resolución = consecuencia del incumplimiento; revocación = decisión unilateral autorizada 
+Una  forma  fácil  de  no  confundirse: rescisión  =  acuerdo  o  decisión  sin  culpa  de  nadie; 
+Cuadro mental para retener  
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (10) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 12 de 29
+ 
+6.3. Obligaciones de las partes 
+ 
+mayor. 
+es dinero y otra cosa, sigue habiendo compraventa siempre que el dinero sea la parte 
+determinable, serio y verdadero. Si se entrega cosa por cosa hay permuta; si una parte 
+•     El   precio:  debe   ser   en   dinero   (de   lo   contrario   sería   permuta),   determinado   o 
+vende como tal. 
+existencia presente o futura. Hasta el dinero extranjero se considera “cosa” cuando se 
+•     La cosa: debe ser una cosa (mueble o inmueble), determinada o determinable, lícita y de 
+6.2. Elementos esenciales propios 
+ 
+requiere escritura pública. 
+•     No  formal  (regla  general):  salvo  casos  especiales.  La  compraventa  de  inmuebles 
+•     Consensual: se perfecciona con el consentimiento (no requiere entrega para nacer). 
+•     Conmutativo: las prestaciones son ciertas. 
+•     Oneroso: ambas partes hacen sacrificios económicos. 
+•     Bilateral: ambas partes se obligan. 
+6.1. Caracteres del contrato 
+de una actividad empresarial.  
+siendo útil hablar de “compraventa comercial” cuando se realiza con fines de lucro o en el marco 
+esa  distinción  ya  no  existe  formalmente:  el  Código  unificó  la  regulación.  Sin  embargo,  sigue 
+Civil y Comercial (vigente desde 2015), se distinguía entre compraventa civil y comercial. Hoy, 
+La compraventa es el contrato por excelencia, el más común y el más antiguo. Antes del Código 
+ 
+cosa y la otra (comprador) a pagar un precio en dinero.  
+Hay compraventa si una de las partes (vendedor) se obliga a transferir la propiedad de una 
+Definición (Art. 1123 CCyC)  
+6. Compraventa comercial  
+ 
+CONTRATOS EN PARTICULAR
+ 
+PARTE II
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (11) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 13 de 29
+ 
+Caracteres 
+en locación) y el locatario o inquilino (usa la cosa y paga el alquiler). 
+Es el contrato comúnmente conocido como “alquiler”. Las partes son el locador (propietario, da 
+ 
+una cosa, a cambio del pago de un precio en dinero. 
+Hay contrato de locación si una parte se obliga a otorgar a otra el uso y goce temporario de 
+Definición (Art. 1187 CCyC) 
+7.1. Locación de cosas (alquiler) 
+no confundir:  
+La palabra “locación” viene del latín “locare” (colocar). Hay tres tipos diferentes que es importante 
+7. Locación: de cosas, de obra y de servicios  
+dentro de los 10 días, etc.).  
+aplican las normas especiales de defensa del consumidor (derecho de arrepentimiento 
+•     Compraventa  por  correspondencia  o  electrónica:   se  perfecciona  a  distancia.  Se 
+hasta que el comprador termine de pagar. Garantía típica en ventas a plazos.   
+•     Compraventa con reserva de dominio:   el vendedor mantiene la propiedad de la cosa 
+informática. 
+•     Compraventa  a  plazo:  el  precio  se  paga  en  cuotas.  Muy  común  en  electrónica  e 
+•     Compraventa con cláusula de pago contra entrega:  el comprador paga al recibir.  
+6.4. Modalidades especiales  
+ 
+Entregar los documentos relativos a la cosa.        
+(ocultos).                                                              transporte, etc.) salvo pacto contrario.  
+Garantizar por evicción y vicios redhibitorios       Pagar los gastos de recibo (carga, 
+pactados. 
+Entregar la cosa en el lugar y tiempo                   Recibir la cosa.  
+convenidos. 
+Conservar la cosa hasta su entrega.                    Pagar el precio en el lugar y tiempo 
+OBLIGACIONES DEL VENDEDOR                  OBLIGACIONES DEL COMPRADOR  
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (12) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 14 de 29
+ 
+Modalidades de la locación de obra 
+Bilateral, oneroso, conmutativo, consensual, generalmente no formal. 
+Caracteres 
+software desarrollado, un equipo electrónico fabricado. 
+terminada.  El  contratista  promete  entregar  algo  concreto:  una  casa  construida,  un  sistema  de 
+La  diferencia  clave  con  la  locación  de  servicios:  aquí  lo  que  importa  es  el  resultado,  la  obra 
+ 
+realizar una obra material o intelectual, a cambio de una retribución. 
+servicios,  actuando  independientemente,  se  obliga  a  favor  de  otra,  llamada  comitente,  a 
+Hay contrato de obra cuando una persona, según el caso el contratista o el prestador de 
+Definición (Art. 1251 CCyC) 
+7.2. Locación de obra 
+ 
+estado en que la recibió.  
+Pagar las cargas y contribuciones de la cosa.     Restituir la cosa al final del contrato en el 
+ordinario.                                                             las reparaciones menores.  
+Realizar reparaciones que no sean de uso          Conservar la cosa en buen estado y hacer 
+destino convenido.  
+Mantenerla en condiciones de servir al                Usar y gozar la cosa según lo pactado.  
+Entregar la cosa en buen estado.                         Pagar el alquiler en tiempo y forma.  
+LOCADOR (DUEÑO)                                      LOCATARIO (INQUILINO)  
+Obligaciones de las partes  
+ 
+varias veces en los últimos años. Las partes pueden pactar plazos más largos.   
+según la ley vigente debe consultarse, ya que la regulación de plazos locativos cambió 
+•     Plazo:  el  plazo  mínimo  legal  para  locaciones  de  inmuebles  con  destino  habitacional 
+•     Precio (alquiler o canon locativo):  en dinero, periódico.  
+mueble o inmueble.  
+•     Cosa:  debe  ser  una  cosa  no  consumible  (de  lo  contrario  sería  préstamo).  Puede  ser 
+Elementos esenciales propios  
+de tracto sucesivo (se prolonga en el tiempo).  
+Bilateral, oneroso, conmutativo, consensual, generalmente no formal aunque conviene escrito; 
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (13) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 15 de 29
+ 
+consecuencias: aportes, indemnización, vacaciones, etc. 
+relación  laboral,  regida  por  la  Ley  de  Contrato  de  Trabajo.  La  diferencia  tiene  enormes 
+no  asume  riesgos  económicos),  no  se  trata  de  una  locación  de  servicios  sino  de  una 
+subordinación (cumple horarios, recibe órdenes directas, usa herramientas del empleador, 
+Cuidado  en  sus  orientaciones  técnicas:  si  una  persona  presta  servicios  para  otra bajo 
+Atención: locación de servicios vs. relación laboral 
+ 
+aunque el problema persista. 
+Si la obra no está, el contratista incumplió.         Si puso la diligencia esperable, cumplió 
+electrónico; construir una casa.                           particulares. 
+medida; armar y entregar un equipo                   informático; consultoría profesional; clases 
+Ej.: desarrollar un sistema de gestión a              Ej.: soporte técnico mensual; asesoramiento 
+Lo importante es la obra terminada.                    Lo importante es la actividad desplegada. 
+Obligación de RESULTADO                                 Obligación de MEDIOS 
+LOCACIÓN DE OBRA                                   LOCACIÓN DE SERVICIOS 
+Diferencia clave entre obra y servicios 
+El prestador se compromete a hacer su mejor esfuerzo, no a garantizar el éxito. 
+Aquí lo central es la actividad o el trabajo en sí mismo, no necesariamente un resultado concreto. 
+ 
+específico. 
+otra,  en  forma  independiente  y  a  cambio  de  una  retribución,  sin  garantizar  un  resultado 
+Hay contrato de servicios cuando una persona se obliga a proveer un servicio a favor de 
+Definición (Art. 1251 CCyC, segunda parte) 
+7.3. Locación de servicios 
+ 
+contratista. 
+•     Por  coste  y  costas:  el  comitente  paga  los  gastos  reales  más  una  utilidad  para  el 
+de código, por plaqueta producida).  
+•     Por unidad de medida:  se paga por unidades realizadas (por metro cuadrado, por línea 
+•     Por ajuste alzado:  se pacta un precio fijo total por la obra completa.  
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (14) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 16 de 29
+ 
+e) Tarjeta de crédito 
+a usar” ese dinero. Típico en empresas para cubrir descalces de caja. 
+que el cliente puede usar o no. Sirve como respaldo: el cliente paga una comisión por el “derecho 
+El banco se obliga a tener a disposición del cliente una suma de dinero por un plazo determinado, 
+d) Apertura de crédito 
+interés. Es uno de los contratos más comunes (créditos personales, prendarios, hipotecarios). 
+El banco entrega una suma de dinero al cliente, que se obliga a devolverla en cuotas con un 
+c) Préstamo bancario (mutuo) 
+egresos del cliente, y permite usar cheques. Es la cuenta típica de las empresas. 
+Contrato  por  el  cual  el  banco  se  obliga  a  prestar  un  servicio  de  caja,  registrando  ingresos  y 
+b) Cuenta corriente bancaria 
+fijo (el dinero queda inmovilizado por un plazo, a cambio de un interés). 
+de ahorro, cuenta corriente: el dinero está disponible cuando el cliente quiera) o depósito a plazo 
+El cliente entrega dinero al banco, que se obliga a restituirlo. Puede ser depósito a la vista (caja 
+a) Depósito bancario 
+8.2. Principales contratos bancarios 
+ 
+de la contratación. 
+•     Información al consumidor: obligación de informar de manera precisa y completa antes 
+•     Forma escrita: deben celebrarse por escrito y entregarse copia al cliente. 
+comisiones). 
+•     Transparencia: el banco debe informar claramente el costo total del producto (CFT, TNA, 
+El Código Civil y Comercial establece reglas comunes a todos los contratos bancarios: 
+8.1. Disposiciones generales 
+CCyC). 
+altamente regulados y existe una protección especial para el cliente bancario (arts. 1378 a 1389 
+características  particulares:  suelen  ser  contratos  de  adhesión  (los  redacta  el  banco ),  están 
+financiera   regulada   por   el   Banco   Central   de   la   República   Argentina   (BCRA).   Tienen 
+Los  contratos  bancarios  son  aquellos  en  los  que  al  menos  una  de  las  partes  es  una  entidad 
+8. Contratos bancarios  
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (15) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 17 de 29
+ 
+•     Beneficio para el franquiciado: emprende con una marca conocida y un sistema testeado. 
+•     El franquiciante mantiene el control sobre estándares de calidad y la imagen. 
+manuales). 
+•     Se   transmite   todo   un   sistema   probado   (logo,   productos,   métodos,   capacitación, 
+•     Las partes son jurídicamente independientes (cada una tiene su propia personalidad). 
+Características 
+(royalties). 
+opera  bajo  las  reglas  del  franquiciante.  Paga  un  canon  inicial  ( fee)  y  regalías  periódicas 
+marca, su know-how y su sistema de negocio. El franquiciado invierte el capital, abre el local y 
+En palabras simples: una empresa exitosa (franquiciante) le “alquila” a otra (franquiciado) su 
+ 
+de asistencia técnica o comercial, contra una prestación directa o indirecta del franquiciado. 
+franquiciante, quien provee un conjunto de conocimientos técnicos y la prestación continua 
+determinados  bienes  o  servicios  bajo  el  nombre  comercial,  emblema  o  la  marca  del 
+llamada franquiciado, el derecho a utilizar un sistema probado, destinado a comercializar 
+Hay  franquicia  comercial  cuando  una  parte,  denominada  franquiciante,  otorga  a  otra, 
+Definición (Art. 1512 CCyC) 
+9.1. Contrato de Franquicia (franchising) 
+de estos contratos.  
+campos de orientación: muchas marcas de tecnología y electrónica operan en Argentina a través 
+y  Comercial  de  2015  incorporó  la  regulación  de  varios  de  ellos.  Tienen  un  fuerte  uso  en  sus 
+globalización. Antes muchos eran “innominados” (sin regulación específica), pero el Código Civil 
+Son  contratos  que  aparecieron  con  el  desarrollo  de  la  actividad  empresarial  moderna  y  la 
+9. Contratos empresariales modernos  
+garantizando seguridad y discreción. El cliente paga una tarifa periódica.   
+El  banco  se  obliga  a  poner  a  disposición  del  cliente  una  caja  fuerte  para  guardar  bienes, 
+f) Caja de seguridad  
+parcial, paga interés sobre el saldo.  
+regulada por la Ley 25.065. El usuario tiene un crédito rotativo: paga total o parcialmente; si paga 
+adheridos, comprometiéndose a pagar a estos y a cobrar al usuario en una fecha posterior. Está 
+Es  un  contrato múltiple: el  banco  emisor  permite  al  usuario  pagar  con  la  tarjeta  en  comercios 
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (16) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 18 de 29
+ 
+Diferencia con la distribución 
+las pautas del fabricante. 
+exclusividad territorial, manteniendo stock de repuestos, brindando servicio técnico y respetando 
+una organización exclusiva para comercializar los productos del concedente, generalmente con 
+Es similar a la distribución, pero más estrecho e integrado. El concesionario se compromete a 
+ 
+servicios y proveer los repuestos y accesorios según haya sido convenido. 
+empresarial  para  comercializar  mercaderías  provistas  por  el  concedente,  prestar  l  os 
+propia frente a terceros, se obliga mediante una retribución a disponer de su organización 
+Hay  contrato  de  concesión  cuando  el  concesionario,  que  actúa  en  nombre  y  por  cuenta 
+Definición (Art. 1502 CCyC) 
+9.3. Contrato de Concesión 
+ 
+venden licencias en una zona geográfica. 
+marcas de electrónica que abastecen comercios minoristas, los distribuidores de software que 
+Ejemplos: el distribuidor mayorista de Coca -Cola en una región, los distribuidores oficiales de 
+zona, sin tener que abrir locales propios. 
+compra  y  el  de reventa.  El fabricante  se  asegura  una  salida masiva  de sus  productos  en  una 
+El  distribuidor compra  para  revender.  Su  ganancia  está  en  la  diferencia  entre  el  precio  de 
+ 
+concesionario. 
+operación.  Se  diferencia  del  agente  comercial  (que  solo  intermedia  sin  comprar)  y  del 
+revende a su nombre y por su cuenta en una zona determinada, asumiendo el riesgo de la 
+El distribuidor (empresa independiente) compra los productos al fabricante o productor y los 
+Concepto 
+9.2. Contrato de Distribución 
+ 
+(Compumundo trabajó con sistemas similares en su momento), cadenas de servicio técnico.   
+Ejemplos:  McDonald’s,  Subway,  Havanna,  Grido,  Mostaza,  muchas  casas  de  informática 
+ 
+•     Beneficio para el franquiciante: expande su red sin invertir capital propio.   
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (17) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 19 de 29
+ 
+•     Leasing operativo: el dador es el propio fabricante o vendedor del bien. 
+común. 
+•     Leasing financiero: el dador adquiere el bien específicamente para entregarlo. Es el más 
+Tipos de leasing 
+ 
+residual. 
+•     Opción  de  compra: al  final  del  plazo,  el  tomador  puede  comprar  el  bien  por  el  valor 
+•     Canon: el pago periódico durante el plazo del contrato. 
+•     Bien: puede ser mueble (computadoras, maquinaria electrónica, vehículos) o inmueble. 
+•     Tomador: la empresa o persona que usa el bien y paga el canon. 
+•     Dador: el banco o sociedad de leasing que adquiere el bien y lo cede. 
+Estructura típica 
+fijado, devolverlo o renovar el contrato. 
+pagando un canon mensual, y al final del plazo puede comprarlo a un valor residual previamente 
+invertir grandes sumas. Funciona como una mezcla de alquiler y compra: la empresa usa el bien 
+El  leasing  es  una  herramienta financiera muy  útil  para  empresas  que  necesitan  equiparse  sin 
+ 
+compra por un precio. 
+y determinado para su uso y goce, contra el pago de un canon, y le confiere una opción de 
+En el contrato de leasing el dador conviene transferir al tomador la tenencia de un bien cierto 
+Definición (Art. 1227 CCyC) 
+9.4. Contrato de Leasing 
+ 
+exclusividad zonal y deben mantener taller, repuestos y servicio postventa.   
+directamente  a  los  consumidores,  lo  hacen  a  través  de  concesionarios  oficiales  que  tienen 
+Ejemplo  clásico:   las  concesionarias  de  automóviles.  Toyota  o  Volkswagen  no  venden 
+ 
+•     Hay más control del concedente sobre la operación.  
+•     El concesionario debe brindar servicio postventa.  
+•     Suele incluir exclusividad territorial.  
+•     Mayor integración entre concedente y concesionario.  
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (18) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 20 de 29
+ 
+                                                
+impositivas (los cánones se deducen como gastos). 
+plaquetas.  Permite  renovar  tecnología  sin  descapitalizarse  y  tiene  además  ventajas 
+de  medición  electrónico,  equipamiento  médico,  maquinaria  de  SMD  para  producción  de 
+obsoleta rápido: equipos de servidores, parques de computadoras de empresa, instrumental 
+El leasing es muy usado en sus orientaciones para acceder a tecnología cara que se vuelve 
+Aplicaciones en informática y electrónica  
+ 
+usando bienes propios. 
+leasing y simultáneamente lo toma en leasing. Es una forma de obtener financiamiento 
+•     Lease-back  o  retroleasing:  una  empresa  vende  un  bien  propio  a  una  sociedad  de 
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (19) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 21 de 29
+ 
+ 
+capacidad para celebrar contratos. 
+integran.  Tiene  su  propio  nombre,  su  propio  patrimonio,  su  propio  domicilio  y  su  propia 
+La sociedad regularmente constituida es una persona jurídica distinta de los socios que la 
+Concepto clave 
+10.2. La personalidad jurídica de la sociedad 
+ 
+las pérdidas (es esencial; sin esto no hay sociedad). 
+•     Participación en beneficios y pérdidas:  los socios reparten las ganancias y soportan 
+desarrollar una actividad económica. 
+•     Producción  o  intercambio  de  bienes  o  servicios: el  fin  de  la  sociedad  debe  ser 
+•     Aportes: cada socio aporta algo (dinero, bienes, trabajo, conocimientos). 
+elegir entre los tipos previstos por la ley (SRL, SA, etc.). 
+•     Forma organizada según un tipo legal: no se puede crear cualquier sociedad. Hay que 
+unipersonal. 
+Desde la reforma de 2015, en algunos tipos (como la SAS y la SA) se admite la sociedad 
+•     Una  o  más  personas: tradicionalmente  las  sociedades  requerían  dos  o  más  socios. 
+10.1. Elementos del concepto de sociedad  
+organizar profesionalmente la actividad empresarial.  
+exceden  las  posibilidades  de  una  sola  persona.  Permite  reunir  capitales,  dividir  riesgos  y 
+La  sociedad  comercial  es  una  herramienta  jurídica  fundamental  para  encarar  negocios  que 
+ 
+intercambio de bienes o servicios, participando de los beneficios y soportando las p  érdidas. 
+previstos  en  esta  ley,  se  obligan  a  realizar  aportes  para  aplicarlos  a  la  producción  o 
+Habrá sociedad si una o más personas en forma organizada conforme a uno de los tipos 
+Definición de sociedad (Art. 1° LGS)  
+10. La personalidad jurídica de las sociedades  
+ 
+SOCIEDADES COMERCIALES
+ 
+PARTE III
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (20) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 22 de 29
+ 
+pasa principalmente por: la responsabilidad de los socios (limitada o ilimitada al aporte), el capital 
+La Ley General de Sociedades 19.550 prevé varios tipos societarios. La diferencia entre ellos 
+11. Tipos societarios  
+sobre el capital.  
+•     Capital social:  es la suma de los aportes. Cada tipo societario tiene reglas específicas 
+sociedad. 
+Inspección General de Personas Jurídicas (IGPJ). La inscripción le da regularidad a la 
+•     Inscripción  en  el  Registro  Público:  en  la  provincia  de  Santa  Fe,  se  hace  ante  la 
+socios, denominación, domicilio, objeto, capital, organización de la administración, etc.   
+•     Contrato  social  o  estatuto: es  el  acuerdo  entre  los  socios.  Debe  incluir  datos  de  los 
+10.4. Requisitos para constituir una sociedad  
+ 
+inoponibilidad” o “teoría del descorrimiento del velo”. 
+consecuencias a los socios o controlantes (art. 54 LGS). Esto se conoce como “teoría de la 
+derechos de terceros, los jueces pueden “correr el velo societario” y atribuir directamente las 
+Cuando los socios usan la sociedad para fines ajenos a su objeto, encubrir actos ilícitos o frustrar 
+La personalidad jurídica es una herramienta legal, pero no una pantalla para cometer fraudes. 
+10.3. La inoponibilidad de la personalidad jurídica   
+ 
+ser demandada.  
+•     Capacidad propia:  puede contratar, ser titular de derechos y obligaciones, demandar y 
+•     Domicilio propio:  el lugar donde la sociedad tiene su sede.  
+•     Nombre propio:  la sociedad actúa con su denominación o razón social.  
+(en principio, según el tipo societario).  
+•     Responsabilidad propia:  las deudas de la sociedad las debe la sociedad, no los socios 
+una computadora, esa computadora es de la sociedad, no de los socios.   
+•     Patrimonio propio: los bienes de la sociedad no son de los socios. Si la sociedad compra 
+Consecuencias de la personalidad jurídica  
+a su propio nombre.  
+socios. La SRL puede comprar, vender, contratar empleados, demandar y   ser demandada, todo 
+ejemplo, una SRL, nace un nuevo sujeto de Derecho (la SRL) que es distinto de cada uno de los 
+Esta es una de las ideas más importantes de toda la unidad. Cuando dos personas forman, por 
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (21) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 23 de 29
+ 
+11.3. Sociedad de Capital e Industria  
+poco usado. 
+con quienes solo quieren invertir capital sin riesgo más allá del aporte (comanditarios). Es un tipo 
+Permite combinar a quienes quieren poner trabajo y comprometer su patrimonio (comanditados) 
+limitada). No participan en la administración.  
+•     Socios  comanditarios:  responden  solo  hasta  el  monto  de  su  aporte  (responsabilidad 
+ilimitada y solidariamente). Generalmente son los que administran.   
+•     Socios comanditados: responden como los socios de la sociedad colectiva (subsidiaria, 
+Es una forma híbrida: combina dos clases de socios.  
+11.2. Sociedad en Comandita Simple  
+utiliza en negocios familiares pequeños donde hay alta confianza entre socios.   
+Es un tipo poco usado en la actualidad por la dura responsabilidad que asumen los socios. Se 
+ 
+•     Capital: no hay mínimo legal.  
+•     Administración:  puede ser cualquier socio si el contrato no dice nada en contrario.   
+que luego deberá arreglar con los otros.  
+•     Responsabilidad solidaria:  el acreedor puede reclamar el total a uno solo de los socios, 
+•     Responsabilidad ilimitada:  responden con todo su patrimonio personal.  
+recién si este no alcanza, se va contra los socios.  
+•     Responsabilidad  subsidiaria:  primero  hay  que  excutir  (atacar)  el  patrimonio  social; 
+“Sociedad Colectiva” o “SC”. 
+•     Razón  social:  incluye el nombre de uno o varios socios + “y compañía” o “y cía.” + 
+Características  
+ 
+acreedores van directamente al patrimonio personal de los socios, todos juntos y por el total. 
+ILIMITADA  y  SOLIDARIA  por  las  deudas  sociales.  Si  la  sociedad  no  puede  pagar,  los 
+Es la sociedad de personas por excelencia. Los socios responden en forma SUBSIDIARIA, 
+Característica esencial  
+11.1. Sociedad Colectiva (SC)  
+Veamos los más importantes.  
+exigido, la forma de organizar la administración y los requisitos de constitución y funcionamiento. 
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (22) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 24 de 29
+ 
+11.5. Sociedad Anónima (SA)  
+electrónicos están constituidas como SRL.  
+servicios profesionales. Muchas empresas de software locales y empresas de servicios técnicos 
+Es  ideal  para  emprendimientos  de  tamaño  mediano:  estudios  técnicos,  empresas  familiares, 
+ 
+transmisibilidad. Esto preserva el “carácter cerrado” de la SRL. 
+•     Cesión de cuotas:  está más restringida que en la SA: el contrato puede limitar la libre 
+la importante salvedad de la garantía solidaria por el capital no integrado).   
+•     Responsabilidad:  los socios solo responden hasta el monto suscripto e integrado (con 
+designados por tiempo determinado o indeterminado.  
+•     Administración:  está  a  cargo  de  uno  o  más  gerentes,  socios  o  no,  que  pueden  ser 
+Responsabilidad Limitada” o “SRL”. 
+•     Denominación:   puede  incluir  el  nombre  de  uno  o  más  socios  +  “Sociedad  de 
+socio tiene cuotas en proporción a su aporte.  
+•     Capital  dividido  en  cuotas  sociales: no  en acciones  (eso  es  propio  de  la  SA).  Cada 
+•     Cantidad de socios:  mínimo 2, máximo 50.  
+Características  
+ 
+que pusieron, pero su patrimonio personal queda a salvo.  
+RESPONSABILIDAD al aporte que hicieron. Si la sociedad fracasa, los socios pierden lo 
+Es  la  sociedad  más  utilizada  para  PyMEs  en  Argentina.  Los  socios  LIMITAN  SU 
+Característica esencial  
+11.4. Sociedad de Responsabilidad Limitada (SRL)   
+técnico o un oficio (industrial). En la práctica es un tipo casi en desuso.   
+Pensada  para  situaciones  donde  alguien  tiene  dinero  (capitalista)  y  otro  tiene  un  saber  hacer 
+propio porque no aportaron capital.  
+solo  hasta  las  ganancias  no  percibidas.  Si  la  sociedad  pierde,  ellos  no  pierden  capital 
+•     Socios  industriales:  aportan  únicamente  su  trabajo  personal  (industria).  Responden 
+(ilimitada y solidariamente).  
+•     Socios  capitalistas:  aportan  dinero  o  bienes  y  responden  como  los  socios  colectivos 
+Es otra forma híbrida con dos categorías de socios:  
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (23) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 25 de 29
+ 
+Tipo                   Responsabilidad       Capital dividido en          N° de socios                  Uso típico
+                                                                                                                               
+11.6. Cuadro comparativo de los principales tipos  
+ 
+en la Bolsa de Valores.  
+libremente, lo que da gran agilidad para entrar y salir de la sociedad. Son el “producto” que cotiza 
+una)  o  preferidas  (con  privilegios  económicos  pero  generalmente  sin  voto).  Se  transmiten 
+Son los títulos que representan partes alícuotas del capital. Pueden ser ordinarias (un voto cada 
+Las acciones  
+ 
+VIGILANCIA           en las grandes.  
+CONSEJO DE          directorio. En SAs pequeñas puede prescindirse, pero es obligatoria 
+SINDICATURA /        Es el órgano de fiscalización. Controla la administración del 
+la empresa. Pueden ser accionistas o no.  
+designados por la asamblea. Llevan adelante la gestión cotidiana de 
+DIRECTORIO          Es el órgano de administración. Lo integran uno o más directores 
+menos una vez al año) y extraordinarias.  
+directores, modificar el estatuto). Hay asambleas ordinarias (al 
+ACCIONISTAS         las decisiones más importantes (aprobar balances, designar 
+ASAMBLEA DE        Es el órgano de gobierno. Reúne a todos los accionistas para tomar 
+Órganos de la SA  
+ 
+•     Órganos: estructura más compleja que la SRL.  
+periódicamente, debe verificarse al momento de constituir).  
+•     Capital   mínimo:   la   ley   establece   un   capital   mínimo   (cuyo   monto   se   actualiza 
+•     Denominación:  puede ser cualquier nombre de fantasía + “Sociedad Anónima” o “SA”. 
+con la SRL. 
+•     Capital dividido en acciones: fácilmente transmisibles. Esta es la diferencia más grande 
+Características  
+ 
+que cotizan en bolsa y aquellas que necesitan reunir grandes capitales.   
+responsabilidad a las acciones suscriptas. Es el tipo elegido por las grandes empresas, las 
+Es  la  sociedad  de  capital  por  excelencia.  Los  socios  (llamados  accionistas)  limitan  su 
+Característica esencial  
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (24) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 26 de 29
+ 
+                                                
+startups, aunque excede el alcance de esta unidad.  
+Simplificada), regulada por la Ley 27.349, especialmente pensada para emprendedores y 
+alternativa  moderna  que  también  tienen  disponible  es  la SAS  (Sociedad  por  Acciones 
+inversores,  una  SA.  Las  sociedades  colectivas  y  de  comandita  son  hoy  raras.  Una 
+constitución  razonables,  pocos  socios)  o,  si  proyectan  algo  más  grande  con  varios 
+más  probable  es  que  les  convenga  una     SRL  (responsabilidad  limitada,  costos  de 
+Si en el futuro deciden formar una empresa de servicios informáticos o de electrónica, lo 
+Aplicación práctica para sus orientaciones 
+ 
+o 2                                cotización
+                                         
+SA                                LIMITADA al aporte      Acciones                       Mín. 1 (unipersonal)     Empresas grandes, 
+                                                                      
+SRL                              LIMITADA al aporte       Cuotas                          Mín. 2 / Máx. 50            PyMEs en general
+                                                                                                                                            
+hasta gananc.)
+ 
+ilim. + industriales                                               clase)
+ 
+Capital e Industria       Mixta (capitalistas          Partes de interés           Mín. 2 (de cada             Capital + know -how
+                                                                                                                            
+lim.)
+ 
++ comanditarios 
+(comanditados ilim.                                             clase)                            + activos
+                                   
+Comandita Simple       Mixta                             Partes de interés           Mín. 2 (de cada             Inversores pasivos 
+                                                           
+solidaria                                                                                                   pequeños
+                                                                                               
+Colectiva (SC)              Subs., ilim. y                  Partes de interés           Mín. 2                            Negocios familiares 
+                                                                                 
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (25) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 27 de 29
+ 
+Rescisión: extinción por acuerdo o voluntad unilateral autorizada.  
+Resolución:  extinción del contrato por incumplimiento.  
+distinta de sus integrantes.  
+Personalidad jurídica:  atributo por el cual una entidad es sujeto de derechos y obligaciones, 
+Pacta sunt servanda:  principio según el cual los pactos deben cumplirse.  
+Obligación:  vínculo jurídico que une al deudor con el acreedor.  
+Locador / Locatario:  partes del contrato de locación de cosas (alquiler).  
+precio. 
+Locación:  contrato por el cual se cede el uso o se prestan obras o servicios a cambio de un 
+Leasing: contrato que combina locación con opción de compra.  
+hay fraude. 
+Inoponibilidad:  técnica jurídica por la cual se desconoce la personalidad de la sociedad cuando 
+Franquiciante / Franquiciado:  partes del contrato de franquicia.  
+con mejor derecho.  
+Evicción: garantía por la cual el vendedor responde si el comprador es desplazado por un tercero 
+Deudor: quien debe la prestación.  
+relaciones jurídicas patrimoniales.  
+Contrato:  acto  jurídico  por  el  que  dos  o  más  partes  acuerdan  crear,  modificar  o  extinguir 
+Contratista:  quien se obliga a realizar la obra.  
+Consentimiento:  acuerdo de voluntades entre las partes.  
+Concedente / Concesionario:  partes del contrato de concesión.  
+Comitente: quien encarga la obra o servicio.  
+Causa: fin perseguido por las partes al contratar.  
+Capacidad:  aptitud legal para ser titular de derechos y contraer obligaciones.   
+Aporte: lo que cada socio contribuye a la sociedad.  
+Acreedor: titular del derecho a exigir una prestación.  
+ 
+Términos clave de la unidad para repaso rápido.  
+Glosario jurídico  
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (26) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 28 de 29
+ 
+                                                
+Vicio redhibitorio:  defecto oculto de la cosa que la hace impropia para su destino.   
+SA: Sociedad Anónima. Capital en acciones, gran tamaño, responsabilidad limitada al aporte.   
+limitada al aporte.  
+SRL: Sociedad de Responsabilidad Limitada. Capital en cuotas, hasta 50 socios, responsabilidad 
+ganancias y pérdidas.  
+Sociedad:  agrupación  de  personas  para  realizar  aportes  y  actividad  económica,  repartiendo 
+Revocación:  extinción unilateral autorizada por ley en ciertos contratos.   
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (27) Break----------------
+Prof. Verónica  |  5°A Informática y 6°B Electrónica  |  Pág. 29 de 29
+ 
+Prof. Verónica  – Marco Jurídico  – EETP N° 602  – 5°A Informática y 6°B Electrónica  
+ 
+¡Éxitos en el estudio!
+ 
+esta idea: antes de firmar, lean. Después de firmar, cumplan.  
+ahorrar muchos dolores de cabeza y, eventualmente, mucha plata. Lleven especialmente 
+alguien  o  trabajar  por  cuenta  propia.  Tener  claros  los  conceptos  de  esta  unidad  les  va  a 
+evaluar  condiciones  de  un  leasing  de  equipamiento,  decidir  si  conviene  asociarse  con 
+técnicos en informática o electrónica, en algún momento van a tener que firmar contratos, 
+El Derecho no es solo teoría: es la “gramática” de los negocios. Cuando trabajen como 
+Mensaje final 
+ 
+al aporte. 
+de los socios. La SRL y la SA son hoy las más usadas porque limitan la responsabilidad 
+•     5. Existen distintos tipos societarios. La diferencia clave entre ellos es la responsabilidad 
+responsabilidad propios. 
+persona   jurídica)   distinto   de   los   socios.   Tiene   patrimonio,   nombre,   domicilio   y 
+•     4.  La  sociedad  es  una  herramienta  jurídica  que  crea  un  nuevo  sujeto  de  derecho  (la 
+negocios. 
+distribución, concesión y leasing) son indispensables para entender cómo funcionan los 
+los  contratos  bancarios  y  los  contratos  empresariales  modernos  como  franquicia, 
+•     3. Los contratos más usados (la compraventa, las locaciones de cosas, obra y servicios, 
+consumo/paritario. 
+bilateral/unilateral,    oneroso/gratuito,    conmutativo/aleatorio,    formal/no    formal,    de 
+•     2.   Existen   muchas   clasificaciones   de   contratos ,   pero   las   más   útiles   son: 
+causa y a veces forma. 
+producir  efectos  jurídicos  patrimoniales.  Necesita  consentimiento,  capacidad,  objeto, 
+•     1. El contrato es la herramienta básica de la vida económica. Acuerda voluntades para 
+ 
+con cinco grandes ideas para llevar:  
+Recorrimos una unidad larga y técnica, pero llena de aplicaciones prácticas. Si nos quedamos 
+Síntesis final de la Unidad  
+EETP N° 602  |  Marco Jurídico  |  Unidad 2
+ 
+----------------Page (28) Break----------------

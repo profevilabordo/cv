@@ -97,6 +97,8 @@ if(auth !== hashDocente && auth !== hashAlumno){
   window.location.href = "index.html";
 }
 var D = null;
+var B = null; // Bloque actual (para unidades modulares)
+var currentBloque = parseInt(localStorage.getItem("campus_bloque_actual") || "0");
 
 function loadData(){
   var params = new URLSearchParams(window.location.search);
@@ -108,7 +110,14 @@ function loadData(){
     })
     .then(async function(data){ 
       D = data; 
-      D = data; 
+      // Lógica de bloques para unidades modulares (como Unidad 2)
+      if (D.bloques && D.bloques.length > 0) {
+        if (currentBloque >= D.bloques.length) currentBloque = 0;
+        B = D.bloques[currentBloque];
+      } else {
+        B = D;
+      }
+      
       // Cargar datos de autotest y estado S desde Supabase
       AUTOTEST_DATA = await obtenerDatosAutotest();
       await sincronizarEstadoDesdeSupabase();
@@ -122,23 +131,22 @@ function loadData(){
         +'<p style="font-size:48px;margin-bottom:16px">\u26a0\ufe0f</p>'
         +'<p style="font-size:18px;font-weight:700;color:#EF4444">No se pudo cargar los datos</p>'
         +'<p style="font-size:14px;color:#6B7280;margin-top:8px">Archivo: <code>'+archivo+'</code></p>'
-        +'<p style="font-size:13px;color:#9CA3AF;margin-top:16px">Asegurate de abrir con un servidor local:</p>'
-        +'<p style="font-size:13px;color:#6366F1;margin-top:4px"><code>python3 -m http.server</code></p>'
-        +'<p style="font-size:13px;color:#9CA3AF;margin-top:4px">y abrir <code>http://localhost:8000</code></p>'
         +'</div>';
     });
 }
 
 var CT=0, S={};
-var AUTOTEST_DATA = null; // Datos del autotest desde Supabase (se carga al inicio)
+var AUTOTEST_DATA = null; 
 
 // ===== CHECKLIST DE SECCIONES =====
 var TAB_KEYS=["umbral","mapa","nucleo_a","nucleo_b","nucleo_c","senales","sabias","cruces","relectura","emocional","autotest","cierre"];
 var TAB_LABELS=["Umbral","Mapa","Núcleo A","Núcleo B","Núcleo C","Señales","Sabías","Cruces","Relectura","Emocional","Autotest","Cierre"];
 var TAB_EMOJIS=["🚪","🗺️","⚛️","⚛️","⚛️","🚦","✨","🔀","📖","🫶","📝","🔚"];
+
 function getCheckKey(tabKey){
   if(!D) return null;
-  return "campus_check_" + (D.id||D.materia+"_u"+D.unidad) + "_" + tabKey;
+  var bId = (B && B.id && D.bloques) ? (B.id + "_") : "";
+  return "campus_check_" + (D.id||D.materia+"_u"+D.unidad) + "_" + bId + tabKey;
 }
 function isChecked(tabKey){
   return localStorage.getItem(getCheckKey(tabKey)) === "1";
@@ -157,7 +165,7 @@ function marcarSeccion(tabKey){
     trackProgreso(tabKey, undefined, _S);
   }
   actualizarBarra();
-  render(); // re-render para mostrar el estado done
+  render(); 
 }
 function actualizarBarra(){
   if(!D) return;
@@ -387,7 +395,7 @@ function rUmbral(){
     +renderCheckBtn("umbral");
 }
 function rU1(){
-  var items=D.umbral.preguntas_disparadoras;
+  var items=B.umbral.preguntas_disparadoras;
   var h="";
   for(var i=0;i<items.length;i++){
     var p=items[i], r=S["u1_"+i];
@@ -402,7 +410,7 @@ function rU1(){
   return h;
 }
 function rU2(){
-  var sits=D.umbral.situaciones_conecta, sel=S.u2s;
+  var sits=B.umbral.situaciones_conecta, sel=S.u2s;
   var h='<p style="margin:0 0 12px;font-size:14px;font-weight:600;color:#374151">\u00bfCu\u00e1l de estas situaciones viviste?</p>';
   h+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">';
   for(var i=0;i<sits.length;i++){
@@ -422,7 +430,7 @@ function rU3(){
   var levels=[{m:20,t:"Nada \u{1F976}",c:"#3B82F6"},{m:40,t:"Poco \u{1F914}",c:"#06B6D4"},{m:60,t:"Algo \u{1F60A}",c:"#10B981"},{m:80,t:"Bastante \u{1F603}",c:"#F59E0B"},{m:101,t:"\u00a1Mucho! \u{1F525}",c:"#EF4444"}];
   var lv=levels[0]; for(var i=0;i<levels.length;i++){if(v<levels[i].m){lv=levels[i];break;}}
   var h='<div style="text-align:center;padding:10px">';
-  h+='<p style="font-size:14px;font-weight:600;color:#374151;margin-bottom:16px">'+D.umbral.termometro_pregunta+'</p>';
+  h+='<p style="font-size:14px;font-weight:600;color:#374151;margin-bottom:16px">'+B.umbral.termometro_pregunta+'</p>';
   h+='<div style="height:10px;border-radius:10px;background:linear-gradient(90deg,#3B82F6,#06B6D4,#10B981,#F59E0B,#EF4444)"></div>';
   h+='<input type="range" min="0" max="100" value="'+v+'" oninput="S.u3v=+this.value;render()" style="width:100%;margin-top:-14px;position:relative;z-index:2;accent-color:'+lv.c+'">';
   h+='<div style="margin-top:12px;padding:10px 20px;border-radius:12px;background:'+lv.c+'15;display:inline-block">';
@@ -442,7 +450,7 @@ function rMapa(){
 }
 function rM1(){
   if(!S.m1)S.m1={a:null,v:{}};
-  var s=S.m1, ps=D.mapa.ruta_paradas;
+  var s=S.m1, ps=B.mapa.ruta_paradas;
   var visited=Object.keys(s.v).length;
   var prog=Math.round(visited/ps.length*100);
   var h='<div style="display:flex;justify-content:space-between;margin-bottom:16px"><span style="font-size:14px;font-weight:600;color:#374151">Tu recorrido:</span><span style="font-size:12px;color:#6B7280">'+prog+'%</span></div>';
@@ -463,7 +471,7 @@ function rM1(){
   return h;
 }
 function rM2(){
-  var bs=D.mapa.panoramica_bloques;
+  var bs=B.mapa.panoramica_bloques;
   var h='';
   for(var i=0;i<bs.length;i++){
     var b=bs[i], open=S["m2_"+i];
@@ -487,7 +495,7 @@ function rM2(){
   return h;
 }
 function rM3(){
-  var m=D.mapa.mapa_mental;
+  var m=B.mapa.mapa_mental;
   var h='<div style="display:flex;justify-content:center;margin-bottom:16px">';
   h+='<div style="padding:16px 24px;border-radius:20px;background:linear-gradient(135deg,#6366F1,#8B5CF6);box-shadow:0 4px 20px rgba(99,102,241,.3)">';
   h+='<span style="font-size:24px">'+m.centro.emoji+'</span><span style="font-size:16px;font-weight:800;color:#fff;margin-left:8px">'+m.centro.title+'</span></div></div>';
@@ -568,7 +576,7 @@ function rNucleoC(){
 // Y ahora modificar las 10 funciones para que acepten el parámetro "nucleo"
 
 function rN1(nucleo){
-  var d=D[nucleo].n1_ordenar_cronologicamente;
+  var d=(B && B.nucleo && B.nucleo.n1_) ? B.nucleo.n1_ : D[nucleo].n1_;
   var sk=nucleo+"_n1";
   if(!S[sk]) S[sk]={nx:1,dn:false,pl:{}};
   var s=S[sk], h="";
@@ -604,7 +612,7 @@ function n2click(sk,i,cat){
 }
 
 function rN2(nucleo){
-  var d=D[nucleo].n2_clasificador;
+  var d=(B && B.nucleo && B.nucleo.n2_) ? B.nucleo.n2_ : D[nucleo].n2_;
   var sk=nucleo+"_n2";
   if(!S[sk]) S[sk]={a:{},sh:false};
   var s=S[sk];
@@ -638,7 +646,7 @@ function rN2(nucleo){
 }
 
 function rN3(nucleo){
-  var d=D[nucleo].n3_completar_mapa;
+  var d=(B && B.nucleo && B.nucleo.n3_) ? B.nucleo.n3_ : D[nucleo].n3_;
   var sk=nucleo+"_n3";
   if(!S[sk]) S[sk]={a:{},c:false};
   var s=S[sk], h='';
@@ -659,7 +667,7 @@ function rN3(nucleo){
 }
 
 function rN4(nucleo){
-  var d=D[nucleo].n4_verdadero_falso;
+  var d=(B && B.nucleo && B.nucleo.n4_) ? B.nucleo.n4_ : D[nucleo].n4_;
   var sk=nucleo+"_n4";
   if(!S[sk]) S[sk]={a:{}};
   var s=S[sk], h='';
@@ -681,7 +689,7 @@ function rN4(nucleo){
 }
 
 function rN5(nucleo){
-  var d=D[nucleo].n5_relacionar_columnas;
+  var d=(B && B.nucleo && B.nucleo.n5_) ? B.nucleo.n5_ : D[nucleo].n5_;
   var sk=nucleo+"_n5";
   if(!S[sk]){
     var shuffled=d.pares.slice();
@@ -710,7 +718,7 @@ function rN5(nucleo){
 function n5click(right,nucleo){
   var sk=nucleo+"_n5";
   var s=S[sk];
-  var d=D[nucleo].n5_relacionar_columnas;
+  var d=(B && B.nucleo && B.nucleo.n5_) ? B.nucleo.n5_ : D[nucleo].n5_;
   if(s.sel===null) return;
   if(d.pares[s.sel].derecha===right) s.mt[s.sel]=right;
   s.sel=null;
@@ -719,7 +727,7 @@ function n5click(right,nucleo){
 }
 
 function rN6(nucleo){
-  var d=D[nucleo].n6_palabra_intrusa;
+  var d=(B && B.nucleo && B.nucleo.n6_) ? B.nucleo.n6_ : D[nucleo].n6_;
   var sk=nucleo+"_n6";
   if(!S[sk]) S[sk]={ci:0,sel:null};
   var s=S[sk], g=d.grupos[s.ci];
@@ -753,7 +761,7 @@ function rN6(nucleo){
 }
 
 function rN7(nucleo){
-  var d=D[nucleo].n7_defini_con_tus_palabras;
+  var d=(B && B.nucleo && B.nucleo.n7_) ? B.nucleo.n7_ : D[nucleo].n7_;
   var sk=nucleo+"_n7";
   if(!S[sk]) S[sk]={cur:0};
   var s=S[sk], c=d.conceptos[s.cur];
@@ -797,7 +805,7 @@ function rN7(nucleo){
 }
 
 function rN8(nucleo){
-  var d=D[nucleo].n8_causa_efecto;
+  var d=(B && B.nucleo && B.nucleo.n8_) ? B.nucleo.n8_ : D[nucleo].n8_;
   var sk=nucleo+"_n8";
   if(!S[sk]){
     var sh=d.efectos.slice();
@@ -834,7 +842,7 @@ function n8click(eid,pid,nucleo){
 }
 
 function rN9(nucleo){
-  var d=D[nucleo].n9_ordenar_proceso;
+  var d=(B && B.nucleo && B.nucleo.n9_) ? B.nucleo.n9_ : D[nucleo].n9_;
   var sk=nucleo+"_n9";
   if(!S[sk]){
     var sh=d.pasos_en_orden_correcto.slice();
@@ -876,7 +884,7 @@ function rN9(nucleo){
 }
 
 function rN10(nucleo){
-  var d=D[nucleo].n10_comparador;
+  var d=(B && B.nucleo && B.nucleo.n10_) ? B.nucleo.n10_ : D[nucleo].n10_;
   var sk=nucleo+"_n10";
   if(!S[sk]) S[sk]={s1:"",s2:"",d1:"",d2:"",d3:"",d4:""};
   var s=S[sk];
@@ -912,7 +920,7 @@ function rSenales(){
     +renderCheckBtn("senales");
 }
 function rS1(){
-  var cs=D.senales.conceptos_clave, h='';
+  var cs=B.senales.conceptos_clave, h='';
   for(var i=0;i<cs.length;i++){
     var c=cs[i], open=S["s1f_"+i], star=S["s1s_"+i];
     h+='<div style="border-radius:14px;overflow:hidden;border:2px solid '+(star?c.color:'#E5E7EB')+';margin-bottom:10px">';
@@ -931,7 +939,7 @@ function rS1(){
   return h;
 }
 function rS2(){
-  var cs=D.senales.semaforo_conceptos;
+  var cs=B.senales.semaforo_conceptos;
   var cols=[{l:"\u{1F7E2}",c:"#10B981",b:"#D1FAE5"},{l:"\u{1F7E1}",c:"#F59E0B",b:"#FEF3C7"},{l:"\u{1F534}",c:"#EF4444",b:"#FEE2E2"}];
   var h='<p style="font-size:14px;font-weight:600;color:#374151;margin:0 0 14px">\u00bfC\u00f3mo est\u00e1s con cada concepto?</p>';
   for(var i=0;i<cs.length;i++){
@@ -947,7 +955,7 @@ function rS2(){
 }
 function rS3(){
   if(!S.s3) S.s3={};
-  var cs=D.senales.postits_conceptos;
+  var cs=B.senales.postits_conceptos;
   var cols=["#FEF3C7","#DBEAFE","#FCE7F3","#D1FAE5"];
   var h='<p style="font-size:14px;font-weight:600;color:#374151;margin:0 0 14px">Escrib\u00ed cada concepto con tus palabras:</p>';
   h+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">';
@@ -971,7 +979,7 @@ function rSabias(){
     +renderCheckBtn("sabias");
 }
 function rSB1(){
-  var cards=D.sabias.flip_cards, h='';
+  var cards=B.sabias.flip_cards, h='';
   for(var i=0;i<cards.length;i++){
     var d=cards[i], flipped=S["sb1_"+i];
     if(!flipped){
@@ -988,7 +996,7 @@ function rSB1(){
   return h;
 }
 function rSB2(){
-  var evts=D.sabias.linea_de_tiempo, h='';
+  var evts=B.sabias.linea_de_tiempo, h='';
   h+='<div style="position:relative;padding-left:30px">';
   h+='<div style="position:absolute;left:14px;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,#6366F1,#A78BFA);border-radius:3px"></div>';
   for(var i=0;i<evts.length;i++){
@@ -1003,7 +1011,7 @@ function rSB2(){
   return h;
 }
 function rSB3(){
-  var d=D.sabias.encuesta, voted=S.enc_v!==undefined;
+  var d=B.sabias.encuesta, voted=S.enc_v!==undefined;
   var total=d.opciones.reduce(function(s,o){return s+o.votos_iniciales},0)+(voted?1:0);
   var h='<p style="font-size:14px;font-weight:600;color:#374151;margin:0 0 14px">\u{1F5F3}\uFE0F '+d.pregunta+'</p>';
   for(var i=0;i<d.opciones.length;i++){
@@ -1023,7 +1031,7 @@ function rSB3(){
 
 function rCruces(){
   if(!S.cruces) S.cruces = {a:"", b:"", c:""};
-  var d = D.cruces;
+  var d = B.cruces;
   
   return secHeader("🔀","CRUCES","Preparate para explicar",TABS[7].g)
     + '<div class="sb">'
@@ -1075,7 +1083,7 @@ function rRelectura(){
     +renderCheckBtn("relectura");
 }
 function rR1(){
-  var d=D.relectura.tribunal;
+  var d=B.relectura.tribunal;
   if(!S.r1) S.r1={rol:null,args:"",sub:false};
   var s=S.r1;
   var wc=s.args.trim().split(/\s+/).filter(Boolean).length;
@@ -1106,7 +1114,7 @@ function rR2(){
   var s=S.r2;
   var steps=[{k:"t",l:"Tu tesis",c:"#6366F1"},{k:"e1",l:"Evidencia 1",c:"#3B82F6"},{k:"e2",l:"Evidencia 2",c:"#10B981"},{k:"c",l:"Conclusi\u00f3n",c:"#EC4899"}];
   var filled=steps.filter(function(st){return (s[st.k]||"").trim().length>10}).length;
-  var h='<p style="font-size:14px;font-weight:600;color:#92400E;margin:0 0 14px">\u{1F3AF} '+D.relectura.tesis.consigna+'</p>';
+  var h='<p style="font-size:14px;font-weight:600;color:#92400E;margin:0 0 14px">\u{1F3AF} '+B.relectura.tesis.consigna+'</p>';
   for(var i=0;i<steps.length;i++){
     var st=steps[i];
     h+='<div style="margin-bottom:12px"><div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">';
@@ -1123,7 +1131,7 @@ function rR3(){
   var s=S.r3;
   var fields=[{k:"f",l:"\u{1F4AA} Fortaleza",ph:"\u00bfQu\u00e9 est\u00e1 bien?",c:"#10B981"},{k:"d",l:"\u26A1 Debilidad",ph:"\u00bfQu\u00e9 mejorar?",c:"#EF4444"},{k:"p",l:"\u2753 Pregunta",ph:"\u00bfQu\u00e9 te qued\u00f3 pensando?",c:"#F59E0B"},{k:"pr",l:"\u{1F4A1} Propuesta",ph:"\u00bfQu\u00e9 agregar\u00edas?",c:"#8B5CF6"}];
   var filled=fields.filter(function(f){return (s[f.k]||"").trim().length>10}).length;
-  var h='<p style="font-size:14px;font-weight:600;color:#991B1B;margin:0 0 14px">\u{1F52C} '+D.relectura.critica.consigna+'</p>';
+  var h='<p style="font-size:14px;font-weight:600;color:#991B1B;margin:0 0 14px">\u{1F52C} '+B.relectura.critica.consigna+'</p>';
   for(var i=0;i<fields.length;i++){
     var f=fields[i];
     h+='<div style="margin-bottom:12px"><span style="font-size:13px;font-weight:700;color:'+f.c+'">'+f.l+'</span>';
@@ -1187,8 +1195,8 @@ function rAutotest(){
 }
 
 function rAT(){
-  var d=D.autotest.preguntas, tq=d.length;
-  var vf=D.autotest.verdadero_falso || [], vfq=vf.length;
+  var d=B.autotest.preguntas, tq=d.length;
+  var vf=B.autotest.verdadero_falso || [], vfq=vf.length;
   var totalPreguntas = tq + vfq;
   
   if(!S.at) S.at={cur:0,ans:{},fin:false,started:false};
@@ -1200,12 +1208,12 @@ function rAT(){
   
   // Generar banco de respuestas para docente
   var bancoHtml = '';
-  if(esDocente && D.autotest.banco_respuestas_docente){
+  if(esDocente && B.autotest.banco_respuestas_docente){
     bancoHtml='<div style="padding:16px 20px;border-radius:14px;background:#FEF3C7;border:2px solid #F59E0B;margin-bottom:20px">';
     bancoHtml+='<p style="margin:0 0 10px;font-size:14px;font-weight:700;color:#92400E">🎓 BANCO DE RESPUESTAS (solo docente)</p>';
     bancoHtml+='<div style="font-size:12px;color:#78350F;line-height:1.8">';
-    for(var i=0;i<D.autotest.banco_respuestas_docente.length;i++){
-      bancoHtml+='<div>'+D.autotest.banco_respuestas_docente[i]+'</div>';
+    for(var i=0;i<B.autotest.banco_respuestas_docente.length;i++){
+      bancoHtml+='<div>'+B.autotest.banco_respuestas_docente[i]+'</div>';
     }
     bancoHtml+='</div></div>';
   }
@@ -1603,6 +1611,8 @@ async function registrarSesion(codigo){
 // Llamá a esta función cuando el alumno completa una sección
 // Ejemplo: trackProgreso("nucleo") — se llama automáticamente al cambiar de tab
 async function trackProgreso(seccion, nota, datos){
+  var bId = (B && B.id && D.bloques) ? (B.id + "_") : "";
+  seccion = bId + seccion;
   var codigo = getAlumnoCodigo();
   if(!D) return;
 
@@ -1651,7 +1661,7 @@ async function obtenerDatosAutotest(){
     var url = SUPABASE_URL + "/rest/v1/progreso?alumno_codigo=eq." + codigo + 
               "&materia=eq." + encodeURIComponent(D.materia) +
               "&unidad=eq." + encodeURIComponent(D.id) +
-              "&seccion=like.autotest*" +
+              "&seccion=like." + ((B && B.id && D.bloques) ? B.id + "_" : "") + "autotest*" +
               "&select=*&order=fecha.asc";
     
     var r = await fetch(url, {
@@ -1754,7 +1764,7 @@ function autoGuardarS(){
           alumno_codigo: codigo,
           materia: D.materia,
           unidad: D.id,
-          seccion: "__ESTADO_UNIDAD__",
+          seccion: "__ESTADO_UNIDAD__" + ((B && B.id && D.bloques) ? "_" + B.id : ""),
           datos: S,
           completada: false
         })
@@ -1797,7 +1807,8 @@ async function sincronizarEstadoDesdeSupabase(){
     window.DOCENTE_FEEDBACK = {}; // Limpiar previos
     if(data && data.length > 0){
       data.forEach(function(p){
-        if(p.seccion === "__ESTADO_UNIDAD__" && p.datos){
+        var stKey = "__ESTADO_UNIDAD__" + ((B && B.id && D.bloques) ? "_" + B.id : "");
+        if(p.seccion === stKey && p.datos){
           Object.assign(_S, p.datos);
         }
         
