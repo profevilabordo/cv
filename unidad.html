@@ -597,7 +597,7 @@ function rNucleoC(){
 // Y ahora modificar las 10 funciones para que acepten el parámetro "nucleo"
 
 function rN1(nucleo){
-  var d=(B && B.nucleo && B.nucleo.n1_) ? B.nucleo.n1_ : D[nucleo].n1_;
+  var d=(B && B.nucleo && B.nucleo.n1_ordenar_cronologicamente) ? B.nucleo.n1_ordenar_cronologicamente : D[nucleo].n1_ordenar_cronologicamente;
   var sk=nucleo+"_n1";
   if(!S[sk]) S[sk]={nx:1,dn:false,pl:{}};
   var s=S[sk], h="";
@@ -633,7 +633,7 @@ function n2click(sk,i,cat){
 }
 
 function rN2(nucleo){
-  var d=(B && B.nucleo && B.nucleo.n2_) ? B.nucleo.n2_ : D[nucleo].n2_;
+  var d=(B && B.nucleo && B.nucleo.n2_clasificador) ? B.nucleo.n2_clasificador : D[nucleo].n2_clasificador;
   var sk=nucleo+"_n2";
   if(!S[sk]) S[sk]={a:{},sh:false};
   var s=S[sk];
@@ -667,7 +667,7 @@ function rN2(nucleo){
 }
 
 function rN3(nucleo){
-  var d=(B && B.nucleo && B.nucleo.n3_) ? B.nucleo.n3_ : D[nucleo].n3_;
+  var d=(B && B.nucleo && B.nucleo.n3_completar_mapa) ? B.nucleo.n3_completar_mapa : D[nucleo].n3_completar_mapa;
   var sk=nucleo+"_n3";
   if(!S[sk]) S[sk]={a:{},c:false};
   var s=S[sk], h='';
@@ -688,7 +688,7 @@ function rN3(nucleo){
 }
 
 function rN4(nucleo){
-  var d=(B && B.nucleo && B.nucleo.n4_) ? B.nucleo.n4_ : D[nucleo].n4_;
+  var d=(B && B.nucleo && B.nucleo.n4_verdadero_falso) ? B.nucleo.n4_verdadero_falso : D[nucleo].n4_verdadero_falso;
   var sk=nucleo+"_n4";
   if(!S[sk]) S[sk]={a:{}};
   var s=S[sk], h='';
@@ -710,7 +710,7 @@ function rN4(nucleo){
 }
 
 function rN5(nucleo){
-  var d=(B && B.nucleo && B.nucleo.n5_) ? B.nucleo.n5_ : D[nucleo].n5_;
+  var d=(B && B.nucleo && B.nucleo.n5_relacionar_columnas) ? B.nucleo.n5_relacionar_columnas : D[nucleo].n5_relacionar_columnas;
   var sk=nucleo+"_n5";
   if(!S[sk]){
     var shuffled=d.pares.slice();
@@ -739,7 +739,7 @@ function rN5(nucleo){
 function n5click(right,nucleo){
   var sk=nucleo+"_n5";
   var s=S[sk];
-  var d=(B && B.nucleo && B.nucleo.n5_) ? B.nucleo.n5_ : D[nucleo].n5_;
+  var d=(B && B.nucleo && B.nucleo.n5_relacionar_columnas) ? B.nucleo.n5_relacionar_columnas : D[nucleo].n5_relacionar_columnas;
   if(s.sel===null) return;
   if(d.pares[s.sel].derecha===right) s.mt[s.sel]=right;
   s.sel=null;
@@ -748,7 +748,7 @@ function n5click(right,nucleo){
 }
 
 function rN6(nucleo){
-  var d=(B && B.nucleo && B.nucleo.n6_) ? B.nucleo.n6_ : D[nucleo].n6_;
+  var d=(B && B.nucleo && B.nucleo.n6_palabra_intrusa) ? B.nucleo.n6_palabra_intrusa : D[nucleo].n6_palabra_intrusa;
   var sk=nucleo+"_n6";
   if(!S[sk]) S[sk]={ci:0,sel:null};
   var s=S[sk], g=d.grupos[s.ci];
@@ -782,7 +782,7 @@ function rN6(nucleo){
 }
 
 function rN7(nucleo){
-  var d=(B && B.nucleo && B.nucleo.n7_) ? B.nucleo.n7_ : D[nucleo].n7_;
+  var d=(B && B.nucleo && B.nucleo.n7_defini_con_tus_palabras) ? B.nucleo.n7_defini_con_tus_palabras : D[nucleo].n7_defini_con_tus_palabras;
   var sk=nucleo+"_n7";
   if(!S[sk]) S[sk]={cur:0};
   var s=S[sk], c=d.conceptos[s.cur];
@@ -826,7 +826,7 @@ function rN7(nucleo){
 }
 
 function rN8(nucleo){
-  var d=(B && B.nucleo && B.nucleo.n8_) ? B.nucleo.n8_ : D[nucleo].n8_;
+  var d=(B && B.nucleo && B.nucleo.n8_causa_efecto) ? B.nucleo.n8_causa_efecto : D[nucleo].n8_causa_efecto;
   var sk=nucleo+"_n8";
   if(!S[sk]){
     var sh=d.efectos.slice();
@@ -863,7 +863,7 @@ function n8click(eid,pid,nucleo){
 }
 
 function rN9(nucleo){
-  var d=(B && B.nucleo && B.nucleo.n9_) ? B.nucleo.n9_ : D[nucleo].n9_;
+  var d=(B && B.nucleo && B.nucleo.n9_ordenar_proceso) ? B.nucleo.n9_ordenar_proceso : D[nucleo].n9_ordenar_proceso;
   var sk=nucleo+"_n9";
   if(!S[sk]){
     var sh=d.pasos_en_orden_correcto.slice();
@@ -905,7 +905,7 @@ function rN9(nucleo){
 }
 
 function rN10(nucleo){
-  var d=(B && B.nucleo && B.nucleo.n10_) ? B.nucleo.n10_ : D[nucleo].n10_;
+  var d=(B && B.nucleo && B.nucleo.n10_comparador) ? B.nucleo.n10_comparador : D[nucleo].n10_comparador;
   var sk=nucleo+"_n10";
   if(!S[sk]) S[sk]={s1:"",s2:"",d1:"",d2:"",d3:"",d4:""};
   var s=S[sk];
