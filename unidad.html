@@ -366,8 +366,29 @@ function renderMedallas(){
   return h;
 }
 
+
+function rNucleoModular(){
+  var info = B.nucleo_info || B.bloque_info || {emoji:"⚛️", titulo:"NÚCLEO", color:"#6366F1", paginas:[]};
+  return secHeader(info.emoji, "NÚCLEO", info.titulo + (info.paginas.length ? " — Págs. " + info.paginas.join(", ") : ""), B.color || "#6366F1")
+    +'<div class="sb">'
+    +(B.nucleo.n1_ordenar_cronologicamente ? actWrap("n1","📋 1. Ordenar","Tocá en orden correcto","Organizar",info.color,rN1("nucleo_a"),true) : '')
+    +(B.nucleo.n2_clasificador ? actWrap("n2","🗂️ 2. Clasificar","Asigná categorías","Clasificar",info.color,rN2("nucleo_a")) : '')
+    +(B.nucleo.n3_completar_mapa ? actWrap("n3","✏️ 3. Completar","Rellenás los blancos","Definir",info.color,rN3("nucleo_a")) : '')
+    +(B.nucleo.n4_verdadero_falso ? actWrap("n4","✅ 4. V o F","Evaluá afirmaciones","Analizar",info.color,rN4("nucleo_a")) : '')
+    +(B.nucleo.n5_relacionar_columnas ? actWrap("n5","🔗 5. Relacionar","Conectá pares","Relacionar",info.color,rN5("nucleo_a")) : '')
+    +(B.nucleo.n6_palabra_intrusa ? actWrap("n6","🚫 6. Intrusa","Encontrá la que no pertenece","Diferenciar",info.color,rN6("nucleo_a")) : '')
+    +(B.nucleo.n7_defini_con_tus_palabras ? actWrap("n7","💬 7. Definí","Escribí con tus palabras","Explicar",info.color,rN7("nucleo_a")) : '')
+    +(B.nucleo.n8_causa_efecto ? actWrap("n8","⚡ 8. Causa→Efecto","Conectá causas","Aplicar",info.color,rN8("nucleo_a")) : '')
+    +(B.nucleo.n9_ordenar_proceso ? actWrap("n9","🔢 9. Proceso","Ordená los pasos","Estructurar",info.color,rN9("nucleo_a")) : '')
+    +(B.nucleo.n10_comparador ? actWrap("n10","⚖️ 10. Comparar","Similitudes y diferencias","Comparar",info.color,rN10("nucleo_a")) : '')
+    +'</div>'
+    +renderCheckBtn("nucleo_a");
+}
+
 function renderSection(){
-  switch(TABS[CT].k){
+  var tabK = TABS[CT].k;
+  if(D.bloques && tabK === "nucleo_a") return rNucleoModular();
+  switch(tabK){
     case "umbral": return rUmbral();
     case "mapa": return rMapa();
     case "nucleo_a": return rNucleoA();
