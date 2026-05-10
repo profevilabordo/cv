@@ -194,7 +194,7 @@ function renderCheckBtn(tabKey){
   if(isChecked(tabKey)){
     return '<div class="check-section-done">\u2705 ' + nombre + ' completada</div>';
   }
-  return '<button class="check-section-btn" onclick="marcarSeccion('' + tabKey + '')">' +
+  return '<button class="check-section-btn" onclick="marcarSeccion(\'' + tabKey + '\')">' +
     '<span style="font-size:20px">\u2611\ufe0f</span> Marcar ' + nombre + ' como completada' +
     '</button>';
 }
