@@ -191,7 +191,7 @@
     }
   },
 
- {
+ 
   "nucleo_a": {
     "bloque_info": {
       "id": "a",
@@ -377,7 +377,7 @@
       }
     ]
   }
-}
+},
 
   "senales": {
     "conceptos_clave": [
