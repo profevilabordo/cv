@@ -4,53 +4,151 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Unidad 2 Modular - Marco Jurídico</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
-/* CSS BASE (extraído de unidad.html) */
-:root { --primary: #6366F1; --primary-hover: #4F46E5; --bg: #F8FAFC; --card: #FFFFFF; --text: #1E293B; --text-light: #64748B; }
-body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; line-height: 1.5; }
-.hdr { text-align: center; margin-bottom: 30px; }
-h1 { font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 800; margin: 0; color: #0F172A; }
-.tabs { display: flex; gap: 10px; margin-bottom: 25px; }
-.tab { flex: 1; padding: 12px; border-radius: 12px; border: none; background: #E2E8F0; color: #64748B; font-weight: 700; cursor: pointer; transition: all 0.3s; }
-.tab.on { background: var(--primary); color: white; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3); }
-.cnt { max-width: 600px; margin: 0 auto; }
-.sb { display: grid; gap: 15px; margin-top: 20px; }
-.fb { padding: 15px; border-radius: 12px; margin-top: 15px; font-weight: 600; animation: fadeIn 0.4s; }
-textarea { width: 100%; padding: 12px; border-radius: 10px; border: 2px solid #E2E8F0; font-family: inherit; font-size: 14px; box-sizing: border-box; margin-bottom: 10px; }
-.btn { width: 100%; padding: 14px; border-radius: 12px; border: none; background: var(--primary); color: white; font-weight: 700; font-size: 16px; cursor: pointer; transition: all 0.3s; }
-.btn:disabled { opacity: 0.5; cursor: not-allowed; }
-.btn2 { padding: 10px 20px; border-radius: 10px; border: none; background: #64748B; color: white; font-weight: 700; cursor: pointer; }
-.check-section-btn { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 24px auto 0; padding: 14px 28px; border-radius: 14px; border: 2px solid #10B981; background: #ECFDF5; color: #065F46; font-size: 15px; font-weight: 700; cursor: pointer; width: 100%; max-width: 400px; box-sizing: border-box; }
-.check-section-done { text-align: center; padding: 14px; background: #D1FAE5; color: #065F46; border-radius: 14px; font-weight: 700; margin-top: 24px; border: 2px solid #10B981; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-.achievements-grid { display: flex; flex-direction: column; gap: 12px; }
+:root {
+  --p: #6366F1; --p-h: #4F46E5; --s: #10B981; --a: #F59E0B; --danger: #EF4444;
+  --bg: #0F172A; --card: rgba(30, 41, 59, 0.7); --border: rgba(255, 255, 255, 0.1);
+  --glass: rgba(255, 255, 255, 0.03);
+}
+
+body {
+  font-family: 'Outfit', sans-serif; background: var(--bg); color: #F8FAFC;
+  margin: 0; padding: 0; overflow-x: hidden; min-height: 100vh;
+  background-image: radial-gradient(circle at 0% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                    radial-gradient(circle at 100% 100%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
+}
+
+.container { max-width: 500px; margin: 0 auto; padding: 24px; position: relative; z-index: 1; }
+
+/* HEADER */
+.header { text-align: center; margin-bottom: 32px; animation: slideDown 0.6s ease-out; }
+.back-link { text-decoration: none; font-size: 14px; font-weight: 600; color: #94A3B8; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 12px; transition: color 0.3s; }
+.back-link:hover { color: var(--p); }
+h1 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 800; margin: 0; letter-spacing: -1px; background: linear-gradient(135deg, #fff 0%, #94A3B8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* TABS MODULARES */
+.tabs-container {
+  display: flex; gap: 8px; background: rgba(15, 23, 42, 0.6); padding: 6px; 
+  border-radius: 18px; border: 1px solid var(--border); margin-bottom: 32px;
+  backdrop-filter: blur(12px);
+}
+.tab {
+  flex: 1; padding: 10px; border-radius: 14px; border: none; 
+  background: transparent; color: #94A3B8; font-weight: 700; font-size: 14px;
+  cursor: pointer; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.tab.active {
+  background: linear-gradient(135deg, var(--p), var(--p-h)); color: white;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+}
+
+/* CARDS PRINCIPALES */
+.card {
+  background: var(--card); backdrop-filter: blur(20px); border-radius: 24px;
+  border: 1px solid var(--border); padding: 24px; margin-bottom: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: all 0.4s;
+  animation: fadeIn 0.6s ease both;
+}
+.card:hover { transform: translateY(-4px); border-color: rgba(255, 255, 255, 0.2); }
+
+.section-item {
+  display: flex; align-items: center; gap: 16px; padding: 16px; 
+  background: var(--glass); border-radius: 20px; border: 1px solid var(--border);
+  margin-bottom: 12px; cursor: pointer; transition: all 0.3s;
+}
+.section-item:hover { background: rgba(255, 255, 255, 0.08); transform: scale(1.02); }
+.section-icon {
+  width: 48px; height: 48px; border-radius: 14px; background: rgba(255, 255, 255, 0.05);
+  display: flex; align-items: center; justify-content: center; font-size: 24px;
+}
+.section-info h4 { margin: 0; font-size: 16px; font-weight: 700; color: #F8FAFC; }
+.section-info p { margin: 2px 0 0; font-size: 12px; color: #94A3B8; }
+
+/* SECCIÓN CONTENIDO */
+.content-header { margin-bottom: 24px; }
+.btn-back-menu {
+  background: var(--glass); border: 1px solid var(--border); color: #94A3B8;
+  padding: 8px 16px; border-radius: 12px; cursor: pointer; font-weight: 600;
+  margin-bottom: 20px; transition: all 0.3s;
+}
+.btn-back-menu:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
+
+h2.section-title { font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin: 0; color: var(--p); }
+
+/* COMPONENTES DE ACTIVIDAD */
+.activity-box {
+  background: rgba(255, 255, 255, 0.03); border-radius: 20px; padding: 20px;
+  border-left: 4px solid var(--p); margin-bottom: 20px;
+}
+textarea {
+  width: 100%; min-height: 120px; background: rgba(15, 23, 42, 0.4); 
+  border: 1px solid var(--border); border-radius: 16px; padding: 16px;
+  color: #fff; font-family: inherit; font-size: 15px; resize: none;
+  box-sizing: border-box; outline: none; transition: border-color 0.3s;
+}
+textarea:focus { border-color: var(--p); }
+
+.btn-primary {
+  width: 100%; padding: 16px; border-radius: 16px; border: none;
+  background: linear-gradient(135deg, var(--p), var(--p-h));
+  color: white; font-weight: 700; font-size: 16px; cursor: pointer;
+  transition: all 0.3s; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5); }
+.btn-primary:active { transform: scale(0.98); }
+
+.check-btn {
+  width: 100%; padding: 16px; border-radius: 16px; border: 2px solid var(--s);
+  background: rgba(16, 185, 129, 0.1); color: var(--s); font-weight: 700;
+  cursor: pointer; margin-top: 24px; transition: all 0.3s;
+}
+.check-btn:hover { background: rgba(16, 185, 129, 0.2); }
+.check-done {
+  width: 100%; padding: 16px; border-radius: 16px; background: rgba(16, 185, 129, 0.2);
+  color: #fff; text-align: center; font-weight: 700; border: 1px solid var(--s); margin-top: 24px;
+}
+
+/* ANIMACIONES */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
 </style>
 </head>
 <body>
-<div id="app">
-  <div style="text-align:center;padding:60px;color:#6B7280">Cargando unidad...</div>
+
+<div class="container" id="app">
+  <div style="text-align:center;padding:100px 0;opacity:0.5">
+    <div style="font-size:40px;margin-bottom:10px">⌛</div>
+    Cargando sistema...
+  </div>
 </div>
 
 <script>
-// --- CONFIGURACIÓN Y ESTADO ---
+// --- CONFIGURACIÓN DE DATOS ---
 var D = null, B = null, S = {};
 var CB = parseInt(localStorage.getItem("u2_bloque") || "0");
 var CS = null;
 
-// --- NAVEGACIÓN MODULAR ---
+// --- ESTRUCTURA DE NAVEGACIÓN ---
 var SECCIONES = [
-  {k:"umbral", l:"Umbral", d:"Conexión inicial", i:"🚪"},
-  {k:"mapa", l:"Mapa", d:"Ruta visual", i:"🗺️"},
-  {k:"nucleo", l:"Núcleo", d:"Actividades clave", i:"⚛️"},
-  {k:"senales", l:"Señales", d:"Conceptos clave", i:"🚦"},
-  {k:"sabias", l:"Sabías que...", d:"Curiosidades", i:"✨"},
-  {k:"cruces", l:"Cruces", d:"Relación", i:"🔀"},
-  {k:"relectura", l:"Relectura", d:"Nivel avanzado", i:"📖"},
-  {k:"autotest", l:"Autotest", d:"Evaluación", i:"📝"}
+  {k:"umbral", l:"Umbral", d:"Iniciá la conexión", i:"🚪", c:"#6366F1"},
+  {k:"mapa", l:"Mapa", d:"Tu hoja de ruta", i:"🗺️", c:"#10B981"},
+  {k:"nucleo", l:"Núcleo", d:"Actividades de campo", i:"⚛️", c:"#F59E0B"},
+  {k:"senales", l:"Señales", d:"Claves imperdibles", i:"🚦", c:"#EF4444"},
+  {k:"sabias", l:"Sabías que...", d:"Curiosidades", i:"✨", c:"#EC4899"},
+  {k:"cruces", l:"Cruces", d:"Integración", i:"🔀", c:"#8B5CF6"},
+  {k:"relectura", l:"Relectura", d:"Reflexión profunda", i:"📖", c:"#F43F5E"},
+  {k:"autotest", l:"Autotest", d:"Poniendo a prueba", i:"📝", c:"#06B6D4"}
 ];
 
-async function updateBlock(idx){
+// --- FUNCIONES CORE ---
+function updateBlock(idx){
   CB = idx; localStorage.setItem("u2_bloque", CB);
   if(D && D.bloques) B = D.bloques[CB];
   CS = null;
@@ -61,32 +159,34 @@ function render(){
   if(!D) return;
   if(!B && D.bloques) { B = D.bloques[CB]; }
   
-  var h = '<div class="hdr">';
-  h += '<div style="display:flex;justify-content:space-between;margin-bottom:15px"><a href="index.html" style="text-decoration:none;font-size:13px;font-weight:700;color:#64748B">← Volver</a><span style="font-size:13px;font-weight:700;color:#3B82F6">Unidad ' + D.unidad + '</span></div>';
+  var h = '<div class="header">';
+  h += '<a href="index.html" class="back-link">← Volver al Campus</a>';
   h += '<h1>' + D.materia + '</h1></div>';
   
-  h += '<div class="tabs">';
+  h += '<div class="tabs-container">';
   for(var i=0; i<D.bloques.length; i++){
     var bl = D.bloques[i], active = (CB === i);
-    h += '<button class="tab '+(active?'on':'')+'" onclick="updateBlock('+i+')">' + bl.id + '</button>';
+    h += '<button class="tab '+(active?'active':'')+'" onclick="updateBlock('+i+')">' + bl.id + '</button>';
   }
-  h += '</div><div class="cnt">';
+  h += '</div>';
   
   if(CS === null){
-    h += '<div style="text-align:center;margin-bottom:20px"><h2 style="color:'+B.color+';font-family:\'Space Grotesk\'">'+B.emoji+' Bloque '+B.id+': '+B.titulo+'</h2></div>';
+    h += '<div class="card" style="border-top: 4px solid '+B.color+'">';
+    h += '<h2 style="font-family:\'Space Grotesk\';margin:0 0 20px;font-size:24px;display:flex;align-items:center;gap:12px">'+B.emoji+' <span>'+B.titulo+'</span></h2>';
     h += '<div class="achievements-grid">';
     SECCIONES.forEach(sec => {
       var done = isChecked(sec.k);
-      h += '<div onclick="CS=\''+sec.k+'\';render()" style="background:#fff;border-radius:18px;padding:18px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;border:2px solid '+(done?B.color+'40':'#E2E8F0')+';box-shadow:0 4px 12px rgba(0,0,0,0.03)">';
-      h += '<div style="display:flex;align-items:center;gap:15px"><div style="font-size:24px;width:48px;height:48px;background:#F1F5F9;border-radius:14px;display:flex;align-items:center;justify-content:center">'+sec.i+'</div><div><h4 style="font-size:16px;font-weight:700;color:#1F2937;margin:0">'+sec.l+'</h4><p style="font-size:12px;color:#6B7280;margin:0">'+sec.d+'</p></div></div>';
-      h += '<div style="font-size:20px;color:'+B.color+';opacity:'+(done?1:0.2)+'">'+(done?'✓':'→')+'</div></div>';
+      h += '<div class="section-item" onclick="CS=\''+sec.k+'\';render()">';
+      h += '<div class="section-icon" style="color:'+sec.c+'">'+sec.i+'</div>';
+      h += '<div class="section-info" style="flex:1"><h4>'+sec.l+'</h4><p>'+sec.d+'</p></div>';
+      h += '<div style="font-size:18px;color:'+(done?B.color:'#475569')+'">'+(done?'✦':'→')+'</div></div>';
     });
-    h += '</div>';
+    h += '</div></div>';
   } else {
-    h += '<button onclick="CS=null;render()" style="display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background:#fff;border:1px solid #E5E7EB;border-radius:14px;font-size:13px;font-weight:700;color:#6B7280;cursor:pointer;margin-bottom:20px">← Volver al Bloque '+B.id+'</button>';
-    h += '<div style="animation:fadeIn 0.4s ease both">' + renderSection() + '</div>';
+    h += '<button onclick="CS=null;render()" class="btn-back-menu">← Menú del Bloque '+B.id+'</button>';
+    h += '<div class="card" style="border-top: 4px solid '+B.color+'">' + renderSection() + '</div>';
   }
-  h += '</div>';
+  
   document.getElementById("app").innerHTML = h;
 }
 
@@ -94,7 +194,7 @@ function renderSection(){
   switch(CS){
     case "umbral": return rUmbral();
     case "mapa": return rMapa();
-    case "nucleo": return rNucleoModular();
+    case "nucleo": return rNucleo();
     case "senales": return rSenales();
     case "sabias": return rSabias();
     case "cruces": return rCruces();
@@ -104,59 +204,55 @@ function renderSection(){
   }
 }
 
-// --- RENDERERS ESPECÍFICOS ---
+// --- RENDERERS DE CONTENIDO ---
 
 function rUmbral(){
   var d = B.umbral;
-  var h = '<h3 style="color:'+B.color+'">🚪 Umbral</h3>';
-  h += '<p style="font-size:15px;color:#4B5563">'+d.termometro_pregunta+'</p>';
+  var h = '<div class="content-header"><h2 class="section-title">🚪 Umbral de Inicio</h2></div>';
+  h += '<p style="font-size:15px;color:#94A3B8;line-height:1.6">'+d.termometro_pregunta+'</p>';
   return h + renderCheckBtn("umbral");
 }
 
 function rMapa(){
   var d = B.mapa;
-  var h = '<h3 style="color:'+B.color+'">🗺️ Mapa de la Ruta</h3>';
+  var h = '<div class="content-header"><h2 class="section-title">🗺️ Ruta de Aprendizaje</h2></div>';
   d.ruta_paradas.forEach(p => {
-    h += '<div style="padding:15px;background:#fff;border-radius:12px;margin-bottom:10px;border:1px solid #E2E8F0"><b>'+p.emoji+' '+p.title+'</b><p style="margin:5px 0 0;font-size:13px;color:#6B7280">'+p.desc+'</p></div>';
+    h += '<div style="background:rgba(255,255,255,0.02);padding:16px;border-radius:16px;border:1px solid var(--border);margin-bottom:12px">';
+    h += '<div style="display:flex;align-items:center;gap:12px;margin-bottom:6px"><b>'+p.emoji+'</b><span style="font-weight:700;color:#fff">'+p.title+'</span></div>';
+    h += '<p style="margin:0;font-size:13px;color:#94A3B8">'+p.desc+'</p></div>';
   });
   return h + renderCheckBtn("mapa");
 }
 
-function rNucleoModular(){
-  var h = '<h3 style="color:'+B.color+'">⚛️ Núcleo de Actividades</h3>';
-  h += '<div class="sb">';
-  if(B.nucleo.n1_ordenar_cronologicamente) h += '<div style="padding:15px;background:#fff;border-radius:12px;border:1px solid #E2E8F0">Actividad: Ordenar</div>';
-  if(B.nucleo.n7_defini_con_tus_palabras) h += rN7("nucleo");
-  h += '</div>';
-  return h + renderCheckBtn("nucleo");
-}
-
-function rN7(nucleo){
+function rNucleo(){
   var d = B.nucleo.n7_defini_con_tus_palabras;
-  var sk = nucleo + "_n7";
+  var sk = "nucleo_n7";
   if(!S[sk]) S[sk] = {cur:0};
   var s = S[sk];
   var c = d.conceptos[s.cur];
   var val = S[sk+"_inp_"+s.cur] || "";
   var sub = S[sk+"_sub_"+s.cur] || false;
   
-  var h = '<div style="padding:15px;background:#F3F4F6;border-radius:12px;border-left:4px solid '+B.color+';margin-bottom:15px">';
-  h += '<p style="margin:0;font-size:12px;color:'+B.color+';font-weight:800">CONCEPTO '+(s.cur+1)+'/'+d.conceptos.length+'</p>';
-  h += '<p style="margin:5px 0 0;font-size:16px;font-weight:700">'+(c.titulo || c.termino)+'</p></div>';
-  h += '<textarea oninput="S[\''+sk+'_inp_'+s.cur+'\']=this.value;render()" placeholder="Definí con tus palabras...">'+val+'</textarea>';
-  h += '<button class="btn" onclick="S[\''+sk+'_sub_'+s.cur+'\']=true;render()">Enviar</button>';
-  if(sub) h += '<div class="fb" style="background:#D1FAE5;color:#065F46">✨ ¡Guardado!</div>';
-  return h;
+  var h = '<div class="content-header"><h2 class="section-title">⚛️ Núcleo de Conceptos</h2></div>';
+  h += '<div class="activity-box" style="border-color:'+B.color+'">';
+  h += '<span style="font-size:11px;font-weight:800;color:'+B.color+';text-transform:uppercase">Concepto '+(s.cur+1)+'/'+d.conceptos.length+'</span>';
+  h += '<p style="margin:6px 0 0;font-size:18px;font-weight:700;color:#fff">'+(c.titulo || c.termino)+'</p></div>';
+  if(c.pista) h += '<p style="font-size:13px;color:#94A3B8;margin-bottom:12px;font-style:italic">💡 '+c.pista+'</p>';
+  h += '<textarea oninput="S[\''+sk+'_inp_'+s.cur+'\']=this.value;render()" placeholder="Explicalo con tus palabras...">'+val+'</textarea>';
+  h += '<button class="btn-primary" onclick="S[\''+sk+'_sub_'+s.cur+'\']=true;render()">Enviar Respuesta</button>';
+  if(sub) h += '<div class="fb" style="background:rgba(16,185,129,0.1);color:#10B981;text-align:center">✨ ¡Concepto guardado!</div>';
+  if(s.cur < d.conceptos.length-1) h += '<button class="btn-back-menu" onclick="S.'+sk+'.cur++;render()" style="width:100%;margin-top:12px">Siguiente Concepto →</button>';
+  return h + renderCheckBtn("nucleo");
 }
 
 function rSenales(){
   var d = B.senales;
-  var h = '<h3 style="color:'+B.color+'">🚦 Señales</h3>';
+  var h = '<div class="content-header"><h2 class="section-title">🚦 Señales Clave</h2></div>';
   (d.conceptos_clave || []).forEach((t, i) => {
     var open = S["s1_"+i];
-    h += '<div onclick="S[\'s1_'+i+'\']=!S[\'s1_'+i+'\'];render()" style="background:#fff;padding:15px;border-radius:12px;border:2px solid '+(open?B.color:'#F3F4F6')+';margin-bottom:10px;cursor:pointer">';
-    h += '<b>'+(t.titulo || t.termino)+'</b>';
-    if(open) h += '<p style="margin-top:10px;font-size:14px;color:#4B5563">'+(t.texto || t.definicion)+'</p>';
+    h += '<div onclick="S[\'s1_'+i+'\']=!S[\'s1_'+i+'\'];render()" style="background:'+(open?'rgba(99,102,241,0.05)':'rgba(255,255,255,0.02)')+';padding:16px;border-radius:18px;border:1px solid '+(open?B.color: 'var(--border)')+';margin-bottom:12px;cursor:pointer">';
+    h += '<div style="display:flex;justify-content:space-between;align-items:center"><b style="color:#fff">'+(t.titulo || t.termino)+'</b><span style="opacity:0.3">'+(open?'▼':'▲')+'</span></div>';
+    if(open) h += '<p style="margin:12px 0 0;font-size:14px;color:#94A3B8;line-height:1.6;animation:fadeIn 0.3s">'+(t.texto || t.definicion)+'</p>';
     h += '</div>';
   });
   return h + renderCheckBtn("senales");
@@ -164,78 +260,81 @@ function rSenales(){
 
 function rSabias(){
   var d = B.sabias;
-  var h = '<h3 style="color:'+B.color+'">✨ Sabías que...</h3>';
+  var h = '<div class="content-header"><h2 class="section-title">✨ Sabías que...</h2></div>';
   (d.flip_cards || []).forEach((c, i) => {
     var open = S["w1_"+i];
-    h += '<div onclick="S[\'w1_'+i+'\']=!S[\'w1_'+i+'\'];render()" style="background:#fff;padding:20px;border-radius:12px;border:2px solid '+(open?B.color:'#F3F4F6')+';margin-bottom:10px;cursor:pointer;text-align:center">';
-    h += '<b>'+(open ? (c.dorso || c.back) : (c.frente || c.front))+'</b></div>';
+    h += '<div onclick="S[\'w1_'+i+'\']=!S[\'w1_'+i+'\'];render()" style="background:'+(open?'var(--bg)':'linear-gradient(135deg, var(--p), #4338CA)')+';padding:24px;border-radius:20px;border:1px solid var(--border);margin-bottom:12px;cursor:pointer;text-align:center;box-shadow:0 8px 20px rgba(0,0,0,0.2)">';
+    h += '<b style="color:#fff;font-size:15px">'+(open ? (c.dorso || c.back) : (c.frente || c.front))+'</b>';
+    if(!open) h += '<p style="margin:8px 0 0;font-size:11px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1px">Toca para descubrir</p>';
+    h += '</div>';
   });
   return h + renderCheckBtn("sabias");
 }
 
 function rCruces(){
   var d = B.cruces;
-  var h = '<h3 style="color:'+B.color+'">🔀 Cruces</h3>';
+  var h = '<div class="content-header"><h2 class="section-title">🔀 Cruces de Temas</h2></div>';
   (d.puentes || []).forEach((t, i) => {
     var val = S.cruces ? (S.cruces[t.id || i] || "") : "";
-    h += '<div style="padding:15px;background:#fff;border-radius:12px;border:1px solid #E2E8F0;margin-bottom:10px">';
-    h += '<b>'+t.emoji+' '+t.titulo+'</b><p style="font-size:13px;color:#6B7280">'+t.texto+'</p>';
-    h += '<textarea oninput="if(!S.cruces)S.cruces={};S.cruces[\''+(t.id || i)+'\']=this.value" placeholder="Tu plan...">'+val+'</textarea></div>';
+    h += '<div style="background:rgba(255,255,255,0.02);padding:20px;border-radius:20px;border:1px solid var(--border);margin-bottom:16px">';
+    h += '<div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;font-size:18px"><b>'+t.emoji+'</b><span style="font-weight:700;color:#fff">'+t.titulo+'</span></div>';
+    h += '<p style="font-size:13px;color:#94A3B8;margin-bottom:16px;line-height:1.5">'+t.texto+'</p>';
+    h += '<textarea oninput="if(!S.cruces)S.cruces={};S.cruces[\''+(t.id || i)+'\']=this.value" placeholder="¿Cómo lo relacionás? Escribí acá..." style="min-height:80px">'+val+'</textarea></div>';
   });
   return h + renderCheckBtn("cruces");
 }
 
 function rRelectura(){
-  var h = '<h3 style="color:'+B.color+'">📖 Relectura</h3>';
+  var h = '<div class="content-header"><h2 class="section-title">📖 Relectura Avanzada</h2></div>';
+  h += '<div style="text-align:center;padding:30px;background:var(--glass);border-radius:20px">';
+  h += '<div style="font-size:40px;margin-bottom:12px">🧠</div>';
+  h += '<p style="color:#94A3B8;font-size:14px">Sección diseñada para debate y análisis crítico del Bloque '+B.id+'.</p></div>';
   return h + renderCheckBtn("relectura");
 }
 
 function rAutotest(){
   var d = B.autotest;
-  var h = '<h3 style="color:'+B.color+'">📝 Autotest</h3>';
+  var h = '<div class="content-header"><h2 class="section-title">📝 Autoevaluación</h2></div>';
   d.preguntas.forEach((p, i) => {
-    h += '<div style="padding:15px;background:#fff;border-radius:12px;margin-bottom:10px;border:1px solid #E2E8F0"><b>'+(i+1)+'. '+p.pregunta+'</b></div>';
+    h += '<div style="background:rgba(255,255,255,0.02);padding:18px;border-radius:18px;border:1px solid var(--border);margin-bottom:12px">';
+    h += '<div style="font-size:12px;font-weight:800;color:var(--p);margin-bottom:6px">PREGUNTA '+(i+1)+'</div>';
+    h += '<b style="color:#fff;font-size:15px">'+p.pregunta+'</b></div>';
   });
   return h + renderCheckBtn("autotest");
 }
 
-// --- AUXILIARES ---
+// --- UTILIDADES ---
 
 function renderCheckBtn(k){
-  if(isChecked(k)) return '<div class="check-section-done">✅ Completado</div>';
-  return '<button class="check-section-btn" onclick="marcarSeccion(\''+k+'\')">☑️ Marcar como completada</button>';
+  if(isChecked(k)) return '<div class="check-done">✅ Sección Completada</div>';
+  return '<button class="check-btn" onclick="marcarSeccion(\''+k+'\')">✦ Marcar como completada</button>';
 }
 
 function marcarSeccion(k){
-  if(confirm("¿Marcás esta sección como completada?")){
-    localStorage.setItem(getCheckKey(k), "1");
-    render();
-  }
+  localStorage.setItem(getCheckKey(k), "1");
+  render();
 }
 
 function getCheckKey(k){
-  var bId = B ? B.id : "U2";
-  return "campus_check_" + bId + "_" + k;
+  return "u2_check_" + B.id + "_" + k;
 }
 
 function isChecked(k){
   return localStorage.getItem(getCheckKey(k)) === "1";
 }
 
-// --- CARGA INICIAL ---
-
 function loadData(){
   var params = new URLSearchParams(window.location.search);
   var archivo = params.get("datos") || "datos/eetp602_5a_marco_jur_u2.json";
   fetch(archivo)
-    .then(r => { if(!r.ok) throw new Error("No se encontró el archivo"); return r.json(); })
+    .then(r => r.json())
     .then(data => {
       D = data;
       B = D.bloques[CB];
       render();
     })
     .catch(e => {
-      document.getElementById("app").innerHTML = '<div style="text-align:center;padding:40px;color:#EF4444">⚠️ No se pudo cargar los datos.<br><small>'+e.message+'</small></div>';
+      document.getElementById("app").innerHTML = '<div style="text-align:center;padding:40px;color:var(--danger)">⚠️ Error al cargar datos: '+e.message+'</div>';
     });
 }
 
