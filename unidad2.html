@@ -407,14 +407,12 @@ function rNucleoModular(){
 }
 
 function renderSection(){
-  var tabK = TABS[CT].k;
-  if(D.bloques && tabK === "nucleo_a") return rNucleoModular();
-  switch(tabK){
+  var secK = CS;
+  if(!secK) return "";
+  if(secK === "nucleo" || secK === "nucleo_a") return rNucleoModular();
+  switch(secK){
     case "umbral": return rUmbral();
     case "mapa": return rMapa();
-    case "nucleo_a": return rNucleoA();
-    case "nucleo_b": return rNucleoB();
-    case "nucleo_c": return rNucleoC();
     case "senales": return rSenales();
     case "sabias": return rSabias();
     case "cruces": return rCruces();
@@ -424,6 +422,7 @@ function renderSection(){
     case "cierre": return rCierre();
     default: return "";
   }
+}
 }
 
 
