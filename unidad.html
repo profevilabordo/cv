@@ -541,8 +541,8 @@ function rM3(){
 
 
 function rNucleoA(){
-  var info = D.nucleo_a.bloque_info;
-  return secHeader(info.emoji,"NÚCLEO A",info.titulo + " — Páginas " + info.paginas.join(", "),TABS[2].g)
+  var info = D.nucleo_a.bloque_info || {emoji:"⚛\uFE0F", titulo:"BLOQUE A", color:TABS[2].g, paginas:[]};
+  return secHeader(info.emoji,"N\u00daCLEO A",info.titulo + (info.paginas.length ? " \u2014 P\u00e1ginas " + info.paginas.join(", ") : ""),TABS[2].g)
     +'<div class="sb">'
     +actWrap("na1","\u{1F4CB} 1. Ordenar","Tocá en orden correcto","Organizar",info.color,rN1("nucleo_a"),true)
     +actWrap("na2","\u{1F5C2}\uFE0F 2. Clasificar","Asigná categorías","Clasificar",info.color,rN2("nucleo_a"))
@@ -559,8 +559,8 @@ function rNucleoA(){
 }
 
 function rNucleoB(){
-  var info = D.nucleo_b.bloque_info;
-  return secHeader(info.emoji,"NÚCLEO B",info.titulo + " — Páginas " + info.paginas.join(", "),TABS[3].g)
+  var info = D.nucleo_b.bloque_info || {emoji:"⚛\uFE0F", titulo:"BLOQUE B", color:TABS[3].g, paginas:[]};
+  return secHeader(info.emoji,"N\u00daCLEO B",info.titulo + (info.paginas.length ? " \u2014 P\u00e1ginas " + info.paginas.join(", ") : ""),TABS[3].g)
     +'<div class="sb">'
     +actWrap("nb1","\u{1F4CB} 1. Ordenar","Tocá en orden correcto","Organizar",info.color,rN1("nucleo_b"),true)
     +actWrap("nb2","\u{1F5C2}\uFE0F 2. Clasificar","Asigná categorías","Clasificar",info.color,rN2("nucleo_b"))
@@ -577,8 +577,8 @@ function rNucleoB(){
 }
 
 function rNucleoC(){
-  var info = D.nucleo_c.bloque_info;
-  return secHeader(info.emoji,"NÚCLEO C",info.titulo + " — Páginas " + info.paginas.join(", "),TABS[4].g)
+  var info = D.nucleo_c.bloque_info || {emoji:"⚛\uFE0F", titulo:"BLOQUE C", color:TABS[4].g, paginas:[]};
+  return secHeader(info.emoji,"N\u00daCLEO C",info.titulo + (info.paginas.length ? " \u2014 P\u00e1ginas " + info.paginas.join(", ") : ""),TABS[4].g)
     +'<div class="sb">'
     +actWrap("nc1","\u{1F4CB} 1. Ordenar","Tocá en orden correcto","Organizar",info.color,rN1("nucleo_c"),true)
     +actWrap("nc2","\u{1F5C2}\uFE0F 2. Clasificar","Asigná categorías","Clasificar",info.color,rN2("nucleo_c"))
