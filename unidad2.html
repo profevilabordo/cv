@@ -3,183 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unidad 2 - Marco Jurídico</title>
+<title>Unidad 2 Modular - Marco Jurídico</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 <style>
+
 *{margin:0;padding:0;box-sizing:border-box;font-family:'DM Sans',sans-serif}
-body{min-height:100vh;background:#F8FAFC;padding-top:60px}
-.hdr{text-align:center;margin-bottom:20px;padding:0 16px}
-.hdr h1{font-size:24px;font-weight:800;background:linear-gradient(135deg,#3B82F6,#2563EB);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline}
-.cnt{max-width:600px;margin:0 auto;padding:0 16px 40px}
-.block-tabs{display:flex;gap:6px;margin-bottom:24px;background:#fff;padding:6px;border-radius:18px;box-shadow:0 4px 15px rgba(0,0,0,0.05)}
-.block-tab{flex:1;padding:12px;border-radius:14px;border:none;font-size:13px;font-weight:800;cursor:pointer;transition:all 0.3s;color:#6B7280;background:transparent}
-.block-tab.on{color:#fff;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
-.section-map{display:flex;flex-direction:column;gap:10px;margin-bottom:30px}
-.section-card{background:#fff;border-radius:16px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;border:2px solid transparent;transition:all 0.3s;box-shadow:0 2px 5px rgba(0,0,0,0.02)}
-.section-card:hover{transform:translateX(5px);border-color:#E5E7EB}
-.section-card.active{border-color:currentColor;box-shadow:0 8px 20px -5px rgba(0,0,0,0.1)}
-.section-info{display:flex;align-items:center;gap:15px}
-.section-icon{font-size:24px;width:44px;height:44px;background:#F1F5F9;border-radius:12px;display:flex;align-items:center;justify-content:center}
-.section-text h4{font-size:15px;font-weight:700;color:#1F2937}
-.section-text p{font-size:12px;color:#6B7280}
-.section-check{color:#10B981;font-size:20px;opacity:0.3}
-.section-check.done{opacity:1}
-.section-content{animation:fadeIn 0.4s ease both}
+body{min-height:100vh;background:linear-gradient(180deg,#F8FAFC 0%,#EEF2FF 50%,#FFF7ED 100%);padding:20px 16px}
 @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.btn-back-map{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:#fff;border:1px solid #E5E7EB;border-radius:12px;font-size:13px;font-weight:700;color:#6B7280;cursor:pointer;margin-bottom:20px}
-.sh{padding:24px;border-radius:20px 20px 0 0;position:relative;overflow:hidden;color:#fff;margin-bottom:0}
-.sh h2{font-size:22px}
-.sb{padding:20px;background:#fff;border-radius:0 0 20px 20px;display:flex;flex-direction:column;gap:16px;box-shadow:0 4px 20px rgba(0,0,0,0.05);margin-bottom:20px}
-.btn{display:block;margin:14px auto 0;padding:12px 28px;border-radius:12px;border:none;background:linear-gradient(135deg,#3B82F6,#2563EB);color:#fff;font-size:14px;font-weight:700;cursor:pointer}
-.check-section-btn{display:flex;align-items:center;justify-content:center;gap:10px;margin:20px auto 0;padding:14px;border-radius:14px;border:2px solid #10B981;background:#ECFDF5;color:#065F46;font-size:14px;font-weight:700;cursor:pointer;width:100%}
-.check-section-done{display:flex;align-items:center;justify-content:center;gap:8px;margin:20px auto 0;padding:12px;border-radius:14px;background:#D1FAE5;color:#065F46;font-size:14px;font-weight:700;border:2px solid #10B98140}
-textarea{width:100%;padding:12px;border-radius:10px;border:2px solid #E5E7EB;font-size:14px;outline:none;min-height:80px}
-.fb{margin-top:12px;padding:12px;border-radius:12px;font-size:13px}
-.achievements-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:10px}
-.achievement-card{padding:10px;background:#fff;border-radius:12px;opacity:0.3;display:flex;align-items:center;gap:8px;border:1px solid #E5E7EB}
-.achievement-card.unlocked{opacity:1;border-color:#F59E0B;background:#FFFBEB}
-.achievement-icon{font-size:20px}
-.achievement-info h4{font-size:11px;margin:0}
-.achievement-info p{font-size:9px;margin:0;color:#6B7280}
-#progressBar{position:fixed;top:0;left:0;right:0;z-index:1000;background:#fff;border-bottom:1px solid #E5E7EB;padding:8px 12px;display:flex;align-items:center;gap:10px}
-.pb-track{flex:1;height:8px;background:#F3F4F6;border-radius:8px;overflow:hidden}
-.pb-fill{height:100%;background:linear-gradient(90deg,#3B82F6,#10B981);transition:width .4s}
+@keyframes confetti{0%{opacity:1;transform:translateY(0) rotate(0)}100%{opacity:0;transform:translateY(-120px) translateX(30px) rotate(360deg)}}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif}
+.hdr{text-align:center;margin-bottom:28px}
+.hdr h1{font-size:26px;font-weight:800;letter-spacing:-1px;color:#4F46E5;background:linear-gradient(135deg,var(--c1,#6366F1),var(--c2,#8B5CF6));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline}
+.tabs{display:flex;gap:4px;margin-bottom:24px;justify-content:center;flex-wrap:wrap}
+.tab{padding:7px 12px;border-radius:12px;border:none;font-size:11px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:4px;font-family:'DM Sans',sans-serif;white-space:nowrap;transition:all .3s}
+.tab.on{color:#fff;transform:scale(1.05)}.tab:not(.on){background:#fff;color:#6B7280;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.cnt{max-width:600px;margin:0 auto}
+.sh{padding:28px 32px;border-radius:20px 20px 0 0;position:relative;overflow:hidden;color:#fff}
+.sh .big{position:absolute;top:-30px;right:-20px;font-size:100px;opacity:.1;transform:rotate(12deg)}
+.sh h2{font-size:28px;font-weight:800;letter-spacing:-.5px}
+.sh p{font-size:14px;opacity:.8;margin-top:6px}
+.sb{padding:20px;background:#fff;border-radius:0 0 20px 20px;display:flex;flex-direction:column;gap:16px;box-shadow:0 4px 20px rgba(0,0,0,.05)}
+.card{background:#fff;border-radius:16px;border:1px solid #E5E7EB;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.cardh{padding:16px 20px;display:flex;align-items:center;justify-content:space-between;cursor:pointer}
+.cardh h4{font-size:16px;font-weight:700;color:#1F2937;margin:0}
+.cardh small{font-size:13px;color:#6B7280}
+.badge{padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600}
+.arrow{transition:transform .3s;font-size:18px;color:#9CA3AF}.arrow.open{transform:rotate(180deg)}
+.body{padding:20px;border-top:1px solid #F3F4F6;animation:fadeIn .3s}
+.btn{display:block;margin:14px auto 0;padding:10px 28px;border-radius:12px;border:none;background:linear-gradient(135deg,#6366F1,#8B5CF6);color:#fff;font-size:14px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;box-shadow:0 4px 12px rgba(99,102,241,.3)}
+.btn:disabled{background:#D1D5DB;cursor:not-allowed;box-shadow:none}
+.btn2{padding:6px 16px;border-radius:8px;border:none;background:#6366F1;color:#fff;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif}
+textarea{width:100%;padding:12px;border-radius:10px;border:2px solid #E5E7EB;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;resize:vertical;min-height:65px;box-sizing:border-box}
+textarea:focus{border-color:#C7D2FE}
+input[type=text]{width:100%;padding:10px 14px;border-radius:10px;border:2px solid #E5E7EB;font-size:14px;font-family:'DM Sans',sans-serif;outline:none;box-sizing:border-box}
+.bar{height:6px;border-radius:6px;background:#E5E7EB;overflow:hidden}.barfill{height:100%;border-radius:6px;transition:width .5s}
+.fb{margin-top:12px;padding:12px 16px;border-radius:12px;animation:fadeIn .3s}
+.foot{margin-top:28px;padding:20px;border-radius:16px;background:#F9FAFB;border:1px dashed #D1D5DB;text-align:center;font-size:13px;color:#6B7280}
+
+/* BARRA DE PROGRESO FIJA */
+#progressBar{position:fixed;top:0;left:0;right:0;z-index:1000;background:#fff;border-bottom:1px solid #E5E7EB;padding:8px 12px;display:flex;align-items:center;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+#progressBar .pb-label{font-size:11px;font-weight:700;color:#6B7280;white-space:nowrap}
+#progressBar .pb-track{flex:1;height:8px;background:#F3F4F6;border-radius:8px;overflow:hidden}
+#progressBar .pb-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,#6366F1,#10B981);transition:width .4s ease}
+#progressBar .pb-count{font-size:13px;font-weight:800;color:#6366F1;white-space:nowrap;min-width:36px;text-align:right}
+#progressBar .pb-dots{display:flex;gap:3px;align-items:center}
+#progressBar .pb-dot{width:16px;height:16px;border-radius:50%;border:2px solid #E5E7EB;background:#fff;font-size:8px;display:flex;align-items:center;justify-content:center;transition:all .3s;flex-shrink:0;cursor:default}
+#progressBar .pb-dot.done{background:#10B981;border-color:#10B981;color:#fff}
+#progressBar .pb-dot.active{border-color:#6366F1;background:#EEF2FF}
+body{padding-top:52px}
+.check-section-btn{display:flex;align-items:center;justify-content:center;gap:10px;margin:24px auto 0;padding:14px 28px;border-radius:14px;border:2px solid #10B981;background:#ECFDF5;color:#065F46;font-size:15px;font-weight:700;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .3s;width:100%;max-width:400px;box-sizing:border-box}
+.check-section-btn:hover{background:#D1FAE5;transform:translateY(-1px);box-shadow:0 4px 12px rgba(16,185,129,.2)}
+.check-section-done{display:flex;align-items:center;justify-content:center;gap:8px;margin:24px auto 0;padding:12px 28px;border-radius:14px;background:#065F4610;color:#065F46;font-size:14px;font-weight:700;width:100%;max-width:400px;border:2px solid #10B98140;box-sizing:border-box}
+
+/* FEEDBACK & LOGROS */
+.docente-feedback{background:#F0F9FF;border:2px solid #3B82F6;border-radius:18px;padding:18px;margin-bottom:24px;position:relative;animation:fadeIn .5s ease;box-shadow:0 4px 15px rgba(59,130,246,0.1)}
+.docente-feedback::before{content:'👨‍🏫 Comentario de la Profe:';display:block;font-size:11px;font-weight:800;color:#2563EB;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
+.docente-feedback p{font-size:15px;color:#1E40AF;line-height:1.5;margin:0;font-style:italic}
+
+.achievements-section{margin-top:20px;animation:fadeIn 0.8s ease both}
+.achievements-grid{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;max-width:800px;margin:0 auto}
+.achievement-card{background:#fff;border:1px solid #E5E7EB;border-radius:12px;padding:6px 10px;display:flex;align-items:center;gap:8px;transition:all 0.4s;opacity:0.15;filter:grayscale(1);transform:scale(0.95);flex: 0 1 calc(25% - 8px);min-width:130px}
+.achievement-card.unlocked{opacity:1;filter:grayscale(0);border-color:#F59E0B;background:#FFFBEB;box-shadow:0 2px 8px rgba(245,158,11,0.15);transform:scale(1)}
+.achievement-icon{font-size:18px}
+.achievement-info{text-align:left}
+.achievement-info h4{font-size:10px;font-weight:800;color:#1F2937;margin:0;font-family:'Space Grotesk';text-transform:uppercase;letter-spacing:0.5px}
+.achievement-info p{font-size:9px;color:#6B7280;margin:0;line-height:1.1}
+
+@media (max-width: 600px) {
+  .achievement-card { flex: 0 1 calc(50% - 8px); }
+}
+
+/* Ajustes para diseño modular */
+.achievements-grid { display: flex; flex-direction: column; gap: 12px; }
+.tab.on { transform: none; }
 </style>
 </head>
 <body>
-<div id="progressBar">
-  <span style="font-size:12px">📊</span>
-  <div class="pb-track"><div id="pbFill" class="pb-fill" style="width:0%"></div></div>
-  <span id="pbCount" style="font-size:12px;font-weight:800;color:#3B82F6">0/0</span>
+<div id="progressBar" style="display:none">
+  <span class="pb-label">📓</span>
+  <div class="pb-dots" id="pbDots"></div>
+  <div class="pb-track"><div class="pb-fill" id="pbFill" style="width:0%"></div></div>
+  <span class="pb-count" id="pbCount">0/12</span>
 </div>
 <div id="app"></div>
+<div id="confettiBox"></div>
 <script>
-var D = null, B = null, S = {}, _S = S;
-var CB = parseInt(localStorage.getItem("u2_bloque") || "0");
-var CS = null;
-
-var SECCIONES = [
-  {k:"umbral", l:"Umbral", d:"Conexión inicial", i:"🚪"},
-  {k:"mapa", l:"Mapa", d:"Ruta visual", i:"🗺️"},
-  {k:"nucleo", l:"Núcleo", d:"Actividades clave", i:"⚛️"},
-  {k:"senales", l:"Señales", d:"Post-its", i:"🚦"},
-  {k:"sabias", l:"Sabías que...", d:"Curiosidades", i:"✨"},
-  {k:"cruces", l:"Cruces", d:"Elección de tema", i:"🔀"},
-  {k:"relectura", l:"Relectura", d:"Nivel avanzado", i:"📖"},
-  {k:"autotest", l:"Autotest", d:"Evaluación", i:"📝"}
-];
-var CIERRE_SECCIONES = [
-  {k:"emocional", l:"Emocional", d:"Metacognición", i:"🫶"},
-  {k:"cierre", l:"Cierre", d:"Glosario", i:"🔚"}
-];
-
-function loadData(){
-  var params = new URLSearchParams(window.location.search);
-  var archivo = params.get("datos") || "datos/eetp602_5a_marco_jur_u2.json";
-  fetch(archivo).then(r => r.json()).then(async data => {
-      D = data; 
-      updateBlock(CB);
-      await sincronizarEstadoDesdeSupabase();
-      render();
-  });
-}
-
-function updateBlock(idx){
-  CB = idx; localStorage.setItem("u2_bloque", CB);
-  B = (CB < D.bloques.length) ? D.bloques[CB] : null;
-  CS = null;
-}
-
-function getCheckKey(secK){
-  var bId = B ? B.id + "_" : "global_";
-  return "campus_check_" + (D.id||D.materia+"_u"+D.unidad) + "_" + bId + secK;
-}
-function isDone(secK){ return localStorage.getItem(getCheckKey(secK)) === "1"; }
-function marcarDone(secK){
-  localStorage.setItem(getCheckKey(secK), "1");
-  trackProgreso(secK);
-  render();
-}
-
-function render(){
-  if(!D) return;
-  var h = '<div class="hdr"><div style="display:flex;justify-content:space-between;margin-bottom:15px"><a href="index.html" style="text-decoration:none;font-size:13px;font-weight:700;color:#64748B">← Volver</a><span style="font-size:13px;font-weight:700;color:#3B82F6">Unidad ' + D.unidad + '</span></div><h1>' + D.materia + '</h1></div>';
-  h += '<div class="block-tabs">';
-  for(var i=0; i<D.bloques.length; i++){
-    var bl = D.bloques[i], active = (CB === i);
-    h += '<button class="block-tab '+(active?'on':'')+'" onclick="updateBlock('+i+');render()" style="'+(active?'background:'+bl.color:'')+'">' + bl.id + '</button>';
-  }
-  var cierreOn = (CB === D.bloques.length);
-  h += '<button class="block-tab '+(cierreOn?'on':'')+'" onclick="updateBlock('+D.bloques.length+');render()" style="'+(cierreOn?'background:#6366F1':'')+'">CIERRE</button>';
-  h += '</div><div class="cnt">';
-  
-  if(CS === null){
-    if(B){
-      h += '<div style="text-align:center;margin-bottom:20px"><h2 style="color:'+B.color+'">'+B.emoji+' Bloque '+B.id+': '+B.titulo+'</h2></div><div class="section-map">';
-      SECCIONES.forEach(sec => {
-        h += '<div class="section-card" onclick="CS=\''+sec.k+'\';render()" style="border-left:4px solid '+B.color+'"><div class="section-info"><div class="section-icon">'+sec.i+'</div><div class="section-text"><h4>'+sec.l+'</h4><p>'+sec.d+'</p></div></div><div class="section-check '+(isDone(sec.k)?'done':'')+'">✓</div></div>';
-      });
-      h += '</div>';
-    } else {
-      h += '<div style="text-align:center;margin-bottom:20px"><h2>🏁 Cierre de la Unidad</h2></div><div class="section-map">';
-      CIERRE_SECCIONES.forEach(sec => {
-        h += '<div class="section-card" onclick="CS=\''+sec.k+'\';render()" style="border-left:4px solid #6366F1"><div class="section-info"><div class="section-icon">'+sec.i+'</div><div class="section-text"><h4>'+sec.l+'</h4><p>'+sec.d+'</p></div></div><div class="section-check '+(isDone(sec.k)?'done':'')+'">✓</div></div>';
-      });
-      h += '</div>';
-    }
-  } else {
-    h += '<button class="btn-back-map" onclick="CS=null;render()">← Volver al mapa</button><div class="section-content">' + renderSectionContent() + '</div>';
-  }
-  h += '</div>';
-  document.getElementById("app").innerHTML = h;
-  actualizarBarra();
-}
-
-function renderSectionContent(){
-  var secK = CS, color = B ? B.color : "#6366F1";
-  var sObj = (B ? SECCIONES : CIERRE_SECCIONES).find(s => s.k === secK);
-  var html = secHeader(sObj.i, sObj.l.toUpperCase(), "", color);
-  html += '<div class="sb">';
-  if(secK === "umbral") html += rU1() + rU2() + rU3();
-  else if(secK === "mapa") html += rM1() + rM2() + rM3();
-  else if(secK === "nucleo") html += rNucleoModular();
-  else if(secK === "senales") html += rS1() + rS2() + rS3();
-  else if(secK === "sabias") html += rSB1() + rSB2() + rSB3();
-  else if(secK === "cruces") html += rCruces();
-  else if(secK === "relectura") html += rR1() + rR2() + rR3();
-  else if(secK === "autotest") html += rAutotest();
-  else if(secK === "emocional") html += rEmocional();
-  else if(secK === "cierre") html += rCierre();
-  html += '</div>' + renderCheckBtn(secK);
-  return html;
-}
-
-function secHeader(i,t,s,g){ return '<div class="sh" style="background:'+g+'"><h2>'+i+' '+t+'</h2></div>'; }
-function renderCheckBtn(secK){
-  if(isDone(secK)) return '<div class="check-section-done">✓ Sección completada</div>';
-  return '<button class="check-section-btn" onclick="marcarDone(\''+secK+'\')">Marcar como completada</button>';
-}
-function actualizarBarra(){
-  if(!D) return;
-  var total = (D.bloques.length * SECCIONES.length) + CIERRE_SECCIONES.length;
-  var done = 0;
-  D.bloques.forEach(bl => SECCIONES.forEach(sec => { if(localStorage.getItem("campus_check_" + (D.id||D.materia+"_u"+D.unidad) + "_" + bl.id + "_" + sec.k) === "1") done++; }));
-  CIERRE_SECCIONES.forEach(sec => { if(localStorage.getItem("campus_check_" + (D.id||D.materia+"_u"+D.unidad) + "_global_" + sec.k) === "1") done++; });
-  document.getElementById("pbFill").style.width = ((done/total)*100)+"%";
-  document.getElementById("pbCount").textContent = done + "/" + total;
-}
-
-function rNucleoModular(){
-  var info = B.nucleo_info || B.bloque_info || {emoji:"⚛️", titulo:"NÚCLEO", color:"#6366F1", paginas:[]};
-  return (B.nucleo.n1_ordenar_cronologicamente ? actWrap("n1","📋 1. Ordenar","Tocá en orden correcto","Organizar",info.color,rN1("nucleo"),true) : '')
-    +(B.nucleo.n2_clasificador ? actWrap("n2","🗂️ 2. Clasificar","Asigná categorías","Clasificar",info.color,rN2("nucleo")) : '')
-    +(B.nucleo.n4_verdadero_falso ? actWrap("n4","✅ 4. V o F","Evaluá afirmaciones","Analizar",info.color,rN4("nucleo")) : '')
-    +(B.nucleo.n5_relacionar_columnas ? actWrap("n5","🔗 5. Relacionar","Conectá pares","Relacionar",info.color,rN5("nucleo")) : '')
-    +(B.nucleo.n6_palabra_intrusa ? actWrap("n6","🚫 6. Intrusa","Encontrá la que no pertenece","Diferenciar",info.color,rN6("nucleo")) : '')
-    +(B.nucleo.n7_defini_con_tus_palabras ? actWrap("n7","💬 7. Definí","Escribí con tus palabras","Explicar",info.color,rN7("nucleo")) : '');
-}
-
 
 
 // Auth check - redirect to index if not authenticated
@@ -194,7 +103,40 @@ var D = null;
 var B = null; // Bloque actual (para unidades modulares)
 var currentBloque = parseInt(localStorage.getItem("campus_bloque_actual") || "0");
 
-
+function loadData(){
+  var params = new URLSearchParams(window.location.search);
+  var archivo = params.get("datos") || "datos/economia_u1.json";
+  fetch(archivo)
+    .then(function(r){ 
+      if(!r.ok) throw new Error("No se encontr\u00f3 " + archivo);
+      return r.json(); 
+    })
+    .then(async function(data){ 
+      D = data; 
+      // Lógica de bloques para unidades modulares (como Unidad 2)
+      if (D.bloques && D.bloques.length > 0) {
+        if (currentBloque >= D.bloques.length) currentBloque = 0;
+        updateBlock(CB);
+      } else {
+        B = D;
+      }
+      
+      // Cargar datos de autotest y estado S desde Supabase
+      AUTOTEST_DATA = await obtenerDatosAutotest();
+      await sincronizarEstadoDesdeSupabase();
+      render(); 
+      actualizarBarra(); 
+      // Sincronizar progreso desde Supabase
+      sincronizarProgresoDesdeSupabase();
+    })
+    .catch(function(e){
+      document.getElementById("app").innerHTML = '<div style="text-align:center;padding:40px">'
+        +'<p style="font-size:48px;margin-bottom:16px">\u26a0\ufe0f</p>'
+        +'<p style="font-size:18px;font-weight:700;color:#EF4444">No se pudo cargar los datos</p>'
+        +'<p style="font-size:14px;color:#6B7280;margin-top:8px">Archivo: <code>'+archivo+'</code></p>'
+        +'</div>';
+    });
+}
 
 var CT=0, S={};
 var AUTOTEST_DATA = null; 
@@ -204,7 +146,11 @@ var TAB_KEYS=["umbral","mapa","nucleo_a","nucleo_b","nucleo_c","senales","sabias
 var TAB_LABELS=["Umbral","Mapa","Núcleo A","Núcleo B","Núcleo C","Señales","Sabías","Cruces","Relectura","Emocional","Autotest","Cierre"];
 var TAB_EMOJIS=["🚪","🗺️","⚛️","⚛️","⚛️","🚦","✨","🔀","📖","🫶","📝","🔚"];
 
-
+function getCheckKey(tabKey){
+  if(!D) return null;
+  var bId = (B && B.id && D.bloques) ? (B.id + "_") : "";
+  return "campus_check_" + (D.id||D.materia+"_u"+D.unidad) + "_" + bId + tabKey;
+}
 function isChecked(tabKey){
   return localStorage.getItem(getCheckKey(tabKey)) === "1";
 }
@@ -334,6 +280,73 @@ function cerrarSesion(){
 }
 
 
+var CB = parseInt(localStorage.getItem("u2_bloque") || "0");
+var CS = null;
+var SECCIONES = [
+  {k:"umbral", l:"Umbral", d:"Conexión inicial", i:"🚪"},
+  {k:"mapa", l:"Mapa", d:"Ruta visual", i:"🗺️"},
+  {k:"nucleo_a", l:"Núcleo", d:"Actividades clave", i:"⚛️"},
+  {k:"senales", l:"Señales", d:"Post-its", i:"🚦"},
+  {k:"sabias", l:"Sabías que...", d:"Curiosidades", i:"✨"},
+  {k:"cruces", l:"Cruces", d:"Elección de tema", i:"🔀"},
+  {k:"relectura", l:"Relectura", d:"Nivel avanzado", i:"📖"},
+  {k:"autotest", l:"Autotest", d:"Evaluación", i:"📝"}
+];
+var CIERRE_SECCIONES = [
+  {k:"emocional", l:"Emocional", d:"Metacognición", i:"🫶"},
+  {k:"cierre", l:"Cierre", d:"Glosario", i:"🔚"}
+];
+
+function updateBlock(idx){
+  CB = idx; localStorage.setItem("u2_bloque", CB);
+  if(D.bloques && idx < D.bloques.length) B = D.bloques[CB];
+  else B = null;
+  CS = null;
+}
+
+// Reemplazar render original
+function render(){
+  if(!D) return;
+  var h = '<div class="hdr"><div style="display:flex;justify-content:space-between;margin-bottom:15px"><a href="index.html" style="text-decoration:none;font-size:13px;font-weight:700;color:#64748B">← Volver</a><span style="font-size:13px;font-weight:700;color:#3B82F6">Unidad ' + D.unidad + '</span></div><h1>' + D.materia + '</h1></div>';
+  
+  h += '<div class="tabs" style="background:#fff;padding:8px;border-radius:20px;box-shadow:0 4px 15px rgba(0,0,0,0.05);margin-bottom:25px">';
+  for(var i=0; i<D.bloques.length; i++){
+    var bl = D.bloques[i], active = (CB === i);
+    h += '<button class="tab '+(active?'on':'')+'" onclick="updateBlock('+i+');render()" style="flex:1;justify-content:center;'+(active?'background:linear-gradient(135deg,'+bl.color+','+bl.color+'DD)':'')+'">' + bl.id + '</button>';
+  }
+  var cierreOn = (CB === D.bloques.length);
+  h += '<button class="tab '+(cierreOn?'on':'')+'" onclick="updateBlock('+D.bloques.length+');render()" style="flex:1;justify-content:center;'+(cierreOn?'background:linear-gradient(135deg,#6366F1,#4F46E5)':'')+'">🔚</button>';
+  h += '</div><div class="cnt">';
+  
+  if(CS === null){
+    if(B){
+      h += '<div style="text-align:center;margin-bottom:20px"><h2 style="color:'+B.color+';font-family:\'Space Grotesk\'">'+B.emoji+' Bloque '+B.id+': '+B.titulo+'</h2></div><div class="achievements-grid" style="display:flex;flex-direction:column;gap:12px;filter:none;opacity:1">';
+      SECCIONES.forEach(sec => {
+        var done = isChecked(sec.k);
+        h += '<div onclick="CS=\''+sec.k+'\';render()" style="background:#fff;border-radius:18px;padding:18px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;border:2px solid '+(done?B.color+'40':'transparent')+';box-shadow:0 4px 12px rgba(0,0,0,0.03);transition:all .3s" onmouseover="this.style.transform=\'translateX(8px)\'" onmouseout="this.style.transform=\'none\'">';
+        h += '<div style="display:flex;align-items:center;gap:15px"><div style="font-size:24px;width:48px;height:48px;background:#F1F5F9;border-radius:14px;display:flex;align-items:center;justify-content:center">'+sec.i+'</div><div><h4 style="font-size:16px;font-weight:700;color:#1F2937;margin:0">'+sec.l+'</h4><p style="font-size:12px;color:#6B7280;margin:0">'+sec.d+'</p></div></div>';
+        h += '<div style="font-size:20px;color:'+B.color+';opacity:'+(done?1:0.2)+'">'+(done?'✓':'→')+'</div></div>';
+      });
+      h += '</div>';
+    } else {
+      h += '<div style="text-align:center;margin-bottom:20px"><h2 style="font-family:\'Space Grotesk\'">🏁 Cierre de la Unidad</h2></div><div class="achievements-grid" style="display:flex;flex-direction:column;gap:12px;filter:none;opacity:1">';
+      CIERRE_SECCIONES.forEach(sec => {
+        var done = isChecked(sec.k);
+        h += '<div onclick="CS=\''+sec.k+'\';render()" style="background:#fff;border-radius:18px;padding:18px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;border:2px solid '+(done?'#6366F140':'transparent')+';box-shadow:0 4px 12px rgba(0,0,0,0.03)">';
+        h += '<div style="display:flex;align-items:center;gap:15px"><div style="font-size:24px;width:48px;height:48px;background:#F1F5F9;border-radius:14px;display:flex;align-items:center;justify-content:center">'+sec.i+'</div><div><h4 style="font-size:16px;font-weight:700;color:#1F2937;margin:0">'+sec.l+'</h4><p style="font-size:12px;color:#6B7280;margin:0">'+sec.d+'</p></div></div>';
+        h += '<div style="font-size:20px;color:#6366F1;opacity:'+(done?1:0.2)+'">'+(done?'✓':'→')+'</div></div>';
+      });
+      h += '</div>';
+    }
+  } else {
+    h += '<button onclick="CS=null;render()" style="display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background:#fff;border:1px solid #E5E7EB;border-radius:14px;font-size:13px;font-weight:700;color:#6B7280;cursor:pointer;margin-bottom:20px;box-shadow:0 2px 8px rgba(0,0,0,0.05)">← Volver al mapa de Bloque '+B.id+'</button>';
+    h += '<div style="animation:fadeIn 0.4s ease both">' + renderSection() + '</div>';
+  }
+  h += '</div>';
+  document.getElementById("app").innerHTML = h;
+  actualizarBarra();
+}
+
 
 function renderFeedback(){
   var tabK = TABS[CT].k;
@@ -393,7 +406,25 @@ function rNucleoModular(){
     +renderCheckBtn("nucleo_a");
 }
 
-
+function renderSection(){
+  var tabK = TABS[CT].k;
+  if(D.bloques && tabK === "nucleo_a") return rNucleoModular();
+  switch(tabK){
+    case "umbral": return rUmbral();
+    case "mapa": return rMapa();
+    case "nucleo_a": return rNucleoA();
+    case "nucleo_b": return rNucleoB();
+    case "nucleo_c": return rNucleoC();
+    case "senales": return rSenales();
+    case "sabias": return rSabias();
+    case "cruces": return rCruces();
+    case "relectura": return rRelectura();
+    case "emocional": return rEmocional();
+    case "autotest": return rAutotest();
+    case "cierre": return rCierre();
+    default: return "";
+  }
+}
 
 
 function rUmbral(){
@@ -1874,8 +1905,6 @@ setTimeout(actualizarIndicadoresTabs, 500);
 loadData();
 
 
-
-loadData();
 </script>
 </body>
 </html>
