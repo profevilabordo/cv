@@ -542,54 +542,57 @@ function rM3(){
 
 function rNucleoA(){
   var info = D.nucleo_a.bloque_info || {emoji:"⚛\uFE0F", titulo:"BLOQUE A", color:TABS[2].g, paginas:[]};
+  var n = D.nucleo_a;
   return secHeader(info.emoji,"N\u00daCLEO A",info.titulo + (info.paginas.length ? " \u2014 P\u00e1ginas " + info.paginas.join(", ") : ""),TABS[2].g)
     +'<div class="sb">'
-    +actWrap("na1","\u{1F4CB} 1. Ordenar","Tocá en orden correcto","Organizar",info.color,rN1("nucleo_a"),true)
-    +actWrap("na2","\u{1F5C2}\uFE0F 2. Clasificar","Asigná categorías","Clasificar",info.color,rN2("nucleo_a"))
-    +actWrap("na3","\u270F\uFE0F 3. Completar","Rellenás los blancos","Definir",info.color,rN3("nucleo_a"))
-    +actWrap("na4","\u2705 4. V o F","Evaluá afirmaciones","Analizar",info.color,rN4("nucleo_a"))
-    +actWrap("na5","\u{1F517} 5. Relacionar","Conectá pares","Relacionar",info.color,rN5("nucleo_a"))
-    +actWrap("na6","\u{1F6AB} 6. Intrusa","Encontrá la que no pertenece","Diferenciar",info.color,rN6("nucleo_a"))
-    +actWrap("na7","\u{1F4AC} 7. Definí","Escribí con tus palabras","Explicar",info.color,rN7("nucleo_a"))
-    +actWrap("na8","\u26A1 8. Causa\u2192Efecto","Conectá causas","Aplicar",info.color,rN8("nucleo_a"))
-    +actWrap("na9","\u{1F522} 9. Proceso","Ordená los pasos","Estructurar",info.color,rN9("nucleo_a"))
-    +actWrap("na10","\u2696\uFE0F 10. Comparar","Similitudes y diferencias","Comparar",info.color,rN10("nucleo_a"))
+    +(n.n1_ordenar_cronologicamente ? actWrap("na1","\u{1F4CB} 1. Ordenar","Toc\u00e1 en orden correcto","Organizar",info.color,rN1("nucleo_a"),true) : '')
+    +(n.n2_clasificador ? actWrap("na2","\u{1F5C2}\uFE0F 2. Clasificar","Asign\u00e1 categor\u00edas","Clasificar",info.color,rN2("nucleo_a")) : '')
+    +(n.n3_completar_mapa ? actWrap("na3","\u270F\uFE0F 3. Completar","Rellen\u00e1s los blancos","Definir",info.color,rN3("nucleo_a")) : '')
+    +(n.n4_verdadero_falso ? actWrap("na4","\u2705 4. V o F","Evalu\u00e1 afirmaciones","Analizar",info.color,rN4("nucleo_a")) : '')
+    +(n.n5_relacionar_columnas ? actWrap("na5","\u{1F517} 5. Relacionar","Conect\u00e1 pares","Relacionar",info.color,rN5("nucleo_a")) : '')
+    +(n.n6_palabra_intrusa ? actWrap("na6","\u{1F6AB} 6. Intrusa","Encontr\u00e1 la que no pertenece","Diferenciar",info.color,rN6("nucleo_a")) : '')
+    +(n.n7_defini_con_tus_palabras ? actWrap("na7","\u{1F4AC} 7. Defin\u00ed","Escrib\u00ed con tus palabras","Explicar",info.color,rN7("nucleo_a")) : '')
+    +(n.n8_causa_efecto ? actWrap("na8","\u26A1 8. Causa\u2192Efecto","Conect\u00e1 causas","Aplicar",info.color,rN8("nucleo_a")) : '')
+    +(n.n9_ordenar_proceso ? actWrap("na9","\u{1F522} 9. Proceso","Orden\u00e1 los pasos","Estructurar",info.color,rN9("nucleo_a")) : '')
+    +(n.n10_comparador ? actWrap("na10","\u2696\uFE0F 10. Comparar","Similitudes y diferencias","Comparar",info.color,rN10("nucleo_a")) : '')
     +'</div>'
     +renderCheckBtn("nucleo_a");
 }
 
 function rNucleoB(){
   var info = D.nucleo_b.bloque_info || {emoji:"⚛\uFE0F", titulo:"BLOQUE B", color:TABS[3].g, paginas:[]};
+  var n = D.nucleo_b;
   return secHeader(info.emoji,"N\u00daCLEO B",info.titulo + (info.paginas.length ? " \u2014 P\u00e1ginas " + info.paginas.join(", ") : ""),TABS[3].g)
     +'<div class="sb">'
-    +actWrap("nb1","\u{1F4CB} 1. Ordenar","Tocá en orden correcto","Organizar",info.color,rN1("nucleo_b"),true)
-    +actWrap("nb2","\u{1F5C2}\uFE0F 2. Clasificar","Asigná categorías","Clasificar",info.color,rN2("nucleo_b"))
-    +actWrap("nb3","\u270F\uFE0F 3. Completar","Rellenás los blancos","Definir",info.color,rN3("nucleo_b"))
-    +actWrap("nb4","\u2705 4. V o F","Evaluá afirmaciones","Analizar",info.color,rN4("nucleo_b"))
-    +actWrap("nb5","\u{1F517} 5. Relacionar","Conectá pares","Relacionar",info.color,rN5("nucleo_b"))
-    +actWrap("nb6","\u{1F6AB} 6. Intrusa","Encontrá la que no pertenece","Diferenciar",info.color,rN6("nucleo_b"))
-    +actWrap("nb7","\u{1F4AC} 7. Definí","Escribí con tus palabras","Explicar",info.color,rN7("nucleo_b"))
-    +actWrap("nb8","\u26A1 8. Causa\u2192Efecto","Conectá causas","Aplicar",info.color,rN8("nucleo_b"))
-    +actWrap("nb9","\u{1F522} 9. Proceso","Ordená los pasos","Estructurar",info.color,rN9("nucleo_b"))
-    +actWrap("nb10","\u2696\uFE0F 10. Comparar","Similitudes y diferencias","Comparar",info.color,rN10("nucleo_b"))
+    +(n.n1_ordenar_cronologicamente ? actWrap("nb1","\u{1F4CB} 1. Ordenar","Toc\u00e1 en orden correcto","Organizar",info.color,rN1("nucleo_b"),true) : '')
+    +(n.n2_clasificador ? actWrap("nb2","\u{1F5C2}\uFE0F 2. Clasificar","Asign\u00e1 categor\u00edas","Clasificar",info.color,rN2("nucleo_b")) : '')
+    +(n.n3_completar_mapa ? actWrap("nb3","\u270F\uFE0F 3. Completar","Rellen\u00e1s los blancos","Definir",info.color,rN3("nucleo_b")) : '')
+    +(n.n4_verdadero_falso ? actWrap("nb4","\u2705 4. V o F","Evalu\u00e1 afirmaciones","Analizar",info.color,rN4("nucleo_b")) : '')
+    +(n.n5_relacionar_columnas ? actWrap("nb5","\u{1F517} 5. Relacionar","Conect\u00e1 pares","Relacionar",info.color,rN5("nucleo_b")) : '')
+    +(n.n6_palabra_intrusa ? actWrap("nb6","\u{1F6AB} 6. Intrusa","Encontr\u00e1 la que no pertenece","Diferenciar",info.color,rN6("nucleo_b")) : '')
+    +(n.n7_defini_con_tus_palabras ? actWrap("nb7","\u{1F4AC} 7. Defin\u00ed","Escrib\u00ed con tus palabras","Explicar",info.color,rN7("nucleo_b")) : '')
+    +(n.n8_causa_efecto ? actWrap("nb8","\u26A1 8. Causa\u2192Efecto","Conect\u00e1 causas","Aplicar",info.color,rN8("nucleo_b")) : '')
+    +(n.n9_ordenar_proceso ? actWrap("nb9","\u{1F522} 9. Proceso","Orden\u00e1 los pasos","Estructurar",info.color,rN9("nucleo_b")) : '')
+    +(n.n10_comparador ? actWrap("nb10","\u2696\uFE0F 10. Comparar","Similitudes y diferencias","Comparar",info.color,rN10("nucleo_b")) : '')
     +'</div>'
     +renderCheckBtn("nucleo_b");
 }
 
 function rNucleoC(){
   var info = D.nucleo_c.bloque_info || {emoji:"⚛\uFE0F", titulo:"BLOQUE C", color:TABS[4].g, paginas:[]};
+  var n = D.nucleo_c;
   return secHeader(info.emoji,"N\u00daCLEO C",info.titulo + (info.paginas.length ? " \u2014 P\u00e1ginas " + info.paginas.join(", ") : ""),TABS[4].g)
     +'<div class="sb">'
-    +actWrap("nc1","\u{1F4CB} 1. Ordenar","Tocá en orden correcto","Organizar",info.color,rN1("nucleo_c"),true)
-    +actWrap("nc2","\u{1F5C2}\uFE0F 2. Clasificar","Asigná categorías","Clasificar",info.color,rN2("nucleo_c"))
-    +actWrap("nc3","\u270F\uFE0F 3. Completar","Rellenás los blancos","Definir",info.color,rN3("nucleo_c"))
-    +actWrap("nc4","\u2705 4. V o F","Evaluá afirmaciones","Analizar",info.color,rN4("nucleo_c"))
-    +actWrap("nc5","\u{1F517} 5. Relacionar","Conectá pares","Relacionar",info.color,rN5("nucleo_c"))
-    +actWrap("nc6","\u{1F6AB} 6. Intrusa","Encontrá la que no pertenece","Diferenciar",info.color,rN6("nucleo_c"))
-    +actWrap("nc7","\u{1F4AC} 7. Definí","Escribí con tus palabras","Explicar",info.color,rN7("nucleo_c"))
-    +actWrap("nc8","\u26A1 8. Causa\u2192Efecto","Conectá causas","Aplicar",info.color,rN8("nucleo_c"))
-    +actWrap("nc9","\u{1F522} 9. Proceso","Ordená los pasos","Estructurar",info.color,rN9("nucleo_c"))
-    +actWrap("nc10","\u2696\uFE0F 10. Comparar","Similitudes y diferencias","Comparar",info.color,rN10("nucleo_c"))
+    +(n.n1_ordenar_cronologicamente ? actWrap("nc1","\u{1F4CB} 1. Ordenar","Toc\u00e1 en orden correcto","Organizar",info.color,rN1("nucleo_c"),true) : '')
+    +(n.n2_clasificador ? actWrap("nc2","\u{1F5C2}\uFE0F 2. Clasificar","Asign\u00e1 categor\u00edas","Clasificar",info.color,rN2("nucleo_c")) : '')
+    +(n.n3_completar_mapa ? actWrap("nc3","\u270F\uFE0F 3. Completar","Rellen\u00e1s los blancos","Definir",info.color,rN3("nucleo_c")) : '')
+    +(n.n4_verdadero_falso ? actWrap("nc4","\u2705 4. V o F","Evalu\u00e1 afirmaciones","Analizar",info.color,rN4("nucleo_c")) : '')
+    +(n.n5_relacionar_columnas ? actWrap("nc5","\u{1F517} 5. Relacionar","Conect\u00e1 pares","Relacionar",info.color,rN5("nucleo_c")) : '')
+    +(n.n6_palabra_intrusa ? actWrap("nc6","\u{1F6AB} 6. Intrusa","Encontr\u00e1 la que no pertenece","Diferenciar",info.color,rN6("nucleo_c")) : '')
+    +(n.n7_defini_con_tus_palabras ? actWrap("nc7","\u{1F4AC} 7. Defin\u00ed","Escrib\u00ed con tus palabras","Explicar",info.color,rN7("nucleo_c")) : '')
+    +(n.n8_causa_efecto ? actWrap("nc8","\u26A1 8. Causa\u2192Efecto","Conect\u00e1 causas","Aplicar",info.color,rN8("nucleo_c")) : '')
+    +(n.n9_ordenar_proceso ? actWrap("nc9","\u{1F522} 9. Proceso","Orden\u00e1 los pasos","Estructurar",info.color,rN9("nucleo_c")) : '')
+    +(n.n10_comparador ? actWrap("nc10","\u2696\uFE0F 10. Comparar","Similitudes y diferencias","Comparar",info.color,rN10("nucleo_c")) : '')
     +'</div>'
     +renderCheckBtn("nucleo_c");
 }
