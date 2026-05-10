@@ -21,13 +21,11 @@ body {
 
 .container { max-width: 500px; margin: 0 auto; padding: 24px; position: relative; z-index: 1; }
 
-/* HEADER */
 .header { text-align: center; margin-bottom: 32px; animation: slideDown 0.6s ease-out; }
 .back-link { text-decoration: none; font-size: 14px; font-weight: 600; color: #94A3B8; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 12px; transition: color 0.3s; }
 .back-link:hover { color: var(--p); }
 h1 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 800; margin: 0; letter-spacing: -1px; background: linear-gradient(135deg, #fff 0%, #94A3B8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-/* TABS MODULARES */
 .tabs-container {
   display: flex; gap: 8px; background: rgba(15, 23, 42, 0.6); padding: 6px; 
   border-radius: 18px; border: 1px solid var(--border); margin-bottom: 32px;
@@ -43,14 +41,12 @@ h1 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 800
   box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
 }
 
-/* CARDS PRINCIPALES */
 .card {
   background: var(--card); backdrop-filter: blur(20px); border-radius: 24px;
   border: 1px solid var(--border); padding: 24px; margin-bottom: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: all 0.4s;
   animation: fadeIn 0.6s ease both;
 }
-.card:hover { transform: translateY(-4px); border-color: rgba(255, 255, 255, 0.2); }
 
 .section-item {
   display: flex; align-items: center; gap: 16px; padding: 16px; 
@@ -65,8 +61,6 @@ h1 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 800
 .section-info h4 { margin: 0; font-size: 16px; font-weight: 700; color: #F8FAFC; }
 .section-info p { margin: 2px 0 0; font-size: 12px; color: #94A3B8; }
 
-/* SECCIÓN CONTENIDO */
-.content-header { margin-bottom: 24px; }
 .btn-back-menu {
   background: var(--glass); border: 1px solid var(--border); color: #94A3B8;
   padding: 8px 16px; border-radius: 12px; cursor: pointer; font-weight: 600;
@@ -74,7 +68,22 @@ h1 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 800
 }
 .btn-back-menu:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
 
-h2.section-title { font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin: 0; color: var(--p); }
+h2.section-title { font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin: 0; color: var(--p); display: flex; align-items: center; gap: 10px; }
+
+/* QUIZ ENGINE */
+.quiz-option {
+  padding: 16px; border-radius: 16px; border: 1px solid var(--border);
+  background: rgba(255,255,255,0.03); color: #F8FAFC; cursor: pointer;
+  margin-bottom: 10px; transition: all 0.3s; font-size: 14px;
+}
+.quiz-option:hover { background: rgba(255,255,255,0.08); border-color: var(--p); }
+.quiz-option.correct { background: rgba(16, 185, 129, 0.2); border-color: var(--s); color: #fff; }
+.quiz-option.wrong { background: rgba(239, 68, 68, 0.2); border-color: var(--danger); color: #fff; }
+
+.progress-dots { display: flex; gap: 6px; margin-bottom: 20px; justify-content: center; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
+.dot.active { background: var(--p); transform: scale(1.3); }
+.dot.done { background: var(--s); }
 
 /* COMPONENTES DE ACTIVIDAD */
 .activity-box {
@@ -82,12 +91,11 @@ h2.section-title { font-family: 'Space Grotesk', sans-serif; font-size: 24px; ma
   border-left: 4px solid var(--p); margin-bottom: 20px;
 }
 textarea {
-  width: 100%; min-height: 120px; background: rgba(15, 23, 42, 0.4); 
+  width: 100%; min-height: 100px; background: rgba(15, 23, 42, 0.4); 
   border: 1px solid var(--border); border-radius: 16px; padding: 16px;
   color: #fff; font-family: inherit; font-size: 15px; resize: none;
-  box-sizing: border-box; outline: none; transition: border-color 0.3s;
+  box-sizing: border-box; outline: none; margin-bottom: 12px;
 }
-textarea:focus { border-color: var(--p); }
 
 .btn-primary {
   width: 100%; padding: 16px; border-radius: 16px; border: none;
@@ -95,47 +103,29 @@ textarea:focus { border-color: var(--p); }
   color: white; font-weight: 700; font-size: 16px; cursor: pointer;
   transition: all 0.3s; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
 }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5); }
-.btn-primary:active { transform: scale(0.98); }
 
 .check-btn {
   width: 100%; padding: 16px; border-radius: 16px; border: 2px solid var(--s);
   background: rgba(16, 185, 129, 0.1); color: var(--s); font-weight: 700;
   cursor: pointer; margin-top: 24px; transition: all 0.3s;
 }
-.check-btn:hover { background: rgba(16, 185, 129, 0.2); }
 .check-done {
   width: 100%; padding: 16px; border-radius: 16px; background: rgba(16, 185, 129, 0.2);
   color: #fff; text-align: center; font-weight: 700; border: 1px solid var(--s); margin-top: 24px;
 }
 
-/* ANIMACIONES */
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
-
-/* SCROLLBAR */
-::-webkit-scrollbar { width: 8px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
 </style>
 </head>
 <body>
 
-<div class="container" id="app">
-  <div style="text-align:center;padding:100px 0;opacity:0.5">
-    <div style="font-size:40px;margin-bottom:10px">⌛</div>
-    Cargando sistema...
-  </div>
-</div>
+<div class="container" id="app"></div>
 
 <script>
-// --- CONFIGURACIÓN DE DATOS ---
 var D = null, B = null, S = {};
 var CB = parseInt(localStorage.getItem("u2_bloque") || "0");
 var CS = null;
 
-// --- ESTRUCTURA DE NAVEGACIÓN ---
 var SECCIONES = [
   {k:"umbral", l:"Umbral", d:"Iniciá la conexión", i:"🚪", c:"#6366F1"},
   {k:"mapa", l:"Mapa", d:"Tu hoja de ruta", i:"🗺️", c:"#10B981"},
@@ -147,22 +137,17 @@ var SECCIONES = [
   {k:"autotest", l:"Autotest", d:"Poniendo a prueba", i:"📝", c:"#06B6D4"}
 ];
 
-// --- FUNCIONES CORE ---
 function updateBlock(idx){
   CB = idx; localStorage.setItem("u2_bloque", CB);
   if(D && D.bloques) B = D.bloques[CB];
-  CS = null;
-  render();
+  CS = null; render();
 }
 
 function render(){
   if(!D) return;
   if(!B && D.bloques) { B = D.bloques[CB]; }
   
-  var h = '<div class="header">';
-  h += '<a href="index.html" class="back-link">← Volver al Campus</a>';
-  h += '<h1>' + D.materia + '</h1></div>';
-  
+  var h = '<div class="header"><a href="index.html" class="back-link">← Volver al Campus</a><h1>' + D.materia + '</h1></div>';
   h += '<div class="tabs-container">';
   for(var i=0; i<D.bloques.length; i++){
     var bl = D.bloques[i], active = (CB === i);
@@ -186,7 +171,6 @@ function render(){
     h += '<button onclick="CS=null;render()" class="btn-back-menu">← Menú del Bloque '+B.id+'</button>';
     h += '<div class="card" style="border-top: 4px solid '+B.color+'">' + renderSection() + '</div>';
   }
-  
   document.getElementById("app").innerHTML = h;
 }
 
@@ -204,55 +188,47 @@ function renderSection(){
   }
 }
 
-// --- RENDERERS DE CONTENIDO ---
+// --- RENDERERS ---
 
 function rUmbral(){
   var d = B.umbral;
-  var h = '<div class="content-header"><h2 class="section-title">🚪 Umbral de Inicio</h2></div>';
-  h += '<p style="font-size:15px;color:#94A3B8;line-height:1.6">'+d.termometro_pregunta+'</p>';
+  var h = '<h2 class="section-title">🚪 Umbral</h2>';
+  h += '<div class="activity-box" style="border-color:var(--p)">'+d.termometro_pregunta+'</div>';
   return h + renderCheckBtn("umbral");
 }
 
 function rMapa(){
   var d = B.mapa;
-  var h = '<div class="content-header"><h2 class="section-title">🗺️ Ruta de Aprendizaje</h2></div>';
+  var h = '<h2 class="section-title">🗺️ Mapa de Ruta</h2>';
   d.ruta_paradas.forEach(p => {
-    h += '<div style="background:rgba(255,255,255,0.02);padding:16px;border-radius:16px;border:1px solid var(--border);margin-bottom:12px">';
-    h += '<div style="display:flex;align-items:center;gap:12px;margin-bottom:6px"><b>'+p.emoji+'</b><span style="font-weight:700;color:#fff">'+p.title+'</span></div>';
-    h += '<p style="margin:0;font-size:13px;color:#94A3B8">'+p.desc+'</p></div>';
+    h += '<div style="background:var(--glass);padding:14px;border-radius:16px;border:1px solid var(--border);margin-bottom:10px">';
+    h += '<b>'+p.emoji+' '+p.title+'</b><p style="margin:5px 0 0;font-size:12px;color:#94A3B8">'+p.desc+'</p></div>';
   });
   return h + renderCheckBtn("mapa");
 }
 
 function rNucleo(){
   var d = B.nucleo.n7_defini_con_tus_palabras;
-  var sk = "nucleo_n7";
+  var sk = "n_n7_" + CB;
   if(!S[sk]) S[sk] = {cur:0};
-  var s = S[sk];
-  var c = d.conceptos[s.cur];
-  var val = S[sk+"_inp_"+s.cur] || "";
-  var sub = S[sk+"_sub_"+s.cur] || false;
-  
-  var h = '<div class="content-header"><h2 class="section-title">⚛️ Núcleo de Conceptos</h2></div>';
-  h += '<div class="activity-box" style="border-color:'+B.color+'">';
-  h += '<span style="font-size:11px;font-weight:800;color:'+B.color+';text-transform:uppercase">Concepto '+(s.cur+1)+'/'+d.conceptos.length+'</span>';
-  h += '<p style="margin:6px 0 0;font-size:18px;font-weight:700;color:#fff">'+(c.titulo || c.termino)+'</p></div>';
-  if(c.pista) h += '<p style="font-size:13px;color:#94A3B8;margin-bottom:12px;font-style:italic">💡 '+c.pista+'</p>';
-  h += '<textarea oninput="S[\''+sk+'_inp_'+s.cur+'\']=this.value;render()" placeholder="Explicalo con tus palabras...">'+val+'</textarea>';
-  h += '<button class="btn-primary" onclick="S[\''+sk+'_sub_'+s.cur+'\']=true;render()">Enviar Respuesta</button>';
-  if(sub) h += '<div class="fb" style="background:rgba(16,185,129,0.1);color:#10B981;text-align:center">✨ ¡Concepto guardado!</div>';
-  if(s.cur < d.conceptos.length-1) h += '<button class="btn-back-menu" onclick="S.'+sk+'.cur++;render()" style="width:100%;margin-top:12px">Siguiente Concepto →</button>';
+  var s = S[sk]; var c = d.conceptos[s.cur];
+  var val = S[sk+"_v_"+s.cur] || "";
+  var h = '<h2 class="section-title">⚛️ Núcleo</h2>';
+  h += '<div class="activity-box"><span style="font-size:11px;color:var(--p)">Definí con tus palabras</span><p style="margin:5px 0 0;font-weight:700">'+c.titulo+'</p></div>';
+  h += '<textarea oninput="S[\''+sk+'_v_'+s.cur+'\']=this.value;render()">'+val+'</textarea>';
+  if(s.cur < d.conceptos.length-1) h += '<button class="btn-primary" onclick="S[\''+sk+'\'].cur++;render()">Siguiente Concepto</button>';
+  else h += '<div class="fb" style="background:rgba(16,185,129,0.1);color:#10B981;text-align:center">¡Excelente! Terminaste este bloque.</div>';
   return h + renderCheckBtn("nucleo");
 }
 
 function rSenales(){
   var d = B.senales;
-  var h = '<div class="content-header"><h2 class="section-title">🚦 Señales Clave</h2></div>';
+  var h = '<h2 class="section-title">🚦 Señales</h2>';
   (d.conceptos_clave || []).forEach((t, i) => {
-    var open = S["s1_"+i];
-    h += '<div onclick="S[\'s1_'+i+'\']=!S[\'s1_'+i+'\'];render()" style="background:'+(open?'rgba(99,102,241,0.05)':'rgba(255,255,255,0.02)')+';padding:16px;border-radius:18px;border:1px solid '+(open?B.color: 'var(--border)')+';margin-bottom:12px;cursor:pointer">';
-    h += '<div style="display:flex;justify-content:space-between;align-items:center"><b style="color:#fff">'+(t.titulo || t.termino)+'</b><span style="opacity:0.3">'+(open?'▼':'▲')+'</span></div>';
-    if(open) h += '<p style="margin:12px 0 0;font-size:14px;color:#94A3B8;line-height:1.6;animation:fadeIn 0.3s">'+(t.texto || t.definicion)+'</p>';
+    var open = S["s_"+CB+"_"+i];
+    h += '<div onclick="S[\'s_'+CB+'_'+i+'\']=!S[\'s_'+CB+'_'+i+'\'];render()" style="background:var(--glass);padding:14px;border-radius:16px;border:1px solid '+(open?B.color:'var(--border)')+';margin-bottom:10px;cursor:pointer">';
+    h += '<b>'+t.titulo+'</b>';
+    if(open) h += '<p style="margin-top:10px;font-size:14px;color:#94A3B8">'+t.texto+'</p>';
     h += '</div>';
   });
   return h + renderCheckBtn("senales");
@@ -260,82 +236,98 @@ function rSenales(){
 
 function rSabias(){
   var d = B.sabias;
-  var h = '<div class="content-header"><h2 class="section-title">✨ Sabías que...</h2></div>';
+  var h = '<h2 class="section-title">✨ Sabías que...</h2>';
   (d.flip_cards || []).forEach((c, i) => {
-    var open = S["w1_"+i];
-    h += '<div onclick="S[\'w1_'+i+'\']=!S[\'w1_'+i+'\'];render()" style="background:'+(open?'var(--bg)':'linear-gradient(135deg, var(--p), #4338CA)')+';padding:24px;border-radius:20px;border:1px solid var(--border);margin-bottom:12px;cursor:pointer;text-align:center;box-shadow:0 8px 20px rgba(0,0,0,0.2)">';
-    h += '<b style="color:#fff;font-size:15px">'+(open ? (c.dorso || c.back) : (c.frente || c.front))+'</b>';
-    if(!open) h += '<p style="margin:8px 0 0;font-size:11px;color:rgba(255,255,255,0.6);text-transform:uppercase;letter-spacing:1px">Toca para descubrir</p>';
-    h += '</div>';
+    var open = S["w_"+CB+"_"+i];
+    h += '<div onclick="S[\'w_'+CB+'_'+i+'\']=!S[\'w_'+CB+'_'+i+'\'];render()" style="background:'+(open?'var(--bg)':'var(--p)')+';padding:20px;border-radius:18px;border:1px solid var(--border);margin-bottom:10px;cursor:pointer;text-align:center">';
+    h += '<b>'+(open ? c.dorso : c.frente)+'</b></div>';
   });
   return h + renderCheckBtn("sabias");
 }
 
 function rCruces(){
   var d = B.cruces;
-  var h = '<div class="content-header"><h2 class="section-title">🔀 Cruces de Temas</h2></div>';
+  var h = '<h2 class="section-title">🔀 Cruces</h2>';
   (d.puentes || []).forEach((t, i) => {
-    var val = S.cruces ? (S.cruces[t.id || i] || "") : "";
-    h += '<div style="background:rgba(255,255,255,0.02);padding:20px;border-radius:20px;border:1px solid var(--border);margin-bottom:16px">';
-    h += '<div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;font-size:18px"><b>'+t.emoji+'</b><span style="font-weight:700;color:#fff">'+t.titulo+'</span></div>';
-    h += '<p style="font-size:13px;color:#94A3B8;margin-bottom:16px;line-height:1.5">'+t.texto+'</p>';
-    h += '<textarea oninput="if(!S.cruces)S.cruces={};S.cruces[\''+(t.id || i)+'\']=this.value" placeholder="¿Cómo lo relacionás? Escribí acá..." style="min-height:80px">'+val+'</textarea></div>';
+    var val = S["c_"+CB+"_"+i] || "";
+    h += '<div style="background:var(--glass);padding:16px;border-radius:18px;border:1px solid var(--border);margin-bottom:12px">';
+    h += '<b>'+t.emoji+' '+t.titulo+'</b><p style="font-size:12px;color:#94A3B8;margin:5px 0 10px">'+t.texto+'</p>';
+    h += '<textarea oninput="S[\'c_'+CB+'_'+i+'\']=this.value" placeholder="Tu relación...">'+val+'</textarea></div>';
   });
   return h + renderCheckBtn("cruces");
 }
 
 function rRelectura(){
-  var h = '<div class="content-header"><h2 class="section-title">📖 Relectura Avanzada</h2></div>';
-  h += '<div style="text-align:center;padding:30px;background:var(--glass);border-radius:20px">';
-  h += '<div style="font-size:40px;margin-bottom:12px">🧠</div>';
-  h += '<p style="color:#94A3B8;font-size:14px">Sección diseñada para debate y análisis crítico del Bloque '+B.id+'.</p></div>';
-  return h + renderCheckBtn("relectura");
+  return '<h2 class="section-title">📖 Relectura</h2><div class="activity-box">Reflexioná sobre lo aprendido en este bloque.</div>' + renderCheckBtn("relectura");
 }
 
+// --- QUIZ INTERACTIVO PARA AUTOTEST ---
 function rAutotest(){
   var d = B.autotest;
-  var h = '<div class="content-header"><h2 class="section-title">📝 Autoevaluación</h2></div>';
-  d.preguntas.forEach((p, i) => {
-    h += '<div style="background:rgba(255,255,255,0.02);padding:18px;border-radius:18px;border:1px solid var(--border);margin-bottom:12px">';
-    h += '<div style="font-size:12px;font-weight:800;color:var(--p);margin-bottom:6px">PREGUNTA '+(i+1)+'</div>';
-    h += '<b style="color:#fff;font-size:15px">'+p.pregunta+'</b></div>';
+  if(!S.at) S.at = {cur:0, ans:{}, fin:false};
+  var at = S.at;
+  
+  var h = '<h2 class="section-title">📝 Autotest</h2>';
+  
+  if(at.fin){
+    var ok = 0; d.preguntas.forEach((p,i) => { if(at.ans[i]===p.correcta) ok++; });
+    h += '<div style="text-align:center;padding:20px">';
+    h += '<div style="font-size:40px;margin-bottom:10px">🏁</div>';
+    h += '<h3>¡Terminaste!</h3>';
+    h += '<p style="font-size:24px;font-weight:800;color:var(--s)">'+ok+' / '+d.preguntas.length+'</p>';
+    h += '<button class="btn-primary" onclick="S.at=null;render()" style="margin-top:20px">Reintentar</button>';
+    h += '</div>';
+    return h + renderCheckBtn("autotest");
+  }
+
+  var p = d.preguntas[at.cur];
+  h += '<div class="progress-dots">';
+  d.preguntas.forEach((_,i) => { h += '<div class="dot '+(at.cur===i?'active':'')+' '+(at.ans[i]!==undefined?'done':'')+'"></div>'; });
+  h += '</div>';
+  
+  h += '<div class="activity-box" style="border-color:var(--p)">'+p.pregunta+'</div>';
+  
+  p.opciones.forEach((opt, i) => {
+    var st = "";
+    if(at.ans[at.cur] !== undefined){
+      if(i === p.correcta) st = "correct";
+      else if(i === at.ans[at.cur]) st = "wrong";
+    }
+    h += '<div class="quiz-option '+st+'" onclick="if(S.at.ans['+at.cur+']===undefined) selectOpt('+i+')">'+opt+'</div>';
   });
-  return h + renderCheckBtn("autotest");
+
+  if(at.ans[at.cur] !== undefined){
+    if(at.cur < d.preguntas.length - 1) h += '<button class="btn-primary" onclick="S.at.cur++;render()" style="margin-top:10px">Siguiente Pregunta</button>';
+    else h += '<button class="btn-primary" onclick="S.at.fin=true;render()" style="margin-top:10px">Ver Resultados</button>';
+  }
+  
+  return h;
 }
 
-// --- UTILIDADES ---
+function selectOpt(i){
+  S.at.ans[S.at.cur] = i;
+  render();
+}
 
 function renderCheckBtn(k){
-  if(isChecked(k)) return '<div class="check-done">✅ Sección Completada</div>';
+  if(isChecked(k)) return '<div class="check-done">✅ Completado</div>';
   return '<button class="check-btn" onclick="marcarSeccion(\''+k+'\')">✦ Marcar como completada</button>';
 }
 
 function marcarSeccion(k){
-  localStorage.setItem(getCheckKey(k), "1");
-  render();
-}
-
-function getCheckKey(k){
-  return "u2_check_" + B.id + "_" + k;
+  localStorage.setItem("u2_c_"+CB+"_"+k, "1"); render();
 }
 
 function isChecked(k){
-  return localStorage.getItem(getCheckKey(k)) === "1";
+  return localStorage.getItem("u2_c_"+CB+"_"+k) === "1";
 }
 
 function loadData(){
   var params = new URLSearchParams(window.location.search);
   var archivo = params.get("datos") || "datos/eetp602_5a_marco_jur_u2.json";
-  fetch(archivo)
-    .then(r => r.json())
-    .then(data => {
-      D = data;
-      B = D.bloques[CB];
-      render();
-    })
-    .catch(e => {
-      document.getElementById("app").innerHTML = '<div style="text-align:center;padding:40px;color:var(--danger)">⚠️ Error al cargar datos: '+e.message+'</div>';
-    });
+  fetch(archivo).then(r => r.json()).then(data => {
+    D = data; B = D.bloques[CB]; render();
+  });
 }
 
 loadData();
