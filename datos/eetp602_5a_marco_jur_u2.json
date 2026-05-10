@@ -83,21 +83,21 @@
             "title": "Teoría General",
             "emoji": "📜",
             "color": "#3B82F6",
-            "active": true
+            "items": ["Concepto de Contrato", "Elementos Esenciales", "Consentimiento", "Objeto y Causa", "Forma y Prueba", "Efectos y Extinción"]
           },
           {
             "id": "B",
             "title": "Contratos en Particular",
             "emoji": "🤝",
             "color": "#10B981",
-            "active": false
+            "items": ["Compraventa", "Locación", "Donación", "Mandato", "Fianza", "Comodato"]
           },
           {
             "id": "C",
             "title": "Sociedades",
             "emoji": "🏢",
             "color": "#F59E0B",
-            "active": false
+            "items": ["Concepto de Sociedad", "Tipos Societarios", "SRL", "SA", "SAS", "Disolución"]
           }
         ],
         "mapa_mental": {
