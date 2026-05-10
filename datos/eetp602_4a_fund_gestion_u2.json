@@ -868,81 +868,53 @@
     }
   },
 
-  "cruces": {
-    "puentes": [
-      {
-        "materia": "Comunicación organizacional",
-        "emoji": "💬",
-        "color": "#6366F1",
-        "conexion": "Explicale a tu compañero cómo funciona el esquema de comunicación y por qué el feedback es importante.",
-        "pregunta": "¿Qué puede pasar si el receptor interpreta mal el mensaje?",
-        "vinculo": "Aplicación: grupos de WhatsApp y trabajo en equipo"
-      },
-      {
-        "materia": "Delegación",
-        "emoji": "🤝",
-        "color": "#10B981",
-        "conexion": "Enseñale a tu compañero por qué delegar no significa perder el control.",
-        "pregunta": "¿Qué ventajas tiene compartir tareas dentro de un equipo?",
-        "vinculo": "Aplicación: trabajos prácticos grupales"
-      },
-      {
-        "materia": "Motivación",
-        "emoji": "🔥",
-        "color": "#F59E0B",
-        "conexion": "Explicale a tu compañero qué cosas pueden motivar o desmotivar a una persona.",
-        "pregunta": "¿Todos se motivan por las mismas razones?",
-        "vinculo": "Aplicación: estudio, deporte y trabajo"
-      },
-      {
-        "materia": "Liderazgo",
-        "emoji": "👑",
-        "color": "#EC4899",
-        "conexion": "Enseñale a tu compañero las diferencias entre liderazgo autocrático, democrático y laissez-faire.",
-        "pregunta": "¿Cuál creés que funciona mejor en un curso o equipo?",
-        "vinculo": "Aplicación: centros de estudiantes y equipos deportivos"
-      }
-    ],
-
-    "telarana": [
-      {
-        "target": "Psicología",
-        "emoji": "🧠",
-        "color": "#6366F1",
-        "desc": "La motivación y el liderazgo estudian conductas humanas y emociones"
-      },
-      {
-        "target": "Tecnología",
-        "emoji": "💻",
-        "color": "#3B82F6",
-        "desc": "Las plataformas digitales cambiaron la forma de comunicarse en las organizaciones"
-      },
-      {
-        "target": "Deportes",
-        "emoji": "⚽",
-        "color": "#10B981",
-        "desc": "Los equipos deportivos necesitan liderazgo, motivación y comunicación"
-      },
-      {
-        "target": "Vida cotidiana",
-        "emoji": "🏠",
-        "color": "#F59E0B",
-        "desc": "La comunicación y el liderazgo aparecen en la familia y entre amigos"
-      },
-      {
-        "target": "Historia",
-        "emoji": "📜",
-        "color": "#EC4899",
-        "desc": "Los modelos de liderazgo evolucionaron con los cambios sociales"
-      },
-      {
-        "target": "Educación",
-        "emoji": "🏫",
-        "color": "#8B5CF6",
-        "desc": "El clima positivo mejora el aprendizaje y la participación"
-      }
-    ]
-  },
+"cruces": {
+  "consigna_general": "Elegí uno de estos temas del PDF y preparate para explicárselo a un compañero. Podés usar ejemplos, esquemas o situaciones reales. La idea es que tu compañero entienda el tema aunque no lo haya leído todavía.",
+  "bloques": [
+    {
+      "id": "a",
+      "emoji": "💬",
+      "titulo": "BLOQUE A: Comunicación organizacional",
+      "color": "#6366F1",
+      "temas_sugeridos": [
+        "Explicale qué es la comunicación y por qué es la base de toda gestión.",
+        "Enseñale el esquema de comunicación: emisor, mensaje, canal, receptor, feedback y ruido.",
+        "Mostrá la diferencia entre comunicación formal e informal con ejemplos de una escuela o empresa.",
+        "Explicale la diferencia entre comunicación ascendente y descendente.",
+        "Contale qué son las barreras de comunicación y cómo pueden afectar el trabajo en equipo."
+      ],
+      "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+    },
+    {
+      "id": "b",
+      "emoji": "⚖️",
+      "titulo": "BLOQUE B: Autoridad, delegación, motivación y clima",
+      "color": "#10B981",
+      "temas_sugeridos": [
+        "Explicale la diferencia entre autoridad formal y autoridad personal.",
+        "Enseñale qué significa delegar y por qué no es lo mismo que abandonar la responsabilidad.",
+        "Contale las ideas principales de Maslow, Herzberg y McClelland sobre motivación.",
+        "Explicale qué es el clima organizacional y cómo se nota si es positivo o negativo.",
+        "Mostrá cómo la motivación y el clima influyen en el desempeño de un equipo."
+      ],
+      "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+    },
+    {
+      "id": "c",
+      "emoji": "👑",
+      "titulo": "BLOQUE C: Liderazgo y gestión integral",
+      "color": "#EC4899",
+      "temas_sugeridos": [
+        "Explicale qué diferencia hay entre ser jefe y ser líder.",
+        "Enseñale por qué el liderazgo moderno debe adaptarse a cada situación.",
+        "Contale por qué la diversidad de género en puestos jerárquicos mejora las organizaciones.",
+        "Explicale cómo se conectan comunicación, autoridad, delegación, motivación, clima y liderazgo.",
+        "Mostrá qué significa liderar desde la inclusión y la responsabilidad."
+      ],
+      "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+    }
+  ]
+},
 
   "relectura": {
     "tribunal": {
