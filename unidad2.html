@@ -74,7 +74,6 @@ body{padding-top:52px}
   .achievement-card { flex: 0 1 calc(50% - 8px); }
 }
 
-/* Ajustes para diseño modular */
 .achievements-grid { display: flex; flex-direction: column; gap: 12px; }
 .tab.on { transform: none; }
 </style>
@@ -285,7 +284,7 @@ var CS = null;
 var SECCIONES = [
   {k:"umbral", l:"Umbral", d:"Conexión inicial", i:"🚪"},
   {k:"mapa", l:"Mapa", d:"Ruta visual", i:"🗺️"},
-  {k:"nucleo_a", l:"Núcleo", d:"Actividades clave", i:"⚛️"},
+  {k:"nucleo", l:"Núcleo", d:"Actividades clave", i:"⚛️"},
   {k:"senales", l:"Señales", d:"Post-its", i:"🚦"},
   {k:"sabias", l:"Sabías que...", d:"Curiosidades", i:"✨"},
   {k:"cruces", l:"Cruces", d:"Elección de tema", i:"🔀"},
@@ -304,7 +303,6 @@ function updateBlock(idx){
   CS = null;
 }
 
-// Reemplazar render original
 function render(){
   if(!D) return;
   var h = '<div class="hdr"><div style="display:flex;justify-content:space-between;margin-bottom:15px"><a href="index.html" style="text-decoration:none;font-size:13px;font-weight:700;color:#64748B">← Volver</a><span style="font-size:13px;font-weight:700;color:#3B82F6">Unidad ' + D.unidad + '</span></div><h1>' + D.materia + '</h1></div>';
@@ -346,6 +344,8 @@ function render(){
   document.getElementById("app").innerHTML = h;
   actualizarBarra();
 }
+
+
 
 
 function renderFeedback(){
@@ -407,10 +407,9 @@ function rNucleoModular(){
 }
 
 function renderSection(){
-  var secK = CS;
-  if(!secK) return "";
-  if(secK === "nucleo_a" || secK === "nucleo") return rNucleoModular();
-  switch(secK){
+  var tabK = TABS[CT].k;
+  if(D.bloques && tabK === "nucleo_a") return rNucleoModular();
+  switch(tabK){
     case "umbral": return rUmbral();
     case "mapa": return rMapa();
     case "nucleo_a": return rNucleoA();
@@ -508,6 +507,39 @@ function rM1(){
     h+='<span style="font-size:13px;font-weight:700;color:'+p.color+'">Parada '+(i+1)+'</span>';
     h+='<p style="margin:4px 0 0;font-size:15px;font-weight:600;color:#1F2937">'+p.title+'</p>';
     if(active) h+='<p style="margin:6px 0 0;font-size:13px;color:#6B7280;animation:fadeIn .3s">'+p.desc+'</p>';
+    h+='</div></div>';
+  }
+  h+='</div>';
+  return h;
+}
+function rM2(){
+  var bs=B.mapa.panoramica_bloques;
+  var h='';
+  for(var i=0;i<bs.length;i++){
+    var b=bs[i], open=S["m2_"+i];
+    h+='<div onclick="S[\'m2_'+i+'\']=!S[\'m2_'+i+'\'];render()" style="border-radius:14px;overflow:hidden;border:2px solid '+(open?b.color:'#E5E7EB')+';cursor:pointer;margin-bottom:10px">';
+    h+='<div style="padding:14px 18px;background:'+(open?'linear-gradient(135deg,'+b.color+','+b.color+'CC)':'#fff')+';display:flex;align-items:center;justify-content:space-between">';
+    h+='<div style="display:flex;align-items:center;gap:10px"><span style="font-size:24px">'+b.emoji+'</span><div>';
+    h+='<p style="margin:0;font-size:15px;font-weight:700;color:'+(open?'#fff':'#1F2937')+'">'+b.title+'</p>';
+    h+='<p style="margin:2px 0 0;font-size:12px;color:'+(open?'rgba(255,255,255,.8)':'#9CA3AF')+'">'+b.subtitle+'</p>';
+    h+='</div></div>';
+    h+='<span style="font-size:12px;font-weight:700;color:'+(open?'#fff':'#6B7280')+';background:'+(open?'rgba(255,255,255,.2)':'#F3F4F6')+';padding:4px 10px;border-radius:8px">'+(b.items?b.items.length:0)+' temas</span>';
+    h+='</div>';
+    if(open && b.items){
+      h+='<div style="padding:12px 18px;background:#FAFAFA;animation:fadeIn .3s"><div style="display:flex;flex-wrap:wrap;gap:6px">';
+      for(var j=0;j<b.items.length;j++){
+        h+='<span style="padding:6px 14px;border-radius:10px;background:#fff;border:1px solid '+b.color+'30;font-size:13px;font-weight:500;color:#374151">\\u2022 '+b.items[j]+'</span>';
+      }
+      h+='</div></div>';
+    }
+    h+='</div>';
+  }
+  return h;
+}
+function rM3(){
+  var m=B.mapa.mapa_mental;
+  var h='<div style="display:flex;justify-content:center;margin-bottom:16px">';
+  h+='<div style="padding:16px 24px;border-radius:20px;background:linear-gradient(135deg,#6366F1,#8B5CF6);box-shadow:0 4px 20px rgba(99,102,241,.3)">';
   h+='<span style="font-size:24px">'+m.centro.emoji+'</span><span style="font-size:16px;font-weight:800;color:#fff;margin-left:8px">'+m.centro.title+'</span></div></div>';
   h+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">';
   for(var i=0;i<m.ramas.length;i++){
