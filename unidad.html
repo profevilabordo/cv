@@ -100,6 +100,77 @@ var D = null;
 var B = null; // Bloque actual (para unidades modulares)
 var currentBloque = parseInt(localStorage.getItem("campus_bloque_actual") || "0");
 
+function normalizeData(d){
+  if(!d) return d;
+  
+  // Umbral
+  if(d.umbral){
+    if(d.umbral.situaciones && !d.umbral.situaciones_conecta) {
+      d.umbral.situaciones_conecta = d.umbral.situaciones.map(function(s){
+        return {emoji: s.emoji || "\u{1F4CD}", label: s.texto || s.label || ""};
+      });
+    }
+    if(d.umbral.termometro && !d.umbral.termometro_pregunta) {
+      d.umbral.termometro_pregunta = d.umbral.termometro.pregunta;
+    }
+    if(d.umbral.preguntas_disparadoras){
+      d.umbral.preguntas_disparadoras.forEach(function(p){
+        if(!p.emoji) p.emoji = "\u{1F4AC}";
+        if(!p.texto) p.texto = p.pregunta || "";
+      });
+    }
+  }
+
+  // Mapa
+  if(d.mapa){
+    if(d.mapa.ruta && !d.mapa.ruta_paradas) {
+      d.mapa.ruta_paradas = d.mapa.ruta.paradas.map(function(p){
+        return {id: p.id, title: p.titulo || p.title, desc: p.desc, emoji: p.emoji || "\u{1F3AF}", color: p.color || "#3B82F6"};
+      });
+    }
+    if(d.mapa.panoramica && !d.mapa.panoramica_bloques) {
+      var pb = d.mapa.panoramica;
+      d.mapa.panoramica_bloques = [];
+      ["bloque_a", "bloque_b", "bloque_c"].forEach(function(k){
+        if(pb[k]) {
+          d.mapa.panoramica_bloques.push({
+            title: pb[k].titulo || pb[k].title,
+            subtitle: pb[k].emoji + " " + (pb[k].temas ? pb[k].temas.length : 0) + " temas",
+            items: pb[k].temas || [],
+            emoji: pb[k].emoji || "\u{1F4D6}",
+            color: pb[k].color || "#6366F1"
+          });
+        }
+      });
+    }
+    if(d.mapa.mapa_mental){
+      if(typeof d.mapa.mapa_mental.centro === "string") {
+        d.mapa.mapa_mental.centro = {title: d.mapa.mapa_mental.centro, emoji: "\u{1F3AF}"};
+      }
+      if(d.mapa.mapa_mental.ramas){
+        d.mapa.mapa_mental.ramas.forEach(function(r){
+          if(!r.title) r.title = r.texto || "";
+          if(!r.items) r.items = [];
+        });
+      }
+    }
+  }
+
+  // Nucleos
+  ["nucleo_a", "nucleo_b", "nucleo_c"].forEach(function(k){
+    if(d[k] && !d[k].bloque_info) {
+      d[k].bloque_info = {
+        emoji: d[k].emoji || "\u2699\uFE0F",
+        titulo: d[k].titulo || d[k].title || "N\u00DACLEO",
+        paginas: d[k].paginas || [],
+        color: d[k].color || "#6366F1"
+      };
+    }
+  });
+
+  return d;
+}
+
 function loadData(){
   var params = new URLSearchParams(window.location.search);
   var archivo = params.get("datos") || "datos/economia_u1.json";
@@ -109,7 +180,7 @@ function loadData(){
       return r.json(); 
     })
     .then(async function(data){ 
-      D = data; 
+      D = normalizeData(data); 
       // Lógica de bloques para unidades modulares (como Unidad 2)
       if (D.bloques && D.bloques.length > 0) {
         if (currentBloque >= D.bloques.length) currentBloque = 0;
@@ -417,7 +488,7 @@ function rUmbral(){
     +renderCheckBtn("umbral");
 }
 function rU1(){
-  var items=B.umbral.preguntas_disparadoras;
+  var items=(B.umbral && B.umbral.preguntas_disparadoras) || [];
   var h="";
   for(var i=0;i<items.length;i++){
     var p=items[i], r=S["u1_"+i];
@@ -432,7 +503,7 @@ function rU1(){
   return h;
 }
 function rU2(){
-  var sits=B.umbral.situaciones_conecta, sel=S.u2s;
+  var sits=(B.umbral && B.umbral.situaciones_conecta) || [], sel=S.u2s;
   var h='<p style="margin:0 0 12px;font-size:14px;font-weight:600;color:#374151">\u00bfCu\u00e1l de estas situaciones viviste?</p>';
   h+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">';
   for(var i=0;i<sits.length;i++){
@@ -452,7 +523,7 @@ function rU3(){
   var levels=[{m:20,t:"Nada \u{1F976}",c:"#3B82F6"},{m:40,t:"Poco \u{1F914}",c:"#06B6D4"},{m:60,t:"Algo \u{1F60A}",c:"#10B981"},{m:80,t:"Bastante \u{1F603}",c:"#F59E0B"},{m:101,t:"\u00a1Mucho! \u{1F525}",c:"#EF4444"}];
   var lv=levels[0]; for(var i=0;i<levels.length;i++){if(v<levels[i].m){lv=levels[i];break;}}
   var h='<div style="text-align:center;padding:10px">';
-  h+='<p style="font-size:14px;font-weight:600;color:#374151;margin-bottom:16px">'+B.umbral.termometro_pregunta+'</p>';
+  h+='<p style="font-size:14px;font-weight:600;color:#374151;margin-bottom:16px">'+(B.umbral ? (B.umbral.termometro_pregunta || "") : "")+'</p>';
   h+='<div style="height:10px;border-radius:10px;background:linear-gradient(90deg,#3B82F6,#06B6D4,#10B981,#F59E0B,#EF4444)"></div>';
   h+='<input type="range" min="0" max="100" value="'+v+'" oninput="S.u3v=+this.value;render()" style="width:100%;margin-top:-14px;position:relative;z-index:2;accent-color:'+lv.c+'">';
   h+='<div style="margin-top:12px;padding:10px 20px;border-radius:12px;background:'+lv.c+'15;display:inline-block">';
@@ -472,9 +543,9 @@ function rMapa(){
 }
 function rM1(){
   if(!S.m1)S.m1={a:null,v:{}};
-  var s=S.m1, ps=B.mapa.ruta_paradas;
+  var s=S.m1, ps=B.mapa ? (B.mapa.ruta_paradas || []) : [];
   var visited=Object.keys(s.v).length;
-  var prog=Math.round(visited/ps.length*100);
+  var prog=ps.length ? Math.round(visited/ps.length*100) : 0;
   var h='<div style="display:flex;justify-content:space-between;margin-bottom:16px"><span style="font-size:14px;font-weight:600;color:#374151">Tu recorrido:</span><span style="font-size:12px;color:#6B7280">'+prog+'%</span></div>';
   h+='<div class="bar" style="margin-bottom:16px"><div class="barfill" style="width:'+prog+'%;background:linear-gradient(90deg,#6366F1,#EC4899)"></div></div>';
   h+='<div style="position:relative;padding-left:24px">';
@@ -493,7 +564,7 @@ function rM1(){
   return h;
 }
 function rM2(){
-  var bs=B.mapa.panoramica_bloques;
+  var bs=(B.mapa && B.mapa.panoramica_bloques) || [];
   var h='';
   for(var i=0;i<bs.length;i++){
     var b=bs[i], open=S["m2_"+i];
@@ -517,10 +588,11 @@ function rM2(){
   return h;
 }
 function rM3(){
-  var m=B.mapa.mapa_mental;
+  var m=B.mapa ? B.mapa.mapa_mental : null;
+  if(!m) return '<p>Mapa mental no disponible</p>';
   var h='<div style="display:flex;justify-content:center;margin-bottom:16px">';
   h+='<div style="padding:16px 24px;border-radius:20px;background:linear-gradient(135deg,#6366F1,#8B5CF6);box-shadow:0 4px 20px rgba(99,102,241,.3)">';
-  h+='<span style="font-size:24px">'+m.centro.emoji+'</span><span style="font-size:16px;font-weight:800;color:#fff;margin-left:8px">'+m.centro.title+'</span></div></div>';
+  h+='<span style="font-size:24px">'+(m.centro.emoji||"\u{1F4A1}")+'</span><span style="font-size:16px;font-weight:800;color:#fff;margin-left:8px">'+(m.centro.title||m.centro)+'</span></div></div>';
   h+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">';
   for(var i=0;i<m.ramas.length;i++){
     var r=m.ramas[i], open=S["m3_"+r.id];
