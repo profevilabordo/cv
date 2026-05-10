@@ -407,9 +407,10 @@ function rNucleoModular(){
 }
 
 function renderSection(){
-  var tabK = TABS[CT].k;
-  if(D.bloques && tabK === "nucleo_a") return rNucleoModular();
-  switch(tabK){
+  var secK = CS;
+  if(!secK) return "";
+  if(secK === "nucleo_a" || secK === "nucleo") return rNucleoModular();
+  switch(secK){
     case "umbral": return rUmbral();
     case "mapa": return rMapa();
     case "nucleo_a": return rNucleoA();
