@@ -1,0 +1,376 @@
+{
+  "materia": "Marco Jurídico",
+  "curso": "5°A Informática y 6°B Electrónica",
+  "escuela": "EETP N° 602 'Gral. José de San Martín'",
+  "unidad": 2,
+  "titulo": "Contratos y Sociedades Comerciales",
+  "emoji": "📜",
+  "color_primario": "#1E40AF",
+  "color_secundario": "#3B82F6",
+
+  "umbral": {
+    "pregunta_disparadora": "¿Qué tienen en común alquilar un departamento, comprar un celular en cuotas y formar una empresa de software con un amigo?",
+    "introduccion": "Todo eso son contratos o sociedades. En esta unidad vamos a descubrir las reglas invisibles que ordenan el mundo de los negocios. Cuando firmen su primer contrato de trabajo, cuando arranquen su propio emprendimiento técnico, cuando alquilen su primera casa: todo eso pasa por acá. El Derecho no es solo teoría aburrida, es la 'gramática' que necesitan saber para no perder plata ni dolores de cabeza.",
+    "objetivos": [
+      "Comprender qué es un contrato y cuáles son sus elementos esenciales",
+      "Identificar los distintos tipos de contratos según su clasificación",
+      "Reconocer los contratos más usados en la actividad empresarial moderna",
+      "Distinguir los tipos de sociedades comerciales y sus diferencias",
+      "Aplicar estos conceptos a situaciones reales del mundo informático y electrónico"
+    ]
+  },
+
+  "mapa": {
+    "concepto_central": "Contratos y Sociedades Comerciales",
+    "ramas": [
+      {
+        "nombre": "Teoría general del contrato",
+        "subtemas": ["Concepto y elementos", "Clasificaciones", "Obligaciones", "Efectos", "Extinción"]
+      },
+      {
+        "nombre": "Contratos en particular",
+        "subtemas": ["Compraventa", "Locación de cosas", "Locación de obra y servicios", "Contratos bancarios"]
+      },
+      {
+        "nombre": "Contratos empresariales modernos",
+        "subtemas": ["Franquicia", "Distribución", "Concesión", "Leasing"]
+      },
+      {
+        "nombre": "Sociedades comerciales",
+        "subtemas": ["Personalidad jurídica", "Sociedad Colectiva", "SRL", "SA"]
+      }
+    ]
+  },
+
+  "nucleo": {
+    "n1_ordenar_cronologicamente": {
+      "titulo": "Ordená las etapas del contrato",
+      "consigna": "Ordená las etapas que atraviesa un contrato desde que nace hasta que termina",
+      "items": [
+        {"id": "a", "text": "Las partes negocian las cláusulas (oferta y aceptación)"},
+        {"id": "b", "text": "Se firma el contrato y nace la obligación"},
+        {"id": "c", "text": "Cada parte cumple con su prestación"},
+        {"id": "d", "text": "El contrato se extingue por cumplimiento"},
+        {"id": "e", "text": "Si hay incumplimiento, se puede resolver y reclamar daños"}
+      ],
+      "orden_correcto": ["a", "b", "c", "d", "e"]
+    },
+
+    "n2_clasificador": {
+      "titulo": "Clasificá cada contrato según el tipo",
+      "consigna": "Arrastrá cada ejemplo a la categoría que corresponde",
+      "categorias": [
+        {"name": "Bilateral y oneroso"},
+        {"name": "Unilateral y gratuito"},
+        {"name": "Aleatorio"},
+        {"name": "De adhesión"}
+      ],
+      "items": [
+        {"text": "Compraventa de una notebook", "categoria_correcta": 0},
+        {"text": "Donación de un libro a la biblioteca", "categoria_correcta": 1},
+        {"text": "Contrato de seguro contra robo", "categoria_correcta": 2},
+        {"text": "Contrato con la empresa de telefonía celular", "categoria_correcta": 3},
+        {"text": "Alquiler de un departamento", "categoria_correcta": 0},
+        {"text": "Contrato bancario para abrir caja de ahorro", "categoria_correcta": 3},
+        {"text": "Apuesta o juego de azar", "categoria_correcta": 2},
+        {"text": "Comodato (préstamo de uso gratuito de un libro)", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "titulo": "Completá los conceptos clave",
+      "consigna": "Completá los espacios en blanco con la palabra correcta",
+      "blanks": [
+        {"texto_antes": "Acto jurídico mediante el cual dos o más partes manifiestan su consentimiento", "respuesta_correcta": "contrato"},
+        {"texto_antes": "Elemento esencial que es el acuerdo de voluntades entre las partes", "respuesta_correcta": "consentimiento"},
+        {"texto_antes": "Principio según el cual los pactos deben cumplirse", "respuesta_correcta": "pacta sunt servanda"},
+        {"texto_antes": "Contrato que combina locación con opción de compra", "respuesta_correcta": "leasing"},
+        {"texto_antes": "Sociedad cuyos socios responden solo hasta el aporte que hicieron", "respuesta_correcta": "SRL"},
+        {"texto_antes": "Capital de la SA dividido en", "respuesta_correcta": "acciones"},
+        {"texto_antes": "Defecto oculto de la cosa que la hace impropia para su destino", "respuesta_correcta": "vicio redhibitorio"},
+        {"texto_antes": "Extinción del contrato por incumplimiento de una parte", "respuesta_correcta": "resolución"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "titulo": "Verdadero o Falso",
+      "consigna": "Marcá si cada afirmación es verdadera o falsa",
+      "afirmaciones": [
+        {"texto": "El contrato necesita siempre como mínimo dos partes diferentes.", "correcto": true, "explicacion": "Correcto. No puede haber contrato consigo mismo, siempre se necesitan al menos dos voluntades distintas."},
+        {"texto": "Si una persona menor de edad firma un contrato, este es siempre válido.", "correcto": false, "explicacion": "Falso. Falta capacidad, que es un elemento esencial. El contrato puede ser anulable."},
+        {"texto": "En la SRL los socios responden con todos sus bienes personales por las deudas sociales.", "correcto": false, "explicacion": "Falso. En la SRL la responsabilidad está limitada al aporte realizado."},
+        {"texto": "El leasing permite usar un bien y al final tener la opción de comprarlo.", "correcto": true, "explicacion": "Correcto. Es su característica distintiva: combina locación con opción de compra."},
+        {"texto": "Una franquicia y una concesión son exactamente lo mismo.", "correcto": false, "explicacion": "Falso. La franquicia transmite todo un sistema de negocio (marca, know-how); la concesión es comercialización exclusiva con servicio postventa."},
+        {"texto": "La sociedad comercial es una persona jurídica distinta de los socios que la integran.", "correcto": true, "explicacion": "Correcto. Tiene su propio patrimonio, nombre, domicilio y responsabilidad."},
+        {"texto": "En la locación de servicios el prestador garantiza siempre un resultado concreto.", "correcto": false, "explicacion": "Falso. En la locación de servicios hay obligación de medios; el resultado se garantiza en la locación de obra."},
+        {"texto": "El contrato de compraventa requiere siempre escritura pública para ser válido.", "correcto": false, "explicacion": "Falso. Solo la compraventa de inmuebles requiere escritura pública. Los muebles no exigen forma."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "titulo": "Relacioná cada concepto con su definición",
+      "consigna": "Uní cada término de la izquierda con su definición correcta",
+      "pares": [
+        {"izquierda": "Locador", "derecha": "Quien alquila la cosa al inquilino (dueño)"},
+        {"izquierda": "Comitente", "derecha": "Quien encarga una obra o servicio"},
+        {"izquierda": "Franquiciante", "derecha": "Empresa que cede su marca y sistema de negocio"},
+        {"izquierda": "Concesionario", "derecha": "Comercializa productos del concedente con exclusividad"},
+        {"izquierda": "Tomador del leasing", "derecha": "Empresa que usa el bien y paga el canon"},
+        {"izquierda": "Accionista", "derecha": "Socio de una Sociedad Anónima"},
+        {"izquierda": "Acreedor", "derecha": "Titular del derecho a exigir una prestación"},
+        {"izquierda": "Deudor", "derecha": "Quien debe cumplir la prestación"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "titulo": "Encontrá la palabra intrusa",
+      "consigna": "En cada grupo, identificá la palabra que NO pertenece y explicá por qué",
+      "grupos": [
+        {
+          "items": ["Consentimiento", "Capacidad", "Objeto", "Comisión"],
+          "intrusa": "Comisión",
+          "explicacion": "Los demás son elementos esenciales del contrato; la comisión no lo es."
+        },
+        {
+          "items": ["Compraventa", "Donación", "Permuta", "Locación de cosas"],
+          "intrusa": "Donación",
+          "explicacion": "Los demás son contratos onerosos; la donación es gratuita."
+        },
+        {
+          "items": ["SRL", "SA", "Sociedad Colectiva", "Cooperativa"],
+          "intrusa": "Cooperativa",
+          "explicacion": "Las cooperativas se rigen por una ley distinta (Ley 20.337), no son sociedades comerciales en sentido estricto."
+        },
+        {
+          "items": ["Franquicia", "Distribución", "Concesión", "Mandato"],
+          "intrusa": "Mandato",
+          "explicacion": "Los demás son contratos empresariales modernos de comercialización; el mandato es un contrato clásico de representación."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "titulo": "Definí con tus palabras",
+      "consigna": "Escribí con tus propias palabras qué entendiste por cada concepto",
+      "conceptos": [
+        {"termino": "Contrato", "pista": "Acuerdo de voluntades con efectos patrimoniales"},
+        {"termino": "Personalidad jurídica de la sociedad", "pista": "La sociedad como sujeto distinto de los socios"},
+        {"termino": "Leasing", "pista": "Mezcla de alquiler con opción de compra"},
+        {"termino": "Resolución del contrato", "pista": "Qué pasa cuando una parte no cumple"},
+        {"termino": "Buena fe contractual", "pista": "Cómo deben comportarse las partes"}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "titulo": "Causa y efecto",
+      "consigna": "Relacioná cada situación (causa) con su consecuencia jurídica (efecto)",
+      "relaciones": [
+        {"causa": "El comprador no paga las cuotas pactadas", "efecto": "El vendedor puede resolver el contrato y reclamar daños"},
+        {"causa": "Los socios de una SRL hacen fraude usando la sociedad", "efecto": "El juez aplica la inoponibilidad y los socios responden personalmente"},
+        {"causa": "El locador no entrega el inmueble en buen estado", "efecto": "El locatario puede negarse a pagar el alquiler (excepción de incumplimiento)"},
+        {"causa": "Se descubre que el vendedor sabía de un defecto oculto del producto", "efecto": "El comprador puede reclamar por vicios redhibitorios"},
+        {"causa": "El franquiciado deja de pagar las regalías al franquiciante", "efecto": "El franquiciante puede resolver el contrato y exigir el cese del uso de la marca"},
+        {"causa": "Una circunstancia extraordinaria torna excesivamente onerosa la prestación", "efecto": "Se puede pedir la adecuación o resolución por la teoría de la imprevisión"}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "titulo": "Ordená el proceso de constitución de una SRL",
+      "consigna": "Ordená los pasos que hay que seguir para formar una SRL en Argentina",
+      "items": [
+        {"id": "a", "text": "Los socios acuerdan formar la sociedad y definen el objeto"},
+        {"id": "b", "text": "Redactan el contrato social con cláusulas obligatorias"},
+        {"id": "c", "text": "Realizan los aportes de capital comprometidos"},
+        {"id": "d", "text": "Presentan el contrato ante el Registro Público (IGPJ Santa Fe)"},
+        {"id": "e", "text": "La sociedad queda inscripta y obtiene su personalidad jurídica"},
+        {"id": "f", "text": "Tramitan CUIT en AFIP y comienzan la actividad"}
+      ],
+      "orden_correcto": ["a", "b", "c", "d", "e", "f"]
+    },
+
+    "n10_comparador": {
+      "titulo": "Comparador: SRL vs SA",
+      "consigna": "Completá el cuadro comparativo con las diferencias entre los dos tipos societarios más usados",
+      "criterios": [
+        {"criterio": "Capital dividido en", "opcion_a": "Cuotas sociales", "opcion_b": "Acciones"},
+        {"criterio": "Cantidad mínima de socios", "opcion_a": "2 socios", "opcion_b": "1 (unipersonal) o 2"},
+        {"criterio": "Cantidad máxima de socios", "opcion_a": "50 socios", "opcion_b": "Sin límite"},
+        {"criterio": "Responsabilidad de los socios", "opcion_a": "Limitada al aporte", "opcion_b": "Limitada al aporte"},
+        {"criterio": "Órgano de administración", "opcion_a": "Gerencia (uno o más gerentes)", "opcion_b": "Directorio (uno o más directores)"},
+        {"criterio": "Transmisión del capital", "opcion_a": "Restringida (cuotas)", "opcion_b": "Libre (acciones)"},
+        {"criterio": "Uso típico", "opcion_a": "PyMEs, empresas familiares", "opcion_b": "Empresas grandes, cotización en bolsa"}
+      ],
+      "etiqueta_a": "SRL",
+      "etiqueta_b": "SA"
+    }
+  },
+
+  "senales": [
+    {
+      "señal": "🚨 Cuidado con la 'locación de servicios' encubierta",
+      "explicacion": "Si trabajás como técnico para una sola empresa, cumpliendo horarios, recibiendo órdenes y usando sus herramientas, eso NO es locación de servicios: es relación laboral. Te corresponden aportes, vacaciones e indemnización."
+    },
+    {
+      "señal": "📝 Antes de firmar, lean",
+      "explicacion": "Los contratos de adhesión (telefonía, bancos, internet) tienen letra chica con cláusulas pesadas. Una vez firmado, salir cuesta. Lean siempre antes."
+    },
+    {
+      "señal": "💼 La sociedad protege su patrimonio personal",
+      "explicacion": "Si forman una SRL o SA y la empresa fracasa, los acreedores no pueden ir contra su casa, su auto o su sueldo personal. Solo se pierde lo aportado."
+    },
+    {
+      "señal": "⚠️ El leasing es trampa si no leen el valor residual",
+      "explicacion": "Algunos contratos de leasing tienen valores residuales muy altos, lo que termina haciendo más caro 'comprar' al final que un crédito común. Hagan los números."
+    }
+  ],
+
+  "sabias": [
+    {
+      "dato": "El Código Civil y Comercial argentino unificó los códigos Civil y Comercial en 2015. Antes había dos códigos separados desde 1869."
+    },
+    {
+      "dato": "La frase 'pacta sunt servanda' (los pactos deben cumplirse) es un principio del Derecho Romano que tiene más de 2000 años y sigue siendo la base del Derecho Contractual moderno."
+    },
+    {
+      "dato": "McDonald's no es dueña de la mayoría de sus locales: el 93% son franquicias. El verdadero negocio de McDonald's no es vender hamburguesas, sino alquilar a los franquiciados los terrenos donde se instalan."
+    },
+    {
+      "dato": "La primera Sociedad Anónima de la historia fue la Compañía Holandesa de las Indias Orientales, fundada en 1602. Fue la primera empresa que vendió acciones al público."
+    },
+    {
+      "dato": "En Argentina, desde 2017 existe la SAS (Sociedad por Acciones Simplificada), pensada especialmente para emprendedores y startups. Se constituye 100% online en 24 horas."
+    }
+  ],
+
+  "cruces": {
+    "puentes": [
+      {
+        "materia": "Economía",
+        "conexion": "Los contratos son la base del intercambio económico. Sin reglas que los respalden, no habría mercado posible."
+      },
+      {
+        "materia": "Administración",
+        "conexion": "La forma jurídica de una empresa (SRL, SA) determina su organización, su contabilidad y sus obligaciones impositivas."
+      },
+      {
+        "materia": "Programación / Sistemas",
+        "conexion": "Cuando desarrollen software a medida, firmarán contratos de obra. Cuando hagan mantenimiento, contratos de servicios. La diferencia define qué les pueden exigir."
+      },
+      {
+        "materia": "Electrónica",
+        "conexion": "Las empresas de electrónica usan leasing para acceder a maquinaria SMD cara y franquicias para distribuir productos. El Derecho organiza ese mercado."
+      }
+    ],
+    "telaraña": ["Filosofía (justicia y autonomía)", "Historia (origen del Código Civil argentino)", "Matemática Financiera (CFT en contratos bancarios)", "Ética profesional"]
+  },
+
+  "relectura": {
+    "preguntas_guia": [
+      "¿Qué pasa si firmo un contrato siendo menor de edad?",
+      "¿Por qué conviene formar una SRL en lugar de trabajar como persona física?",
+      "¿En qué se diferencia un alquiler común de un leasing?",
+      "¿Qué puedo hacer si compré algo y resultó tener un defecto oculto?",
+      "¿Cuándo conviene una franquicia y cuándo una concesión?"
+    ]
+  },
+
+  "autotest": {
+    "preguntas": [
+      {
+        "pregunta": "¿Cuáles son los cuatro elementos esenciales del contrato?",
+        "opciones": [
+          "Forma, plazo, condición y cargo",
+          "Consentimiento, capacidad, objeto y causa",
+          "Oferta, aceptación, firma y testigos",
+          "Vendedor, comprador, cosa y precio"
+        ],
+        "correcta": 1,
+        "explicacion": "Los cuatro elementos esenciales son consentimiento, capacidad, objeto y causa. Sin alguno de ellos, no hay contrato válido."
+      },
+      {
+        "pregunta": "En la locación de obra, lo que se garantiza es:",
+        "opciones": [
+          "El esfuerzo y la diligencia",
+          "El resultado concreto (la obra terminada)",
+          "El tiempo dedicado",
+          "Solo la calidad de los materiales"
+        ],
+        "correcta": 1,
+        "explicacion": "La locación de obra es una obligación de resultado: el contratista garantiza entregar la obra terminada según las especificaciones."
+      },
+      {
+        "pregunta": "¿Cuál es la principal diferencia entre rescisión y resolución?",
+        "opciones": [
+          "No hay ninguna diferencia",
+          "La rescisión es por acuerdo o decisión sin culpa; la resolución es por incumplimiento",
+          "La rescisión la decide el juez; la resolución las partes",
+          "La resolución es voluntaria y la rescisión obligatoria"
+        ],
+        "correcta": 1,
+        "explicacion": "Rescisión: extinción por acuerdo o decisión unilateral autorizada. Resolución: consecuencia del incumplimiento de una parte."
+      },
+      {
+        "pregunta": "En la SRL, los socios responden:",
+        "opciones": [
+          "Con todo su patrimonio personal",
+          "Hasta el monto de su aporte",
+          "Solo si son gerentes",
+          "Por las deudas de los otros socios también"
+        ],
+        "correcta": 1,
+        "explicacion": "En la SRL la responsabilidad está limitada al aporte realizado. El patrimonio personal de los socios queda protegido."
+      },
+      {
+        "pregunta": "¿Qué contrato combina locación con opción de compra?",
+        "opciones": [
+          "Franquicia",
+          "Concesión",
+          "Leasing",
+          "Distribución"
+        ],
+        "correcta": 2,
+        "explicacion": "El leasing es la herramienta financiera que permite usar un bien pagando un canon y al final comprarlo por un valor residual."
+      },
+      {
+        "pregunta": "La 'inoponibilidad de la personalidad jurídica' significa que:",
+        "opciones": [
+          "La sociedad no puede ser demandada nunca",
+          "Cuando hay fraude, los jueces pueden hacer responsables a los socios directamente",
+          "Los socios siempre responden con su patrimonio",
+          "La sociedad no tiene patrimonio propio"
+        ],
+        "correcta": 1,
+        "explicacion": "Cuando se usa la sociedad para fines fraudulentos, se 'corre el velo societario' y se atribuyen las consecuencias directamente a los socios."
+      },
+      {
+        "pregunta": "El capital de una SA está dividido en:",
+        "opciones": [
+          "Cuotas sociales",
+          "Partes de interés",
+          "Acciones",
+          "Bonos"
+        ],
+        "correcta": 2,
+        "explicacion": "El capital de la SA está dividido en acciones, que son fácilmente transmisibles. Esa es la diferencia más importante con la SRL."
+      },
+      {
+        "pregunta": "Si encargás un sistema de software 'a medida' a un desarrollador, estás celebrando una:",
+        "opciones": [
+          "Compraventa",
+          "Locación de obra",
+          "Locación de servicios",
+          "Donación"
+        ],
+        "correcta": 1,
+        "explicacion": "Es locación de obra: lo que se contrata es el resultado (el sistema funcionando), no solo el esfuerzo del desarrollador."
+      }
+    ]
+  },
+
+  "cierre": {
+    "mensaje_final": "Llegaron al final de una unidad densa pero llena de aplicaciones reales. Recuerden estas cinco ideas: 1) El contrato es la herramienta básica de la vida económica. 2) Existen muchas clasificaciones, pero todas tienen consecuencias prácticas. 3) Los contratos modernos (leasing, franquicia, concesión) van a cruzarse en su carrera técnica. 4) La sociedad es un sujeto distinto de los socios, con patrimonio propio. 5) La SRL y la SA limitan la responsabilidad: por eso son las más usadas. Antes de firmar, lean. Después de firmar, cumplan. ¡Éxitos!",
+    "proxima_unidad": "Unidad 3: Empresa, Organización y Marco Tributario"
+  },
+
+  "emocional": {}
+}
