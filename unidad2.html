@@ -47,85 +47,108 @@ h1 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 800
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); transition: all 0.4s;
   animation: fadeIn 0.6s ease both;
 }
+.card:hover { border-color: rgba(255, 255, 255, 0.2); transform: translateY(-2px); }
 
 .section-item {
   display: flex; align-items: center; gap: 16px; padding: 16px; 
   background: var(--glass); border-radius: 20px; border: 1px solid var(--border);
-  margin-bottom: 12px; cursor: pointer; transition: all 0.3s;
+  margin-bottom: 12px; cursor: pointer; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative; overflow: hidden;
 }
-.section-item:hover { background: rgba(255, 255, 255, 0.08); transform: scale(1.02); }
+.section-item::after {
+  content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+  transform: translateX(-100%); transition: transform 0.6s;
+}
+.section-item:hover::after { transform: translateX(100%); }
+.section-item:hover { background: rgba(255, 255, 255, 0.08); transform: translateX(8px); }
+
 .section-icon {
   width: 48px; height: 48px; border-radius: 14px; background: rgba(255, 255, 255, 0.05);
   display: flex; align-items: center; justify-content: center; font-size: 24px;
+  box-shadow: inset 0 0 10px rgba(255,255,255,0.05);
 }
 .section-info h4 { margin: 0; font-size: 16px; font-weight: 700; color: #F8FAFC; }
 .section-info p { margin: 2px 0 0; font-size: 12px; color: #94A3B8; }
 
 .btn-back-menu {
   background: var(--glass); border: 1px solid var(--border); color: #94A3B8;
-  padding: 8px 16px; border-radius: 12px; cursor: pointer; font-weight: 600;
-  margin-bottom: 20px; transition: all 0.3s;
+  padding: 10px 20px; border-radius: 14px; cursor: pointer; font-weight: 600;
+  margin-bottom: 24px; transition: all 0.3s; display: flex; align-items: center; gap: 8px;
 }
-.btn-back-menu:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
+.btn-back-menu:hover { background: rgba(255, 255, 255, 0.1); color: #fff; transform: translateX(-4px); }
 
-h2.section-title { font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin: 0 0 20px; color: var(--p); display: flex; align-items: center; gap: 10px; }
+h2.section-title { font-family: 'Space Grotesk', sans-serif; font-size: 26px; margin: 0 0 24px; color: var(--p); display: flex; align-items: center; gap: 12px; }
 
 /* ACTIVIDADES NUCLEO */
 .act-card {
-  background: rgba(255,255,255,0.02); border-radius: 18px; border: 1px solid var(--border);
-  padding: 16px; margin-bottom: 16px; transition: all 0.3s;
+  background: rgba(255,255,255,0.02); border-radius: 20px; border: 1px solid var(--border);
+  padding: 20px; margin-bottom: 20px; transition: all 0.3s;
 }
-.act-card:hover { border-color: var(--p); background: rgba(255,255,255,0.05); }
-.act-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-.act-badge { font-size: 10px; font-weight: 800; padding: 4px 8px; border-radius: 6px; text-transform: uppercase; }
+.act-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+.act-badge { font-size: 10px; font-weight: 800; padding: 5px 10px; border-radius: 8px; text-transform: uppercase; color: #fff; letter-spacing: 0.5px; }
 
-/* ORDENAR */
-.sort-item {
-  padding: 12px 16px; background: var(--bg); border: 1px solid var(--border);
-  border-radius: 12px; margin-bottom: 8px; cursor: move; display: flex; align-items: center; gap: 10px;
+/* RELACIONAR */
+.rel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 10px; }
+.rel-item {
+  padding: 14px; border-radius: 12px; background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border); font-size: 12px; cursor: pointer; text-align: center;
+  transition: all 0.3s; display: flex; align-items: center; justify-content: center; min-height: 44px;
 }
+.rel-item.selected { background: var(--p); border-color: var(--p); box-shadow: 0 0 15px rgba(99, 102, 241, 0.3); }
+.rel-item.done { opacity: 0.4; cursor: default; background: rgba(16, 185, 129, 0.1); border-color: var(--s); color: var(--s); }
 
-/* CLASIFICAR */
-.class-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.class-btn {
-  padding: 12px; border-radius: 12px; border: 1px solid var(--border);
-  background: var(--glass); color: white; cursor: pointer; font-size: 12px; transition: all 0.3s;
+/* QUIZ OPTIONS */
+.quiz-option {
+  padding: 14px 18px; border-radius: 14px; background: var(--glass);
+  border: 1px solid var(--border); margin-bottom: 10px; cursor: pointer;
+  transition: all 0.2s; font-size: 14px;
 }
-.class-btn.active { background: var(--p); border-color: var(--p); }
+.quiz-option:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.3); }
+.quiz-option.correct { background: rgba(16, 185, 129, 0.2); border-color: var(--s); color: #fff; }
+.quiz-option.wrong { background: rgba(239, 68, 68, 0.2); border-color: var(--danger); color: #fff; }
 
-/* V o F */
-.vf-btn {
-  padding: 12px; border-radius: 12px; border: 1px solid var(--border);
-  background: var(--glass); color: white; cursor: pointer; flex: 1; text-align: center;
+/* COMPARADOR */
+.comp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; text-align: center; }
+.comp-box { 
+  padding: 20px; border-radius: 20px; border: 1px solid var(--border); 
+  background: linear-gradient(135deg, rgba(255,255,255,0.05), transparent);
 }
 
 /* INPUTS */
 textarea {
-  width: 100%; min-height: 80px; background: rgba(15, 23, 42, 0.4); 
-  border: 1px solid var(--border); border-radius: 14px; padding: 12px;
+  width: 100%; min-height: 100px; background: rgba(15, 23, 42, 0.4); 
+  border: 1px solid var(--border); border-radius: 16px; padding: 14px;
   color: #fff; font-family: inherit; font-size: 14px; resize: none;
   box-sizing: border-box; outline: none; margin-bottom: 10px;
+  transition: all 0.3s;
 }
-textarea:focus { border-color: var(--p); }
+textarea:focus { border-color: var(--p); background: rgba(15, 23, 42, 0.6); box-shadow: 0 0 20px rgba(99, 102, 241, 0.1); }
 
 .btn-primary {
-  width: 100%; padding: 14px; border-radius: 14px; border: none;
+  width: 100%; padding: 16px; border-radius: 16px; border: none;
   background: linear-gradient(135deg, var(--p), var(--p-h));
-  color: white; font-weight: 700; font-size: 14px; cursor: pointer;
-  transition: all 0.3s; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+  color: white; font-weight: 700; font-size: 15px; cursor: pointer;
+  transition: all 0.3s; box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
 }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 25px rgba(99, 102, 241, 0.4); }
 
 .check-btn {
-  width: 100%; padding: 16px; border-radius: 16px; border: 2px solid var(--s);
-  background: rgba(16, 185, 129, 0.1); color: var(--s); font-weight: 700;
-  cursor: pointer; margin-top: 24px; transition: all 0.3s;
+  width: 100%; padding: 18px; border-radius: 20px; border: 2px solid var(--s);
+  background: rgba(16, 185, 129, 0.05); color: var(--s); font-weight: 800;
+  cursor: pointer; margin-top: 32px; transition: all 0.3s;
+  text-transform: uppercase; letter-spacing: 1px;
 }
+.check-btn:hover { background: var(--s); color: #fff; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3); }
+
 .check-done {
-  width: 100%; padding: 16px; border-radius: 16px; background: rgba(16, 185, 129, 0.2);
-  color: #fff; text-align: center; font-weight: 700; border: 1px solid var(--s); margin-top: 24px;
+  width: 100%; padding: 18px; border-radius: 20px; background: rgba(16, 185, 129, 0.15);
+  color: #fff; text-align: center; font-weight: 800; border: 1px solid var(--s); margin-top: 32px;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
 }
 
 @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
 </style>
 </head>
 <body>
@@ -134,7 +157,8 @@ textarea:focus { border-color: var(--p); }
 
 <script>
 var D = null, B = null, S = {};
-var CB = parseInt(localStorage.getItem("u2_bloque") || "0");
+var FILE_ID = "u2";
+var CB = parseInt(localStorage.getItem(FILE_ID + "_bloque") || "0");
 var CS = null;
 
 var SECCIONES = [
@@ -149,7 +173,7 @@ var SECCIONES = [
 ];
 
 function updateBlock(idx){
-  CB = idx; localStorage.setItem("u2_bloque", CB);
+  CB = idx; localStorage.setItem(FILE_ID + "_bloque", CB);
   if(D && D.bloques) B = D.bloques[CB];
   CS = null; render();
 }
@@ -204,7 +228,7 @@ function renderSection(){
 function rUmbral(){
   var d = B.umbral;
   var h = '<h2 class="section-title">🚪 Umbral</h2>';
-  h += '<div class="activity-box" style="border-left:4px solid var(--p);padding:15px;background:var(--glass);border-radius:12px">'+d.termometro_pregunta+'</div>';
+  h += '<div style="border-left:4px solid var(--p);padding:15px;background:var(--glass);border-radius:12px">'+d.termometro_pregunta+'</div>';
   return h + renderCheckBtn("umbral");
 }
 
@@ -218,28 +242,50 @@ function rMapa(){
   return h + renderCheckBtn("mapa");
 }
 
-// --- NUCLEO MODULAR COMPLETO ---
 function rNucleo(){
   var h = '<h2 class="section-title">⚛️ Núcleo</h2>';
   var n = B.nucleo;
-  
   if(n.n1_ordenar_cronologicamente) h += rN1();
   if(n.n2_clasificador) h += rN2();
+  if(n.n3_completar_mapa) h += rN3();
   if(n.n4_verdadero_falso) h += rN4();
+  if(n.n5_relacionar_columns || n.n5_relacionar_columnas) h += rN5();
   if(n.n6_palabra_intrusa) h += rN6();
   if(n.n7_defini_con_tus_palabras) h += rN7();
-  
+  if(n.n8_causa_efecto) h += rN8();
+  if(n.n9_ordenar_proceso) h += rN9();
+  if(n.n10_comparador) h += rN10();
   return h + renderCheckBtn("nucleo");
 }
 
 function rN1(){
   var d = B.nucleo.n1_ordenar_cronologicamente;
-  var sk = "n_n1_"+CB; if(!S[sk]) S[sk] = d.items.map((_,i)=>i);
+  var sk = "n_n1_"+CB; 
+  if(!S[sk]) {
+    var saved = localStorage.getItem(FILE_ID + "_" + sk);
+    S[sk] = saved ? JSON.parse(saved) : d.items.map((_,i)=>i);
+  }
   var h = '<div class="act-card"><div class="act-header"><span class="act-badge" style="background:var(--p)">1. Ordenar</span><b>'+d.consigna+'</b></div>';
   S[sk].forEach((idx, i) => {
-    h += '<div class="sort-item"><span>'+(i+1)+'.</span> '+d.items[idx]+'</div>';
+    h += '<div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--bg);border:1px solid var(--border);border-radius:10px;margin-bottom:8px;font-size:13px">';
+    h += '<span style="color:var(--p);font-weight:800;width:20px">'+(i+1)+'.</span> <span style="flex:1">'+d.items[idx]+'</span>';
+    h += '<div style="display:flex;flex-direction:column;gap:2px">';
+    if(i > 0) h += '<button onclick="moveN1('+i+', -1)" style="background:none;border:none;color:#94A3B8;cursor:pointer;padding:2px">▲</button>';
+    if(i < S[sk].length-1) h += '<button onclick="moveN1('+i+', 1)" style="background:none;border:none;color:#94A3B8;cursor:pointer;padding:2px">▼</button>';
+    h += '</div></div>';
   });
   return h + '</div>';
+}
+function moveN1(idx, dir){
+  var sk = "n_n1_"+CB;
+  var arr = S[sk];
+  var target = idx + dir;
+  if(target < 0 || target >= arr.length) return;
+  var temp = arr[idx];
+  arr[idx] = arr[target];
+  arr[target] = temp;
+  localStorage.setItem(FILE_ID + "_" + sk, JSON.stringify(arr));
+  render();
 }
 
 function rN2(){
@@ -247,38 +293,78 @@ function rN2(){
   var h = '<div class="act-card"><div class="act-header"><span class="act-badge" style="background:var(--s)">2. Clasificar</span><b>'+d.consigna+'</b></div>';
   d.items.forEach((item, i) => {
     var sel = S["n2_"+CB+"_"+i];
-    h += '<div style="margin-bottom:12px;font-size:13px"><b>'+item.text+'</b><div class="class-grid" style="margin-top:6px">';
+    h += '<div style="margin-bottom:12px;font-size:13px"><b>'+item.text+'</b><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px">';
     d.categorias.forEach(cat => {
       var active = (sel === cat.id);
-      h += '<button class="class-btn '+(active?'active':'')+'" onclick="S[\'n2_'+CB+'_'+i+'\']=\''+cat.id+'\';render()">'+cat.name+'</button>';
+      h += '<button style="padding:10px;border-radius:10px;border:1px solid '+(active?cat.color:'var(--border)')+';background:'+(active?cat.color+'20':'var(--glass)')+';color:'+(active?cat.color:'#fff')+'" onclick="S[\'n2_'+CB+'_'+i+'\']=\''+cat.id+'\';render()">'+cat.name+'</button>';
     });
     h += '</div></div>';
   });
   return h + '</div>';
 }
 
+function rN3(){
+  var d = B.nucleo.n3_completar_mapa;
+  if(!d.blanks || d.blanks.length === 0) return "";
+  var h = '<div class="act-card"><div class="act-header"><span class="act-badge" style="background:var(--p)">3. Completar</span><b>Completá el esquema</b></div>';
+  d.blanks.forEach((b, i) => {
+    var val = S["n3_"+CB+"_"+i] || "";
+    h += '<div style="margin-bottom:10px"><p style="font-size:12px;margin-bottom:5px">'+b.label+'</p>';
+    h += '<input type="text" value="'+val+'" oninput="S[\'n3_'+CB+'_'+i+'\']=this.value;localStorage.setItem(FILE_ID+\'_n3_'+CB+'_'+i+'\',this.value)" style="width:100%;padding:10px;border-radius:10px;background:var(--bg);border:1px solid var(--border);color:#fff"></div>';
+  });
+  return h + '</div>';
+}
+
 function rN4(){
   var d = B.nucleo.n4_verdadero_falso;
-  var h = '<div class="act-card"><div class="act-header"><span class="act-badge" style="background:var(--danger)">4. V o F</span><b>Evaluá las afirmaciones</b></div>';
+  var h = '<div class="act-card"><div class="act-header"><span class="act-badge" style="background:var(--danger)">4. V o F</span><b>Evaluá afirmaciones</b></div>';
   d.afirmaciones.forEach((af, i) => {
     var sel = S["n4_"+CB+"_"+i];
     h += '<div style="margin-bottom:12px;font-size:13px"><p>'+af.texto+'</p><div style="display:flex;gap:10px;margin-top:6px">';
-    h += '<button class="vf-btn '+(sel===true?'active':'')+'" style="background:'+(sel===true?'var(--s)':'')+'" onclick="S[\'n4_'+CB+'_'+i+'\']=true;render()">Verdadero</button>';
-    h += '<button class="vf-btn '+(sel===false?'active':'')+'" style="background:'+(sel===false?'var(--danger)':'')+'" onclick="S[\'n4_'+CB+'_'+i+'\']=false;render()">Falso</button>';
+    h += '<button style="flex:1;padding:10px;border-radius:10px;background:'+(sel===true?'var(--s)':'var(--glass)')+';border:none;color:white" onclick="S[\'n4_'+CB+'_'+i+'\']=true;render()">V</button>';
+    h += '<button style="flex:1;padding:10px;border-radius:10px;background:'+(sel===false?'var(--danger)':'var(--glass)')+';border:none;color:white" onclick="S[\'n4_'+CB+'_'+i+'\']=false;render()">F</button>';
     h += '</div></div>';
   });
   return h + '</div>';
 }
 
+function rN5(){
+  var d = B.nucleo.n5_relacionar_columns || B.nucleo.n5_relacionar_columnas;
+  var h = '<div class="act-card"><div class="act-header"><span class="act-badge" style="background:var(--p)">5. Relacionar</span><b>Uní los conceptos</b></div>';
+  h += '<div class="rel-grid">';
+  var sk = "n5_"+CB;
+  var cur = S[sk] || {L:null, ok:{}};
+  d.pares.forEach((p, i) => {
+    var isSelected = cur.L === i;
+    var isDone = cur.ok[i];
+    h += '<div class="rel-item '+(isSelected?'selected':'')+' '+(isDone?'done':'')+'" onclick="if(!'+isDone+'){S[\''+sk+'\']=S[\''+sk+'\']||{ok:{}};S[\''+sk+'\'].L='+i+';render()}">'+p.izquierda+'</div>';
+    
+    // Para la derecha, buscamos si este par ya fue resuelto
+    var rightDone = false; Object.values(cur.ok).forEach(v => { if(v===i) rightDone=true; });
+    h += '<div class="rel-item '+(rightDone?'done':'')+'" onclick="matchN5('+i+')">'+p.derecha+'</div>';
+  });
+  return h + '</div></div>';
+}
+function matchN5(ridx){
+  var sk = "n5_"+CB;
+  if(S[sk] && S[sk].L !== null){
+    S[sk].ok[S[sk].L] = ridx;
+    S[sk].L = null;
+    localStorage.setItem(FILE_ID + "_" + sk, JSON.stringify(S[sk]));
+    render();
+  }
+}
+
 function rN6(){
   var d = B.nucleo.n6_palabra_intrusa;
-  var h = '<div class="act-card"><div class="act-header"><span class="act-badge" style="background:var(--a)">6. Intrusa</span><b>Encontrá la que no pertenece</b></div>';
+  var h = '<div class="act-card"><div class="act-header"><span class="act-badge" style="background:var(--a)">6. Intrusa</span><b>Buscá la infiltrada</b></div>';
   d.grupos.forEach((g, i) => {
-    var sel = S["n6_"+CB+"_"+i];
-    h += '<div style="margin-bottom:12px;font-size:13px"><p>'+g.pregunta+'</p><div class="class-grid">';
+    var sk = "n6_"+CB+"_"+i;
+    var sel = S[sk];
+    h += '<div style="margin-bottom:12px;font-size:13px"><p>'+g.pregunta+'</p><div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px">';
     g.palabras.forEach((p, pi) => {
       var active = (sel === pi);
-      h += '<button class="class-btn '+(active?'active':'')+'" onclick="S[\'n6_'+CB+'_'+i+'\']='+pi+';render()">'+p.text+'</button>';
+      h += '<button style="padding:10px;border-radius:10px;border:1px solid '+(active?'var(--p)':'var(--border)')+';background:'+(active?'var(--p)':'var(--glass)')+';color:white" onclick="S[\''+sk+'\']='+pi+';localStorage.setItem(\''+FILE_ID+'_'+sk+'\','+pi+');render()">'+p.text+'</button>';
     });
     h += '</div></div>';
   });
@@ -287,14 +373,78 @@ function rN6(){
 
 function rN7(){
   var d = B.nucleo.n7_defini_con_tus_palabras;
-  var sk = "n_n7_" + CB;
-  if(!S[sk]) S[sk] = {cur:0};
+  var sk = "n_n7_" + CB; if(!S[sk]) S[sk] = {cur:0};
   var s = S[sk]; var c = d.conceptos[s.cur];
   var val = S[sk+"_v_"+s.cur] || "";
   var h = '<div class="act-card"><div class="act-header"><span class="act-badge" style="background:var(--p)">7. Definir</span><b>'+c.titulo+'</b></div>';
   h += '<textarea oninput="S[\''+sk+'_v_'+s.cur+'\']=this.value" placeholder="Tu definición...">'+val+'</textarea>';
   if(s.cur < d.conceptos.length-1) h += '<button class="btn-primary" onclick="S[\''+sk+'\'].cur++;render()">Siguiente Concepto</button>';
-  else h += '<div style="color:var(--s);font-size:12px;text-align:center">✓ Conceptos completados</div>';
+  else h += '<div style="color:var(--s);font-size:12px;text-align:center">✓ Completado</div>';
+  return h + '</div>';
+}
+
+function rN8(){
+  var d = B.nucleo.n8_causa_efecto;
+  if(!d.causas || d.causas.length === 0) return "";
+  var h = '<div class="act-card"><div class="act-header"><span class="act-badge" style="background:var(--p)">8. Causa-Efecto</span><b>Relacioná cada causa</b></div>';
+  h += '<div class="rel-grid">';
+  var sk = "n8_"+CB;
+  var cur = S[sk] || {L:null, ok:{}};
+  d.causas.forEach((c, i) => {
+    var isSelected = cur.L === i;
+    var isDone = cur.ok[i] !== undefined;
+    h += '<div class="rel-item '+(isSelected?'selected':'')+' '+(isDone?'done':'')+'" onclick="if(!'+isDone+'){S[\''+sk+'\']=S[\''+sk+'\']||{ok:{}};S[\''+sk+'\'].L='+i+';render()}">'+c+'</div>';
+    
+    var rightDone = false; Object.values(cur.ok).forEach(v => { if(v===i) rightDone=true; });
+    h += '<div class="rel-item '+(rightDone?'done':'')+'" onclick="matchN8('+i+')">'+d.efectos[i]+'</div>';
+  });
+  return h + '</div></div>';
+}
+function matchN8(ridx){
+  var sk = "n8_"+CB;
+  if(S[sk] && S[sk].L !== null){
+    S[sk].ok[S[sk].L] = ridx; S[sk].L = null;
+    localStorage.setItem(FILE_ID + "_" + sk, JSON.stringify(S[sk])); render();
+  }
+}
+
+function rN9(){
+  var d = B.nucleo.n9_ordenar_proceso;
+  if(!d.pasos_en_orden_correcto || d.pasos_en_orden_correcto.length === 0) return "";
+  // Similar a N1 pero con los pasos del proceso
+  var sk = "n_n9_"+CB; 
+  if(!S[sk]) {
+    var saved = localStorage.getItem(FILE_ID + "_" + sk);
+    S[sk] = saved ? JSON.parse(saved) : d.pasos_en_orden_correcto.map((_,i)=>i);
+  }
+  var h = '<div class="act-card"><div class="act-header"><span class="act-badge" style="background:var(--p)">9. Proceso</span><b>Ordená los pasos</b></div>';
+  S[sk].forEach((idx, i) => {
+    h += '<div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--bg);border:1px solid var(--border);border-radius:10px;margin-bottom:8px;font-size:13px">';
+    h += '<span style="color:var(--p);font-weight:800;width:20px">'+(i+1)+'.</span> <span style="flex:1">'+d.pasos_en_orden_correcto[idx]+'</span>';
+    h += '<div style="display:flex;flex-direction:column;gap:2px">';
+    if(i > 0) h += '<button onclick="moveN9('+i+', -1)" style="background:none;border:none;color:#94A3B8;cursor:pointer;padding:2px">▲</button>';
+    if(i < S[sk].length-1) h += '<button onclick="moveN9('+i+', 1)" style="background:none;border:none;color:#94A3B8;cursor:pointer;padding:2px">▼</button>';
+    h += '</div></div>';
+  });
+  return h + '</div>';
+}
+function moveN9(idx, dir){
+  var sk = "n_n9_"+CB; var arr = S[sk]; var target = idx + dir;
+  if(target < 0 || target >= arr.length) return;
+  var temp = arr[idx]; arr[idx] = arr[target]; arr[target] = temp;
+  localStorage.setItem(FILE_ID + "_" + sk, JSON.stringify(arr)); render();
+}
+
+function rN10(){
+  var d = B.nucleo.n10_comparador;
+  var sk = "n10_"+CB;
+  var val = S[sk] || "";
+  var h = '<div class="act-card"><div class="act-header"><span class="act-badge" style="background:var(--a)">10. Comparador</span><b>Diferencias clave</b></div>';
+  h += '<div class="comp-grid" style="margin-bottom:15px">';
+  h += '<div class="comp-box"><span style="font-size:24px">'+d.concepto_a.emoji+'</span><br><b>'+d.concepto_a.nombre+'</b></div>';
+  h += '<div class="comp-box"><span style="font-size:24px">'+d.concepto_b.emoji+'</span><br><b>'+d.concepto_b.nombre+'</b></div>';
+  h += '</div>';
+  h += '<textarea oninput="S[\''+sk+'\']=this.value;localStorage.setItem(\''+FILE_ID+'_'+sk+'\',this.value)" placeholder="Escribí las diferencias o similitudes que encontrás...">'+val+'</textarea>';
   return h + '</div>';
 }
 
@@ -368,14 +518,26 @@ function renderCheckBtn(k){
   if(isChecked(k)) return '<div class="check-done">✅ Completado</div>';
   return '<button class="check-btn" onclick="marcarSeccion(\''+k+'\')">✦ Marcar como completada</button>';
 }
-function marcarSeccion(k){ localStorage.setItem("u2_c_"+CB+"_"+k, "1"); render(); }
-function isChecked(k){ return localStorage.getItem("u2_c_"+CB+"_"+k) === "1"; }
+function marcarSeccion(k){ localStorage.setItem(FILE_ID + "_c_"+CB+"_"+k, "1"); render(); }
+function isChecked(k){ return localStorage.getItem(FILE_ID + "_c_"+CB+"_"+k) === "1"; }
 
 function loadData(){
   var params = new URLSearchParams(window.location.search);
   var archivo = params.get("datos") || "datos/eetp602_5a_marco_jur_u2.json";
+  FILE_ID = archivo.split("/").pop().replace(".json", "");
+  CB = parseInt(localStorage.getItem(FILE_ID + "_bloque") || "0");
+  
   fetch(archivo).then(r => r.json()).then(data => {
-    D = data; B = D.bloques[CB]; render();
+    D = data; B = D.bloques[CB]; 
+    // Restaurar S desde localStorage
+    for(var k in localStorage){
+      if(k.startsWith(FILE_ID + "_")){
+        var realK = k.replace(FILE_ID + "_", "");
+        try { S[realK] = JSON.parse(localStorage.getItem(k)); }
+        catch(e) { S[realK] = localStorage.getItem(k); }
+      }
+    }
+    render();
   });
 }
 loadData();
