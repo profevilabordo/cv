@@ -194,7 +194,7 @@ function renderCheckBtn(tabKey){
   if(isChecked(tabKey)){
     return '<div class="check-section-done">\u2705 ' + nombre + ' completada</div>';
   }
-  return '<button class="check-section-btn" onclick="marcarSeccion(\'' + tabKey + '\')">' +
+  return '<button class="check-section-btn" onclick="marcarSeccion('' + tabKey + '')">' +
     '<span style="font-size:20px">\u2611\ufe0f</span> Marcar ' + nombre + ' como completada' +
     '</button>';
 }
@@ -247,7 +247,7 @@ function secHeader(icon,title,sub,grad){
 function actWrap(id,title,desc,level,color,content,defOpen){
   var open=S["o_"+id]!==undefined?S["o_"+id]:(defOpen||false);
   var h='<div class="card">';
-  h+='<div class="cardh" onclick="tog(\''+id+'\')" style="border-left:4px solid '+color+';'+(open?'background:'+color+'08':'')+'">';
+  h+='<div class="cardh" onclick="tog(''+id+'')" style="border-left:4px solid '+color+';'+(open?'background:'+color+'08':'')+'">';
   h+='<div><h4>'+title+'</h4><small>'+desc+'</small></div>';
   h+='<div style="display:flex;align-items:center;gap:10px">';
   h+='<span class="badge" style="background:'+color+'18;color:'+color+'">'+level+'</span>';
@@ -318,19 +318,19 @@ function render(){
   
   if(CS === null){
     if(B){
-      h += '<div style="text-align:center;margin-bottom:20px"><h2 style="color:'+B.color+';font-family:\'Space Grotesk\'">'+B.emoji+' Bloque '+B.id+': '+B.titulo+'</h2></div><div class="achievements-grid" style="display:flex;flex-direction:column;gap:12px;filter:none;opacity:1">';
+      h += '<div style="text-align:center;margin-bottom:20px"><h2 style="color:'+B.color+';font-family:'Space Grotesk'">'+B.emoji+' Bloque '+B.id+': '+B.titulo+'</h2></div><div class="achievements-grid" style="display:flex;flex-direction:column;gap:12px;filter:none;opacity:1">';
       SECCIONES.forEach(sec => {
         var done = isChecked(sec.k);
-        h += '<div onclick="CS=\''+sec.k+'\';render()" style="background:#fff;border-radius:18px;padding:18px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;border:2px solid '+(done?B.color+'40':'transparent')+';box-shadow:0 4px 12px rgba(0,0,0,0.03);transition:all .3s" onmouseover="this.style.transform=\'translateX(8px)\'" onmouseout="this.style.transform=\'none\'">';
+        h += '<div onclick="CS=''+sec.k+'';render()" style="background:#fff;border-radius:18px;padding:18px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;border:2px solid '+(done?B.color+'40':'transparent')+';box-shadow:0 4px 12px rgba(0,0,0,0.03);transition:all .3s" onmouseover="this.style.transform='translateX(8px)'" onmouseout="this.style.transform='none'">';
         h += '<div style="display:flex;align-items:center;gap:15px"><div style="font-size:24px;width:48px;height:48px;background:#F1F5F9;border-radius:14px;display:flex;align-items:center;justify-content:center">'+sec.i+'</div><div><h4 style="font-size:16px;font-weight:700;color:#1F2937;margin:0">'+sec.l+'</h4><p style="font-size:12px;color:#6B7280;margin:0">'+sec.d+'</p></div></div>';
         h += '<div style="font-size:20px;color:'+B.color+';opacity:'+(done?1:0.2)+'">'+(done?'✓':'→')+'</div></div>';
       });
       h += '</div>';
     } else {
-      h += '<div style="text-align:center;margin-bottom:20px"><h2 style="font-family:\'Space Grotesk\'">🏁 Cierre de la Unidad</h2></div><div class="achievements-grid" style="display:flex;flex-direction:column;gap:12px;filter:none;opacity:1">';
+      h += '<div style="text-align:center;margin-bottom:20px"><h2 style="font-family:'Space Grotesk'">🏁 Cierre de la Unidad</h2></div><div class="achievements-grid" style="display:flex;flex-direction:column;gap:12px;filter:none;opacity:1">';
       CIERRE_SECCIONES.forEach(sec => {
         var done = isChecked(sec.k);
-        h += '<div onclick="CS=\''+sec.k+'\';render()" style="background:#fff;border-radius:18px;padding:18px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;border:2px solid '+(done?'#6366F140':'transparent')+';box-shadow:0 4px 12px rgba(0,0,0,0.03)">';
+        h += '<div onclick="CS=''+sec.k+'';render()" style="background:#fff;border-radius:18px;padding:18px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;border:2px solid '+(done?'#6366F140':'transparent')+';box-shadow:0 4px 12px rgba(0,0,0,0.03)">';
         h += '<div style="display:flex;align-items:center;gap:15px"><div style="font-size:24px;width:48px;height:48px;background:#F1F5F9;border-radius:14px;display:flex;align-items:center;justify-content:center">'+sec.i+'</div><div><h4 style="font-size:16px;font-weight:700;color:#1F2937;margin:0">'+sec.l+'</h4><p style="font-size:12px;color:#6B7280;margin:0">'+sec.d+'</p></div></div>';
         h += '<div style="font-size:20px;color:#6366F1;opacity:'+(done?1:0.2)+'">'+(done?'✓':'→')+'</div></div>';
       });
@@ -439,7 +439,7 @@ function rU1(){
   var h="";
   for(var i=0;i<items.length;i++){
     var p=items[i], r=S["u1_"+i];
-    h+='<div onclick="S[\'u1_'+i+'\']=!S[\'u1_'+i+'\'];render()" style="padding:16px 20px;border-radius:14px;cursor:pointer;margin-bottom:12px;background:'+(r?'linear-gradient(135deg,#FEF3C7,#FDE68A)':'#F9FAFB')+';border:'+(r?'2px solid #F59E0B':'2px dashed #D1D5DB')+'">';
+    h+='<div onclick="S['u1_'+i+'']=!S['u1_'+i+''];render()" style="padding:16px 20px;border-radius:14px;cursor:pointer;margin-bottom:12px;background:'+(r?'linear-gradient(135deg,#FEF3C7,#FDE68A)':'#F9FAFB')+';border:'+(r?'2px solid #F59E0B':'2px dashed #D1D5DB')+'">';
     h+='<div style="display:flex;align-items:center;gap:12px"><span style="font-size:28px">'+p.emoji+'</span><div>';
     h+='<p style="font-size:15px;font-weight:600;color:#1F2937">'+p.texto+'</p>';
     if(r) h+='<p style="margin-top:8px;font-size:13px;color:#92400E;font-style:italic;animation:fadeIn .4s">\u{1F4A1} '+p.pista+'</p>';
@@ -515,7 +515,7 @@ function rM2(){
   var h='';
   for(var i=0;i<bs.length;i++){
     var b=bs[i], open=S["m2_"+i];
-    h+='<div onclick="S[\'m2_'+i+'\']=!S[\'m2_'+i+'\'];render()" style="border-radius:14px;overflow:hidden;border:2px solid '+(open?b.color:'#E5E7EB')+';cursor:pointer;margin-bottom:10px">';
+    h+='<div onclick="S['m2_'+i+'']=!S['m2_'+i+''];render()" style="border-radius:14px;overflow:hidden;border:2px solid '+(open?b.color:'#E5E7EB')+';cursor:pointer;margin-bottom:10px">';
     h+='<div style="padding:14px 18px;background:'+(open?'linear-gradient(135deg,'+b.color+','+b.color+'CC)':'#fff')+';display:flex;align-items:center;justify-content:space-between">';
     h+='<div style="display:flex;align-items:center;gap:10px"><span style="font-size:24px">'+b.emoji+'</span><div>';
     h+='<p style="margin:0;font-size:15px;font-weight:700;color:'+(open?'#fff':'#1F2937')+'">'+b.title+'</p>';
@@ -542,7 +542,7 @@ function rM3(){
   h+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">';
   for(var i=0;i<m.ramas.length;i++){
     var r=m.ramas[i], open=S["m3_"+r.id];
-    h+='<div onclick="S[\'m3_'+r.id+'\']=!S[\'m3_'+r.id+'\'];render()" style="padding:14px;border-radius:14px;border:2px solid '+(open?r.color:'#E5E7EB')+';background:'+(open?r.color+'08':'#fff')+';cursor:pointer">';
+    h+='<div onclick="S['m3_'+r.id+'']=!S['m3_'+r.id+''];render()" style="padding:14px;border-radius:14px;border:2px solid '+(open?r.color:'#E5E7EB')+';background:'+(open?r.color+'08':'#fff')+';cursor:pointer">';
     h+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:'+(open?8:0)+'px"><span style="font-size:20px">'+r.emoji+'</span><span style="font-size:13px;font-weight:700;color:'+r.color+'">'+r.title+'</span></div>';
     if(open){
       h+='<div style="animation:fadeIn .3s">';
@@ -673,7 +673,7 @@ function rN2(nucleo){
     h+='<span style="font-size:14px;font-weight:500">'+it.text+'</span><div style="display:flex;gap:6px">';
     for(var c=0;c<d.categorias.length;c++){
       var cat=d.categorias[c], sel=s.a[it.id]===c;
-      h+='<button onclick="n2click(\''+sk+'\','+it.id+','+c+')" style="width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;border:'+(sel?'3px solid '+cat.color:'2px solid #D1D5DB')+';background:'+(sel?cat.color+'20':'#F9FAFB')+';transform:'+(sel?'scale(1.15)':'scale(1)')+'">'+cat.emoji+'</button>';
+      h+='<button onclick="n2click(''+sk+'','+it.id+','+c+')" style="width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;border:'+(sel?'3px solid '+cat.color:'2px solid #D1D5DB')+';background:'+(sel?cat.color+'20':'#F9FAFB')+';transform:'+(sel?'scale(1.15)':'scale(1)')+'">'+cat.emoji+'</button>';
     }
     h+='</div></div>';
   }
@@ -698,7 +698,7 @@ function rN3(nucleo){
     var ok=s.c&&v.toLowerCase().trim()===b.respuesta_correcta.toLowerCase();
     var bad=s.c&&!ok&&v.length>0;
     h+='<div style="margin-bottom:14px"><p style="font-size:14px;color:#374151;margin:0 0 6px">'+b.texto_antes+' <span style="color:#9CA3AF;font-size:12px">('+b.pista+')</span></p>';
-    h+='<input type="text" value="'+v+'" oninput="S.'+sk+'.a[\''+b.id+'\']=this.value;S.'+sk+'.c=false;autoGuardarS()" placeholder="..." style="border-color:'+(ok?'#10B981':bad?'#EF4444':'#E5E7EB')+';background:'+(ok?'#D1FAE5':bad?'#FEE2E2':'#fff')+'">';
+    h+='<input type="text" value="'+v+'" oninput="S.'+sk+'.a[''+b.id+'']=this.value;S.'+sk+'.c=false;autoGuardarS()" placeholder="..." style="border-color:'+(ok?'#10B981':bad?'#EF4444':'#E5E7EB')+';background:'+(ok?'#D1FAE5':bad?'#FEE2E2':'#fff')+'">';
     if(bad) h+='<p style="font-size:12px;color:#EF4444;margin:4px 0 0">\u{1F4A1} '+b.pista+'</p>';
     h+='</div>';
   }
@@ -749,7 +749,7 @@ function rN5(nucleo){
   h+='</div><div>';
   for(var i=0;i<s.sr.length;i++){
     var p=s.sr[i], iMat=matched.indexOf(p.derecha)>=0;
-    h+='<div onclick="n5click(\''+p.derecha.replace(/'/g,"\\'")+ '\',\'' +nucleo+'\')" style="padding:12px;border-radius:12px;border:2px solid '+(iMat?'#10B981':'#E5E7EB')+';background:'+(iMat?'#ECFDF5':s.sel!==null&&!iMat?'#FEF3C7':'#F9FAFB')+';cursor:pointer;font-size:14px;font-weight:500;margin-bottom:8px;opacity:'+(iMat?.6:1)+'">'+p.emoji+' '+p.derecha+'</div>';
+    h+='<div onclick="n5click(''+p.derecha.replace(/'/g,"\'")+ '','' +nucleo+'')" style="padding:12px;border-radius:12px;border:2px solid '+(iMat?'#10B981':'#E5E7EB')+';background:'+(iMat?'#ECFDF5':s.sel!==null&&!iMat?'#FEF3C7':'#F9FAFB')+';cursor:pointer;font-size:14px;font-weight:500;margin-bottom:8px;opacity:'+(iMat?.6:1)+'">'+p.emoji+' '+p.derecha+'</div>';
   }
   h+='</div></div>';
   if(Object.keys(s.mt).length===d.pares.length) h+='<p style="text-align:center;margin-top:12px;font-size:15px;font-weight:700;color:#065F46">\u{1F389} \u00a1Todas conectadas!</p>';
@@ -819,7 +819,7 @@ function rN7(nucleo){
 
   if(c.pista) h+='<p style="font-size:13px;color:#6B7280;margin-bottom:10px;font-style:italic">\u{1F4A1} '+c.pista+'</p>';
   
-  h+='<textarea oninput="S[\''+sk+'_inp_'+s.cur+'\']=this.value; if(typeof uN7===\'function\')uN7(\''+sk+'\')" placeholder="Definí con tus palabras...">'+curInp+'</textarea>';
+  h+='<textarea oninput="S[''+sk+'_inp_'+s.cur+'']=this.value; if(typeof uN7==='function')uN7(''+sk+'')" placeholder="Definí con tus palabras...">'+curInp+'</textarea>';
   
   if(pk.length > 0 && curInp.length>10){
     h+='<div id="qdots_'+sk+'" style="display:flex;gap:4px;margin-top:8px">';
@@ -827,7 +827,7 @@ function rN7(nucleo){
     h+='</div>';
   } else { h+='<div id="qdots_'+sk+'"></div>'; }
   
-  h+='<button id="btn_enviar_'+sk+'" class="btn" onclick="S[\''+sk+'_sub_'+s.cur+'\']=true; autoGuardarS(); render()"'+(curInp.length<5?' disabled':'')+'>Enviar</button>';
+  h+='<button id="btn_enviar_'+sk+'" class="btn" onclick="S[''+sk+'_sub_'+s.cur+'']=true; autoGuardarS(); render()"'+(curInp.length<5?' disabled':'')+'>Enviar</button>';
   
   if(curSub){
     var fb=(pk.length === 0 || q>=2)?{t:"\u2728 \u00a1Guardado!",b:"#D1FAE5",c:"#065F46"}:{t:"\u{1F914} Intent\u00e1 completar m\u00e1s",b:"#FEF3C7",c:"#92400E"};
@@ -864,7 +864,7 @@ function rN8(nucleo){
   h+='</div><div>';
   for(var i=0;i<s.se.length;i++){
     var e=s.se[i], iCon=connected.indexOf(e.id)>=0;
-    h+='<div onclick="n8click('+e.id+','+e.causa_id+',\''+nucleo+'\')" style="padding:10px 12px;border-radius:12px;border:2px solid '+(iCon?'#10B981':'#E5E7EB')+';background:'+(iCon?'#ECFDF5':s.sc!==null?'#FEF3C7':'#F9FAFB')+';cursor:pointer;font-size:13px;font-weight:500;margin-bottom:8px;opacity:'+(iCon?.6:1)+'">'+e.emoji+' '+e.text+'</div>';
+    h+='<div onclick="n8click('+e.id+','+e.causa_id+',''+nucleo+'')" style="padding:10px 12px;border-radius:12px;border:2px solid '+(iCon?'#10B981':'#E5E7EB')+';background:'+(iCon?'#ECFDF5':s.sc!==null?'#FEF3C7':'#F9FAFB')+';cursor:pointer;font-size:13px;font-weight:500;margin-bottom:8px;opacity:'+(iCon?.6:1)+'">'+e.emoji+' '+e.text+'</div>';
   }
   h+='</div></div>';
   if(Object.keys(s.cn).length===d.causas.length) h+='<p style="text-align:center;margin-top:14px;font-size:15px;font-weight:700;color:#065F46">\u{1F389} \u00a1Todas correctas!</p>';
@@ -907,7 +907,7 @@ function rN9(nucleo){
     h+='<div style="display:flex;flex-wrap:wrap;gap:8px">';
     for(var i=0;i<avail.length;i++){
       var x=avail[i];
-      h+='<div onclick="S.'+sk+'.pl.push({id:'+x.id+',text:\''+x.text.replace(/'/g,"\\'")+'\',emoji:\''+x.emoji+'\'});autoGuardarS();render()" style="padding:10px 16px;border-radius:12px;border:2px solid #E5E7EB;background:#fff;cursor:pointer;font-size:13px;font-weight:500">'+x.emoji+' '+x.text+'</div>';
+      h+='<div onclick="S.'+sk+'.pl.push({id:'+x.id+',text:''+x.text.replace(/'/g,"\'")+'',emoji:''+x.emoji+''});autoGuardarS();render()" style="padding:10px 16px;border-radius:12px;border:2px solid #E5E7EB;background:#fff;cursor:pointer;font-size:13px;font-weight:500">'+x.emoji+' '+x.text+'</div>';
     }
     h+='</div>';
   }
@@ -928,7 +928,7 @@ function rN10(nucleo){
   if(!S[sk]) S[sk]={s1:"",s2:"",d1:"",d2:"",d3:"",d4:""};
   var s=S[sk];
   var filled=[s.s1,s.s2,s.d1,s.d2,s.d3,s.d4].filter(function(v){return v.trim().length>3}).length;
-  function inp(k,ph){return '<input type="text" value="'+(s[k]||"")+'" oninput="S.'+sk+'.'+k+'=this.value;uN10(\''+sk+'\');autoGuardarS()" placeholder="'+ph+'" style="padding:8px;border-radius:8px;border:1px solid #D1D5DB;font-size:13px;margin-bottom:6px">';}
+  function inp(k,ph){return '<input type="text" value="'+(s[k]||"")+'" oninput="S.'+sk+'.'+k+'=this.value;uN10(''+sk+'');autoGuardarS()" placeholder="'+ph+'" style="padding:8px;border-radius:8px;border:1px solid #D1D5DB;font-size:13px;margin-bottom:6px">';}
   var h='';
   if(d.consigna || d.paginas_referencia) {
     h+='<p style="font-size:14px;font-weight:600;color:#374151;margin:0 0 14px">';
@@ -963,9 +963,9 @@ function rS1(){
   for(var i=0;i<cs.length;i++){
     var c=cs[i], open=S["s1f_"+i], star=S["s1s_"+i];
     h+='<div style="border-radius:14px;overflow:hidden;border:2px solid '+(star?c.color:'#E5E7EB')+';margin-bottom:10px">';
-    h+='<div onclick="S[\'s1f_'+i+'\']=!S[\'s1f_'+i+'\'];render()" style="padding:14px 18px;background:'+(open?c.color+'08':'#fff')+';cursor:pointer;display:flex;align-items:center;justify-content:space-between">';
+    h+='<div onclick="S['s1f_'+i+'']=!S['s1f_'+i+''];render()" style="padding:14px 18px;background:'+(open?c.color+'08':'#fff')+';cursor:pointer;display:flex;align-items:center;justify-content:space-between">';
     h+='<div style="display:flex;align-items:center;gap:10px"><span style="font-size:22px">'+c.emoji+'</span><span style="font-size:15px;font-weight:700">'+c.termino+'</span></div>';
-    h+='<button onclick="event.stopPropagation();S[\'s1s_'+i+'\']=!S[\'s1s_'+i+'\'];autoGuardarS();render()" style="background:none;border:none;font-size:22px;cursor:pointer">'+(star?'\u2B50':'\u2606')+'</button></div>';
+    h+='<button onclick="event.stopPropagation();S['s1s_'+i+'']=!S['s1s_'+i+''];autoGuardarS();render()" style="background:none;border:none;font-size:22px;cursor:pointer">'+(star?'\u2B50':'\u2606')+'</button></div>';
     if(open){
       h+='<div style="padding:12px 18px;border-top:1px solid '+c.color+'15;animation:fadeIn .3s">';
       h+='<p style="margin:0 0 8px;font-size:14px;color:#374151;line-height:1.5">'+c.definicion+'</p>';
@@ -986,7 +986,7 @@ function rS2(){
     h+='<div style="padding:10px 14px;border-radius:12px;border:1px solid #E5E7EB;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between">';
     h+='<span style="font-size:14px;font-weight:600">'+c.emoji+' '+c.termino+'</span><div style="display:flex;gap:4px">';
     for(var j=0;j<cols.length;j++){
-      h+='<button onclick="S[\'s2_'+i+'\']='+j+';autoGuardarS();render()" style="width:28px;height:28px;border-radius:50%;border:'+(lv===j?'3px solid '+cols[j].c:'2px solid #D1D5DB')+';background:'+(lv===j?cols[j].b:'#F9FAFB')+';cursor:pointer;font-size:12px;transform:'+(lv===j?'scale(1.2)':'scale(1)')+'">'+cols[j].l+'</button>';
+      h+='<button onclick="S['s2_'+i+'']='+j+';autoGuardarS();render()" style="width:28px;height:28px;border-radius:50%;border:'+(lv===j?'3px solid '+cols[j].c:'2px solid #D1D5DB')+';background:'+(lv===j?cols[j].b:'#F9FAFB')+';cursor:pointer;font-size:12px;transform:'+(lv===j?'scale(1.2)':'scale(1)')+'">'+cols[j].l+'</button>';
     }
     h+='</div></div>';
   }
@@ -1024,12 +1024,12 @@ function rSB1(){
     var front = d.frente || d.front || d.titulo || "???";
     var back = d.dorso || d.back || d.texto || d.dato || "...";
     if(!flipped){
-      h+='<div onclick="S[\'sb1_'+i+'\']=true;render()" style="padding:18px 20px;border-radius:16px;cursor:pointer;background:linear-gradient(135deg,'+(d.color || '#EC4899')+','+(d.color || '#EC4899')+'CC);margin-bottom:14px">';
+      h+='<div onclick="S['sb1_'+i+'']=true;render()" style="padding:18px 20px;border-radius:16px;cursor:pointer;background:linear-gradient(135deg,'+(d.color || '#EC4899')+','+(d.color || '#EC4899')+'CC);margin-bottom:14px">';
       h+='<div style="display:flex;align-items:center;gap:14px"><span style="font-size:36px">'+(d.emoji || '💡')+'</span><div>';
       h+='<p style="margin:0;font-size:16px;font-weight:800;color:#fff">'+front+'</p>';
       h+='<p style="margin:4px 0 0;font-size:12px;color:rgba(255,255,255,.7)">Tocá para descubrir</p></div></div></div>';
     }else{
-      h+='<div onclick="S[\'sb1_'+i+'\']=false;render()" style="padding:18px 20px;border-radius:16px;cursor:pointer;background:'+(d.color || '#EC4899')+'10;border:2px solid '+(d.color || '#EC4899')+'40;margin-bottom:14px;animation:fadeIn .4s">';
+      h+='<div onclick="S['sb1_'+i+'']=false;render()" style="padding:18px 20px;border-radius:16px;cursor:pointer;background:'+(d.color || '#EC4899')+'10;border:2px solid '+(d.color || '#EC4899')+'40;margin-bottom:14px;animation:fadeIn .4s">';
       h+='<p style="margin:0 0 8px;font-size:13px;font-weight:700;color:'+(d.color || '#EC4899')+'">'+(d.emoji || '💡')+' '+front+'</p>';
       h+='<p style="margin:0;font-size:15px;color:#374151;line-height:1.6">'+back+'</p></div>';
     }
@@ -1111,7 +1111,7 @@ function rCruces(){
         }
         
         h += '<p style="margin:0 0 8px;font-size:13px;font-weight:600;color:#374151">📝 Tu plan de exposición:</p>';
-        h += '<textarea oninput="S.cruces[\'' + id + '\']=this.value;autoGuardarS();render()" placeholder="Escribí acá..." style="min-height:100px;width:100%;padding:12px;border-radius:10px;border:2px solid ' + color + '40;font-size:13px;font-family:inherit;box-sizing:border-box">' + val + '</textarea>';
+        h += '<textarea oninput="S.cruces['' + id + '']=this.value;autoGuardarS();render()" placeholder="Escribí acá..." style="min-height:100px;width:100%;padding:12px;border-radius:10px;border:2px solid ' + color + '40;font-size:13px;font-family:inherit;box-sizing:border-box">' + val + '</textarea>';
         if(wc > 0) h += '<p style="margin:8px 0 0;font-size:12px;color:#9CA3AF;text-align:right">' + wc + ' palabras</p>';
         
         h += '</div></div>';
@@ -1142,7 +1142,7 @@ function rR1(){
 
   for(var i=0;i<roles.length;i++){
     var r=roles[i], sel=s.rol==r.id;
-    h+='<div onclick="S.r1.rol=\''+r.id+'\';S.r1.sub=false;autoGuardarS();render()" style="padding:12px 16px;border-radius:12px;border:2px solid '+(sel?r.color:'#E5E7EB')+';background:'+(sel?r.color+'08':'#fff')+';cursor:pointer;display:flex;align-items:center;gap:12px;margin-bottom:8px">';
+    h+='<div onclick="S.r1.rol=''+r.id+'';S.r1.sub=false;autoGuardarS();render()" style="padding:12px 16px;border-radius:12px;border:2px solid '+(sel?r.color:'#E5E7EB')+';background:'+(sel?r.color+'08':'#fff')+';cursor:pointer;display:flex;align-items:center;gap:12px;margin-bottom:8px">';
     h+='<span style="font-size:22px">'+(r.emoji || '👤')+'</span><div><span style="font-size:14px;font-weight:700;color:'+(sel?r.color:'#374151')+'">'+(r.label || r.nombre)+'</span>';
     if(r.desc) h+='<p style="margin:2px 0 0;font-size:12px;color:#6B7280">'+r.desc+'</p></div></div>';
     else h+='</div></div>';
@@ -1151,7 +1151,7 @@ function rR1(){
     h+='<div style="animation:fadeIn .3s">';
     h+='<textarea oninput="S.r1.args=this.value;S.r1.sub=false;autoGuardarS()" placeholder="Escribí tus argumentos..." style="min-height:120px">'+s.args+'</textarea>';
     h+='<p style="margin:8px 0 0;font-size:12px;color:#9CA3AF">'+wc+' palabras</p>';
-    h+='<button class="btn" onclick="S.r1.sub=true;autoGuardarS();render()"'+(wc<10?\' disabled\':\'\')+'>Presentar</button>';
+    h+='<button class="btn" onclick="S.r1.sub=true;autoGuardarS();render()"'+(wc<10?' disabled':'')+'>Presentar</button>';
     if(s.sub){
       var fb=wc>=50?{t:"🌟 Argumentación sólida",b:"#D1FAE5",c:"#065F46"}:wc>=30?{t:"👍 Buen desarrollo",b:"#FEF3C7",c:"#92400E"}:{t:"💪 Seguí desarrollando",b:"#DBEAFE",c:"#1E40AF"};
       h+='<div class="fb" style="background:'+fb.b+'"><p style="margin:0;font-size:14px;font-weight:600;color:'+fb.c+'">'+fb.t+'</p></div>';
@@ -1452,9 +1452,9 @@ function rAT(){
     var isWrongF = selF && !ok;
     
     h+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">';
-    h+='<div onclick="if(S.at.ans[\''+vfKey+'\']===undefined){S.at.ans[\''+vfKey+'\']=true;render()}" style="padding:16px;border-radius:12px;border:'+(isCorrectV?'3px solid #10B981':isWrongV?'3px solid #EF4444':selV?'2px solid #6366F1':'2px solid #E5E7EB')+';background:'+(isCorrectV?'#ECFDF5':isWrongV?'#FEF2F2':selV?'#EEF2FF':'#fff')+';cursor:'+(answered?'default':'pointer')+';text-align:center;font-size:16px;font-weight:700">';
+    h+='<div onclick="if(S.at.ans[''+vfKey+'']===undefined){S.at.ans[''+vfKey+'']=true;render()}" style="padding:16px;border-radius:12px;border:'+(isCorrectV?'3px solid #10B981':isWrongV?'3px solid #EF4444':selV?'2px solid #6366F1':'2px solid #E5E7EB')+';background:'+(isCorrectV?'#ECFDF5':isWrongV?'#FEF2F2':selV?'#EEF2FF':'#fff')+';cursor:'+(answered?'default':'pointer')+';text-align:center;font-size:16px;font-weight:700">';
     h+='<div style="font-size:24px;margin-bottom:6px">'+(isCorrectV?'\u2713':isWrongV?'\u2717':'\u2705')+'</div>VERDADERO</div>';
-    h+='<div onclick="if(S.at.ans[\''+vfKey+'\']===undefined){S.at.ans[\''+vfKey+'\']=false;render()}" style="padding:16px;border-radius:12px;border:'+(isCorrectF?'3px solid #10B981':isWrongF?'3px solid #EF4444':selF?'2px solid #6366F1':'2px solid #E5E7EB')+';background:'+(isCorrectF?'#ECFDF5':isWrongF?'#FEF2F2':selF?'#EEF2FF':'#fff')+';cursor:'+(answered?'default':'pointer')+';text-align:center;font-size:16px;font-weight:700">';
+    h+='<div onclick="if(S.at.ans[''+vfKey+'']===undefined){S.at.ans[''+vfKey+'']=false;render()}" style="padding:16px;border-radius:12px;border:'+(isCorrectF?'3px solid #10B981':isWrongF?'3px solid #EF4444':selF?'2px solid #6366F1':'2px solid #E5E7EB')+';background:'+(isCorrectF?'#ECFDF5':isWrongF?'#FEF2F2':selF?'#EEF2FF':'#fff')+';cursor:'+(answered?'default':'pointer')+';text-align:center;font-size:16px;font-weight:700">';
     h+='<div style="font-size:24px;margin-bottom:6px">'+(isCorrectF?'\u2713':isWrongF?'\u2717':'\u274C')+'</div>FALSO</div>';
     h+='</div>';
     
@@ -1520,7 +1520,7 @@ function rCI3(){
     h+='<span style="font-size:10px;color:#9CA3AF;background:#F3F4F6;padding:2px 6px;border-radius:4px">'+r.nivel+'</span></div>';
     h+='<p style="margin:0;font-size:14px;font-weight:600">'+r.title+'</p>';
     h+='<p style="margin:4px 0 0;font-size:12px;color:#6B7280">'+r.desc+'</p></div>';
-    h+='<button onclick="S[\'ci3_'+i+'\']=!S[\'ci3_'+i+'\'];render()" style="background:none;border:none;font-size:22px;cursor:pointer;margin-left:10px">'+(star?'\u2B50':'\u2606')+'</button></div>';
+    h+='<button onclick="S['ci3_'+i+'']=!S['ci3_'+i+''];render()" style="background:none;border:none;font-size:22px;cursor:pointer;margin-left:10px">'+(star?'\u2B50':'\u2606')+'</button></div>';
   }
   return h;
 }
