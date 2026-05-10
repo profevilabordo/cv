@@ -158,7 +158,7 @@ function renderSectionContent(){
 function secHeader(i,t,s,g){ return '<div class="sh" style="background:'+g+'"><h2>'+i+' '+t+'</h2></div>'; }
 function renderCheckBtn(secK){
   if(isDone(secK)) return '<div class="check-section-done">✓ Sección completada</div>';
-  return '<button class="check-section-btn" onclick="marcarDone(''+secK+'')">Marcar como completada</button>';
+  return '<button class="check-section-btn" onclick="marcarDone(\''+secK+'\')">Marcar como completada</button>';
 }
 function actualizarBarra(){
   if(!D) return;
