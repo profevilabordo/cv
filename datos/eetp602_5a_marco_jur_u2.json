@@ -398,25 +398,93 @@
         "preguntas": [
           {
             "pregunta": "¿Qué ocurre si un elemento esencial falta en el contrato?",
-            "opciones": [
-              "Se le agrega después",
-              "El contrato es nulo",
-              "Se puede rescindir",
-              "El juez lo perdona"
-            ],
+            "opciones": ["Se le agrega después", "El contrato es nulo", "Se puede rescindir", "El juez lo perdona"],
             "correcta": 1,
             "explicacion": "Si falta un elemento esencial (consentimiento, objeto, causa, capacidad), el contrato es nulo de origen."
           },
           {
             "pregunta": "¿Qué extinción ocurre por acuerdo mutuo sin que haya incumplimiento?",
-            "opciones": [
-              "Resolución",
-              "Nulidad",
-              "Rescisión bilateral",
-              "Revocación"
-            ],
+            "opciones": ["Resolución", "Nulidad", "Rescisión bilateral", "Revocación"],
             "correcta": 2,
             "explicacion": "La rescisión bilateral (o distracto) ocurre cuando ambas partes acuerdan ponerle fin."
+          },
+          {
+            "pregunta": "¿Cuál de estos es un elemento ACCIDENTAL del contrato?",
+            "opciones": ["El Consentimiento", "El Objeto", "El Plazo", "La Causa"],
+            "correcta": 2,
+            "explicacion": "El plazo es un elemento accidental; el contrato puede existir sin él, a diferencia de los esenciales."
+          },
+          {
+            "pregunta": "Un contrato es ONEROSO cuando...",
+            "opciones": ["Solo una parte se obliga", "Hay ventajas y sacrificios para ambas partes", "Una parte recibe una ventaja sin dar nada", "Se firma ante escribano"],
+            "correcta": 1,
+            "explicacion": "Oneroso implica que la ventaja que una parte obtiene tiene como contrapartida un sacrificio."
+          },
+          {
+            "pregunta": "¿A qué edad se adquiere la plena capacidad para contratar por cuenta propia?",
+            "opciones": ["16 años", "18 años", "21 años", "Al terminar la secundaria"],
+            "correcta": 1,
+            "explicacion": "A los 18 años se adquiere la mayoría de edad y la plena capacidad civil."
+          },
+          {
+            "pregunta": "¿Cuál es la regla general respecto a la FORMA de los contratos?",
+            "opciones": ["Deben ser siempre escritos", "Deben ser por escritura pública", "Libertad de formas (No formales)", "Solo valen si hay testigos"],
+            "correcta": 2,
+            "explicacion": "En nuestro derecho rige el principio de libertad de formas, salvo que la ley exija una específica."
+          },
+          {
+            "pregunta": "El 'Pacta Sunt Servanda' significa que...",
+            "opciones": ["El contrato es nulo", "Los contratos se firman para romperse", "Los contratos se hacen para ser cumplidos como la ley misma", "Solo los jueces pueden crear contratos"],
+            "correcta": 2,
+            "explicacion": "Es un principio jurídico que establece que los contratos vinculan a las partes como si fueran la ley."
+          },
+          {
+            "pregunta": "¿Qué es la 'Capacidad de Ejercicio'?",
+            "opciones": ["Poder tener derechos", "Poder ejercer los derechos por sí mismo", "Poder ir al gimnasio", "Poder ser dueño de algo"],
+            "correcta": 1,
+            "explicacion": "Es la aptitud de la persona humana para ejercer por sí misma sus derechos."
+          },
+          {
+            "pregunta": "Un contrato UNILATERAL es aquel donde...",
+            "opciones": ["Solo una parte se obliga hacia la otra", "Ambas partes se obligan recíprocamente", "Interviene una sola persona", "No hay obligaciones"],
+            "correcta": 0,
+            "explicacion": "Unilateral se refiere a que una sola de las partes queda obligada (ej: la donación)."
+          },
+          {
+            "pregunta": "El OBJETO de un contrato no puede ser...",
+            "opciones": ["Una cosa futura", "Un hecho lícito", "Un hecho imposible o contrario a la moral", "Un servicio profesional"],
+            "correcta": 2,
+            "explicacion": "El objeto debe ser lícito, posible, determinado y tener valor económico."
+          },
+          {
+            "pregunta": "¿Qué vicio del consentimiento ocurre cuando se usa la fuerza física o moral?",
+            "opciones": ["Error", "Dolo", "Violencia", "Simulación"],
+            "correcta": 2,
+            "explicacion": "La violencia física o las amenazas anulan el consentimiento libre."
+          },
+          {
+            "pregunta": "La 'Resolución' de un contrato suele ocurrir por...",
+            "opciones": ["Muerte de una parte", "Incumplimiento de una de las partes", "Acuerdo mutuo", "Pasó mucho tiempo"],
+            "correcta": 1,
+            "explicacion": "La resolución es un modo de extinción provocado por un hecho posterior (como el incumplimiento)."
+          },
+          {
+            "pregunta": "¿Cuál es el efecto principal de los contratos respecto a terceros?",
+            "opciones": ["Los obliga a todos", "No tienen efecto excepto en casos previstos", "Solo obligan a los parientes", "Deben publicarse en el diario"],
+            "correcta": 1,
+            "explicacion": "Principio de efecto relativo: el contrato solo obliga a las partes, no a terceros."
+          },
+          {
+            "pregunta": "Un contrato CONMUTATIVO es aquel donde...",
+            "opciones": ["Las ventajas son ciertas y conocidas al firmar", "Dependen de un hecho azaroso", "Son siempre gratuitos", "Se firman por teléfono"],
+            "correcta": 0,
+            "explicacion": "En los conmutativos, las partes conocen perfectamente las ventajas y sacrificios desde el inicio."
+          },
+          {
+            "pregunta": "La 'Seña' o 'Arras' en un contrato sirve para...",
+            "opciones": ["Anular el contrato", "Confirmar el acto o permitir el arrepentimiento", "Pagar los impuestos", "Regalar dinero"],
+            "correcta": 1,
+            "explicacion": "La seña puede tener carácter confirmatorio o penitencial (permite arrepentirse perdiéndola)."
           }
         ]
       },
@@ -774,25 +842,93 @@
         "preguntas": [
           {
             "pregunta": "¿En qué contrato el objeto central es garantizar un RESULTADO terminado?",
-            "opciones": [
-              "Locación de servicios",
-              "Locación de obra",
-              "Depósito bancario",
-              "Cuenta corriente"
-            ],
+            "opciones": ["Locación de servicios", "Locación de obra", "Depósito bancario", "Cuenta corriente"],
             "correcta": 1,
             "explicacion": "La locación de obra obliga a entregar un resultado material o intelectual terminado."
           },
           {
             "pregunta": "¿Qué debe transmitir el franquiciante además de la marca?",
-            "opciones": [
-              "La propiedad del local",
-              "Las acciones de su empresa",
-              "El know-how y la asistencia técnica",
-              "Sus empleados directos"
-            ],
+            "opciones": ["La propiedad del local", "Las acciones de su empresa", "El know-how y la asistencia técnica", "Sus empleados directos"],
             "correcta": 2,
             "explicacion": "La franquicia incluye la transmisión de manuales, procesos operativos y soporte (know-how)."
+          },
+          {
+            "pregunta": "¿Cuál es la característica principal del contrato de LEASING?",
+            "opciones": ["Es una venta en cuotas", "Es un alquiler con opción a compra", "Es un préstamo de dinero", "Es una donación condicionada"],
+            "correcta": 1,
+            "explicacion": "El leasing permite usar un bien pagando un canon y, al final, decidir si se compra por un valor residual."
+          },
+          {
+            "pregunta": "En un contrato de COMPRAVENTA, el vendedor se obliga a...",
+            "opciones": ["Prestar la cosa", "Transferir la propiedad de una cosa", "Cuidar la cosa sin ser dueño", "Hacer un servicio"],
+            "correcta": 1,
+            "explicacion": "La compraventa tiene como fin la transferencia del dominio (propiedad) a cambio de un precio en dinero."
+          },
+          {
+            "pregunta": "¿Cómo se llama el pago periódico en un contrato de locación (alquiler)?",
+            "opciones": ["Precio", "Honorario", "Canon o Alquiler", "Comisión"],
+            "correcta": 2,
+            "explicacion": "El canon locativo es la contraprestación en dinero por el uso y goce de la cosa."
+          },
+          {
+            "pregunta": "¿Qué tipo de depósito es el que se hace en un banco donde el banco puede usar el dinero?",
+            "opciones": ["Depósito Regular", "Depósito Irregular", "Depósito Gratuito", "Depósito de Confianza"],
+            "correcta": 1,
+            "explicacion": "En el depósito irregular (típico de los bancos), el depositario adquiere la propiedad del dinero y debe devolver igual cantidad."
+          },
+          {
+            "pregunta": "El contrato de MUTUO es básicamente un...",
+            "opciones": ["Seguro de vida", "Préstamo de consumo (ej: dinero)", "Alquiler de herramientas", "Contrato de transporte"],
+            "correcta": 1,
+            "explicacion": "El mutuo es el préstamo de cosas consumibles o fungibles que se devuelven en igual especie y calidad."
+          },
+          {
+            "pregunta": "¿Cuál es la principal diferencia entre Locación de OBRA y de SERVICIOS?",
+            "opciones": ["El precio", "La obligación de medios vs. obligación de resultado", "La duración", "El lugar de trabajo"],
+            "correcta": 1,
+            "explicacion": "En servicios se promete un esfuerzo (medios); en obra se promete el resultado terminado."
+          },
+          {
+            "pregunta": "¿Qué es la 'Evicción' en un contrato de compraventa?",
+            "opciones": ["Un defecto oculto", "Una turbación del derecho por parte de un tercero", "La falta de pago", "Un error en el precio"],
+            "correcta": 1,
+            "explicacion": "La garantía de evicción asegura que el comprador no será privado de su derecho por una causa anterior a la venta."
+          },
+          {
+            "pregunta": "Un contrato de COMODATO es un préstamo de...",
+            "opciones": ["Dinero", "Uso gratuito de una cosa no fungible", "Consumo", "Servicios profesionales"],
+            "correcta": 1,
+            "explicacion": "El comodato es esencialmente gratuito y para usar la cosa sin consumirla (ej: prestar un libro)."
+          },
+          {
+            "pregunta": "En el contrato de DONACIÓN, se requiere aceptación del donatario...",
+            "opciones": ["Nunca", "Solo si es un auto", "Siempre (antes o después de la muerte del donante)", "Solo si hay escribano"],
+            "correcta": 2,
+            "explicacion": "La donación es un contrato bilateral (requiere dos voluntades) aunque solo una parte se obligue."
+          },
+          {
+            "pregunta": "¿Qué son los 'Vicios Redhibitorios'?",
+            "opciones": ["Falta de firma", "Defectos ocultos que hacen a la cosa impropia para su destino", "Problemas de papeles", "Peleas entre socios"],
+            "correcta": 1,
+            "explicacion": "Son defectos que no se ven a simple vista y que, de conocerlos, el comprador no habría adquirido la cosa."
+          },
+          {
+            "pregunta": "En la FRANQUICIA, el 'Royalties' es...",
+            "opciones": ["El pago inicial", "El pago periódico por el uso del sistema", "La multa por incumplir", "El nombre del dueño"],
+            "correcta": 1,
+            "explicacion": "Las regalías o royalties son los pagos continuos que el franquiciado hace al franquiciante."
+          },
+          {
+            "pregunta": "¿Qué contrato permite usar un bien ajeno y quedarse con los frutos (ej: cosecha)?",
+            "opciones": ["Comodato", "Locación", "Usufructo (aunque suele ser derecho real)", "Mutuo"],
+            "correcta": 1,
+            "explicacion": "La locación permite el uso y goce de la cosa a cambio de un precio."
+          },
+          {
+            "pregunta": "El contrato de MANDATO sirve para...",
+            "opciones": ["Hacer que otro realice actos jurídicos en nuestro nombre", "Alquilar una casa", "Pedir un préstamo", "Donar órganos"],
+            "correcta": 0,
+            "explicacion": "Mediante el mandato, una parte se obliga a realizar uno o más actos jurídicos por cuenta de otra."
           }
         ]
       },
@@ -1127,25 +1263,94 @@
         "preguntas": [
           {
             "pregunta": "¿Cuál es la característica principal de la Sociedad Colectiva (SC)?",
-            "opciones": [
-              "Responsabilidad limitada",
-              "Capital en acciones",
-              "Responsabilidad solidaria e ilimitada",
-              "No necesita capital"
-            ],
+            "opciones": ["Responsabilidad limitada", "Capital en acciones", "Responsabilidad solidaria e ilimitada", "No necesita capital"],
             "correcta": 2,
             "explicacion": "En la SC los socios responden con su propio patrimonio por las deudas sociales."
           },
           {
             "pregunta": "¿Qué representan las 'acciones' en una Sociedad Anónima?",
-            "opciones": [
-              "Los bienes muebles",
-              "Partes del capital social",
-              "Los empleados",
-              "Las deudas"
-            ],
+            "opciones": ["Los bienes muebles", "Partes del capital social", "Los empleados", "Las deudas"],
             "correcta": 1,
             "explicacion": "El capital de la SA se divide en títulos llamados acciones, libremente transmisibles."
+          },
+          {
+            "pregunta": "¿Cuál es la ventaja principal de una SRL frente a una Sociedad Colectiva?",
+            "opciones": ["Paga menos impuestos", "Limita la responsabilidad al capital aportado", "Puede tener infinitos socios", "No necesita contrato"],
+            "correcta": 1,
+            "explicacion": "En la SRL, los socios solo arriesgan lo que aportaron a la empresa, protegiendo sus bienes personales."
+          },
+          {
+            "pregunta": "En una SRL, el capital se divide en...",
+            "opciones": ["Acciones", "Cuotas", "Bonos", "Partes"],
+            "correcta": 1,
+            "explicacion": "A diferencia de la SA, en la SRL el capital social se divide en 'Cuotas Sociales'."
+          },
+          {
+            "pregunta": "¿Qué órgano es el encargado de la GESTIÓN y administración en una SA?",
+            "original_index": 4,
+            "opciones": ["La Asamblea", "El Directorio", "La Sindicatura", "El Consejo de Vigilancia"],
+            "correcta": 1,
+            "explicacion": "El Directorio es el órgano ejecutivo que administra la sociedad anónima en el día a día."
+          },
+          {
+            "pregunta": "¿Cuál es el número MÁXIMO de socios permitido en una SRL?",
+            "opciones": ["10 socios", "50 socios", "100 socios", "No tiene límite"],
+            "correcta": 1,
+            "explicacion": "La Ley 19.550 establece un límite de 50 socios para las Sociedades de Responsabilidad Limitada."
+          },
+          {
+            "pregunta": "La 'Personalidad Jurídica' de una sociedad significa que...",
+            "opciones": ["El dueño es la única persona que vale", "La sociedad es un sujeto de derecho distinto de los socios", "La sociedad no tiene derechos", "Los socios no pueden ir presos"],
+            "correcta": 1,
+            "explicacion": "Al constituirse, la sociedad nace como una persona distinta, con su propio patrimonio, nombre y domicilio."
+          },
+          {
+            "pregunta": "En la 'Sociedad de Capital e Industria', el socio industrial aporta...",
+            "opciones": ["Solo capital", "Bienes inmuebles", "Su trabajo o industria", "Dinero y trabajo"],
+            "correcta": 2,
+            "explicacion": "Este tipo social permite que una parte aporte capital y la otra solo su capacidad de trabajo."
+          },
+          {
+            "pregunta": "¿Qué ocurre si una sociedad no se inscribe correctamente en el Registro Público?",
+            "opciones": ["No existe", "Pasa a ser una Sección IV (Sociedad Simple o de Hecho)", "Es nula de pleno derecho", "No puede vender nada"],
+            "correcta": 1,
+            "explicacion": "Las sociedades no constituidas regularmente entran en el régimen de la Sección IV, con mayor responsabilidad para los socios."
+          },
+          {
+            "pregunta": "¿Qué es el 'Capital Social' de una empresa?",
+            "opciones": ["El dinero que ganan por mes", "El aporte inicial de los socios para cumplir el objeto social", "La suma de las deudas", "El valor de las máquinas"],
+            "correcta": 1,
+            "explicacion": "El capital social es el fondo común inicial aportado por los socios para poner en marcha el negocio."
+          },
+          {
+            "pregunta": "¿Cuál es el órgano de GOBIERNO (toma de decisiones) en una Sociedad Anónima?",
+            "opciones": ["El Directorio", "La Asamblea de Accionistas", "El Gerente", "El Banco Central"],
+            "correcta": 1,
+            "explicacion": "La Asamblea es donde los accionistas se reúnen para decidir sobre el balance, elección de directores, etc."
+          },
+          {
+            "pregunta": "En la Sociedad en Comandita Simple, los socios 'Comanditados'...",
+            "opciones": ["No responden por las deudas", "Responden de forma solidaria e ilimitada", "Solo aportan capital", "No pueden ser gerentes"],
+            "correcta": 1,
+            "explicacion": "Los socios comanditados tienen responsabilidad plena, mientras que los comanditarios la tienen limitada."
+          },
+          {
+            "pregunta": "¿Qué significa que la responsabilidad sea 'SOLIDARIA'?",
+            "opciones": ["Que los socios son buenos amigos", "Que el acreedor puede cobrarle la deuda entera a cualquiera de los socios", "Que solo pagan lo que quieren", "Que se reparten las ganancias equitativamente"],
+            "correcta": 1,
+            "explicacion": "Solidaridad implica que cada socio responde por el TOTAL de la obligación frente a terceros."
+          },
+          {
+            "pregunta": "¿Cómo se llama el contrato que da nacimiento a la sociedad?",
+            "opciones": ["Contrato de Compraventa", "Estatuto o Contrato Social", "Pagaré", "Factura"],
+            "correcta": 1,
+            "explicacion": "El Contrato Social (o Estatuto en las SA) contiene las reglas de funcionamiento de la sociedad."
+          },
+          {
+            "pregunta": "¿Qué es la 'Afectación Societaria' (Affectio Societatis)?",
+            "opciones": ["Estar enfermo por el trabajo", "La voluntad de los socios de colaborar para el fin común", "Tener deudas con los socios", "Comprar acciones"],
+            "correcta": 1,
+            "explicacion": "Es el elemento subjetivo que implica la predisposición de los socios de actuar en conjunto para lograr beneficios."
           }
         ]
       },
