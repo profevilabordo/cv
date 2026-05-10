@@ -68,39 +68,50 @@ h1 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; font-weight: 800
 }
 .btn-back-menu:hover { background: rgba(255, 255, 255, 0.1); color: #fff; }
 
-h2.section-title { font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin: 0; color: var(--p); display: flex; align-items: center; gap: 10px; }
+h2.section-title { font-family: 'Space Grotesk', sans-serif; font-size: 24px; margin: 0 0 20px; color: var(--p); display: flex; align-items: center; gap: 10px; }
 
-/* QUIZ ENGINE */
-.quiz-option {
-  padding: 16px; border-radius: 16px; border: 1px solid var(--border);
-  background: rgba(255,255,255,0.03); color: #F8FAFC; cursor: pointer;
-  margin-bottom: 10px; transition: all 0.3s; font-size: 14px;
+/* ACTIVIDADES NUCLEO */
+.act-card {
+  background: rgba(255,255,255,0.02); border-radius: 18px; border: 1px solid var(--border);
+  padding: 16px; margin-bottom: 16px; transition: all 0.3s;
 }
-.quiz-option:hover { background: rgba(255,255,255,0.08); border-color: var(--p); }
-.quiz-option.correct { background: rgba(16, 185, 129, 0.2); border-color: var(--s); color: #fff; }
-.quiz-option.wrong { background: rgba(239, 68, 68, 0.2); border-color: var(--danger); color: #fff; }
+.act-card:hover { border-color: var(--p); background: rgba(255,255,255,0.05); }
+.act-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.act-badge { font-size: 10px; font-weight: 800; padding: 4px 8px; border-radius: 6px; text-transform: uppercase; }
 
-.progress-dots { display: flex; gap: 6px; margin-bottom: 20px; justify-content: center; }
-.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
-.dot.active { background: var(--p); transform: scale(1.3); }
-.dot.done { background: var(--s); }
-
-/* COMPONENTES DE ACTIVIDAD */
-.activity-box {
-  background: rgba(255, 255, 255, 0.03); border-radius: 20px; padding: 20px;
-  border-left: 4px solid var(--p); margin-bottom: 20px;
+/* ORDENAR */
+.sort-item {
+  padding: 12px 16px; background: var(--bg); border: 1px solid var(--border);
+  border-radius: 12px; margin-bottom: 8px; cursor: move; display: flex; align-items: center; gap: 10px;
 }
+
+/* CLASIFICAR */
+.class-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.class-btn {
+  padding: 12px; border-radius: 12px; border: 1px solid var(--border);
+  background: var(--glass); color: white; cursor: pointer; font-size: 12px; transition: all 0.3s;
+}
+.class-btn.active { background: var(--p); border-color: var(--p); }
+
+/* V o F */
+.vf-btn {
+  padding: 12px; border-radius: 12px; border: 1px solid var(--border);
+  background: var(--glass); color: white; cursor: pointer; flex: 1; text-align: center;
+}
+
+/* INPUTS */
 textarea {
-  width: 100%; min-height: 100px; background: rgba(15, 23, 42, 0.4); 
-  border: 1px solid var(--border); border-radius: 16px; padding: 16px;
-  color: #fff; font-family: inherit; font-size: 15px; resize: none;
-  box-sizing: border-box; outline: none; margin-bottom: 12px;
+  width: 100%; min-height: 80px; background: rgba(15, 23, 42, 0.4); 
+  border: 1px solid var(--border); border-radius: 14px; padding: 12px;
+  color: #fff; font-family: inherit; font-size: 14px; resize: none;
+  box-sizing: border-box; outline: none; margin-bottom: 10px;
 }
+textarea:focus { border-color: var(--p); }
 
 .btn-primary {
-  width: 100%; padding: 16px; border-radius: 16px; border: none;
+  width: 100%; padding: 14px; border-radius: 14px; border: none;
   background: linear-gradient(135deg, var(--p), var(--p-h));
-  color: white; font-weight: 700; font-size: 16px; cursor: pointer;
+  color: white; font-weight: 700; font-size: 14px; cursor: pointer;
   transition: all 0.3s; box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
 }
 
@@ -193,7 +204,7 @@ function renderSection(){
 function rUmbral(){
   var d = B.umbral;
   var h = '<h2 class="section-title">🚪 Umbral</h2>';
-  h += '<div class="activity-box" style="border-color:var(--p)">'+d.termometro_pregunta+'</div>';
+  h += '<div class="activity-box" style="border-left:4px solid var(--p);padding:15px;background:var(--glass);border-radius:12px">'+d.termometro_pregunta+'</div>';
   return h + renderCheckBtn("umbral");
 }
 
@@ -207,18 +218,84 @@ function rMapa(){
   return h + renderCheckBtn("mapa");
 }
 
+// --- NUCLEO MODULAR COMPLETO ---
 function rNucleo(){
+  var h = '<h2 class="section-title">⚛️ Núcleo</h2>';
+  var n = B.nucleo;
+  
+  if(n.n1_ordenar_cronologicamente) h += rN1();
+  if(n.n2_clasificador) h += rN2();
+  if(n.n4_verdadero_falso) h += rN4();
+  if(n.n6_palabra_intrusa) h += rN6();
+  if(n.n7_defini_con_tus_palabras) h += rN7();
+  
+  return h + renderCheckBtn("nucleo");
+}
+
+function rN1(){
+  var d = B.nucleo.n1_ordenar_cronologicamente;
+  var sk = "n_n1_"+CB; if(!S[sk]) S[sk] = d.items.map((_,i)=>i);
+  var h = '<div class="act-card"><div class="act-header"><span class="act-badge" style="background:var(--p)">1. Ordenar</span><b>'+d.consigna+'</b></div>';
+  S[sk].forEach((idx, i) => {
+    h += '<div class="sort-item"><span>'+(i+1)+'.</span> '+d.items[idx]+'</div>';
+  });
+  return h + '</div>';
+}
+
+function rN2(){
+  var d = B.nucleo.n2_clasificador;
+  var h = '<div class="act-card"><div class="act-header"><span class="act-badge" style="background:var(--s)">2. Clasificar</span><b>'+d.consigna+'</b></div>';
+  d.items.forEach((item, i) => {
+    var sel = S["n2_"+CB+"_"+i];
+    h += '<div style="margin-bottom:12px;font-size:13px"><b>'+item.text+'</b><div class="class-grid" style="margin-top:6px">';
+    d.categorias.forEach(cat => {
+      var active = (sel === cat.id);
+      h += '<button class="class-btn '+(active?'active':'')+'" onclick="S[\'n2_'+CB+'_'+i+'\']=\''+cat.id+'\';render()">'+cat.name+'</button>';
+    });
+    h += '</div></div>';
+  });
+  return h + '</div>';
+}
+
+function rN4(){
+  var d = B.nucleo.n4_verdadero_falso;
+  var h = '<div class="act-card"><div class="act-header"><span class="act-badge" style="background:var(--danger)">4. V o F</span><b>Evaluá las afirmaciones</b></div>';
+  d.afirmaciones.forEach((af, i) => {
+    var sel = S["n4_"+CB+"_"+i];
+    h += '<div style="margin-bottom:12px;font-size:13px"><p>'+af.texto+'</p><div style="display:flex;gap:10px;margin-top:6px">';
+    h += '<button class="vf-btn '+(sel===true?'active':'')+'" style="background:'+(sel===true?'var(--s)':'')+'" onclick="S[\'n4_'+CB+'_'+i+'\']=true;render()">Verdadero</button>';
+    h += '<button class="vf-btn '+(sel===false?'active':'')+'" style="background:'+(sel===false?'var(--danger)':'')+'" onclick="S[\'n4_'+CB+'_'+i+'\']=false;render()">Falso</button>';
+    h += '</div></div>';
+  });
+  return h + '</div>';
+}
+
+function rN6(){
+  var d = B.nucleo.n6_palabra_intrusa;
+  var h = '<div class="act-card"><div class="act-header"><span class="act-badge" style="background:var(--a)">6. Intrusa</span><b>Encontrá la que no pertenece</b></div>';
+  d.grupos.forEach((g, i) => {
+    var sel = S["n6_"+CB+"_"+i];
+    h += '<div style="margin-bottom:12px;font-size:13px"><p>'+g.pregunta+'</p><div class="class-grid">';
+    g.palabras.forEach((p, pi) => {
+      var active = (sel === pi);
+      h += '<button class="class-btn '+(active?'active':'')+'" onclick="S[\'n6_'+CB+'_'+i+'\']='+pi+';render()">'+p.text+'</button>';
+    });
+    h += '</div></div>';
+  });
+  return h + '</div>';
+}
+
+function rN7(){
   var d = B.nucleo.n7_defini_con_tus_palabras;
   var sk = "n_n7_" + CB;
   if(!S[sk]) S[sk] = {cur:0};
   var s = S[sk]; var c = d.conceptos[s.cur];
   var val = S[sk+"_v_"+s.cur] || "";
-  var h = '<h2 class="section-title">⚛️ Núcleo</h2>';
-  h += '<div class="activity-box"><span style="font-size:11px;color:var(--p)">Definí con tus palabras</span><p style="margin:5px 0 0;font-weight:700">'+c.titulo+'</p></div>';
-  h += '<textarea oninput="S[\''+sk+'_v_'+s.cur+'\']=this.value;render()">'+val+'</textarea>';
+  var h = '<div class="act-card"><div class="act-header"><span class="act-badge" style="background:var(--p)">7. Definir</span><b>'+c.titulo+'</b></div>';
+  h += '<textarea oninput="S[\''+sk+'_v_'+s.cur+'\']=this.value" placeholder="Tu definición...">'+val+'</textarea>';
   if(s.cur < d.conceptos.length-1) h += '<button class="btn-primary" onclick="S[\''+sk+'\'].cur++;render()">Siguiente Concepto</button>';
-  else h += '<div class="fb" style="background:rgba(16,185,129,0.1);color:#10B981;text-align:center">¡Excelente! Terminaste este bloque.</div>';
-  return h + renderCheckBtn("nucleo");
+  else h += '<div style="color:var(--s);font-size:12px;text-align:center">✓ Conceptos completados</div>';
+  return h + '</div>';
 }
 
 function rSenales(){
@@ -227,8 +304,8 @@ function rSenales(){
   (d.conceptos_clave || []).forEach((t, i) => {
     var open = S["s_"+CB+"_"+i];
     h += '<div onclick="S[\'s_'+CB+'_'+i+'\']=!S[\'s_'+CB+'_'+i+'\'];render()" style="background:var(--glass);padding:14px;border-radius:16px;border:1px solid '+(open?B.color:'var(--border)')+';margin-bottom:10px;cursor:pointer">';
-    h += '<b>'+t.titulo+'</b>';
-    if(open) h += '<p style="margin-top:10px;font-size:14px;color:#94A3B8">'+t.texto+'</p>';
+    h += '<b>'+(t.titulo || t.termino)+'</b>';
+    if(open) h += '<p style="margin-top:10px;font-size:14px;color:#94A3B8">'+(t.texto || t.definicion)+'</p>';
     h += '</div>';
   });
   return h + renderCheckBtn("senales");
@@ -240,7 +317,7 @@ function rSabias(){
   (d.flip_cards || []).forEach((c, i) => {
     var open = S["w_"+CB+"_"+i];
     h += '<div onclick="S[\'w_'+CB+'_'+i+'\']=!S[\'w_'+CB+'_'+i+'\'];render()" style="background:'+(open?'var(--bg)':'var(--p)')+';padding:20px;border-radius:18px;border:1px solid var(--border);margin-bottom:10px;cursor:pointer;text-align:center">';
-    h += '<b>'+(open ? c.dorso : c.frente)+'</b></div>';
+    h += '<b>'+(open ? (c.dorso || c.back) : (c.frente || c.front))+'</b></div>';
   });
   return h + renderCheckBtn("sabias");
 }
@@ -258,69 +335,41 @@ function rCruces(){
 }
 
 function rRelectura(){
-  return '<h2 class="section-title">📖 Relectura</h2><div class="activity-box">Reflexioná sobre lo aprendido en este bloque.</div>' + renderCheckBtn("relectura");
+  return '<h2 class="section-title">📖 Relectura</h2><div style="background:var(--glass);padding:20px;border-radius:18px;border:1px solid var(--border)">'+(B.relectura.tesis.consigna || "Reflexioná sobre lo aprendido en este bloque.")+'</div>' + renderCheckBtn("relectura");
 }
 
-// --- QUIZ INTERACTIVO PARA AUTOTEST ---
 function rAutotest(){
   var d = B.autotest;
   if(!S.at) S.at = {cur:0, ans:{}, fin:false};
   var at = S.at;
-  
   var h = '<h2 class="section-title">📝 Autotest</h2>';
-  
   if(at.fin){
     var ok = 0; d.preguntas.forEach((p,i) => { if(at.ans[i]===p.correcta) ok++; });
-    h += '<div style="text-align:center;padding:20px">';
-    h += '<div style="font-size:40px;margin-bottom:10px">🏁</div>';
-    h += '<h3>¡Terminaste!</h3>';
-    h += '<p style="font-size:24px;font-weight:800;color:var(--s)">'+ok+' / '+d.preguntas.length+'</p>';
-    h += '<button class="btn-primary" onclick="S.at=null;render()" style="margin-top:20px">Reintentar</button>';
-    h += '</div>';
+    h += '<div style="text-align:center;padding:20px"><div style="font-size:40px;margin-bottom:10px">🏁</div><h3>¡Terminaste!</h3><p style="font-size:24px;font-weight:800;color:var(--s)">'+ok+' / '+d.preguntas.length+'</p><button class="btn-primary" onclick="S.at=null;render()" style="margin-top:20px">Reintentar</button></div>';
     return h + renderCheckBtn("autotest");
   }
-
   var p = d.preguntas[at.cur];
-  h += '<div class="progress-dots">';
-  d.preguntas.forEach((_,i) => { h += '<div class="dot '+(at.cur===i?'active':'')+' '+(at.ans[i]!==undefined?'done':'')+'"></div>'; });
+  h += '<div class="progress-dots" style="display:flex;gap:6px;margin-bottom:20px;justify-content:center">';
+  d.preguntas.forEach((_,i) => { h += '<div class="dot" style="width:8px;height:8px;border-radius:50%;background:'+(at.cur===i?'var(--p)':'var(--border)')+'"></div>'; });
   h += '</div>';
-  
-  h += '<div class="activity-box" style="border-color:var(--p)">'+p.pregunta+'</div>';
-  
+  h += '<div style="background:var(--glass);padding:20px;border-radius:18px;border-left:4px solid var(--p);margin-bottom:20px">'+p.pregunta+'</div>';
   p.opciones.forEach((opt, i) => {
-    var st = "";
-    if(at.ans[at.cur] !== undefined){
-      if(i === p.correcta) st = "correct";
-      else if(i === at.ans[at.cur]) st = "wrong";
-    }
-    h += '<div class="quiz-option '+st+'" onclick="if(S.at.ans['+at.cur+']===undefined) selectOpt('+i+')">'+opt+'</div>';
+    var st = ""; if(at.ans[at.cur] !== undefined){ if(i === p.correcta) st = "correct"; else if(i === at.ans[at.cur]) st = "wrong"; }
+    h += '<div class="quiz-option '+st+'" onclick="if(S.at.ans['+at.cur+']===undefined) {S.at.ans['+at.cur+']='+i+';render()}">'+opt+'</div>';
   });
-
   if(at.ans[at.cur] !== undefined){
     if(at.cur < d.preguntas.length - 1) h += '<button class="btn-primary" onclick="S.at.cur++;render()" style="margin-top:10px">Siguiente Pregunta</button>';
     else h += '<button class="btn-primary" onclick="S.at.fin=true;render()" style="margin-top:10px">Ver Resultados</button>';
   }
-  
   return h;
-}
-
-function selectOpt(i){
-  S.at.ans[S.at.cur] = i;
-  render();
 }
 
 function renderCheckBtn(k){
   if(isChecked(k)) return '<div class="check-done">✅ Completado</div>';
   return '<button class="check-btn" onclick="marcarSeccion(\''+k+'\')">✦ Marcar como completada</button>';
 }
-
-function marcarSeccion(k){
-  localStorage.setItem("u2_c_"+CB+"_"+k, "1"); render();
-}
-
-function isChecked(k){
-  return localStorage.getItem("u2_c_"+CB+"_"+k) === "1";
-}
+function marcarSeccion(k){ localStorage.setItem("u2_c_"+CB+"_"+k, "1"); render(); }
+function isChecked(k){ return localStorage.getItem("u2_c_"+CB+"_"+k) === "1"; }
 
 function loadData(){
   var params = new URLSearchParams(window.location.search);
@@ -329,7 +378,6 @@ function loadData(){
     D = data; B = D.bloques[CB]; render();
   });
 }
-
 loadData();
 </script>
 </body>
