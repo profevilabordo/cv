@@ -72,175 +72,193 @@
     }
   },
 
+  {
   "nucleo_a": {
-    "titulo": "Organización de Información",
-    "n1_ordenar_cronologicamente": {
-      "consigna": "Ordená los pasos del proceso de comunicación en el orden correcto, desde que nace el mensaje hasta que se completa el intercambio.",
-      "items": [
-        { "id": 1, "text": "El emisor tiene una idea o información para transmitir", "emoji": "💡" },
-        { "id": 2, "text": "El emisor codifica el mensaje en palabras, gestos o imágenes", "emoji": "✍️" },
-        { "id": 3, "text": "El mensaje se envía a través de un canal (oral, escrito, digital)", "emoji": "📡" },
-        { "id": 4, "text": "El receptor recibe el mensaje", "emoji": "👂" },
-        { "id": 5, "text": "El receptor decodifica e interpreta el mensaje", "emoji": "🧠" },
-        { "id": 6, "text": "El receptor emite feedback o retroalimentación al emisor", "emoji": "🔄" }
-      ],
-      "orden_correcto": [1, 2, 3, 4, 5, 6]
+    "bloque_info": {
+      "id": "a",
+      "emoji": "💬",
+      "titulo": "BLOQUE A: Comunicación organizacional",
+      "color": "#6366F1",
+      "paginas": [3,4,5,6,7,8]
     },
-    "n2_clasificador": {
-      "consigna": "Clasificá cada ejemplo como comunicación FORMAL o comunicación INFORMAL dentro de una organización.",
-      "categorias": [
-        { "name": "Formal", "emoji": "📋", "color": "#1E40AF" },
-        { "name": "Informal", "emoji": "💬", "color": "#10B981" }
-      ],
-      "items": [
-        { "id": 0, "text": "Memorando escrito al personal sobre cambio de horario", "categoria_correcta": 0 },
-        { "id": 1, "text": "Conversación en el pasillo entre dos compañeros sobre un problema", "categoria_correcta": 1 },
-        { "id": 2, "text": "Reunión programada con agenda para revisar objetivos", "categoria_correcta": 0 },
-        { "id": 3, "text": "Rumor que circula sobre un cambio de gerencia", "categoria_correcta": 1 },
-        { "id": 4, "text": "Comunicado oficial sobre nuevas políticas de la empresa", "categoria_correcta": 0 },
-        { "id": 5, "text": "Grupo de WhatsApp entre compañeros de trabajo", "categoria_correcta": 1 },
-        { "id": 6, "text": "Manual de procedimientos para atención al cliente", "categoria_correcta": 0 },
-        { "id": 7, "text": "Comentarios durante el almuerzo sobre el jefe", "categoria_correcta": 1 }
-      ]
-    },
-    "n3_completar_mapa": {
-      "blanks": [
-        { "id": "b1", "texto_antes": "El ____ es quien inicia el proceso comunicativo y codifica el mensaje.", "respuesta_correcta": "emisor", "pista": "E_____" },
-        { "id": "b2", "texto_antes": "El ____ es el medio elegido para transmitir el mensaje: oral, escrito, visual o digital.", "respuesta_correcta": "canal", "pista": "C____" },
-        { "id": "b3", "texto_antes": "El ____ recibe e interpreta el mensaje según sus conocimientos y contexto.", "respuesta_correcta": "receptor", "pista": "R________" },
-        { "id": "b4", "texto_antes": "El ____ es la respuesta del receptor que confirma si el mensaje fue comprendido.", "respuesta_correcta": "feedback", "pista": "F_______" },
-        { "id": "b5", "texto_antes": "El ____ es cualquier interferencia que distorsiona el mensaje durante la comunicación.", "respuesta_correcta": "ruido", "pista": "R____" },
-        { "id": "b6", "texto_antes": "La autoridad ____ es la que se otorga por el cargo que ocupa la persona en el organigrama.", "respuesta_correcta": "formal", "pista": "F_____" }
-      ]
-    },
-    "n4_verdadero_falso": {
-      "afirmaciones": [
-        { "texto": "La comunicación formal es siempre más efectiva que la informal.", "correcto": false, "explicacion": "Ambas tienen ventajas y desventajas. La formal tiene precisión pero puede ser lenta; la informal es rápida pero puede distorsionar la información." },
-        { "texto": "El ruido en comunicación solo se refiere al ruido ambiental físico.", "correcto": false, "explicacion": "El ruido incluye cualquier interferencia: física, semántica (malentendidos de palabras), psicológica (emociones) u organizacional." },
-        { "texto": "La comunicación ascendente fluye de los empleados hacia la alta gerencia.", "correcto": true, "explicacion": "Correcto. La comunicación ascendente permite a los empleados expresar ideas, reportar problemas y dar feedback a sus superiores." },
-        { "texto": "Delegar una tarea significa que el directivo ya no es responsable del resultado final.", "correcto": false, "explicacion": "Al delegar se transfiere la tarea y la autoridad necesaria para realizarla, pero la responsabilidad última siempre permanece en quien delega." },
-        { "texto": "La autoridad personal se basa en el cargo formal que ocupa la persona.", "correcto": false, "explicacion": "La autoridad personal se basa en cualidades individuales como experiencia, conocimiento y carisma. Se gana, no se asigna." },
-        { "texto": "Un clima organizacional negativo puede generar alta rotación de personal.", "correcto": true, "explicacion": "Correcto. Un mal clima genera estrés, conflictos y desmotivación, lo que lleva a que los empleados abandonen la organización." }
-      ]
-    }
+    "actividades": [
+      {
+        "tipo": "ordenar_cronologicamente",
+        "consigna": "Ordená correctamente el proceso de comunicación.",
+        "paginas_referencia": "3-4"
+      },
+      {
+        "tipo": "clasificador",
+        "consigna": "Clasificá ejemplos de comunicación formal e informal.",
+        "paginas_referencia": "5"
+      },
+      {
+        "tipo": "completar_mapa",
+        "consigna": "Completá conceptos básicos de comunicación.",
+        "paginas_referencia": "3-6"
+      },
+      {
+        "tipo": "verdadero_falso",
+        "consigna": "Indicá si las afirmaciones son verdaderas o falsas.",
+        "paginas_referencia": "3-8"
+      },
+      {
+        "tipo": "relacionar_columnas",
+        "consigna": "Relacioná conceptos comunicacionales.",
+        "paginas_referencia": "3-8"
+      },
+      {
+        "tipo": "palabra_intrusa",
+        "consigna": "Encontrá la palabra intrusa.",
+        "paginas_referencia": "5-8"
+      },
+      {
+        "tipo": "defini_con_tus_palabras",
+        "consigna": "Definí conceptos relacionados con comunicación.",
+        "paginas_referencia": "3-8"
+      },
+      {
+        "tipo": "causa_efecto",
+        "consigna": "Relacioná causas y efectos de la comunicación.",
+        "paginas_referencia": "6-8"
+      },
+      {
+        "tipo": "ordenar_proceso",
+        "consigna": "Ordená un proceso de comunicación organizacional.",
+        "paginas_referencia": "3-4"
+      },
+      {
+        "tipo": "comparador",
+        "consigna": "Compará comunicación formal e informal.",
+        "paginas_referencia": "5-7"
+      }
+    ]
   },
 
   "nucleo_b": {
-    "titulo": "Relaciones y Análisis",
-    "n5_relacionar_columnas": {
-      "pares": [
-        { "izquierda": "Maslow", "derecha": "Jerarquía de necesidades en pirámide", "emoji": "🔺" },
-        { "izquierda": "Herzberg", "derecha": "Factores higiénicos y motivacionales", "emoji": "⚖️" },
-        { "izquierda": "McClelland", "derecha": "Necesidades de Logro, Poder y Afiliación", "emoji": "🎯" },
-        { "izquierda": "Liderazgo autocrático", "derecha": "Decisiones rápidas, poca participación del equipo", "emoji": "👊" },
-        { "izquierda": "Liderazgo democrático", "derecha": "Decisiones consensuadas, alta motivación y creatividad", "emoji": "🤝" },
-        { "izquierda": "Liderazgo laissez-faire", "derecha": "Total libertad al equipo, ideal para expertos motivados", "emoji": "🕊️" },
-        { "izquierda": "Techo de cristal", "derecha": "Barrera invisible que impide a las mujeres acceder a roles de alta dirección", "emoji": "🔮" }
-      ]
+    "bloque_info": {
+      "id": "b",
+      "emoji": "⚖️",
+      "titulo": "BLOQUE B: Autoridad, motivación y clima organizacional",
+      "color": "#10B981",
+      "paginas": [9,10,11,12,13,14]
     },
-    "n6_palabra_intrusa": {
-      "grupos": [
-        {
-          "pregunta": "¿Cuál NO es una barrera de comunicación?",
-          "emoji": "🚧",
-          "palabras": [
-            { "text": "Barrera física", "es_intrusa": false },
-            { "text": "Barrera semántica", "es_intrusa": false },
-            { "text": "Barrera psicológica", "es_intrusa": false },
-            { "text": "Barrera motivacional", "es_intrusa": true }
-          ],
-          "explicacion": "Las barreras de comunicación son física, semántica, psicológica, organizacional y cultural. 'Motivacional' no es un tipo de barrera comunicacional."
-        },
-        {
-          "pregunta": "¿Cuál NO es un ejemplo de comunicación descendente?",
-          "emoji": "⬇️",
-          "palabras": [
-            { "text": "Dar instrucciones al equipo", "es_intrusa": false },
-            { "text": "Comunicar objetivos y estrategias", "es_intrusa": false },
-            { "text": "Sugerencia de mejora de un empleado al gerente", "es_intrusa": true },
-            { "text": "Informar sobre nuevas políticas", "es_intrusa": false }
-          ],
-          "explicacion": "La sugerencia de un empleado al gerente es comunicación ASCENDENTE (de abajo hacia arriba), no descendente."
-        },
-        {
-          "pregunta": "¿Cuál NO es un beneficio de la delegación?",
-          "emoji": "📋",
-          "palabras": [
-            { "text": "Libera tiempo al directivo", "es_intrusa": false },
-            { "text": "Desarrolla habilidades del equipo", "es_intrusa": false },
-            { "text": "Aumenta la motivación", "es_intrusa": false },
-            { "text": "Elimina la responsabilidad del directivo", "es_intrusa": true }
-          ],
-          "explicacion": "La delegación no elimina la responsabilidad del directivo. La responsabilidad última siempre permanece en quien delega."
-        }
-      ]
-    },
-    "n7_defini_con_tus_palabras": {
-      "conceptos": [
-        {
-          "termino": "Comunicación organizacional",
-          "pista": "¿Qué función cumple en una empresa y por qué es el 'tejido conectivo' de la organización?",
-          "palabras_clave": ["transmitir", "información", "coordinar", "mensajes", "organización", "proceso", "personas", "equipos"]
-        },
-        {
-          "termino": "Autoridad",
-          "pista": "¿Qué diferencia tiene con el poder? ¿Por qué es 'legítima'?",
-          "palabras_clave": ["derecho", "legítima", "órdenes", "decisiones", "cargo", "obediencia", "voluntaria", "reconocida"]
-        },
-        {
-          "termino": "Delegación",
-          "pista": "¿Qué se transfiere y qué NO se transfiere cuando se delega?",
-          "palabras_clave": ["tarea", "autoridad", "responsabilidad", "subordinados", "confianza", "control", "equipo"]
-        },
-        {
-          "termino": "Clima organizacional",
-          "pista": "¿Qué perciben los empleados? ¿Cómo se siente trabajar en ese lugar?",
-          "palabras_clave": ["percepción", "ambiente", "trabajo", "empleados", "entorno", "sentir", "positivo", "negativo"]
-        }
-      ]
-    },
-    "n8_causa_efecto": {
-      "causas": [
-        { "id": 1, "text": "Un gerente no delega ninguna tarea y quiere controlar todo", "emoji": "🚫" },
-        { "id": 2, "text": "Un líder usa jerga técnica con empleados nuevos sin experiencia", "emoji": "🔤" },
-        { "id": 3, "text": "La organización solo fomenta comunicación descendente", "emoji": "⬇️" },
-        { "id": 4, "text": "El directivo reconoce públicamente los logros de su equipo", "emoji": "🏆" }
-      ],
-      "efectos": [
-        { "id": 10, "text": "El gerente se agota y el equipo se desmotiva por no poder tomar decisiones", "emoji": "😔", "causa_id": 1 },
-        { "id": 11, "text": "Se genera una barrera semántica y el mensaje no se comprende correctamente", "emoji": "❓", "causa_id": 2 },
-        { "id": 12, "text": "Los empleados no pueden reportar problemas ni proponer mejoras, generando ineficiencia", "emoji": "🔇", "causa_id": 3 },
-        { "id": 13, "text": "Aumenta la motivación, el compromiso y mejora el clima organizacional", "emoji": "🌟", "causa_id": 4 }
-      ]
-    }
+    "actividades": [
+      {
+        "tipo": "ordenar_cronologicamente",
+        "consigna": "Ordená el proceso de delegación.",
+        "paginas_referencia": "9-10"
+      },
+      {
+        "tipo": "clasificador",
+        "consigna": "Clasificá autoridad formal y personal.",
+        "paginas_referencia": "9"
+      },
+      {
+        "tipo": "completar_mapa",
+        "consigna": "Completá conceptos de motivación y clima.",
+        "paginas_referencia": "9-12"
+      },
+      {
+        "tipo": "verdadero_falso",
+        "consigna": "Analizá afirmaciones sobre autoridad y motivación.",
+        "paginas_referencia": "9-14"
+      },
+      {
+        "tipo": "relacionar_columnas",
+        "consigna": "Relacioná autores y teorías.",
+        "paginas_referencia": "10-12"
+      },
+      {
+        "tipo": "palabra_intrusa",
+        "consigna": "Encontrá conceptos intrusos.",
+        "paginas_referencia": "9-13"
+      },
+      {
+        "tipo": "defini_con_tus_palabras",
+        "consigna": "Definí autoridad, motivación y clima.",
+        "paginas_referencia": "9-14"
+      },
+      {
+        "tipo": "causa_efecto",
+        "consigna": "Relacioná causas y efectos organizacionales.",
+        "paginas_referencia": "10-14"
+      },
+      {
+        "tipo": "ordenar_proceso",
+        "consigna": "Ordená la pirámide de Maslow.",
+        "paginas_referencia": "11"
+      },
+      {
+        "tipo": "comparador",
+        "consigna": "Compará Maslow y Herzberg.",
+        "paginas_referencia": "11-12"
+      }
+    ]
   },
 
   "nucleo_c": {
-    "titulo": "Síntesis y Comparación",
-    "n9_ordenar_proceso": {
-      "consigna": "Ordená los pasos correctos para delegar una tarea de manera efectiva.",
-      "pasos_en_orden_correcto": [
-        { "id": 1, "text": "Identificar la tarea que puede ser delegada y al colaborador adecuado", "emoji": "🔍" },
-        { "id": 2, "text": "Definir claramente los objetivos y resultados esperados de la tarea", "emoji": "📋" },
-        { "id": 3, "text": "Otorgar la autoridad y los recursos necesarios para realizarla", "emoji": "🔑" },
-        { "id": 4, "text": "El colaborador ejecuta la tarea con autonomía", "emoji": "💪" },
-        { "id": 5, "text": "Establecer puntos de seguimiento y control periódicos", "emoji": "📊" },
-        { "id": 6, "text": "Evaluar los resultados y dar retroalimentación al colaborador", "emoji": "🔄" }
-      ]
+    "bloque_info": {
+      "id": "c",
+      "emoji": "👑",
+      "titulo": "BLOQUE C: Liderazgo y gestión integral",
+      "color": "#EC4899",
+      "paginas": [15,16,17,18,19,20]
     },
-    "n10_comparador": {
-      "concepto_a": {
-        "nombre": "Liderazgo Autocrático",
-        "emoji": "👊",
-        "color": "#EF4444"
+    "actividades": [
+      {
+        "tipo": "ordenar_cronologicamente",
+        "consigna": "Ordená el proceso de liderazgo efectivo.",
+        "paginas_referencia": "15-18"
       },
-      "concepto_b": {
-        "nombre": "Liderazgo Democrático",
-        "emoji": "🤝",
-        "color": "#3B82F6"
+      {
+        "tipo": "clasificador",
+        "consigna": "Clasificá liderazgo autocrático y democrático.",
+        "paginas_referencia": "15-16"
+      },
+      {
+        "tipo": "completar_mapa",
+        "consigna": "Completá conceptos de liderazgo.",
+        "paginas_referencia": "15-20"
+      },
+      {
+        "tipo": "verdadero_falso",
+        "consigna": "Analizá afirmaciones sobre liderazgo.",
+        "paginas_referencia": "15-20"
+      },
+      {
+        "tipo": "relacionar_columnas",
+        "consigna": "Relacioná estilos de liderazgo.",
+        "paginas_referencia": "15-18"
+      },
+      {
+        "tipo": "palabra_intrusa",
+        "consigna": "Detectá palabras intrusas.",
+        "paginas_referencia": "15-20"
+      },
+      {
+        "tipo": "defini_con_tus_palabras",
+        "consigna": "Definí liderazgo y gestión integral.",
+        "paginas_referencia": "15-20"
+      },
+      {
+        "tipo": "causa_efecto",
+        "consigna": "Relacioná liderazgo y consecuencias organizacionales.",
+        "paginas_referencia": "15-20"
+      },
+      {
+        "tipo": "ordenar_proceso",
+        "consigna": "Ordená etapas del liderazgo efectivo.",
+        "paginas_referencia": "15-18"
+      },
+      {
+        "tipo": "comparador",
+        "consigna": "Compará liderazgo autocrático y democrático.",
+        "paginas_referencia": "15-17"
       }
-    }
-  },
+    ]
+  }
+}
 
   "senales": {
     "conceptos_clave": [
