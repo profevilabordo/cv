@@ -48,136 +48,136 @@
     "ruta_paradas": [
       {
         "id": 0,
-        "emoji": "🛒",
-        "title": "Qué es comprar en una empresa",
-        "desc": "Concepto, funciones e importancia estratégica de las compras",
+        "emoji": "💸",
+        "title": "Finanzas personales",
+        "desc": "Qué son, los 4 pilares y por qué importa empezar hoy",
         "color": "#6366F1"
       },
       {
         "id": 1,
-        "emoji": "🏢",
-        "title": "Área de compras",
-        "desc": "Cómo se organiza y con qué sectores se relaciona internamente",
+        "emoji": "💰",
+        "title": "Ingresos, gastos y presupuesto",
+        "desc": "Tipos de ingresos y gastos, regla 50/30/20 y armado del presupuesto",
         "color": "#3B82F6"
       },
       {
         "id": 2,
-        "emoji": "📊",
-        "title": "Información y planeamiento",
-        "desc": "Políticas, presupuesto y decisiones para comprar con criterio",
+        "emoji": "🎯",
+        "title": "Ahorro, deudas y metas",
+        "desc": "Hábito de ahorro, deudas buenas y malas, metas SMART",
         "color": "#10B981"
       },
       {
         "id": 3,
-        "emoji": "📦",
-        "title": "Abastecimiento e inventarios",
-        "desc": "Cómo asegurar recursos sin excesos ni faltantes",
+        "emoji": "🧮",
+        "title": "Interés simple y compuesto",
+        "desc": "Fórmulas, comparación de regímenes y el efecto del tiempo",
         "color": "#F59E0B"
       },
       {
         "id": 4,
-        "emoji": "🧮",
-        "title": "Valuación del stock",
-        "desc": "PEPS, UEPS y PPP para valorar inventarios y costo de ventas",
+        "emoji": "📊",
+        "title": "Tasas, inflación y aplicaciones",
+        "desc": "TNA, TEA, CFT, tasa real, plazo fijo, préstamos y tarjetas",
         "color": "#EC4899"
       }
     ],
     "panoramica_bloques": [
       {
-        "id": "A",
-        "emoji": "🛒",
+        "id": "a",
+        "emoji": "💸",
         "title": "BLOQUE A",
-        "subtitle": "Fundamentos de la compra estratégica",
+        "subtitle": "Finanzas personales: ingresos, gastos y presupuesto (páginas 3-5)",
         "color": "#6366F1",
         "items": [
-          "Concepto de compra",
-          "Funciones del departamento de compras",
-          "Importancia estratégica",
-          "Estrategias según el rubro",
-          "Relaciones internas del área"
+          "Concepto de finanzas personales y los 4 pilares",
+          "Tipos de ingresos: activos, pasivos y extraordinarios",
+          "Tipos de gastos: fijos, variables y hormiga",
+          "El presupuesto personal y la regla 50/30/20",
+          "Necesidades vs. deseos: cómo priorizar"
         ]
       },
       {
         "id": "b",
-        "emoji": "📊",
+        "emoji": "🎯",
         "title": "BLOQUE B",
-        "subtitle": "Decidir, planificar y ejecutar compras",
-        "color": "#3B82F6",
+        "subtitle": "Ahorro, deudas y metas financieras (páginas 6-9)",
+        "color": "#10B981",
         "items": [
-          "Información del sector compras",
-          "Políticas de compras",
-          "Planeamiento",
-          "Presupuesto",
-          "Etapas de la transacción de compra"
+          "El ahorro como hábito: 'pagáte a vos primero'",
+          "Deudas buenas y malas: crédito responsable",
+          "El pago mínimo de tarjeta y la trampa del interés",
+          "Metas financieras: corto, mediano y largo plazo",
+          "Método SMART para definir metas concretas"
         ]
       },
       {
         "id": "c",
-        "emoji": "📦",
+        "emoji": "🧮",
         "title": "BLOQUE C",
-        "subtitle": "Abastecimiento, inventarios y valuación",
-        "color": "#10B981",
+        "subtitle": "Matemática financiera: intereses, tasas e inflación (páginas 10-18)",
+        "color": "#EC4899",
         "items": [
-          "Abastecimiento",
-          "Inventarios",
-          "Fichas de stock",
-          "PEPS, UEPS y PPP",
-          "Comparación de métodos"
+          "Valor del dinero en el tiempo: inflación, costo de oportunidad y riesgo",
+          "Interés simple: I = C × i × n",
+          "Interés compuesto: M = C × (1+i)^n",
+          "TNA, TEA, CFT y tasa real vs. nominal",
+          "Inflación y ecuación de Fisher en contexto argentino"
         ]
       }
     ],
     "mapa_mental": {
       "centro": {
         "emoji": "💰",
-        "title": "COMPRA ESTRATÉGICA Y FINANZAS"
+        "title": "FINANZAS PERSONALES & MATEMÁTICA FINANCIERA"
       },
       "ramas": [
         {
-          "id": "que_es",
-          "emoji": "❓",
-          "title": "¿Qué es?",
+          "id": "finanzas",
+          "emoji": "💸",
+          "title": "Finanzas personales",
           "color": "#6366F1",
           "items": [
-            "Proceso estratégico",
-            "Satisface necesidades",
-            "Asegura calidad-cantidad-precio-plazo",
-            "Base de la operación"
+            "Ganar, gastar, ahorrar, proteger",
+            "Ingresos activos y pasivos",
+            "Gastos fijos, variables y hormiga",
+            "Presupuesto: regla 50/30/20"
           ]
         },
         {
-          "id": "que_hace",
-          "emoji": "🔧",
-          "title": "¿Qué hace?",
-          "color": "#3B82F6",
-          "items": [
-            "Selecciona proveedores",
-            "Negocia condiciones",
-            "Controla documentación",
-            "Gestiona inventarios"
-          ]
-        },
-        {
-          "id": "como_decide",
-          "emoji": "🗺️",
-          "title": "¿Cómo se decide?",
+          "id": "ahorro_deuda",
+          "emoji": "🎯",
+          "title": "Ahorro y deudas",
           "color": "#10B981",
           "items": [
-            "Información precisa",
-            "Políticas claras",
-            "Planeamiento y presupuesto",
-            "Análisis de tasas y costos"
+            "Pagáte a vos primero",
+            "Deuda buena vs. deuda mala",
+            "El pago mínimo es una trampa",
+            "Metas SMART"
           ]
         },
         {
-          "id": "por_que_importa",
-          "emoji": "💡",
-          "title": "¿Por qué importa?",
+          "id": "interes",
+          "emoji": "🧮",
+          "title": "Interés",
           "color": "#F59E0B",
           "items": [
-            "Reduce costos",
-            "Evita faltantes",
-            "Mejora calidad",
-            "Impacta en rentabilidad"
+            "Simple: I = C × i × n",
+            "Compuesto: M = C × (1+i)^n",
+            "Simple = lineal; Compuesto = exponencial",
+            "Capital, tasa, tiempo, monto"
+          ]
+        },
+        {
+          "id": "tasas",
+          "emoji": "📊",
+          "title": "Tasas e inflación",
+          "color": "#EC4899",
+          "items": [
+            "TNA: tasa nominal anual",
+            "TEA: incluye capitalización",
+            "CFT: el costo real del crédito",
+            "Tasa real = nominal − inflación"
           ]
         }
       ]
@@ -914,366 +914,354 @@
   "nucleo_c": {
     "bloque_info": {
       "id": "c",
-      "emoji": "📦",
-      "titulo": "BLOQUE C: Abastecimiento, inventarios y valuación de stock",
-      "color": "#10B981",
+      "emoji": "🧮",
+      "titulo": "BLOQUE C: Matemática financiera — intereses, tasas e inflación",
+      "color": "#EC4899",
       "paginas": [
+        10,
+        11,
+        12,
+        13,
         14,
         15,
         16,
         17,
-        18,
-        19,
-        20
+        18
       ]
     },
     "n1_ordenar_cronologicamente": {
-      "consigna": "Ordená las etapas del proceso de compra empresarial según el apunte:",
-      "paginas_referencia": "apunte",
+      "consigna": "Ordená la tabla de capitalización de interés compuesto para $80.000 al 3% mensual durante 4 meses:",
+      "paginas_referencia": "14",
       "items": [
         {
           "id": 0,
-          "emoji": "📋",
-          "text": "Detección de la necesidad de compra"
+          "emoji": "1️⃣",
+          "text": "Mes 1 → Capital inicial $80.000 → Interés $2.400 → Capital final $82.400"
         },
         {
           "id": 1,
-          "emoji": "🔍",
-          "text": "Búsqueda y evaluación de proveedores"
+          "emoji": "2️⃣",
+          "text": "Mes 2 → Capital inicial $82.400 → Interés $2.472 → Capital final $84.872"
         },
         {
           "id": 2,
-          "emoji": "📝",
-          "text": "Solicitud de cotizaciones y negociación"
+          "emoji": "3️⃣",
+          "text": "Mes 3 → Capital inicial $84.872 → Interés $2.546 → Capital final $87.418"
         },
         {
           "id": 3,
-          "emoji": "✅",
-          "text": "Emisión de la orden de compra"
-        },
-        {
-          "id": 4,
-          "emoji": "📦",
-          "text": "Recepción, control y registro en inventario"
+          "emoji": "4️⃣",
+          "text": "Mes 4 → Capital inicial $87.418 → Interés $2.623 → Capital final $90.041"
         }
       ],
       "orden_correcto": [
         0,
         1,
         2,
-        3,
-        4
+        3
       ]
     },
     "n2_clasificador": {
-      "consigna": "Clasificá cada método de valuación de inventarios según sus características:",
-      "paginas_referencia": "apunte",
+      "consigna": "Clasificá cada afirmación según corresponda a interés SIMPLE o interés COMPUESTO:",
+      "paginas_referencia": "13-14",
       "categorias": [
         {
-          "name": "PEPS (Primero Entrado, Primero Salido)",
-          "emoji": "1️⃣",
-          "color": "#6366F1"
+          "name": "Interés Simple",
+          "emoji": "📏",
+          "color": "#3B82F6"
         },
         {
-          "name": "UEPS (Último Entrado, Primero Salido)",
-          "emoji": "🔄",
+          "name": "Interés Compuesto",
+          "emoji": "📈",
           "color": "#EC4899"
-        },
-        {
-          "name": "PPP (Precio Promedio Ponderado)",
-          "emoji": "⚖️",
-          "color": "#10B981"
         }
       ],
       "items": [
         {
           "id": 0,
-          "text": "El stock final queda valuado a los precios más recientes",
+          "text": "Los intereses siempre se calculan sobre el capital original",
           "categoria_correcta": 0
         },
         {
           "id": 1,
-          "text": "El costo de ventas refleja los precios más actuales del mercado",
+          "text": "Los intereses generados se suman al capital del período siguiente",
           "categoria_correcta": 1
         },
         {
           "id": 2,
-          "text": "Promedia todos los costos de adquisición del período",
-          "categoria_correcta": 2
-        },
-        {
-          "id": 3,
-          "text": "El costo de ventas usa los precios de las compras más antiguas",
+          "text": "El crecimiento es lineal: el interés mensual es siempre el mismo importe",
           "categoria_correcta": 0
         },
         {
+          "id": 3,
+          "text": "El crecimiento es exponencial: cada período se generan más intereses",
+          "categoria_correcta": 1
+        },
+        {
           "id": 4,
-          "text": "Suaviza las variaciones de precios en contextos inflacionarios",
-          "categoria_correcta": 2
+          "text": "Fórmula: I = C × i × n",
+          "categoria_correcta": 0
         },
         {
           "id": 5,
-          "text": "En inflación, muestra el mayor costo de ventas de los tres métodos",
+          "text": "Fórmula: M = C × (1 + i)^n",
           "categoria_correcta": 1
         }
       ]
     },
     "n3_completar_mapa": {
-      "paginas_referencia": "apunte",
+      "paginas_referencia": "13-16, 18",
       "blanks": [
         {
           "id": "c1",
-          "texto_antes": "PEPS significa: Primero",
-          "respuesta_correcta": "Entrado Primero Salido",
-          "pista": "E______ P______ S_____"
+          "texto_antes": "En interés simple, el monto final se calcula con la fórmula M = C × (1 +",
+          "respuesta_correcta": "i × n",
+          "pista": "i × _"
         },
         {
           "id": "c2",
-          "texto_antes": "El abastecimiento tiene como objetivo asegurar recursos sin",
-          "respuesta_correcta": "excesos ni faltantes",
-          "pista": "E______ ni F_______"
+          "texto_antes": "La TEA siempre es mayor que la TNA porque incluye el efecto de la",
+          "respuesta_correcta": "capitalización",
+          "pista": "C____________"
         },
         {
           "id": "c3",
-          "texto_antes": "La ficha de stock registra entradas, salidas y el",
-          "respuesta_correcta": "saldo",
-          "pista": "S_____"
+          "texto_antes": "Si la inflación supera a la tasa nominal, la tasa real es",
+          "respuesta_correcta": "negativa",
+          "pista": "N_______"
         }
       ]
     },
     "n4_verdadero_falso": {
-      "paginas_referencia": "apunte",
+      "paginas_referencia": "13-15, 18",
       "afirmaciones": [
         {
-          "texto": "En contextos de inflación, UEPS muestra un mayor costo de ventas que PEPS.",
-          "correcto": true,
-          "explicacion": "Verdadero. Con inflación, los últimos bienes comprados (UEPS) son más caros, por lo que el costo de ventas es mayor que con PEPS, que usa los precios más antiguos."
-        },
-        {
-          "texto": "El área de compras de una empresa opera de forma completamente independiente de las demás áreas.",
+          "texto": "En interés compuesto, si el plazo es corto (1 o 2 períodos), la diferencia con el interés simple es enorme.",
           "correcto": false,
-          "explicacion": "Falso. El área de compras se relaciona internamente con producción, finanzas, almacén y ventas. Sus decisiones impactan en toda la operación."
+          "explicacion": "Falso. El efecto exponencial del compuesto se vuelve significativo a medida que crece el plazo. En pocos períodos, la diferencia es pequeña; con el tiempo, se hace enorme."
         },
         {
-          "texto": "El PPP (Precio Promedio Ponderado) suaviza las variaciones de precios entre distintas compras del período.",
+          "texto": "Como deudor, preferís el interés simple porque tu deuda crece más lento que con el compuesto.",
           "correcto": true,
-          "explicacion": "Verdadero. El PPP promedia todos los costos de adquisición, lo que atenúa el impacto de precios extremos (muy altos o muy bajos) en la valuación del stock."
+          "explicacion": "Verdadero. El interés simple genera menos deuda porque no capitaliza. Como deudor, el compuesto trabaja en tu contra: los intereses generan más intereses."
+        },
+        {
+          "texto": "El CFT (Costo Financiero Total) es siempre igual a la TNA del préstamo.",
+          "correcto": false,
+          "explicacion": "Falso. El CFT incluye TNA más seguros, comisiones, gastos de otorgamiento e impuestos. Siempre es mayor que la TNA y es el único indicador honesto del costo real."
         }
       ]
     },
     "n5_relacionar_columnas": {
-      "paginas_referencia": "apunte",
+      "paginas_referencia": "12, 16, 18",
       "pares": [
         {
-          "izquierda": "PEPS",
-          "derecha": "Stock final valuado a precios más recientes; costo de ventas a precios más antiguos",
-          "emoji": "1️⃣"
+          "izquierda": "Capital (C)",
+          "derecha": "Cantidad de dinero inicial sobre la cual se calculan los intereses",
+          "emoji": "💰"
         },
         {
-          "izquierda": "UEPS",
-          "derecha": "Costo de ventas a precios más recientes; stock final a precios más antiguos",
-          "emoji": "🔄"
+          "izquierda": "Tasa (i)",
+          "derecha": "Porcentaje aplicado al capital por cada período",
+          "emoji": "📊"
         },
         {
-          "izquierda": "PPP",
-          "derecha": "Costo promedio ponderado por cantidad de todas las compras del período",
-          "emoji": "⚖️"
+          "izquierda": "Tiempo (n)",
+          "derecha": "Cantidad de períodos durante los cuales el capital genera intereses",
+          "emoji": "⏳"
         },
         {
-          "izquierda": "Ficha de stock",
-          "derecha": "Registro de entradas, salidas y saldo de cada artículo del inventario",
-          "emoji": "📋"
+          "izquierda": "Monto (M)",
+          "derecha": "Capital original más todos los intereses generados al final",
+          "emoji": "🏦"
         }
       ]
     },
     "n6_palabra_intrusa": {
-      "paginas_referencia": "apunte",
+      "paginas_referencia": "16-18",
       "grupos": [
         {
           "id": 0,
-          "emoji": "📦",
-          "pregunta": "¿Cuál NO es un método de valuación de inventarios según el apunte?",
-          "paginas": "apunte",
+          "emoji": "🏦",
+          "pregunta": "¿Cuál NO es una de las cuatro variables del interés según el apunte?",
+          "paginas": "12",
           "palabras": [
             {
-              "text": "PEPS",
+              "text": "Capital",
               "es_intrusa": false
             },
             {
-              "text": "UEPS",
+              "text": "Tasa",
               "es_intrusa": false
             },
             {
-              "text": "PPP",
+              "text": "Tiempo",
               "es_intrusa": false
             },
             {
-              "text": "FIFO contable",
+              "text": "Inflación",
               "es_intrusa": true
             }
           ],
-          "explicacion": "'FIFO contable' no es terminología del apunte. Los tres métodos de valuación trabajados son PEPS, UEPS y PPP (Precio Promedio Ponderado)."
+          "explicacion": "Las cuatro variables del interés son: Capital, Tasa, Tiempo y Monto. La inflación es un concepto macroeconómico distinto, aunque se relaciona con la tasa real."
         },
         {
           "id": 1,
-          "emoji": "🛒",
-          "pregunta": "¿Cuál NO es una función del departamento de compras según el apunte?",
-          "paginas": "apunte",
+          "emoji": "💳",
+          "pregunta": "¿Cuál NO es una aplicación financiera estudiada en el Bloque 2?",
+          "paginas": "17",
           "palabras": [
             {
-              "text": "Seleccionar proveedores",
+              "text": "Plazo fijo",
               "es_intrusa": false
             },
             {
-              "text": "Negociar precios y plazos",
+              "text": "Préstamo personal",
               "es_intrusa": false
             },
             {
-              "text": "Gestionar inventarios",
+              "text": "Tarjeta de crédito",
               "es_intrusa": false
             },
             {
-              "text": "Fijar el precio de venta al público",
+              "text": "Ficha de stock",
               "es_intrusa": true
             }
           ],
-          "explicacion": "Fijar el precio de venta al público es función del área comercial/marketing, no de compras. El área de compras se ocupa de proveedores, negociación, stock y documentación."
+          "explicacion": "La ficha de stock pertenece a gestión de inventarios, no a matemática financiera. Las aplicaciones del Bloque 2 son plazo fijo, préstamos y tarjetas de crédito."
         }
       ]
     },
     "n7_defini_con_tus_palabras": {
-      "paginas_referencia": "apunte",
+      "paginas_referencia": "11, 16, 18",
       "conceptos": [
         {
-          "termino": "Abastecimiento",
-          "pista": "¿Qué significa garantizar que la empresa tenga lo que necesita, cuando lo necesita?",
+          "termino": "Valor del dinero en el tiempo",
+          "pista": "¿Por qué preferís $100.000 hoy antes que dentro de un año?",
           "palabras_clave": [
-            "proveedores",
-            "recursos",
-            "stock",
-            "necesidades",
-            "oportunidad",
-            "faltantes"
+            "inflación",
+            "costo de oportunidad",
+            "riesgo",
+            "poder de compra",
+            "hoy vale más",
+            "tiempo"
           ]
         },
         {
-          "termino": "PEPS",
-          "pista": "¿Qué sale primero del inventario: lo que entró primero o lo último que llegó?",
+          "termino": "Tasa real",
+          "pista": "¿Qué obtenés cuando le restás la inflación a la tasa nominal?",
           "palabras_clave": [
-            "primero entrado",
-            "primero salido",
-            "antiguo",
-            "reciente",
-            "stock",
-            "costo"
+            "inflación",
+            "nominal",
+            "poder",
+            "compra",
+            "Fisher",
+            "negativa",
+            "descontar"
           ]
         },
         {
-          "termino": "Inventario",
-          "pista": "¿Qué es ese registro detallado de todo lo que tiene la empresa en su depósito?",
+          "termino": "CFT (Costo Financiero Total)",
+          "pista": "¿Por qué es el dato más honesto de un crédito?",
           "palabras_clave": [
-            "stock",
-            "registro",
-            "bienes",
-            "control",
-            "cantidad",
-            "valoración"
+            "seguros",
+            "comisiones",
+            "impuestos",
+            "tasa",
+            "real",
+            "crédito",
+            "total"
           ]
         }
       ]
     },
     "n8_causa_efecto": {
-      "paginas_referencia": "apunte",
+      "paginas_referencia": "14-15, 17-18",
       "causas": [
         {
           "id": 0,
           "emoji": "📈",
-          "text": "Una empresa usa UEPS en un contexto de inflación sostenida"
+          "text": "Invertís $100.000 al 5% mensual compuesto durante 5 años"
         },
         {
           "id": 1,
-          "emoji": "📦",
-          "text": "El área de compras no coordina con producción y compra de más"
+          "emoji": "💳",
+          "text": "Comprás $300.000 con tarjeta (TEA 210%) y solo pagás el mínimo cada mes"
         },
         {
           "id": 2,
-          "emoji": "🔍",
-          "text": "Se implementa una política de compras clara con criterios definidos"
+          "emoji": "🏦",
+          "text": "El plazo fijo rinde 6% mensual pero la inflación mensual es 10%"
         },
         {
           "id": 3,
-          "emoji": "⚖️",
-          "text": "Se usa PPP para valuar el inventario con precios muy variables"
+          "emoji": "💧",
+          "text": "Tomás un préstamo en pesos a tasa fija en contexto de alta inflación"
         }
       ],
       "efectos": [
         {
           "id": 0,
           "causa_id": 0,
-          "emoji": "📊",
-          "text": "Registra mayor costo de ventas, lo que reduce la utilidad gravable"
+          "emoji": "✅",
+          "text": "Obtenés más de $1.800.000 gracias al efecto exponencial del interés compuesto"
         },
         {
           "id": 1,
           "causa_id": 1,
           "emoji": "⚠️",
-          "text": "Se generan excesos de stock, capital inmovilizado y riesgo de vencimiento"
+          "text": "La deuda puede triplicarse: terminás pagando $900.000 por algo que costó $300.000"
         },
         {
           "id": 2,
           "causa_id": 2,
-          "emoji": "✅",
-          "text": "Se reduce la improvisación, se negocia mejor y se evitan faltantes o excesos"
+          "emoji": "📉",
+          "text": "Tu tasa real es -4%: perdés poder de compra aunque el banco te pague intereses"
         },
         {
           "id": 3,
           "causa_id": 3,
-          "emoji": "🔄",
-          "text": "Se suavizan las variaciones extremas y el costo de ventas resulta más estable"
+          "emoji": "💧",
+          "text": "La deuda se 'licúa': devolvés pesos que valen menos que los que recibiste"
         }
       ]
     },
     "n9_ordenar_proceso": {
-      "consigna": "Ordená los pasos para completar correctamente una ficha de stock con el método PEPS:",
-      "paginas_referencia": "apunte",
+      "consigna": "Ordená los pasos correctos para calcular la tasa real usando la ecuación de Fisher:",
+      "paginas_referencia": "18",
       "pasos_en_orden_correcto": [
         {
           "id": 0,
-          "emoji": "📥",
-          "text": "Registrar las entradas con fecha, cantidad y precio de costo"
+          "emoji": "🔍",
+          "text": "Identificar la tasa nominal del período (i)"
         },
         {
           "id": 1,
-          "emoji": "🔢",
-          "text": "Al producirse una salida, tomar las unidades más antiguas primero"
+          "emoji": "📊",
+          "text": "Identificar la tasa de inflación del mismo período (π)"
         },
         {
           "id": 2,
           "emoji": "🧮",
-          "text": "Calcular el valor de las unidades que salen (precio de la entrada más antigua)"
+          "text": "Aplicar: (1 + i_real) = (1 + i_nominal) ÷ (1 + π)"
         },
         {
           "id": 3,
-          "emoji": "➖",
-          "text": "Restar del saldo las unidades y el valor correspondiente"
-        },
-        {
-          "id": 4,
           "emoji": "✅",
-          "text": "Verificar que la suma de salidas + saldo final = entradas totales"
+          "text": "Interpretar: si el resultado es negativo, estás perdiendo poder de compra"
         }
       ]
     },
     "n10_comparador": {
-      "paginas_referencia": "apunte",
+      "paginas_referencia": "16",
       "concepto_a": {
-        "nombre": "PEPS",
-        "emoji": "1️⃣",
-        "color": "#6366F1"
+        "nombre": "TNA (Tasa Nominal Anual)",
+        "emoji": "📢",
+        "color": "#3B82F6"
       },
       "concepto_b": {
-        "nombre": "UEPS",
-        "emoji": "🔄",
+        "nombre": "TEA (Tasa Efectiva Anual)",
+        "emoji": "📈",
         "color": "#EC4899"
       }
     }
@@ -1421,39 +1409,39 @@
         "titulo": "BLOQUE A: Finanzas personales y presupuesto",
         "color": "#6366F1",
         "temas_sugeridos": [
-          "Por qué es importante armar un presupuesto personal y cómo hacerlo",
-          "Gastos fijos, variables y hormiga: cómo detectarlos y controlarlos",
-          "La regla 50/30/20 aplicada a los ingresos de un egresado técnico",
-          "Qué son las metas SMART y cómo ayudan a planificar el ahorro",
-          "Diferencia entre ingresos activos, pasivos y extraordinarios"
+          "Los 4 pilares de las finanzas personales: ganar, gastar, ahorrar y proteger",
+          "Tipos de ingresos y gastos: cómo clasificarlos con ejemplos reales",
+          "Cómo armar un presupuesto personal usando la regla 50/30/20",
+          "Diferencia entre necesidades y deseos: ejemplos concretos de la vida cotidiana",
+          "Por qué registrar los gastos durante una semana cambia la percepción del dinero"
         ],
         "placeholder": "Escribí acá el tema que elegiste, el ejemplo que vas a usar y cómo lo explicarías..."
       },
       {
         "id": "b",
-        "emoji": "🧮",
-        "titulo": "BLOQUE B: Matemática financiera y tasas",
-        "color": "#3B82F6",
+        "emoji": "🎯",
+        "titulo": "BLOQUE B: Ahorro, deudas y metas",
+        "color": "#10B981",
         "temas_sugeridos": [
-          "Interés simple vs. compuesto: fórmulas, ejemplos y cuándo aplica cada uno",
-          "Qué es la TNA, la TEA y el CFT y por qué no da lo mismo mirar cada una",
-          "Cómo calcular si un plazo fijo realmente rinde por encima de la inflación",
+          "'Pagáte a vos primero': por qué separar el ahorro antes de gastar",
+          "Deudas buenas vs. malas: ejemplos y las tres condiciones del endeudamiento responsable",
           "El pago mínimo de tarjeta: cuánto terminás pagando y por qué es una trampa",
-          "La ecuación de Fisher y la tasa real en el contexto argentino"
+          "Cómo fijar una meta SMART para ahorrar algo concreto en 6 meses",
+          "Por qué el 30% de ingresos en cuotas es el límite razonable de endeudamiento"
         ],
         "placeholder": "Escribí acá el tema que elegiste, el ejemplo que vas a usar y cómo lo explicarías..."
       },
       {
         "id": "c",
-        "emoji": "📦",
-        "titulo": "BLOQUE C: Compras, inventarios y valuación",
-        "color": "#10B981",
+        "emoji": "🧮",
+        "titulo": "BLOQUE C: Matemática financiera",
+        "color": "#EC4899",
         "temas_sugeridos": [
-          "Qué hace el departamento de compras y con qué áreas se relaciona",
-          "Cómo se planifica una compra: etapas desde la necesidad hasta el ingreso al stock",
-          "PEPS, UEPS y PPP: diferencias, ventajas y cómo cambian el resultado",
-          "Cómo completar una ficha de stock con el método PEPS paso a paso",
-          "Por qué la elección del método de valuación importa en contextos inflacionarios"
+          "Por qué un peso hoy vale más que un peso mañana: las 3 razones del valor temporal",
+          "Interés simple vs. compuesto: mismos datos, resultados distintos con el tiempo",
+          "TNA, TEA y CFT: qué mira cada una y cuál es la más honesta para comparar créditos",
+          "Cómo calcular si un plazo fijo te hace ganar o perder frente a la inflación",
+          "Aplicación a tarjetas: calcular el costo real de financiar una compra en cuotas"
         ],
         "placeholder": "Escribí acá el tema que elegiste, el ejemplo que vas a usar y cómo lo explicarías..."
       }
@@ -1496,18 +1484,18 @@
   },
   "autotest": {
     "banco_respuestas_docente": [
-      "1. B - Gastos pequeños y frecuentes que acumulados suman mucho",
-      "2. A - $6.000 (I = 50.000 × 0,04 × 3)",
-      "3. B - En el compuesto, los intereses se suman al capital y generan más intereses",
-      "4. C - 6% mensual (TNA 72% ÷ 12)",
-      "5. B - Tasa real ≈ -2% (7% - 9%)",
-      "6. B - Seguros, comisiones e impuestos además de la tasa",
-      "7. FALSO - Pagar el mínimo hace que la deuda crezca por intereses compuestos",
-      "8. VERDADERO - Tasa real ≈ 8% - 10% = -2%: perdés poder de compra",
-      "9. FALSO - Las deudas pueden ser 'buenas' si tienen tasa razonable y propósito claro",
-      "10. VERDADERO - La TEA incluye capitalización y siempre es mayor o igual que la TNA",
-      "11. VERDADERO - El CFT incluye todo y es el indicador más honesto del costo de un crédito",
-      "12. FALSO - En inflación UEPS muestra mayor costo de ventas que PEPS (usa precios más recientes)"
+      "1. B - Gastos pequeños y frecuentes que acumulados suman mucho (p. 4)",
+      "2. A - $6.000 (I = 50.000 × 0,04 × 3) (p. 13)",
+      "3. B - En el compuesto los intereses se suman al capital y generan más intereses (p. 14)",
+      "4. C - 6% mensual (TNA 72% ÷ 12) (p. 16)",
+      "5. B - -2% (tasa real ≈ 7% − 9%) (p. 18)",
+      "6. B - Seguros, comisiones e impuestos además de la tasa de interés (p. 17)",
+      "7. FALSO - Pagar el mínimo extiende la deuda y multiplica los intereses (p. 8)",
+      "8. VERDADERO - Tasa real ≈ 8% − 10% = -2%: perdés poder de compra (p. 18)",
+      "9. FALSO - Deudas para educación o emprendimiento con tasa razonable pueden ser 'buenas' (p. 8)",
+      "10. VERDADERO - La TEA incluye capitalización, siempre mayor o igual que la TNA (p. 16)",
+      "11. VERDADERO - El CFT incluye todo el costo real del crédito (p. 17)",
+      "12. FALSO - En interés compuesto la diferencia con el simple crece con el tiempo, no es igual (p. 14-15)"
     ],
     "preguntas": [
       {
