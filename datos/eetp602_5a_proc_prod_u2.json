@@ -1,0 +1,1454 @@
+{
+  "id": "eetp602_5a_proc_prod_u2",
+  "materia": "Procesos Productivos",
+  "unidad": "Unidad 2",
+  "titulo": "Diseño, Administración y Planificación · Calidad y Costos Industriales",
+  "emoji": "⚙️",
+  "color_primario": "#3B82F6",
+  "color_secundario": "#1D4ED8",
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "🏭",
+        "texto": "¿Alguna vez pensaste cómo sabe una fábrica cuánto producir, cuándo hacerlo y con qué recursos?",
+        "pista": "Pensá en quién toma esas decisiones, cómo se organizan los tiempos y los materiales..."
+      },
+      {
+        "emoji": "📦",
+        "texto": "¿Por qué un producto de mala calidad puede terminar siendo más caro para la empresa que uno bien hecho desde el principio?",
+        "pista": "Pensá en devoluciones, garantías, clientes que no vuelven y reputación dañada..."
+      },
+      {
+        "emoji": "💰",
+        "texto": "¿Cómo sabe una empresa si está ganando o perdiendo dinero con cada producto que fabrica?",
+        "pista": "Mirá qué pasa con los costos fijos, los variables, el precio de venta y la rentabilidad..."
+      }
+    ],
+    "situaciones_conecta": [
+      {
+        "emoji": "🗓️",
+        "label": "Planifiqué tareas y prioridades para llegar a tiempo"
+      },
+      {
+        "emoji": "🛠️",
+        "label": "Vi un proceso o taller y pensé cómo se organizaba"
+      },
+      {
+        "emoji": "⭐",
+        "label": "Elegí un producto porque tenía mejor calidad"
+      },
+      {
+        "emoji": "🧾",
+        "label": "Calculé cuánto costaba algo antes de comprarlo o producirlo"
+      }
+    ],
+    "termometro_pregunta": "¿Cuánto sabés sobre cómo se planifica, organiza y controla la producción industrial?"
+  },
+  "mapa": {
+    "ruta_paradas": [
+      {
+        "id": 0,
+        "emoji": "🧠",
+        "title": "Administración de la Producción",
+        "desc": "El cerebro detrás de cómo se fabrican las cosas: planificar, organizar, dirigir y controlar",
+        "color": "#6366F1"
+      },
+      {
+        "id": 1,
+        "emoji": "🗺️",
+        "title": "Planificación Industrial",
+        "desc": "Los tres niveles: estratégico, táctico y operativo",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "emoji": "🏭",
+        "title": "Organización Industrial y Funcional",
+        "desc": "Cómo se estructura la fábrica en espacio y en responsabilidades",
+        "color": "#10B981"
+      },
+      {
+        "id": 3,
+        "emoji": "⭐",
+        "title": "Calidad y Mejora Continua",
+        "desc": "Tipos de calidad, Kaizen, ciclo PDCA y normas IRAM",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 4,
+        "emoji": "💰",
+        "title": "Costos Industriales",
+        "desc": "Fijos, variables, directos, indirectos y su cálculo para decidir mejor",
+        "color": "#EC4899"
+      }
+    ],
+    "panoramica_bloques": [
+      {
+        "id": "a",
+        "emoji": "🧠",
+        "title": "BLOQUE A",
+        "subtitle": "Diseño, Administración y Planificación (páginas 4-6)",
+        "items": [
+          "Administración de la producción",
+          "Las 4 funciones: planificar, organizar, dirigir, controlar",
+          "Las 4 decisiones clave: qué, cuánto, cómo, cuándo producir",
+          "Los 3 niveles de planificación",
+          "Organización industrial y funcional"
+        ],
+        "color": "#6366F1"
+      },
+      {
+        "id": "b",
+        "emoji": "⭐",
+        "title": "BLOQUE B",
+        "subtitle": "Calidad Industrial (páginas 7-8)",
+        "items": [
+          "Tipos de calidad: diseño, conformidad, servicio",
+          "Características de la calidad",
+          "Mejora continua y Kaizen",
+          "Ciclo PDCA",
+          "Normas IRAM e ISO"
+        ],
+        "color": "#10B981"
+      },
+      {
+        "id": "c",
+        "emoji": "💰",
+        "title": "BLOQUE C",
+        "subtitle": "Costos Industriales (páginas 9-13)",
+        "items": [
+          "Tipos de costos: fijos, variables, directos, indirectos",
+          "Fórmulas: costo total y costo unitario",
+          "Ejercicios de clasificación y cálculo",
+          "El rol de la calidad en los costos",
+          "Costos de no calidad: prevención, evaluación, fallas"
+        ],
+        "color": "#EC4899"
+      }
+    ],
+    "mapa_mental": {
+      "centro": {
+        "emoji": "⚙️",
+        "title": "PROCESOS PRODUCTIVOS U2"
+      },
+      "ramas": [
+        {
+          "id": "administracion",
+          "emoji": "🧠",
+          "title": "Administración",
+          "color": "#6366F1",
+          "items": [
+            "Planificar la producción",
+            "Organizar los recursos",
+            "Dirigir las operaciones",
+            "Controlar los resultados"
+          ]
+        },
+        {
+          "id": "planificacion",
+          "emoji": "🗺️",
+          "title": "Planificación",
+          "color": "#3B82F6",
+          "items": [
+            "Nivel estratégico (largo plazo)",
+            "Nivel táctico (mediano plazo)",
+            "Nivel operativo (día a día)",
+            "Qué, cuánto, cómo y cuándo producir"
+          ]
+        },
+        {
+          "id": "calidad",
+          "emoji": "⭐",
+          "title": "Calidad",
+          "color": "#10B981",
+          "items": [
+            "Calidad de diseño",
+            "Calidad de conformidad",
+            "Calidad de servicio",
+            "Kaizen y ciclo PDCA"
+          ]
+        },
+        {
+          "id": "costos",
+          "emoji": "💰",
+          "title": "Costos Industriales",
+          "color": "#F59E0B",
+          "items": [
+            "Costos fijos e indirectos",
+            "Costos variables y directos",
+            "Costo total = fijos + variables",
+            "Costo unitario = total ÷ cantidad"
+          ]
+        }
+      ]
+    }
+  },
+  "nucleo_a": {
+    "bloque_info": {
+      "id": "a",
+      "emoji": "🧠",
+      "titulo": "BLOQUE A: Diseño, Administración y Planificación",
+      "color": "#6366F1",
+      "paginas": [4, 5, 6, 7]
+    },
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená las 4 funciones de la Administración de la Producción según la lógica de gestión de un proceso:",
+      "paginas_referencia": "5",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "📋",
+          "text": "Planificar la producción"
+        },
+        {
+          "id": 1,
+          "emoji": "🗂️",
+          "text": "Organizar los recursos"
+        },
+        {
+          "id": 2,
+          "emoji": "🎯",
+          "text": "Dirigir las operaciones"
+        },
+        {
+          "id": 3,
+          "emoji": "✅",
+          "text": "Controlar los resultados"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá cada decisión según corresponda a la Planificación o a la Organización de la producción:",
+      "paginas_referencia": "5-6",
+      "categorias": [
+        {
+          "name": "Planificación",
+          "emoji": "📋",
+          "color": "#6366F1"
+        },
+        {
+          "name": "Organización",
+          "emoji": "🗂️",
+          "color": "#3B82F6"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Definir qué producir y en qué cantidad",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Distribuir máquinas y herramientas",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Establecer metas a largo plazo",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "Asignar personas a cada tarea",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Organizar los cronogramas de producción",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Distribuir responsabilidades por departamentos",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+    "n3_completar_mapa": {
+      "paginas_referencia": "5-6",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "El objetivo principal de la Administración de la Producción es lograr la máxima",
+          "respuesta_correcta": "eficiencia",
+          "pista": "E_________"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "La planificación operativa se ocupa de las acciones del",
+          "respuesta_correcta": "día a día",
+          "pista": "D__ _ D___"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "La planificación estratégica define las metas a",
+          "respuesta_correcta": "largo plazo",
+          "pista": "L_____ P____"
+        }
+      ]
+    },
+    "n4_verdadero_falso": {
+      "paginas_referencia": "4-7",
+      "afirmaciones": [
+        {
+          "texto": "La Administración de la Producción se encarga de coordinar recursos humanos, materiales y tecnológicos.",
+          "correcto": true,
+          "explicacion": "Verdadero. Así se define en el material: coordina todos esos recursos para crear productos o servicios eficientemente."
+        },
+        {
+          "texto": "La planificación táctica se ocupa de las decisiones del día a día, como los turnos de trabajo.",
+          "correcto": false,
+          "explicacion": "Falso. Las decisiones del día a día corresponden a la planificación operativa. La táctica se ocupa del mediano plazo."
+        },
+        {
+          "texto": "La organización industrial se refiere a cómo se distribuyen las tareas entre personas y departamentos.",
+          "correcto": false,
+          "explicacion": "Falso. Esa es la organización funcional. La industrial se refiere al espacio físico: layout, flujos y áreas de trabajo."
+        }
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "5-6",
+      "pares": [
+        {
+          "izquierda": "¿Qué producir?",
+          "derecha": "Definir el producto según la necesidad del mercado",
+          "emoji": "🎁"
+        },
+        {
+          "izquierda": "¿Cuánto producir?",
+          "derecha": "Estimar la demanda y evitar faltantes o excesos",
+          "emoji": "📊"
+        },
+        {
+          "izquierda": "¿Cómo producir?",
+          "derecha": "Elegir métodos, máquinas y recursos más adecuados",
+          "emoji": "🔧"
+        },
+        {
+          "izquierda": "¿Cuándo producir?",
+          "derecha": "Organizar tiempos y prioridades para cumplir plazos",
+          "emoji": "🕐"
+        }
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "5-7",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🧠",
+          "pregunta": "¿Cuál NO es una función de la Administración de la Producción?",
+          "paginas": "5",
+          "palabras": [
+            {
+              "text": "Planificar",
+              "es_intrusa": false
+            },
+            {
+              "text": "Organizar",
+              "es_intrusa": false
+            },
+            {
+              "text": "Controlar",
+              "es_intrusa": false
+            },
+            {
+              "text": "Publicitar",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "Publicitar no es una función de la Administración de la Producción. Las cuatro funciones son planificar, organizar, dirigir y controlar."
+        },
+        {
+          "id": 1,
+          "emoji": "🗺️",
+          "pregunta": "¿Cuál NO es un nivel de planificación industrial?",
+          "paginas": "6",
+          "palabras": [
+            {
+              "text": "Estratégica",
+              "es_intrusa": false
+            },
+            {
+              "text": "Táctica",
+              "es_intrusa": false
+            },
+            {
+              "text": "Operativa",
+              "es_intrusa": false
+            },
+            {
+              "text": "Financiera",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "El material describe tres niveles: estratégico, táctico y operativo. La planificación financiera no es uno de esos niveles."
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "4-7",
+      "conceptos": [
+        {
+          "termino": "Administración de la Producción",
+          "pista": "¿Cómo explicarías el rol de 'directora de orquesta' de una fábrica?",
+          "palabras_clave": [
+            "coordinación",
+            "recursos",
+            "eficiencia",
+            "planificar",
+            "controlar",
+            "organizar"
+          ]
+        },
+        {
+          "termino": "Planificación estratégica",
+          "pista": "¿Qué define para el largo plazo y hacia dónde va la empresa?",
+          "palabras_clave": [
+            "largo plazo",
+            "visión",
+            "misión",
+            "objetivos",
+            "metas",
+            "empresa"
+          ]
+        },
+        {
+          "termino": "Organización funcional",
+          "pista": "¿Cómo se reparten las tareas entre personas y departamentos?",
+          "palabras_clave": [
+            "responsabilidades",
+            "departamentos",
+            "roles",
+            "producción",
+            "calidad",
+            "logística"
+          ]
+        }
+      ]
+    },
+    "n8_causa_efecto": {
+      "paginas_referencia": "5-7",
+      "causas": [
+        {
+          "id": 0,
+          "emoji": "📋",
+          "text": "Una empresa no planifica su producción"
+        },
+        {
+          "id": 1,
+          "emoji": "🗂️",
+          "text": "Se organiza bien el espacio físico (layout) de la fábrica"
+        },
+        {
+          "id": 2,
+          "emoji": "✅",
+          "text": "Se controlan los resultados respecto de lo planificado"
+        },
+        {
+          "id": 3,
+          "emoji": "🏭",
+          "text": "La organización industrial y funcional trabajan juntas"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 0,
+          "causa_id": 0,
+          "emoji": "❗",
+          "text": "Se improvisa y no se cumplen plazos ni objetivos"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "🚀",
+          "text": "Mejora el flujo de materiales y la eficiencia de los movimientos"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "🔍",
+          "text": "Se detectan desvíos y se pueden corregir errores a tiempo"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "⚙️",
+          "text": "La fábrica opera como un sistema coordinado y eficiente"
+        }
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los tres niveles de planificación de mayor alcance temporal a menor:",
+      "paginas_referencia": "6",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 0,
+          "emoji": "🌐",
+          "text": "Planificación Estratégica (largo plazo)"
+        },
+        {
+          "id": 1,
+          "emoji": "📆",
+          "text": "Planificación Táctica (mediano plazo)"
+        },
+        {
+          "id": 2,
+          "emoji": "📅",
+          "text": "Planificación Operativa (día a día)"
+        }
+      ]
+    },
+    "n10_comparador": {
+      "paginas_referencia": "7",
+      "concepto_a": {
+        "nombre": "Organización Industrial",
+        "emoji": "🏭",
+        "color": "#6366F1"
+      },
+      "concepto_b": {
+        "nombre": "Organización Funcional",
+        "emoji": "📋",
+        "color": "#10B981"
+      }
+    }
+  },
+  "nucleo_b": {
+    "bloque_info": {
+      "id": "b",
+      "emoji": "⭐",
+      "titulo": "BLOQUE B: Calidad y Mejora Continua",
+      "color": "#10B981",
+      "paginas": [7, 8]
+    },
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená el ciclo PDCA (mejora continua) en la secuencia correcta:",
+      "paginas_referencia": "8",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "📋",
+          "text": "Planificar (Plan)"
+        },
+        {
+          "id": 1,
+          "emoji": "🔨",
+          "text": "Hacer (Do)"
+        },
+        {
+          "id": 2,
+          "emoji": "🔍",
+          "text": "Verificar (Check)"
+        },
+        {
+          "id": 3,
+          "emoji": "🔄",
+          "text": "Actuar (Act)"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá cada característica según corresponda a un tipo de calidad:",
+      "paginas_referencia": "7",
+      "categorias": [
+        {
+          "name": "Calidad de Diseño",
+          "emoji": "✏️",
+          "color": "#6366F1"
+        },
+        {
+          "name": "Calidad de Conformidad",
+          "emoji": "✅",
+          "color": "#10B981"
+        },
+        {
+          "name": "Calidad de Servicio",
+          "emoji": "🤝",
+          "color": "#F59E0B"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "El producto cumple con las especificaciones planificadas",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 1,
+          "text": "El diseño responde a las necesidades reales del cliente",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 2,
+          "text": "Tiempo de entrega y soporte técnico posventa",
+          "categoria_correcta": 2
+        },
+        {
+          "id": 3,
+          "text": "El producto terminado coincide con lo planificado",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Atención al cliente después de la compra",
+          "categoria_correcta": 2
+        },
+        {
+          "id": 5,
+          "text": "Concepción del producto antes de fabricarse",
+          "categoria_correcta": 0
+        }
+      ]
+    },
+    "n3_completar_mapa": {
+      "paginas_referencia": "7-8",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "Kaizen es una palabra japonesa que significa",
+          "respuesta_correcta": "cambio para mejorar",
+          "pista": "C______ P___ M_____"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "El IRAM es el Instituto Argentino de Normalización y",
+          "respuesta_correcta": "Certificación",
+          "pista": "C_____________"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "La calidad significa cumplir o superar las expectativas del",
+          "respuesta_correcta": "cliente",
+          "pista": "C______"
+        }
+      ]
+    },
+    "n4_verdadero_falso": {
+      "paginas_referencia": "7-8",
+      "afirmaciones": [
+        {
+          "texto": "Kaizen propone grandes cambios radicales para mejorar la producción de golpe.",
+          "correcto": false,
+          "explicacion": "Falso. Kaizen se basa en pequeños cambios constantes aplicados todos los días, no en transformaciones radicales."
+        },
+        {
+          "texto": "Las normas IRAM están conectadas con estándares internacionales como las normas ISO.",
+          "correcto": true,
+          "explicacion": "Verdadero. El material explica que esta conexión permite que productos argentinos compitan en mercados globales."
+        },
+        {
+          "texto": "La calidad de conformidad evalúa si el producto está bien concebido desde el diseño.",
+          "correcto": false,
+          "explicacion": "Falso. Eso corresponde a la calidad de diseño. La conformidad verifica que el producto terminado coincida con las especificaciones planificadas."
+        }
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "7-8",
+      "pares": [
+        {
+          "izquierda": "Durabilidad",
+          "derecha": "Característica de calidad relacionada con la vida útil del producto",
+          "emoji": "🕰️"
+        },
+        {
+          "izquierda": "Kaizen",
+          "derecha": "Filosofía de mejora continua con pequeños cambios diarios",
+          "emoji": "🔄"
+        },
+        {
+          "izquierda": "Normas IRAM",
+          "derecha": "Estándares argentinos de calidad, seguridad y funcionamiento",
+          "emoji": "🇦🇷"
+        },
+        {
+          "izquierda": "Ciclo PDCA",
+          "derecha": "Planificar, Hacer, Verificar, Actuar: base de la mejora continua",
+          "emoji": "🔁"
+        }
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "7-8",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "⭐",
+          "pregunta": "¿Cuál NO es una característica de la calidad mencionada en el material?",
+          "paginas": "7",
+          "palabras": [
+            {
+              "text": "Durabilidad",
+              "es_intrusa": false
+            },
+            {
+              "text": "Confiabilidad",
+              "es_intrusa": false
+            },
+            {
+              "text": "Seguridad",
+              "es_intrusa": false
+            },
+            {
+              "text": "Rentabilidad",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "Rentabilidad no aparece como característica de la calidad. El material menciona durabilidad, confiabilidad, usabilidad, estética y seguridad."
+        },
+        {
+          "id": 1,
+          "emoji": "🔄",
+          "pregunta": "¿Cuál NO es un principio del concepto Kaizen?",
+          "paginas": "8",
+          "palabras": [
+            {
+              "text": "Eliminar desperdicios",
+              "es_intrusa": false
+            },
+            {
+              "text": "Involucrar a todos los empleados",
+              "es_intrusa": false
+            },
+            {
+              "text": "Optimizar procesos continuamente",
+              "es_intrusa": false
+            },
+            {
+              "text": "Aumentar el inventario de seguridad",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "Aumentar el inventario no es un principio Kaizen; al contrario, Kaizen busca eliminar desperdicios, incluido el exceso de inventario."
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "7-8",
+      "conceptos": [
+        {
+          "termino": "Calidad",
+          "pista": "¿Es solo que algo funcione? ¿Qué más implica para el cliente?",
+          "palabras_clave": [
+            "expectativas",
+            "cliente",
+            "satisfacción",
+            "durabilidad",
+            "confiabilidad",
+            "estándares"
+          ]
+        },
+        {
+          "termino": "Kaizen",
+          "pista": "¿Cómo explicarías la idea japonesa de mejora permanente con pequeños pasos?",
+          "palabras_clave": [
+            "mejora",
+            "continua",
+            "pequeños cambios",
+            "todos los días",
+            "desperdicios",
+            "aprendizaje"
+          ]
+        },
+        {
+          "termino": "Normas IRAM",
+          "pista": "¿Qué garantizan para los productos y servicios en Argentina?",
+          "palabras_clave": [
+            "estándares",
+            "calidad",
+            "seguridad",
+            "normalización",
+            "Argentina",
+            "ISO"
+          ]
+        }
+      ]
+    },
+    "n8_causa_efecto": {
+      "paginas_referencia": "7-8",
+      "causas": [
+        {
+          "id": 0,
+          "emoji": "❌",
+          "text": "Una empresa no invierte en calidad de diseño"
+        },
+        {
+          "id": 1,
+          "emoji": "🔄",
+          "text": "Se aplica el ciclo PDCA en la producción"
+        },
+        {
+          "id": 2,
+          "emoji": "✅",
+          "text": "Se certifica con normas IRAM"
+        },
+        {
+          "id": 3,
+          "emoji": "🌱",
+          "text": "Se implementa Kaizen involucrando a todos los empleados"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 0,
+          "causa_id": 0,
+          "emoji": "💸",
+          "text": "El producto no satisface al cliente y genera costos de fallas"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "📈",
+          "text": "Se detectan problemas y se mejoran procesos de forma continua"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "🌍",
+          "text": "Los productos pueden competir en mercados internacionales"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "🏆",
+          "text": "Se genera una cultura de aprendizaje y mejora permanente"
+        }
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los tipos de calidad según la secuencia lógica desde la concepción hasta el cliente:",
+      "paginas_referencia": "7",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 0,
+          "emoji": "✏️",
+          "text": "Calidad de Diseño (antes de fabricar)"
+        },
+        {
+          "id": 1,
+          "emoji": "🏭",
+          "text": "Calidad de Conformidad (durante la fabricación)"
+        },
+        {
+          "id": 2,
+          "emoji": "🤝",
+          "text": "Calidad de Servicio (después de la entrega)"
+        }
+      ]
+    },
+    "n10_comparador": {
+      "paginas_referencia": "7-8",
+      "concepto_a": {
+        "nombre": "Calidad de Diseño",
+        "emoji": "✏️",
+        "color": "#6366F1"
+      },
+      "concepto_b": {
+        "nombre": "Calidad de Conformidad",
+        "emoji": "✅",
+        "color": "#10B981"
+      }
+    }
+  },
+  "nucleo_c": {
+    "bloque_info": {
+      "id": "c",
+      "emoji": "💰",
+      "titulo": "BLOQUE C: Costos Industriales",
+      "color": "#EC4899",
+      "paginas": [9, 10, 11, 12, 13]
+    },
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená las categorías de costos de no calidad de menor a mayor impacto económico para la empresa:",
+      "paginas_referencia": "13",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "🛡️",
+          "text": "Prevención"
+        },
+        {
+          "id": 1,
+          "emoji": "🔍",
+          "text": "Evaluación"
+        },
+        {
+          "id": 2,
+          "emoji": "🔧",
+          "text": "Fallas internas"
+        },
+        {
+          "id": 3,
+          "emoji": "💥",
+          "text": "Fallas externas"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá cada costo según sea fijo o variable:",
+      "paginas_referencia": "9-11",
+      "categorias": [
+        {
+          "name": "Costo Fijo",
+          "emoji": "📌",
+          "color": "#6366F1"
+        },
+        {
+          "name": "Costo Variable",
+          "emoji": "📈",
+          "color": "#EC4899"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Alquiler del local",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Tela e hilos por prenda",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Sueldo del gerente",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "Mano de obra de costura",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Seguro de maquinaria",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Materia prima usada por unidad",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+    "n3_completar_mapa": {
+      "paginas_referencia": "9-12",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "El Costo Total se calcula sumando los costos fijos más los costos",
+          "respuesta_correcta": "variables",
+          "pista": "V________"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "El Costo Unitario se obtiene dividiendo el Costo Total por la cantidad",
+          "respuesta_correcta": "producida",
+          "pista": "P________"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "Las fallas externas son hasta 10 veces más costosas que la",
+          "respuesta_correcta": "prevención",
+          "pista": "P_________"
+        }
+      ]
+    },
+    "n4_verdadero_falso": {
+      "paginas_referencia": "9-13",
+      "afirmaciones": [
+        {
+          "texto": "Los costos fijos siempre son indirectos.",
+          "correcto": false,
+          "explicacion": "Falso. Un costo puede ser fijo y directo al mismo tiempo; por ejemplo, el sueldo de un operario asignado exclusivamente a una línea de producción."
+        },
+        {
+          "texto": "Si producimos más unidades, los costos variables totales aumentan.",
+          "correcto": true,
+          "explicacion": "Verdadero. Los costos variables dependen del volumen de producción: a mayor producción, mayor gasto en materia prima, mano de obra, etc."
+        },
+        {
+          "texto": "La calidad es un gasto que encarece la producción sin beneficio real.",
+          "correcto": false,
+          "explicacion": "Falso. El material afirma que la calidad NO es un gasto sino una inversión, porque evita costos mucho mayores en fallas y pérdida de clientes."
+        }
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "9-11",
+      "pares": [
+        {
+          "izquierda": "Tela e hilos (fábrica de remeras)",
+          "derecha": "Variable y Directo",
+          "emoji": "👕"
+        },
+        {
+          "izquierda": "Alquiler de la fábrica",
+          "derecha": "Fijo e Indirecto",
+          "emoji": "🏭"
+        },
+        {
+          "izquierda": "Mano de obra de costura",
+          "derecha": "Variable y Directo",
+          "emoji": "🧵"
+        },
+        {
+          "izquierda": "Sueldo del supervisor",
+          "derecha": "Fijo e Indirecto",
+          "emoji": "👔"
+        }
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "9-13",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "💰",
+          "pregunta": "¿Cuál NO es un tipo de costo industrial según el material?",
+          "paginas": "9",
+          "palabras": [
+            {
+              "text": "Fijo",
+              "es_intrusa": false
+            },
+            {
+              "text": "Variable",
+              "es_intrusa": false
+            },
+            {
+              "text": "Directo",
+              "es_intrusa": false
+            },
+            {
+              "text": "Impositivo",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "El material clasifica los costos en fijos, variables, directos e indirectos. 'Impositivo' no es una de las categorías trabajadas."
+        },
+        {
+          "id": 1,
+          "emoji": "🔍",
+          "pregunta": "¿Cuál NO es una categoría de costos de no calidad?",
+          "paginas": "13",
+          "palabras": [
+            {
+              "text": "Prevención",
+              "es_intrusa": false
+            },
+            {
+              "text": "Evaluación",
+              "es_intrusa": false
+            },
+            {
+              "text": "Fallas internas",
+              "es_intrusa": false
+            },
+            {
+              "text": "Amortización",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "Las cuatro categorías de costos de no calidad son: prevención, evaluación, fallas internas y fallas externas. Amortización no forma parte de ese esquema."
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "9-12",
+      "conceptos": [
+        {
+          "termino": "Costo fijo",
+          "pista": "¿Qué pasa con este costo si la fábrica produce 10 o 1000 unidades?",
+          "palabras_clave": [
+            "constante",
+            "producción",
+            "alquiler",
+            "sueldos",
+            "no varía",
+            "independiente"
+          ]
+        },
+        {
+          "termino": "Costo directo",
+          "pista": "¿Qué caracteriza a un costo que se puede asignar a cada unidad producida?",
+          "palabras_clave": [
+            "asignar",
+            "unidad",
+            "materia prima",
+            "mano de obra",
+            "identificable",
+            "producto"
+          ]
+        },
+        {
+          "termino": "Costo unitario",
+          "pista": "¿Cómo se calcula cuánto cuesta fabricar una sola unidad?",
+          "palabras_clave": [
+            "dividir",
+            "total",
+            "cantidad",
+            "unidad",
+            "precio",
+            "rentabilidad"
+          ]
+        }
+      ]
+    },
+    "n8_causa_efecto": {
+      "paginas_referencia": "9-13",
+      "causas": [
+        {
+          "id": 0,
+          "emoji": "📈",
+          "text": "Una empresa aumenta su volumen de producción"
+        },
+        {
+          "id": 1,
+          "emoji": "❌",
+          "text": "Una empresa desconoce sus costos reales"
+        },
+        {
+          "id": 2,
+          "emoji": "🛡️",
+          "text": "Se invierte en prevención y control de calidad"
+        },
+        {
+          "id": 3,
+          "emoji": "💥",
+          "text": "Un producto defectuoso llega al cliente"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 0,
+          "causa_id": 0,
+          "emoji": "💸",
+          "text": "Aumentan los costos variables totales"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "⚠️",
+          "text": "Puede estar vendiendo a pérdida sin saberlo"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "✅",
+          "text": "Se reducen errores y se evitan fallas externas costosas"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "💔",
+          "text": "Genera devoluciones, pérdida de clientes y reputación dañada"
+        }
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos para calcular si un negocio es rentable:",
+      "paginas_referencia": "12",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 0,
+          "emoji": "📌",
+          "text": "Identificar los costos fijos"
+        },
+        {
+          "id": 1,
+          "emoji": "📈",
+          "text": "Calcular los costos variables totales"
+        },
+        {
+          "id": 2,
+          "emoji": "➕",
+          "text": "Sumar para obtener el Costo Total"
+        },
+        {
+          "id": 3,
+          "emoji": "➗",
+          "text": "Dividir por la cantidad producida para el Costo Unitario"
+        },
+        {
+          "id": 4,
+          "emoji": "💡",
+          "text": "Comparar con el precio de venta para evaluar rentabilidad"
+        }
+      ]
+    },
+    "n10_comparador": {
+      "paginas_referencia": "9-11",
+      "concepto_a": {
+        "nombre": "Costo Fijo",
+        "emoji": "📌",
+        "color": "#6366F1"
+      },
+      "concepto_b": {
+        "nombre": "Costo Variable",
+        "emoji": "📈",
+        "color": "#EC4899"
+      }
+    }
+  },
+  "evaluacion": {
+    "multiple_choice": [
+      {
+        "pregunta": "¿Cuál es el objetivo principal de la Administración de la Producción?",
+        "opciones": [
+          "Aumentar los precios para maximizar ganancias",
+          "Lograr la máxima eficiencia con los recursos disponibles",
+          "Eliminar la mano de obra del proceso productivo",
+          "Reducir la calidad para bajar costos"
+        ],
+        "correcta": 1,
+        "explicacion": "El material define que la Administración de la Producción busca la máxima eficiencia con los recursos disponibles para satisfacer la demanda del mercado. (p. 5)"
+      },
+      {
+        "pregunta": "¿Qué tipo de planificación se ocupa de las metas a largo plazo, la visión y misión de la empresa?",
+        "opciones": [
+          "Planificación operativa",
+          "Planificación táctica",
+          "Planificación estratégica",
+          "Planificación funcional"
+        ],
+        "correcta": 2,
+        "explicacion": "La planificación estratégica define metas a largo plazo, la visión, la misión y los objetivos generales del negocio. (p. 6)"
+      },
+      {
+        "pregunta": "¿A qué se refiere la organización industrial de una fábrica?",
+        "opciones": [
+          "Cómo se dividen las tareas entre departamentos",
+          "Cómo se distribuyen los sueldos entre los empleados",
+          "Cómo se estructura físicamente el espacio: layout, flujos y áreas",
+          "Cómo se definen los objetivos del negocio"
+        ],
+        "correcta": 2,
+        "explicacion": "La organización industrial se refiere a la estructura física: disposición de máquinas, flujos de materiales y distribución de áreas de trabajo. (p. 7)"
+      },
+      {
+        "pregunta": "¿Qué tipo de calidad verifica que el producto terminado coincida con las especificaciones planificadas?",
+        "opciones": [
+          "Calidad de diseño",
+          "Calidad de conformidad",
+          "Calidad de servicio",
+          "Calidad de prevención"
+        ],
+        "correcta": 1,
+        "explicacion": "La calidad de conformidad verifica que el producto fabricado coincida exactamente con las especificaciones planificadas. (p. 7)"
+      },
+      {
+        "pregunta": "¿Qué significa Kaizen?",
+        "opciones": [
+          "Control estadístico de calidad",
+          "Sistema de producción en masa japonés",
+          "Cambio para mejorar",
+          "Norma internacional de certificación"
+        ],
+        "correcta": 2,
+        "explicacion": "Kaizen es una palabra japonesa que significa 'cambio para mejorar', basado en pequeños cambios constantes aplicados todos los días. (p. 8)"
+      },
+      {
+        "pregunta": "Una fábrica de remeras paga $80.000 de alquiler mensual produzca 10 o 1000 remeras. ¿Cómo se clasifica ese costo?",
+        "opciones": [
+          "Variable y directo",
+          "Variable e indirecto",
+          "Fijo y directo",
+          "Fijo e indirecto"
+        ],
+        "correcta": 3,
+        "explicacion": "El alquiler es fijo porque no cambia con el volumen de producción, e indirecto porque no se puede asignar a una sola remera. (p. 9, 11)"
+      },
+      {
+        "pregunta": "¿Cuál es la fórmula del Costo Unitario?",
+        "opciones": [
+          "Costos Fijos + Costos Variables",
+          "Costo Total × Cantidad Producida",
+          "Costo Total ÷ Cantidad Producida",
+          "Costos Variables ÷ Costos Fijos"
+        ],
+        "correcta": 2,
+        "explicacion": "El costo unitario se obtiene dividiendo el Costo Total por la cantidad de unidades producidas. Es la base para evaluar rentabilidad. (p. 12)"
+      },
+      {
+        "pregunta": "¿Por qué el material afirma que la calidad NO es un gasto sino una inversión?",
+        "opciones": [
+          "Porque permite cobrar precios más altos",
+          "Porque evita costos mucho mayores por fallas, devoluciones y pérdida de clientes",
+          "Porque reduce el número de empleados necesarios",
+          "Porque elimina la necesidad de planificar"
+        ],
+        "correcta": 1,
+        "explicacion": "Invertir en calidad evita costos de fallas externas (devoluciones, garantías, pérdida de clientes) que pueden ser hasta 10 veces más altos que la prevención. (p. 12-13)"
+      },
+      {
+        "pregunta": "¿Cuál de las siguientes es la categoría más costosa dentro de los costos de no calidad?",
+        "opciones": [
+          "Prevención",
+          "Evaluación",
+          "Fallas internas",
+          "Fallas externas"
+        ],
+        "correcta": 3,
+        "explicacion": "Las fallas externas (garantías, devoluciones, quejas después de la entrega) son hasta 10 veces más costosas que la prevención. (p. 13)"
+      },
+      {
+        "pregunta": "¿Qué organismo argentino establece normas de calidad, seguridad y funcionamiento para productos y servicios?",
+        "opciones": [
+          "ISO",
+          "BCRA",
+          "IRAM",
+          "AFIP"
+        ],
+        "correcta": 2,
+        "explicacion": "El IRAM (Instituto Argentino de Normalización y Certificación) establece el 'sello' de calidad argentino, conectado con estándares internacionales como la ISO. (p. 8)"
+      }
+    ],
+    "verdadero_falso": [
+      {
+        "texto": "Una buena administración de la producción no improvisa: anticipa, organiza y controla cada paso del proceso.",
+        "correcto": true,
+        "explicacion": "Verdadero. Así aparece textualmente en el material como idea para recordar sobre la Administración de la Producción. (p. 6)"
+      },
+      {
+        "texto": "La tela utilizada para fabricar remeras es un costo fijo e indirecto.",
+        "correcto": false,
+        "explicacion": "Falso. La tela es un costo variable (cambia con la cantidad producida) y directo (se puede asignar a cada remera). (p. 10-11)"
+      },
+      {
+        "texto": "La planificación táctica se ocupa de metas a mediano plazo como recursos, presupuestos y cronogramas.",
+        "correcto": true,
+        "explicacion": "Verdadero. El material define la planificación táctica como planes a mediano plazo (meses) que responden a cómo llegar a las metas. (p. 6)"
+      },
+      {
+        "texto": "El ciclo PDCA se compone de Planificar, Dirigir, Crear y Aplicar.",
+        "correcto": false,
+        "explicacion": "Falso. El ciclo PDCA es Planificar (Plan), Hacer (Do), Verificar (Check) y Actuar (Act). (p. 8)"
+      },
+      {
+        "texto": "Una empresa que desconoce sus costos puede estar vendiendo a pérdida sin saberlo.",
+        "correcto": true,
+        "explicacion": "Verdadero. El material lo destaca como advertencia: sin conocer los costos, una empresa puede fijar un precio de venta menor al costo total. (p. 9)"
+      }
+    ]
+  },
+  "cierre": {
+    "glosario": [
+      {
+        "emoji": "🧠",
+        "termino": "Administración de la Producción",
+        "categoria": "Concepto base",
+        "definicion": "Conjunto de funciones (planificar, organizar, dirigir y controlar) para lograr la máxima eficiencia en la fabricación de bienes o servicios."
+      },
+      {
+        "emoji": "🗺️",
+        "termino": "Planificación estratégica",
+        "categoria": "Planificación",
+        "definicion": "Nivel de planificación de largo plazo que define la visión, misión y objetivos generales de la empresa."
+      },
+      {
+        "emoji": "🏭",
+        "termino": "Organización industrial",
+        "categoria": "Organización",
+        "definicion": "Estructura física de la fábrica: distribución del espacio, layout de máquinas y flujos de materiales."
+      },
+      {
+        "emoji": "📋",
+        "termino": "Organización funcional",
+        "categoria": "Organización",
+        "definicion": "División de tareas y responsabilidades entre departamentos como Producción, Calidad, Logística y Administración."
+      },
+      {
+        "emoji": "⭐",
+        "termino": "Calidad",
+        "categoria": "Calidad",
+        "definicion": "Cumplir o superar las expectativas del cliente en cuanto a durabilidad, confiabilidad, usabilidad, estética y seguridad."
+      },
+      {
+        "emoji": "🔄",
+        "termino": "Kaizen",
+        "categoria": "Mejora continua",
+        "definicion": "Filosofía japonesa de mejora continua basada en pequeños cambios constantes que involucran a todos los empleados y eliminan desperdicios."
+      },
+      {
+        "emoji": "🔁",
+        "termino": "Ciclo PDCA",
+        "categoria": "Mejora continua",
+        "definicion": "Ciclo de mejora continua compuesto por Planificar (Plan), Hacer (Do), Verificar (Check) y Actuar (Act)."
+      },
+      {
+        "emoji": "📌",
+        "termino": "Costo fijo",
+        "categoria": "Costos",
+        "definicion": "Costo que no varía con el volumen de producción; se paga igual independientemente de cuánto se produce."
+      },
+      {
+        "emoji": "📈",
+        "termino": "Costo variable",
+        "categoria": "Costos",
+        "definicion": "Costo que aumenta o disminuye según la cantidad producida; como la materia prima y la mano de obra directa."
+      },
+      {
+        "emoji": "🎯",
+        "termino": "Costo directo",
+        "categoria": "Costos",
+        "definicion": "Costo que puede asignarse directamente a cada unidad producida, como la tela en una remera o la madera en un mueble."
+      },
+      {
+        "emoji": "🏛️",
+        "termino": "Costo indirecto",
+        "categoria": "Costos",
+        "definicion": "Costo que no puede asignarse a una sola unidad producida, como el alquiler de la fábrica o el sueldo del supervisor general."
+      },
+      {
+        "emoji": "🇦🇷",
+        "termino": "Normas IRAM",
+        "categoria": "Normalización",
+        "definicion": "Estándares argentinos de calidad, seguridad y funcionamiento establecidos por el Instituto Argentino de Normalización y Certificación, conectados con las normas ISO internacionales."
+      }
+    ],
+    "recursos": [
+      {
+        "tipo": "🎬 Video",
+        "title": "¿Qué es la Administración de la Producción? - Canal de Economía y Negocios",
+        "desc": "Video introductorio sobre las funciones de la administración de la producción y cómo se coordinan los recursos en una fábrica.",
+        "nivel": "Introductorio",
+        "color": "#EC4899"
+      },
+      {
+        "tipo": "🎬 Video",
+        "title": "Kaizen y mejora continua explicados - YouTube Educativo",
+        "desc": "Video que explica el concepto Kaizen, el ciclo PDCA y cómo se aplica la mejora continua en empresas reales.",
+        "nivel": "Introductorio",
+        "color": "#10B981"
+      },
+      {
+        "tipo": "🌐 Web",
+        "title": "IRAM - Instituto Argentino de Normalización y Certificación",
+        "desc": "Sitio oficial del IRAM donde se pueden consultar las normas argentinas de calidad y su vinculación con estándares ISO.",
+        "nivel": "Intermedio",
+        "color": "#3B82F6"
+      },
+      {
+        "tipo": "📄 Artículo",
+        "title": "Costos industriales: fijos, variables, directos e indirectos",
+        "desc": "Artículo de referencia para profundizar en la clasificación de costos, con ejemplos de empresas industriales reales.",
+        "nivel": "Intermedio",
+        "color": "#F59E0B"
+      },
+      {
+        "tipo": "📖 Libro",
+        "title": "Administración de Operaciones - Heizer y Render",
+        "desc": "Libro clásico de referencia sobre planificación, calidad, costos y gestión de la producción industrial.",
+        "nivel": "Avanzado",
+        "color": "#6366F1"
+      }
+    ]
+  }
+}
