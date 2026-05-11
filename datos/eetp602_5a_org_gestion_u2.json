@@ -1,0 +1,1723 @@
+{
+  "id": "eetp602_5a_org_gestion_u2",
+  "materia": "Organización y Gestión",
+  "unidad": "Unidad 2",
+  "titulo": "Operatoria Comercial y Contable: del registro al plan de cuentas",
+  "emoji": "🧾",
+  "color_primario": "#7C3AED",
+  "color_secundario": "#5B21B6",
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "🧾",
+        "texto": "¿Alguna vez compraste algo y te dieron una factura, un ticket o un recibo? ¿Sabés para qué sirve cada uno y cuál es la diferencia?",
+        "pista": "Pensá en qué información tiene cada comprobante, quién lo emite, quién lo recibe y para qué lo necesita cada parte..."
+      },
+      {
+        "emoji": "💰",
+        "texto": "Cuando pagás algo de $12.100 que tiene IVA incluido, ¿cuánto de ese importe es el precio real del producto y cuánto es impuesto?",
+        "pista": "No se puede sacar el IVA multiplicando por 0,21... ¿sabés cuál es la operación correcta?"
+      },
+      {
+        "emoji": "📱",
+        "texto": "Si quisieras abrir un servicio técnico de computadoras, ¿cómo sabrías si hay mercado para eso en tu barrio? ¿Y cómo lo darías a conocer?",
+        "pista": "Pensá en investigar la competencia, conocer a tus clientes y usar herramientas de marketing digital..."
+      }
+    ],
+    "situaciones_conecta": [
+      {
+        "emoji": "🛒",
+        "label": "Recibí una factura o ticket al comprar algo"
+      },
+      {
+        "emoji": "💳",
+        "label": "Pagué con tarjeta de débito o crédito"
+      },
+      {
+        "emoji": "📊",
+        "label": "Vi o hice una cuenta de cuánto ganó o gastó alguien"
+      },
+      {
+        "emoji": "📣",
+        "label": "Vi publicidad y me pregunté por qué me convencía (o no)"
+      }
+    ],
+    "termometro_pregunta": "¿Cuánto sabés sobre documentos comerciales, IVA y gestión de un negocio?"
+  },
+  "mapa": {
+    "ruta_paradas": [
+      {
+        "id": 0,
+        "emoji": "📂",
+        "title": "Fuentes y documentos",
+        "desc": "Fuentes de registración, documentos comerciales y su clasificación",
+        "color": "#6366F1"
+      },
+      {
+        "id": 1,
+        "emoji": "🏛️",
+        "title": "Patrimonio y cuentas",
+        "desc": "Activo, pasivo, PN, variaciones patrimoniales, cuentas T y plan de cuentas",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 2,
+        "emoji": "🧮",
+        "title": "IVA y facturación",
+        "desc": "Alícuotas, agregar/extraer IVA, tipos de factura A/B/C y llenado de documentos",
+        "color": "#10B981"
+      },
+      {
+        "id": 3,
+        "emoji": "🏪",
+        "title": "Gestión comercial",
+        "desc": "Planificar, organizar, dirigir y controlar un comercio. Investigación de mercado",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 4,
+        "emoji": "📣",
+        "title": "Marketing y 4P",
+        "desc": "Concepto de marketing, ciclo de vida del producto y Marketing Mix (4P)",
+        "color": "#EC4899"
+      }
+    ],
+    "panoramica_bloques": [
+      {
+        "id": "a",
+        "emoji": "📂",
+        "title": "BLOQUE A",
+        "subtitle": "Registración, patrimonio y cuentas (páginas 2-10)",
+        "items": [
+          "Fuentes de registración: internas y externas",
+          "Documentos comerciales: factura, remito, NC, ND, recibo, cheque",
+          "Patrimonio: activo, pasivo, patrimonio neto y ecuación contable",
+          "Variaciones patrimoniales: permutativas y modificativas",
+          "Cuentas contables: clasificación y estructura en T. Plan de cuentas"
+        ],
+        "color": "#6366F1"
+      },
+      {
+        "id": "b",
+        "emoji": "🧮",
+        "title": "BLOQUE B",
+        "subtitle": "IVA y llenado de documentos (páginas 11-22)",
+        "items": [
+          "IVA: alícuotas 21%, 10,5% y 27%. Categorías frente al IVA",
+          "Agregar IVA a un precio neto (×1,21)",
+          "Extraer IVA de un precio final (÷1,21)",
+          "Débito fiscal, crédito fiscal e IVA a pagar al fisco",
+          "Tipos de factura A, B y C. Remito, nota de crédito/débito, recibo y cheque"
+        ],
+        "color": "#10B981"
+      },
+      {
+        "id": "c",
+        "emoji": "📣",
+        "title": "BLOQUE C",
+        "subtitle": "Gestión comercial y marketing (páginas 23-32)",
+        "items": [
+          "Gestión comercial: las 4 funciones (planificar, organizar, dirigir, controlar)",
+          "Investigación de mercado: tipos de información y métodos",
+          "Marketing: concepto, evolución y conceptos clave",
+          "Desarrollo de productos y ciclo de vida",
+          "Marketing Mix: las 4P (Producto, Precio, Plaza, Promoción)"
+        ],
+        "color": "#EC4899"
+      }
+    ],
+    "mapa_mental": {
+      "centro": {
+        "emoji": "🧾",
+        "title": "OPERATORIA COMERCIAL Y CONTABLE"
+      },
+      "ramas": [
+        {
+          "id": "documentos",
+          "emoji": "📂",
+          "title": "Documentos",
+          "color": "#6366F1",
+          "items": [
+            "Fuentes de registración",
+            "Factura, remito, NC, ND",
+            "Recibo, cheque, pagaré",
+            "Factura electrónica y CAE"
+          ]
+        },
+        {
+          "id": "contabilidad",
+          "emoji": "⚖️",
+          "title": "Contabilidad",
+          "color": "#3B82F6",
+          "items": [
+            "Activo, Pasivo, Patrimonio Neto",
+            "Ecuación contable",
+            "Variaciones permutativas y modificativas",
+            "Cuentas T y plan de cuentas"
+          ]
+        },
+        {
+          "id": "iva",
+          "emoji": "🧮",
+          "title": "IVA",
+          "color": "#10B981",
+          "items": [
+            "Alícuotas: 21%, 10,5%, 27%",
+            "Agregar IVA: ×1,21",
+            "Extraer IVA: ÷1,21",
+            "Débito y crédito fiscal"
+          ]
+        },
+        {
+          "id": "marketing",
+          "emoji": "📣",
+          "title": "Marketing",
+          "color": "#F59E0B",
+          "items": [
+            "Investigación de mercado",
+            "Ciclo de vida del producto",
+            "4P: Producto, Precio, Plaza, Promoción",
+            "Marketing digital"
+          ]
+        }
+      ]
+    }
+  },
+  "nucleo_a": {
+    "bloque_info": {
+      "id": "a",
+      "emoji": "📂",
+      "titulo": "BLOQUE A: Registración, patrimonio y cuentas",
+      "color": "#6366F1",
+      "paginas": [2, 3, 4, 5, 6, 7, 8, 9, 10]
+    },
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená la secuencia lógica que sigue una operación comercial desde que ocurre hasta que queda registrada:",
+      "paginas_referencia": "2-3",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "🤝",
+          "text": "Se realiza la operación (venta, compra, cobro)"
+        },
+        {
+          "id": 1,
+          "emoji": "📄",
+          "text": "Se emite o recibe el documento comercial"
+        },
+        {
+          "id": 2,
+          "emoji": "📋",
+          "text": "Se registra en la cuenta contable correspondiente"
+        },
+        {
+          "id": 3,
+          "emoji": "📊",
+          "text": "Se refleja en el patrimonio de la empresa"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá cada documento según sea de origen interno o externo para la empresa:",
+      "paginas_referencia": "2",
+      "categorias": [
+        {
+          "name": "Fuente Interna",
+          "emoji": "🏠",
+          "color": "#6366F1"
+        },
+        {
+          "name": "Fuente Externa",
+          "emoji": "🌐",
+          "color": "#10B981"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Factura que emitimos a un cliente",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Factura que nos hace un proveedor",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Recibo de cobro que emitimos nosotros",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "Resumen de cuenta del banco",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Remito que acompaña la mercadería que entregamos",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Ticket de combustible de un proveedor",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+    "n3_completar_mapa": {
+      "paginas_referencia": "2, 6-7",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "La frase clásica del mundo contable es: lo que no está",
+          "respuesta_correcta": "documentado",
+          "pista": "D___________",
+          "texto_despues": ", no existe"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "El Patrimonio Neto es la diferencia entre el Activo y el",
+          "respuesta_correcta": "Pasivo",
+          "pista": "P_____"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "La ecuación contable fundamental es: Activo = Pasivo +",
+          "respuesta_correcta": "Patrimonio Neto",
+          "pista": "P__________ N___"
+        }
+      ]
+    },
+    "n4_verdadero_falso": {
+      "paginas_referencia": "2-10",
+      "afirmaciones": [
+        {
+          "texto": "El remito tiene valor fiscal y puede reemplazar a la factura.",
+          "correcto": false,
+          "explicacion": "Falso. El remito no tiene valor fiscal (no reemplaza a la factura). Sirve para que el comprador firme conformidad de recepción de la mercadería."
+        },
+        {
+          "texto": "Una variación permutativa modifica la composición del patrimonio pero NO cambia el patrimonio neto.",
+          "correcto": true,
+          "explicacion": "Verdadero. Las variaciones permutativas cambian cosas 'de lugar' pero el total del activo y el patrimonio neto no varían."
+        },
+        {
+          "texto": "El cheque es un documento no negociable porque no se puede transmitir a terceros.",
+          "correcto": false,
+          "explicacion": "Falso. El cheque es un documento negociable: puede transmitirse a terceros por endoso y funciona casi como dinero."
+        }
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "3-4, 6",
+      "pares": [
+        {
+          "izquierda": "Factura",
+          "derecha": "Documento de compraventa que detalla precios, cantidades e impuestos",
+          "emoji": "🧾"
+        },
+        {
+          "izquierda": "Nota de crédito",
+          "derecha": "Disminuye una deuda (devoluciones, descuentos, errores a favor del comprador)",
+          "emoji": "⬇️"
+        },
+        {
+          "izquierda": "Nota de débito",
+          "derecha": "Aumenta una deuda (intereses por mora, gastos no incluidos, errores a favor del vendedor)",
+          "emoji": "⬆️"
+        },
+        {
+          "izquierda": "Recibo",
+          "derecha": "Respalda un cobro: lo emite quien recibe el dinero",
+          "emoji": "✅"
+        }
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "6, 8-9",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "⚖️",
+          "pregunta": "¿Cuál NO es un componente del patrimonio?",
+          "paginas": "6",
+          "palabras": [
+            {
+              "text": "Activo",
+              "es_intrusa": false
+            },
+            {
+              "text": "Pasivo",
+              "es_intrusa": false
+            },
+            {
+              "text": "Patrimonio Neto",
+              "es_intrusa": false
+            },
+            {
+              "text": "Resultado Bruto",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "El patrimonio se compone de Activo, Pasivo y Patrimonio Neto. 'Resultado Bruto' no es un componente del patrimonio en sí, sino un concepto del estado de resultados."
+        },
+        {
+          "id": 1,
+          "emoji": "📒",
+          "pregunta": "¿Cuál NO es una cuenta del Activo?",
+          "paginas": "8-9",
+          "palabras": [
+            {
+              "text": "Caja",
+              "es_intrusa": false
+            },
+            {
+              "text": "Mercaderías",
+              "es_intrusa": false
+            },
+            {
+              "text": "Deudores por ventas",
+              "es_intrusa": false
+            },
+            {
+              "text": "Proveedores",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "Proveedores es una cuenta del Pasivo, ya que representa una deuda de la empresa con sus proveedores, no un bien o derecho."
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "2, 6, 8",
+      "conceptos": [
+        {
+          "termino": "Fuente de registración",
+          "pista": "¿Qué es ese papel o formulario que da origen a un asiento contable?",
+          "palabras_clave": [
+            "documento",
+            "respaldo",
+            "operación",
+            "registro",
+            "comprobante",
+            "constancia"
+          ]
+        },
+        {
+          "termino": "Patrimonio Neto",
+          "pista": "¿Qué les quedaría a los dueños si vendieran todo y pagaran todas las deudas?",
+          "palabras_clave": [
+            "activo",
+            "pasivo",
+            "diferencia",
+            "dueños",
+            "propio",
+            "ecuación"
+          ]
+        },
+        {
+          "termino": "Cuenta contable",
+          "pista": "¿Qué es ese 'casillero' donde se anotan todas las operaciones del mismo tipo?",
+          "palabras_clave": [
+            "registro",
+            "mismo tipo",
+            "aumentos",
+            "disminuciones",
+            "debe",
+            "haber"
+          ]
+        }
+      ]
+    },
+    "n8_causa_efecto": {
+      "paginas_referencia": "7-8",
+      "causas": [
+        {
+          "id": 0,
+          "emoji": "🏦",
+          "text": "Una empresa retira $50.000 del banco para tener en caja"
+        },
+        {
+          "id": 1,
+          "emoji": "💼",
+          "text": "Se vende un servicio técnico por $80.000 al contado"
+        },
+        {
+          "id": 2,
+          "emoji": "👷",
+          "text": "Se paga el sueldo de un empleado por $300.000"
+        },
+        {
+          "id": 3,
+          "emoji": "📦",
+          "text": "Se compra mercadería a un proveedor en cuenta corriente por $100.000"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 0,
+          "causa_id": 0,
+          "emoji": "🔄",
+          "text": "Variación permutativa: Caja sube, Banco baja. El PN no cambia"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "📈",
+          "text": "Variación modificativa positiva: sube el Activo y sube el Patrimonio Neto"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "📉",
+          "text": "Variación modificativa negativa: baja el Activo y baja el Patrimonio Neto"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "🔄",
+          "text": "Variación permutativa: sube Mercaderías (activo) y sube Proveedores (pasivo). El PN no cambia"
+        }
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los cinco grupos de cuentas contables según la codificación estándar del plan de cuentas (del 1 al 5):",
+      "paginas_referencia": "9-10",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 0,
+          "emoji": "🏦",
+          "text": "1 — ACTIVO"
+        },
+        {
+          "id": 1,
+          "emoji": "💳",
+          "text": "2 — PASIVO"
+        },
+        {
+          "id": 2,
+          "emoji": "👤",
+          "text": "3 — PATRIMONIO NETO"
+        },
+        {
+          "id": 3,
+          "emoji": "📈",
+          "text": "4 — RESULTADOS POSITIVOS (Ingresos)"
+        },
+        {
+          "id": 4,
+          "emoji": "📉",
+          "text": "5 — RESULTADOS NEGATIVOS (Gastos)"
+        }
+      ]
+    },
+    "n10_comparador": {
+      "paginas_referencia": "7-8",
+      "concepto_a": {
+        "nombre": "Variación Permutativa",
+        "emoji": "🔄",
+        "color": "#6366F1"
+      },
+      "concepto_b": {
+        "nombre": "Variación Modificativa",
+        "emoji": "⚖️",
+        "color": "#EC4899"
+      }
+    }
+  },
+  "nucleo_b": {
+    "bloque_info": {
+      "id": "b",
+      "emoji": "🧮",
+      "titulo": "BLOQUE B: IVA y llenado de documentos",
+      "color": "#10B981",
+      "paginas": [11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22]
+    },
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los pasos correctos para extraer el IVA de un precio final (con IVA incluido):",
+      "paginas_referencia": "12-13",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "💲",
+          "text": "Tomar el precio total (con IVA)"
+        },
+        {
+          "id": 1,
+          "emoji": "➗",
+          "text": "Dividir el precio total por 1,21 → resultado: precio neto"
+        },
+        {
+          "id": 2,
+          "emoji": "➖",
+          "text": "Restar precio total − precio neto → resultado: importe del IVA"
+        },
+        {
+          "id": 3,
+          "emoji": "✅",
+          "text": "Verificar: precio neto × 0,21 debe coincidir con el IVA calculado"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá cada caso según el tipo de factura que corresponde emitir (A, B o C):",
+      "paginas_referencia": "15",
+      "categorias": [
+        {
+          "name": "Factura A",
+          "emoji": "🅰️",
+          "color": "#6366F1"
+        },
+        {
+          "name": "Factura B",
+          "emoji": "🅱️",
+          "color": "#3B82F6"
+        },
+        {
+          "name": "Factura C",
+          "emoji": "©️",
+          "color": "#10B981"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Responsable Inscripto vende a otro Responsable Inscripto",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Responsable Inscripto vende a un consumidor final",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Monotributista vende a un Responsable Inscripto",
+          "categoria_correcta": 2
+        },
+        {
+          "id": 3,
+          "text": "Responsable Inscripto vende a un monotributista",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Exento vende a cualquier comprador",
+          "categoria_correcta": 2
+        },
+        {
+          "id": 5,
+          "text": "Monotributista vende a un consumidor final",
+          "categoria_correcta": 2
+        }
+      ]
+    },
+    "n3_completar_mapa": {
+      "paginas_referencia": "11-13",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "Para agregar IVA del 21% a un precio neto, se multiplica el precio neto por",
+          "respuesta_correcta": "1,21",
+          "pista": "1,__"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "Para extraer el IVA del 21% de un precio final, se divide el precio total por",
+          "respuesta_correcta": "1,21",
+          "pista": "1,__"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "El IVA que la empresa cobra en sus ventas se llama",
+          "respuesta_correcta": "débito fiscal",
+          "pista": "D_____ F_____"
+        }
+      ]
+    },
+    "n4_verdadero_falso": {
+      "paginas_referencia": "12-15",
+      "afirmaciones": [
+        {
+          "texto": "Para sacar el IVA de un precio final con IVA incluido, se multiplica el precio total por 0,21.",
+          "correcto": false,
+          "explicacion": "Falso. Ese es el error más frecuente. El correcto es dividir el precio total por 1,21 para obtener el neto, y luego restar para obtener el IVA. Multiplicar por 0,21 da un resultado incorrecto porque el 21% se aplica sobre el neto, no sobre el total."
+        },
+        {
+          "texto": "Los descuentos comerciales se aplican siempre sobre el precio neto, antes de calcular el IVA.",
+          "correcto": true,
+          "explicacion": "Verdadero. El descuento se aplica sobre el neto. Si se aplica sobre el total con IVA, el IVA queda mal calculado y el cliente paga más impuesto del que corresponde."
+        },
+        {
+          "texto": "En la Factura A el IVA está discriminado en una línea aparte y el comprador RI puede tomarlo como crédito fiscal.",
+          "correcto": true,
+          "explicacion": "Verdadero. La Factura A discrimina el IVA, lo que permite al comprador Responsable Inscripto computarlo como crédito fiscal en su declaración mensual."
+        }
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "4-5, 11, 15",
+      "pares": [
+        {
+          "izquierda": "Alícuota general (21%)",
+          "derecha": "La mayoría de productos y servicios",
+          "emoji": "📊"
+        },
+        {
+          "izquierda": "Alícuota reducida (10,5%)",
+          "derecha": "Algunos productos de canasta básica, intereses bancarios y salud privada",
+          "emoji": "⬇️"
+        },
+        {
+          "izquierda": "Alícuota incrementada (27%)",
+          "derecha": "Servicios públicos (luz, gas, agua, telecom) a RI",
+          "emoji": "⬆️"
+        },
+        {
+          "izquierda": "Bienes exentos (0%)",
+          "derecha": "Libros, leche fluida, medicamentos",
+          "emoji": "🆓"
+        }
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "13-15",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🧮",
+          "pregunta": "¿Cuál NO es un error frecuente al trabajar con IVA según el apunte?",
+          "paginas": "14",
+          "palabras": [
+            {
+              "text": "Multiplicar el precio total por 0,21 para sacar el IVA",
+              "es_intrusa": false
+            },
+            {
+              "text": "Aplicar descuentos sobre el precio total en lugar del neto",
+              "es_intrusa": false
+            },
+            {
+              "text": "Usar la alícuota equivocada",
+              "es_intrusa": false
+            },
+            {
+              "text": "Dividir el precio total por 1,21",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "Dividir por 1,21 es el método CORRECTO para extraer el IVA, no un error. Todos los demás son errores frecuentes descriptos en el apunte."
+        },
+        {
+          "id": 1,
+          "emoji": "🧾",
+          "pregunta": "¿Cuál NO es un dato obligatorio en un recibo?",
+          "paginas": "21",
+          "palabras": [
+            {
+              "text": "Quién recibe el dinero",
+              "es_intrusa": false
+            },
+            {
+              "text": "Importe en números y en letras",
+              "es_intrusa": false
+            },
+            {
+              "text": "Concepto de la deuda que se cancela",
+              "es_intrusa": false
+            },
+            {
+              "text": "Alícuota de IVA discriminada",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "El recibo no lleva IVA discriminado: es un comprobante de cobro, no de venta. Los datos clave son: quién paga y quién recibe, importe (en números y letras), concepto y forma de pago."
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "4-5, 11, 13",
+      "conceptos": [
+        {
+          "termino": "Débito fiscal",
+          "pista": "¿Qué IVA genera la empresa cuando vende? ¿A quién se lo cobra?",
+          "palabras_clave": [
+            "IVA cobrado",
+            "ventas",
+            "clientes",
+            "fisco",
+            "responsable inscripto",
+            "declaración"
+          ]
+        },
+        {
+          "termino": "Crédito fiscal",
+          "pista": "¿Qué IVA paga la empresa cuando compra? ¿Para qué lo usa?",
+          "palabras_clave": [
+            "IVA pagado",
+            "compras",
+            "proveedores",
+            "descontar",
+            "débito",
+            "neto"
+          ]
+        },
+        {
+          "termino": "Monotributista",
+          "pista": "¿Qué régimen es? ¿Qué factura emite? ¿Por qué no discrimina IVA?",
+          "palabras_clave": [
+            "régimen simplificado",
+            "cuota mensual",
+            "factura C",
+            "sin IVA",
+            "pequeño contribuyente",
+            "unificado"
+          ]
+        }
+      ]
+    },
+    "n8_causa_efecto": {
+      "paginas_referencia": "12-14",
+      "causas": [
+        {
+          "id": 0,
+          "emoji": "🛒",
+          "text": "Una empresa RI tiene ventas netas de $800.000 e IVA cobrado de $168.000"
+        },
+        {
+          "id": 1,
+          "emoji": "📦",
+          "text": "La misma empresa tuvo compras netas de $500.000 e IVA pagado de $105.000"
+        },
+        {
+          "id": 2,
+          "emoji": "💸",
+          "text": "Un cliente devuelve mercadería después de recibir una factura"
+        },
+        {
+          "id": 3,
+          "emoji": "⏰",
+          "text": "Un cliente se atrasa 15 días en el pago de una factura A"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 0,
+          "causa_id": 0,
+          "emoji": "📊",
+          "text": "Débito fiscal del mes: $168.000"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "📊",
+          "text": "IVA a pagar al fisco = $168.000 − $105.000 = $63.000"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "⬇️",
+          "text": "Se emite una Nota de Crédito por el importe devuelto"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "⬆️",
+          "text": "Se emite una Nota de Débito por los intereses moratorios + IVA"
+        }
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos para calcular correctamente una factura con descuento e IVA:",
+      "paginas_referencia": "13",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 0,
+          "emoji": "💲",
+          "text": "Tomar el precio neto original"
+        },
+        {
+          "id": 1,
+          "emoji": "➖",
+          "text": "Aplicar el descuento sobre el precio neto (neto con descuento)"
+        },
+        {
+          "id": 2,
+          "emoji": "🧮",
+          "text": "Calcular el IVA sobre el neto con descuento (× 0,21)"
+        },
+        {
+          "id": 3,
+          "emoji": "➕",
+          "text": "Sumar neto con descuento + IVA = Total a facturar"
+        }
+      ]
+    },
+    "n10_comparador": {
+      "paginas_referencia": "15-18",
+      "concepto_a": {
+        "nombre": "Factura A",
+        "emoji": "🅰️",
+        "color": "#6366F1"
+      },
+      "concepto_b": {
+        "nombre": "Factura B",
+        "emoji": "🅱️",
+        "color": "#3B82F6"
+      }
+    }
+  },
+  "nucleo_c": {
+    "bloque_info": {
+      "id": "c",
+      "emoji": "📣",
+      "titulo": "BLOQUE C: Gestión comercial y marketing",
+      "color": "#EC4899",
+      "paginas": [23, 24, 25, 26, 27, 28, 29, 30, 31, 32]
+    },
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená las etapas del desarrollo de un producto nuevo según el proceso clásico del apunte:",
+      "paginas_referencia": "26-27",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "💡",
+          "text": "Generación de ideas"
+        },
+        {
+          "id": 1,
+          "emoji": "🔎",
+          "text": "Filtrado de ideas"
+        },
+        {
+          "id": 2,
+          "emoji": "📝",
+          "text": "Desarrollo del concepto"
+        },
+        {
+          "id": 3,
+          "emoji": "📣",
+          "text": "Estrategia de marketing"
+        },
+        {
+          "id": 4,
+          "emoji": "🧮",
+          "text": "Análisis económico"
+        },
+        {
+          "id": 5,
+          "emoji": "🛠️",
+          "text": "Desarrollo y prueba (prototipo)"
+        },
+        {
+          "id": 6,
+          "emoji": "🚀",
+          "text": "Lanzamiento al mercado"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4, 5, 6]
+    },
+    "n2_clasificador": {
+      "consigna": "Clasificá cada elemento según la P del Marketing Mix (4P) a la que pertenece:",
+      "paginas_referencia": "28-30",
+      "categorias": [
+        {
+          "name": "Producto",
+          "emoji": "📦",
+          "color": "#6366F1"
+        },
+        {
+          "name": "Precio",
+          "emoji": "💲",
+          "color": "#10B981"
+        },
+        {
+          "name": "Plaza",
+          "emoji": "🗺️",
+          "color": "#F59E0B"
+        },
+        {
+          "name": "Promoción",
+          "emoji": "📣",
+          "color": "#EC4899"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Garantía de 30 días sobre la reparación",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Precio de penetración para entrar al mercado",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Venta directa en tienda online propia",
+          "categoria_correcta": 2
+        },
+        {
+          "id": 3,
+          "text": "Publicidad en Google Ads",
+          "categoria_correcta": 3
+        },
+        {
+          "id": 4,
+          "text": "Decidir si vender servicio Express, Hogar o Pyme",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Ofrecer 3 cuotas sin interés",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 6,
+          "text": "Cobertura solo en zona urbana de Venado Tuerto",
+          "categoria_correcta": 2
+        },
+        {
+          "id": 7,
+          "text": "Programa 'traé un amigo' con 20% de descuento",
+          "categoria_correcta": 3
+        }
+      ]
+    },
+    "n3_completar_mapa": {
+      "paginas_referencia": "25-26, 30",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "El marketing es el proceso por el cual las empresas crean valor para los clientes y construyen",
+          "respuesta_correcta": "relaciones",
+          "pista": "R_________"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "La única P del Marketing Mix que genera ingresos (las demás generan gastos) es el",
+          "respuesta_correcta": "Precio",
+          "pista": "P_____"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "El modelo AIDA describe los pasos del cliente: Atención, Interés, Deseo y",
+          "respuesta_correcta": "Acción",
+          "pista": "A_____"
+        }
+      ]
+    },
+    "n4_verdadero_falso": {
+      "paginas_referencia": "25, 27-30",
+      "afirmaciones": [
+        {
+          "texto": "El marketing es sinónimo de publicidad: hacer marketing es hacer publicidad.",
+          "correcto": false,
+          "explicacion": "Falso. La publicidad es solo una parte del marketing (la de comunicar). El marketing incluye también el diseño del producto, el precio, la distribución y mucho más."
+        },
+        {
+          "texto": "En la etapa de madurez del ciclo de vida, las ventas se estabilizan y la competencia es intensa.",
+          "correcto": true,
+          "explicacion": "Verdadero. La madurez es la etapa más larga: el mercado está saturado, hay mucha competencia, los precios bajan y las ganancias por unidad caen aunque el volumen sea grande."
+        },
+        {
+          "texto": "En el método de fijación de precios basado en valor percibido, el precio se calcula sumando el costo más un margen.",
+          "correcto": false,
+          "explicacion": "Falso. Eso es el método basado en costos. El basado en valor percibido se cobra según lo que el cliente percibe que vale, lo que permite márgenes mucho más altos."
+        }
+      ]
+    },
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "27, 29",
+      "pares": [
+        {
+          "izquierda": "Introducción",
+          "derecha": "Ventas bajas, mucha inversión en publicidad, ganancias negativas o muy bajas",
+          "emoji": "🌱"
+        },
+        {
+          "izquierda": "Crecimiento",
+          "derecha": "Ventas crecen rápido, aparecen competidores, ganancias aumentan",
+          "emoji": "📈"
+        },
+        {
+          "izquierda": "Madurez",
+          "derecha": "Ventas estabilizadas, mercado saturado, gran competencia y precios bajos",
+          "emoji": "⚖️"
+        },
+        {
+          "izquierda": "Declinación",
+          "derecha": "Ventas bajan, producto envejece, hay que decidir relanzar o dejarlo morir",
+          "emoji": "📉"
+        }
+      ]
+    },
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "24, 30",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🔍",
+          "pregunta": "¿Cuál NO es un método de investigación primaria?",
+          "paginas": "24-25",
+          "palabras": [
+            {
+              "text": "Encuesta",
+              "es_intrusa": false
+            },
+            {
+              "text": "Focus group",
+              "es_intrusa": false
+            },
+            {
+              "text": "Observación",
+              "es_intrusa": false
+            },
+            {
+              "text": "Estadísticas del INDEC",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "Las estadísticas del INDEC son información secundaria (ya existe y fue generada por otros). Los métodos de investigación primaria son encuestas, entrevistas, focus groups, observación y datos digitales propios."
+        },
+        {
+          "id": 1,
+          "emoji": "📣",
+          "pregunta": "¿Cuál NO es una herramienta del mix promocional?",
+          "paginas": "30",
+          "palabras": [
+            {
+              "text": "Publicidad",
+              "es_intrusa": false
+            },
+            {
+              "text": "Promoción de ventas",
+              "es_intrusa": false
+            },
+            {
+              "text": "Relaciones públicas",
+              "es_intrusa": false
+            },
+            {
+              "text": "Canal de distribución",
+              "es_intrusa": true
+            }
+          ],
+          "explicacion": "El canal de distribución pertenece a la P de Plaza, no a la P de Promoción. Las herramientas del mix promocional son: publicidad, venta personal, promoción de ventas, relaciones públicas y marketing directo/digital."
+        }
+      ]
+    },
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "24-26, 29",
+      "conceptos": [
+        {
+          "termino": "Investigación de mercado",
+          "pista": "¿Cómo describirías ese proceso de juntar información antes de lanzar algo al mercado?",
+          "palabras_clave": [
+            "información",
+            "sistemático",
+            "consumidores",
+            "competencia",
+            "decisiones",
+            "mercado"
+          ]
+        },
+        {
+          "termino": "Posicionamiento",
+          "pista": "¿Qué lugar ocupa una marca o producto en la mente del consumidor?",
+          "palabras_clave": [
+            "mente",
+            "consumidor",
+            "competencia",
+            "percepción",
+            "diferenciación",
+            "imagen"
+          ]
+        },
+        {
+          "termino": "Producto aumentado",
+          "pista": "¿Qué rodea al producto físico y le agrega valor más allá del objeto en sí?",
+          "palabras_clave": [
+            "garantía",
+            "postventa",
+            "servicio",
+            "soporte",
+            "financiación",
+            "experiencia"
+          ]
+        }
+      ]
+    },
+    "n8_causa_efecto": {
+      "paginas_referencia": "26-27, 29-31",
+      "causas": [
+        {
+          "id": 0,
+          "emoji": "🔍",
+          "text": "Antes de lanzar el servicio, se encuesta a 50 vecinos y el 78% prefiere que el técnico vaya a la casa"
+        },
+        {
+          "id": 1,
+          "emoji": "🏷️",
+          "text": "Se usa precio de penetración bajo para entrar al mercado rápido"
+        },
+        {
+          "id": 2,
+          "emoji": "📱",
+          "text": "Se publican tips útiles en Instagram 3 veces por semana sin vender directamente"
+        },
+        {
+          "id": 3,
+          "emoji": "🖨️",
+          "text": "La tecnología de los DVDs envejece y los consumidores prefieren streaming"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 0,
+          "causa_id": 0,
+          "emoji": "🎯",
+          "text": "Se define el servicio a domicilio como eje del producto, justificando un precio levemente más alto"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "📈",
+          "text": "Se gana cuota de mercado rápido, aunque el margen inicial sea bajo"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "🤝",
+          "text": "Se construye confianza y los seguidores se convierten en clientes (marketing de contenidos)"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "📉",
+          "text": "El producto entra en etapa de declinación: hay que relanzarlo, achicarlo o dejarlo morir"
+        }
+      ]
+    },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos de un proyecto de investigación de mercado según el apunte:",
+      "paginas_referencia": "25",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 0,
+          "emoji": "❓",
+          "text": "Definir el problema: ¿qué queremos saber?"
+        },
+        {
+          "id": 1,
+          "emoji": "📋",
+          "text": "Planificar: método, muestra, presupuesto y plazos"
+        },
+        {
+          "id": 2,
+          "emoji": "🎤",
+          "text": "Recolectar la información (campo, encuestas, entrevistas)"
+        },
+        {
+          "id": 3,
+          "emoji": "📊",
+          "text": "Procesar los datos: planillas y gráficos"
+        },
+        {
+          "id": 4,
+          "emoji": "🔎",
+          "text": "Analizar e interpretar: patrones y hallazgos"
+        },
+        {
+          "id": 5,
+          "emoji": "📝",
+          "text": "Presentar conclusiones y recomendaciones"
+        }
+      ]
+    },
+    "n10_comparador": {
+      "paginas_referencia": "24",
+      "concepto_a": {
+        "nombre": "Información Primaria",
+        "emoji": "🎤",
+        "color": "#6366F1"
+      },
+      "concepto_b": {
+        "nombre": "Información Secundaria",
+        "emoji": "📰",
+        "color": "#10B981"
+      }
+    }
+  },
+  "senales": {
+    "conceptos_clave": [
+      {
+        "emoji": "📂",
+        "termino": "Fuentes de registración",
+        "color": "#6366F1",
+        "definicion": "Documentos, papeles o constancias que dan origen y respaldan las anotaciones contables de una empresa. Sin documento, la operación no se registra.",
+        "importancia": "Son la base de todo el sistema contable: sin ellas no hay registro, ni control, ni cumplimiento impositivo posible."
+      },
+      {
+        "emoji": "⚖️",
+        "termino": "Ecuación contable",
+        "color": "#3B82F6",
+        "definicion": "Activo = Pasivo + Patrimonio Neto. Esta igualdad fundamental se cumple siempre en cualquier empresa y en cualquier momento.",
+        "importancia": "Es el principio central de la contabilidad: cualquier operación bien registrada mantiene este equilibrio intacto."
+      },
+      {
+        "emoji": "🧮",
+        "termino": "IVA y su cálculo",
+        "color": "#10B981",
+        "definicion": "Para agregar IVA del 21%: multiplicar el neto por 1,21. Para extraerlo de un precio final: dividir el total por 1,21. El IVA a pagar al fisco es débito fiscal menos crédito fiscal.",
+        "importancia": "Calcular mal el IVA genera errores impositivos graves. Saber operarlo correctamente es una competencia básica para cualquier trabajo administrativo o emprendimiento."
+      },
+      {
+        "emoji": "📣",
+        "termino": "Marketing Mix (4P)",
+        "color": "#EC4899",
+        "definicion": "Conjunto de decisiones sobre Producto, Precio, Plaza y Promoción que deben ser coherentes entre sí para responder a las necesidades del mercado meta.",
+        "importancia": "Las 4P son el marco para diseñar cualquier estrategia comercial. La clave es que no son decisiones independientes: todas deben contar la misma historia."
+      }
+    ],
+    "semaforo_conceptos": [
+      { "emoji": "📂", "termino": "Fuentes de registración" },
+      { "emoji": "⚖️", "termino": "Patrimonio y ecuación contable" },
+      { "emoji": "🧮", "termino": "IVA: agregar y extraer" },
+      { "emoji": "🧾", "termino": "Tipos de factura A, B y C" },
+      { "emoji": "📣", "termino": "Marketing Mix 4P" }
+    ],
+    "postits_conceptos": [
+      "Débito fiscal",
+      "Variación permutativa",
+      "Ciclo de vida del producto",
+      "Posicionamiento"
+    ]
+  },
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "¿Conviene que un técnico recién recibido empiece como monotributista o directamente como Responsable Inscripto?",
+      "contexto": "El apunte describe las dos categorías frente al IVA. El debate es real y relevante para cualquiera que piense trabajar de manera independiente: cada opción tiene ventajas y costos distintos según el volumen de trabajo, los clientes que se apunten y la carga administrativa que se está dispuesto a asumir.",
+      "roles": [
+        {
+          "id": "fiscal",
+          "emoji": "📋",
+          "label": "A favor del Monotributo",
+          "desc": "Defendé que arrancar como monotributista es más simple, más barato y más accesible para quien recién empieza.",
+          "color": "#10B981"
+        },
+        {
+          "id": "defensa",
+          "emoji": "🧾",
+          "label": "A favor del RI",
+          "desc": "Defendé que ser Responsable Inscripto permite trabajar con empresas grandes, discriminar IVA y tener más credibilidad comercial.",
+          "color": "#6366F1"
+        },
+        {
+          "id": "juez",
+          "emoji": "⚖️",
+          "label": "Posición equilibrada",
+          "desc": "Proponé qué factores debería analizar un técnico recién recibido para elegir la categoría más conveniente según su situación.",
+          "color": "#EC4899"
+        }
+      ]
+    },
+    "tesis": {
+      "consigna": "Formulá una tesis sobre cuál de las 4P del Marketing Mix es la más importante para un emprendimiento de servicios técnicos informáticos. Incluí: (1) tu postura, (2) dos argumentos con ejemplos concretos, (3) un contraargumento posible, y (4) una conclusión bien fundamentada."
+    },
+    "critica": {
+      "consigna": "Analizá críticamente el caso integrado 'TecnoVT a Domicilio' del apunte: ¿qué decisiones te parecen más arriesgadas? ¿Qué información adicional buscarías antes de lanzar? ¿Hay alguna P del mix que te parece descuidada? ¿Cómo cambiarías la estrategia si el mercado fuera distinto al de Venado Tuerto?"
+    }
+  },
+  "cruces": {
+    "consigna_general": "Elegí un tema de cada bloque y preparalo para explicárselo a un compañero con ejemplos del mundo real. Podés usar cuadro comparativo, esquema, mini exposición o infografía.",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "📂",
+        "titulo": "BLOQUE A: Registración, patrimonio y cuentas",
+        "color": "#6366F1",
+        "temas_sugeridos": [
+          "Diferencia entre fuentes internas y externas con ejemplos reales",
+          "Documentos negociables vs. no negociables: qué son y para qué sirven",
+          "La ecuación contable y por qué siempre debe cuadrar",
+          "Variaciones permutativas vs. modificativas con ejemplos propios",
+          "Cómo funciona el plan de cuentas en un sistema informático contable"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste, el ejemplo que vas a usar y cómo lo explicarías..."
+      },
+      {
+        "id": "b",
+        "emoji": "🧮",
+        "titulo": "BLOQUE B: IVA y llenado de documentos",
+        "color": "#10B981",
+        "temas_sugeridos": [
+          "Por qué no se puede sacar el IVA multiplicando el total por 0,21",
+          "Diferencias entre factura A, B y C: cuándo emite cada una y qué incluye",
+          "Cómo se arma correctamente una factura A con descuento e IVA",
+          "Notas de crédito y débito: cuándo se emite cada una y qué efecto tiene",
+          "El cheque diferido como herramienta de pago entre empresas"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste, el ejemplo que vas a usar y cómo lo explicarías..."
+      },
+      {
+        "id": "c",
+        "emoji": "📣",
+        "titulo": "BLOQUE C: Gestión y marketing",
+        "color": "#EC4899",
+        "temas_sugeridos": [
+          "Las 4 funciones de la gestión comercial aplicadas a un servicio técnico informático",
+          "Información primaria vs. secundaria: cómo investigar el mercado con poco presupuesto",
+          "El ciclo de vida del producto aplicado a tecnologías reales (SSDs, DVDs, impresoras)",
+          "Diseñar el Marketing Mix completo para un emprendimiento tecnológico propio",
+          "Marketing digital de bajo costo: estrategia básica para un negocio de barrio"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste, el ejemplo que vas a usar y cómo lo explicarías..."
+      }
+    ]
+  },
+  "autotest": {
+    "banco_respuestas_docente": [
+      "1. B - Variación permutativa: cambia la composición del activo pero el PN no varía (p. 7-8)",
+      "2. C - Factura A: RI que vende a otro RI, con IVA discriminado (p. 15)",
+      "3. B - Dividir el precio total por 1,21 (p. 12-13)",
+      "4. D - Débito fiscal - Crédito fiscal (p. 5, 13)",
+      "5. C - Nota de Crédito: disminuye la deuda del comprador (p. 3, 20)",
+      "6. B - Patrimonio Neto = Activo - Pasivo = $1.000.000 - $600.000 = $400.000 (p. 7)",
+      "7. A - Precio; es la única que genera ingresos (p. 29)",
+      "8. C - Focus group: reunión guiada de 6 a 10 personas (p. 24)",
+      "9. B - Madurez: ventas estabilizadas, mercado saturado, gran competencia (p. 27)",
+      "10. D - Producto aumentado: garantía, soporte, instalación, postventa (p. 28)",
+      "11. VERDADERO - La variación permutativa no modifica el patrimonio neto (p. 7-8)",
+      "12. FALSO - Para sacar el IVA se divide por 1,21, no se multiplica por 0,21 (p. 12-13)",
+      "13. VERDADERO - Factura A discrimina el IVA y el comprador RI puede tomarlo como crédito fiscal (p. 15-17)",
+      "14. FALSO - El marketing incluye producto, precio, plaza y promoción; la publicidad es solo una parte (p. 25)",
+      "15. VERDADERO - El descuento siempre se aplica sobre el neto antes del IVA (p. 13-14)"
+    ],
+    "preguntas": [
+      {
+        "pregunta": "Una empresa retira $50.000 del banco para tenerlos en caja. ¿Qué tipo de variación patrimonial produce?",
+        "opciones": [
+          "Modificativa positiva: aumenta el patrimonio neto",
+          "Permutativa: cambia la composición del activo pero el PN no varía",
+          "Modificativa negativa: disminuye el patrimonio neto",
+          "No produce ninguna variación patrimonial"
+        ],
+        "correcta": 1,
+        "explicacion": "Es una variación permutativa: Caja sube $50.000 y Banco baja $50.000. El total del activo y el patrimonio neto no cambian. (p. 7-8)"
+      },
+      {
+        "pregunta": "¿Qué tipo de factura debe emitir un Responsable Inscripto cuando le vende a otro Responsable Inscripto?",
+        "opciones": [
+          "Factura B, con IVA incluido en el precio",
+          "Factura C, sin IVA",
+          "Factura A, con IVA discriminado",
+          "Factura M, con retenciones especiales"
+        ],
+        "correcta": 2,
+        "explicacion": "La Factura A la emite un RI cuando le vende a otro RI. Discrimina el IVA en una línea aparte, lo que permite al comprador tomarlo como crédito fiscal. (p. 15)"
+      },
+      {
+        "pregunta": "¿Cuál es el procedimiento correcto para extraer el IVA del 21% de un precio final (con IVA incluido)?",
+        "opciones": [
+          "Multiplicar el precio total por 0,21",
+          "Multiplicar el precio total por 0,1736",
+          "Dividir el precio total por 1,21",
+          "Dividir el precio total por 0,21"
+        ],
+        "correcta": 2,
+        "explicacion": "El método correcto es dividir el precio total por 1,21. Multiplicar por 0,21 es el error más frecuente: da un resultado incorrecto porque el 21% se aplica sobre el neto, no sobre el total. (p. 12-13)"
+      },
+      {
+        "pregunta": "¿Cómo se calcula el IVA que una empresa RI debe pagar al fisco en el mes?",
+        "opciones": [
+          "Suma de todo el IVA cobrado en ventas",
+          "Suma de todo el IVA pagado en compras",
+          "Promedio entre el IVA cobrado y el IVA pagado",
+          "Débito fiscal menos crédito fiscal"
+        ],
+        "correcta": 3,
+        "explicacion": "El IVA a pagar al fisco es Débito Fiscal (IVA cobrado en ventas) menos Crédito Fiscal (IVA pagado en compras). Solo se paga impuesto sobre el valor agregado por la empresa. (p. 5, 13)"
+      },
+      {
+        "pregunta": "¿Qué documento se emite cuando hay una devolución de mercadería o un descuento posterior a la facturación?",
+        "opciones": [
+          "Una nueva factura que reemplaza a la original",
+          "Un remito de devolución",
+          "Una Nota de Crédito",
+          "Una Nota de Débito"
+        ],
+        "correcta": 2,
+        "explicacion": "La Nota de Crédito disminuye la deuda del comprador. Se emite ante devoluciones de mercadería, descuentos posteriores o errores de facturación a favor del cliente. (p. 3, 20)"
+      },
+      {
+        "pregunta": "Una empresa tiene un Activo de $1.000.000 y un Pasivo de $600.000. ¿Cuánto es su Patrimonio Neto?",
+        "opciones": [
+          "$1.600.000",
+          "$600.000",
+          "$400.000",
+          "$200.000"
+        ],
+        "correcta": 2,
+        "explicacion": "Patrimonio Neto = Activo − Pasivo = $1.000.000 − $600.000 = $400.000. Es lo que verdaderamente les pertenece a los dueños. (p. 7)"
+      },
+      {
+        "pregunta": "¿Cuál de las 4P del Marketing Mix es la única que genera ingresos?",
+        "opciones": [
+          "Precio",
+          "Plaza",
+          "Promoción",
+          "Producto"
+        ],
+        "correcta": 0,
+        "explicacion": "El Precio es la única P que genera ingresos; las demás (Producto, Plaza y Promoción) generan costos. Por eso es una decisión tan clave. (p. 29)"
+      },
+      {
+        "pregunta": "¿Qué técnica de investigación de mercado consiste en una reunión guiada de 6 a 10 personas para discutir un tema?",
+        "opciones": [
+          "Encuesta online",
+          "Entrevista en profundidad",
+          "Focus group (grupo focal)",
+          "Observación"
+        ],
+        "correcta": 2,
+        "explicacion": "El focus group reúne a 6-10 personas guiadas por un moderador para conversar sobre un tema. Permite ver opiniones, reacciones e interacciones. Muy útil para testear nuevos productos o publicidades. (p. 24)"
+      },
+      {
+        "pregunta": "¿En qué etapa del ciclo de vida del producto se estabilizan las ventas, hay mucha competencia y los precios bajan?",
+        "opciones": [
+          "Introducción",
+          "Crecimiento",
+          "Madurez",
+          "Declinación"
+        ],
+        "correcta": 2,
+        "explicacion": "La etapa de Madurez es cuando el mercado está saturado, las ventas se estabilizan, la competencia es intensa y los precios caen. Es la etapa más larga de un producto exitoso. (p. 27)"
+      },
+      {
+        "pregunta": "Según el apunte, ¿qué incluye el 'producto aumentado' de un servicio técnico informático?",
+        "opciones": [
+          "Solo el diagnóstico de la falla y la reparación técnica",
+          "El diagnóstico más el presupuesto previo",
+          "La reparación más los repuestos instalados",
+          "Garantía de 30 días, soporte por WhatsApp y retiro/entrega a domicilio"
+        ],
+        "correcta": 3,
+        "explicacion": "El producto aumentado es todo lo que rodea al producto básico y le agrega valor: garantía, instalación, soporte técnico posventa, retiro a domicilio. Es lo que diferencia un servicio 'común' de uno realmente bueno. (p. 28)"
+      }
+    ],
+    "verdadero_falso": [
+      {
+        "texto": "Una variación permutativa no modifica el patrimonio neto: solo cambia la composición interna del activo o la relación activo-pasivo.",
+        "correcto": true,
+        "explicacion": "Verdadero. Las variaciones permutativas mueven cosas de lugar pero no alteran el patrimonio neto. El PN solo cambia con las variaciones modificativas. (p. 7-8)"
+      },
+      {
+        "texto": "Para sacar el IVA de un precio final con IVA incluido, hay que multiplicar ese precio por 0,21.",
+        "correcto": false,
+        "explicacion": "Falso. Ese es el error más frecuente del apunte. La operación correcta es dividir el precio total por 1,21. Multiplicar por 0,21 da un resultado incorrecto. (p. 12-13)"
+      },
+      {
+        "texto": "La Factura A discrimina el IVA y el comprador Responsable Inscripto puede tomarlo como crédito fiscal.",
+        "correcto": true,
+        "explicacion": "Verdadero. Esa es la característica central de la Factura A: el IVA aparece en una línea aparte y el RI comprador puede deducirlo de su declaración mensual. (p. 15-17)"
+      },
+      {
+        "texto": "El marketing se reduce a la publicidad: hacer marketing es hacer publicidad.",
+        "correcto": false,
+        "explicacion": "Falso. La publicidad es solo una herramienta de la P de Promoción. El marketing incluye diseño del producto, fijación de precios, canales de distribución y mucho más. (p. 25)"
+      },
+      {
+        "texto": "El descuento comercial siempre se aplica sobre el precio neto, antes de calcular el IVA.",
+        "correcto": true,
+        "explicacion": "Verdadero. Si se aplica el descuento sobre el precio total con IVA, el impuesto queda mal calculado y el cliente termina pagando más de lo que corresponde. (p. 13-14)"
+      }
+    ]
+  },
+  "sabias": {
+    "flip_cards": [
+      {
+        "emoji": "🧾",
+        "color": "#6366F1",
+        "frente": "En Argentina, casi todas las facturas hoy son electrónicas y llevan un código llamado CAE",
+        "dorso": "El CAE (Código de Autorización Electrónico) es el número que ARCA (ex AFIP) le asigna a cada factura electrónica al validarla. Sin CAE, la factura no es válida. Esto permite al fisco conocer en tiempo real las operaciones de todas las empresas del país, un salto enorme respecto de los formularios en papel de hace 20 años."
+      },
+      {
+        "emoji": "💳",
+        "color": "#10B981",
+        "frente": "Cuando pagás con tarjeta de crédito, el comercio no recibe el 100% del dinero ni en el acto",
+        "dorso": "El adquirente (Prisma, Payway, etc.) le cobra al comercio una comisión del 1% al 3% por cada operación, más impuestos. Y el dinero de crédito puede tardar 18-20 días hábiles en acreditarse. Por eso algunos comercios prefieren efectivo o transferencia; pero la tarjeta trae más clientes y menos riesgo de robo."
+      },
+      {
+        "emoji": "💡",
+        "color": "#EC4899",
+        "frente": "Cuando alguien compra un taladro, no quiere un taladro: quiere un agujero",
+        "dorso": "Esta frase del apunte resume la esencia del marketing: el cliente no compra el objeto, compra el beneficio que le da. Quien entiende esto diseña mejores productos y los comunica mejor. Un servicio técnico informático no vende 'formateos' o 'cambios de pasta térmica': vende 'tener la PC funcionando rápido y sin volver a traerla'."
+      }
+    ],
+    "linea_de_tiempo": [
+      {
+        "emoji": "🏭",
+        "year": "Hasta años 30",
+        "text": "Era de la Producción: 'fabriquen, que se va a vender'. La demanda superaba a la oferta. Henry Ford: 'del color que quieras, siempre que sea negro'."
+      },
+      {
+        "emoji": "⭐",
+        "year": "Años 30-50",
+        "text": "Era del Producto: empezó a importar la calidad. 'Si hacen el mejor producto, los clientes lo van a comprar'."
+      },
+      {
+        "emoji": "📢",
+        "year": "Años 50-70",
+        "text": "Era de la Venta: más oferta que demanda. 'Hay que vender agresivamente lo que producimos'. Aparecen los vendedores puerta a puerta."
+      },
+      {
+        "emoji": "🎯",
+        "year": "Años 70 - hoy",
+        "text": "Era del Marketing: 'primero entendamos qué necesita el cliente, después produzcamos'. Foco en el consumidor."
+      },
+      {
+        "emoji": "📱",
+        "year": "Hoy",
+        "text": "Era Digital / Relacional: relaciones a largo plazo, personalización, experiencias. Las marcas hablan con sus clientes uno a uno gracias a la tecnología."
+      }
+    ],
+    "encuesta": {
+      "pregunta": "¿Qué área de esta unidad te parece más útil para tu futuro laboral?",
+      "opciones": [
+        {
+          "emoji": "🧾",
+          "text": "Saber completar facturas y calcular IVA correctamente",
+          "votos_iniciales": 38
+        },
+        {
+          "emoji": "⚖️",
+          "text": "Entender el patrimonio y la contabilidad básica",
+          "votos_iniciales": 22
+        },
+        {
+          "emoji": "📣",
+          "text": "Diseñar una estrategia de marketing para mi propio emprendimiento",
+          "votos_iniciales": 45
+        }
+      ]
+    }
+  },
+  "cierre": {
+    "glosario": [
+      {
+        "emoji": "📂",
+        "termino": "Fuente de registración",
+        "categoria": "Documentos",
+        "definicion": "Documento, papel o constancia que da origen y respalda una anotación contable. Sin documento, la operación no se registra."
+      },
+      {
+        "emoji": "🧾",
+        "termino": "Factura",
+        "categoria": "Documentos",
+        "definicion": "Documento por excelencia de la compraventa. Detalla qué se vendió, cantidades, precios e impuestos. Puede ser A, B, C, M o E según las categorías frente al IVA del vendedor y el comprador."
+      },
+      {
+        "emoji": "⬇️",
+        "termino": "Nota de crédito",
+        "categoria": "Documentos",
+        "definicion": "Documento que disminuye una deuda. Se emite ante devoluciones de mercadería, descuentos posteriores o errores de facturación a favor del comprador."
+      },
+      {
+        "emoji": "⬆️",
+        "termino": "Nota de débito",
+        "categoria": "Documentos",
+        "definicion": "Documento que aumenta una deuda. Se emite por intereses por mora, gastos no incluidos en la factura original o errores a favor del vendedor."
+      },
+      {
+        "emoji": "⚖️",
+        "termino": "Ecuación contable",
+        "categoria": "Contabilidad",
+        "definicion": "Activo = Pasivo + Patrimonio Neto. Igualdad fundamental que se cumple siempre."
+      },
+      {
+        "emoji": "🔄",
+        "termino": "Variación permutativa",
+        "categoria": "Contabilidad",
+        "definicion": "Cambio en la composición del patrimonio que no modifica el patrimonio neto. Las cosas cambian de lugar pero el total no varía."
+      },
+      {
+        "emoji": "📉",
+        "termino": "Variación modificativa",
+        "categoria": "Contabilidad",
+        "definicion": "Cambio que modifica el patrimonio neto: positiva (lo aumenta, como una venta) o negativa (lo disminuye, como un gasto)."
+      },
+      {
+        "emoji": "🧮",
+        "termino": "Débito fiscal",
+        "categoria": "IVA",
+        "definicion": "IVA que la empresa cobra a sus clientes en las ventas. Se declara mensualmente ante ARCA."
+      },
+      {
+        "emoji": "🏦",
+        "termino": "Crédito fiscal",
+        "categoria": "IVA",
+        "definicion": "IVA que la empresa paga a sus proveedores en las compras. Se descuenta del débito fiscal para calcular el IVA a pagar al fisco."
+      },
+      {
+        "emoji": "🎯",
+        "termino": "Posicionamiento",
+        "categoria": "Marketing",
+        "definicion": "El lugar que ocupa una marca o producto en la mente del consumidor en relación con la competencia."
+      },
+      {
+        "emoji": "📦",
+        "termino": "Producto aumentado",
+        "categoria": "Marketing",
+        "definicion": "Todo lo que rodea al producto básico y le agrega valor: garantía, instalación, soporte técnico, financiación, servicio posventa."
+      },
+      {
+        "emoji": "📊",
+        "termino": "Ciclo de vida del producto",
+        "categoria": "Marketing",
+        "definicion": "Las cuatro etapas por las que pasa todo producto: Introducción, Crecimiento, Madurez y Declinación."
+      }
+    ],
+    "recursos": [
+      {
+        "tipo": "🎬 Video",
+        "title": "Cómo se hace una factura electrónica en ARCA/AFIP - Tutorial",
+        "desc": "Tutorial paso a paso para emitir una factura electrónica desde el portal de ARCA, con código CAE incluido.",
+        "nivel": "Introductorio",
+        "color": "#10B981"
+      },
+      {
+        "tipo": "🌐 Web",
+        "title": "ARCA (ex AFIP) - Portal de Monotributistas",
+        "desc": "Portal oficial para consultar categorías, facturación electrónica y vencimientos del monotributo.",
+        "nivel": "Introductorio",
+        "color": "#6366F1"
+      },
+      {
+        "tipo": "🎬 Video",
+        "title": "Ciclo de vida del producto con ejemplos reales - Canal de Marketing",
+        "desc": "Video que explica las cuatro etapas del ciclo de vida con ejemplos de productos tecnológicos reales.",
+        "nivel": "Introductorio",
+        "color": "#EC4899"
+      },
+      {
+        "tipo": "📄 Artículo",
+        "title": "Las 4P del Marketing Mix - Philip Kotler explicado",
+        "desc": "Artículo de referencia para profundizar en Producto, Precio, Plaza y Promoción con casos de estudio.",
+        "nivel": "Intermedio",
+        "color": "#F59E0B"
+      },
+      {
+        "tipo": "📖 Libro",
+        "title": "Fundamentos de Marketing - Kotler y Armstrong",
+        "desc": "El libro de referencia mundial sobre marketing. Cubre investigación de mercado, segmentación, 4P y marketing digital.",
+        "nivel": "Avanzado",
+        "color": "#3B82F6"
+      }
+    ]
+  }
+}
