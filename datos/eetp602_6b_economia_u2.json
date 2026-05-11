@@ -12,12 +12,12 @@
       {
         "emoji": "📱",
         "texto": "¿Por qué hay pocas marcas de celulares pero miles de kioscos en Argentina?",
-        "pista": "Pensá en cuántas empresas participan en cada caso y si podés entrar a competir fácilmente en ese negocio..."
+        "pista": "Pensá en cuántas empresas participan en cada caso y si es fácil entrar a competir en ese mercado..."
       },
       {
         "emoji": "💸",
-        "texto": "Si el precio de un componente electrónico importado sube un 50%, ¿vos comprás igual o buscás alternativa?",
-        "pista": "La respuesta dice algo sobre qué tan 'sensible' es tu decisión al precio. Eso tiene un nombre en economía..."
+        "texto": "Si el precio de un componente electrónico importado sube un 50%, ¿seguís comprando igual o buscás alternativa?",
+        "pista": "La respuesta dice algo sobre qué tan sensible es tu decisión al precio. Eso tiene un nombre en economía..."
       },
       {
         "emoji": "🏛️",
@@ -162,7 +162,7 @@
           "color": "#8B5CF6",
           "items": [
             "Economía de mercado: decide el precio libre",
-            "Economía planificada: decide el Estado",
+            "Economía planificada: decide el Estado central",
             "Economía mixta: combinación de ambas",
             "Argentina: sistema mixto con Estado activo"
           ]
@@ -204,150 +204,176 @@
       "paginas": [3, 4, 5, 6, 7, 8, 9]
     },
 
-    "titulo_seccion": "1. El Circuito Económico",
-
-    "concepto_central": {
-      "titulo": "¿Qué es el Circuito Económico?",
-      "icono": "🔄",
-      "definicion": "El circuito económico es la representación gráfica y conceptual de cómo se relacionan los distintos agentes económicos (familias, empresas, Estado y sector externo) entre sí, a través de los flujos de bienes, servicios, factores productivos y dinero que circulan permanentemente en una economía.",
-      "analogia_tecnica": "💡 Analogía para técnicos en electrónica: igual que en un circuito eléctrico la corriente fluye y se cierra, en el circuito económico los flujos de bienes y dinero también se cierran sobre sí mismos.",
-      "idea_clave": "Todo está conectado: los ingresos de las familias dependen de la producción de las empresas, y la producción depende del consumo de las familias. Si un eslabón se rompe (cae el empleo), todo el circuito se resiente."
-    },
-
-    "tabla_comparativa": {
-      "titulo": "Flujo Real vs. Flujo Monetario",
-      "columnas": ["Tipo de flujo", "¿Qué circula?", "Dirección", "Ejemplo"],
-      "filas": [
-        ["Flujo Real", "Bienes, servicios y factores productivos", "Una dirección", "Las familias entregan trabajo a las empresas; las empresas entregan productos a las familias"],
-        ["Flujo Monetario (nominal)", "Dinero (pagos)", "Dirección contraria al flujo real", "Las empresas pagan salarios; las familias pagan precios por los productos"]
-      ]
-    },
-
-    "lista_destacada": {
-      "titulo": "Los 4 Agentes Económicos en el Circuito",
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los eslabones del circuito económico básico, desde que las familias ofrecen sus factores hasta que vuelven a recibir ingresos:",
+      "paginas_referencia": "3-5",
       "items": [
+        { "id": 0, "emoji": "👨‍👩‍👧", "text": "Las familias ofrecen su trabajo y capital a las empresas" },
+        { "id": 1, "emoji": "🏭", "text": "Las empresas utilizan esos factores para producir bienes y servicios" },
+        { "id": 2, "emoji": "🏪", "text": "Las empresas venden los bienes y servicios en el mercado" },
+        { "id": 3, "emoji": "💰", "text": "Las empresas pagan salarios e ingresos a las familias" },
+        { "id": 4, "emoji": "🛒", "text": "Las familias usan sus ingresos para comprar bienes y servicios" }
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada característica según el sistema económico al que pertenece:",
+      "paginas_referencia": "6-9",
+      "categorias": [
+        { "name": "Economía de Mercado", "emoji": "💹", "color": "#0EA5E9" },
+        { "name": "Economía Planificada", "emoji": "📋", "color": "#EF4444" }
+      ],
+      "items": [
+        { "id": 0, "text": "Los precios se forman libremente por oferta y demanda", "categoria_correcta": 0 },
+        { "id": 1, "text": "Un organismo del Estado decide qué, cómo y cuánto producir", "categoria_correcta": 1 },
+        { "id": 2, "text": "La búsqueda del lucro es el motor de la actividad económica", "categoria_correcta": 0 },
+        { "id": 3, "text": "Los medios de producción son propiedad del Estado o la comunidad", "categoria_correcta": 1 },
+        { "id": 4, "text": "Cualquier persona puede iniciar un negocio con libertad de empresa", "categoria_correcta": 0 },
+        { "id": 5, "text": "Se busca una distribución igualitaria del acceso a bienes básicos", "categoria_correcta": 1 }
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "consigna": "Completá las siguientes ideas clave del bloque:",
+      "paginas_referencia": "3-9",
+      "blanks": [
         {
-          "emoji": "👨‍👩‍👧",
-          "titulo": "Familias",
-          "descripcion": "Unidades básicas de consumo. Aportan factores productivos (trabajo, capital, tierra) y reciben ingresos (salarios, alquileres, intereses) que destinan al consumo o ahorro."
+          "id": "b1",
+          "texto_antes": "En el circuito económico, los flujos de bienes y factores van en una dirección, mientras que los flujos de dinero van en dirección",
+          "respuesta_correcta": "contraria",
+          "pista": "C_______"
         },
         {
-          "emoji": "🏭",
-          "titulo": "Empresas",
-          "descripcion": "Unidades básicas de producción. Combinan factores productivos para producir bienes y servicios. Pagan ingresos a las familias por los factores que utilizan."
+          "id": "b2",
+          "texto_antes": "Los tres problemas económicos fundamentales que todo sistema debe resolver son: ¿Qué producir?, ¿Cómo producir? y ¿Para quién",
+          "respuesta_correcta": "producir",
+          "pista": "P_______"
         },
         {
-          "emoji": "🏛️",
-          "titulo": "Estado",
-          "descripcion": "Cobra impuestos, brinda servicios públicos (salud, educación, seguridad), realiza obras, regula la economía y transfiere recursos (jubilaciones, asignaciones, subsidios)."
-        },
-        {
-          "emoji": "🌍",
-          "titulo": "Sector Externo",
-          "descripcion": "Conjunto de países con los que se intercambia. Exportaciones: el país vende al exterior y entran divisas. Importaciones: el país compra del exterior y salen divisas."
+          "id": "b3",
+          "texto_antes": "El sistema económico que adopta prácticamente todos los países del mundo hoy, incluida la Argentina, es la economía",
+          "respuesta_correcta": "mixta",
+          "pista": "M____"
         }
       ]
     },
 
-    "subseccion": {
-      "titulo": "2. Los Sistemas Económicos",
-      "definicion": "Un sistema económico es el conjunto de instituciones, normas, mecanismos y formas de organización que adopta una sociedad para resolver los tres problemas económicos fundamentales: ¿Qué producir?, ¿Cómo producir? y ¿Para quién producir?",
-
-      "tres_preguntas": {
-        "titulo": "Las 3 Preguntas Fundamentales",
-        "preguntas": [
-          {
-            "emoji": "🤔",
-            "pregunta": "¿Qué producir?",
-            "descripcion": "Como los recursos son escasos, hay que decidir qué bienes y servicios producir y en qué cantidades. ¿Más alimentos o más armamento? ¿Viviendas o autos de lujo?"
-          },
-          {
-            "emoji": "⚙️",
-            "pregunta": "¿Cómo producir?",
-            "descripcion": "¿Con mucha mano de obra o con tecnología avanzada? ¿En grandes empresas o en pequeños talleres? ¿Con recursos renovables o no renovables?"
-          },
-          {
-            "emoji": "🤝",
-            "pregunta": "¿Para quién producir?",
-            "descripcion": "¿Quiénes acceden a los bienes producidos? ¿Los que pueden pagarlos? ¿Todos por igual? ¿Según necesidades?"
-          }
-        ]
-      },
-
-      "sistemas": [
+    "n4_verdadero_falso": {
+      "afirmaciones": [
         {
-          "id": "mercado",
-          "emoji": "💹",
-          "titulo": "Economía de Mercado (Capitalismo)",
-          "color": "#0EA5E9",
-          "descripcion": "Las decisiones las toman los individuos y empresas privadas guiados por el sistema de precios. El Estado tiene un rol mínimo.",
-          "caracteristicas": [
-            "Propiedad privada de los medios de producción",
-            "Libertad de empresa y de elección",
-            "Búsqueda del beneficio (lucro) como motor",
-            "El precio como mecanismo regulador (oferta y demanda)",
-            "Competencia entre empresas"
-          ],
-          "ventajas": [
-            "Estimula la innovación y la productividad",
-            "Asigna recursos eficientemente cuando funciona bien",
-            "Garantiza libertad de elección",
-            "Premia el esfuerzo y la iniciativa individual"
-          ],
-          "desventajas": [
-            "Genera desigualdades importantes en la distribución del ingreso",
-            "Puede provocar desempleo y crisis cíclicas",
-            "Tiende a la formación de monopolios sin regulación",
-            "No produce bienes públicos poco rentables (rutas, defensa)"
-          ],
-          "ejemplos": "EE.UU. en el siglo XIX, Hong Kong en el siglo XX. En la actualidad ningún país aplica este modelo en estado puro."
+          "texto": "En el circuito económico, si cae el empleo, el consumo también cae y toda la economía se resiente",
+          "correcto": true,
+          "explicacion": "Verdadero. El circuito muestra la interdependencia total: menos empleo → menos ingresos para familias → menos consumo → menos ventas para empresas → más desempleo. Es una cadena. Ver página 5."
         },
         {
-          "id": "planificada",
-          "emoji": "📋",
-          "titulo": "Economía Planificada (Socialista)",
-          "color": "#EF4444",
-          "descripcion": "Las decisiones las toma un órgano central de planificación dependiente del Estado. El mercado y los precios libres prácticamente no existen.",
-          "caracteristicas": [
-            "Propiedad estatal o colectiva de los medios de producción",
-            "Planificación central (planes quinquenales)",
-            "Precios fijados por el Estado, no por oferta y demanda",
-            "Distribución igualitaria como objetivo",
-            "Ausencia o limitación de la iniciativa privada"
-          ],
-          "ventajas": [
-            "Distribución más equitativa de la riqueza",
-            "Garantiza acceso a bienes básicos para toda la población",
-            "Reduce el desempleo (el Estado garantiza trabajo)",
-            "Permite priorizar objetivos sociales sobre el lucro"
-          ],
-          "desventajas": [
-            "Falta de incentivos personales para innovar y producir más",
-            "Burocracia ineficiente y lenta para responder a cambios",
-            "Escasez crónica de productos y largas colas",
-            "Limita las libertades económicas individuales"
-          ],
-          "ejemplos": "Unión Soviética hasta 1991, China de Mao, Cuba (con matices), Corea del Norte. La caída del muro de Berlín (1989) marcó el fin de este sistema en su versión más pura."
+          "texto": "En la economía planificada los precios se forman por la interacción de oferta y demanda, igual que en el capitalismo",
+          "correcto": false,
+          "explicacion": "Falso. En la economía planificada los precios son fijados por el Estado. Es una de sus características definitivas y una diferencia clave con el mercado libre. Ver páginas 7-8."
         },
         {
-          "id": "mixta",
-          "emoji": "⚖️",
-          "titulo": "Economía Mixta",
-          "color": "#059669",
-          "descripcion": "Combinación de mercado con intervención del Estado. Es el sistema que adoptan prácticamente todos los países del mundo en la actualidad, incluida la Argentina.",
-          "caracteristicas": [
-            "Coexisten propiedad privada y propiedad estatal",
-            "Precios principalmente de mercado, con intervención estatal en algunos sectores",
-            "El Estado regula la actividad económica (leyes laborales, control bancario, medio ambiente)",
-            "El Estado redistribuye ingresos (jubilaciones, asignaciones, subsidios)",
-            "El Estado provee bienes públicos: salud, educación, justicia, infraestructura"
-          ],
-          "nota_argentina": "Argentina tiene un sistema mixto con Estado de tamaño considerable: YPF, Aerolíneas Argentinas, Banco Nación, junto con un amplio sector privado. El grado de intervención varía históricamente entre etapas de mayor liberalización (más mercado) y mayor regulación (más Estado).",
-          "ventajas": [],
-          "desventajas": [],
-          "ejemplos": "Todos los países actualmente. Suecia, Noruega y Dinamarca (Estados de Bienestar) tienen mayor intervención; EE.UU. tiene intervención más limitada."
+          "texto": "El sector externo solo incluye las exportaciones de un país",
+          "correcto": false,
+          "explicacion": "Falso. El sector externo incluye exportaciones (vender al exterior, entran divisas) e importaciones (comprar del exterior, salen divisas), así como inversiones extranjeras. Ver página 4."
         }
       ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "6-9",
+      "pares": [
+        { "izquierda": "Ec. de Mercado", "derecha": "Los precios orientan las decisiones de productores y consumidores", "emoji": "💹" },
+        { "izquierda": "Ec. Planificada", "derecha": "Un plan central decide qué y cuánto producir en toda la economía", "emoji": "📋" },
+        { "izquierda": "Ec. Mixta", "derecha": "Conviven el mercado libre y la intervención reguladora del Estado", "emoji": "⚖️" },
+        { "izquierda": "Argentina", "derecha": "Sistema mixto con YPF, Aerolíneas y Banco Nación junto al sector privado", "emoji": "🇦🇷" }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "6-9",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "💹",
+          "pregunta": "¿Cuál NO es una característica de la economía de mercado?",
+          "paginas": "6-7",
+          "palabras": [
+            { "text": "Propiedad privada de los medios de producción", "es_intrusa": false },
+            { "text": "Precios fijados por el Estado", "es_intrusa": true },
+            { "text": "Competencia entre empresas", "es_intrusa": false },
+            { "text": "Búsqueda del beneficio como motor", "es_intrusa": false }
+          ],
+          "explicacion": "Los precios fijados por el Estado son una característica de la economía planificada, no del mercado libre. En el capitalismo los precios se forman libremente por oferta y demanda. Ver páginas 6-7."
+        },
+        {
+          "id": 1,
+          "emoji": "👥",
+          "pregunta": "¿Cuál NO es un agente del circuito económico según el PDF?",
+          "paginas": "4",
+          "palabras": [
+            { "text": "Familias", "es_intrusa": false },
+            { "text": "Empresas", "es_intrusa": false },
+            { "text": "Bancos centrales", "es_intrusa": true },
+            { "text": "Sector Externo", "es_intrusa": false }
+          ],
+          "explicacion": "Los cuatro agentes del circuito económico son: familias, empresas, Estado y sector externo. Los bancos son parte del sector financiero, no un agente diferenciado en este modelo. Ver página 4."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "3-9",
+      "conceptos": [
+        {
+          "termino": "Circuito económico",
+          "pista": "¿Cómo se conectan las familias, empresas, Estado y el exterior en la economía?",
+          "palabras_clave": ["agentes", "flujos", "bienes", "dinero", "conectan", "familias", "empresas"]
+        },
+        {
+          "termino": "Sistema económico",
+          "pista": "¿Qué organiza la forma en que una sociedad decide qué, cómo y para quién producir?",
+          "palabras_clave": ["organización", "decisiones", "producir", "distribuir", "sociedad", "mercado", "Estado"]
+        },
+        {
+          "termino": "Economía mixta",
+          "pista": "¿Qué sistema combina el mercado libre con la intervención del Estado?",
+          "palabras_clave": ["combina", "mercado", "Estado", "intervención", "privado", "público", "ambos"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "3-9",
+      "causas": [
+        { "id": 0, "emoji": "📉", "text": "Las empresas reducen su producción y despiden trabajadores" },
+        { "id": 1, "emoji": "💹", "text": "En la economía de mercado no hay regulación antimonopolio" },
+        { "id": 2, "emoji": "🌍", "text": "Argentina exporta soja al mercado mundial" },
+        { "id": 3, "emoji": "📋", "text": "El Estado fija los precios de todos los bienes por debajo del mercado" }
+      ],
+      "efectos": [
+        { "id": 0, "causa_id": 0, "emoji": "🔴", "text": "Las familias tienen menos ingresos y consumen menos, profundizando la crisis en todo el circuito" },
+        { "id": 1, "causa_id": 1, "emoji": "👑", "text": "Tienden a formarse monopolios que fijan precios altos y reducen la eficiencia" },
+        { "id": 2, "causa_id": 2, "emoji": "💵", "text": "Ingresan divisas al país, fortaleciendo el flujo monetario del sector externo" },
+        { "id": 3, "causa_id": 3, "emoji": "🚫", "text": "Se genera escasez crónica porque los productores no tienen incentivos para ofrecer a ese precio bajo" }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená las etapas de la historia de los sistemas económicos en el siglo XX:",
+      "paginas_referencia": "6-9",
+      "pasos_en_orden_correcto": [
+        { "id": 0, "emoji": "🏭", "text": "El capitalismo industrial domina Europa y EEUU; el mercado libre se expande" },
+        { "id": 1, "emoji": "📋", "text": "La Revolución Rusa (1917) crea la primera economía planificada a gran escala" },
+        { "id": 2, "emoji": "⚖️", "text": "Surgen los Estados de Bienestar: economías mixtas con fuerte intervención estatal" },
+        { "id": 3, "emoji": "🧱", "text": "Cae el Muro de Berlín (1989): colapso de las economías planificadas europeas" },
+        { "id": 4, "emoji": "🌐", "text": "Hoy prácticamente todos los países operan con economías mixtas en distintos grados" }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "6-8",
+      "concepto_a": { "nombre": "Ec. de Mercado", "emoji": "💹", "color": "#0EA5E9" },
+      "concepto_b": { "nombre": "Ec. Planificada", "emoji": "📋", "color": "#EF4444" }
     }
   },
 
@@ -360,142 +386,176 @@
       "paginas": [10, 11, 12, 13, 14]
     },
 
-    "titulo_seccion": "3. El Mercado: concepto y clasificación",
-
-    "concepto_central": {
-      "titulo": "¿Qué es el Mercado?",
-      "icono": "🏪",
-      "definicion": "El mercado es el conjunto de mecanismos mediante los cuales los compradores (demandantes) y los vendedores (oferentes) de un bien o servicio entran en contacto para realizar transacciones, fijando un precio y una cantidad de equilibrio.",
-      "aclaracion": "No solo el mercado de barrio. Hay mercado siempre que existan compradores y vendedores: puede ser físico (una feria), virtual (Mercado Libre), telefónico (bolsa de valores) o mundial (mercado de divisas)."
-    },
-
-    "lista_destacada": {
-      "titulo": "Elementos del Mercado",
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los pasos por los que pasa el mercado de componentes electrónicos cuando sube el precio de los chips importados:",
+      "paginas_referencia": "10-11",
       "items": [
-        { "emoji": "📦", "titulo": "Bien o servicio", "descripcion": "Lo que se compra y vende: producto material (un módulo Arduino) o servicio (reparación de plaqueta)." },
-        { "emoji": "👤", "titulo": "Demandantes", "descripcion": "Quienes están dispuestos a pagar por el bien o servicio." },
-        { "emoji": "🏭", "titulo": "Oferentes", "descripcion": "Quienes están dispuestos a vender el bien o servicio." },
-        { "emoji": "💰", "titulo": "Precio", "descripcion": "El valor monetario que se paga por la transacción." },
-        { "emoji": "📊", "titulo": "Cantidad", "descripcion": "El volumen de bienes o servicios intercambiados en un período determinado." }
+        { "id": 0, "emoji": "📦", "text": "Sube el precio de los chips importados en el mercado mundial" },
+        { "id": 1, "emoji": "🏭", "text": "Los fabricantes locales de equipos electrónicos tienen costos más altos" },
+        { "id": 2, "emoji": "💸", "text": "Los fabricantes trasladan el aumento al precio final de sus productos" },
+        { "id": 3, "emoji": "👤", "text": "Los consumidores ven el nuevo precio y evalúan si siguen comprando" },
+        { "id": 4, "emoji": "📉", "text": "La cantidad demandada de equipos electrónicos disminuye" }
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada ejemplo según el tipo de mercado por competencia al que corresponde:",
+      "paginas_referencia": "12-14",
+      "categorias": [
+        { "name": "Monopolio", "emoji": "👑", "color": "#EF4444" },
+        { "name": "Oligopolio", "emoji": "🏢", "color": "#F59E0B" }
+      ],
+      "items": [
+        { "id": 0, "text": "Aguas Santafesinas en su zona de concesión", "categoria_correcta": 0 },
+        { "id": 1, "text": "Las tres telefónicas móviles de Argentina (Movistar, Claro, Personal)", "categoria_correcta": 1 },
+        { "id": 2, "text": "EPE: distribución eléctrica en Santa Fe", "categoria_correcta": 0 },
+        { "id": 3, "text": "Las grandes cadenas de supermercados (Coto, Carrefour, DIA)", "categoria_correcta": 1 },
+        { "id": 4, "text": "Microsoft con Windows en su época de mayor dominio", "categoria_correcta": 0 },
+        { "id": 5, "text": "Los fabricantes de cemento en Argentina", "categoria_correcta": 1 }
       ]
     },
 
-    "clasificacion_mercados": {
-      "titulo": "Clasificación de los Mercados",
-      "criterios": [
+    "n3_completar_mapa": {
+      "consigna": "Completá las siguientes ideas clave del bloque:",
+      "paginas_referencia": "10-14",
+      "blanks": [
         {
-          "criterio": "Por ámbito geográfico",
-          "emoji": "🗺️",
-          "tipos": [
-            { "nombre": "Local", "ejemplo": "La feria de Venado Tuerto, locales de servicio técnico de la zona" },
-            { "nombre": "Regional", "ejemplo": "La región pampeana" },
-            { "nombre": "Nacional", "ejemplo": "Todo el territorio argentino" },
-            { "nombre": "Internacional / Mundial", "ejemplo": "Mercado de semiconductores, petróleo, chips electrónicos" }
-          ]
+          "id": "b1",
+          "texto_antes": "En competencia perfecta las empresas son 'precio aceptantes': no pueden fijar el precio porque existe un gran número de vendedores con un producto",
+          "respuesta_correcta": "homogéneo",
+          "pista": "H________"
         },
         {
-          "criterio": "Por tipo de bien o servicio",
-          "emoji": "📦",
-          "tipos": [
-            { "nombre": "Bienes de consumo", "ejemplo": "Alimentos, ropa, electrodomésticos" },
-            { "nombre": "Bienes de capital", "ejemplo": "Máquinas, herramientas, instrumental electrónico de medición" },
-            { "nombre": "Servicios", "ejemplo": "Transporte, salud, servicio técnico" },
-            { "nombre": "Factores productivos", "ejemplo": "Trabajo (mercado laboral), tierra, capital" },
-            { "nombre": "Financiero", "ejemplo": "Acciones, bonos, divisas" }
-          ]
+          "id": "b2",
+          "texto_antes": "El tipo de mercado más común en la vida cotidiana, donde hay muchos vendedores pero cada uno tiene producto diferenciado, es la competencia",
+          "respuesta_correcta": "monopolística",
+          "pista": "M___________"
         },
         {
-          "criterio": "Por plazo",
-          "emoji": "⏱️",
-          "tipos": [
-            { "nombre": "Al contado (spot)", "ejemplo": "Entrega y pago en el momento" },
-            { "nombre": "A plazo (futuros)", "ejemplo": "Se acuerda hoy un precio para entrega futura (granos, commodities)" }
-          ]
+          "id": "b3",
+          "texto_antes": "En el monopsonio, la concentración de poder está del lado de los compradores: hay un solo",
+          "respuesta_correcta": "comprador",
+          "pista": "C________"
         }
       ]
     },
 
-    "subseccion": {
-      "titulo": "4. Tipos de Mercado según la Competencia",
-      "descripcion": "Los economistas observan cuatro variables: cantidad de oferentes y demandantes, homogeneidad del producto, barreras de entrada y grado de información.",
-
-      "cuadro_comparativo": {
-        "titulo": "Cuadro comparativo de los tipos de mercado",
-        "columnas": ["Tipo", "N° de oferentes", "Producto", "Barreras de entrada", "Poder sobre el precio"],
-        "filas": [
-          ["Competencia perfecta", "Muchísimos", "Homogéneo", "No hay", "Ninguno"],
-          ["Competencia monopolística", "Muchos", "Diferenciado", "Pocas", "Limitado"],
-          ["Oligopolio", "Pocos (2 a 10 aprox.)", "Homogéneo o diferenciado", "Importantes", "Considerable"],
-          ["Monopolio", "Uno solo", "Único (sin sustitutos)", "Muy fuertes", "Total"]
-        ]
-      },
-
-      "tipos_mercado": [
+    "n4_verdadero_falso": {
+      "afirmaciones": [
         {
-          "id": "competencia_perfecta",
+          "texto": "La competencia perfecta es el tipo de mercado más común en la realidad cotidiana",
+          "correcto": false,
+          "explicacion": "Falso. La competencia perfecta es un modelo teórico ideal que casi ningún mercado real cumple al 100%. El tipo más común es la competencia monopolística (muchos vendedores con productos diferenciados). Ver página 12."
+        },
+        {
+          "texto": "El monopolio natural existe cuando una sola empresa es más eficiente que muchas, como en la distribución de agua o energía",
+          "correcto": true,
+          "explicacion": "Verdadero. Los monopolios naturales ocurren cuando la estructura de costos hace más eficiente tener un solo proveedor. Por eso el Estado suele concederlos a una empresa pero los regula. Ver página 13."
+        },
+        {
+          "texto": "En un oligopolio, las decisiones de una empresa no afectan a las demás porque cada una actúa de forma independiente",
+          "correcto": false,
+          "explicacion": "Falso. Una característica definitoria del oligopolio es la interdependencia: las decisiones de precio o producción de una empresa afectan directamente a todas las demás. Si Movistar baja el precio, Claro y Personal deben reaccionar. Ver página 13."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "12-14",
+      "pares": [
+        { "izquierda": "Competencia perfecta", "derecha": "Mercado de trigo: miles de productores venden exactamente el mismo producto", "emoji": "🌾" },
+        { "izquierda": "Monopolio", "derecha": "EPE: única distribuidora de electricidad en su zona de concesión", "emoji": "⚡" },
+        { "izquierda": "Oligopolio", "derecha": "Mercado de cervezas: Quilmes y CCU concentran la mayor parte", "emoji": "🍺" },
+        { "izquierda": "Comp. monopolística", "derecha": "Restaurantes de Venado Tuerto: muchos locales con menú y estilo propio", "emoji": "🍕" }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "12-14",
+      "grupos": [
+        {
+          "id": 0,
           "emoji": "✅",
-          "titulo": "Competencia Perfecta",
-          "color": "#059669",
-          "descripcion": "Modelo teórico ideal. Existe un gran número de compradores y vendedores, ninguno con poder para influir en el precio, que comercian un producto homogéneo, con libre entrada y salida e información completa.",
-          "condiciones": [
-            { "nombre": "Atomicidad", "desc": "Muchos compradores y vendedores. Ninguno puede imponer condiciones. Cada uno es un 'átomo' en el mercado." },
-            { "nombre": "Homogeneidad del producto", "desc": "Todos los productos son idénticos. Al comprador le da igual quién se lo venda. Ej.: un kilo de trigo es igual a otro kilo de trigo." },
-            { "nombre": "Libre entrada y salida", "desc": "Cualquier empresa puede entrar o salir cuando quiera. Sin barreras económicas, legales ni tecnológicas." },
-            { "nombre": "Información perfecta", "desc": "Todos conocen los precios, cantidades y condiciones del mercado. No hay secretos ni información oculta." }
+          "pregunta": "¿Cuál NO es una condición de la competencia perfecta?",
+          "paginas": "12",
+          "palabras": [
+            { "text": "Atomicidad (muchos compradores y vendedores)", "es_intrusa": false },
+            { "text": "Homogeneidad del producto", "es_intrusa": false },
+            { "text": "Producto diferenciado por marca", "es_intrusa": true },
+            { "text": "Información perfecta", "es_intrusa": false }
           ],
-          "consecuencia": "Las empresas son 'precio aceptantes' (price takers): no pueden fijar el precio, lo aceptan tal como surge del mercado.",
-          "ejemplos_arg": "Mercados de productos agrícolas básicos (trigo, soja, maíz). Ningún caso real cumple las 4 condiciones al 100%."
+          "explicacion": "La diferenciación por marca es característica de la competencia monopolística, no de la perfecta. En competencia perfecta todos los productos son idénticos y el comprador es indiferente a quién le vende. Ver página 12."
         },
         {
-          "id": "monopolio",
-          "emoji": "👑",
-          "titulo": "Monopolio",
-          "color": "#EF4444",
-          "descripcion": "Una sola empresa oferente que vende a muchos compradores. Tiene total poder de mercado para fijar el precio ('precio decisora' o price maker). Hay fuertes barreras de entrada.",
-          "causas": [
-            "Control exclusivo de un recurso",
-            "Patentes",
-            "Concesiones del Estado",
-            "Monopolios naturales (una sola empresa más eficiente que muchas, ej.: red de distribución de agua o energía eléctrica)"
+          "id": 1,
+          "emoji": "🏪",
+          "pregunta": "¿Cuál NO es una función del mercado según el PDF?",
+          "paginas": "10",
+          "palabras": [
+            { "text": "Asignar recursos", "es_intrusa": false },
+            { "text": "Determinar precios", "es_intrusa": false },
+            { "text": "Garantizar equidad en la distribución del ingreso", "es_intrusa": true },
+            { "text": "Transmitir información sobre la escasez relativa", "es_intrusa": false }
           ],
-          "ejemplos_arg": "Aguas Santafesinas en su zona de concesión, EPE para distribución eléctrica en Santa Fe, Microsoft con Windows en su época de mayor dominio."
-        },
-        {
-          "id": "oligopolio",
-          "emoji": "🏢",
-          "titulo": "Oligopolio",
-          "color": "#F59E0B",
-          "descripcion": "Pocas empresas oferentes (entre 2 y 10 aprox.) que dominan el mercado. Son interdependientes: las decisiones de una afectan a todas. Pueden competir intensamente o ponerse de acuerdo (cártel).",
-          "caracteristicas": [
-            "Barreras de entrada importantes",
-            "Productos homogéneos (cemento) o diferenciados (autos)",
-            "Posibles guerras de precios o acuerdos colusivos"
-          ],
-          "ejemplos_arg": "Mercado de la cerveza (Quilmes y CCU), telefónicas móviles (Movistar, Claro, Personal), cadenas de supermercados, fabricantes de cemento, electrodomésticos de línea blanca."
-        },
-        {
-          "id": "monopolistica",
-          "emoji": "🏬",
-          "titulo": "Competencia Monopolística",
-          "color": "#8B5CF6",
-          "descripcion": "Muchas empresas pero cada una vende un producto diferenciado (por marca, calidad, presentación, ubicación, atención). Esa diferenciación les da un pequeño 'mini-monopolio' sobre su variedad.",
-          "caracteristicas": [
-            "Muchos vendedores (como competencia perfecta)",
-            "Libre entrada y salida",
-            "Productos diferenciados (como monopolio)",
-            "Es el tipo de mercado más común en la vida cotidiana"
-          ],
-          "ejemplos_arg": "Restaurantes de Venado Tuerto (cada uno tiene su propia carta y estilo), peluquerías, marcas de ropa, kioscos, talleres de servicio técnico (se diferencian por especialidad, garantía o atención)."
-        },
-        {
-          "id": "monopsonio",
-          "emoji": "🎯",
-          "titulo": "Monopsonio y Oligopsonio",
-          "color": "#6366F1",
-          "descripcion": "La concentración está del lado de los compradores, no de los vendedores. Monopsonio: un solo comprador frente a muchos vendedores. Oligopsonio: pocos compradores frente a muchos vendedores.",
-          "ejemplos_arg": "Mercado de la leche cruda en Argentina: miles de tamberos pero pocas industrias lácteas compradoras (Mastellone, SanCor, etc.)."
+          "explicacion": "El mercado NO garantiza equidad: distribuye la producción entre quienes pueden pagar. Garantizar equidad es una función del Estado en la economía mixta, no del mercado libre. Ver página 10."
         }
       ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "10-14",
+      "conceptos": [
+        {
+          "termino": "Mercado",
+          "pista": "¿Dónde y cómo se encuentran compradores y vendedores para hacer transacciones?",
+          "palabras_clave": ["compradores", "vendedores", "precio", "transacción", "encuentro", "intercambio"]
+        },
+        {
+          "termino": "Oligopolio",
+          "pista": "¿Qué tipo de mercado es el de las telefónicas en Argentina?",
+          "palabras_clave": ["pocos", "empresas", "interdependientes", "barreras", "precio", "poder"]
+        },
+        {
+          "termino": "Competencia monopolística",
+          "pista": "¿Por qué un kiosco puede cobrar un poco más caro que otro sin perder todos sus clientes?",
+          "palabras_clave": ["diferenciado", "diferenciación", "marca", "muchos", "libre entrada", "minimonopolio"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "12-14",
+      "causas": [
+        { "id": 0, "emoji": "🏭", "text": "Una empresa controla el único yacimiento de un mineral clave para la electrónica" },
+        { "id": 1, "emoji": "🍺", "text": "Las dos cerveceras más grandes del país se ponen de acuerdo para fijar el precio" },
+        { "id": 2, "emoji": "🍕", "text": "Una pizzería ofrece servicio a domicilio rápido y atención personalizada que la diferencia de los demás" },
+        { "id": 3, "emoji": "🌾", "text": "Hay miles de productores de soja vendiendo exactamente el mismo producto" }
+      ],
+      "efectos": [
+        { "id": 0, "causa_id": 0, "emoji": "👑", "text": "Se convierte en monopolio: puede fijar el precio sin competencia posible" },
+        { "id": 1, "causa_id": 1, "emoji": "⚠️", "text": "Forman un cártel (práctica ilegal): los consumidores pagan precios altos sin alternativa" },
+        { "id": 2, "causa_id": 2, "emoji": "🏬", "text": "Opera en competencia monopolística: puede cobrar un poco más gracias a su diferenciación" },
+        { "id": 3, "causa_id": 3, "emoji": "✅", "text": "Se acerca a la competencia perfecta: ningún productor puede imponer el precio de mercado" }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená cómo se forma un monopolio natural, desde la situación inicial hasta la regulación estatal:",
+      "paginas_referencia": "13",
+      "pasos_en_orden_correcto": [
+        { "id": 0, "emoji": "🏗️", "text": "Se necesita una red de infraestructura (agua, electricidad, gas) de enorme inversión inicial" },
+        { "id": 1, "emoji": "💰", "text": "Solo una empresa puede asumir esa inversión: es más eficiente que tener varias redes paralelas" },
+        { "id": 2, "emoji": "👑", "text": "Surge naturalmente un monopolio: una sola empresa provee a todo el mercado" },
+        { "id": 3, "emoji": "⚠️", "text": "Sin competencia, la empresa podría fijar precios abusivos y reducir la calidad del servicio" },
+        { "id": 4, "emoji": "🏛️", "text": "El Estado interviene regulando las tarifas y otorgando concesiones con condiciones" }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "12-14",
+      "concepto_a": { "nombre": "Monopolio", "emoji": "👑", "color": "#EF4444" },
+      "concepto_b": { "nombre": "Oligopolio", "emoji": "🏢", "color": "#F59E0B" }
     }
   },
 
@@ -508,260 +568,380 @@
       "paginas": [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]
     },
 
-    "titulo_seccion": "5. La Demanda",
-
-    "concepto_demanda": {
-      "definicion": "La demanda es la cantidad de un bien o servicio que los compradores están dispuestos y pueden adquirir a los distintos precios posibles, en un período de tiempo determinado y manteniendo constantes los demás factores (ceteris paribus).",
-      "aclaracion": "Demanda = deseo + capacidad de pago. Querer un osciloscopio profesional sin tener el dinero no forma parte de la demanda de osciloscopios.",
-      "ley_demanda": {
-        "titulo": "Ley de la Demanda",
-        "enunciado": "Manteniendo constantes los demás factores (ceteris paribus), existe una relación INVERSA entre el precio de un bien y la cantidad demandada: a mayor precio, menor cantidad demandada; a menor precio, mayor cantidad demandada.",
-        "curva": "Pendiente negativa (baja de izquierda a derecha)",
-        "por_que": [
-          { "efecto": "Efecto sustitución", "desc": "Cuando un bien se encarece, los consumidores lo reemplazan por otros. Si sube la carne, la gente compra más pollo o legumbres." },
-          { "efecto": "Efecto ingreso", "desc": "Cuando un bien se encarece, con el mismo dinero se puede comprar menos cantidad. Es como si el ingreso real disminuyera." }
-        ]
-      },
-      "tabla_ejemplo": {
-        "titulo": "Escala de demanda — Pizzas a la portuguesa (por mes)",
-        "columnas": ["Precio ($)", "Cantidad demandada (pizzas)"],
-        "filas": [
-          ["$12.000", "100"],
-          ["$10.000", "200"],
-          ["$8.000", "350"],
-          ["$6.000", "500"],
-          ["$4.000", "700"]
-        ]
-      }
-    },
-
-    "variables_demanda": {
-      "titulo": "Variables que desplazan la curva de demanda",
-      "nota": "Cuando estas variables cambian, toda la curva se desplaza (no nos movemos sobre ella).",
-      "variables": [
-        { "nombre": "Ingreso de los consumidores", "desc": "Si los ingresos suben, la demanda de bienes normales aumenta (curva a la derecha). En bienes inferiores (transporte público, marcas de segunda línea), ocurre lo contrario." },
-        { "nombre": "Precio de bienes relacionados", "desc": "Sustitutos (té y café): si sube el precio de uno, aumenta la demanda del otro. Complementarios (auto y nafta): si sube el precio de uno, baja la demanda del otro." },
-        { "nombre": "Gustos y preferencias", "desc": "Modas, publicidad, estilos de vida. Si se pone de moda comer sin gluten, sube la demanda de productos sin TACC." },
-        { "nombre": "Expectativas", "desc": "Si los consumidores creen que un producto va a subir mucho de precio, lo compran ahora (típico en contextos inflacionarios)." },
-        { "nombre": "Número de consumidores", "desc": "Si aumenta la población o el grupo objetivo, la demanda total aumenta." }
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená la secuencia que ocurre en el mercado cuando hay escasez y el precio está por debajo del equilibrio:",
+      "paginas_referencia": "30-31",
+      "items": [
+        { "id": 0, "emoji": "💸", "text": "El precio está fijado por debajo del precio de equilibrio" },
+        { "id": 1, "emoji": "🛒", "text": "La cantidad demandada supera a la cantidad ofrecida: faltan productos" },
+        { "id": 2, "emoji": "🚫", "text": "Aparecen colas, listas de espera o mercados informales (reventa)" },
+        { "id": 3, "emoji": "📈", "text": "Los productores ven que pueden vender más caro y suben el precio" },
+        { "id": 4, "emoji": "⚖️", "text": "La demanda baja y la oferta sube hasta que el mercado llega al equilibrio" }
       ],
-      "distincion_clave": "⚠️ No confundir: cambio en la cantidad demandada (movimiento sobre la misma curva, causa: cambio en el precio del propio bien) vs. cambio en la demanda (desplazamiento de toda la curva, causa: cualquier otra variable). ¡Suele salir en las evaluaciones!"
+      "orden_correcto": [0, 1, 2, 3, 4]
     },
 
-    "elasticidad_demanda": {
-      "titulo": "Elasticidad de la Demanda",
-      "definicion": "Mide cuán sensible es la cantidad demandada ante una variación en el precio.",
-      "formula": "Ed = (% variación de cantidad demandada) / (% variación del precio)",
-      "nota_formula": "El resultado es negativo (relación inversa) pero se toma en valor absoluto.",
-      "tabla_tipos": {
-        "columnas": ["Tipo", "Valor", "Significado", "Ejemplo"],
-        "filas": [
-          ["Demanda elástica", "Ed > 1", "La cantidad cambia MÁS que el precio. Consumidores muy sensibles.", "Bienes de lujo, turismo, bienes con muchos sustitutos"],
-          ["Demanda inelástica", "Ed < 1", "La cantidad cambia MENOS que el precio. Consumidores poco sensibles.", "Medicamentos esenciales, sal, agua, bienes de primera necesidad"],
-          ["Demanda unitaria", "Ed = 1", "La cantidad cambia en la misma proporción que el precio.", "—"],
-          ["Perfectamente elástica", "Ed = ∞", "A un mismo precio se demanda cualquier cantidad. Caso teórico.", "Caso teórico"],
-          ["Perfectamente inelástica", "Ed = 0", "La cantidad no cambia ante ninguna variación de precio.", "Insulina para un diabético (teórico)"]
-        ]
-      },
-      "regla_practica": [
-        "Curva más HORIZONTAL → más elástica",
-        "Curva más VERTICAL → más inelástica"
+    "n2_clasificador": {
+      "consigna": "Clasificá cada ejemplo según el tipo de elasticidad de la demanda que corresponde:",
+      "paginas_referencia": "17-21",
+      "categorias": [
+        { "name": "Demanda inelástica (Ed < 1)", "emoji": "📉", "color": "#EF4444" },
+        { "name": "Demanda elástica (Ed > 1)", "emoji": "📈", "color": "#059669" }
       ],
-      "factores_elasticidad": [
-        "Existencia de sustitutos: más sustitutos = más elástica",
-        "Necesidad o lujo: bienes de primera necesidad → inelásticos; de lujo → elásticos",
-        "Proporción del ingreso: bienes de gasto pequeño (sal, fósforos) → más inelásticos",
-        "Tiempo: a mayor plazo, mayor elasticidad (a largo plazo se ajustan los hábitos)"
-      ],
-      "ejemplo_resuelto": {
-        "enunciado": "Una pizzería baja el precio de $10.000 a $8.000. Las ventas suben de 200 a 350 pizzas.",
-        "pasos": [
-          "Paso 1 — % cambio en cantidad: (350-200)/200 × 100 = 75%",
-          "Paso 2 — % cambio en precio: (8.000-10.000)/10.000 × 100 = -20%",
-          "Paso 3 — Ed = |75% / -20%| = 3,75"
-        ],
-        "resultado": "Ed = 3,75 → Demanda ELÁSTICA (Ed > 1)"
-      },
-      "actividad": {
-        "titulo": "Actividad práctica — Elasticidad de la demanda",
-        "consigna": "Resolvé los siguientes casos y determiná el tipo de elasticidad:",
-        "casos": [
-          "El precio de las entradas al cine sube de $5.000 a $6.000. Los espectadores bajan de 400 a 300 por semana.",
-          "El precio de la insulina sube de $8.000 a $10.000. Las ventas bajan de 500 a 490 unidades.",
-          "El precio de un viaje al exterior sube de $200.000 a $250.000. Los viajeros bajan de 1.000 a 600."
-        ]
-      }
-    },
-
-    "titulo_seccion_oferta": "6. La Oferta",
-
-    "concepto_oferta": {
-      "definicion": "La oferta es la cantidad de un bien o servicio que los productores están dispuestos y pueden vender a los distintos precios posibles, en un período de tiempo determinado y manteniendo constantes los demás factores (ceteris paribus).",
-      "ley_oferta": {
-        "titulo": "Ley de la Oferta",
-        "enunciado": "Manteniendo constantes los demás factores (ceteris paribus), existe una relación DIRECTA entre el precio de un bien y la cantidad ofrecida: a mayor precio, mayor cantidad ofrecida; a menor precio, menor cantidad ofrecida.",
-        "curva": "Pendiente positiva (sube de izquierda a derecha)",
-        "por_que": [
-          { "efecto": "Mayor incentivo a producir", "desc": "Cuando el precio es más alto, la actividad se vuelve más rentable y los productores quieren producir más." },
-          { "efecto": "Cubrir costos crecientes", "desc": "Producir cantidades adicionales suele costar cada vez más. Solo a precios más altos se justifica producir más." },
-          { "efecto": "Atracción de nuevos productores", "desc": "Si el precio es alto y la actividad es rentable, nuevas empresas entran al mercado, aumentando la oferta total." }
-        ]
-      },
-      "tabla_ejemplo": {
-        "titulo": "Escala de oferta — Pizzas a la portuguesa (por mes)",
-        "columnas": ["Precio ($)", "Cantidad ofrecida (pizzas)"],
-        "filas": [
-          ["$12.000", "700"],
-          ["$10.000", "550"],
-          ["$8.000", "350"],
-          ["$6.000", "200"],
-          ["$4.000", "100"]
-        ]
-      }
-    },
-
-    "variables_oferta": {
-      "titulo": "Variables que desplazan la curva de oferta",
-      "variables": [
-        { "nombre": "Costo de los factores productivos", "desc": "Si suben los costos (salarios, materias primas, energía), producir es más caro y la oferta disminuye (curva a la izquierda). Si bajan, la oferta aumenta." },
-        { "nombre": "Tecnología", "desc": "Los avances permiten producir más con los mismos recursos. Un horno nuevo más eficiente permite ofrecer más pizzas." },
-        { "nombre": "Precio de bienes relacionados en producción", "desc": "Si sube el precio del trigo, los campos siembran más trigo y menos soja." },
-        { "nombre": "Expectativas de los productores", "desc": "Si esperan que el precio aumente, retienen producción para venderla después a mayor precio." },
-        { "nombre": "Número de oferentes", "desc": "Si entran nuevas empresas, la oferta total aumenta. Si quiebran o se retiran, disminuye." },
-        { "nombre": "Política impositiva y subsidios", "desc": "Los impuestos a la producción aumentan los costos y reducen la oferta. Los subsidios la incentivan." },
-        { "nombre": "Factores climáticos (sectores agrícolas)", "desc": "Una sequía reduce la oferta de granos; una buena cosecha la aumenta." }
+      "items": [
+        { "id": 0, "text": "Medicamentos esenciales: aunque suban mucho, la gente los compra igual", "categoria_correcta": 0 },
+        { "id": 1, "text": "Viajes turísticos al exterior: si sube el precio, muchos desisten", "categoria_correcta": 1 },
+        { "id": 2, "text": "Sal de mesa: representa una parte ínfima del gasto familiar", "categoria_correcta": 0 },
+        { "id": 3, "text": "Bienes de lujo como joyas: son prescindibles y tienen muchos sustitutos", "categoria_correcta": 1 },
+        { "id": 4, "text": "Agua potable: bien de primera necesidad sin sustitutos cercanos", "categoria_correcta": 0 },
+        { "id": 5, "text": "Entradas al cine: hay alternativas fáciles (Netflix, streaming, otras salidas)", "categoria_correcta": 1 }
       ]
     },
 
-    "elasticidad_oferta": {
-      "titulo": "Elasticidad de la Oferta",
-      "definicion": "Mide cuán sensible es la cantidad ofrecida ante una variación en el precio.",
-      "formula": "Eo = (% variación de cantidad ofrecida) / (% variación del precio)",
-      "nota_formula": "El resultado es siempre POSITIVO porque precio y cantidad se mueven en el mismo sentido.",
-      "tabla_tipos": {
-        "columnas": ["Tipo", "Valor", "Significado", "Ejemplo"],
-        "filas": [
-          ["Oferta elástica", "Eo > 1", "Los productores responden de manera muy intensa a cambios en el precio.", "Bienes industriales con capacidad ociosa"],
-          ["Oferta inelástica", "Eo < 1", "Los productores responden poco a cambios en el precio.", "Productos agrícolas en el corto plazo"],
-          ["Oferta unitaria", "Eo = 1", "La cantidad ofrecida cambia en la misma proporción que el precio.", "—"],
-          ["Perfectamente elástica", "Eo = ∞", "A un mismo precio se ofrece cualquier cantidad.", "Caso teórico"],
-          ["Perfectamente inelástica", "Eo = 0", "La cantidad ofrecida no cambia con el precio.", "Cuadros de un pintor ya fallecido"]
-        ]
-      },
-      "factores_elasticidad": [
-        "Tiempo: a mayor plazo, mayor elasticidad (se pueden construir nuevas fábricas)",
-        "Posibilidades de almacenamiento: bienes almacenables (granos) son más elásticos que perecederos",
-        "Disponibilidad de factores productivos: si es fácil conseguir insumos, más elástica",
-        "Capacidad de la industria: con capacidad ociosa = más elástica; al máximo = más inelástica"
-      ],
-      "ejemplo_resuelto": {
-        "enunciado": "Una pizzería sube el precio de $8.000 a $10.000. Las pizzas ofrecidas suben de 350 a 550.",
-        "pasos": [
-          "Paso 1 — % cambio en cantidad: (550-350)/350 × 100 = 57,1%",
-          "Paso 2 — % cambio en precio: (10.000-8.000)/8.000 × 100 = 25%",
-          "Paso 3 — Eo = 57,1% / 25% = 2,28"
-        ],
-        "resultado": "Eo = 2,28 → Oferta ELÁSTICA (Eo > 1)"
-      },
-      "cuadro_diferencias": {
-        "titulo": "Diferencias clave: elasticidad de demanda vs. oferta",
-        "columnas": ["Aspecto", "Elasticidad de la DEMANDA", "Elasticidad de la OFERTA"],
-        "filas": [
-          ["Relación precio-cantidad", "Inversa (↑ precio → ↓ cantidad)", "Directa (↑ precio → ↑ cantidad)"],
-          ["Signo del resultado", "Negativo (se toma valor absoluto)", "Positivo"],
-          ["Curva", "Pendiente negativa (baja)", "Pendiente positiva (sube)"],
-          ["¿Quién decide?", "Consumidores", "Productores"]
-        ]
-      },
-      "actividad": {
-        "titulo": "Actividad práctica — Elasticidad de la oferta",
-        "consigna": "Resolvé los siguientes casos y determiná el tipo de elasticidad:",
-        "casos": [
-          "El precio del trigo sube de $20.000 a $22.000 por tonelada. La producción pasa de 1.000 a 1.050 toneladas.",
-          "El precio de los celulares sube de $150.000 a $180.000. La cantidad ofrecida pasa de 500 a 650 unidades.",
-          "El precio de las obras de un artista famoso fallecido sube de $500.000 a $600.000. La cantidad disponible sigue siendo 20 cuadros."
-        ]
-      }
-    },
-
-    "titulo_seccion_equilibrio": "7. El Equilibrio del Mercado",
-
-    "equilibrio": {
-      "definicion": "El equilibrio del mercado es la situación en la que la cantidad demandada y la cantidad ofrecida de un bien o servicio son iguales a un determinado precio. En ese punto no hay tendencia a que el precio cambie y no quedan compradores ni vendedores frustrados.",
-      "mano_invisible": "Adam Smith llamó 'la mano invisible' a este mecanismo: a partir de millones de decisiones individuales, surge espontáneamente un precio que coordina todo.",
-
-      "tabla_equilibrio": {
-        "titulo": "Demanda, Oferta y Situación del Mercado — Pizzas",
-        "columnas": ["Precio ($)", "Cantidad demandada", "Cantidad ofrecida", "Situación"],
-        "filas": [
-          ["$12.000", "100", "700", "Excedente (sobra oferta)"],
-          ["$10.000", "200", "550", "Excedente"],
-          ["$8.000", "350", "350", "⚖️ EQUILIBRIO"],
-          ["$6.000", "500", "200", "Escasez (falta oferta)"],
-          ["$4.000", "700", "100", "Escasez"]
-        ],
-        "nota": "Precio de equilibrio: $8.000 | Cantidad de equilibrio: 350 pizzas"
-      },
-
-      "desequilibrios": [
+    "n3_completar_mapa": {
+      "consigna": "Completá las siguientes ideas clave del bloque:",
+      "paginas_referencia": "15-32",
+      "blanks": [
         {
-          "tipo": "Excedente (exceso de oferta)",
-          "emoji": "📦",
-          "cuando": "El precio está SOBRE el precio de equilibrio",
-          "que_pasa": "La cantidad ofrecida supera a la demandada. Hay productos que sobran. Los productores bajan los precios para vender, lo que aumenta la demanda y reduce la oferta, hasta volver al equilibrio.",
-          "ejemplo": "A $12.000 hay un excedente de 600 pizzas (700 ofrecidas - 100 demandadas)"
+          "id": "b1",
+          "texto_antes": "La Ley de la Demanda establece que cuando el precio sube, la cantidad demandada",
+          "respuesta_correcta": "disminuye",
+          "pista": "D________"
         },
         {
-          "tipo": "Escasez (exceso de demanda)",
-          "emoji": "🚫",
-          "cuando": "El precio está BAJO el precio de equilibrio",
-          "que_pasa": "La cantidad demandada supera a la ofrecida. No alcanzan los productos. Aparecen colas o reventa. Los productores suben precios, lo que reduce la demanda y aumenta la oferta, hasta volver al equilibrio.",
-          "ejemplo": "A $4.000 hay una escasez de 600 pizzas (700 demandadas - 100 ofrecidas)"
+          "id": "b2",
+          "texto_antes": "Cuando el precio de equilibrio es $8.000 y el Estado fija un precio máximo de $5.000, se genera",
+          "respuesta_correcta": "escasez",
+          "pista": "E______"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "La expresión latina que significa 'manteniendo todo lo demás constante' y que se usa en el análisis de oferta y demanda es ceteris",
+          "respuesta_correcta": "paribus",
+          "pista": "P______"
         }
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "afirmaciones": [
+        {
+          "texto": "Un cambio en la cantidad demandada y un cambio en la demanda son exactamente la misma cosa",
+          "correcto": false,
+          "explicacion": "Falso. Son distintos. Un cambio en la cantidad demandada es un movimiento SOBRE la misma curva, causado por el cambio en el precio del propio bien. Un cambio en la demanda es el desplazamiento de TODA la curva, causado por cambios en ingresos, gustos, precios de otros bienes, etc. Ver página 17."
+        },
+        {
+          "texto": "La elasticidad de la oferta suele ser mayor en el largo plazo que en el corto plazo",
+          "correcto": true,
+          "explicacion": "Verdadero. En el corto plazo las empresas no pueden ajustar rápidamente su producción (oferta más inelástica). En el largo plazo pueden construir fábricas y capacitar personal, respondiendo con más flexibilidad (oferta más elástica). Ver página 25."
+        },
+        {
+          "texto": "Un precio mínimo fijado por encima del equilibrio protege a los productores pero genera excedente",
+          "correcto": true,
+          "explicacion": "Verdadero. Un precio mínimo (piso) por encima del equilibrio hace que la cantidad ofrecida supere a la demandada: sobran productos. Ejemplos: salario mínimo (protege al trabajador), precios sostén agrícolas. Ver página 32."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "15-32",
+      "pares": [
+        { "izquierda": "Ley de la Demanda", "derecha": "Relación inversa: ↑ precio → ↓ cantidad demandada", "emoji": "📉" },
+        { "izquierda": "Ley de la Oferta", "derecha": "Relación directa: ↑ precio → ↑ cantidad ofrecida", "emoji": "📈" },
+        { "izquierda": "Equilibrio", "derecha": "Punto donde cantidad demandada = cantidad ofrecida", "emoji": "⚖️" },
+        { "izquierda": "Precio máximo", "derecha": "Tope por debajo del equilibrio que genera escasez", "emoji": "🔴" }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "17-24",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "📉",
+          "pregunta": "¿Cuál NO desplaza la curva de demanda hacia la derecha?",
+          "paginas": "17",
+          "palabras": [
+            { "text": "Sube el ingreso de los consumidores", "es_intrusa": false },
+            { "text": "Baja el precio del propio bien", "es_intrusa": true },
+            { "text": "Se pone de moda el producto", "es_intrusa": false },
+            { "text": "Sube el precio de un bien sustituto", "es_intrusa": false }
+          ],
+          "explicacion": "Si baja el precio del propio bien, hay un movimiento SOBRE la curva (sube la cantidad demandada), no un desplazamiento. Para desplazar la curva se necesita cambio en otra variable: ingresos, gustos, precio de otros bienes, expectativas. Ver página 17."
+        },
+        {
+          "id": 1,
+          "emoji": "📈",
+          "pregunta": "¿Cuál NO desplaza la curva de oferta hacia la derecha (aumento de oferta)?",
+          "paginas": "24",
+          "palabras": [
+            { "text": "Bajan los costos de producción", "es_intrusa": false },
+            { "text": "Mejora la tecnología productiva", "es_intrusa": false },
+            { "text": "Sube el precio del propio bien", "es_intrusa": true },
+            { "text": "Entran nuevas empresas al mercado", "es_intrusa": false }
+          ],
+          "explicacion": "Si sube el precio del propio bien, hay un movimiento SOBRE la curva de oferta (sube la cantidad ofrecida), no un desplazamiento. Para desplazar toda la curva se necesita cambio en costos, tecnología, número de oferentes, etc. Ver página 24."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "15-32",
+      "conceptos": [
+        {
+          "termino": "Elasticidad de la demanda",
+          "pista": "¿Cómo se mide si los consumidores reaccionan mucho o poco ante un cambio de precio?",
+          "palabras_clave": ["sensibilidad", "precio", "cantidad", "reacción", "porcentaje", "consumidores"]
+        },
+        {
+          "termino": "Equilibrio del mercado",
+          "pista": "¿Qué pasa cuando la cantidad que quieren comprar es exactamente igual a la que quieren vender?",
+          "palabras_clave": ["oferta", "demanda", "igualan", "precio", "cantidad", "punto", "equilibrio"]
+        },
+        {
+          "termino": "Efecto sustitución",
+          "pista": "¿Por qué cuando sube el precio de la carne vacuna, la gente compra más pollo?",
+          "palabras_clave": ["caro", "reemplazar", "sustituto", "alternativa", "precio", "cambiar"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "17-32",
+      "causas": [
+        { "id": 0, "emoji": "💰", "text": "Suben los salarios en Argentina y las familias tienen más ingresos" },
+        { "id": 1, "emoji": "🌿", "text": "Una sequía severa destruye la mitad de la cosecha de maíz" },
+        { "id": 2, "emoji": "⚙️", "text": "Una empresa incorpora nueva maquinaria que duplica su capacidad productiva" },
+        { "id": 3, "emoji": "🔴", "text": "El Estado fija un precio máximo de nafta por debajo del precio de equilibrio" }
       ],
+      "efectos": [
+        { "id": 0, "causa_id": 0, "emoji": "➡️", "text": "La curva de demanda se desplaza a la derecha: la gente demanda más bienes a cada precio" },
+        { "id": 1, "causa_id": 1, "emoji": "⬅️", "text": "La curva de oferta se desplaza a la izquierda: el precio sube y la cantidad disponible baja" },
+        { "id": 2, "causa_id": 2, "emoji": "➡️", "text": "La curva de oferta se desplaza a la derecha: puede ofrecer más a cada precio, bajando el precio de equilibrio" },
+        { "id": 3, "causa_id": 3, "emoji": "🚫", "text": "Se genera escasez de nafta: la demanda supera a la oferta y aparecen largas filas en estaciones" }
+      ]
+    },
 
-      "cambios_equilibrio": {
-        "titulo": "Cambios en el Equilibrio",
-        "casos": [
-          { "caso": "↑ Demanda (curva D se desplaza a la derecha)", "resultado": "↑ precio de equilibrio y ↑ cantidad de equilibrio", "ejemplo": "En verano ↑ demanda de helados → suben precio y cantidad vendida" },
-          { "caso": "↓ Demanda (curva D se desplaza a la izquierda)", "resultado": "↓ precio de equilibrio y ↓ cantidad de equilibrio", "ejemplo": "Fin de temporada turística → bajan precios y cantidades en hoteles" },
-          { "caso": "↑ Oferta (curva O se desplaza a la derecha)", "resultado": "↓ precio de equilibrio y ↑ cantidad de equilibrio", "ejemplo": "Avance tecnológico abarata producir celulares → bajan precios, ↑ cantidades" },
-          { "caso": "↓ Oferta (curva O se desplaza a la izquierda)", "resultado": "↑ precio de equilibrio y ↓ cantidad de equilibrio", "ejemplo": "Sequía reduce oferta de carne → sube el precio, baja la cantidad" }
-        ]
-      },
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos para calcular la elasticidad de la demanda ante un cambio de precio:",
+      "paginas_referencia": "18-20",
+      "pasos_en_orden_correcto": [
+        { "id": 0, "emoji": "📌", "text": "Identificar precio inicial (P1), precio final (P2), cantidad inicial (Q1) y cantidad final (Q2)" },
+        { "id": 1, "emoji": "📊", "text": "Calcular el % de variación de la cantidad: (Q2-Q1)/Q1 × 100" },
+        { "id": 2, "emoji": "💹", "text": "Calcular el % de variación del precio: (P2-P1)/P1 × 100" },
+        { "id": 3, "emoji": "➗", "text": "Dividir: Ed = % variación cantidad / % variación precio (tomar valor absoluto)" },
+        { "id": 4, "emoji": "✅", "text": "Interpretar: Ed > 1 → elástica; Ed < 1 → inelástica; Ed = 1 → unitaria" }
+      ]
+    },
 
-      "intervencion_estado": {
-        "titulo": "La intervención del Estado en los precios",
-        "tipos": [
-          {
-            "tipo": "Precio máximo",
-            "emoji": "🔴",
-            "descripcion": "Tope POR DEBAJO del precio de equilibrio. Busca proteger a los consumidores, pero genera escasez.",
-            "ejemplos": "Precios cuidados, control de alquileres"
-          },
-          {
-            "tipo": "Precio mínimo",
-            "emoji": "🟢",
-            "descripcion": "Piso POR ENCIMA del precio de equilibrio. Busca proteger a los productores o trabajadores, pero genera excedentes.",
-            "ejemplos": "Salario mínimo, precios sostén agrícolas"
-          }
-        ]
-      }
+    "n10_comparador": {
+      "paginas_referencia": "15-25",
+      "concepto_a": { "nombre": "Demanda", "emoji": "📉", "color": "#0EA5E9" },
+      "concepto_b": { "nombre": "Oferta", "emoji": "📈", "color": "#059669" }
     }
   },
 
-  "evaluacion": {
-    "multiple_choice": [
+  "senales": {
+    "conceptos_clave": [
+      {
+        "emoji": "🔄",
+        "termino": "Circuito Económico",
+        "color": "#059669",
+        "definicion": "Representación de los flujos de bienes, servicios, factores y dinero entre familias, empresas, Estado y sector externo. El flujo real y el monetario van en sentidos opuestos.",
+        "importancia": "Muestra que todo está conectado: si un eslabón se rompe (cae el empleo), toda la economía se resiente. Es la base para entender por qué las crisis se propagan."
+      },
+      {
+        "emoji": "📉",
+        "termino": "Ley de la Demanda",
+        "color": "#EF4444",
+        "definicion": "Relación inversa entre precio y cantidad demandada: cuando el precio sube, la cantidad demandada baja. Se explica por el efecto sustitución y el efecto ingreso.",
+        "importancia": "Es la base de todo el análisis de mercado. Sin entenderla, no se puede explicar por qué suben los precios de los componentes electrónicos cuando escasean."
+      },
+      {
+        "emoji": "⚖️",
+        "termino": "Equilibrio del Mercado",
+        "color": "#8B5CF6",
+        "definicion": "Punto donde la cantidad demandada iguala a la cantidad ofrecida. Es el precio y cantidad que surgen espontáneamente de las decisiones individuales de compradores y vendedores.",
+        "importancia": "Adam Smith llamó a este mecanismo la 'mano invisible'. Entenderlo permite explicar por qué los precios suben en escasez y bajan cuando hay excedente."
+      },
+      {
+        "emoji": "📊",
+        "termino": "Elasticidad",
+        "color": "#F59E0B",
+        "definicion": "Sensibilidad de la cantidad demandada u ofrecida ante cambios en el precio. Si Ed > 1: elástica (muy sensible). Si Ed < 1: inelástica (poco sensible).",
+        "importancia": "Las empresas la usan para decidir si conviene subir el precio. Los gobiernos la usan para predecir el efecto de impuestos. Clave para cualquier técnico que quiera vender servicios."
+      }
+    ],
+    "semaforo_conceptos": [
+      { "emoji": "🔄", "termino": "Circuito económico" },
+      { "emoji": "🏪", "termino": "Mercado" },
+      { "emoji": "📉", "termino": "Ley de la Demanda" },
+      { "emoji": "📈", "termino": "Ley de la Oferta" },
+      { "emoji": "⚖️", "termino": "Equilibrio del mercado" },
+      { "emoji": "📊", "termino": "Elasticidad" }
+    ],
+    "postits_conceptos": [
+      "Circuito Económico",
+      "Economía Mixta",
+      "Competencia Perfecta",
+      "Equilibrio del Mercado"
+    ]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {
+        "emoji": "📱",
+        "color": "#059669",
+        "frente": "El mercado mundial de chips electrónicos es uno de los oligopolios más poderosos del planeta",
+        "dorso": "Pocas empresas como TSMC (Taiwán), Samsung (Corea) e Intel (EEUU) producen la gran mayoría de los semiconductores avanzados del mundo. Cuando en 2021 la pandemia generó una escasez global de chips, el precio de los automóviles, electrodomésticos y equipos electrónicos subió en todo el planeta. Eso es el poder de un oligopolio global sobre los precios: si ellos no producen, todos pagamos más."
+      },
+      {
+        "emoji": "🍕",
+        "color": "#8B5CF6",
+        "frente": "Un kiosco puede cobrar el doble que otro y seguir teniendo clientes. Eso es competencia monopolística",
+        "dorso": "El kiosco de la esquina de tu escuela puede cobrar más caro porque tiene algo que los demás no tienen: ubicación, horario conveniente o atención de confianza. Esa diferenciación crea un mini-monopolio sobre su propio espacio. La competencia monopolística es el tipo de mercado más frecuente en la vida cotidiana: peluquerías, talleres mecánicos, restaurantes... cada uno es único aunque tenga competidores."
+      },
+      {
+        "emoji": "💸",
+        "color": "#EF4444",
+        "frente": "En Argentina, cuando el Estado fijó precios máximos de carne, las carnicerías desaparecieron del mostrador",
+        "dorso": "Varias veces en la historia económica argentina se fijaron precios máximos para productos básicos buscando proteger a los consumidores. El resultado fue predecible según la teoría: los productores dejaron de vender porque no les era rentable. Se generó escasez y mercado negro, exactamente lo que el modelo de oferta y demanda hubiera predicho. Los precios máximos pueden proteger a corto plazo, pero generan distorsiones si están muy alejados del equilibrio."
+      }
+    ],
+    "linea_de_tiempo": [
+      { "emoji": "📜", "year": "1776", "text": "Adam Smith describe la 'mano invisible': el mercado libre coordina millones de decisiones sin que nadie lo dirija" },
+      { "emoji": "🔨", "year": "1917", "text": "La Revolución Rusa crea la primera economía planificada a gran escala: la URSS" },
+      { "emoji": "📉", "year": "1929", "text": "La Gran Depresión demuestra que el mercado libre puede fallar catastróficamente, impulsando la economía mixta" },
+      { "emoji": "🧱", "year": "1989", "text": "Cae el Muro de Berlín: colapso de las economías planificadas europeas; triunfo de la economía mixta" },
+      { "emoji": "📱", "year": "2021", "text": "La escasez global de chips electrónicos muestra cómo un oligopolio puede afectar precios en todo el mundo" }
+    ],
+    "encuesta": {
+      "pregunta": "¿Qué dato te resultó más sorprendente?",
+      "opciones": [
+        { "emoji": "📱", "text": "Que pocas empresas de chips controlan los precios de la electrónica mundial", "votos_iniciales": 52 },
+        { "emoji": "🍕", "text": "Que el kiosco de la esquina es técnicamente un mini-monopolio", "votos_iniciales": 38 },
+        { "emoji": "💸", "text": "Que los precios máximos a veces generan más escasez que abundancia", "votos_iniciales": 44 }
+      ]
+    }
+  },
+
+  "cruces": {
+    "consigna_general": "Elegí un tema de cada bloque que te haya interesado y preparalo para explicárselo a un compañero. Podés usar esquemas, dibujos, ejemplos... ¡lo que quieras!",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "🔄",
+        "titulo": "BLOQUE A: Circuito Económico y Sistemas",
+        "color": "#059669",
+        "temas_sugeridos": [
+          "Cómo funciona el circuito económico con un ejemplo argentino real",
+          "La diferencia entre el flujo real y el flujo monetario",
+          "Las 3 preguntas fundamentales de la economía y cómo las responde cada sistema",
+          "Ventajas y desventajas del capitalismo vs. la economía planificada",
+          "Por qué Argentina es una economía mixta con ejemplos concretos",
+          "Qué pasaría si cayera el empleo en Argentina usando el circuito económico"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+      },
+      {
+        "id": "b",
+        "emoji": "🏪",
+        "titulo": "BLOQUE B: Mercado y Competencia",
+        "color": "#8B5CF6",
+        "temas_sugeridos": [
+          "Qué es el mercado y cuáles son sus 5 elementos esenciales",
+          "Por qué la competencia perfecta casi no existe en la realidad",
+          "Diferencia entre monopolio y oligopolio con ejemplos argentinos",
+          "Por qué los kioscos y talleres técnicos son ejemplos de competencia monopolística",
+          "Cómo el Estado regula los monopolios naturales en Argentina",
+          "Qué es un cártel y por qué es ilegal en la mayoría de los países"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+      },
+      {
+        "id": "c",
+        "emoji": "📊",
+        "titulo": "BLOQUE C: Demanda, Oferta y Equilibrio",
+        "color": "#EF4444",
+        "temas_sugeridos": [
+          "Las leyes de la demanda y la oferta con el ejemplo de las pizzas del PDF",
+          "Diferencia entre 'cambio en la demanda' y 'cambio en la cantidad demandada'",
+          "Qué es la elasticidad y por qué los medicamentos son inelásticos",
+          "Cómo se llega al equilibrio y qué pasa si el precio no está en equilibrio",
+          "Por qué los precios máximos generan escasez y los mínimos generan excedente",
+          "Cómo afectan la inflación y las expectativas a la demanda en Argentina"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+      }
+    ]
+  },
+
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "El Estado debería fijar precios máximos en los productos básicos para proteger a los consumidores, aunque eso genere distorsiones en el mercado",
+      "contexto": "En Argentina es frecuente el debate sobre si el Estado debe intervenir en la formación de precios. La teoría económica predice que los precios máximos generan escasez; pero sin intervención, los precios de la canasta básica pueden quedar fuera del alcance de muchas familias. ¿Cuál postura te parece más razonable?",
+      "roles": [
+        {
+          "id": "favor",
+          "emoji": "🏛️",
+          "label": "A favor de los precios máximos",
+          "desc": "Argumentá por qué el Estado debe intervenir para que todos accedan a bienes básicos, aunque el mercado genere escasez a corto plazo",
+          "color": "#059669"
+        },
+        {
+          "id": "contra",
+          "emoji": "💹",
+          "label": "A favor del precio libre",
+          "desc": "Argumentá por qué el mercado sin intervención asigna mejor los recursos y que los precios máximos generan escasez y mercado negro",
+          "color": "#EF4444"
+        },
+        {
+          "id": "equilibrio",
+          "emoji": "⚖️",
+          "label": "Posición alternativa",
+          "desc": "Proponé una política que proteja a los consumidores sin destruir los incentivos productivos. ¿Subsidios, transferencias directas, regulación diferenciada?",
+          "color": "#8B5CF6"
+        }
+      ]
+    },
+    "tesis": {
+      "consigna": "Formulá una tesis sobre cuál es el tipo de mercado más beneficioso para los consumidores argentinos en el mercado de servicios técnicos electrónicos. Incluí: (1) Tu tesis principal, (2) Dos evidencias del PDF que la apoyen, (3) Dos contraargumentos posibles, (4) Una conclusión que defienda tu postura."
+    },
+    "critica": {
+      "consigna": "Analizá críticamente el modelo de oferta y demanda: ¿Qué aspectos de la realidad argentina (inflación crónica, controles de precios, mercado informal) NO se explican bien con este modelo? ¿Qué variables agregarías o modificarías para que sea más útil para analizar la economía argentina actual?"
+    }
+  },
+
+  "autotest": {
+    "banco_respuestas_docente": [
+      "1. B - El flujo real incluye bienes, servicios y factores; el monetario es el dinero que se paga a cambio, en dirección contraria. (p. 4-5)",
+      "2. C - Economía mixta: combina mercado libre con intervención del Estado. (p. 8-9)",
+      "3. B - No pueden fijar el precio: deben aceptar el que surge del mercado (son precio aceptantes). (p. 12-13)",
+      "4. B - Las telefónicas móviles (Movistar, Claro, Personal): pocas empresas con barreras de entrada. (p. 13)",
+      "5. C - Disminuye: relación inversa precio-cantidad según la Ley de la Demanda. (p. 15-16)",
+      "6. B - Cambio en el precio del bien genera movimiento sobre la curva; cualquier otra variable desplaza la curva. (p. 17)",
+      "7. B - Ed = 0,2 < 1: inelástica. Los consumidores compran casi la misma cantidad sin importar el precio. (p. 18)",
+      "8. B - A mayor precio los productores tienen más incentivos y se cubren los costos crecientes de producir más. (p. 22-23)",
+      "9. C - Excedente: se ofrecen 700 pero se demandan solo 100; sobran 600 pizzas. (p. 30-31)",
+      "10. B - El precio máximo por debajo del equilibrio reduce la oferta y genera escasez. (p. 32)",
+      "11. VERDADERO - El circuito muestra la interdependencia: menos empleo → menos consumo → más crisis. (p. 5)",
+      "12. FALSO - En la economía planificada los precios son fijados por el Estado, no por oferta y demanda. (p. 7-8)",
+      "13. VERDADERO - El monopolio natural es más eficiente con una sola empresa; el Estado lo regula. (p. 13)",
+      "14. FALSO - En oligopolio las decisiones de una empresa afectan directamente a todas las demás (interdependencia). (p. 13)",
+      "15. VERDADERO - Mayor plazo = más tiempo para ajustar producción = oferta más elástica. (p. 25)"
+    ],
+    "preguntas": [
       {
         "pregunta": "¿Cuál es la diferencia entre el flujo real y el flujo monetario en el circuito económico?",
         "opciones": [
           "El flujo real es el movimiento del dinero y el monetario es el de los bienes",
           "El flujo real incluye bienes, servicios y factores; el monetario es el dinero que se paga a cambio, en sentido contrario",
-          "Ambos flujos van en la misma dirección",
+          "Ambos flujos van en la misma dirección dentro del circuito",
           "El flujo real solo incluye exportaciones e importaciones"
         ],
         "correcta": 1,
-        "explicacion": "El flujo real va en una dirección (bienes, servicios, factores) y el flujo monetario va en dirección contraria (los pagos correspondientes). Ej.: las familias entregan trabajo y las empresas pagan salarios. Ver páginas 4-5."
+        "explicacion": "El flujo real (bienes, servicios, factores) y el flujo monetario (pagos) van en sentidos opuestos. Ej.: las familias entregan trabajo (flujo real) y las empresas pagan salarios (flujo monetario). Ver páginas 4-5."
       },
       {
         "pregunta": "¿Qué sistema económico adopta prácticamente todos los países del mundo en la actualidad, incluida Argentina?",
@@ -772,79 +952,79 @@
           "Monopsonio global"
         ],
         "correcta": 2,
-        "explicacion": "La economía mixta combina mercado con intervención estatal. En Argentina coexisten empresas privadas y públicas como YPF, Aerolíneas y Banco Nación. Ver páginas 8-9."
+        "explicacion": "La economía mixta combina mercado con intervención estatal. En Argentina coexisten empresas privadas y públicas como YPF, Aerolíneas y Banco Nación junto con el sector privado. Ver páginas 8-9."
       },
       {
-        "pregunta": "En una competencia perfecta, las empresas son 'precio aceptantes'. ¿Qué significa esto?",
+        "pregunta": "En competencia perfecta, las empresas son 'precio aceptantes'. ¿Qué significa esto?",
         "opciones": [
           "Que siempre aceptan bajar el precio si el cliente lo pide",
           "Que no pueden fijar el precio: deben aceptar el que surge del mercado",
-          "Que el precio lo decide el Estado",
+          "Que el precio lo decide el Estado mediante regulación",
           "Que pueden cobrar el precio que quieran porque tienen muchos clientes"
         ],
         "correcta": 1,
-        "explicacion": "En competencia perfecta ningún productor individual tiene poder suficiente para influir en el precio. Si cobrara más, perdería todos sus clientes (hay muchos vendiendo lo mismo al precio de mercado). Ver página 12-13."
+        "explicacion": "En competencia perfecta ningún productor individual tiene poder para influir en el precio. Si cobrara más, perdería todos sus clientes porque hay muchos otros vendiendo lo mismo al precio de mercado. Ver páginas 12-13."
       },
       {
         "pregunta": "¿Cuál de los siguientes es un ejemplo de oligopolio en Argentina?",
         "opciones": [
-          "El mercado agrícola de soja (miles de productores)",
+          "El mercado de soja (miles de productores en la pampa)",
           "Las telefónicas móviles (Movistar, Claro, Personal)",
-          "Los kioscos de barrio (miles de locales)",
+          "Los kioscos de barrio (miles de locales diferenciados)",
           "Aguas Santafesinas en su zona de concesión"
         ],
         "correcta": 1,
-        "explicacion": "Las tres telefónicas móviles dominan el mercado argentino con pocos competidores y fuertes barreras de entrada: es un oligopolio clásico. La soja y los kioscos se acercan más a la competencia perfecta/monopolística; Aguas Santafesinas es un monopolio. Ver página 13."
+        "explicacion": "Las tres telefónicas móviles dominan el mercado argentino con pocos competidores y fuertes barreras de entrada: es un oligopolio clásico. La soja y los kioscos son competencia perfecta/monopolística; Aguas Santafesinas es un monopolio. Ver página 13."
       },
       {
-        "pregunta": "Según la Ley de la Demanda, si sube el precio de las pizzas, ¿qué ocurre con la cantidad demandada?",
+        "pregunta": "Según la Ley de la Demanda, si sube el precio de los chips electrónicos, ¿qué ocurre con la cantidad demandada?",
         "opciones": [
           "Sube, porque el precio alto atrae más compradores",
-          "No cambia, la gente sigue comprando igual",
-          "Disminuye, porque los consumidores compran menos o buscan sustitutos",
-          "Depende de si hay o no inflación"
+          "No cambia, los técnicos los compran igual siempre",
+          "Disminuye, porque los compradores reducen la compra o buscan alternativas",
+          "Depende exclusivamente de la inflación del momento"
         ],
         "correcta": 2,
-        "explicacion": "La Ley de la Demanda establece una relación inversa: cuando el precio sube, la cantidad demandada baja (efecto sustitución + efecto ingreso). Ver páginas 15-16."
+        "explicacion": "La Ley de la Demanda establece una relación inversa: cuando el precio sube, la cantidad demandada baja. Por efecto sustitución (buscan componentes alternativos) y efecto ingreso (el poder de compra disminuye). Ver páginas 15-16."
       },
       {
         "pregunta": "¿Cuál es la diferencia entre un 'cambio en la cantidad demandada' y un 'cambio en la demanda'?",
         "opciones": [
           "No hay diferencia, son la misma cosa expresada de forma distinta",
-          "El primero es causado por un cambio en el precio del bien (movimiento sobre la curva); el segundo por otras variables (desplazamiento de toda la curva)",
+          "El primero es causado por el precio del bien (movimiento sobre la curva); el segundo por otras variables (desplazamiento de toda la curva)",
           "El primero desplaza toda la curva y el segundo es un movimiento sobre ella",
-          "Solo el segundo puede ocurrir en la realidad"
+          "Solo el segundo puede ocurrir en mercados reales"
         ],
         "correcta": 1,
-        "explicacion": "¡Distinción clave! Un cambio en el precio del propio bien genera un movimiento A LO LARGO de la curva (cambia la cantidad demandada). Un cambio en ingreso, gustos, precio de otros bienes, etc., desplaza TODA la curva (cambia la demanda). Ver página 17."
+        "explicacion": "¡Distinción clave! Un cambio en el precio del propio bien genera un movimiento A LO LARGO de la curva. Un cambio en ingresos, gustos, precio de otros bienes, etc. desplaza TODA la curva. Ver página 17."
       },
       {
         "pregunta": "Si la elasticidad de la demanda de un medicamento es Ed = 0,2, ¿qué tipo de demanda es?",
         "opciones": [
-          "Elástica, porque los pacientes reaccionan mucho al precio",
-          "Inelástica, porque los pacientes compran casi la misma cantidad sin importar el precio",
-          "Unitaria, porque hay un equilibrio exacto",
-          "Perfectamente elástica, caso teórico"
+          "Elástica: los pacientes reaccionan mucho al precio",
+          "Inelástica: los pacientes compran casi la misma cantidad sin importar el precio",
+          "Unitaria: hay un equilibrio exacto entre precio y cantidad",
+          "Perfectamente elástica: caso teórico extremo"
         ],
         "correcta": 1,
-        "explicacion": "Ed = 0,2 < 1 → demanda inelástica. Los bienes de primera necesidad sin sustitutos (como medicamentos esenciales) tienen demanda inelástica: la cantidad demandada cambia poco aunque el precio varíe mucho. Ver página 18."
+        "explicacion": "Ed = 0,2 < 1 → demanda inelástica. Los bienes de primera necesidad sin sustitutos (como medicamentos esenciales) tienen demanda inelástica: la cantidad varía poco aunque el precio varíe mucho. Ver página 18."
       },
       {
         "pregunta": "¿Por qué la curva de oferta tiene pendiente positiva (sube de izquierda a derecha)?",
         "opciones": [
           "Porque a mayor precio los consumidores compran más",
-          "Porque a mayor precio los productores tienen más incentivos para producir y vender más",
+          "Porque a mayor precio los productores tienen más incentivos para producir y ofrecer más",
           "Porque el Estado obliga a subir la producción cuando sube el precio",
-          "Es solo una convención gráfica sin significado económico"
+          "Es solo una convención gráfica sin significado económico real"
         ],
         "correcta": 1,
-        "explicacion": "La Ley de la Oferta establece una relación directa: a mayor precio, mayor cantidad ofrecida. A mayor precio la actividad es más rentable, se cubre el costo creciente de producir más, y nuevas empresas se suman al mercado. Ver páginas 22-23."
+        "explicacion": "La Ley de la Oferta: a mayor precio, mayor cantidad ofrecida. Porque la actividad es más rentable, se justifica cubrir costos crecientes y nuevas empresas se suman al mercado. Ver páginas 22-23."
       },
       {
-        "pregunta": "En el mercado de pizzas, el precio de equilibrio es $8.000 y la cantidad de equilibrio es 350. Si el precio sube a $12.000, ¿qué situación se genera?",
+        "pregunta": "En el mercado de pizzas, el equilibrio es a $8.000 y 350 unidades. Si el precio sube a $12.000, ¿qué situación se genera?",
         "opciones": [
           "Equilibrio perfecto: todo el mercado está satisfecho",
-          "Escasez: los compradores no encuentran pizzas suficientes",
+          "Escasez: los compradores no encuentran suficientes pizzas",
           "Excedente: sobran pizzas porque se ofrecen más de las que se demandan",
           "Deflación: el precio baja automáticamente a cero"
         ],
@@ -852,168 +1032,41 @@
         "explicacion": "A $12.000 se ofrecen 700 pizzas pero solo se demandan 100: hay un excedente de 600. Los productores, ante el stock acumulado, bajan el precio para vender y el mercado tiende al equilibrio. Ver páginas 30-31."
       },
       {
-        "pregunta": "¿Qué efecto tiene un precio máximo fijado por el Estado por DEBAJO del precio de equilibrio?",
+        "pregunta": "¿Qué efecto tiene un precio máximo fijado por el Estado POR DEBAJO del precio de equilibrio?",
         "opciones": [
           "Genera excedente porque los productores producen más de lo que se consume",
           "Genera escasez porque los productores ofrecen menos a ese precio bajo",
-          "No genera ningún desequilibrio, solo redistribuye ingresos",
-          "Aumenta el precio de equilibrio porque los consumidores pagan más"
+          "No genera ningún desequilibrio, solo redistribuye ingresos entre agentes",
+          "Aumenta el precio de equilibrio porque los consumidores terminan pagando más"
         ],
         "correcta": 1,
-        "explicacion": "Un precio máximo por debajo del equilibrio reduce los incentivos de los productores (menos rentable producir) y aumenta la cantidad demandada, generando escasez. Ejemplos: precios cuidados, control de alquileres. Ver página 32."
-      }
-    ],
-    "verdadero_falso": [
-      {
-        "texto": "El circuito económico muestra que si cae el empleo, el consumo también cae y toda la economía se resiente",
-        "correcto": true,
-        "explicacion": "Verdadero. El circuito muestra la interdependencia de todos los agentes: si las empresas despiden trabajadores, las familias tienen menos ingresos, consumen menos, las empresas venden menos y pueden despedir más. Es un efecto en cadena. Ver página 5."
-      },
-      {
-        "texto": "En la economía planificada los precios se forman por la interacción de oferta y demanda, igual que en la economía de mercado",
-        "correcto": false,
-        "explicacion": "Falso. En la economía planificada los precios son fijados por el Estado, no surgen del mercado. Es una de sus características definitivas y una de sus grandes diferencias con el capitalismo. Ver páginas 7-8."
-      },
-      {
-        "texto": "El monopolio natural ocurre cuando una sola empresa es más eficiente que muchas, como en la distribución de agua o electricidad",
-        "correcto": true,
-        "explicacion": "Verdadero. Los monopolios naturales existen cuando la estructura de costos hace que sea más eficiente tener un solo proveedor (redes de infraestructura: agua, electricidad, gas). Por eso el Estado los concede a una empresa pero los regula. Ver página 13."
-      },
-      {
-        "texto": "Cuando sube el ingreso de los consumidores, la demanda de todos los bienes siempre aumenta",
-        "correcto": false,
-        "explicacion": "Falso. Los bienes normales aumentan su demanda cuando sube el ingreso, pero los bienes inferiores (transporte público, marcas de segunda línea, fideos comunes) disminuyen su demanda cuando el ingreso sube porque la gente los reemplaza por opciones de mejor calidad. Ver página 17."
-      },
-      {
-        "texto": "La elasticidad de la oferta suele ser mayor en el largo plazo que en el corto plazo",
-        "correcto": true,
-        "explicacion": "Verdadero. En el corto plazo las empresas no pueden cambiar rápidamente su capacidad de producción (oferta más inelástica). En el largo plazo pueden construir nuevas fábricas, capacitar trabajadores y ajustar su producción con mayor libertad (oferta más elástica). Ver página 25."
-      },
-      {
-        "texto": "En competencia monopolística cada empresa puede fijar el precio que quiera porque tiene un mini-monopolio sobre su producto diferenciado",
-        "correcto": false,
-        "explicacion": "Falso. Aunque la diferenciación les da cierto margen para fijar precios (no son 'precio aceptantes' puros), ese poder es muy limitado. Si suben demasiado el precio, los consumidores se pasan a los competidores, que ofrecen bienes similares aunque diferenciados. Ver página 14."
+        "explicacion": "Un precio máximo por debajo del equilibrio reduce los incentivos de los productores y aumenta la cantidad demandada, generando escasez. Ejemplos argentinos: precios cuidados, control de alquileres. Ver página 32."
       }
     ]
   },
 
   "cierre": {
     "glosario": [
-      {
-        "emoji": "🔄",
-        "termino": "Circuito Económico",
-        "categoria": "Modelo",
-        "definicion": "Representación de los flujos de bienes, servicios, factores y dinero entre los agentes económicos (familias, empresas, Estado y sector externo)."
-      },
-      {
-        "emoji": "🏛️",
-        "termino": "Sistema Económico",
-        "categoria": "Concepto base",
-        "definicion": "Conjunto de instituciones, normas y mecanismos que adopta una sociedad para responder a ¿qué producir?, ¿cómo producir? y ¿para quién producir?"
-      },
-      {
-        "emoji": "🏪",
-        "termino": "Mercado",
-        "categoria": "Concepto base",
-        "definicion": "Mecanismo por el cual compradores y vendedores de un bien o servicio entran en contacto para realizar transacciones, fijando un precio y una cantidad."
-      },
-      {
-        "emoji": "✅",
-        "termino": "Competencia Perfecta",
-        "categoria": "Tipos de mercado",
-        "definicion": "Modelo teórico con muchos compradores y vendedores, producto homogéneo, libre entrada y salida e información completa. Las empresas son precio aceptantes."
-      },
-      {
-        "emoji": "👑",
-        "termino": "Monopolio",
-        "categoria": "Tipos de mercado",
-        "definicion": "Mercado con un solo oferente que tiene total poder para fijar el precio. Existen fuertes barreras de entrada."
-      },
-      {
-        "emoji": "🏢",
-        "termino": "Oligopolio",
-        "categoria": "Tipos de mercado",
-        "definicion": "Mercado dominado por pocas empresas oferentes que son interdependientes entre sí. Pueden competir intensamente o ponerse de acuerdo (cártel)."
-      },
-      {
-        "emoji": "📉",
-        "termino": "Demanda",
-        "categoria": "Mercado",
-        "definicion": "Cantidad de un bien que los compradores están dispuestos y pueden adquirir a los distintos precios posibles (deseo + capacidad de pago)."
-      },
-      {
-        "emoji": "📈",
-        "termino": "Oferta",
-        "categoria": "Mercado",
-        "definicion": "Cantidad de un bien que los productores están dispuestos y pueden vender a los distintos precios posibles."
-      },
-      {
-        "emoji": "⚖️",
-        "termino": "Equilibrio del Mercado",
-        "categoria": "Precio",
-        "definicion": "Punto donde la cantidad demandada iguala a la cantidad ofrecida. No hay tendencia a que el precio cambie y no quedan compradores ni vendedores frustrados."
-      },
-      {
-        "emoji": "📊",
-        "termino": "Elasticidad",
-        "categoria": "Análisis",
-        "definicion": "Sensibilidad de la cantidad demandada u ofrecida ante cambios en el precio. Si Ed o Eo > 1: elástica (muy sensible). Si < 1: inelástica (poco sensible)."
-      },
-      {
-        "emoji": "📦",
-        "termino": "Excedente",
-        "categoria": "Desequilibrio",
-        "definicion": "Exceso de oferta. Ocurre cuando el precio está por encima del equilibrio: se ofrece más de lo que se demanda y sobran productos."
-      },
-      {
-        "emoji": "🚫",
-        "termino": "Escasez",
-        "categoria": "Desequilibrio",
-        "definicion": "Exceso de demanda. Ocurre cuando el precio está por debajo del equilibrio: se demanda más de lo que se ofrece y faltan productos."
-      },
-      {
-        "emoji": "🔬",
-        "termino": "Ceteris Paribus",
-        "categoria": "Metodología",
-        "definicion": "Expresión latina que significa 'lo demás constante'. Supuesto fundamental del análisis económico para estudiar el efecto de una sola variable a la vez."
-      }
+      { "emoji": "🔄", "termino": "Circuito Económico", "categoria": "Modelo", "definicion": "Representación de los flujos de bienes, servicios, factores y dinero entre los agentes económicos: familias, empresas, Estado y sector externo." },
+      { "emoji": "🏛️", "termino": "Sistema Económico", "categoria": "Concepto base", "definicion": "Conjunto de instituciones y mecanismos que adopta una sociedad para responder: ¿qué producir?, ¿cómo producir? y ¿para quién producir?" },
+      { "emoji": "🏪", "termino": "Mercado", "categoria": "Concepto base", "definicion": "Mecanismo por el cual compradores y vendedores de un bien o servicio entran en contacto para realizar transacciones, fijando un precio y una cantidad." },
+      { "emoji": "✅", "termino": "Competencia Perfecta", "categoria": "Tipos de mercado", "definicion": "Modelo teórico con muchos compradores y vendedores, producto homogéneo, libre entrada y salida e información completa. Las empresas son precio aceptantes." },
+      { "emoji": "👑", "termino": "Monopolio", "categoria": "Tipos de mercado", "definicion": "Mercado con un solo oferente que tiene total poder para fijar el precio. Existen fuertes barreras de entrada que impiden la aparición de competidores." },
+      { "emoji": "🏢", "termino": "Oligopolio", "categoria": "Tipos de mercado", "definicion": "Mercado dominado por pocas empresas oferentes que son interdependientes. Pueden competir intensamente o ponerse de acuerdo (cártel)." },
+      { "emoji": "📉", "termino": "Demanda", "categoria": "Mercado", "definicion": "Cantidad de un bien que los compradores están dispuestos Y PUEDEN adquirir a distintos precios (deseo + capacidad de pago)." },
+      { "emoji": "📈", "termino": "Oferta", "categoria": "Mercado", "definicion": "Cantidad de un bien que los productores están dispuestos y pueden vender a los distintos precios posibles en un período determinado." },
+      { "emoji": "⚖️", "termino": "Equilibrio del Mercado", "categoria": "Precio", "definicion": "Punto donde la cantidad demandada iguala a la cantidad ofrecida. No hay tendencia a que el precio cambie y no quedan compradores ni vendedores frustrados." },
+      { "emoji": "📊", "termino": "Elasticidad", "categoria": "Análisis", "definicion": "Sensibilidad de la cantidad demandada u ofrecida ante cambios en el precio. Ed > 1: elástica. Ed < 1: inelástica. Ed = 1: unitaria." },
+      { "emoji": "📦", "termino": "Excedente", "categoria": "Desequilibrio", "definicion": "Exceso de oferta. Ocurre cuando el precio está por encima del equilibrio: se ofrece más de lo que se demanda y sobran productos." },
+      { "emoji": "🚫", "termino": "Escasez (económica)", "categoria": "Desequilibrio", "definicion": "Exceso de demanda. Ocurre cuando el precio está por debajo del equilibrio: se demanda más de lo que se ofrece y faltan productos." },
+      { "emoji": "🔬", "termino": "Ceteris Paribus", "categoria": "Metodología", "definicion": "Expresión latina que significa 'lo demás constante'. Supuesto fundamental del análisis económico para estudiar el efecto de una variable a la vez." }
     ],
     "recursos": [
-      {
-        "tipo": "🎬 Video",
-        "title": "Oferta y Demanda — Canal Encuentro / Conectar Igualdad",
-        "desc": "Explicaciones audiovisuales sobre los mecanismos de mercado con ejemplos argentinos, ideales para repasar los conceptos de manera visual",
-        "nivel": "Introductorio",
-        "color": "#059669"
-      },
-      {
-        "tipo": "🌐 Web",
-        "title": "INDEC — Índice de Precios al Consumidor",
-        "desc": "Datos reales de precios en Argentina para analizar cómo se comportan la oferta, la demanda y el equilibrio en un contexto inflacionario concreto",
-        "nivel": "Intermedio",
-        "color": "#0EA5E9"
-      },
-      {
-        "tipo": "📖 Libro",
-        "title": "Microeconomía — Pindyck y Rubinfeld (capítulos 1-4)",
-        "desc": "Texto universitario de referencia en castellano que profundiza los conceptos de oferta, demanda y equilibrio con mayor rigor matemático",
-        "nivel": "Avanzado",
-        "color": "#8B5CF6"
-      },
-      {
-        "tipo": "🎧 Podcast",
-        "title": "El mercado en Argentina — La Economía en 30 minutos",
-        "desc": "Episodios sobre precios, competencia y políticas de regulación en Argentina, conectando la teoría con las noticias de actualidad económica",
-        "nivel": "Introductorio",
-        "color": "#F59E0B"
-      },
-      {
-        "tipo": "📄 Artículo",
-        "title": "Defensa de la Competencia — CNDC Argentina",
-        "desc": "La Comisión Nacional de Defensa de la Competencia explica cómo el Estado regula monopolios y oligopolios en la Argentina actual",
-        "nivel": "Intermedio",
-        "color": "#EF4444"
-      }
+      { "tipo": "🎬 Video", "title": "Oferta y Demanda — Canal Encuentro", "desc": "Explicaciones audiovisuales sobre los mecanismos de mercado con ejemplos argentinos, ideales para repasar conceptos de manera visual", "nivel": "Introductorio", "color": "#059669" },
+      { "tipo": "🌐 Web", "title": "INDEC — Índice de Precios al Consumidor", "desc": "Datos reales de precios en Argentina para analizar cómo se comportan la oferta, la demanda y el equilibrio en un contexto inflacionario concreto", "nivel": "Intermedio", "color": "#0EA5E9" },
+      { "tipo": "📖 Libro", "title": "Microeconomía — Pindyck y Rubinfeld (caps. 1-4)", "desc": "Texto universitario de referencia en castellano que profundiza oferta, demanda y equilibrio con mayor rigor matemático", "nivel": "Avanzado", "color": "#8B5CF6" },
+      { "tipo": "🎧 Podcast", "title": "La Economía en 30 minutos — Spotify", "desc": "Episodios sobre precios, competencia y políticas de regulación en Argentina, conectando la teoría con las noticias de actualidad", "nivel": "Introductorio", "color": "#F59E0B" },
+      { "tipo": "📄 Web", "title": "CNDC — Defensa de la Competencia Argentina", "desc": "La Comisión Nacional de Defensa de la Competencia explica cómo el Estado regula monopolios y oligopolios en Argentina", "nivel": "Intermedio", "color": "#EF4444" }
     ]
   }
 }
