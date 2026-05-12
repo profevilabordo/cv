@@ -1,0 +1,804 @@
+{
+  "id": "eeso206_5d_admin3_u2",
+  "materia": "Administración III",
+  "unidad": 2,
+  "titulo": "Gestión Financiera y Presupuestaria",
+  "emoji": "💰",
+  "color_primario": "#0EA5E9",
+  "color_secundario": "#10B981",
+
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "💸",
+        "texto": "¿Una empresa que vende mucho puede quedarse sin plata para pagar sueldos?",
+        "pista": "Pensá en la diferencia entre vender y cobrar... no siempre ocurren al mismo tiempo."
+      },
+      {
+        "emoji": "📅",
+        "texto": "¿Por qué planificar los gastos del mes ayuda a no quedarse en rojo?",
+        "pista": "Si sabés de antemano cuándo vas a tener menos plata, podés prepararte..."
+      },
+      {
+        "emoji": "🏦",
+        "texto": "¿Para qué sirve un banco más allá de guardar plata?",
+        "pista": "Créditos, descuentos, depósitos, conciliaciones... el banco es mucho más que una caja fuerte."
+      }
+    ],
+    "situaciones_conecta": [
+      {
+        "emoji": "💳",
+        "label": "Usé una billetera virtual o home banking"
+      },
+      {
+        "emoji": "📊",
+        "label": "Hice un presupuesto para un gasto personal o familiar"
+      },
+      {
+        "emoji": "🧾",
+        "label": "Vi cómo en un negocio manejan la caja chica"
+      },
+      {
+        "emoji": "📈",
+        "label": "Escuché hablar de plazo fijo o inversiones"
+      }
+    ],
+    "termometro_pregunta": "¿Cuánto sabés sobre finanzas, presupuestos y operaciones bancarias?"
+  },
+
+  "mapa": {
+    "ruta_paradas": [
+      {
+        "id": 1,
+        "emoji": "💧",
+        "title": "Cash Flow",
+        "desc": "El pulso financiero real de la empresa: entradas y salidas de efectivo",
+        "color": "#0EA5E9"
+      },
+      {
+        "id": 2,
+        "emoji": "📋",
+        "title": "Presupuestos",
+        "desc": "Planificar ingresos y gastos antes de que ocurran",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 3,
+        "emoji": "⚖️",
+        "title": "Punto de Equilibrio",
+        "desc": "¿Cuánto hay que vender para no ganar ni perder?",
+        "color": "#8B5CF6"
+      },
+      {
+        "id": 4,
+        "emoji": "🏧",
+        "title": "Caja Chica",
+        "desc": "Control del efectivo para gastos menores del día a día",
+        "color": "#10B981"
+      },
+      {
+        "id": 5,
+        "emoji": "🏦",
+        "title": "Sistema Financiero",
+        "desc": "El dinero, los bancos y sus operaciones",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 6,
+        "emoji": "🔁",
+        "title": "Conciliación y Pagarés",
+        "desc": "Controlar, comparar y operar con documentos bancarios",
+        "color": "#EF4444"
+      }
+    ],
+
+    "panoramica_bloques": [
+      {
+        "id": "a",
+        "emoji": "💧",
+        "title": "BLOQUE A",
+        "subtitle": "Cash Flow y Presupuestos",
+        "color": "#0EA5E9",
+        "items": [
+          "Cash flow: concepto y componentes",
+          "Diferencia entre lo económico y lo financiero",
+          "Presupuesto: etapas, ventajas y control",
+          "Presupuesto económico",
+          "Presupuesto financiero",
+          "Balance general proyectado"
+        ]
+      },
+      {
+        "id": "b",
+        "emoji": "⚖️",
+        "title": "BLOQUE B",
+        "subtitle": "Punto de Equilibrio y Caja Chica",
+        "color": "#8B5CF6",
+        "items": [
+          "Punto de equilibrio económico",
+          "Punto de equilibrio financiero",
+          "Gastos desembolsables vs. no desembolsables",
+          "Fondo fijo de caja chica",
+          "Arqueo de caja chica",
+          "Asientos contables del fondo fijo"
+        ]
+      },
+      {
+        "id": "c",
+        "emoji": "🏦",
+        "title": "BLOQUE C",
+        "subtitle": "Sistema Financiero y Operaciones Bancarias",
+        "color": "#10B981",
+        "items": [
+          "Funciones del dinero",
+          "Tipos de depósitos bancarios",
+          "Crédito y financiación a empresas",
+          "Conciliación bancaria",
+          "Causas de diferencias entre saldos",
+          "Descuento de pagaré"
+        ]
+      }
+    ],
+
+    "mapa_mental": {
+      "centro": {
+        "emoji": "💰",
+        "title": "FINANZAS"
+      },
+      "ramas": [
+        {
+          "id": "cashflow",
+          "emoji": "💧",
+          "title": "Cash Flow",
+          "color": "#0EA5E9",
+          "items": [
+            "Registro de entradas y salidas",
+            "Anticipa baches de caja",
+            "Distinto al estado de resultados",
+            "Base del presupuesto financiero"
+          ]
+        },
+        {
+          "id": "presupuesto",
+          "emoji": "📋",
+          "title": "Presupuesto",
+          "color": "#3B82F6",
+          "items": [
+            "Plan de acción evaluado en dinero",
+            "Económico: ganancias y pérdidas",
+            "Financiero: cobros y pagos reales",
+            "Balance proyectado"
+          ]
+        },
+        {
+          "id": "equilibrio",
+          "emoji": "⚖️",
+          "title": "Punto de Equilibrio",
+          "color": "#8B5CF6",
+          "items": [
+            "Ni ganancia ni pérdida",
+            "Económico: incluye amortizaciones",
+            "Financiero: solo desembolsables",
+            "Margen de contribución unitario"
+          ]
+        },
+        {
+          "id": "bancos",
+          "emoji": "🏦",
+          "title": "Operaciones Bancarias",
+          "color": "#10B981",
+          "items": [
+            "Depósitos y créditos",
+            "Conciliación bancaria",
+            "Descuento de pagaré",
+            "Caja chica y fondo fijo"
+          ]
+        }
+      ]
+    }
+  },
+
+  "nucleo_a": {
+    "bloque_info": {
+      "id": "a",
+      "emoji": "💧",
+      "title": "BLOQUE A · Cash Flow y Presupuestos",
+      "color": "#0EA5E9"
+    },
+    "tarjetas": [
+      {
+        "id": "a1",
+        "emoji": "💧",
+        "title": "¿Qué es el cash flow?",
+        "color": "#0EA5E9",
+        "concepto_clave": "El cash flow es el registro detallado de cómo entra y sale el dinero efectivo en una empresa durante un período. Muestra el dinero realmente disponible, a diferencia del estado de resultados que muestra ganancias \"en papel\".",
+        "analogia": "Es como el extracto de tu cuenta personal: no importa si tus vecinos saben que tenés un trabajo bien pago (resultado contable), lo que importa es si hoy tenés plata en el banco para pagar lo que necesitás.",
+        "lista_items": [
+          "Entradas: cobranzas al contado, cobros diferidos, préstamos recibidos, aportes de socios",
+          "Salidas: pagos a proveedores, sueldos, alquileres, impuestos, intereses",
+          "Superávit: ingresos > egresos → sobra efectivo",
+          "Déficit: egresos > ingresos → falta efectivo"
+        ],
+        "diferencia_clave": {
+          "izquierda": {
+            "titulo": "LO ECONÓMICO",
+            "items": [
+              "Registra ganancias o pérdidas",
+              "Incluye ventas aunque no se cobren",
+              "Incluye amortizaciones",
+              "Aparece en el Estado de Resultados"
+            ]
+          },
+          "derecha": {
+            "titulo": "LO FINANCIERO",
+            "items": [
+              "Registra movimientos reales de dinero",
+              "Solo incluye lo efectivamente cobrado",
+              "No incluye amortizaciones",
+              "Aparece en el Cash Flow"
+            ]
+          }
+        }
+      },
+      {
+        "id": "a2",
+        "emoji": "📋",
+        "title": "Presupuesto: concepto y elaboración",
+        "color": "#3B82F6",
+        "concepto_clave": "El presupuesto es un plan de acción evaluado en dinero. Permite prever ingresos y gastos en un período (generalmente un año), programar actividades y tomar decisiones meditadas en lugar de resolver problemas sobre la marcha.",
+        "analogia": "Es como planificar las vacaciones antes de salir: sabés cuánto tenés, cuánto vas a gastar y en qué, así no te quedás sin plata a mitad de viaje.",
+        "lista_items": [
+          "Análisis de la situación financiera previa",
+          "Definición de objetivos alineados a la estrategia",
+          "Estimación de ingresos y egresos",
+          "Asignación de recursos por área",
+          "Revisión y aprobación por la gerencia"
+        ],
+        "ventajas": [
+          "Ayuda al manejo financiero",
+          "Aporta información para tomar decisiones",
+          "Obliga a evaluar objetivos y métodos",
+          "Permite anticipar problemas antes de que ocurran",
+          "Facilita la coordinación entre departamentos"
+        ]
+      },
+      {
+        "id": "a3",
+        "emoji": "📊",
+        "title": "Tipos de presupuestos",
+        "color": "#6366F1",
+        "concepto_clave": "El presupuesto general se compone de varios presupuestos parciales. Los más importantes son el económico (ganancia o pérdida) y el financiero (movimientos de dinero). Juntos dan una visión completa de la situación proyectada.",
+        "analogia": "El presupuesto económico te dice si tu negocio es rentable. El presupuesto financiero te dice si vas a tener plata para pagar. Una empresa puede ganar plata en papel pero no tener efectivo para operar.",
+        "lista_items": [
+          "Presupuesto de Ventas: punto de partida de todos los demás",
+          "Presupuesto de Costos: costo unitario × unidades a producir",
+          "Presupuesto de Gastos: variables, fijos y financieros",
+          "Presupuesto Económico: ventas − costos − gastos = resultado",
+          "Presupuesto Financiero: ingresos − egresos ± disponibilidad inicial",
+          "Balance General Proyectado: situación patrimonial al cierre"
+        ],
+        "diferencia_clave": {
+          "izquierda": {
+            "titulo": "PRESUPUESTO ECONÓMICO",
+            "items": [
+              "Incluye amortizaciones",
+              "Muestra resultado contable",
+              "Ventas − Costos − Gastos",
+              "Puede haber utilidad aunque no haya efectivo"
+            ]
+          },
+          "derecha": {
+            "titulo": "PRESUPUESTO FINANCIERO",
+            "items": [
+              "NO incluye amortizaciones",
+              "Muestra movimiento real de dinero",
+              "Ingresos cobrados − Egresos pagados",
+              "Puede haber efectivo aunque haya pérdida contable"
+            ]
+          }
+        }
+      }
+    ]
+  },
+
+  "nucleo_b": {
+    "bloque_info": {
+      "id": "b",
+      "emoji": "⚖️",
+      "title": "BLOQUE B · Punto de Equilibrio y Caja Chica",
+      "color": "#8B5CF6"
+    },
+    "tarjetas": [
+      {
+        "id": "b1",
+        "emoji": "⚖️",
+        "title": "Punto de equilibrio",
+        "color": "#8B5CF6",
+        "concepto_clave": "El punto de equilibrio es el nivel de ventas en que la empresa ni gana ni pierde: cubre exactamente sus gastos de estructura (fijos y semifijos). Vender más de esa cantidad genera ganancia; vender menos, pérdida.",
+        "analogia": "Imaginá que tenés un puesto de facturas en la feria. Cada día tenés gastos fijos (alquiler del puesto, gas, etc.) aunque no vendas nada. El punto de equilibrio es la cantidad de facturas que tenés que vender solo para cubrir esos gastos.",
+        "formula": "PE = Gastos de estructura totales ÷ (Precio unitario − Costo variable unitario)",
+        "lista_items": [
+          "El denominador (Pu − Cvu) se llama margen de contribución unitario",
+          "PE Económico: incluye TODOS los gastos fijos (desembolsables + amortizaciones)",
+          "PE Financiero: incluye SOLO los gastos fijos desembolsables (salida real de dinero)",
+          "PE Financiero < PE Económico (siempre, porque los gastos son menores)",
+          "Las amortizaciones se incluyen en el económico pero NO en el financiero"
+        ],
+        "diferencia_clave": {
+          "izquierda": {
+            "titulo": "PE ECONÓMICO",
+            "items": [
+              "Incluye amortizaciones",
+              "Gastos fijos totales",
+              "Más alto → necesita vender más",
+              "Cubre el resultado contable"
+            ]
+          },
+          "derecha": {
+            "titulo": "PE FINANCIERO",
+            "items": [
+              "Excluye amortizaciones",
+              "Solo gastos desembolsables",
+              "Más bajo → necesita vender menos",
+              "Cubre los pagos reales"
+            ]
+          }
+        }
+      },
+      {
+        "id": "b2",
+        "emoji": "🏧",
+        "title": "Caja chica y fondo fijo",
+        "color": "#10B981",
+        "concepto_clave": "El fondo fijo de caja chica es un monto de efectivo asignado a un custodio para afrontar pagos menores del día a día. Es 'fijo' porque siempre se repone al mismo importe original al rendir los comprobantes.",
+        "analogia": "Es como cuando tu mamá te deja $5.000 para gastos del día: comprás lo que necesitás, guardás los tickets y al final del día le mostrás en qué gastaste. Ella te repone lo que gastaste para que el fondo vuelva a $5.000.",
+        "lista_items": [
+          "Se designa un custodio responsable del efectivo",
+          "Se establece un monto límite por pago individual",
+          "Cada pago debe estar respaldado por factura o recibo",
+          "Se define un mínimo para activar el reembolso",
+          "El arqueo verifica: efectivo + comprobantes = fondo fijo"
+        ],
+        "arqueo": {
+          "sin_diferencia": "Efectivo + comprobantes = fondo fijo → Todo correcto",
+          "sobrante": "Efectivo + comprobantes > fondo fijo → Ingreso no justificado (ganancia)",
+          "faltante": "Efectivo + comprobantes < fondo fijo → Falta dinero (pérdida o descuento al custodio)"
+        }
+      }
+    ]
+  },
+
+  "nucleo_c": {
+    "bloque_info": {
+      "id": "c",
+      "emoji": "🏦",
+      "title": "BLOQUE C · Sistema Financiero y Operaciones Bancarias",
+      "color": "#F59E0B"
+    },
+    "tarjetas": [
+      {
+        "id": "c1",
+        "emoji": "💵",
+        "title": "El dinero y el sistema financiero",
+        "color": "#F59E0B",
+        "concepto_clave": "El dinero es un instrumento aceptado por convención social para intercambiar bienes, valuar y conservar valor. No tiene valor intrínseco: vale porque todos confiamos en que el otro lo aceptará. El sistema financiero intermedia entre quienes tienen excedentes (depositantes) y quienes necesitan fondos (tomadores de crédito).",
+        "analogia": "El dinero es como las reglas de un juego: funcionan porque todos los jugadores las aceptan. Si de repente nadie creyera en los billetes, no valdrían nada. La confianza colectiva es lo que les da poder.",
+        "lista_items": [
+          "Medio de cambio: reemplaza el trueque, sirve de puente universal",
+          "Unidad de cuenta: permite comparar valores de bienes distintos",
+          "Reserva de valor: guarda poder adquisitivo para el futuro (se debilita con inflación)",
+          "BCRA: regula el sistema, emite moneda y fija tasas de referencia",
+          "Bancos comerciales: reciben depósitos y otorgan créditos al público",
+          "Billeteras virtuales: Mercado Pago, Naranja X, Ualá"
+        ]
+      },
+      {
+        "id": "c2",
+        "emoji": "🏦",
+        "title": "Depósitos bancarios",
+        "color": "#EF4444",
+        "concepto_clave": "Los bancos reciben depósitos pagando un interés pasivo y prestan ese dinero cobrando un interés activo. La diferencia entre ambos (spread) es la ganancia del banco. Cuanto más tiempo inmovilizás tu dinero, mayor tasa te pagan.",
+        "analogia": "El banco te presta tu paraguas a otra persona mientras llueve, te cobra a ella por usarlo y a vos te da una pequeña retribución por dejárselo. Cuanto más tiempo se lo dejés, más te paga.",
+        "lista_items": [
+          "Cuenta Corriente: sin intereses, opera con cheques, permite descubierto",
+          "Caja de Ahorro común: intereses bajos, extracciones limitadas por mes",
+          "Caja de Ahorro especial: mejor tasa, muy pocas extracciones permitidas",
+          "Plazo Fijo: mayor tasa, sin extracciones hasta el vencimiento (30/60/90 días o más)",
+          "Plazo Fijo UVA: ajustado por inflación, protege el poder adquisitivo"
+        ],
+        "diferencia_clave": {
+          "izquierda": {
+            "titulo": "INTERÉS PASIVO",
+            "items": [
+              "Lo paga el banco al depositante",
+              "Es el costo del dinero para el banco",
+              "Menor tasa",
+              "Ejemplo: tasa del plazo fijo"
+            ]
+          },
+          "derecha": {
+            "titulo": "INTERÉS ACTIVO",
+            "items": [
+              "Lo cobra el banco al tomador de crédito",
+              "Es el ingreso del banco por prestar",
+              "Mayor tasa",
+              "Ejemplo: tasa de un préstamo personal"
+            ]
+          }
+        }
+      },
+      {
+        "id": "c3",
+        "emoji": "🔁",
+        "title": "Conciliación bancaria",
+        "color": "#6366F1",
+        "concepto_clave": "La conciliación bancaria es la comparación mensual entre el saldo del Libro Bancos de la empresa y el extracto bancario. El objetivo es detectar y explicar las diferencias entre ambos, que casi siempre existen por diferencias de momento en el registro.",
+        "analogia": "Es como comparar tu lista de gastos con el resumen de tu tarjeta: quizás vos ya anotaste una compra que todavía no aparece en el resumen, o el banco cobró una comisión que vos no tenías registrada.",
+        "lista_items": [
+          "Cheques emitidos y no presentados: la empresa los descontó pero el beneficiario no los cobró",
+          "Depósitos en tránsito: la empresa los registró pero el banco aún no los acreditó",
+          "Cheques rechazados: cheques de clientes devueltos por falta de fondos",
+          "Gastos bancarios: comisiones, mantenimiento, IVA que el banco descuenta automáticamente",
+          "Notas de crédito: cobranzas o préstamos que el banco acreditó directamente",
+          "Notas de débito: cargos del banco por intereses, impuestos o servicios"
+        ]
+      },
+      {
+        "id": "c4",
+        "emoji": "📄",
+        "title": "Descuento de pagaré",
+        "color": "#0EA5E9",
+        "concepto_clave": "El descuento de pagaré es una operación bancaria por la cual la empresa entrega al banco un documento a cobrar antes de su vencimiento, a cambio recibe el dinero adelantado menos los intereses y comisiones que cobra el banco.",
+        "analogia": "Es como pedir un adelanto de sueldo: sabés que vas a cobrar $10.000 el viernes, pero necesitás plata hoy. Tu empleador (el banco) te da el dinero ahora, pero te descuenta una parte por el servicio.",
+        "formula": "Interés = (Capital × Razón × Tiempo) ÷ (100 × unidad de tiempo)",
+        "lista_items": [
+          "Valor Nominal (VN): monto del pagaré en el documento",
+          "Razón (R): tasa de interés que cobra el banco",
+          "Tiempo (T): días entre el descuento y el vencimiento",
+          "Monto neto recibido = VN − Intereses − Gastos",
+          "Si el cliente paga: se cancela el documento a cobrar",
+          "Si el cliente NO paga: el banco debita el importe de la cuenta de la empresa"
+        ]
+      }
+    ]
+  },
+
+  "practica": {
+    "ejercicios_guia": [
+      {
+        "numero": 1,
+        "titulo": "Comercial San Martín S.A.",
+        "tema": "Presupuesto económico y financiero",
+        "nivel": "Básico",
+        "color": "#0EA5E9",
+        "consigna": "Preparar el presupuesto económico y financiero para el período 01/01 al 30/06. Identificar meses de mayor superávit y déficit. Proponer recomendación al Director Financiero.",
+        "datos_clave": [
+          "Compras: 50% de las ventas",
+          "Sueldos: 20% sobre ventas",
+          "Alquileres: $100.000 | Amortizaciones: $40.000 | Otros fijos: $30.000",
+          "Cobros: 50% al contado, 50% a 30 días",
+          "Pagos: 40% al contado, 60% a 60 días (salvo sueldos, alquileres y fijos)"
+        ]
+      },
+      {
+        "numero": 2,
+        "titulo": "Distribuidora del Sur S.R.L.",
+        "tema": "Presupuesto económico y financiero",
+        "nivel": "Intermedio",
+        "color": "#3B82F6",
+        "consigna": "Preparar el presupuesto económico y financiero para el semestre. Calcular la utilidad acumulada. Comparar la evolución del resultado económico con el saldo financiero y explicar si coinciden.",
+        "datos_clave": [
+          "Compras: 40% de las ventas",
+          "Sueldos: 10% sobre ventas",
+          "Alquileres: $120.000 | Amortizaciones: $60.000 | Otros fijos: $70.000",
+          "Cobros: 50% al contado, 50% a 60 días",
+          "Pagos: 40% al contado, 60% a 60 días"
+        ]
+      },
+      {
+        "numero": 3,
+        "titulo": "Ejercicios de caja chica (5 ejercicios)",
+        "tema": "Fondo fijo de caja chica",
+        "nivel": "Progresivo",
+        "color": "#10B981",
+        "consigna": "Para cada empresa: realizar la planilla de erogaciones, preparar asientos de creación y reembolso, determinar si hay sobrante o faltante en el arqueo.",
+        "datos_clave": [
+          "Ej. 1 · Empresa XYZ: fondo $150.000, custodio Sr. Soto, erogaciones $110.000",
+          "Ej. 2 · Empresa C.A.: fondo $300.000, límite $25.000 por pago, existencia final $56.000",
+          "Ej. 3 · La Conquista: fondo $400.000, gastos $330.000, existencia $70.000",
+          "Ej. 4 · Banco Río: fondo $200.000 con cheque, reposición con Banco Nación",
+          "Ej. 5 · Arqueo sorpresivo: fondo $220.000, contar efectivo y detectar sobrante/faltante"
+        ]
+      },
+      {
+        "numero": 4,
+        "titulo": "Ejercicios de conciliación bancaria (4 ejercicios)",
+        "tema": "Conciliación bancaria",
+        "nivel": "Progresivo",
+        "color": "#8B5CF6",
+        "consigna": "Para cada empresa: detectar diferencias, confeccionar la conciliación bancaria, determinar saldo correcto y elaborar asientos de ajuste.",
+        "datos_clave": [
+          "Ej. 1 · Librería del Centro (Banco Macro): nivel básico, cheques y depósito en tránsito",
+          "Ej. 2 · El Golfo S.A. (Banco Galicia): nivel intermedio, errores de registro y notas",
+          "Ej. 3 · El Pingüino S.A. (Banco Macro): nivel avanzado, notas crédito/débito y cheques anulados",
+          "Ej. 4 · La Comercial S.A. (Banco Prov. Santa Fe): nivel integrador, todos los casos típicos"
+        ]
+      },
+      {
+        "numero": 5,
+        "titulo": "Ejercicios de descuento de pagaré (4 ejercicios)",
+        "tema": "Descuento de pagaré",
+        "nivel": "Progresivo",
+        "color": "#F59E0B",
+        "consigna": "Calcular intereses, comisiones y monto neto recibido. Confeccionar asientos de descuento, devengamiento y vencimiento.",
+        "datos_clave": [
+          "Ej. 1 · Librería Virtual: VN $327.000, tasa 3% mensual, plazo 30 días",
+          "Ej. 2 · Librería Virtual II: VN $174.400, tasa 4% mensual + comisión 0,5%",
+          "Ej. 3 · Crédito a sola firma: pagaré $600.000, tasa 30% anual, sellos 1%",
+          "Ej. 4 · El Plátano S.R.L.: dos documentos, uno paga y otro no al vencimiento"
+        ]
+      }
+    ]
+  },
+
+  "evaluacion": {
+    "multiple_choice": [
+      {
+        "pregunta": "¿Cuál es la principal diferencia entre el resultado económico y el resultado financiero?",
+        "opciones": [
+          "El económico incluye solo los gastos fijos; el financiero incluye los variables",
+          "El económico registra ganancias o pérdidas; el financiero registra el movimiento real de dinero",
+          "El económico es mensual; el financiero es anual",
+          "Son exactamente lo mismo, solo cambia el nombre"
+        ],
+        "correcta": 1,
+        "explicacion": "Lo económico se refiere a resultados contables (ganancias o pérdidas) independientemente de si el dinero ya entró o salió. Lo financiero registra el movimiento real de efectivo. Una venta a 60 días es un ingreso económico hoy pero un ingreso financiero recién en 60 días. Repasá la Sección 1."
+      },
+      {
+        "pregunta": "¿Qué información da el cash flow que NO da el estado de resultados?",
+        "opciones": [
+          "La ganancia neta del período",
+          "El importe de las ventas totales",
+          "El dinero efectivamente disponible para pagar cuentas",
+          "Los gastos fijos de producción"
+        ],
+        "correcta": 2,
+        "explicacion": "El cash flow muestra el dinero realmente disponible en cada momento. El estado de resultados puede mostrar utilidad contable aunque la empresa no tenga efectivo para pagar sueldos. Ese es el problema clásico que el cash flow ayuda a anticipar. Ver Sección 2."
+      },
+      {
+        "pregunta": "¿Por qué las amortizaciones aparecen en el presupuesto económico pero NO en el financiero?",
+        "opciones": [
+          "Porque las amortizaciones son gastos variables",
+          "Porque las amortizaciones no representan una salida real de dinero",
+          "Porque las amortizaciones solo se calculan anualmente",
+          "Porque el presupuesto financiero no incluye ningún tipo de gasto"
+        ],
+        "correcta": 1,
+        "explicacion": "Las amortizaciones son gastos contables (pérdida de valor de bienes de uso) pero no implican ningún movimiento de dinero. Por eso afectan el resultado económico pero no el financiero. Es una de las diferencias clave entre ambos presupuestos. Revisá la Sección 6."
+      },
+      {
+        "pregunta": "Un empresa tiene Gastos de Estructura de $220.000, Precio Unitario de $79,09 y Costo Variable Unitario de $63,20. ¿Cuántas unidades es el punto de equilibrio económico?",
+        "opciones": [
+          "Aproximadamente 2.780 unidades",
+          "Aproximadamente 13.845 unidades",
+          "Aproximadamente 50.000 unidades",
+          "Aproximadamente 4.153 unidades"
+        ],
+        "correcta": 1,
+        "explicacion": "PE = Gastos de estructura ÷ (Pu − Cvu) = $220.000 ÷ ($79,09 − $63,20) = $220.000 ÷ $15,89 ≈ 13.845 unidades. El margen de contribución unitario es $15,89. Con ese volumen la empresa cubre exactamente todos sus gastos fijos. Ver Sección 5."
+      },
+      {
+        "pregunta": "¿Qué es el margen de contribución unitario?",
+        "opciones": [
+          "La diferencia entre el precio de venta y todos los costos de la empresa",
+          "La diferencia entre el precio unitario y el costo variable unitario",
+          "El porcentaje de ganancia sobre el precio de venta",
+          "La suma de todos los gastos fijos dividida por las unidades producidas"
+        ],
+        "correcta": 1,
+        "explicacion": "El margen de contribución unitario es la diferencia entre el Precio Unitario y el Costo Variable Unitario (Pu − Cvu). Es el denominador de la fórmula del punto de equilibrio y representa cuánto 'aporta' cada unidad vendida para cubrir los gastos fijos. Ver Sección 5."
+      },
+      {
+        "pregunta": "Al hacer un arqueo de caja chica, el efectivo más los comprobantes suman $95.000, pero el fondo fijo asignado es de $100.000. ¿Qué ocurrió?",
+        "opciones": [
+          "Hay un sobrante de $5.000 que se registra como ganancia",
+          "El fondo fijo fue repuesto incorrectamente",
+          "Hay un faltante de $5.000 que se registra como pérdida o se descuenta al custodio",
+          "No hay ningún problema, la diferencia es normal"
+        ],
+        "correcta": 2,
+        "explicacion": "Cuando efectivo + comprobantes < fondo fijo asignado, hay un FALTANTE. Significa que hay dinero que salió pero no tiene respaldo en comprobantes. Se contabiliza como pérdida o se le descuenta al custodio según la política de la empresa. Ver Sección 7."
+      },
+      {
+        "pregunta": "¿Cuál de las siguientes opciones describe correctamente el descuento de documentos de terceros?",
+        "opciones": [
+          "La empresa firma un pagaré a favor del banco para obtener un préstamo",
+          "La empresa lleva al banco un cheque diferido de un cliente para obtener el efectivo antes del vencimiento",
+          "El banco le presta dinero a la empresa sin ningún documento de respaldo",
+          "La empresa deposita un cheque propio para girar en descubierto"
+        ],
+        "correcta": 1,
+        "explicacion": "En el descuento de documentos de terceros, la empresa endosa al banco un cheque diferido o pagaré recibido de un cliente. El banco adelanta el efectivo descontando sus intereses. Si el cliente no paga al vencimiento, el banco debita el importe de la cuenta de la empresa. Ver Sección 10."
+      },
+      {
+        "pregunta": "¿Por qué generalmente el saldo del Libro Bancos de la empresa y el extracto bancario no coinciden al cierre del mes?",
+        "opciones": [
+          "Porque la empresa comete errores todos los meses",
+          "Porque ambos registran las mismas operaciones en momentos distintos",
+          "Porque el banco no registra los depósitos correctamente",
+          "Porque la contabilidad usa un tipo de cambio diferente al del banco"
+        ],
+        "correcta": 1,
+        "explicacion": "Las diferencias se deben a que hay movimientos que cada uno registra en momentos distintos: cheques emitidos pero no presentados, depósitos en tránsito, comisiones bancarias aún no registradas por la empresa, entre otros. Por eso se necesita la conciliación bancaria mensual. Ver Sección 12."
+      },
+      {
+        "pregunta": "Una empresa descuenta un pagaré de VN $2.350.000 a 30 días. El banco cobra un interés anual del 70% y $10.000 en gastos. ¿Cuánto recibe la empresa?",
+        "opciones": [
+          "$2.350.000",
+          "$2.240.000",
+          "$2.204.795",
+          "$2.214.795"
+        ],
+        "correcta": 2,
+        "explicacion": "Interés = (2.350.000 × 70 × 30) ÷ (100 × 365) = $135.205. Monto neto = $2.350.000 − $135.205 − $10.000 = $2.204.795. El banco adelanta el VN menos los intereses y gastos. Ver Sección 14."
+      },
+      {
+        "pregunta": "¿Cuál es la función del dinero que se debilita en contextos de alta inflación como Argentina?",
+        "opciones": [
+          "Medio de cambio",
+          "Unidad de cuenta",
+          "Reserva de valor",
+          "Instrumento de crédito"
+        ],
+        "correcta": 2,
+        "explicacion": "La función de reserva de valor es la que se debilita con la inflación: el dinero guardado hoy compra menos cosas mañana, ya que los precios suben constantemente. En Argentina esto lleva a buscar alternativas como dólares, plazos fijos UVA o bienes durables. Ver Sección 9."
+      }
+    ],
+    "verdadero_falso": [
+      {
+        "texto": "Una empresa puede tener utilidad contable positiva y al mismo tiempo no tener efectivo para pagar sus deudas",
+        "correcto": true,
+        "explicacion": "VERDADERO. Este es el problema clásico que el cash flow busca prevenir: una empresa puede registrar ventas a 90 días (ingreso económico) pero no tener el dinero disponible (ingreso financiero) para hacer frente a sus pagos del mes. Ver Sección 2."
+      },
+      {
+        "texto": "El presupuesto de ventas es el último que se elabora porque depende de todos los demás",
+        "correcto": false,
+        "explicacion": "FALSO. El presupuesto de ventas es el PRIMERO y es el punto de partida de todos los demás. Si se proyecta vender más, hay que producir más, comprar más insumos y tener mayor capacidad operativa. Todo el presupuesto general se construye a partir de él. Ver Sección 4."
+      },
+      {
+        "texto": "El punto de equilibrio financiero siempre es menor que el punto de equilibrio económico",
+        "correcto": true,
+        "explicacion": "VERDADERO. El PE financiero solo considera gastos desembolsables (sin amortizaciones), por lo que los gastos de estructura son menores. Al dividir por el mismo margen de contribución, el resultado es menor. La empresa alcanza el PE financiero vendiendo menos unidades. Ver Sección 5."
+      },
+      {
+        "texto": "En el sistema de fondo fijo, el monto del fondo varía según los gastos de cada período",
+        "correcto": false,
+        "explicacion": "FALSO. Precisamente se llama 'fondo FIJO' porque siempre se repone al mismo importe original. Si el fondo es $80.000, después de cada rendición de gastos se repone hasta $80.000, sea cual sea el monto gastado. Ver Sección 7."
+      },
+      {
+        "texto": "La cuenta corriente bancaria es la más adecuada para empresas porque permite operar con cheques y girar en descubierto",
+        "correcto": true,
+        "explicacion": "VERDADERO. La cuenta corriente es la típica de las empresas porque permite emitir y depositar cheques, realizar pagos mediante transferencias y acceder a descubierto en cuenta corriente para cubrir baches de caja temporarios. Ver Sección 11."
+      },
+      {
+        "texto": "Si al hacer la conciliación bancaria aparece una Nota de Débito en el extracto que la empresa no registró, no es necesario hacer ningún asiento contable",
+        "correcto": false,
+        "explicacion": "FALSO. Cuando aparece una Nota de Débito en el extracto que la empresa no había registrado, se debe hacer el asiento contable correspondiente para reflejar ese movimiento en los libros de la empresa. La conciliación identifica esas diferencias para regularizarlas. Ver Sección 12."
+      }
+    ]
+  },
+
+  "cierre": {
+    "glosario": [
+      {
+        "emoji": "💧",
+        "termino": "Cash Flow",
+        "categoria": "Herramienta financiera",
+        "definicion": "Registro detallado de ingresos y egresos de efectivo en un período. Muestra el dinero realmente disponible, distinto de las ganancias contables."
+      },
+      {
+        "emoji": "📋",
+        "termino": "Presupuesto",
+        "categoria": "Planificación",
+        "definicion": "Plan de acción evaluado en dinero. Permite prever ingresos y gastos en un período determinado para tomar decisiones anticipadas."
+      },
+      {
+        "emoji": "📊",
+        "termino": "Presupuesto Económico",
+        "categoria": "Planificación",
+        "definicion": "Proyección de ventas, costos y gastos que determina el resultado (utilidad o pérdida) del período. Incluye amortizaciones."
+      },
+      {
+        "emoji": "💰",
+        "termino": "Presupuesto Financiero",
+        "categoria": "Planificación",
+        "definicion": "Proyección de cobros y pagos reales del período. No incluye amortizaciones. Muestra si habrá superávit o déficit de caja."
+      },
+      {
+        "emoji": "⚖️",
+        "termino": "Punto de Equilibrio",
+        "categoria": "Análisis de costos",
+        "definicion": "Nivel de ventas en que la empresa cubre sus gastos de estructura sin ganar ni perder. Se calcula dividiendo los gastos fijos totales por el margen de contribución unitario."
+      },
+      {
+        "emoji": "📐",
+        "termino": "Margen de Contribución",
+        "categoria": "Análisis de costos",
+        "definicion": "Diferencia entre el Precio Unitario y el Costo Variable Unitario (Pu − Cvu). Representa el aporte de cada unidad vendida para cubrir los gastos fijos."
+      },
+      {
+        "emoji": "🏧",
+        "termino": "Fondo Fijo de Caja Chica",
+        "categoria": "Control del efectivo",
+        "definicion": "Monto de efectivo asignado a un custodio para afrontar pequeños pagos del día a día. Se repone siempre al mismo importe original al rendir los comprobantes."
+      },
+      {
+        "emoji": "🔍",
+        "termino": "Arqueo de Caja Chica",
+        "categoria": "Control del efectivo",
+        "definicion": "Recuento físico del efectivo y comprobantes en la caja chica. Permite verificar que efectivo + comprobantes = fondo fijo asignado."
+      },
+      {
+        "emoji": "🔁",
+        "termino": "Conciliación Bancaria",
+        "categoria": "Control bancario",
+        "definicion": "Comparación mensual entre el Libro Bancos de la empresa y el extracto bancario para detectar y explicar diferencias entre ambos saldos."
+      },
+      {
+        "emoji": "📄",
+        "termino": "Descuento de Pagaré",
+        "categoria": "Operaciones bancarias",
+        "definicion": "Operación por la cual la empresa entrega al banco un documento a cobrar antes de su vencimiento y recibe el efectivo adelantado, descontados los intereses y comisiones."
+      },
+      {
+        "emoji": "📈",
+        "termino": "Interés Activo / Pasivo",
+        "categoria": "Sistema financiero",
+        "definicion": "Interés activo: el que cobra el banco por prestar dinero. Interés pasivo: el que paga el banco a los depositantes. La diferencia entre ambos (spread) es la ganancia del banco."
+      },
+      {
+        "emoji": "🏦",
+        "termino": "Giro en Descubierto",
+        "categoria": "Crédito bancario",
+        "definicion": "Acuerdo que permite a la empresa emitir cheques por montos superiores al saldo disponible. Es un crédito automático útil para cubrir baches de caja temporarios."
+      }
+    ],
+    "recursos": [
+      {
+        "tipo": "📖 Libro",
+        "title": "Finanzas para no financistas - Germán Hauwert",
+        "desc": "Introducción práctica a los conceptos financieros básicos aplicados a la gestión empresarial, escrito para lectores sin formación contable previa",
+        "nivel": "Introductorio",
+        "color": "#0EA5E9"
+      },
+      {
+        "tipo": "🌐 Web",
+        "title": "BCRA - Educación Financiera (bcra.gob.ar)",
+        "desc": "Sección oficial del Banco Central con materiales didácticos sobre el sistema financiero argentino, tipos de cuentas y operaciones bancarias",
+        "nivel": "Introductorio",
+        "color": "#10B981"
+      },
+      {
+        "tipo": "🎬 Video",
+        "title": "¿Qué es el flujo de caja? - Canal Economía Simple (YouTube)",
+        "desc": "Explicación visual y sencilla del cash flow con ejemplos prácticos para pequeñas y medianas empresas",
+        "nivel": "Introductorio",
+        "color": "#EF4444"
+      },
+      {
+        "tipo": "📄 Artículo",
+        "title": "Cómo hacer un presupuesto empresarial - AFIP Pymes",
+        "desc": "Guía del organismo argentino con pasos concretos para elaborar presupuestos adaptados a la realidad fiscal y contable del país",
+        "nivel": "Intermedio",
+        "color": "#F59E0B"
+      },
+      {
+        "tipo": "🎧 Podcast",
+        "title": "Economía en casa - Spotify / Apple Podcasts",
+        "desc": "Podcast argentino que explica conceptos financieros y económicos cotidianos de forma accesible, con ejemplos del contexto local",
+        "nivel": "Introductorio",
+        "color": "#8B5CF6"
+      }
+    ]
+  }
+}
