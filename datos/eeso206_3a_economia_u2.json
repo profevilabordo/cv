@@ -1842,11 +1842,15 @@
       "4. B - Obreras de Petrogrado salieron a reclamar pan y el ejército se negó a reprimirlas",
       "5. C - Lo que es racional para cada individuo (ahorrar en crisis) es desastroso para todos en conjunto",
       "6. B - Marx creía que el capitalismo es irreformable; Keynes que puede ser corregido con intervención estatal",
-      "7. FALSO - Para Keynes el déficit fiscal CONTRACÍCLICO es necesario y positivo durante las crisis",
-      "8. VERDADERO - Para sostener la legitimidad del capitalismo, los gobiernos aceptaron concesiones como jubilaciones y salud pública",
-      "9. FALSO - La alienación es un problema existencial y humano: el trabajador se vuelve ajeno a su trabajo, al producto y a sus semejantes",
-      "10. VERDADERO - La estanflación combinaba inflación alta + estancamiento, y el keynesianismo no tenía buenas respuestas para eso",
-      "11. FALSO - El New Deal fue una serie de EXPERIMENTOS pragmáticos, no un plan ideológico coherente desde el principio"
+      "7. B - Resultado de la NEP: apertura parcial al mercado que permitió recuperar la economía",
+      "8. B - Concentración del capital: las grandes empresas absorben a las pequeñas",
+      "9. B - La de Febrero derrocó al Zar espontáneamente; la de Octubre fue organizada por Lenin",
+      "10. B - Gastos sociales que sostienen el consumo durante recesiones sin decisiones especiales",
+      "11. FALSO - Para Keynes el déficit fiscal CONTRACÍCLICO es necesario y positivo durante las crisis",
+      "12. VERDADERO - Para sostener la legitimidad del capitalismo, los gobiernos aceptaron concesiones como jubilaciones y salud pública",
+      "13. FALSO - La alienación es un problema existencial: el trabajador se vuelve ajeno a su trabajo y al producto",
+      "14. VERDADERO - La estanflación combinaba inflación alta + estancamiento, sin buenas respuestas keynesianas",
+      "15. FALSO - El New Deal fue una serie de EXPERIMENTOS pragmáticos, no un plan ideológico coherente"
     ],
     "preguntas": [
       {
@@ -1925,6 +1929,39 @@
         ],
         "correcta": 1,
         "explicacion": "Ante la devastación de la guerra civil, Lenin implementó la NEP como 'un paso atrás táctico': pequeño comercio privado, campesinos que podían vender excedentes. La economía comenzó a recuperarse pero generó tensiones internas en el partido. Repasá la página 12."
+      },
+      {
+        "pregunta": "¿Cuál fue la principal consecuencia económica de la crisis de 1873?",
+        "opciones": [
+          "Mayor apertura comercial y libre comercio entre las potencias",
+          "Concentración del capital: las grandes empresas absorben a las pequeñas",
+          "Reducción del imperialismo y abandono de las colonias",
+          "Aumento de los salarios obreros en toda Europa"
+        ],
+        "correcta": 1,
+        "explicacion": "La crisis de 1873 aceleró la CONCENTRACIÓN del capital: las empresas más pequeñas quiebran y las grandes las absorben. Surgen los monopolios y oligopolios. Es el inicio del capitalismo monopolista. Repasá la página 5."
+      },
+      {
+        "pregunta": "¿Qué diferencia la Revolución de Febrero de la Revolución de Octubre de 1917?",
+        "opciones": [
+          "La de Febrero fue organizada por los bolcheviques; la de Octubre fue espontánea",
+          "La de Febrero derrocó al Zar espontáneamente; la de Octubre fue una insurrección organizada por Lenin",
+          "Ambas fueron organizadas por el mismo partido con los mismos objetivos",
+          "La de Febrero instauró el socialismo; la de Octubre restauró la monarquía"
+        ],
+        "correcta": 1,
+        "explicacion": "Diferencia clave: la Revolución de Febrero fue ESPONTÁNEA (obreras pidiendo pan, el ejército se negó a reprimir). La de Octubre fue una insurrección ORGANIZADA por los bolcheviques que tomaron el Palacio de Invierno. Repasá la página 10."
+      },
+      {
+        "pregunta": "¿Qué son los 'estabilizadores automáticos' del Estado de Bienestar según la teoría keynesiana?",
+        "opciones": [
+          "Mecanismos de mercado que regulan los precios sin intervención estatal",
+          "Gastos sociales que sostienen el consumo durante recesiones sin necesidad de decisiones especiales",
+          "Impuestos automáticos que suben cuando la economía crece demasiado rápido",
+          "Empresas públicas que reemplazan al sector privado en tiempos de crisis"
+        ],
+        "correcta": 1,
+        "explicacion": "Los estabilizadores automáticos (seguro de desempleo, jubilaciones) actúan solos: cuando sube el desempleo, el seguro paga más automáticamente, sosteniendo el consumo sin que el gobierno tome ninguna decisión especial. Es el keynesianismo institucionalizado. Repasá la página 22."
       }
     ],
     "verdadero_falso": [
