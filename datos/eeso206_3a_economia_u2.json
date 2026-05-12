@@ -1,0 +1,1465 @@
+{
+  "id": "eeso206_3a_economia_u2",
+  "materia": "Economía",
+  "unidad": 2,
+  "titulo": "Crisis del Capitalismo, Socialismo y Keynesianismo",
+  "emoji": "⚙️",
+  "color_primario": "#0F766E",
+  "color_secundario": "#0EA5E9",
+
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "📉",
+        "texto": "Si en un país todos los trabajadores están desocupados y las fábricas producen de más, ¿el mercado solo se arregla o alguien tiene que intervenir?",
+        "pista": "La economía clásica decía que el mercado se autorregula solo... pero la Gran Depresión de 1929 mostró que eso no siempre es cierto..."
+      },
+      {
+        "emoji": "🏭",
+        "texto": "¿Por qué si las fábricas producen cada vez más, sigue habiendo gente que pasa hambre?",
+        "pista": "Producir mucho no alcanza si la gente no tiene dinero para comprar... la superproducción convive paradójicamente con la pobreza..."
+      },
+      {
+        "emoji": "⚖️",
+        "texto": "¿Es posible un sistema económico sin capitalismo? ¿Qué pasaría si no existiera la propiedad privada?",
+        "pista": "Marx creyó que sí era posible y propuso el socialismo... la URSS lo intentó durante décadas... ¿con qué resultados?"
+      }
+    ],
+    "situaciones_conecta": [
+      {
+        "emoji": "📰",
+        "label": "Leo noticias sobre ajuste fiscal o gasto público"
+      },
+      {
+        "emoji": "💼",
+        "label": "Conozco personas que perdieron el trabajo en una crisis"
+      },
+      {
+        "emoji": "🏥",
+        "label": "Uso servicios públicos como salud o educación gratuita"
+      },
+      {
+        "emoji": "🌍",
+        "label": "Escucho debates sobre el rol del Estado en la economía"
+      }
+    ],
+    "termometro_pregunta": "¿Cuánto sabés sobre las grandes crisis del capitalismo y las respuestas que generaron?"
+  },
+
+  "mapa": {
+    "ruta_paradas": [
+      {
+        "id": 1,
+        "emoji": "⚡",
+        "title": "Segunda Revolución Industrial",
+        "desc": "El capitalismo moderno: electricidad, acero, petróleo y taylorismo",
+        "color": "#0F766E"
+      },
+      {
+        "id": 2,
+        "emoji": "📉",
+        "title": "Crisis de 1873",
+        "desc": "La primera gran fractura global del sistema capitalista",
+        "color": "#0EA5E9"
+      },
+      {
+        "id": 3,
+        "emoji": "☭",
+        "title": "Marx y el Socialismo",
+        "desc": "Plusvalía, lucha de clases y la crítica radical al capitalismo",
+        "color": "#EF4444"
+      },
+      {
+        "id": 4,
+        "emoji": "🔴",
+        "title": "Revolución Rusa",
+        "desc": "Las ideas marxistas llegan al poder: el primer Estado socialista",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 5,
+        "emoji": "💥",
+        "title": "Crisis de 1929 y New Deal",
+        "desc": "El capitalismo en su peor momento y la respuesta de Roosevelt",
+        "color": "#8B5CF6"
+      },
+      {
+        "id": 6,
+        "emoji": "🏛️",
+        "title": "Keynes y el Estado de Bienestar",
+        "desc": "La teoría que reformó el capitalismo: demanda efectiva y pleno empleo",
+        "color": "#EC4899"
+      }
+    ],
+
+    "panoramica_bloques": [
+      {
+        "id": "a",
+        "emoji": "⚡",
+        "title": "BLOQUE A",
+        "subtitle": "Segunda Revolución Industrial y Crisis de 1873 (páginas 3-5)",
+        "color": "#0F766E",
+        "items": [
+          "Segunda Revolución Industrial: acero, electricidad, petróleo",
+          "Taylorismo y fordismo: organización científica del trabajo",
+          "Libre comercio y división internacional del trabajo",
+          "Patrón oro, capital financiero y migraciones masivas",
+          "Crisis de superproducción de 1873: causas y mecánica",
+          "Consecuencias: concentración del capital, imperialismo, proteccionismo",
+          "Radicalización obrera y surgimiento del movimiento sindical"
+        ]
+      },
+      {
+        "id": "b",
+        "emoji": "☭",
+        "title": "BLOQUE B",
+        "subtitle": "Marx, Socialismo y Revolución Rusa (páginas 6-12)",
+        "color": "#EF4444",
+        "items": [
+          "Condiciones laborales del capitalismo industrial temprano",
+          "Socialismo utópico, anarquismo y socialismo científico",
+          "Teoría del valor-trabajo y plusvalía (absoluta y relativa)",
+          "Lucha de clases: burguesía vs. proletariado",
+          "Alienación del trabajador y fetichismo de la mercancía",
+          "La Rusia zarista y las dos revoluciones de 1917",
+          "URSS: comunismo de guerra, NEP, estalinismo y Guerra Fría"
+        ]
+      },
+      {
+        "id": "c",
+        "emoji": "🏛️",
+        "title": "BLOQUE C",
+        "subtitle": "Crisis de 1929, Keynes y Estado de Bienestar (páginas 13-25)",
+        "color": "#8B5CF6",
+        "items": [
+          "Período de entreguerras: las cinco etapas (1919-1939)",
+          "Crack de Wall Street 1929: causas y efecto dominó global",
+          "Gran Depresión: cifras y realidad humana",
+          "New Deal de Roosevelt: las cinco áreas de intervención",
+          "Keynes: demanda efectiva, multiplicador y déficit contracíclico",
+          "Estado de Bienestar: pilares y los '30 gloriosos'",
+          "Crisis del keynesianismo y giro neoliberal (1973-1980)"
+        ]
+      }
+    ],
+
+    "mapa_mental": {
+      "centro": {
+        "emoji": "⚙️",
+        "title": "CAPITALISMO EN CRISIS"
+      },
+      "ramas": [
+        {
+          "id": "causas",
+          "emoji": "📉",
+          "title": "¿Por qué entra en crisis?",
+          "color": "#0F766E",
+          "items": [
+            "Superproducción: oferta supera demanda estructuralmente",
+            "Especulación financiera amplifica los desequilibrios",
+            "Salarios bajos frenan el consumo de los propios obreros",
+            "Las crisis de 1873 y 1929 repiten el mismo patrón"
+          ]
+        },
+        {
+          "id": "criticas",
+          "emoji": "☭",
+          "title": "¿Quiénes lo criticaron?",
+          "color": "#EF4444",
+          "items": [
+            "Socialismo utópico: Owen, Fourier, Saint-Simon",
+            "Anarquismo: Proudhon, Bakunin (sin Estado)",
+            "Marx: análisis científico + plusvalía + lucha de clases",
+            "Revolución Rusa: de la teoría al primer Estado socialista"
+          ]
+        },
+        {
+          "id": "respuestas",
+          "emoji": "🏛️",
+          "title": "¿Cómo respondió el capitalismo?",
+          "color": "#8B5CF6",
+          "items": [
+            "New Deal (1933): Estado como empleador de última instancia",
+            "Keynes: demanda efectiva y gasto público anticíclico",
+            "Estado de Bienestar: derechos sociales universales",
+            "Neoliberalismo (1980s): retorno al mercado libre"
+          ]
+        },
+        {
+          "id": "argentina",
+          "emoji": "🇦🇷",
+          "title": "¿Y Argentina?",
+          "color": "#F59E0B",
+          "items": [
+            "Crisis de 1873: caída de precios de materias primas",
+            "Crisis de 1929: golpe a Yrigoyen, Pacto Roca-Runciman",
+            "Peronismo: keynesianismo criollo y Estado de Bienestar",
+            "Dictadura 1976 y menemismo: giro neoliberal anticipado"
+          ]
+        }
+      ]
+    }
+  },
+
+  "nucleo_a": {
+    "bloque_info": {
+      "id": "a",
+      "emoji": "⚡",
+      "titulo": "BLOQUE A: Segunda Revolución Industrial y Crisis de 1873",
+      "color": "#0F766E",
+      "paginas": [3, 4, 5]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená cronológicamente los hitos de la Segunda Revolución Industrial:",
+      "paginas_referencia": "3",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "🔩",
+          "text": "1856: Proceso Bessemer permite producir acero a gran escala"
+        },
+        {
+          "id": 1,
+          "emoji": "💡",
+          "text": "1870s-80s: Edison y Tesla desarrollan sistemas de electricidad"
+        },
+        {
+          "id": 2,
+          "emoji": "🛢️",
+          "text": "1880s: Petróleo impulsa motores de combustión y la industria química"
+        },
+        {
+          "id": 3,
+          "emoji": "🚗",
+          "text": "1908: Henry Ford aplica la cadena de montaje al modelo T"
+        },
+        {
+          "id": 4,
+          "emoji": "📉",
+          "text": "1873: La bolsa de Viena colapsa, inicio de la primera crisis global"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 4, 3]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada característica según sea del Taylorismo o del Fordismo:",
+      "paginas_referencia": "3",
+      "categorias": [
+        {
+          "name": "Taylorismo (Frederick Taylor)",
+          "emoji": "⏱️",
+          "color": "#0F766E"
+        },
+        {
+          "name": "Fordismo (Henry Ford)",
+          "emoji": "🚗",
+          "color": "#0EA5E9"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Cronometrar cada tarea para maximizar la eficiencia",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Cadena de montaje continua para producir en masa",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Separar la concepción del trabajo de su ejecución",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "Pagar salarios suficientes para que los obreros consuman lo que producen",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Dividir cada tarea en movimientos simples y repetitivos",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Reducir el costo del automóvil para hacerlo accesible a las masas",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "3-5",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "La Segunda Revolución Industrial usó acero, electricidad y",
+          "respuesta_correcta": "petróleo",
+          "pista": "P_______"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "La crisis de 1873 fue causada por",
+          "respuesta_correcta": "superproducción",
+          "pista": "S______________"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "La política que impone aranceles para proteger la industria nacional se llama",
+          "respuesta_correcta": "proteccionismo",
+          "pista": "P_____________"
+        }
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "3-5",
+      "afirmaciones": [
+        {
+          "texto": "El taylorismo elevó el nivel de creatividad de los obreros al darles mayor autonomía",
+          "correcto": false,
+          "explicacion": "Falso. El taylorismo REDUJO la autonomía obrera: fragmentó el trabajo en tareas repetitivas y simples, separando la concepción (ingenieros) de la ejecución (obreros). El trabajador dejó de necesitar saberes artesanales."
+        },
+        {
+          "texto": "En la crisis de 1873, la pobreza y el exceso de producción coexistían paradójicamente",
+          "correcto": true,
+          "explicacion": "Verdadero. Esta es la paradoja de la superproducción: hay alimentos pero la gente pasa hambre, hay viviendas vacías pero familias en la calle. El mercado no puede pagar por todo lo producido, aunque las necesidades existan."
+        },
+        {
+          "texto": "El libre comercio del siglo XIX benefició por igual a los países industriales y a los periféricos",
+          "correcto": false,
+          "explicacion": "Falso. El libre comercio consolidó una división DESIGUAL: los países industriales exportaban manufacturas de alto valor, mientras los periféricos (como Argentina) exportaban materias primas baratas. Esto generó dependencia estructural."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "3-5",
+      "pares": [
+        {
+          "izquierda": "Proceso Bessemer",
+          "derecha": "Producción de acero a gran escala y bajo costo desde 1856",
+          "emoji": "🔩"
+        },
+        {
+          "izquierda": "Patrón oro",
+          "derecha": "Sistema monetario con valor fijo en oro que facilitaba el comercio internacional",
+          "emoji": "🪙"
+        },
+        {
+          "izquierda": "División internacional del trabajo",
+          "derecha": "Cada país se especializa en un tipo de producción según poder y recursos",
+          "emoji": "🌍"
+        },
+        {
+          "izquierda": "Superproducción",
+          "derecha": "Crisis en que la capacidad productiva supera la demanda efectiva del mercado",
+          "emoji": "📦"
+        }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "3-5",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "⚡",
+          "pregunta": "¿Cuál NO fue una innovación clave de la Segunda Revolución Industrial?",
+          "paginas": "3",
+          "palabras": [
+            {
+              "text": "Electricidad (Edison y Tesla)",
+              "es_intrusa": false
+            },
+            {
+              "text": "Acero (proceso Bessemer)",
+              "es_intrusa": false
+            },
+            {
+              "text": "Máquina de vapor de Watt",
+              "es_intrusa": true
+            },
+            {
+              "text": "Petróleo y motor de combustión",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "La máquina de vapor de Watt fue la innovación central de la PRIMERA Revolución Industrial (1760-1840), no de la segunda. La Segunda Revolución (1870-1914) se basó en electricidad, acero y petróleo."
+        },
+        {
+          "id": 1,
+          "emoji": "📉",
+          "pregunta": "¿Cuál NO fue una consecuencia de la Crisis de 1873?",
+          "paginas": "5",
+          "palabras": [
+            {
+              "text": "Concentración del capital en monopolios",
+              "es_intrusa": false
+            },
+            {
+              "text": "Imperialismo hacia Asia y África",
+              "es_intrusa": false
+            },
+            {
+              "text": "Mayor apertura comercial y libre mercado",
+              "es_intrusa": true
+            },
+            {
+              "text": "Radicalización del movimiento obrero",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "La crisis de 1873 produjo todo lo contrario: el abandono del libre comercio y la adopción del PROTECCIONISMO. Alemania y EE.UU. encabezaron la tendencia a imponer aranceles para proteger su industria."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "3-5",
+      "conceptos": [
+        {
+          "termino": "Taylorismo",
+          "pista": "¿Cómo organizó Frederick Taylor el trabajo en las fábricas?",
+          "palabras_clave": ["tareas", "repetitivas", "cronometrar", "fragmentar", "eficiencia", "producción"]
+        },
+        {
+          "termino": "Superproducción",
+          "pista": "¿Qué pasa cuando las fábricas producen más de lo que el mercado puede comprar?",
+          "palabras_clave": ["oferta", "demanda", "crisis", "exceso", "precios", "colapso"]
+        },
+        {
+          "termino": "División internacional del trabajo",
+          "pista": "¿Por qué Argentina exportaba trigo mientras Gran Bretaña exportaba máquinas?",
+          "palabras_clave": ["especialización", "países", "materias primas", "manufacturas", "desigualdad", "intercambio"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "3-5",
+      "causas": [
+        {
+          "id": 1,
+          "emoji": "🏭",
+          "text": "Alta productividad industrial supera la capacidad de consumo"
+        },
+        {
+          "id": 2,
+          "emoji": "📉",
+          "text": "Crisis de superproducción de 1873"
+        },
+        {
+          "id": 3,
+          "emoji": "💡",
+          "text": "Introducción de la electricidad en la producción industrial"
+        },
+        {
+          "id": 4,
+          "emoji": "🌍",
+          "text": "Mercados internos saturados tras la crisis de 1873"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "💥",
+          "text": "Crisis de superproducción: precios caen, empresas quiebran, sube el desempleo"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "🏦",
+          "text": "Monopolios: las empresas grandes absorben a las débiles"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "⚡",
+          "text": "Nuevas industrias: eléctrica, química, automotriz, comunicaciones"
+        },
+        {
+          "id": 4,
+          "causa_id": 4,
+          "emoji": "🌐",
+          "text": "Imperialismo: las potencias buscan nuevos mercados en Asia, África y América"
+        }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená la mecánica de la crisis de superproducción:",
+      "paginas_referencia": "5",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 1,
+          "emoji": "🏭",
+          "text": "Alta producción industrial: las fábricas producen cada vez más"
+        },
+        {
+          "id": 2,
+          "emoji": "📦",
+          "text": "Caída de precios: hay demasiada mercancía, los precios colapsan"
+        },
+        {
+          "id": 3,
+          "emoji": "💸",
+          "text": "Menos beneficios: las empresas pierden rentabilidad"
+        },
+        {
+          "id": 4,
+          "emoji": "👷",
+          "text": "Despidos y recortes: para bajar costos, se despide trabajadores"
+        },
+        {
+          "id": 5,
+          "emoji": "🛒",
+          "text": "Cae el consumo: los desocupados no pueden comprar, la crisis se agrava"
+        }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "3-5",
+      "concepto_a": {
+        "nombre": "Taylorismo",
+        "emoji": "⏱️",
+        "color": "#0F766E"
+      },
+      "concepto_b": {
+        "nombre": "Fordismo",
+        "emoji": "🚗",
+        "color": "#0EA5E9"
+      }
+    }
+  },
+
+  "nucleo_b": {
+    "bloque_info": {
+      "id": "b",
+      "emoji": "☭",
+      "titulo": "BLOQUE B: Marx, Socialismo y Revolución Rusa",
+      "color": "#EF4444",
+      "paginas": [6, 7, 8, 9, 10, 11, 12]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los hitos del movimiento obrero y la Revolución Rusa:",
+      "paginas_referencia": "6, 10-12",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "🔨",
+          "text": "1811-13: Ludismo — obreros destruyen máquinas en Gran Bretaña"
+        },
+        {
+          "id": 1,
+          "emoji": "📜",
+          "text": "1848: Manifiesto Comunista de Marx y Engels + revoluciones europeas"
+        },
+        {
+          "id": 2,
+          "emoji": "🌐",
+          "text": "1864: Primera Internacional de los Trabajadores"
+        },
+        {
+          "id": 3,
+          "emoji": "🔴",
+          "text": "Febrero 1917: Revolución de Febrero — el Zar abdica"
+        },
+        {
+          "id": 4,
+          "emoji": "⭐",
+          "text": "Octubre 1917: Los bolcheviques toman el poder"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada idea según pertenezca a Marx o al Anarquismo:",
+      "paginas_referencia": "7",
+      "categorias": [
+        {
+          "name": "Marxismo (socialismo científico)",
+          "emoji": "☭",
+          "color": "#EF4444"
+        },
+        {
+          "name": "Anarquismo",
+          "emoji": "⚫",
+          "color": "#374151"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "El proletariado debe tomar el Estado y usarlo como herramienta",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Todo Estado es una forma de opresión, incluso el Estado obrero",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "La historia se mueve por la lucha de clases",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "La autogestión directa de comunidades sin gobierno central",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "El capitalismo produce plusvalía mediante la explotación del trabajo",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "La transformación social sin organizaciones jerárquicas",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "7-9",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "El valor producido por el trabajador que supera su salario y queda en manos del capitalista se llama",
+          "respuesta_correcta": "plusvalía",
+          "pista": "P_______"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "Para Marx, el motor de la historia es la",
+          "respuesta_correcta": "lucha de clases",
+          "pista": "L____ D_ C_____"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "El proceso por el cual el trabajador se vuelve ajeno a su propio trabajo se llama",
+          "respuesta_correcta": "alienación",
+          "pista": "A_________"
+        }
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "7-12",
+      "afirmaciones": [
+        {
+          "texto": "Para Marx, la explotación del trabajador se debe a que el capitalista lo engaña al pagar el salario",
+          "correcto": false,
+          "explicacion": "Falso. Para Marx la explotación no viene del engaño sino de la ESTRUCTURA del contrato laboral. El obrero produce más valor del que recibe como salario (plusvalía). Es una desigualdad sistémica, no individual."
+        },
+        {
+          "texto": "La Revolución de Octubre de 1917 fue una insurrección organizada por los bolcheviques liderados por Lenin",
+          "correcto": true,
+          "explicacion": "Verdadero. Fue una insurrección organizada, no espontánea. Los bolcheviques tomaron el Palacio de Invierno en octubre de 1917 con el programa de 'paz, tierra, pan'."
+        },
+        {
+          "texto": "El miedo al comunismo fue un motor paradójico del Estado de Bienestar en Europa Occidental",
+          "correcto": true,
+          "explicacion": "Verdadero. Para sostener la legitimidad del capitalismo frente a la amenaza soviética, los gobiernos occidentales aceptaron concesiones impensables: jornada de 8 horas, jubilaciones, salud pública. Sin Marx, quizás no habría Keynes aplicado."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "8-10",
+      "pares": [
+        {
+          "izquierda": "Plusvalía absoluta",
+          "derecha": "Se obtiene alargando la jornada laboral",
+          "emoji": "⏰"
+        },
+        {
+          "izquierda": "Plusvalía relativa",
+          "derecha": "Se obtiene acelerando el ritmo de trabajo con tecnología",
+          "emoji": "⚙️"
+        },
+        {
+          "izquierda": "Fetichismo de la mercancía",
+          "derecha": "Olvidar que detrás de cada mercancía hay relaciones humanas y trabajo",
+          "emoji": "💰"
+        },
+        {
+          "izquierda": "Alienación del producto",
+          "derecha": "Lo que el trabajador produce no le pertenece: pertenece al capitalista",
+          "emoji": "🏭"
+        }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "7-9",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "☭",
+          "pregunta": "¿Cuál NO es un concepto central del análisis marxista?",
+          "paginas": "7-9",
+          "palabras": [
+            {
+              "text": "Plusvalía",
+              "es_intrusa": false
+            },
+            {
+              "text": "Lucha de clases",
+              "es_intrusa": false
+            },
+            {
+              "text": "Mano invisible del mercado",
+              "es_intrusa": true
+            },
+            {
+              "text": "Alienación del trabajo",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "La 'mano invisible del mercado' es el concepto central de Adam Smith, no de Marx. Marx criticó precisamente esa idea: para él el mercado no se autorregula de manera justa sino que produce explotación estructural."
+        },
+        {
+          "id": 1,
+          "emoji": "🔴",
+          "pregunta": "¿Cuál NO fue parte del programa bolchevique de Lenin en 1917?",
+          "paginas": "10",
+          "palabras": [
+            {
+              "text": "Paz: salida inmediata de la guerra",
+              "es_intrusa": false
+            },
+            {
+              "text": "Tierra: redistribución a los campesinos",
+              "es_intrusa": false
+            },
+            {
+              "text": "Democracia parlamentaria al estilo occidental",
+              "es_intrusa": true
+            },
+            {
+              "text": "Pan: alimentos para las ciudades",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Lenin propuso 'paz, tierra, pan', no democracia parlamentaria. Los bolcheviques rechazaban el parlamentarismo burgués y proponían los soviets (consejos obreros) como forma alternativa de poder popular."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "7-12",
+      "conceptos": [
+        {
+          "termino": "Plusvalía",
+          "pista": "¿De dónde sale la ganancia del capitalista según Marx?",
+          "palabras_clave": ["trabajo", "salario", "valor", "capitalista", "excedente", "apropiación"]
+        },
+        {
+          "termino": "Alienación",
+          "pista": "¿Por qué el obrero de una cadena de montaje siente que su trabajo no tiene sentido?",
+          "palabras_clave": ["trabajo", "producto", "ajeno", "creación", "mecánico", "separado"]
+        },
+        {
+          "termino": "Soviet",
+          "pista": "¿Qué tipo de institución de poder crearon los trabajadores rusos en 1917?",
+          "palabras_clave": ["consejo", "obreros", "soldados", "campesinos", "poder", "popular"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "6-12",
+      "causas": [
+        {
+          "id": 1,
+          "emoji": "👷",
+          "text": "Jornadas de 14-16 horas, trabajo infantil y salarios de subsistencia"
+        },
+        {
+          "id": 2,
+          "emoji": "🌐",
+          "text": "El obrero trabaja más horas de las necesarias para cubrir su salario"
+        },
+        {
+          "id": 3,
+          "emoji": "🔫",
+          "text": "Primera Guerra Mundial agota a Rusia: derrotas militares y hambre"
+        },
+        {
+          "id": 4,
+          "emoji": "⭐",
+          "text": "Revolución Rusa de 1917 muestra que el capitalismo puede derrocarse"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "✊",
+          "text": "Surgimiento del movimiento obrero, sindicatos y difusión del marxismo"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "💰",
+          "text": "Plusvalía: valor apropiado por el capitalista sin pago al trabajador"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "👑",
+          "text": "El Zar Nicolás II abdica en febrero de 1917 (Revolución de Febrero)"
+        },
+        {
+          "id": 4,
+          "causa_id": 4,
+          "emoji": "🏛️",
+          "text": "Las élites occidentales aceleran reformas sociales para evitar el mismo destino"
+        }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená la secuencia de la lucha de clases según Marx:",
+      "paginas_referencia": "8",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 1,
+          "emoji": "⛓️",
+          "text": "Esclavismo: amos explotan a esclavos (propiedad de personas)"
+        },
+        {
+          "id": 2,
+          "emoji": "🏰",
+          "text": "Feudalismo: señores explotan a siervos (posesión de la tierra)"
+        },
+        {
+          "id": 3,
+          "emoji": "🏭",
+          "text": "Capitalismo: burguesía explota al proletariado (propiedad de fábricas)"
+        },
+        {
+          "id": 4,
+          "emoji": "✊",
+          "text": "Socialismo: el proletariado toma el poder y los medios de producción"
+        },
+        {
+          "id": 5,
+          "emoji": "🌍",
+          "text": "Comunismo: sociedad sin clases ni Estado, fin de la explotación"
+        }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "7",
+      "concepto_a": {
+        "nombre": "Socialismo Utópico",
+        "emoji": "🌸",
+        "color": "#10B981"
+      },
+      "concepto_b": {
+        "nombre": "Socialismo Científico (Marx)",
+        "emoji": "☭",
+        "color": "#EF4444"
+      }
+    }
+  },
+
+  "nucleo_c": {
+    "bloque_info": {
+      "id": "c",
+      "emoji": "🏛️",
+      "titulo": "BLOQUE C: Crisis de 1929, Keynes y Estado de Bienestar",
+      "color": "#8B5CF6",
+      "paginas": [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los eventos del período de entreguerras y la posguerra:",
+      "paginas_referencia": "13-22",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "💥",
+          "text": "1919-23: Reconstrucción caótica, hiperinflación en Alemania"
+        },
+        {
+          "id": 1,
+          "emoji": "🎷",
+          "text": "1924-28: 'Locos años veinte', prosperidad frágil y especulación"
+        },
+        {
+          "id": 2,
+          "emoji": "📉",
+          "text": "Octubre 1929: Crack de Wall Street — el capitalismo colapsa"
+        },
+        {
+          "id": 3,
+          "emoji": "🏗️",
+          "text": "1933: New Deal de Roosevelt — el Estado interviene masivamente"
+        },
+        {
+          "id": 4,
+          "emoji": "📖",
+          "text": "1936: Keynes publica su Teoría General del Empleo"
+        },
+        {
+          "id": 5,
+          "emoji": "🏥",
+          "text": "1945-75: 'Los 30 gloriosos' — Estado de Bienestar en Europa Occidental"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4, 5]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada medida según sea parte del New Deal o del Estado de Bienestar europeo:",
+      "paginas_referencia": "15, 20-21",
+      "categorias": [
+        {
+          "name": "New Deal (Roosevelt, EE.UU. 1933)",
+          "emoji": "🇺🇸",
+          "color": "#3B82F6"
+        },
+        {
+          "name": "Estado de Bienestar (Europa, 1945-75)",
+          "emoji": "🇬🇧",
+          "color": "#8B5CF6"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Works Progress Administration: 8,5 millones empleados en obras públicas",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Servicio Nacional de Salud (NHS) británico: atención médica universal y gratuita",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Ley Wagner: derecho a sindicalizarse y a la negociación colectiva",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "Educación universitaria gratuita para todos los ciudadanos",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Seguro de depósitos bancarios (FDIC) para proteger los ahorros",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Sistema de jubilaciones que garantiza ingresos dignos a personas mayores",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "17-18",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "Para Keynes, el motor de la economía no es la oferta sino la",
+          "respuesta_correcta": "demanda efectiva",
+          "pista": "D______ E_______"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "Cuando el Estado gasta más de lo que recauda, incurre en",
+          "respuesta_correcta": "déficit fiscal",
+          "pista": "D______ F_____"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "La combinación de inflación alta con estancamiento y desempleo se llama",
+          "respuesta_correcta": "estanflación",
+          "pista": "E___________"
+        }
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "13-22",
+      "afirmaciones": [
+        {
+          "texto": "Para la economía clásica, si hay recesión el mercado se recupera solo sin necesidad del Estado",
+          "correcto": true,
+          "explicacion": "Verdadero. El laissez-faire clásico sostenía que los mercados se autorregulan: si hay desempleo, los salarios bajan hasta que todos encuentren trabajo. Keynes refutó esto argumentando que los mercados pueden quedar atrapados en equilibrios de bajo empleo indefinidamente."
+        },
+        {
+          "texto": "El New Deal eliminó completamente el desempleo en Estados Unidos hacia 1937",
+          "correcto": false,
+          "explicacion": "Falso. El New Deal redujo el desempleo del 25% al 14%, pero en 1938 todavía era del 19%. Fue la Segunda Guerra Mundial, no el New Deal, lo que sacó a EE.UU. de la depresión."
+        },
+        {
+          "texto": "El Estado de Bienestar tiene una lógica económica keynesiana: sostiene la demanda efectiva de manera permanente",
+          "correcto": true,
+          "explicacion": "Verdadero. Los economistas llaman a estos gastos 'estabilizadores automáticos': cuando sube el desempleo, el seguro de desempleo paga más automáticamente, sosteniendo el consumo. Es un keynesianismo institucionalizado."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "17-18",
+      "pares": [
+        {
+          "izquierda": "Demanda efectiva",
+          "derecha": "El nivel real de gasto en la economía; su caída causa las recesiones",
+          "emoji": "🛒"
+        },
+        {
+          "izquierda": "Multiplicador keynesiano",
+          "derecha": "Un peso de gasto público genera más de un peso de actividad total",
+          "emoji": "✖️"
+        },
+        {
+          "izquierda": "Paradoja del ahorro",
+          "derecha": "Lo que es racional para cada individuo (ahorrar) es desastroso para el conjunto",
+          "emoji": "🏦"
+        },
+        {
+          "izquierda": "Estabilizadores automáticos",
+          "derecha": "Gastos del Estado que sostienen el consumo durante recesiones sin decisiones especiales",
+          "emoji": "⚡"
+        }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "14-18",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "💥",
+          "pregunta": "¿Cuál NO fue una causa estructural del Crack de 1929?",
+          "paginas": "14",
+          "palabras": [
+            {
+              "text": "Salarios bajos que no alcanzaban para consumir toda la producción",
+              "es_intrusa": false
+            },
+            {
+              "text": "Especulación bursátil con crédito fácil",
+              "es_intrusa": false
+            },
+            {
+              "text": "Exceso de ahorro privado y poca deuda",
+              "es_intrusa": true
+            },
+            {
+              "text": "Superproducción industrial sin demanda suficiente",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "El problema fue exactamente lo contrario: EXCESO de deuda privada, no poco endeudamiento. Los 'locos años veinte' se caracterizaron por crédito fácil y compra especulativa de acciones con deuda."
+        },
+        {
+          "id": 1,
+          "emoji": "🏛️",
+          "pregunta": "¿Cuál NO es un pilar clásico del Estado de Bienestar?",
+          "paginas": "21",
+          "palabras": [
+            {
+              "text": "Salud pública universal y gratuita",
+              "es_intrusa": false
+            },
+            {
+              "text": "Educación universal obligatoria",
+              "es_intrusa": false
+            },
+            {
+              "text": "Privatización de empresas estatales",
+              "es_intrusa": true
+            },
+            {
+              "text": "Seguro de desempleo y jubilaciones",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "La privatización de empresas es una política NEOLIBERAL (post-1980), opuesta al Estado de Bienestar. Los pilares del bienestar son: salud, educación, jubilaciones, seguro de desempleo y vivienda social."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "17-22",
+      "conceptos": [
+        {
+          "termino": "Demanda efectiva",
+          "pista": "¿Por qué Keynes decía que el problema de la economía es la falta de gasto, no de producción?",
+          "palabras_clave": ["gasto", "consumo", "comprar", "economía", "caída", "recesión"]
+        },
+        {
+          "termino": "Estado de Bienestar",
+          "pista": "¿Qué garantía le da el Estado a todos los ciudadanos en este modelo?",
+          "palabras_clave": ["derechos", "salud", "educación", "jubilación", "universal", "social"]
+        },
+        {
+          "termino": "Déficit fiscal contracíclico",
+          "pista": "¿Cuándo y para qué puede gastar más de lo que recauda el Estado según Keynes?",
+          "palabras_clave": ["crisis", "gasto", "recaudación", "inversión", "deuda", "reactivar"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "13-22",
+      "causas": [
+        {
+          "id": 1,
+          "emoji": "📈",
+          "text": "Especulación bursátil: todos compran acciones con crédito apostando a que subirán"
+        },
+        {
+          "id": 2,
+          "emoji": "💵",
+          "text": "El Estado aumenta el gasto público en obras y programas sociales"
+        },
+        {
+          "id": 3,
+          "emoji": "🛢️",
+          "text": "Crisis del petróleo de 1973: la OPEP triplica el precio del crudo"
+        },
+        {
+          "id": 4,
+          "emoji": "🏥",
+          "text": "Miedo al comunismo tras la Revolución Rusa"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "📉",
+          "text": "Crack de 1929: pánico, quiebra de bancos y colapso de la economía real"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "✖️",
+          "text": "Efecto multiplicador: un peso genera más de un peso de actividad total"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "📊",
+          "text": "Estanflación: inflación alta + estancamiento económico = crisis del keynesianismo"
+        },
+        {
+          "id": 4,
+          "causa_id": 4,
+          "emoji": "🏛️",
+          "text": "Las élites aceptan el Estado de Bienestar para evitar revoluciones socialistas"
+        }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená cómo funciona el multiplicador keynesiano del gasto público:",
+      "paginas_referencia": "18",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 1,
+          "emoji": "🏗️",
+          "text": "El Estado gasta en una obra pública (escuela, ruta, hospital)"
+        },
+        {
+          "id": 2,
+          "emoji": "👷",
+          "text": "Se emplean trabajadores que antes estaban desocupados"
+        },
+        {
+          "id": 3,
+          "emoji": "🛒",
+          "text": "Los trabajadores cobran y gastan sus salarios en la economía local"
+        },
+        {
+          "id": 4,
+          "emoji": "🏪",
+          "text": "Los comercios y negocios reciben más ingresos y contratan más personal"
+        },
+        {
+          "id": 5,
+          "emoji": "📈",
+          "text": "La economía crece más de lo que costó la inversión original"
+        }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "24",
+      "concepto_a": {
+        "nombre": "Karl Marx",
+        "emoji": "☭",
+        "color": "#EF4444"
+      },
+      "concepto_b": {
+        "nombre": "John M. Keynes",
+        "emoji": "🏛️",
+        "color": "#8B5CF6"
+      }
+    }
+  },
+
+  "evaluacion": {
+    "multiple_choice": [
+      {
+        "pregunta": "¿Cuál fue la principal innovación organizativa de la Segunda Revolución Industrial?",
+        "opciones": [
+          "La máquina de vapor y los telares mecánicos",
+          "El taylorismo y la organización científica del trabajo",
+          "El patrón oro y el libre comercio",
+          "Los sindicatos y el derecho de huelga"
+        ],
+        "correcta": 1,
+        "explicacion": "El taylorismo (y luego el fordismo) fueron las innovaciones organizativas clave: fragmentaron el trabajo en tareas repetitivas, separaron concepción de ejecución y aumentaron enormemente la productividad. Repasá la página 3."
+      },
+      {
+        "pregunta": "¿De dónde sale la ganancia del capitalista según la teoría de Marx?",
+        "opciones": [
+          "De cobrar precios más altos que los costos de producción",
+          "Del riesgo empresarial asumido al invertir capital",
+          "De la plusvalía: valor producido por el obrero que supera su salario",
+          "De la eficiencia en la gestión de recursos escasos"
+        ],
+        "correcta": 2,
+        "explicacion": "Para Marx, la ganancia capitalista es la PLUSVALÍA: el obrero trabaja más horas de las necesarias para cubrir su salario. Esas horas extras son valor apropiado por el capitalista sin pago. Repasá las páginas 7-8."
+      },
+      {
+        "pregunta": "¿Qué propuso Keynes como solución a las crisis económicas?",
+        "opciones": [
+          "Eliminar el Estado y dejar que el mercado se autorregule",
+          "Abolir la propiedad privada y planificar centralmente",
+          "Que el Estado aumente el gasto público para sostener la demanda efectiva",
+          "Volver al patrón oro y la estabilidad monetaria clásica"
+        ],
+        "correcta": 2,
+        "explicacion": "Keynes argumentó que cuando el sector privado no genera demanda suficiente, el Estado debe compensar aumentando el gasto público, aunque implique déficit fiscal. El Estado actúa como 'demandante de última instancia'. Repasá la página 17."
+      },
+      {
+        "pregunta": "¿Cuál fue el detonante inmediato de la Revolución de Febrero de 1917 en Rusia?",
+        "opciones": [
+          "El regreso de Lenin desde su exilio en Suiza",
+          "Obreras de Petrogrado salieron a reclamar pan y el ejército se negó a reprimirlas",
+          "Un golpe de Estado organizado por los bolcheviques",
+          "La derrota militar rusa en la Primera Guerra Mundial"
+        ],
+        "correcta": 1,
+        "explicacion": "La Revolución de Febrero comenzó con obreras de Petrogrado reclamando pan. La movilización se extendió y el ejército se negó a disparar contra el pueblo. Fue espontánea, a diferencia de la Revolución de Octubre que fue organizada. Repasá la página 10."
+      },
+      {
+        "pregunta": "¿Qué es la 'paradoja del ahorro' de Keynes?",
+        "opciones": [
+          "Ahorrar es siempre beneficioso tanto para los individuos como para la economía",
+          "El Estado nunca debe ahorrar durante las crisis económicas",
+          "Lo que es racional para cada individuo (ahorrar en crisis) es desastroso para todos en conjunto",
+          "Los países ricos ahorran más porque producen más eficientemente"
+        ],
+        "correcta": 2,
+        "explicacion": "La paradoja: si en una crisis todos ahorran racionalmente, nadie gasta, la economía se contrae más, hay más desempleo y menos consumo. La suma de decisiones individuales sensatas produce un resultado colectivo absurdo. Repasá la página 17."
+      },
+      {
+        "pregunta": "¿Cuál es la diferencia fundamental entre Marx y Keynes respecto al capitalismo?",
+        "opciones": [
+          "Marx creía en el libre mercado; Keynes creía en la planificación central",
+          "Marx creía que el capitalismo es irreformable; Keynes que puede ser corregido con intervención estatal",
+          "Marx quería destruir el Estado; Keynes quería fortalecerlo para controlar a los trabajadores",
+          "Ambos proponían exactamente lo mismo: más intervención estatal en la economía"
+        ],
+        "correcta": 1,
+        "explicacion": "Diferencia clave: para Marx el capitalismo explota ESTRUCTURALMENTE y no puede reformarse (necesita revolución). Para Keynes el capitalismo tiende a crisis por falta de demanda, pero PUEDE ser corregido con política fiscal activa. Repasá la página 24."
+      }
+    ],
+    "verdadero_falso": [
+      {
+        "texto": "Para Keynes, el déficit fiscal durante una crisis es siempre negativo y debe evitarse",
+        "correcto": false,
+        "explicacion": "FALSO. Para Keynes el déficit fiscal CONTRACÍCLICO es necesario y positivo durante las crisis: el Estado gasta más de lo que recauda para estimular la economía. Endeudarse para invertir en una crisis es muy diferente a endeudarse en una bonanza. Repasá la página 18."
+      },
+      {
+        "texto": "El Estado de Bienestar surgió en parte por el miedo de las élites occidentales al comunismo",
+        "correcto": true,
+        "explicacion": "VERDADERO. La Revolución Rusa aterrizó a las élites europeas. Para sostener la legitimidad del capitalismo, los gobiernos aceptaron concesiones impensables antes: jornada de 8 horas, jubilaciones, salud pública. Como dice el apunte: 'Sin Marx, quizás no habría habido Keynes aplicado.' Página 12."
+      },
+      {
+        "texto": "La alienación del trabajo en Marx se refiere solo a los bajos salarios que recibe el obrero",
+        "correcto": false,
+        "explicacion": "FALSO. La alienación va MÁS ALLÁ del salario: el trabajador no decide qué producir, no diseña el producto, no posee lo que fabrica. La fuerza creadora humana queda reducida a una operación mecánica sin sentido. Es un problema existencial y humano, no solo económico. Repasá la página 9."
+      },
+      {
+        "texto": "La estanflación de los años 70 desafió al keynesianismo porque combinaba inflación y estancamiento simultáneamente",
+        "correcto": true,
+        "explicacion": "VERDADERO. La teoría keynesiana funcionaba bien en contextos de baja inflación. Pero cuando la crisis de 1973 vino con inflación, aumentar el gasto público agravaba el problema inflacionario sin resolver el desempleo. La estanflación fue el talón de Aquiles del keynesianismo. Página 22."
+      },
+      {
+        "texto": "El New Deal de Roosevelt fue un plan completamente coherente e ideológico desde el principio",
+        "correcto": false,
+        "explicacion": "FALSO. El New Deal fue una serie de EXPERIMENTOS, algunos exitosos y otros abandonados, que reflejaban la urgencia de la situación. Su coherencia era más política que técnica. Roosevelt era un político pragmático que probaba lo que fuera necesario. Repasá la página 15."
+      }
+    ]
+  },
+
+  "cierre": {
+    "glosario": [
+      {
+        "emoji": "⚙️",
+        "termino": "Taylorismo",
+        "categoria": "Organización del trabajo",
+        "definicion": "Sistema de Frederick Taylor que fragmenta el trabajo en tareas cronometradas y repetitivas, separando la concepción (ingenieros) de la ejecución (obreros). Base de la producción industrial masiva."
+      },
+      {
+        "emoji": "🚗",
+        "termino": "Fordismo",
+        "categoria": "Organización del trabajo",
+        "definicion": "Sistema de Henry Ford: cadena de montaje + salarios suficientes para que los propios obreros consuman lo que producen. Producción en masa para un consumo en masa."
+      },
+      {
+        "emoji": "📦",
+        "termino": "Superproducción",
+        "categoria": "Crisis económica",
+        "definicion": "Crisis del capitalismo en que la capacidad productiva supera la demanda efectiva del mercado. Motor de las crisis de 1873 y 1929. Paradoja: hay producción pero la gente no puede comprarla."
+      },
+      {
+        "emoji": "💰",
+        "termino": "Plusvalía",
+        "categoria": "Análisis marxista",
+        "definicion": "Para Marx, el valor producido por el trabajador que supera su salario y es apropiado por el capitalista sin pago. Es el origen de la ganancia y de la explotación estructural del capitalismo."
+      },
+      {
+        "emoji": "✊",
+        "termino": "Lucha de clases",
+        "categoria": "Análisis marxista",
+        "definicion": "Motor de la historia según Marx: el conflicto entre la clase propietaria de los medios de producción (burguesía) y la clase que solo posee su fuerza de trabajo (proletariado)."
+      },
+      {
+        "emoji": "🔗",
+        "termino": "Alienación",
+        "categoria": "Análisis marxista",
+        "definicion": "Proceso por el cual el trabajador se vuelve ajeno a su propio trabajo, al producto que fabrica y a sus semejantes. La creatividad humana queda reducida a una operación mecánica sin sentido."
+      },
+      {
+        "emoji": "🛒",
+        "termino": "Demanda efectiva",
+        "categoria": "Keynesianismo",
+        "definicion": "Para Keynes, el nivel real de gasto en la economía. Su caída es la causa de las recesiones. El Estado debe sostenerla cuando el sector privado no puede hacerlo."
+      },
+      {
+        "emoji": "✖️",
+        "termino": "Multiplicador keynesiano",
+        "categoria": "Keynesianismo",
+        "definicion": "Efecto por el cual cada peso de gasto público genera más de un peso de actividad económica, al propagarse en cadena a través del consumo y la producción."
+      },
+      {
+        "emoji": "📊",
+        "termino": "Déficit fiscal contracíclico",
+        "categoria": "Keynesianismo",
+        "definicion": "Situación en que el Estado gasta más de lo que recauda durante una crisis para estimular la economía. Para Keynes es aceptable e incluso necesario en períodos de recesión."
+      },
+      {
+        "emoji": "🏛️",
+        "termino": "Estado de Bienestar",
+        "categoria": "Política económica",
+        "definicion": "Modelo en que el Estado garantiza derechos sociales básicos (salud, educación, jubilación, desempleo) a todos los ciudadanos, independientemente de su posición en el mercado."
+      },
+      {
+        "emoji": "⭐",
+        "termino": "Soviet",
+        "categoria": "Historia política",
+        "definicion": "Consejo de obreros, soldados y campesinos. Surgió en la Revolución Rusa de 1917. Para los bolcheviques era la forma concreta del poder popular. La URSS tomó su nombre de esta institución."
+      },
+      {
+        "emoji": "📉",
+        "termino": "Estanflación",
+        "categoria": "Crisis económica",
+        "definicion": "Combinación inusual de inflación alta y estancamiento económico con desempleo. Crisis de los años 70 que desafió al keynesianismo y abrió paso al neoliberalismo."
+      },
+      {
+        "emoji": "🏢",
+        "termino": "New Deal",
+        "categoria": "Política económica",
+        "definicion": "Conjunto de políticas intervencionistas de Roosevelt (EE.UU., 1933-1938) que marcó el fin del laissez-faire: obras públicas, reforma bancaria, derechos laborales y seguridad social."
+      },
+      {
+        "emoji": "🌐",
+        "termino": "Neoliberalismo",
+        "categoria": "Política económica",
+        "definicion": "Doctrina económica de los años 80 (Thatcher, Reagan) que retomó el liberalismo clásico: privatización, desregulación, reducción del gasto público y debilitamiento de sindicatos."
+      },
+      {
+        "emoji": "📖",
+        "termino": "Laissez-faire",
+        "categoria": "Doctrina económica",
+        "definicion": "Principio liberal clásico que sostiene que el Estado no debe intervenir en la economía: el mercado se autorregula espontáneamente. Cuestionado por las crisis de 1873, 1929 y la teoría keynesiana."
+      },
+      {
+        "emoji": "📊",
+        "termino": "Deflación",
+        "categoria": "Fenómeno económico",
+        "definicion": "Caída generalizada del nivel de precios. Puede ser muy destructiva: incentiva a posponer compras, genera espirales recesivas y aumenta el peso real de las deudas."
+      }
+    ],
+    "recursos": [
+      {
+        "tipo": "🎬 Película",
+        "title": "Las uvas de la ira (John Ford, 1940)",
+        "desc": "Adaptación de la novela de Steinbeck sobre la Gran Depresión. Muestra la migración de familias rurales arruinadas por la crisis de 1929",
+        "nivel": "Introductorio",
+        "color": "#EF4444"
+      },
+      {
+        "tipo": "📖 Novela",
+        "title": "Las uvas de la ira - John Steinbeck (1939)",
+        "desc": "Novela sobre la Gran Depresión vista desde adentro: la experiencia humana de la crisis, el desempleo y la migración forzada",
+        "nivel": "Introductorio",
+        "color": "#F59E0B"
+      },
+      {
+        "tipo": "📖 Libro",
+        "title": "Manifiesto Comunista - Marx y Engels (1848)",
+        "desc": "Breve, directo y aún sorprendentemente vigente. El texto más influyente del siglo XIX: análisis del capitalismo y llamado a la acción obrera",
+        "nivel": "Intermedio",
+        "color": "#EF4444"
+      },
+      {
+        "tipo": "📖 Libro",
+        "title": "Historia del siglo XX - Eric Hobsbawm",
+        "desc": "Análisis magistral del período 1914-1991: guerras, crisis, revoluciones y el fin de la URSS. Uno de los mejores libros de historia económica del siglo XX",
+        "nivel": "Avanzado",
+        "color": "#8B5CF6"
+      },
+      {
+        "tipo": "🌐 Web",
+        "title": "Khan Academy - La Gran Depresión",
+        "desc": "Videos y ejercicios en español sobre la crisis de 1929, el New Deal y el pensamiento keynesiano. Gratuito y muy didáctico",
+        "nivel": "Introductorio",
+        "color": "#0EA5E9"
+      },
+      {
+        "tipo": "🎧 Documental",
+        "title": "La Revolución Rusa - YouTube Edu",
+        "desc": "Documentales sobre las dos revoluciones de 1917, la guerra civil y la construcción de la URSS. Buscar '1917 revolución rusa documental' en YouTube",
+        "nivel": "Introductorio",
+        "color": "#0F766E"
+      }
+    ]
+  }
+}
