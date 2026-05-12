@@ -280,7 +280,43 @@ html,body{min-height:100vh;background:#0F172A !important;color:#E2E8F0;overflow-
   border-radius: 6px;
   transition: transform 0.2s, background 0.2s;
 }
-.emoji-btn:hover { transform: scale(1.3); background: rgba(255,255,255,0.1); }
+.pizarra-display { line-height: 1.6; }
+.pizarra-act-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  padding: 14px 18px;
+  border-radius: 14px;
+  color: #fff !important;
+  text-decoration: none !important;
+  margin: 12px 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.pizarra-act-btn:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: #6366F1;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.2);
+}
+.pizarra-act-btn .act-icon {
+  font-size: 24px;
+  background: #6366F1;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+.pizarra-act-btn .act-info { display: flex; flex-direction: column; text-align: left; }
+.pizarra-act-btn .act-title { font-weight: 800; font-size: 14px; color: #fff; }
+.pizarra-act-btn .act-sub { font-size: 11px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.5px; }
+
+.pizarra-link { color: #818CF8; text-decoration: underline; font-weight: 600; }
 
 
 </style>
@@ -915,6 +951,7 @@ async function cargarPizarra() {
     
     if (esDocente) {
       card.innerHTML = `
+        <div style="font-size:11px;color:rgba(255,255,255,0.4);margin-bottom:8px;text-align:right">Tip: Usá [ACT: archivo.pdf] para crear un botón de descarga</div>
         <textarea id="pizarraInput" class="pizarra-textarea" placeholder="Escribí acá las instrucciones para tus alumnos...">${contenido}</textarea>
         <div id="reaccionesList" class="reacciones-list">${renderReacciones(reaccionesData)}</div>
         <div class="pizarra-actions">
@@ -925,7 +962,7 @@ async function cargarPizarra() {
       `;
     } else {
       card.innerHTML = `
-        <div class="pizarra-display">${contenido ? contenido.replace(/\n/g, '<br>') : 'Aún no hay anuncios para hoy. ✨'}</div>
+        <div class="pizarra-display">${formatPizarraText(contenido || 'Aún no hay anuncios para hoy. ✨')}</div>
         <div class="reacciones-wrapper">
           <div id="reaccionesList" class="reacciones-list">${renderReacciones(reaccionesData)}</div>
           <div class="reacciones-picker">
@@ -940,6 +977,37 @@ async function cargarPizarra() {
     console.warn("Pizarra error (posiblemente falta tabla):", error);
     card.innerHTML = "<p style='color:#EF4444;font-size:12px;text-align:center'>Pizarra no disponible.</p>";
   }
+}
+
+function formatPizarraText(text) {
+  if(!text) return "";
+  
+  // 1. Escapar HTML básico para seguridad (opcional, pero recomendado)
+  var safe = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  
+  // 2. Detectar [ACT: archivo.pdf] -> Botón de Actividad
+  safe = safe.replace(/\[ACT:\s*(.*?)\]/gi, function(match, filename) {
+    var cleanName = filename.trim();
+    return `
+      <a href="act/${cleanName}" target="_blank" class="pizarra-act-btn">
+        <div class="act-icon">📄</div>
+        <div class="act-info">
+          <span class="act-title">${cleanName}</span>
+          <span class="act-sub">Actividad Extra / TP</span>
+        </div>
+        <div style="margin-left:auto; font-size:18px">⬇️</div>
+      </a>
+    `;
+  });
+  
+  // 3. Detectar URLs -> Links clickeables
+  var urlRegex = /(https?:\/\/[^\s]+)/g;
+  safe = safe.replace(urlRegex, function(url) {
+    return `<a href="${url}" target="_blank" class="pizarra-link">${url}</a>`;
+  });
+  
+  // 4. Saltos de línea
+  return safe.replace(/\n/g, "<br>");
 }
 
 async function guardarPizarra() {
