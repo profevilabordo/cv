@@ -1,0 +1,1692 @@
+{
+  "id": "eeso206_5d_ocl_u2",
+  "materia": "Orientación en Contextos Laborales",
+  "unidad": 2,
+  "titulo": "Tus derechos en el trabajo",
+  "emoji": "⚖️",
+  "color_primario": "#8B5CF6",
+  "color_secundario": "#EC4899",
+
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "📋",
+        "texto": "Si tu jefe te dijera 'trabajás 10 horas sin pago extra porque así conviene a la empresa', ¿sabés si eso es legal o ilegal?",
+        "pista": "El derecho laboral existe justamente para situaciones como esta. Conocer la ley es tu escudo..."
+      },
+      {
+        "emoji": "💰",
+        "texto": "¿Por qué creés que la Argentina reformó su ley laboral principal después de 50 años? ¿Quién ganó y quién perdió con ese cambio?",
+        "pista": "Detrás de cada reforma legal hay intereses en juego: empleadores, trabajadores, el Estado, la economía..."
+      },
+      {
+        "emoji": "🤔",
+        "texto": "Si trabajás como repartidor de Rappi o PedidosYa, ¿sos empleado o trabajador independiente? ¿Cambia algo esa diferencia?",
+        "pista": "La respuesta cambió con la nueva ley de 2026, y tiene consecuencias concretas en tus ingresos y protección..."
+      }
+    ],
+    "situaciones_conecta": [
+      {
+        "emoji": "📱",
+        "label": "Vi que alguien repartía en moto para una app y no tenía obra social"
+      },
+      {
+        "emoji": "👷",
+        "label": "Alguien de mi familia trabajaba 'en negro' y lo echaron sin indemnización"
+      },
+      {
+        "emoji": "📄",
+        "label": "Escuché en las noticias que aprobaron una 'ley de modernización laboral'"
+      },
+      {
+        "emoji": "⏰",
+        "label": "Me preguntaron si me importaría hacer horas extra sin pago adicional"
+      }
+    ],
+    "termometro_pregunta": "¿Qué tanto sabés sobre tus derechos laborales en Argentina?"
+  },
+
+  "mapa": {
+    "ruta_paradas": [
+      {
+        "id": 1,
+        "emoji": "🏛️",
+        "title": "La Ley 20.744 (LCT)",
+        "desc": "Principios protectorios, contrato de trabajo, jornada y salario",
+        "color": "#8B5CF6"
+      },
+      {
+        "id": 2,
+        "emoji": "📅",
+        "title": "Derechos en la relación laboral",
+        "desc": "Vacaciones, licencias, enfermedades y suspensiones",
+        "color": "#6366F1"
+      },
+      {
+        "id": 3,
+        "emoji": "💼",
+        "title": "Extinción del contrato",
+        "desc": "Tipos de despido, preaviso e indemnizaciones",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 4,
+        "emoji": "🆕",
+        "title": "La Ley 27.802 (Modernización)",
+        "desc": "Qué cambió: FAL, plataformas, banco de horas y más",
+        "color": "#10B981"
+      },
+      {
+        "id": 5,
+        "emoji": "⚖️",
+        "title": "Comparación y debate",
+        "desc": "14 ejes de cambio entre la LCT histórica y la reforma 2026",
+        "color": "#EC4899"
+      }
+    ],
+
+    "panoramica_bloques": [
+      {
+        "id": "a",
+        "emoji": "🏛️",
+        "title": "BLOQUE A",
+        "subtitle": "La LCT: principios y contrato",
+        "color": "#8B5CF6",
+        "items": [
+          "Principio protectorio e in dubio pro operario",
+          "Principio de irrenunciabilidad",
+          "Principio de primacía de la realidad",
+          "Principio de gratuidad y justicia social",
+          "Contrato de trabajo: concepto y dependencia",
+          "Modalidades de contratación (tiempo indeterminado, eventual, temporada)",
+          "Jornada, remuneración y período de prueba"
+        ]
+      },
+      {
+        "id": "b",
+        "emoji": "📅",
+        "title": "BLOQUE B",
+        "subtitle": "Derechos durante la relación laboral",
+        "color": "#3B82F6",
+        "items": [
+          "Vacaciones según antigüedad (14/21/28/35 días)",
+          "Licencias especiales: matrimonio, nacimiento, fallecimiento",
+          "Enfermedades inculpables: licencia paga y plazos",
+          "Suspensión del contrato: causas y plazos máximos",
+          "SAC (aguinaldo): qué es y cuándo se paga",
+          "Horas extra: recargos del 50% y 100%",
+          "Registración laboral: empleo en blanco vs en negro"
+        ]
+      },
+      {
+        "id": "c",
+        "emoji": "⚖️",
+        "title": "BLOQUE C",
+        "subtitle": "Extinción, reforma y comparación",
+        "color": "#EC4899",
+        "items": [
+          "Tipos de despido: sin causa, con causa, indirecto",
+          "Indemnización por antigüedad (art. 245)",
+          "Preaviso e integración del mes de despido",
+          "Ley 27.802: filosofía de la reforma laboral 2026",
+          "Banco de horas y jornada por promedio",
+          "Trabajadores de plataformas digitales",
+          "Fondo de Asistencia Laboral (FAL)"
+        ]
+      }
+    ],
+
+    "mapa_mental": {
+      "centro": {
+        "emoji": "⚖️",
+        "title": "DERECHO LABORAL"
+      },
+      "ramas": [
+        {
+          "id": "principios",
+          "emoji": "🛡️",
+          "title": "Principios",
+          "color": "#8B5CF6",
+          "items": [
+            "Protectorio (in dubio pro operario)",
+            "Irrenunciabilidad",
+            "Primacía de la realidad",
+            "Gratuidad"
+          ]
+        },
+        {
+          "id": "contrato",
+          "emoji": "📋",
+          "title": "Contrato de trabajo",
+          "color": "#6366F1",
+          "items": [
+            "Dependencia jurídica, económica, técnica",
+            "Tiempo indeterminado (regla)",
+            "Eventual, temporada, plazo fijo (excepciones)",
+            "Período de prueba: 6 meses"
+          ]
+        },
+        {
+          "id": "derechos",
+          "emoji": "✅",
+          "title": "Derechos del trabajador",
+          "color": "#10B981",
+          "items": [
+            "Jornada máxima: 8hs/48hs",
+            "Vacaciones pagas",
+            "SAC (aguinaldo)",
+            "Licencias especiales"
+          ]
+        },
+        {
+          "id": "reforma",
+          "emoji": "🆕",
+          "title": "Reforma 2026",
+          "color": "#EC4899",
+          "items": [
+            "Banco de horas",
+            "FAL (fondo de indemnización)",
+            "Plataformas digitales independientes",
+            "Cambios en indemnización art. 245"
+          ]
+        }
+      ]
+    }
+  },
+
+  "nucleo_a": {
+    "bloque_info": {
+      "id": "a",
+      "emoji": "🏛️",
+      "titulo": "BLOQUE A: La LCT — principios y contrato de trabajo",
+      "color": "#8B5CF6",
+      "paginas": [3, 4, 5, 6, 7, 8, 9]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená la jerarquía de normas que protegen al trabajador argentino, de mayor a menor rango:",
+      "paginas_referencia": "3",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "🏛️",
+          "text": "Constitución Nacional (art. 14 bis) y Convenios OIT"
+        },
+        {
+          "id": 1,
+          "emoji": "📜",
+          "text": "Leyes nacionales (LCT 20.744, Ley 27.802)"
+        },
+        {
+          "id": 2,
+          "emoji": "🤝",
+          "text": "Convenios Colectivos de Trabajo (CCT)"
+        },
+        {
+          "id": 3,
+          "emoji": "📋",
+          "text": "Contrato individual de trabajo"
+        },
+        {
+          "id": 4,
+          "emoji": "💬",
+          "text": "Usos y costumbres de la empresa"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada concepto según corresponda a un principio del derecho laboral:",
+      "paginas_referencia": "4-5",
+      "categorias": [
+        {
+          "name": "Principio Protectorio",
+          "emoji": "🛡️",
+          "color": "#8B5CF6"
+        },
+        {
+          "name": "Primacía de la Realidad",
+          "emoji": "👁️",
+          "color": "#EC4899"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "En caso de duda, se aplica la norma más favorable al trabajador",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Si los hechos muestran relación laboral, no importa que el papel diga 'monotributista'",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Una vez adquirida una condición favorable, no puede reducirse unilateralmente",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "Lo que importa es lo que ocurre en la práctica, no lo que dicen los contratos",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "In dubio pro operario",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Un 'locador de servicios' con horario fijo y órdenes es en realidad un empleado",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "4-8",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "El principio que dice que el trabajador no puede renunciar a sus derechos, aunque lo firme, se llama principio de",
+          "respuesta_correcta": "irrenunciabilidad",
+          "pista": "I______________"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "La jornada máxima legal en Argentina es de",
+          "respuesta_correcta": "8 horas diarias o 48 semanales",
+          "pista": "_ horas diarias o __ semanales"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "El período de prueba en un contrato por tiempo indeterminado dura",
+          "respuesta_correcta": "6 meses",
+          "pista": "_ meses"
+        }
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "4-9",
+      "afirmaciones": [
+        {
+          "texto": "Si un trabajador firma un papel renunciando a sus vacaciones a cambio de dinero, ese acuerdo es válido",
+          "correcto": false,
+          "explicacion": "Falso. Por el principio de irrenunciabilidad, los derechos laborales no pueden cederse aunque el trabajador lo firme. Las vacaciones son irrenunciables: no pueden 'cambiarse por plata'."
+        },
+        {
+          "texto": "Un contrato de trabajo se presume por tiempo indeterminado salvo que se demuestre lo contrario",
+          "correcto": true,
+          "explicacion": "Verdadero. El principio de continuidad establece que el contrato es por tiempo indeterminado como regla general. Los contratos de plazo fijo o eventuales son la excepción y deben justificarse."
+        },
+        {
+          "texto": "Si trabajás de noche (entre 21 y 6 hs), podés trabajar 8 horas como en el turno diurno",
+          "correcto": false,
+          "explicacion": "Falso. La jornada nocturna tiene un máximo de 7 horas diarias, no 8, justamente porque el trabajo nocturno es más desgastante para el organismo."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "4-7",
+      "pares": [
+        {
+          "izquierda": "Dependencia jurídica",
+          "derecha": "El trabajador cumple órdenes y directivas del empleador",
+          "emoji": "📋"
+        },
+        {
+          "izquierda": "Dependencia económica",
+          "derecha": "El trabajador vive de lo que cobra; no asume riesgos propios",
+          "emoji": "💰"
+        },
+        {
+          "izquierda": "Dependencia técnica",
+          "derecha": "El trabajador usa herramientas y métodos del empleador",
+          "emoji": "🔧"
+        },
+        {
+          "izquierda": "Principio de gratuidad",
+          "derecha": "El trabajador accede a la justicia laboral sin pagar tasas",
+          "emoji": "⚖️"
+        }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "consigna": "Encontrá la palabra intrusa en cada grupo",
+      "paginas_referencia": "4-5",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🛡️",
+          "pregunta": "¿Cuál NO es una manifestación del principio protectorio?",
+          "paginas": "4",
+          "palabras": [
+            {
+              "text": "In dubio pro operario",
+              "es_intrusa": false
+            },
+            {
+              "text": "Norma más favorable",
+              "es_intrusa": false
+            },
+            {
+              "text": "Pluspetición inexcusable",
+              "es_intrusa": true
+            },
+            {
+              "text": "Condición más beneficiosa",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "La pluspetición inexcusable es una figura de la Ley 27.802 que en realidad LIMITA el principio de gratuidad, sancionando al trabajador que reclama de más. No forma parte del principio protectorio clásico."
+        },
+        {
+          "id": 1,
+          "emoji": "📋",
+          "pregunta": "¿Cuál NO es una modalidad de contratación laboral?",
+          "paginas": "7",
+          "palabras": [
+            {
+              "text": "Tiempo indeterminado",
+              "es_intrusa": false
+            },
+            {
+              "text": "Contrato eventual",
+              "es_intrusa": false
+            },
+            {
+              "text": "Contrato freelance",
+              "es_intrusa": true
+            },
+            {
+              "text": "Trabajo de temporada",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "El contrato freelance no es una modalidad de la LCT. Las modalidades reconocidas son: tiempo indeterminado, plazo fijo, eventual y temporada. El trabajo freelance es independiente y no genera relación de dependencia."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "4-8",
+      "conceptos": [
+        {
+          "termino": "Principio protectorio",
+          "pista": "¿Cómo se llama el principio que 'compensa' la desigualdad entre el empleador y el trabajador?",
+          "palabras_clave": ["proteger", "desigualdad", "débil", "favorable", "duda", "operario", "trabajador"]
+        },
+        {
+          "termino": "Primacía de la realidad",
+          "pista": "¿Qué principio dice que lo que importa es lo que pasa en los hechos, no lo que dicen los papeles?",
+          "palabras_clave": ["realidad", "hechos", "fraude", "papeles", "encubierta", "dependencia", "práctica"]
+        },
+        {
+          "termino": "Contrato de trabajo",
+          "pista": "¿Qué tipo de acuerdo existe cuando una persona presta servicios bajo dependencia de otra a cambio de una remuneración?",
+          "palabras_clave": ["dependencia", "remuneración", "servicio", "empleador", "trabajador", "órdenes", "salario"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "4-8",
+      "causas": [
+        {
+          "id": 0,
+          "emoji": "🤥",
+          "text": "Una empresa contrata a alguien como 'monotributista' pero le da horario, órdenes y lo trata como empleado"
+        },
+        {
+          "id": 1,
+          "emoji": "📝",
+          "text": "Un trabajador firma un papel renunciando a su derecho de cobrar horas extra"
+        },
+        {
+          "id": 2,
+          "emoji": "⚖️",
+          "text": "Una norma del convenio colectivo da más beneficios que la LCT"
+        },
+        {
+          "id": 3,
+          "emoji": "❓",
+          "text": "Una ley laboral tiene dos interpretaciones posibles"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 0,
+          "causa_id": 0,
+          "emoji": "🚨",
+          "text": "La justicia puede declarar que existe una relación laboral encubierta (primacía de la realidad)"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "❌",
+          "text": "Ese acuerdo es nulo; no tiene validez jurídica (irrenunciabilidad)"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "✅",
+          "text": "Se aplica el convenio colectivo, no la LCT (norma más favorable)"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "🛡️",
+          "text": "Se aplica la interpretación más favorable al trabajador (in dubio pro operario)"
+        }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos que sigue la justicia cuando hay un conflicto laboral dudoso:",
+      "paginas_referencia": "4-5",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 0,
+          "emoji": "📋",
+          "text": "Revisar qué dicen los contratos y documentos"
+        },
+        {
+          "id": 1,
+          "emoji": "👁️",
+          "text": "Analizar qué ocurrió en la realidad de los hechos"
+        },
+        {
+          "id": 2,
+          "emoji": "⚖️",
+          "text": "Aplicar primacía de la realidad si hay contradicción"
+        },
+        {
+          "id": 3,
+          "emoji": "❓",
+          "text": "Si queda duda, aplicar in dubio pro operario"
+        },
+        {
+          "id": 4,
+          "emoji": "🛡️",
+          "text": "Usar la norma más favorable para el trabajador"
+        }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "4-5",
+      "concepto_a": {
+        "nombre": "Principio Protectorio",
+        "emoji": "🛡️",
+        "color": "#8B5CF6"
+      },
+      "concepto_b": {
+        "nombre": "Primacía de la Realidad",
+        "emoji": "👁️",
+        "color": "#EC4899"
+      }
+    }
+  },
+
+  "nucleo_b": {
+    "bloque_info": {
+      "id": "b",
+      "emoji": "📅",
+      "titulo": "BLOQUE B: Derechos durante la relación laboral",
+      "color": "#3B82F6",
+      "paginas": [5, 6, 7, 8, 9, 10, 11, 12]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los días de vacaciones de menor a mayor según la antigüedad del trabajador:",
+      "paginas_referencia": "6",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "🌴",
+          "text": "14 días corridos — hasta 5 años de antigüedad"
+        },
+        {
+          "id": 1,
+          "emoji": "🌴🌴",
+          "text": "21 días corridos — de 5 a 10 años de antigüedad"
+        },
+        {
+          "id": 2,
+          "emoji": "🌴🌴🌴",
+          "text": "28 días corridos — de 10 a 20 años de antigüedad"
+        },
+        {
+          "id": 3,
+          "emoji": "🌴🌴🌴🌴",
+          "text": "35 días corridos — más de 20 años de antigüedad"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada licencia especial según la causa que la genera:",
+      "paginas_referencia": "6",
+      "categorias": [
+        {
+          "name": "Evento familiar",
+          "emoji": "👨‍👩‍👧",
+          "color": "#3B82F6"
+        },
+        {
+          "name": "Desarrollo personal",
+          "emoji": "📚",
+          "color": "#8B5CF6"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Matrimonio del trabajador: 10 días corridos",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Rendir examen en enseñanza media o universitaria: 2 días",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Nacimiento de hijo: 2 días para el padre",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "Máximo de días por exámenes: 10 días al año",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Fallecimiento de cónyuge, hijos o padres: 3 días",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Fallecimiento de hermano: 1 día",
+          "categoria_correcta": 0
+        }
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "5-10",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "Las horas extras en días comunes se pagan con un recargo del",
+          "respuesta_correcta": "50%",
+          "pista": "__%"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "Las horas extras en domingos y feriados se pagan con un recargo del",
+          "respuesta_correcta": "100%",
+          "pista": "___%"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "El SAC (aguinaldo) equivale a medio salario en junio y otro medio en",
+          "respuesta_correcta": "diciembre",
+          "pista": "D_______"
+        }
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "5-10",
+      "afirmaciones": [
+        {
+          "texto": "Las vacaciones pueden 'pagarse en efectivo' en lugar de tomarse como descanso",
+          "correcto": false,
+          "explicacion": "Falso. Las vacaciones son obligatorias y no pueden 'cambiarse por plata'. Su fin es el descanso del trabajador, que es irrenunciable según la LCT."
+        },
+        {
+          "texto": "Si el empleador no avisa la fecha de vacaciones con 45 días de anticipación, está incumpliendo la ley",
+          "correcto": true,
+          "explicacion": "Verdadero. La LCT establece que el empleador debe comunicar el inicio de vacaciones con al menos 45 días de anticipación. Es una obligación legal."
+        },
+        {
+          "texto": "Un trabajador con menos de 5 años de antigüedad sin cargas de familia tiene hasta 12 meses de licencia paga por enfermedad",
+          "correcto": false,
+          "explicacion": "Falso. Un trabajador con menos de 5 años de antigüedad sin cargas tiene hasta 3 meses de licencia paga. Los 12 meses corresponden a trabajadores con más antigüedad y/o con cargas de familia."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "5-10",
+      "pares": [
+        {
+          "izquierda": "SAC (aguinaldo)",
+          "derecha": "Medio salario en junio + medio salario en diciembre",
+          "emoji": "💰"
+        },
+        {
+          "izquierda": "Jornada nocturna",
+          "derecha": "Máximo 7 horas (entre las 21 y las 6 hs)",
+          "emoji": "🌙"
+        },
+        {
+          "izquierda": "Jornada insalubre",
+          "derecha": "Máximo 6 horas diarias o 36 semanales",
+          "emoji": "☢️"
+        },
+        {
+          "izquierda": "Descanso semanal",
+          "derecha": "Desde las 13 hs del sábado hasta las 24 hs del domingo",
+          "emoji": "🛌"
+        }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "consigna": "Encontrá el dato que NO corresponde en cada grupo",
+      "paginas_referencia": "5-8",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🌴",
+          "pregunta": "¿Cuál NO es una regla correcta sobre las vacaciones?",
+          "paginas": "6",
+          "palabras": [
+            {
+              "text": "Se otorgan entre el 1° de octubre y el 30 de abril",
+              "es_intrusa": false
+            },
+            {
+              "text": "Se pueden reemplazar por un pago equivalente",
+              "es_intrusa": true
+            },
+            {
+              "text": "El empleador debe avisar con 45 días de anticipación",
+              "es_intrusa": false
+            },
+            {
+              "text": "Son irrenunciables y obligatorias",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Las vacaciones NO pueden reemplazarse por dinero. Son un derecho irrenunciable cuya finalidad es el descanso. La LCT prohíbe expresamente que se 'compensen' económicamente."
+        },
+        {
+          "id": 1,
+          "emoji": "⏰",
+          "pregunta": "¿Cuál NO es un tipo de jornada reconocida por la LCT?",
+          "paginas": "5",
+          "palabras": [
+            {
+              "text": "Jornada diurna (8 horas máximas)",
+              "es_intrusa": false
+            },
+            {
+              "text": "Jornada nocturna (7 horas máximas)",
+              "es_intrusa": false
+            },
+            {
+              "text": "Jornada intensiva (10 horas máximas sin descanso)",
+              "es_intrusa": true
+            },
+            {
+              "text": "Jornada insalubre (6 horas máximas)",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "La 'jornada intensiva de 10 horas sin descanso' no existe en la LCT. La ley limita la jornada para proteger la salud del trabajador; nunca se permiten jornadas sin descanso mínimo de 12 horas entre turnos."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "5-10",
+      "conceptos": [
+        {
+          "termino": "Enfermedad inculpable",
+          "pista": "¿Cómo se llama la enfermedad que sufrís por causas ajenas al trabajo y que te da derecho a licencia paga?",
+          "palabras_clave": ["enfermedad", "accidente", "fuera", "trabajo", "licencia", "paga", "ajena", "causas"]
+        },
+        {
+          "termino": "SAC / Aguinaldo",
+          "pista": "¿Qué es ese pago extra que recibís dos veces al año y equivale a medio sueldo cada vez?",
+          "palabras_clave": ["sueldo", "anual", "complementario", "junio", "diciembre", "medio", "aguinaldo"]
+        },
+        {
+          "termino": "Suspensión del contrato",
+          "pista": "¿Cómo se llama cuando el vínculo laboral se interrumpe temporalmente por causas como fuerza mayor o disciplina?",
+          "palabras_clave": ["temporal", "interrumpir", "causa", "plazo", "escrito", "disciplinario", "económica"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "5-10",
+      "causas": [
+        {
+          "id": 0,
+          "emoji": "📅",
+          "text": "Un trabajador lleva 12 años en la misma empresa"
+        },
+        {
+          "id": 1,
+          "emoji": "💍",
+          "text": "Un empleado se casa"
+        },
+        {
+          "id": 2,
+          "emoji": "🤒",
+          "text": "Un trabajador con 3 años de antigüedad y sin cargas se enferma de gravedad"
+        },
+        {
+          "id": 3,
+          "emoji": "🌙",
+          "text": "Un trabajador hace turno nocturno de 21 a 06 hs"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 0,
+          "causa_id": 0,
+          "emoji": "🌴",
+          "text": "Le corresponden 28 días de vacaciones anuales"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "📅",
+          "text": "Tiene derecho a 10 días corridos de licencia especial"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "🏥",
+          "text": "Tiene hasta 3 meses de licencia paga por enfermedad"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "⏰",
+          "text": "Su jornada máxima es de 7 horas (no 8)"
+        }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos que ocurren cuando un trabajador se enferma y debe ausentarse:",
+      "paginas_referencia": "7",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 0,
+          "emoji": "🤒",
+          "text": "El trabajador se enferma por causas ajenas al trabajo"
+        },
+        {
+          "id": 1,
+          "emoji": "📞",
+          "text": "Avisa al empleador lo antes posible"
+        },
+        {
+          "id": 2,
+          "emoji": "🏥",
+          "text": "Obtiene certificado médico firmado por profesional matriculado"
+        },
+        {
+          "id": 3,
+          "emoji": "💰",
+          "text": "El empleador le paga el sueldo íntegro durante la licencia"
+        },
+        {
+          "id": 4,
+          "emoji": "✅",
+          "text": "Una vez recuperado, retoma sus tareas habituales"
+        }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "6-7",
+      "concepto_a": {
+        "nombre": "Trabajo en blanco",
+        "emoji": "✅",
+        "color": "#10B981"
+      },
+      "concepto_b": {
+        "nombre": "Trabajo en negro",
+        "emoji": "❌",
+        "color": "#EF4444"
+      }
+    }
+  },
+
+  "nucleo_c": {
+    "bloque_info": {
+      "id": "c",
+      "emoji": "⚖️",
+      "titulo": "BLOQUE C: Extinción del contrato y reforma 2026",
+      "color": "#EC4899",
+      "paginas": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los eventos desde el despido hasta el cobro de la indemnización completa:",
+      "paginas_referencia": "7-8",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "📢",
+          "text": "El empleador comunica el despido sin causa"
+        },
+        {
+          "id": 1,
+          "emoji": "📅",
+          "text": "Corre el plazo de preaviso (15 días o 1 mes según antigüedad)"
+        },
+        {
+          "id": 2,
+          "emoji": "📊",
+          "text": "Se calcula la indemnización: 1 mes de sueldo × año de antigüedad"
+        },
+        {
+          "id": 3,
+          "emoji": "📋",
+          "text": "El empleador entrega la liquidación final (vacaciones + SAC proporcionales)"
+        },
+        {
+          "id": 4,
+          "emoji": "💰",
+          "text": "El trabajador cobra todos los conceptos"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada característica según corresponda a la Ley 20.744 histórica o a la Ley 27.802 de 2026:",
+      "paginas_referencia": "8-18",
+      "categorias": [
+        {
+          "name": "Ley 20.744 (LCT histórica)",
+          "emoji": "🏛️",
+          "color": "#6366F1"
+        },
+        {
+          "name": "Ley 27.802 (Modernización 2026)",
+          "emoji": "🆕",
+          "color": "#10B981"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Las horas extras se incluyen en la base de cálculo de la indemnización",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Los repartidores de plataformas digitales son prestadores independientes",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Las sentencias laborales se pagaban al contado",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "El banco de horas permite compensar extras sin pagar el recargo del 50%",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "El principio de justicia social es pauta interpretativa para los jueces",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "El FAL pre-financia indemnizaciones con aportes mensuales del empleador",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "8-18",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "La fórmula base de la indemnización por despido es: 1 mes de sueldo por cada año de antigüedad o fracción mayor a",
+          "respuesta_correcta": "3 meses",
+          "pista": "_ meses"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "El Fondo de Asistencia Laboral (FAL) se inspira en el sistema de Brasil llamado",
+          "respuesta_correcta": "FGTS",
+          "pista": "F_T_"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "La Ley 27.802 fue sancionada el 27 de febrero de 2026 y publicada en el Boletín Oficial el",
+          "respuesta_correcta": "6 de marzo de 2026",
+          "pista": "_ de marzo de 2026"
+        }
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "7-18",
+      "afirmaciones": [
+        {
+          "texto": "El despido indirecto ocurre cuando el trabajador renuncia por incumplimientos graves del empleador y cobra igual que si lo hubieran despedido",
+          "correcto": true,
+          "explicacion": "Verdadero. El despido indirecto es cuando el trabajador se ve forzado a renunciar por faltas graves del empleador (no pago del sueldo, acoso, etc.). Tiene derecho a cobrar todas las indemnizaciones igual que en un despido sin causa."
+        },
+        {
+          "texto": "La Ley 27.802 eliminó completamente el principio protectorio",
+          "correcto": false,
+          "explicacion": "Falso. La Ley 27.802 mantuvo formalmente el principio protectorio, pero debilitó su alcance al eliminar la justicia social como pauta interpretativa e incorporar la pluspetición inexcusable."
+        },
+        {
+          "texto": "Un trabajador que renuncia cobra la misma indemnización que uno despedido sin causa",
+          "correcto": false,
+          "explicacion": "Falso. Si el trabajador renuncia voluntariamente, no cobra indemnización por antigüedad. Solo cobra sus conceptos devengados (vacaciones proporcionales, SAC). La indemnización por antigüedad solo corresponde al despido sin causa."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "8-18",
+      "pares": [
+        {
+          "izquierda": "Despido sin causa",
+          "derecha": "Genera indemnización por antigüedad + preaviso + liquidación",
+          "emoji": "💼"
+        },
+        {
+          "izquierda": "Despido con causa",
+          "derecha": "El empleador prueba falta grave; no paga indemnización por antigüedad",
+          "emoji": "⚠️"
+        },
+        {
+          "izquierda": "Renuncia",
+          "derecha": "El trabajador decide irse; debe hacerlo por telegrama colacionado",
+          "emoji": "🚪"
+        },
+        {
+          "izquierda": "Mutuo acuerdo",
+          "derecha": "Ambas partes acuerdan terminar; debe ser ante autoridad laboral o escribano",
+          "emoji": "🤝"
+        }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "consigna": "Encontrá el elemento que NO corresponde en cada grupo",
+      "paginas_referencia": "8-18",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "💰",
+          "pregunta": "¿Cuál NO forma parte de la liquidación por despido sin causa?",
+          "paginas": "7-8",
+          "palabras": [
+            {
+              "text": "Indemnización por antigüedad",
+              "es_intrusa": false
+            },
+            {
+              "text": "Preaviso",
+              "es_intrusa": false
+            },
+            {
+              "text": "Multa del doble por trabajo en negro",
+              "es_intrusa": true
+            },
+            {
+              "text": "Vacaciones y SAC proporcionales",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "La 'multa del doble por trabajo en negro' correspondía a la Ley 24.013, que fue derogada por la Ley 27.802. Ya no aplica automáticamente. Los tres conceptos de la liquidación básica son: indemnización por antigüedad, preaviso y la liquidación final."
+        },
+        {
+          "id": 1,
+          "emoji": "🆕",
+          "pregunta": "¿Cuál NO es una novedad de la Ley 27.802?",
+          "paginas": "8-18",
+          "palabras": [
+            {
+              "text": "Fondo de Asistencia Laboral (FAL)",
+              "es_intrusa": false
+            },
+            {
+              "text": "Banco de horas",
+              "es_intrusa": false
+            },
+            {
+              "text": "Principio de irrenunciabilidad",
+              "es_intrusa": true
+            },
+            {
+              "text": "Régimen de plataformas digitales",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "El principio de irrenunciabilidad existía desde la Ley 20.744 original de 1974. No es una novedad de la reforma 2026. Las novedades reales son el FAL, el banco de horas y el régimen de plataformas."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "8-18",
+      "conceptos": [
+        {
+          "termino": "Fondo de Asistencia Laboral (FAL)",
+          "pista": "¿Qué nuevo mecanismo creó la Ley 27.802 para que el empleador tenga plata reservada para pagar indemnizaciones?",
+          "palabras_clave": ["fondo", "aporte", "mensual", "empleador", "indemnización", "pre-financiar", "administradoras"]
+        },
+        {
+          "termino": "Banco de horas",
+          "pista": "¿Cómo se llama el sistema de la nueva ley que permite compensar horas extras con francos sin pagar el recargo del 50%?",
+          "palabras_clave": ["compensar", "extras", "franco", "recargo", "acuerdo", "jornada", "horas"]
+        },
+        {
+          "termino": "Preaviso",
+          "pista": "¿Qué es el aviso previo que debe darse antes de disolver el contrato de trabajo?",
+          "palabras_clave": ["aviso", "plazo", "romper", "contrato", "anticipar", "días", "mes", "antigüedad"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "8-18",
+      "causas": [
+        {
+          "id": 0,
+          "emoji": "🏛️",
+          "text": "La CGT presentó una acción judicial contra la Ley 27.802 en marzo de 2026"
+        },
+        {
+          "id": 1,
+          "emoji": "📱",
+          "text": "La Ley 27.802 clasificó a los repartidores de plataformas como independientes"
+        },
+        {
+          "id": 2,
+          "emoji": "💼",
+          "text": "La nueva ley excluye el SAC de la base de cálculo de la indemnización"
+        },
+        {
+          "id": 3,
+          "emoji": "⚖️",
+          "text": "Un juzgado declaró inconstitucional el pago de sentencias en cuotas (caso Ceballos)"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 0,
+          "causa_id": 0,
+          "emoji": "🛑",
+          "text": "Se suspendieron cautelarmente 83 artículos de la ley"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "📉",
+          "text": "Esos trabajadores tienen menos derechos que un empleado en relación de dependencia"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "💸",
+          "text": "Las indemnizaciones resultan más bajas que con la LCT histórica"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "📋",
+          "text": "Ese artículo no puede aplicarse porque viola el carácter alimentario del crédito laboral"
+        }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos para analizar si una norma de la Ley 27.802 es válida o puede impugnarse:",
+      "paginas_referencia": "8-18",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 0,
+          "emoji": "📜",
+          "text": "Leer el artículo de la Ley 27.802 en cuestión"
+        },
+        {
+          "id": 1,
+          "emoji": "🏛️",
+          "text": "Compararlo con el artículo 14 bis de la Constitución Nacional"
+        },
+        {
+          "id": 2,
+          "emoji": "⚖️",
+          "text": "Ver si el artículo respeta los derechos mínimos garantizados por la Constitución"
+        },
+        {
+          "id": 3,
+          "emoji": "❓",
+          "text": "Si hay contradicción, presentar una acción judicial de inconstitucionalidad"
+        },
+        {
+          "id": 4,
+          "emoji": "🛑",
+          "text": "El juez puede declararlo inconstitucional y suspender su aplicación"
+        }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "8-18",
+      "concepto_a": {
+        "nombre": "Ley 20.744 (LCT)",
+        "emoji": "🏛️",
+        "color": "#6366F1"
+      },
+      "concepto_b": {
+        "nombre": "Ley 27.802 (2026)",
+        "emoji": "🆕",
+        "color": "#10B981"
+      }
+    }
+  },
+
+  "senales": {
+    "conceptos_clave": [
+      {
+        "emoji": "🛡️",
+        "termino": "Principio protectorio",
+        "color": "#8B5CF6",
+        "definicion": "Principio fundacional del derecho laboral que compensa la desigualdad entre empleador y trabajador, aplicando siempre la norma más favorable al lado más débil.",
+        "importancia": "Sin este principio, los trabajadores podrían ser presionados a aceptar condiciones peores. Es la razón de ser del derecho laboral."
+      },
+      {
+        "emoji": "👁️",
+        "termino": "Primacía de la realidad",
+        "color": "#EC4899",
+        "definicion": "Principio que establece que lo que importa es lo que ocurre en los hechos, no lo que dicen los papeles. Sirve para combatir el fraude laboral encubierto.",
+        "importancia": "Muchas empresas intentan disfrazar relaciones laborales como contratos de servicios para pagar menos. Este principio protege al trabajador real."
+      },
+      {
+        "emoji": "⚖️",
+        "termino": "Indemnización por antigüedad",
+        "color": "#3B82F6",
+        "definicion": "Compensación que recibe el trabajador despedido sin causa: equivale a 1 mes de sueldo por cada año trabajado o fracción mayor a 3 meses.",
+        "importancia": "Es el derecho económico más importante ante un despido. Saber calcularlo te permite verificar que estás cobrando lo que corresponde."
+      },
+      {
+        "emoji": "🆕",
+        "termino": "Fondo de Asistencia Laboral (FAL)",
+        "color": "#10B981",
+        "definicion": "Mecanismo creado por la Ley 27.802 por el cual el empleador aporta mensualmente (1% o 2,5%) a un fondo para pre-financiar futuras indemnizaciones.",
+        "importancia": "Es la novedad más estructural de la reforma 2026. Cambia cómo se garantizan los pagos ante un despido, aunque genera debate sobre si protege más al trabajador o a las administradoras."
+      }
+    ],
+    "semaforo_conceptos": [
+      {
+        "emoji": "🛡️",
+        "termino": "Principio protectorio"
+      },
+      {
+        "emoji": "⚖️",
+        "termino": "Indemnización"
+      },
+      {
+        "emoji": "📋",
+        "termino": "Contrato de trabajo"
+      },
+      {
+        "emoji": "🆕",
+        "termino": "Ley 27.802"
+      },
+      {
+        "emoji": "👁️",
+        "termino": "Primacía de la realidad"
+      }
+    ],
+    "postits_conceptos": [
+      "Principio protectorio",
+      "Primacía de la realidad",
+      "Indemnización",
+      "FAL"
+    ]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {
+        "emoji": "⏱️",
+        "color": "#8B5CF6",
+        "frente": "La LCT cumplió 50 años vigente antes de la reforma de 2026",
+        "dorso": "La Ley 20.744 fue sancionada en 1974 y rigió con modificaciones parciales durante más de medio siglo. Soportó dictaduras, hiperinflación y múltiples crisis económicas antes de ser reformada estructuralmente por la Ley 27.802 en 2026. Pocos textos legales duran tanto tiempo como referencia central de un sistema."
+      },
+      {
+        "emoji": "📱",
+        "color": "#EC4899",
+        "frente": "Argentina fue el primer país de América Latina en crear un régimen legal para repartidores de apps",
+        "dorso": "Con la Ley 27.802, Argentina reguló por primera vez el trabajo en plataformas digitales (Rappi, PedidosYa, Uber, Cabify). Los clasificó como prestadores independientes, no empleados. Esto generó debate: ¿los protege de verdad o los deja sin cobertura laboral plena? Es un debate abierto a nivel global."
+      },
+      {
+        "emoji": "🛑",
+        "color": "#10B981",
+        "frente": "La CGT logró suspender 83 artículos de la Ley 27.802 a días de su publicación",
+        "dorso": "En marzo de 2026, apenas publicada la ley en el Boletín Oficial, la CGT presentó una acción colectiva y obtuvo medidas cautelares que suspendieron 83 artículos. Esto muestra que las leyes laborales no son solo texto: su aplicación depende también de la disputa judicial, política y sindical."
+      }
+    ],
+    "linea_de_tiempo": [
+      {
+        "emoji": "📜",
+        "year": "1974",
+        "text": "Sanción de la Ley 20.744 (LCT): el primer gran código laboral argentino"
+      },
+      {
+        "emoji": "✂️",
+        "year": "1976",
+        "text": "La dictadura militar suprime varios artículos de la LCT originalmente más protectores"
+      },
+      {
+        "emoji": "📋",
+        "year": "1991",
+        "text": "Ley 24.013 de Empleo: introduce multas para el empleo no registrado ('en negro')"
+      },
+      {
+        "emoji": "💻",
+        "year": "2020",
+        "text": "Ley 27.555 de Teletrabajo: primera regulación del trabajo remoto en Argentina"
+      },
+      {
+        "emoji": "🔧",
+        "year": "2024",
+        "text": "Ley Bases 27.742: amplía el período de prueba a 6 meses, anticipa algunas reformas"
+      },
+      {
+        "emoji": "🆕",
+        "year": "2026",
+        "text": "Ley 27.802 de Modernización Laboral: reforma más profunda en cinco décadas"
+      }
+    ],
+    "encuesta": {
+      "pregunta": "¿Cuál de estos cambios te parece más importante de la Ley 27.802?",
+      "opciones": [
+        {
+          "emoji": "📱",
+          "text": "El régimen especial para trabajadores de plataformas digitales",
+          "votos_iniciales": 41
+        },
+        {
+          "emoji": "💰",
+          "text": "Los cambios en el cálculo de la indemnización por despido",
+          "votos_iniciales": 38
+        },
+        {
+          "emoji": "⏰",
+          "text": "La creación del banco de horas sin pago de horas extras",
+          "votos_iniciales": 31
+        }
+      ]
+    }
+  },
+
+  "cruces": {
+    "consigna_general": "Elegí un tema de cada bloque que te haya interesado y preparalo para explicárselo a un compañero. Podés usar esquemas, dibujos, ejemplos... ¡lo que quieras!",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "🏛️",
+        "titulo": "BLOQUE A: La LCT — principios y contrato",
+        "color": "#8B5CF6",
+        "temas_sugeridos": [
+          "Los 6 principios del derecho laboral y para qué sirve cada uno",
+          "Las 3 notas de la dependencia laboral (jurídica, económica, técnica)",
+          "Cómo funciona el principio de primacía de la realidad en la práctica",
+          "Por qué existe el principio de irrenunciabilidad",
+          "Diferencia entre contrato eventual y contrato de temporada",
+          "El período de prueba: qué derechos tenés y cuáles no"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+      },
+      {
+        "id": "b",
+        "emoji": "📅",
+        "titulo": "BLOQUE B: Derechos durante la relación laboral",
+        "color": "#3B82F6",
+        "temas_sugeridos": [
+          "El sistema de vacaciones: días según antigüedad y por qué no son canjeables por dinero",
+          "Las licencias especiales: matrimonio, nacimiento, fallecimiento, exámenes",
+          "Qué es el SAC y cómo se calcula",
+          "Los diferentes tipos de jornada: diurna, nocturna, insalubre",
+          "Qué pasa cuando un trabajador se enferma: la enfermedad inculpable",
+          "La diferencia entre trabajo en blanco y en negro y sus consecuencias reales"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+      },
+      {
+        "id": "c",
+        "emoji": "⚖️",
+        "titulo": "BLOQUE C: Extinción del contrato y reforma 2026",
+        "color": "#EC4899",
+        "temas_sugeridos": [
+          "Los 4 tipos de extinción del contrato de trabajo y cuál genera indemnización",
+          "Cómo se calcula la indemnización por despido sin causa",
+          "Qué cambió la Ley 27.802 en el cálculo de la indemnización",
+          "Qué es el Fondo de Asistencia Laboral (FAL) y en qué se diferencia de la indemnización",
+          "El debate sobre los trabajadores de plataformas: ¿empleados o independientes?",
+          "Por qué se suspendieron 83 artículos de la Ley 27.802 y qué significa eso"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+      }
+    ]
+  },
+
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "La Ley 27.802 de Modernización Laboral: ¿moderniza o desprotege?",
+      "contexto": "La Ley 27.802 fue presentada por sus defensores como una reforma necesaria para reducir la litigiosidad y promover el empleo. Sus críticos sostienen que reduce derechos históricos y traslada poder hacia los empleadores. La CGT la impugnó judicialmente apenas publicada. ¿Es una modernización necesaria o un retroceso en derechos laborales?",
+      "roles": [
+        {
+          "id": "fiscal",
+          "emoji": "💼",
+          "label": "A favor de la reforma",
+          "desc": "Argumentá por qué la Ley 27.802 es necesaria para el mercado laboral argentino: reducción de juicios, formalización del empleo, adaptación a la economía del siglo XXI",
+          "color": "#10B981"
+        },
+        {
+          "id": "defensa",
+          "emoji": "🛡️",
+          "label": "Contra la reforma",
+          "desc": "Argumentá por qué la Ley 27.802 retrocede en derechos laborales históricos: debilita principios protectorios, reduce indemnizaciones, desprotege a trabajadores de plataformas",
+          "color": "#EC4899"
+        },
+        {
+          "id": "juez",
+          "emoji": "⚖️",
+          "label": "Posición equilibrada",
+          "desc": "Analizá qué cambios de la reforma son razonables y cuáles generan problemas reales. ¿Cómo sería una modernización que respetara los derechos fundamentales?",
+          "color": "#6366F1"
+        }
+      ]
+    },
+    "tesis": {
+      "consigna": "Formulá una tesis sobre la relación entre el derecho laboral y la economía argentina. Incluí: (1) Tu tesis principal, (2) Dos evidencias que la apoyen, (3) Dos contraargumentos posibles, (4) Una conclusión que defienda tu postura."
+    },
+    "critica": {
+      "consigna": "Analizá críticamente la situación de los trabajadores de plataformas digitales en Argentina: ¿Qué derechos tenían antes de la Ley 27.802? ¿Qué tienen ahora? ¿Qué preguntas éticas y económicas plantea su regulación? ¿Qué cambiarías si pudieras diseñar el régimen vos mismo?"
+    }
+  },
+
+  "autotest": {
+    "banco_respuestas_docente": [
+      "1. B - El principio protectorio compensa la desigualdad estructural entre empleador y trabajador (p. 4)",
+      "2. C - Jurídica, económica y técnica (p. 7)",
+      "3. B - In dubio pro operario: en caso de duda, la interpretación más favorable al trabajador (p. 4)",
+      "4. A - Nulo, porque el principio de irrenunciabilidad invalida esa renuncia (p. 4)",
+      "5. C - 8 horas diarias o 48 semanales (p. 5)",
+      "6. B - 14 días corridos para trabajadores con hasta 5 años de antigüedad (p. 6)",
+      "7. A - 10 días corridos (p. 6)",
+      "8. C - 1 mes de sueldo por cada año de antigüedad o fracción mayor a 3 meses (p. 7-8)",
+      "9. B - Los clasifica como prestadores independientes, no como empleados en relación de dependencia (p. 10-11)",
+      "10. C - El FAL pre-financia las indemnizaciones mediante aportes mensuales del empleador a fondos administrados (p. 10)",
+      "11. VERDADERO - La primacía de la realidad protege al trabajador aunque los papeles digan otra cosa (p. 4-5)",
+      "12. FALSO - Las vacaciones son irrenunciables y no pueden cambiarse por dinero (p. 6)",
+      "13. VERDADERO - El despido indirecto da derecho a las mismas indemnizaciones que el despido sin causa (p. 7-8)",
+      "14. FALSO - La Ley 27.802 debilitó el principio protectorio pero no lo eliminó formalmente (p. 8-9)",
+      "15. VERDADERO - La CGT obtuvo medidas cautelares suspendiendo 83 artículos en marzo de 2026 (p. 19)"
+    ],
+    "preguntas": [
+      {
+        "pregunta": "¿Cuál es la función del principio protectorio en el derecho laboral?",
+        "opciones": [
+          "Proteger al empleador de juicios injustificados",
+          "Compensar la desigualdad estructural entre empleador y trabajador",
+          "Garantizar que los contratos sean siempre por tiempo indeterminado",
+          "Establecer que el empleador siempre tiene razón"
+        ],
+        "correcta": 1,
+        "explicacion": "El principio protectorio existe porque reconoce que hay una desigualdad estructural: el trabajador depende económicamente del empleador. Por eso el derecho laboral 'compensa' esa desigualdad protegiendo más al lado más débil. Revisá la página 4."
+      },
+      {
+        "pregunta": "¿Cuáles son las tres notas que caracterizan la dependencia laboral?",
+        "opciones": [
+          "Física, mental y emocional",
+          "Formal, informal y mixta",
+          "Jurídica, económica y técnica",
+          "Contractual, convencional y reglamentaria"
+        ],
+        "correcta": 2,
+        "explicacion": "Las tres formas de dependencia son: jurídica (el trabajador cumple órdenes del empleador), económica (vive de lo que cobra) y técnica (usa herramientas y métodos del empleador). Juntas definen si existe relación laboral. Repasá la página 7."
+      },
+      {
+        "pregunta": "Si una ley laboral tiene dos interpretaciones posibles, ¿qué principio indica cuál aplicar?",
+        "opciones": [
+          "In dubio pro reo (el principio penal)",
+          "In dubio pro operario: la más favorable al trabajador",
+          "Aplicar siempre la ley más reciente",
+          "El juez decide libremente sin principio rector"
+        ],
+        "correcta": 1,
+        "explicacion": "El principio in dubio pro operario establece que ante la duda, siempre se aplica la interpretación más favorable al trabajador. Es una de las tres reglas del principio protectorio junto con la norma más favorable y la condición más beneficiosa. Más en la página 4."
+      },
+      {
+        "pregunta": "Un trabajador firma un papel renunciando a cobrar horas extra. ¿Qué ocurre con ese acuerdo?",
+        "opciones": [
+          "Es válido porque fue firmado voluntariamente",
+          "Es nulo: el principio de irrenunciabilidad lo invalida",
+          "Es válido si hay testigos",
+          "Depende del empleador: puede aceptarlo o no"
+        ],
+        "correcta": 1,
+        "explicacion": "Por el principio de irrenunciabilidad, el trabajador no puede renunciar válidamente a derechos otorgados por la ley, aunque lo firme. Si se admitieran esas renuncias, los empleadores podrían exigirlas como condición para contratar. Revisá la página 4."
+      },
+      {
+        "pregunta": "¿Cuál es la jornada máxima legal en Argentina según la LCT?",
+        "opciones": [
+          "6 horas diarias o 36 semanales",
+          "7 horas diarias o 42 semanales",
+          "8 horas diarias o 48 semanales",
+          "10 horas diarias o 50 semanales"
+        ],
+        "correcta": 2,
+        "explicacion": "La jornada máxima legal es de 8 horas diarias o 48 horas semanales. Existen excepciones: jornada nocturna (7 horas) y jornada insalubre (6 horas). Las horas que excedan ese límite son horas extras con recargo del 50% o 100%. Repasá la página 5."
+      },
+      {
+        "pregunta": "¿Cuántos días de vacaciones le corresponden a un trabajador con 8 años de antigüedad?",
+        "opciones": [
+          "14 días corridos",
+          "21 días corridos",
+          "28 días corridos",
+          "35 días corridos"
+        ],
+        "correcta": 1,
+        "explicacion": "Con entre 5 y 10 años de antigüedad, le corresponden 21 días corridos de vacaciones. La escala es: hasta 5 años = 14 días; 5 a 10 años = 21 días; 10 a 20 años = 28 días; más de 20 años = 35 días. Revisá la página 6."
+      },
+      {
+        "pregunta": "¿Cuántos días de licencia especial tiene un trabajador por su propio casamiento?",
+        "opciones": [
+          "10 días corridos",
+          "5 días hábiles",
+          "3 días corridos",
+          "15 días corridos"
+        ],
+        "correcta": 0,
+        "explicacion": "El matrimonio del trabajador da derecho a 10 días corridos de licencia especial. Esto es diferente a otras licencias: nacimiento de hijo (2 días), fallecimiento de cónyuge/hijos/padres (3 días), fallecimiento de hermano (1 día). Más en la página 6."
+      },
+      {
+        "pregunta": "¿Cuál es la fórmula básica de la indemnización por despido sin causa?",
+        "opciones": [
+          "1 semana de sueldo por año trabajado",
+          "2 meses de sueldo por cada año de antigüedad",
+          "1 mes de sueldo por cada año de antigüedad o fracción mayor a 3 meses",
+          "El 50% del salario anual"
+        ],
+        "correcta": 2,
+        "explicacion": "La fórmula básica es 1 mes de sueldo por cada año de antigüedad o fracción mayor a 3 meses. Esto se calcula sobre la mejor remuneración mensual normal y habitual. La Ley 27.802 mantuvo esta fórmula pero cambió qué conceptos entran en la base. Revisá las páginas 7-8."
+      },
+      {
+        "pregunta": "¿Cómo clasifica la Ley 27.802 a los repartidores de plataformas como Rappi o PedidosYa?",
+        "opciones": [
+          "Como empleados en relación de dependencia con todos sus derechos",
+          "Como prestadores independientes con derechos diferenciados",
+          "Como trabajadores informales sin ningún derecho",
+          "La ley no los menciona"
+        ],
+        "correcta": 1,
+        "explicacion": "La Ley 27.802 creó un régimen especial que clasifica a los repartidores y conductores de plataformas como prestadores independientes, no como empleados en relación de dependencia. Tienen derechos diferenciados (generalmente inferiores). Revisá las páginas 10-11."
+      },
+      {
+        "pregunta": "¿Qué es el Fondo de Asistencia Laboral (FAL) creado por la Ley 27.802?",
+        "opciones": [
+          "Un seguro de desempleo del Estado para todos los trabajadores",
+          "Un fondo sindical para financiar huelgas",
+          "Un mecanismo de pre-financiamiento de indemnizaciones mediante aportes mensuales del empleador",
+          "Un programa social para trabajadores informales"
+        ],
+        "correcta": 2,
+        "explicacion": "El FAL es un fondo individual que cada empleador puede constituir aportando mensualmente (1% para grandes empresas, 2,5% para Mipymes) a entidades administradoras autorizadas. Pre-financia las indemnizaciones pero no las reemplaza. Se inspira en el FGTS de Brasil. Revisá la página 10."
+      }
+    ],
+    "verdadero_falso": [
+      {
+        "texto": "La primacía de la realidad protege al trabajador aunque los papeles digan que es 'monotributista' o 'independiente'",
+        "correcto": true,
+        "explicacion": "VERDADERO. Si en los hechos existe relación de dependencia (horario, órdenes, herramientas del empleador, pago mensual), la justicia puede declarar que hay vínculo laboral encubierto. Los papeles no bastan para negar la realidad. Repasá las páginas 4-5."
+      },
+      {
+        "texto": "Un trabajador puede 'vender' sus vacaciones al empleador y cobrarlas en dinero en lugar de tomarlas",
+        "correcto": false,
+        "explicacion": "FALSO. Las vacaciones son irrenunciables. Su fin es el descanso del trabajador, que es un derecho protegido por el art. 14 bis de la Constitución. No pueden 'canjearse por plata' ni tampoco suplirse con días libres en otro período sin seguir las reglas de la LCT. Revisá la página 6."
+      },
+      {
+        "texto": "El despido indirecto ocurre cuando el trabajador renuncia por incumplimientos graves del empleador y tiene derecho a cobrar indemnización",
+        "correcto": true,
+        "explicacion": "VERDADERO. El despido indirecto se da cuando el trabajador se ve forzado a renunciar por faltas graves del empleador (por ejemplo, no cobrar el sueldo, acoso, cambio de condiciones). Cobra todas las indemnizaciones igual que en un despido sin causa. Revisá las páginas 7-8."
+      },
+      {
+        "texto": "La Ley 27.802 eliminó completamente el principio protectorio del derecho laboral argentino",
+        "correcto": false,
+        "explicacion": "FALSO. La Ley 27.802 mantuvo formalmente el principio protectorio, pero redujo su alcance práctico al eliminar la justicia social como pauta interpretativa e incorporar la pluspetición inexcusable. Debilitarlo no es lo mismo que eliminarlo. Revisá las páginas 8-9."
+      },
+      {
+        "texto": "La CGT logró suspender judicialmente 83 artículos de la Ley 27.802 en marzo de 2026",
+        "correcto": true,
+        "explicacion": "VERDADERO. Apenas publicada la ley, la Confederación General del Trabajo presentó una acción colectiva y obtuvo medidas cautelares que suspendieron 83 artículos. Entre ellos figuran cambios en jornada, condiciones salariales y representación sindical. La situación sigue siendo dinámica. Revisá la página 19."
+      }
+    ]
+  },
+
+  "cierre": {
+    "glosario": [
+      {
+        "emoji": "🛡️",
+        "termino": "Principio protectorio",
+        "categoria": "Principios",
+        "definicion": "Principio fundacional del derecho laboral que compensa la desigualdad entre empleador y trabajador aplicando siempre la norma más favorable. Se concreta en: in dubio pro operario, norma más favorable y condición más beneficiosa."
+      },
+      {
+        "emoji": "📋",
+        "termino": "Irrenunciabilidad",
+        "categoria": "Principios",
+        "definicion": "Principio que establece que el trabajador no puede renunciar válidamente a derechos laborales aunque lo firme. Todo acuerdo que implique renuncia a derechos de ley es nulo."
+      },
+      {
+        "emoji": "👁️",
+        "termino": "Primacía de la realidad",
+        "categoria": "Principios",
+        "definicion": "Principio que establece que lo que importa son los hechos, no los papeles. Si en la práctica existe relación laboral, se reconoce aunque el contrato diga otra cosa."
+      },
+      {
+        "emoji": "⏰",
+        "termino": "Jornada laboral",
+        "categoria": "Derechos",
+        "definicion": "Tiempo máximo de trabajo: 8 horas diarias o 48 semanales (diurna), 7 horas (nocturna) o 6 horas (insalubre). Las horas extras se pagan con recargo del 50% o 100%."
+      },
+      {
+        "emoji": "🌴",
+        "termino": "Vacaciones",
+        "categoria": "Derechos",
+        "definicion": "Licencia anual paga obligatoria: 14/21/28/35 días según antigüedad. Se otorgan entre el 1° de octubre y el 30 de abril. No pueden canjearse por dinero."
+      },
+      {
+        "emoji": "💰",
+        "termino": "SAC / Aguinaldo",
+        "categoria": "Remuneración",
+        "definicion": "Sueldo Anual Complementario: medio salario en junio y otro medio en diciembre. Equivale a un salario más por año distribuido en dos cuotas."
+      },
+      {
+        "emoji": "⚖️",
+        "termino": "Indemnización por antigüedad",
+        "categoria": "Extinción del contrato",
+        "definicion": "Compensación por despido sin causa: 1 mes de sueldo por año trabajado o fracción mayor a 3 meses (art. 245 LCT). La Ley 27.802 excluyó SAC, horas extras y premios no mensuales de la base de cálculo."
+      },
+      {
+        "emoji": "🤝",
+        "termino": "Preaviso",
+        "categoria": "Extinción del contrato",
+        "definicion": "Aviso previo de ruptura del contrato: 15 días para trabajadores con menos de 5 años de antigüedad, 1 mes para quienes tienen 5 o más años."
+      },
+      {
+        "emoji": "🆕",
+        "termino": "FAL (Fondo de Asistencia Laboral)",
+        "categoria": "Ley 27.802",
+        "definicion": "Fondo individual creado por la Ley 27.802 para pre-financiar indemnizaciones. El empleador aporta mensualmente (1% grandes empresas, 2,5% Mipymes) a entidades administradoras autorizadas por la CNV."
+      },
+      {
+        "emoji": "⏱️",
+        "termino": "Banco de horas",
+        "categoria": "Ley 27.802",
+        "definicion": "Régimen de compensación de horas extras incorporado por la Ley 27.802 (art. 197 bis). Permite que las horas trabajadas de más se compensen con francos en otro período sin pagar el recargo del 50% o 100%."
+      }
+    ],
+    "recursos": [
+      {
+        "tipo": "🌐 Web",
+        "title": "Boletín Oficial — texto de la Ley 27.802",
+        "desc": "Texto completo y oficial de la Ley de Modernización Laboral publicada el 6 de marzo de 2026",
+        "nivel": "Avanzado",
+        "color": "#3B82F6"
+      },
+      {
+        "tipo": "🌐 Web",
+        "title": "Ministerio de Trabajo — argentina.gob.ar/trabajo",
+        "desc": "Portal oficial con derechos laborales, calculadora de indemnización y consultas sobre registración",
+        "nivel": "Todos los niveles",
+        "color": "#10B981"
+      },
+      {
+        "tipo": "📖 Libro",
+        "title": "Manual de Derecho Laboral — Julio Armando Grisolía",
+        "desc": "El manual más usado en universidades argentinas. Explica la LCT y sus reformas con claridad y ejemplos",
+        "nivel": "Intermedio",
+        "color": "#8B5CF6"
+      },
+      {
+        "tipo": "🌐 Web",
+        "title": "CIJ — Centro de Información Judicial (cij.gov.ar)",
+        "desc": "Portal de fallos judiciales. Podés buscar el caso 'Ceballos vs. Iris Energía' y otros fallos sobre la Ley 27.802",
+        "nivel": "Avanzado",
+        "color": "#6366F1"
+      },
+      {
+        "tipo": "📄 Artículo",
+        "title": "Errepar — Nueva Ley 27.802: claves de la Modernización Laboral",
+        "desc": "Análisis técnico-práctico de los cambios más importantes de la reforma para empleadores y trabajadores",
+        "nivel": "Intermedio",
+        "color": "#EC4899"
+      }
+    ]
+  }
+}
