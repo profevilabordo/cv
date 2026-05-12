@@ -17,7 +17,7 @@
       {
         "emoji": "📅",
         "texto": "¿Por qué planificar los gastos del mes ayuda a no quedarse en rojo?",
-        "pista": "Si sabés de antemano cuándo vas a tener menos plata, podés prepararte..."
+        "pista": "Si sabés de antemano cuándo vas a tener menos plata, podés prepararte con tiempo..."
       },
       {
         "emoji": "🏦",
@@ -128,7 +128,7 @@
         "emoji": "🏦",
         "title": "BLOQUE C",
         "subtitle": "Sistema Financiero y Operaciones Bancarias",
-        "color": "#10B981",
+        "color": "#F59E0B",
         "items": [
           "Funciones del dinero",
           "Tipos de depósitos bancarios",
@@ -202,343 +202,574 @@
     "bloque_info": {
       "id": "a",
       "emoji": "💧",
-      "title": "BLOQUE A · Cash Flow y Presupuestos",
-      "color": "#0EA5E9"
+      "titulo": "BLOQUE A: Cash Flow y Presupuestos",
+      "color": "#0EA5E9",
+      "paginas": [3, 4, 5, 6, 7, 8, 9]
     },
-    "tarjetas": [
-      {
-        "id": "a1",
-        "emoji": "💧",
-        "title": "¿Qué es el cash flow?",
-        "color": "#0EA5E9",
-        "concepto_clave": "El cash flow es el registro detallado de cómo entra y sale el dinero efectivo en una empresa durante un período. Muestra el dinero realmente disponible, a diferencia del estado de resultados que muestra ganancias \"en papel\".",
-        "analogia": "Es como el extracto de tu cuenta personal: no importa si tus vecinos saben que tenés un trabajo bien pago (resultado contable), lo que importa es si hoy tenés plata en el banco para pagar lo que necesitás.",
-        "lista_items": [
-          "Entradas: cobranzas al contado, cobros diferidos, préstamos recibidos, aportes de socios",
-          "Salidas: pagos a proveedores, sueldos, alquileres, impuestos, intereses",
-          "Superávit: ingresos > egresos → sobra efectivo",
-          "Déficit: egresos > ingresos → falta efectivo"
-        ],
-        "diferencia_clave": {
-          "izquierda": {
-            "titulo": "LO ECONÓMICO",
-            "items": [
-              "Registra ganancias o pérdidas",
-              "Incluye ventas aunque no se cobren",
-              "Incluye amortizaciones",
-              "Aparece en el Estado de Resultados"
-            ]
-          },
-          "derecha": {
-            "titulo": "LO FINANCIERO",
-            "items": [
-              "Registra movimientos reales de dinero",
-              "Solo incluye lo efectivamente cobrado",
-              "No incluye amortizaciones",
-              "Aparece en el Cash Flow"
-            ]
-          }
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená las etapas de elaboración de un presupuesto empresarial:",
+      "paginas_referencia": "6",
+      "items": [
+        { "id": 0, "emoji": "🔍", "text": "Análisis de la situación financiera previa" },
+        { "id": 1, "emoji": "🎯", "text": "Definición de objetivos estratégicos" },
+        { "id": 2, "emoji": "📊", "text": "Estimación de ingresos y egresos" },
+        { "id": 3, "emoji": "📦", "text": "Asignación de recursos por área" },
+        { "id": 4, "emoji": "✅", "text": "Revisión y aprobación por la gerencia" }
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada concepto según corresponda a Presupuesto Económico o Presupuesto Financiero:",
+      "paginas_referencia": "7-9",
+      "categorias": [
+        { "name": "Presupuesto Económico", "emoji": "📊", "color": "#3B82F6" },
+        { "name": "Presupuesto Financiero", "emoji": "💧", "color": "#0EA5E9" }
+      ],
+      "items": [
+        { "id": 0, "text": "Incluye amortizaciones", "categoria_correcta": 0 },
+        { "id": 1, "text": "Registra solo movimientos reales de dinero", "categoria_correcta": 1 },
+        { "id": 2, "text": "Muestra utilidad o pérdida del período", "categoria_correcta": 0 },
+        { "id": 3, "text": "Muestra superávit o déficit de caja", "categoria_correcta": 1 },
+        { "id": 4, "text": "Registra ventas aunque no se hayan cobrado", "categoria_correcta": 0 },
+        { "id": 5, "text": "Registra solo cobros efectivamente recibidos", "categoria_correcta": 1 }
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "3-9",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "El cash flow muestra el dinero realmente",
+          "respuesta_correcta": "disponible",
+          "pista": "D_________"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "Si los egresos superan a los ingresos, el saldo es",
+          "respuesta_correcta": "déficit",
+          "pista": "D______"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "El presupuesto es considerado un plan de acción evaluado en",
+          "respuesta_correcta": "dinero",
+          "pista": "D_____"
         }
-      },
-      {
-        "id": "a2",
-        "emoji": "📋",
-        "title": "Presupuesto: concepto y elaboración",
-        "color": "#3B82F6",
-        "concepto_clave": "El presupuesto es un plan de acción evaluado en dinero. Permite prever ingresos y gastos en un período (generalmente un año), programar actividades y tomar decisiones meditadas en lugar de resolver problemas sobre la marcha.",
-        "analogia": "Es como planificar las vacaciones antes de salir: sabés cuánto tenés, cuánto vas a gastar y en qué, así no te quedás sin plata a mitad de viaje.",
-        "lista_items": [
-          "Análisis de la situación financiera previa",
-          "Definición de objetivos alineados a la estrategia",
-          "Estimación de ingresos y egresos",
-          "Asignación de recursos por área",
-          "Revisión y aprobación por la gerencia"
-        ],
-        "ventajas": [
-          "Ayuda al manejo financiero",
-          "Aporta información para tomar decisiones",
-          "Obliga a evaluar objetivos y métodos",
-          "Permite anticipar problemas antes de que ocurran",
-          "Facilita la coordinación entre departamentos"
-        ]
-      },
-      {
-        "id": "a3",
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "3-9",
+      "afirmaciones": [
+        {
+          "texto": "Una empresa puede tener utilidad contable positiva y al mismo tiempo no tener efectivo para pagar sus deudas",
+          "correcto": true,
+          "explicacion": "Verdadero. Este es el problema clásico que el cash flow busca prevenir: una empresa puede registrar ventas a 90 días (ingreso económico) pero no tener dinero disponible hoy para hacer frente a sus pagos. Ver Sección 2."
+        },
+        {
+          "texto": "El presupuesto de ventas es el último que se elabora porque depende de todos los demás",
+          "correcto": false,
+          "explicacion": "Falso. El presupuesto de ventas es el PRIMERO y el punto de partida de todos los demás. Si se proyecta vender más, hay que producir más, comprar más insumos y tener mayor capacidad operativa. Ver Sección 4."
+        },
+        {
+          "texto": "Las amortizaciones aparecen en el presupuesto económico pero NO en el financiero porque no implican una salida real de dinero",
+          "correcto": true,
+          "explicacion": "Verdadero. Las amortizaciones son un gasto contable (pérdida de valor de un bien) pero no representan ningún movimiento de efectivo. Por eso afectan el resultado económico pero no el financiero. Ver Sección 6."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "7-9",
+      "pares": [
+        { "izquierda": "Presupuesto de Ventas", "derecha": "Punto de partida de todos los demás presupuestos", "emoji": "🛒" },
+        { "izquierda": "Presupuesto de Costos", "derecha": "Costo unitario × cantidad total a producir", "emoji": "🏭" },
+        { "izquierda": "Presupuesto Económico", "derecha": "Ventas − Costos − Gastos = Resultado del ejercicio", "emoji": "📊" },
+        { "izquierda": "Presupuesto Financiero", "derecha": "Ingresos cobrados − Egresos pagados = Saldo de caja", "emoji": "💰" }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "consigna": "Encontrá el elemento que NO corresponde a cada grupo",
+      "paginas_referencia": "3-9",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "💧",
+          "pregunta": "¿Cuál NO es un ingreso de efectivo típico del cash flow?",
+          "paginas": "4",
+          "palabras": [
+            { "text": "Cobros de ventas al contado", "es_intrusa": false },
+            { "text": "Préstamos bancarios recibidos", "es_intrusa": false },
+            { "text": "Amortizaciones del ejercicio", "es_intrusa": true },
+            { "text": "Devoluciones de impuestos", "es_intrusa": false }
+          ],
+          "explicacion": "Las amortizaciones NO son un ingreso de efectivo: son un gasto contable sin movimiento de dinero. Solo se registran en el presupuesto económico, nunca en el cash flow."
+        },
+        {
+          "id": 1,
+          "emoji": "📋",
+          "pregunta": "¿Cuál NO es una ventaja de elaborar presupuestos?",
+          "paginas": "6",
+          "palabras": [
+            { "text": "Anticipar problemas antes de que ocurran", "es_intrusa": false },
+            { "text": "Facilitar la coordinación entre departamentos", "es_intrusa": false },
+            { "text": "Garantizar que no habrá imprevistos", "es_intrusa": true },
+            { "text": "Aportar información para tomar decisiones", "es_intrusa": false }
+          ],
+          "explicacion": "Ningún presupuesto puede garantizar la ausencia de imprevistos. El cuadernillo aclara que pueden aparecer imprevistos que se resolverán a medida que se presenten."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "3-9",
+      "conceptos": [
+        {
+          "termino": "Cash Flow",
+          "pista": "¿Cómo se llama el registro que muestra el dinero que realmente entra y sale de una empresa?",
+          "palabras_clave": ["dinero", "efectivo", "entradas", "salidas", "registro", "disponible", "período"]
+        },
+        {
+          "termino": "Presupuesto",
+          "pista": "¿Cómo se llama el plan de acción que evalúa en dinero lo que va a pasar en el futuro?",
+          "palabras_clave": ["plan", "acción", "dinero", "prever", "ingresos", "gastos", "período"]
+        },
+        {
+          "termino": "Superávit de caja",
+          "pista": "¿Qué nombre tiene el resultado positivo cuando los ingresos del cash flow superan a los egresos?",
+          "palabras_clave": ["positivo", "ingresos", "mayores", "egresos", "sobra", "excedente", "efectivo"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "3-9",
+      "causas": [
+        { "id": 0, "emoji": "📅", "text": "La empresa vende a 90 días pero compra al contado" },
+        { "id": 1, "emoji": "📋", "text": "Se elabora un cash flow proyectado para los próximos 6 meses" },
+        { "id": 2, "emoji": "🎯", "text": "Se aumenta el presupuesto de ventas" },
+        { "id": 3, "emoji": "⚠️", "text": "No se controla el cumplimiento del presupuesto" }
+      ],
+      "efectos": [
+        { "id": 0, "causa_id": 0, "emoji": "💸", "text": "Puede haber déficit financiero aunque haya utilidad económica" },
+        { "id": 1, "causa_id": 1, "emoji": "✅", "text": "Se detectan meses de déficit con tiempo para negociar créditos" },
+        { "id": 2, "causa_id": 2, "emoji": "📦", "text": "También deben aumentar producción, compras y gastos operativos" },
+        { "id": 3, "causa_id": 3, "emoji": "❌", "text": "Las desviaciones se detectan tarde y son más costosas de resolver" }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos para elaborar el presupuesto financiero mensual:",
+      "paginas_referencia": "8-9",
+      "pasos_en_orden_correcto": [
+        { "id": 0, "emoji": "📥", "text": "Calcular los ingresos: cobros al contado y cobros diferidos del mes" },
+        { "id": 1, "emoji": "📤", "text": "Calcular los egresos: pagos de compras, sueldos, alquileres e impuestos" },
+        { "id": 2, "emoji": "➗", "text": "Calcular el saldo del mes: ingresos − egresos" },
+        { "id": 3, "emoji": "➕", "text": "Sumar la disponibilidad inicial al saldo del mes" },
+        { "id": 4, "emoji": "🔍", "text": "Evaluar si hay déficit o superávit y tomar decisiones" }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "3-4",
+      "concepto_a": {
+        "nombre": "Lo Económico",
         "emoji": "📊",
-        "title": "Tipos de presupuestos",
-        "color": "#6366F1",
-        "concepto_clave": "El presupuesto general se compone de varios presupuestos parciales. Los más importantes son el económico (ganancia o pérdida) y el financiero (movimientos de dinero). Juntos dan una visión completa de la situación proyectada.",
-        "analogia": "El presupuesto económico te dice si tu negocio es rentable. El presupuesto financiero te dice si vas a tener plata para pagar. Una empresa puede ganar plata en papel pero no tener efectivo para operar.",
-        "lista_items": [
-          "Presupuesto de Ventas: punto de partida de todos los demás",
-          "Presupuesto de Costos: costo unitario × unidades a producir",
-          "Presupuesto de Gastos: variables, fijos y financieros",
-          "Presupuesto Económico: ventas − costos − gastos = resultado",
-          "Presupuesto Financiero: ingresos − egresos ± disponibilidad inicial",
-          "Balance General Proyectado: situación patrimonial al cierre"
-        ],
-        "diferencia_clave": {
-          "izquierda": {
-            "titulo": "PRESUPUESTO ECONÓMICO",
-            "items": [
-              "Incluye amortizaciones",
-              "Muestra resultado contable",
-              "Ventas − Costos − Gastos",
-              "Puede haber utilidad aunque no haya efectivo"
-            ]
-          },
-          "derecha": {
-            "titulo": "PRESUPUESTO FINANCIERO",
-            "items": [
-              "NO incluye amortizaciones",
-              "Muestra movimiento real de dinero",
-              "Ingresos cobrados − Egresos pagados",
-              "Puede haber efectivo aunque haya pérdida contable"
-            ]
-          }
-        }
+        "color": "#3B82F6"
+      },
+      "concepto_b": {
+        "nombre": "Lo Financiero",
+        "emoji": "💧",
+        "color": "#0EA5E9"
       }
-    ]
+    }
   },
 
   "nucleo_b": {
     "bloque_info": {
       "id": "b",
       "emoji": "⚖️",
-      "title": "BLOQUE B · Punto de Equilibrio y Caja Chica",
-      "color": "#8B5CF6"
+      "titulo": "BLOQUE B: Punto de Equilibrio y Caja Chica",
+      "color": "#8B5CF6",
+      "paginas": [12, 13, 14, 15, 18, 19, 20]
     },
-    "tarjetas": [
-      {
-        "id": "b1",
-        "emoji": "⚖️",
-        "title": "Punto de equilibrio",
-        "color": "#8B5CF6",
-        "concepto_clave": "El punto de equilibrio es el nivel de ventas en que la empresa ni gana ni pierde: cubre exactamente sus gastos de estructura (fijos y semifijos). Vender más de esa cantidad genera ganancia; vender menos, pérdida.",
-        "analogia": "Imaginá que tenés un puesto de facturas en la feria. Cada día tenés gastos fijos (alquiler del puesto, gas, etc.) aunque no vendas nada. El punto de equilibrio es la cantidad de facturas que tenés que vender solo para cubrir esos gastos.",
-        "formula": "PE = Gastos de estructura totales ÷ (Precio unitario − Costo variable unitario)",
-        "lista_items": [
-          "El denominador (Pu − Cvu) se llama margen de contribución unitario",
-          "PE Económico: incluye TODOS los gastos fijos (desembolsables + amortizaciones)",
-          "PE Financiero: incluye SOLO los gastos fijos desembolsables (salida real de dinero)",
-          "PE Financiero < PE Económico (siempre, porque los gastos son menores)",
-          "Las amortizaciones se incluyen en el económico pero NO en el financiero"
-        ],
-        "diferencia_clave": {
-          "izquierda": {
-            "titulo": "PE ECONÓMICO",
-            "items": [
-              "Incluye amortizaciones",
-              "Gastos fijos totales",
-              "Más alto → necesita vender más",
-              "Cubre el resultado contable"
-            ]
-          },
-          "derecha": {
-            "titulo": "PE FINANCIERO",
-            "items": [
-              "Excluye amortizaciones",
-              "Solo gastos desembolsables",
-              "Más bajo → necesita vender menos",
-              "Cubre los pagos reales"
-            ]
-          }
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los pasos para calcular el punto de equilibrio económico:",
+      "paginas_referencia": "12-14",
+      "items": [
+        { "id": 0, "emoji": "🔢", "text": "Identificar los costos variables unitarios de producción y comercialización" },
+        { "id": 1, "emoji": "📐", "text": "Calcular los gastos de estructura totales (fijos)" },
+        { "id": 2, "emoji": "💲", "text": "Determinar el precio unitario de venta" },
+        { "id": 3, "emoji": "➗", "text": "Calcular el margen de contribución: precio − costo variable unitario" },
+        { "id": 4, "emoji": "⚖️", "text": "Dividir los gastos de estructura por el margen de contribución" }
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada gasto según corresponda al Punto de Equilibrio Económico o solo al Financiero:",
+      "paginas_referencia": "12-13",
+      "categorias": [
+        { "name": "PE Económico (incluye)", "emoji": "📊", "color": "#8B5CF6" },
+        { "name": "PE Financiero (solo desembolsables)", "emoji": "💧", "color": "#10B981" }
+      ],
+      "items": [
+        { "id": 0, "text": "Amortizaciones de bienes de uso", "categoria_correcta": 0 },
+        { "id": 1, "text": "Sueldos y cargas sociales", "categoria_correcta": 1 },
+        { "id": 2, "text": "Gastos de estructura desembolsables", "categoria_correcta": 1 },
+        { "id": 3, "text": "Gastos fijos NO desembolsables", "categoria_correcta": 0 },
+        { "id": 4, "text": "Alquileres pagados en efectivo", "categoria_correcta": 1 },
+        { "id": 5, "text": "Depreciación de maquinaria", "categoria_correcta": 0 }
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "12-14",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "En el punto de equilibrio, la empresa no gana ni",
+          "respuesta_correcta": "pierde",
+          "pista": "P_____"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "El denominador de la fórmula del PE se llama margen de",
+          "respuesta_correcta": "contribución",
+          "pista": "C___________"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "El PE financiero solo considera los gastos de estructura",
+          "respuesta_correcta": "desembolsables",
+          "pista": "D_____________"
         }
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "12-20",
+      "afirmaciones": [
+        {
+          "texto": "El punto de equilibrio financiero siempre es menor que el punto de equilibrio económico",
+          "correcto": true,
+          "explicacion": "Verdadero. El PE financiero solo considera gastos desembolsables (sin amortizaciones), por lo que los gastos de estructura son menores. Al dividir por el mismo margen de contribución, el resultado es un número de unidades menor. Ver Sección 5."
+        },
+        {
+          "texto": "En el sistema de fondo fijo, el monto del fondo varía según los gastos de cada período",
+          "correcto": false,
+          "explicacion": "Falso. Precisamente se llama 'fondo FIJO' porque siempre se repone al mismo importe original. Después de cada rendición de gastos el fondo vuelve al monto inicial, sea cual sea el monto gastado. Ver Sección 7."
+        },
+        {
+          "texto": "Un arqueo de caja chica donde efectivo + comprobantes es MAYOR al fondo fijo indica un faltante",
+          "correcto": false,
+          "explicacion": "Falso. Si la suma es MAYOR al fondo fijo, hay un SOBRANTE (ingreso no justificado). El faltante ocurre cuando la suma es MENOR al fondo fijo asignado. Ver Sección 7."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "12-14",
+      "pares": [
+        { "izquierda": "Margen de contribución unitario", "derecha": "Precio unitario − Costo variable unitario", "emoji": "📐" },
+        { "izquierda": "Gastos de estructura", "derecha": "Gastos fijos y semifijos de producción y comercialización", "emoji": "🏗️" },
+        { "izquierda": "PE Económico", "derecha": "Gastos de estructura totales ÷ Margen de contribución", "emoji": "📊" },
+        { "izquierda": "PE Financiero", "derecha": "Solo gastos desembolsables ÷ Margen de contribución", "emoji": "💧" }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "consigna": "Encontrá el elemento que NO corresponde a cada grupo",
+      "paginas_referencia": "12-20",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "⚖️",
+          "pregunta": "¿Cuál NO es un gasto desembolsable (no va en el PE financiero)?",
+          "paginas": "12-13",
+          "palabras": [
+            { "text": "Sueldos", "es_intrusa": false },
+            { "text": "Alquileres", "es_intrusa": false },
+            { "text": "Amortizaciones", "es_intrusa": true },
+            { "text": "Servicios públicos", "es_intrusa": false }
+          ],
+          "explicacion": "Las amortizaciones NO son desembolsables: representan el desgaste contable de un bien pero no implican salida de dinero. Por eso no se incluyen en el PE financiero."
+        },
+        {
+          "id": 1,
+          "emoji": "🏧",
+          "pregunta": "¿Cuál NO es una norma básica del sistema de caja chica?",
+          "paginas": "18",
+          "palabras": [
+            { "text": "Designar un custodio responsable", "es_intrusa": false },
+            { "text": "Acompañar cada pago con factura o recibo", "es_intrusa": false },
+            { "text": "Pagar cualquier monto sin límite", "es_intrusa": true },
+            { "text": "Establecer un mínimo para activar el reembolso", "es_intrusa": false }
+          ],
+          "explicacion": "Pagar cualquier monto sin límite NO es una norma del sistema de caja chica. Por el contrario, se debe establecer un monto máximo por pago individual para mantener el control."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "12-20",
+      "conceptos": [
+        {
+          "termino": "Punto de equilibrio",
+          "pista": "¿Qué nombre tiene el nivel de ventas donde la empresa ni gana ni pierde?",
+          "palabras_clave": ["ventas", "cubrir", "gastos", "estructura", "gana", "pierde", "equilibrio"]
+        },
+        {
+          "termino": "Fondo fijo de caja chica",
+          "pista": "¿Cómo se llama el dinero en efectivo que se le da a un empleado para pequeños gastos cotidianos?",
+          "palabras_clave": ["efectivo", "custodio", "gastos", "menores", "repone", "fijo", "monto"]
+        },
+        {
+          "termino": "Arqueo de caja chica",
+          "pista": "¿Qué nombre tiene el recuento físico del efectivo y comprobantes del fondo fijo?",
+          "palabras_clave": ["recuento", "efectivo", "comprobantes", "verificar", "control", "fondo"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "12-20",
+      "causas": [
+        { "id": 0, "emoji": "📉", "text": "La empresa vende menos unidades que el punto de equilibrio económico" },
+        { "id": 1, "emoji": "📈", "text": "La empresa baja el precio unitario de venta" },
+        { "id": 2, "emoji": "🏧", "text": "El custodio realiza un pago sin obtener comprobante" },
+        { "id": 3, "emoji": "🔍", "text": "Se realiza un arqueo sorpresivo de caja chica" }
+      ],
+      "efectos": [
+        { "id": 0, "causa_id": 0, "emoji": "❌", "text": "La empresa tiene pérdidas en el período" },
+        { "id": 1, "causa_id": 1, "emoji": "📊", "text": "El margen de contribución baja y el PE sube (hay que vender más)" },
+        { "id": 2, "causa_id": 2, "emoji": "⚠️", "text": "Aparece un faltante en el arqueo que se registra como pérdida" },
+        { "id": 3, "causa_id": 3, "emoji": "✅", "text": "Se detectan irregularidades antes de que el problema sea mayor" }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el procedimiento del sistema de fondo fijo de caja chica:",
+      "paginas_referencia": "18-19",
+      "pasos_en_orden_correcto": [
+        { "id": 0, "emoji": "💵", "text": "Se crea el fondo y se entrega el dinero al custodio" },
+        { "id": 1, "emoji": "🧾", "text": "El custodio realiza los pagos menores y obtiene comprobantes" },
+        { "id": 2, "emoji": "📋", "text": "Se completa la planilla de erogaciones con cada gasto" },
+        { "id": 3, "emoji": "🔍", "text": "Se verifica que efectivo + comprobantes = fondo fijo (arqueo)" },
+        { "id": 4, "emoji": "🔄", "text": "Se repone el fondo al monto original mediante asiento de reembolso" }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "12-13",
+      "concepto_a": {
+        "nombre": "PE Económico",
+        "emoji": "📊",
+        "color": "#8B5CF6"
       },
-      {
-        "id": "b2",
-        "emoji": "🏧",
-        "title": "Caja chica y fondo fijo",
-        "color": "#10B981",
-        "concepto_clave": "El fondo fijo de caja chica es un monto de efectivo asignado a un custodio para afrontar pagos menores del día a día. Es 'fijo' porque siempre se repone al mismo importe original al rendir los comprobantes.",
-        "analogia": "Es como cuando tu mamá te deja $5.000 para gastos del día: comprás lo que necesitás, guardás los tickets y al final del día le mostrás en qué gastaste. Ella te repone lo que gastaste para que el fondo vuelva a $5.000.",
-        "lista_items": [
-          "Se designa un custodio responsable del efectivo",
-          "Se establece un monto límite por pago individual",
-          "Cada pago debe estar respaldado por factura o recibo",
-          "Se define un mínimo para activar el reembolso",
-          "El arqueo verifica: efectivo + comprobantes = fondo fijo"
-        ],
-        "arqueo": {
-          "sin_diferencia": "Efectivo + comprobantes = fondo fijo → Todo correcto",
-          "sobrante": "Efectivo + comprobantes > fondo fijo → Ingreso no justificado (ganancia)",
-          "faltante": "Efectivo + comprobantes < fondo fijo → Falta dinero (pérdida o descuento al custodio)"
-        }
+      "concepto_b": {
+        "nombre": "PE Financiero",
+        "emoji": "💧",
+        "color": "#10B981"
       }
-    ]
+    }
   },
 
   "nucleo_c": {
     "bloque_info": {
       "id": "c",
       "emoji": "🏦",
-      "title": "BLOQUE C · Sistema Financiero y Operaciones Bancarias",
-      "color": "#F59E0B"
+      "titulo": "BLOQUE C: Sistema Financiero y Operaciones Bancarias",
+      "color": "#F59E0B",
+      "paginas": [24, 25, 26, 27, 28, 29, 30, 35, 36]
     },
-    "tarjetas": [
-      {
-        "id": "c1",
-        "emoji": "💵",
-        "title": "El dinero y el sistema financiero",
-        "color": "#F59E0B",
-        "concepto_clave": "El dinero es un instrumento aceptado por convención social para intercambiar bienes, valuar y conservar valor. No tiene valor intrínseco: vale porque todos confiamos en que el otro lo aceptará. El sistema financiero intermedia entre quienes tienen excedentes (depositantes) y quienes necesitan fondos (tomadores de crédito).",
-        "analogia": "El dinero es como las reglas de un juego: funcionan porque todos los jugadores las aceptan. Si de repente nadie creyera en los billetes, no valdrían nada. La confianza colectiva es lo que les da poder.",
-        "lista_items": [
-          "Medio de cambio: reemplaza el trueque, sirve de puente universal",
-          "Unidad de cuenta: permite comparar valores de bienes distintos",
-          "Reserva de valor: guarda poder adquisitivo para el futuro (se debilita con inflación)",
-          "BCRA: regula el sistema, emite moneda y fija tasas de referencia",
-          "Bancos comerciales: reciben depósitos y otorgan créditos al público",
-          "Billeteras virtuales: Mercado Pago, Naranja X, Ualá"
-        ]
-      },
-      {
-        "id": "c2",
-        "emoji": "🏦",
-        "title": "Depósitos bancarios",
-        "color": "#EF4444",
-        "concepto_clave": "Los bancos reciben depósitos pagando un interés pasivo y prestan ese dinero cobrando un interés activo. La diferencia entre ambos (spread) es la ganancia del banco. Cuanto más tiempo inmovilizás tu dinero, mayor tasa te pagan.",
-        "analogia": "El banco te presta tu paraguas a otra persona mientras llueve, te cobra a ella por usarlo y a vos te da una pequeña retribución por dejárselo. Cuanto más tiempo se lo dejés, más te paga.",
-        "lista_items": [
-          "Cuenta Corriente: sin intereses, opera con cheques, permite descubierto",
-          "Caja de Ahorro común: intereses bajos, extracciones limitadas por mes",
-          "Caja de Ahorro especial: mejor tasa, muy pocas extracciones permitidas",
-          "Plazo Fijo: mayor tasa, sin extracciones hasta el vencimiento (30/60/90 días o más)",
-          "Plazo Fijo UVA: ajustado por inflación, protege el poder adquisitivo"
-        ],
-        "diferencia_clave": {
-          "izquierda": {
-            "titulo": "INTERÉS PASIVO",
-            "items": [
-              "Lo paga el banco al depositante",
-              "Es el costo del dinero para el banco",
-              "Menor tasa",
-              "Ejemplo: tasa del plazo fijo"
-            ]
-          },
-          "derecha": {
-            "titulo": "INTERÉS ACTIVO",
-            "items": [
-              "Lo cobra el banco al tomador de crédito",
-              "Es el ingreso del banco por prestar",
-              "Mayor tasa",
-              "Ejemplo: tasa de un préstamo personal"
-            ]
-          }
-        }
-      },
-      {
-        "id": "c3",
-        "emoji": "🔁",
-        "title": "Conciliación bancaria",
-        "color": "#6366F1",
-        "concepto_clave": "La conciliación bancaria es la comparación mensual entre el saldo del Libro Bancos de la empresa y el extracto bancario. El objetivo es detectar y explicar las diferencias entre ambos, que casi siempre existen por diferencias de momento en el registro.",
-        "analogia": "Es como comparar tu lista de gastos con el resumen de tu tarjeta: quizás vos ya anotaste una compra que todavía no aparece en el resumen, o el banco cobró una comisión que vos no tenías registrada.",
-        "lista_items": [
-          "Cheques emitidos y no presentados: la empresa los descontó pero el beneficiario no los cobró",
-          "Depósitos en tránsito: la empresa los registró pero el banco aún no los acreditó",
-          "Cheques rechazados: cheques de clientes devueltos por falta de fondos",
-          "Gastos bancarios: comisiones, mantenimiento, IVA que el banco descuenta automáticamente",
-          "Notas de crédito: cobranzas o préstamos que el banco acreditó directamente",
-          "Notas de débito: cargos del banco por intereses, impuestos o servicios"
-        ]
-      },
-      {
-        "id": "c4",
-        "emoji": "📄",
-        "title": "Descuento de pagaré",
-        "color": "#0EA5E9",
-        "concepto_clave": "El descuento de pagaré es una operación bancaria por la cual la empresa entrega al banco un documento a cobrar antes de su vencimiento, a cambio recibe el dinero adelantado menos los intereses y comisiones que cobra el banco.",
-        "analogia": "Es como pedir un adelanto de sueldo: sabés que vas a cobrar $10.000 el viernes, pero necesitás plata hoy. Tu empleador (el banco) te da el dinero ahora, pero te descuenta una parte por el servicio.",
-        "formula": "Interés = (Capital × Razón × Tiempo) ÷ (100 × unidad de tiempo)",
-        "lista_items": [
-          "Valor Nominal (VN): monto del pagaré en el documento",
-          "Razón (R): tasa de interés que cobra el banco",
-          "Tiempo (T): días entre el descuento y el vencimiento",
-          "Monto neto recibido = VN − Intereses − Gastos",
-          "Si el cliente paga: se cancela el documento a cobrar",
-          "Si el cliente NO paga: el banco debita el importe de la cuenta de la empresa"
-        ]
-      }
-    ]
-  },
 
-  "practica": {
-    "ejercicios_guia": [
-      {
-        "numero": 1,
-        "titulo": "Comercial San Martín S.A.",
-        "tema": "Presupuesto económico y financiero",
-        "nivel": "Básico",
-        "color": "#0EA5E9",
-        "consigna": "Preparar el presupuesto económico y financiero para el período 01/01 al 30/06. Identificar meses de mayor superávit y déficit. Proponer recomendación al Director Financiero.",
-        "datos_clave": [
-          "Compras: 50% de las ventas",
-          "Sueldos: 20% sobre ventas",
-          "Alquileres: $100.000 | Amortizaciones: $40.000 | Otros fijos: $30.000",
-          "Cobros: 50% al contado, 50% a 30 días",
-          "Pagos: 40% al contado, 60% a 60 días (salvo sueldos, alquileres y fijos)"
-        ]
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los pasos del procedimiento de conciliación bancaria:",
+      "paginas_referencia": "28-29",
+      "items": [
+        { "id": 0, "emoji": "📒", "text": "Obtener el saldo final del Libro Bancos de la empresa" },
+        { "id": 1, "emoji": "🏦", "text": "Obtener el saldo final del extracto bancario" },
+        { "id": 2, "emoji": "🔍", "text": "Cotejar ambos registros movimiento por movimiento" },
+        { "id": 3, "emoji": "📌", "text": "Identificar movimientos que aparecen en uno pero no en el otro" },
+        { "id": 4, "emoji": "✍️", "text": "Asentar en contabilidad los movimientos que estaban solo en el banco" }
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada tipo de depósito según corresponda a Cuenta Corriente, Caja de Ahorro o Plazo Fijo:",
+      "paginas_referencia": "27",
+      "categorias": [
+        { "name": "Cuenta Corriente", "emoji": "🏢", "color": "#3B82F6" },
+        { "name": "Caja de Ahorro", "emoji": "🐷", "color": "#10B981" },
+        { "name": "Plazo Fijo", "emoji": "🔒", "color": "#F59E0B" }
+      ],
+      "items": [
+        { "id": 0, "text": "Permite operar con cheques", "categoria_correcta": 0 },
+        { "id": 1, "text": "No se puede extraer hasta el vencimiento", "categoria_correcta": 2 },
+        { "id": 2, "text": "Es la cuenta más usada para recibir el sueldo", "categoria_correcta": 1 },
+        { "id": 3, "text": "Paga la tasa de interés más alta entre los depósitos", "categoria_correcta": 2 },
+        { "id": 4, "text": "No genera intereses, es típica de las empresas", "categoria_correcta": 0 },
+        { "id": 5, "text": "Permite extracciones limitadas por mes", "categoria_correcta": 1 }
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "24-36",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "Las tres funciones del dinero son: medio de cambio, unidad de cuenta y reserva de",
+          "respuesta_correcta": "valor",
+          "pista": "V____"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "El banco que regula y supervisa al sistema financiero argentino es el",
+          "respuesta_correcta": "BCRA",
+          "pista": "B.C.R.A."
+        },
+        {
+          "id": "b3",
+          "texto_antes": "En el descuento de pagaré, el monto neto que recibe la empresa es el VN menos los intereses y los",
+          "respuesta_correcta": "gastos",
+          "pista": "G_____"
+        }
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "24-36",
+      "afirmaciones": [
+        {
+          "texto": "La función de reserva de valor del dinero se fortalece en contextos de alta inflación",
+          "correcto": false,
+          "explicacion": "Falso. La inflación DEBILITA la función de reserva de valor: el dinero guardado hoy compra menos cosas mañana, ya que los precios suben constantemente. Ver Sección 9."
+        },
+        {
+          "texto": "La cuenta corriente bancaria es la más adecuada para empresas porque permite operar con cheques y girar en descubierto",
+          "correcto": true,
+          "explicacion": "Verdadero. La cuenta corriente es la típica de las empresas: permite emitir y depositar cheques, hacer transferencias y acceder al descubierto en cuenta corriente para cubrir baches de caja temporarios. Ver Sección 11."
+        },
+        {
+          "texto": "Si el cliente no paga el pagaré al vencimiento, el banco debita el importe de la cuenta de la empresa que realizó el descuento",
+          "correcto": true,
+          "explicacion": "Verdadero. En el descuento de documentos de terceros, si el cliente no paga al vencimiento, el banco le cobra a la empresa que lo presentó al descuento, debitando el VN de su cuenta corriente. Ver Sección 10."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "26-28",
+      "pares": [
+        { "izquierda": "Giro en descubierto", "derecha": "Acuerdo para girar cheques sin fondos suficientes", "emoji": "📝" },
+        { "izquierda": "Descuento de doc. propios", "derecha": "La empresa firma un pagaré a favor del banco para obtener fondos", "emoji": "🏛️" },
+        { "izquierda": "Descuento de doc. de terceros", "derecha": "La empresa lleva al banco un cheque de cliente para cobrarlo antes del vencimiento", "emoji": "🔄" },
+        { "izquierda": "Interés pasivo / activo", "derecha": "Lo que paga el banco por depósitos / lo que cobra por préstamos", "emoji": "📊" }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "consigna": "Encontrá el elemento que NO pertenece a cada grupo",
+      "paginas_referencia": "24-36",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "💵",
+          "pregunta": "¿Cuál NO es una función del dinero?",
+          "paginas": "24",
+          "palabras": [
+            { "text": "Medio de cambio", "es_intrusa": false },
+            { "text": "Unidad de cuenta", "es_intrusa": false },
+            { "text": "Generador de empleo", "es_intrusa": true },
+            { "text": "Reserva de valor", "es_intrusa": false }
+          ],
+          "explicacion": "Generar empleo NO es una función del dinero. Las tres funciones clásicas son: medio de cambio, unidad de cuenta y reserva de valor."
+        },
+        {
+          "id": 1,
+          "emoji": "🔁",
+          "pregunta": "¿Cuál NO es una causa típica de diferencias en la conciliación bancaria?",
+          "paginas": "28",
+          "palabras": [
+            { "text": "Cheques emitidos y no presentados", "es_intrusa": false },
+            { "text": "Depósitos en tránsito", "es_intrusa": false },
+            { "text": "Ventas registradas a plazo", "es_intrusa": true },
+            { "text": "Gastos bancarios no registrados", "es_intrusa": false }
+          ],
+          "explicacion": "Las ventas a plazo NO son causa de diferencias en la conciliación bancaria: son registros del rubro ventas, no movimientos de cuenta corriente bancaria."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "24-36",
+      "conceptos": [
+        {
+          "termino": "Conciliación bancaria",
+          "pista": "¿Cómo se llama el proceso de comparar el Libro Bancos de la empresa con el extracto bancario?",
+          "palabras_clave": ["comparación", "libro", "extracto", "diferencias", "saldos", "detectar", "mensual"]
+        },
+        {
+          "termino": "Descuento de pagaré",
+          "pista": "¿Qué operación bancaria permite a una empresa cobrar un documento antes de su vencimiento?",
+          "palabras_clave": ["banco", "anticipa", "documento", "antes", "vencimiento", "intereses", "efectivo"]
+        },
+        {
+          "termino": "Spread bancario",
+          "pista": "¿Cómo se llama la diferencia entre la tasa que cobra el banco por prestar y la que paga por los depósitos?",
+          "palabras_clave": ["diferencia", "tasa", "activo", "pasivo", "ganancia", "banco", "interés"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "24-36",
+      "causas": [
+        { "id": 0, "emoji": "📈", "text": "La inflación sube sostenidamente en Argentina" },
+        { "id": 1, "emoji": "📄", "text": "La empresa descuenta un pagaré de un cliente" },
+        { "id": 2, "emoji": "🏦", "text": "El banco acredita una nota de crédito que la empresa no tenía registrada" },
+        { "id": 3, "emoji": "💳", "text": "La empresa emite un cheque que el beneficiario no presentó al banco" }
+      ],
+      "efectos": [
+        { "id": 0, "causa_id": 0, "emoji": "💸", "text": "El dinero pierde su función de reserva de valor" },
+        { "id": 1, "causa_id": 1, "emoji": "💰", "text": "Obtiene liquidez inmediata pagando intereses al banco" },
+        { "id": 2, "causa_id": 2, "emoji": "✍️", "text": "Debe registrar el movimiento mediante un asiento de ajuste" },
+        { "id": 3, "causa_id": 3, "emoji": "🔁", "text": "Aparece como diferencia en la conciliación bancaria del mes" }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos de la operación de descuento de pagaré:",
+      "paginas_referencia": "35-36",
+      "pasos_en_orden_correcto": [
+        { "id": 0, "emoji": "📄", "text": "La empresa recibe un pagaré de un cliente por una venta a plazo" },
+        { "id": 1, "emoji": "🏦", "text": "La empresa lleva el pagaré al banco y solicita el descuento" },
+        { "id": 2, "emoji": "💰", "text": "El banco acredita el VN menos intereses y gastos en la cuenta corriente" },
+        { "id": 3, "emoji": "📅", "text": "Al vencimiento, el banco cobra el pagaré al cliente firmante" },
+        { "id": 4, "emoji": "✅", "text": "Si el cliente paga se cancela el doc.; si no paga, el banco debita a la empresa" }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "26",
+      "concepto_a": {
+        "nombre": "Descuento doc. propios",
+        "emoji": "📝",
+        "color": "#3B82F6"
       },
-      {
-        "numero": 2,
-        "titulo": "Distribuidora del Sur S.R.L.",
-        "tema": "Presupuesto económico y financiero",
-        "nivel": "Intermedio",
-        "color": "#3B82F6",
-        "consigna": "Preparar el presupuesto económico y financiero para el semestre. Calcular la utilidad acumulada. Comparar la evolución del resultado económico con el saldo financiero y explicar si coinciden.",
-        "datos_clave": [
-          "Compras: 40% de las ventas",
-          "Sueldos: 10% sobre ventas",
-          "Alquileres: $120.000 | Amortizaciones: $60.000 | Otros fijos: $70.000",
-          "Cobros: 50% al contado, 50% a 60 días",
-          "Pagos: 40% al contado, 60% a 60 días"
-        ]
-      },
-      {
-        "numero": 3,
-        "titulo": "Ejercicios de caja chica (5 ejercicios)",
-        "tema": "Fondo fijo de caja chica",
-        "nivel": "Progresivo",
-        "color": "#10B981",
-        "consigna": "Para cada empresa: realizar la planilla de erogaciones, preparar asientos de creación y reembolso, determinar si hay sobrante o faltante en el arqueo.",
-        "datos_clave": [
-          "Ej. 1 · Empresa XYZ: fondo $150.000, custodio Sr. Soto, erogaciones $110.000",
-          "Ej. 2 · Empresa C.A.: fondo $300.000, límite $25.000 por pago, existencia final $56.000",
-          "Ej. 3 · La Conquista: fondo $400.000, gastos $330.000, existencia $70.000",
-          "Ej. 4 · Banco Río: fondo $200.000 con cheque, reposición con Banco Nación",
-          "Ej. 5 · Arqueo sorpresivo: fondo $220.000, contar efectivo y detectar sobrante/faltante"
-        ]
-      },
-      {
-        "numero": 4,
-        "titulo": "Ejercicios de conciliación bancaria (4 ejercicios)",
-        "tema": "Conciliación bancaria",
-        "nivel": "Progresivo",
-        "color": "#8B5CF6",
-        "consigna": "Para cada empresa: detectar diferencias, confeccionar la conciliación bancaria, determinar saldo correcto y elaborar asientos de ajuste.",
-        "datos_clave": [
-          "Ej. 1 · Librería del Centro (Banco Macro): nivel básico, cheques y depósito en tránsito",
-          "Ej. 2 · El Golfo S.A. (Banco Galicia): nivel intermedio, errores de registro y notas",
-          "Ej. 3 · El Pingüino S.A. (Banco Macro): nivel avanzado, notas crédito/débito y cheques anulados",
-          "Ej. 4 · La Comercial S.A. (Banco Prov. Santa Fe): nivel integrador, todos los casos típicos"
-        ]
-      },
-      {
-        "numero": 5,
-        "titulo": "Ejercicios de descuento de pagaré (4 ejercicios)",
-        "tema": "Descuento de pagaré",
-        "nivel": "Progresivo",
-        "color": "#F59E0B",
-        "consigna": "Calcular intereses, comisiones y monto neto recibido. Confeccionar asientos de descuento, devengamiento y vencimiento.",
-        "datos_clave": [
-          "Ej. 1 · Librería Virtual: VN $327.000, tasa 3% mensual, plazo 30 días",
-          "Ej. 2 · Librería Virtual II: VN $174.400, tasa 4% mensual + comisión 0,5%",
-          "Ej. 3 · Crédito a sola firma: pagaré $600.000, tasa 30% anual, sellos 1%",
-          "Ej. 4 · El Plátano S.R.L.: dos documentos, uno paga y otro no al vencimiento"
-        ]
+      "concepto_b": {
+        "nombre": "Descuento doc. de terceros",
+        "emoji": "🔄",
+        "color": "#F59E0B"
       }
-    ]
+    }
   },
 
   "evaluacion": {
@@ -563,7 +794,7 @@
           "Los gastos fijos de producción"
         ],
         "correcta": 2,
-        "explicacion": "El cash flow muestra el dinero realmente disponible en cada momento. El estado de resultados puede mostrar utilidad contable aunque la empresa no tenga efectivo para pagar sueldos. Ese es el problema clásico que el cash flow ayuda a anticipar. Ver Sección 2."
+        "explicacion": "El cash flow muestra el dinero realmente disponible en cada momento. El estado de resultados puede mostrar utilidad contable aunque la empresa no tenga efectivo para pagar sueldos. Ver Sección 2."
       },
       {
         "pregunta": "¿Por qué las amortizaciones aparecen en el presupuesto económico pero NO en el financiero?",
@@ -574,10 +805,10 @@
           "Porque el presupuesto financiero no incluye ningún tipo de gasto"
         ],
         "correcta": 1,
-        "explicacion": "Las amortizaciones son gastos contables (pérdida de valor de bienes de uso) pero no implican ningún movimiento de dinero. Por eso afectan el resultado económico pero no el financiero. Es una de las diferencias clave entre ambos presupuestos. Revisá la Sección 6."
+        "explicacion": "Las amortizaciones son gastos contables (pérdida de valor de bienes de uso) pero no implican ningún movimiento de dinero. Por eso afectan el resultado económico pero no el financiero. Revisá la Sección 6."
       },
       {
-        "pregunta": "Un empresa tiene Gastos de Estructura de $220.000, Precio Unitario de $79,09 y Costo Variable Unitario de $63,20. ¿Cuántas unidades es el punto de equilibrio económico?",
+        "pregunta": "Una empresa tiene Gastos de Estructura de $220.000, Precio Unitario de $79,09 y Costo Variable Unitario de $63,20. ¿Cuántas unidades es el punto de equilibrio económico?",
         "opciones": [
           "Aproximadamente 2.780 unidades",
           "Aproximadamente 13.845 unidades",
@@ -585,7 +816,7 @@
           "Aproximadamente 4.153 unidades"
         ],
         "correcta": 1,
-        "explicacion": "PE = Gastos de estructura ÷ (Pu − Cvu) = $220.000 ÷ ($79,09 − $63,20) = $220.000 ÷ $15,89 ≈ 13.845 unidades. El margen de contribución unitario es $15,89. Con ese volumen la empresa cubre exactamente todos sus gastos fijos. Ver Sección 5."
+        "explicacion": "PE = $220.000 ÷ ($79,09 − $63,20) = $220.000 ÷ $15,89 ≈ 13.845 unidades. El margen de contribución unitario es $15,89. Ver Sección 5."
       },
       {
         "pregunta": "¿Qué es el margen de contribución unitario?",
@@ -596,7 +827,7 @@
           "La suma de todos los gastos fijos dividida por las unidades producidas"
         ],
         "correcta": 1,
-        "explicacion": "El margen de contribución unitario es la diferencia entre el Precio Unitario y el Costo Variable Unitario (Pu − Cvu). Es el denominador de la fórmula del punto de equilibrio y representa cuánto 'aporta' cada unidad vendida para cubrir los gastos fijos. Ver Sección 5."
+        "explicacion": "El margen de contribución unitario es Pu − Cvu. Es el denominador de la fórmula del punto de equilibrio y representa cuánto aporta cada unidad vendida para cubrir los gastos fijos. Ver Sección 5."
       },
       {
         "pregunta": "Al hacer un arqueo de caja chica, el efectivo más los comprobantes suman $95.000, pero el fondo fijo asignado es de $100.000. ¿Qué ocurrió?",
@@ -607,10 +838,10 @@
           "No hay ningún problema, la diferencia es normal"
         ],
         "correcta": 2,
-        "explicacion": "Cuando efectivo + comprobantes < fondo fijo asignado, hay un FALTANTE. Significa que hay dinero que salió pero no tiene respaldo en comprobantes. Se contabiliza como pérdida o se le descuenta al custodio según la política de la empresa. Ver Sección 7."
+        "explicacion": "Cuando efectivo + comprobantes < fondo fijo asignado, hay un FALTANTE. Se contabiliza como pérdida o se le descuenta al custodio. Ver Sección 7."
       },
       {
-        "pregunta": "¿Cuál de las siguientes opciones describe correctamente el descuento de documentos de terceros?",
+        "pregunta": "¿Cuál describe correctamente el descuento de documentos de terceros?",
         "opciones": [
           "La empresa firma un pagaré a favor del banco para obtener un préstamo",
           "La empresa lleva al banco un cheque diferido de un cliente para obtener el efectivo antes del vencimiento",
@@ -618,10 +849,10 @@
           "La empresa deposita un cheque propio para girar en descubierto"
         ],
         "correcta": 1,
-        "explicacion": "En el descuento de documentos de terceros, la empresa endosa al banco un cheque diferido o pagaré recibido de un cliente. El banco adelanta el efectivo descontando sus intereses. Si el cliente no paga al vencimiento, el banco debita el importe de la cuenta de la empresa. Ver Sección 10."
+        "explicacion": "La empresa endosa al banco un cheque diferido o pagaré recibido de un cliente. El banco adelanta el efectivo descontando sus intereses. Si el cliente no paga, el banco debita a la empresa. Ver Sección 10."
       },
       {
-        "pregunta": "¿Por qué generalmente el saldo del Libro Bancos de la empresa y el extracto bancario no coinciden al cierre del mes?",
+        "pregunta": "¿Por qué generalmente el Libro Bancos de la empresa y el extracto bancario no coinciden al cierre del mes?",
         "opciones": [
           "Porque la empresa comete errores todos los meses",
           "Porque ambos registran las mismas operaciones en momentos distintos",
@@ -629,10 +860,10 @@
           "Porque la contabilidad usa un tipo de cambio diferente al del banco"
         ],
         "correcta": 1,
-        "explicacion": "Las diferencias se deben a que hay movimientos que cada uno registra en momentos distintos: cheques emitidos pero no presentados, depósitos en tránsito, comisiones bancarias aún no registradas por la empresa, entre otros. Por eso se necesita la conciliación bancaria mensual. Ver Sección 12."
+        "explicacion": "Las diferencias se deben a que hay movimientos que cada uno registra en momentos distintos: cheques emitidos pero no presentados, depósitos en tránsito, comisiones bancarias no registradas, etc. Ver Sección 12."
       },
       {
-        "pregunta": "Una empresa descuenta un pagaré de VN $2.350.000 a 30 días. El banco cobra un interés anual del 70% y $10.000 en gastos. ¿Cuánto recibe la empresa?",
+        "pregunta": "Una empresa descuenta un pagaré de VN $2.350.000 a 30 días. El banco cobra interés anual del 70% y $10.000 en gastos. ¿Cuánto recibe la empresa?",
         "opciones": [
           "$2.350.000",
           "$2.240.000",
@@ -640,7 +871,7 @@
           "$2.214.795"
         ],
         "correcta": 2,
-        "explicacion": "Interés = (2.350.000 × 70 × 30) ÷ (100 × 365) = $135.205. Monto neto = $2.350.000 − $135.205 − $10.000 = $2.204.795. El banco adelanta el VN menos los intereses y gastos. Ver Sección 14."
+        "explicacion": "Interés = (2.350.000 × 70 × 30) ÷ (100 × 365) = $135.205. Monto neto = $2.350.000 − $135.205 − $10.000 = $2.204.795. Ver Sección 14."
       },
       {
         "pregunta": "¿Cuál es la función del dinero que se debilita en contextos de alta inflación como Argentina?",
@@ -651,39 +882,39 @@
           "Instrumento de crédito"
         ],
         "correcta": 2,
-        "explicacion": "La función de reserva de valor es la que se debilita con la inflación: el dinero guardado hoy compra menos cosas mañana, ya que los precios suben constantemente. En Argentina esto lleva a buscar alternativas como dólares, plazos fijos UVA o bienes durables. Ver Sección 9."
+        "explicacion": "La función de reserva de valor se debilita con la inflación: el dinero guardado hoy compra menos cosas mañana. En Argentina esto lleva a buscar alternativas como dólares, plazos fijos UVA o bienes durables. Ver Sección 9."
       }
     ],
     "verdadero_falso": [
       {
         "texto": "Una empresa puede tener utilidad contable positiva y al mismo tiempo no tener efectivo para pagar sus deudas",
         "correcto": true,
-        "explicacion": "VERDADERO. Este es el problema clásico que el cash flow busca prevenir: una empresa puede registrar ventas a 90 días (ingreso económico) pero no tener el dinero disponible (ingreso financiero) para hacer frente a sus pagos del mes. Ver Sección 2."
+        "explicacion": "VERDADERO. Este es el problema clásico que el cash flow busca prevenir: una empresa puede registrar ventas a 90 días (ingreso económico) pero no tener el dinero disponible para hacer frente a sus pagos del mes. Ver Sección 2."
       },
       {
         "texto": "El presupuesto de ventas es el último que se elabora porque depende de todos los demás",
         "correcto": false,
-        "explicacion": "FALSO. El presupuesto de ventas es el PRIMERO y es el punto de partida de todos los demás. Si se proyecta vender más, hay que producir más, comprar más insumos y tener mayor capacidad operativa. Todo el presupuesto general se construye a partir de él. Ver Sección 4."
+        "explicacion": "FALSO. El presupuesto de ventas es el PRIMERO y el punto de partida de todos los demás. Todo el presupuesto general se construye a partir de él. Ver Sección 4."
       },
       {
         "texto": "El punto de equilibrio financiero siempre es menor que el punto de equilibrio económico",
         "correcto": true,
-        "explicacion": "VERDADERO. El PE financiero solo considera gastos desembolsables (sin amortizaciones), por lo que los gastos de estructura son menores. Al dividir por el mismo margen de contribución, el resultado es menor. La empresa alcanza el PE financiero vendiendo menos unidades. Ver Sección 5."
+        "explicacion": "VERDADERO. El PE financiero solo considera gastos desembolsables (sin amortizaciones), por lo que los gastos de estructura son menores. La empresa lo alcanza vendiendo menos unidades. Ver Sección 5."
       },
       {
         "texto": "En el sistema de fondo fijo, el monto del fondo varía según los gastos de cada período",
         "correcto": false,
-        "explicacion": "FALSO. Precisamente se llama 'fondo FIJO' porque siempre se repone al mismo importe original. Si el fondo es $80.000, después de cada rendición de gastos se repone hasta $80.000, sea cual sea el monto gastado. Ver Sección 7."
+        "explicacion": "FALSO. Precisamente se llama 'fondo FIJO' porque siempre se repone al mismo importe original. Ver Sección 7."
       },
       {
         "texto": "La cuenta corriente bancaria es la más adecuada para empresas porque permite operar con cheques y girar en descubierto",
         "correcto": true,
-        "explicacion": "VERDADERO. La cuenta corriente es la típica de las empresas porque permite emitir y depositar cheques, realizar pagos mediante transferencias y acceder a descubierto en cuenta corriente para cubrir baches de caja temporarios. Ver Sección 11."
+        "explicacion": "VERDADERO. La cuenta corriente es la típica de las empresas: permite cheques, transferencias y descubierto para cubrir baches de caja. Ver Sección 11."
       },
       {
-        "texto": "Si al hacer la conciliación bancaria aparece una Nota de Débito en el extracto que la empresa no registró, no es necesario hacer ningún asiento contable",
+        "texto": "Si aparece una Nota de Débito en el extracto que la empresa no registró, no es necesario hacer ningún asiento contable",
         "correcto": false,
-        "explicacion": "FALSO. Cuando aparece una Nota de Débito en el extracto que la empresa no había registrado, se debe hacer el asiento contable correspondiente para reflejar ese movimiento en los libros de la empresa. La conciliación identifica esas diferencias para regularizarlas. Ver Sección 12."
+        "explicacion": "FALSO. Cuando aparece una Nota de Débito en el extracto no registrada por la empresa, se debe hacer el asiento contable correspondiente. La conciliación identifica esas diferencias para regularizarlas. Ver Sección 12."
       }
     ]
   },
