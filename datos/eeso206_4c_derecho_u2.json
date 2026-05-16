@@ -1,0 +1,1672 @@
+{
+  "id": "eeso206_4c_derecho_u2",
+  "materia": "Derecho",
+  "unidad": 2,
+  "titulo": "El Código Civil y los Actos Jurídicos",
+  "emoji": "📜",
+  "color_primario": "#DC2626",
+  "color_secundario": "#EA580C",
+
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "🏛️",
+        "texto": "¿Sabías que cada vez que firmás un contrato, hacés una donación o redactás un testamento estás realizando un 'acto jurídico'? ¿Qué otros actos de tu vida cotidiana podrían serlo?",
+        "pista": "El Código Civil regula todas esas situaciones. Conocerlo es entender las reglas del juego de la vida legal..."
+      },
+      {
+        "emoji": "👤",
+        "texto": "Una empresa como Mercado Libre tiene derechos y obligaciones igual que una persona. ¿Por qué? ¿En qué se diferencia de una persona humana ante la ley?",
+        "pista": "La distinción entre persona física y jurídica es clave para entender quién puede actuar legalmente y cómo..."
+      },
+      {
+        "emoji": "⚠️",
+        "texto": "Si alguien te firma un contrato bajo amenaza o engaño, ¿ese contrato es válido? ¿Qué pasa con la voluntad de esa persona?",
+        "pista": "Los vicios de la voluntad (error, dolo, violencia) pueden hacer que un acto jurídico sea inválido..."
+      }
+    ],
+    "situaciones_conecta": [
+      {
+        "emoji": "🏠",
+        "label": "Vi cómo un familiar firmó la escritura de una casa ante un escribano"
+      },
+      {
+        "emoji": "📋",
+        "label": "Firmé un contrato de alquiler o un acuerdo entre particulares"
+      },
+      {
+        "emoji": "👶",
+        "label": "Me preguntaron si los menores de 18 pueden firmar contratos por sí solos"
+      },
+      {
+        "emoji": "🚗",
+        "label": "Vi noticias sobre accidentes donde alguien tuvo que indemnizar a otro"
+      }
+    ],
+    "termometro_pregunta": "¿Qué tanto sabés sobre el Código Civil y los actos jurídicos en Argentina?"
+  },
+
+  "mapa": {
+    "ruta_paradas": [
+      {
+        "id": 1,
+        "emoji": "📜",
+        "title": "Historia del Código Civil",
+        "desc": "Vélez Sarsfield, reformas de 1968 y unificación de 2015 (Ley 26.994)",
+        "color": "#DC2626"
+      },
+      {
+        "id": 2,
+        "emoji": "👤",
+        "title": "Personas físicas y jurídicas",
+        "desc": "Concepto, atributos, capacidad, incapacidad, tutela y curatela",
+        "color": "#B91C1C"
+      },
+      {
+        "id": 3,
+        "emoji": "⚡",
+        "title": "Hechos y actos jurídicos",
+        "desc": "Clasificación, voluntad, elementos esenciales y diferencias clave",
+        "color": "#EA580C"
+      },
+      {
+        "id": 4,
+        "emoji": "📄",
+        "title": "Instrumentos públicos y privados",
+        "desc": "Características, valor probatorio y cuándo usar cada uno",
+        "color": "#C2410C"
+      },
+      {
+        "id": 5,
+        "emoji": "⚖️",
+        "title": "Responsabilidad civil",
+        "desc": "Daño, antijuridicidad, causalidad, factor de atribución y reparación",
+        "color": "#9A3412"
+      }
+    ],
+
+    "panoramica_bloques": [
+      {
+        "id": "a",
+        "emoji": "📜",
+        "title": "BLOQUE A",
+        "subtitle": "El Código y las Personas",
+        "color": "#DC2626",
+        "items": [
+          "Historia: Vélez Sarsfield (1869), reforma 1968, unificación 2015",
+          "Estructura del CCyC: 6 libros, 2.671 artículos",
+          "Persona humana: inicio desde la concepción",
+          "Persona jurídica: pública, privada e internacional",
+          "Atributos: nombre, capacidad, domicilio, estado civil, patrimonio",
+          "Domicilio real, legal y especial",
+          "Capacidad de derecho y capacidad de hecho"
+        ]
+      },
+      {
+        "id": "b",
+        "emoji": "🛡️",
+        "title": "BLOQUE B",
+        "subtitle": "Incapacidad, Tutela y Curatela",
+        "color": "#EA580C",
+        "items": [
+          "Incapacidad absoluta (Art. 24 CCyC)",
+          "Capacidad restringida (Art. 32 CCyC)",
+          "Tutela: menores sin patria potestad",
+          "Curatela: adultos declarados incapaces",
+          "Sistema de apoyos: el enfoque moderno",
+          "Revisión periódica de sentencias (cada 3 años)",
+          "Diferencia entre tutela y curatela"
+        ]
+      },
+      {
+        "id": "c",
+        "emoji": "⚖️",
+        "title": "BLOQUE C",
+        "subtitle": "Actos Jurídicos y Responsabilidad",
+        "color": "#9A3412",
+        "items": [
+          "Hechos naturales, humanos, simples y jurídicos",
+          "Hechos voluntarios vs. involuntarios",
+          "Definición y elementos del acto jurídico",
+          "Instrumentos públicos y privados",
+          "Responsabilidad civil: concepto y elementos",
+          "Factores de atribución: subjetivo y objetivo",
+          "Daño patrimonial y extrapatrimonial"
+        ]
+      }
+    ],
+
+    "mapa_mental": {
+      "centro": {
+        "emoji": "📜",
+        "title": "CÓDIGO CIVIL Y COMERCIAL"
+      },
+      "ramas": [
+        {
+          "id": "personas",
+          "emoji": "👤",
+          "title": "Personas",
+          "color": "#DC2626",
+          "items": [
+            "Humana: desde la concepción",
+            "Jurídica: pública, privada, internacional",
+            "Atributos: nombre, domicilio, capacidad",
+            "Incapacidad, tutela y curatela"
+          ]
+        },
+        {
+          "id": "actos",
+          "emoji": "✍️",
+          "title": "Actos Jurídicos",
+          "color": "#EA580C",
+          "items": [
+            "Voluntario + lícito + finalidad jurídica",
+            "Elementos: sujeto, voluntad, objeto, forma",
+            "Instrumentos públicos y privados",
+            "Vicios: error, dolo, violencia"
+          ]
+        },
+        {
+          "id": "hechos",
+          "emoji": "⚡",
+          "title": "Hechos Jurídicos",
+          "color": "#B91C1C",
+          "items": [
+            "Naturales vs. humanos",
+            "Simples vs. jurídicos",
+            "Voluntarios vs. involuntarios",
+            "Consecuencias: inmediatas, mediatas, casuales"
+          ]
+        },
+        {
+          "id": "responsabilidad",
+          "emoji": "⚖️",
+          "title": "Responsabilidad Civil",
+          "color": "#9A3412",
+          "items": [
+            "Antijuridicidad + daño + causalidad + atribución",
+            "Subjetiva: dolo o culpa",
+            "Objetiva: sin necesidad de culpa",
+            "Reparación integral del daño"
+          ]
+        }
+      ]
+    }
+  },
+
+  "nucleo_a": {
+    "bloque_info": {
+      "id": "a",
+      "emoji": "📜",
+      "titulo": "BLOQUE A: El Código Civil y las Personas",
+      "color": "#DC2626",
+      "paginas": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los hitos históricos del Código Civil argentino desde el más antiguo al más reciente:",
+      "paginas_referencia": "2-3",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "📜",
+          "text": "Sanción del Código Civil original por Vélez Sarsfield (4.051 artículos)"
+        },
+        {
+          "id": 1,
+          "emoji": "✏️",
+          "text": "Reforma parcial — Ley 17.711: cambios en familia, responsabilidad civil y contratos"
+        },
+        {
+          "id": 2,
+          "emoji": "📋",
+          "text": "Proyectos de unificación civil-comercial en el Congreso"
+        },
+        {
+          "id": 3,
+          "emoji": "🆕",
+          "text": "Sanción del Código Civil y Comercial unificado — Ley 26.994 (2.671 artículos)"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada ejemplo según corresponda a Persona Humana o Persona Jurídica:",
+      "paginas_referencia": "6",
+      "categorias": [
+        {
+          "name": "Persona Humana",
+          "emoji": "👤",
+          "color": "#DC2626"
+        },
+        {
+          "name": "Persona Jurídica",
+          "emoji": "🏢",
+          "color": "#EA580C"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Una S.A. (Sociedad Anónima) que compra un inmueble",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 1,
+          "text": "Un recién nacido que hereda bienes de sus abuelos",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 2,
+          "text": "El Estado Nacional que dicta una ley",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 3,
+          "text": "Una persona que firma un contrato de alquiler",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 4,
+          "text": "Una ONG que recibe donaciones para fines sociales",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 5,
+          "text": "Un adolescente de 16 años que trabaja con autorización",
+          "categoria_correcta": 0
+        }
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "3-10",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "La existencia de la persona humana comienza con la",
+          "respuesta_correcta": "concepción",
+          "pista": "C_________"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "La capacidad plena de hecho se adquiere con la mayoría de edad, que en Argentina es a los",
+          "respuesta_correcta": "18 años",
+          "pista": "__ años"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "El lugar donde la ley presume que una persona reside sin admitir prueba en contrario se llama domicilio",
+          "respuesta_correcta": "legal",
+          "pista": "L____"
+        }
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "6-11",
+      "afirmaciones": [
+        {
+          "texto": "Una persona jurídica tiene existencia física igual que una persona humana",
+          "correcto": false,
+          "explicacion": "Falso. Las personas jurídicas son entes abstractos creados por la ley, sin existencia física. Su personalidad se adquiere con la inscripción en registros públicos, no con el nacimiento."
+        },
+        {
+          "texto": "El apellido de los hijos de matrimonio puede ser el de uno de los progenitores o el compuesto de ambos",
+          "correcto": true,
+          "explicacion": "Verdadero. El CCyC otorga mayor flexibilidad: los progenitores pueden elegir el apellido de uno de ellos o el compuesto de ambos en el orden que decidan para el primer hijo, y esa elección rige para todos los hijos comunes."
+        },
+        {
+          "texto": "El domicilio real puede cambiarse libremente sin necesidad de autorización judicial",
+          "correcto": true,
+          "explicacion": "Verdadero. El domicilio real es voluntario y puede modificarse con la sola mudanza efectiva. No requiere ningún trámite judicial ni administrativo para su cambio."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "7-10",
+      "pares": [
+        {
+          "izquierda": "Nombre",
+          "derecha": "Prenombre y apellido para identificación de la persona",
+          "emoji": "🪪"
+        },
+        {
+          "izquierda": "Capacidad",
+          "derecha": "Aptitud para adquirir derechos y contraer obligaciones",
+          "emoji": "⚖️"
+        },
+        {
+          "izquierda": "Domicilio",
+          "derecha": "Lugar de residencia para efectos legales",
+          "emoji": "🏠"
+        },
+        {
+          "izquierda": "Patrimonio",
+          "derecha": "Conjunto de bienes y derechos de valor económico",
+          "emoji": "💰"
+        }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "consigna": "Encontrá la palabra intrusa en cada grupo",
+      "paginas_referencia": "6-10",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "👤",
+          "pregunta": "¿Cuál NO es un atributo de la persona humana según el CCyC?",
+          "paginas": "7",
+          "palabras": [
+            {
+              "text": "Nombre",
+              "es_intrusa": false
+            },
+            {
+              "text": "Domicilio",
+              "es_intrusa": false
+            },
+            {
+              "text": "Número de CUIT",
+              "es_intrusa": true
+            },
+            {
+              "text": "Estado civil",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "El número de CUIT no es un atributo de la persona humana. Los atributos son: nombre, capacidad, domicilio, estado civil y patrimonio. El CUIT es un identificador fiscal, no un atributo jurídico."
+        },
+        {
+          "id": 1,
+          "emoji": "🏛️",
+          "pregunta": "¿Cuál NO es una persona jurídica de derecho público?",
+          "paginas": "16-17",
+          "palabras": [
+            {
+              "text": "Estado Nacional",
+              "es_intrusa": false
+            },
+            {
+              "text": "Municipio de Venado Tuerto",
+              "es_intrusa": false
+            },
+            {
+              "text": "Sociedad Anónima",
+              "es_intrusa": true
+            },
+            {
+              "text": "Iglesia Católica",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "La Sociedad Anónima es una persona jurídica de derecho privado, creada por particulares con fines económicos. Las personas jurídicas de derecho público son el Estado Nacional, provincias, municipios, entidades autárquicas y la Iglesia Católica."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "6-11",
+      "conceptos": [
+        {
+          "termino": "Persona jurídica",
+          "pista": "¿Cómo se llama el ente creado por la ley que tiene derechos y obligaciones propias, aunque no sea un ser humano?",
+          "palabras_clave": ["ente", "abstracto", "ley", "capacidad", "derechos", "obligaciones", "inscripción", "miembros"]
+        },
+        {
+          "termino": "Capacidad de derecho",
+          "pista": "¿Cómo se llama la aptitud que toda persona tiene para ser titular de derechos y obligaciones desde su concepción?",
+          "palabras_clave": ["titular", "derechos", "obligaciones", "aptitud", "concepción", "goce", "inherente"]
+        },
+        {
+          "termino": "Domicilio especial",
+          "pista": "¿Qué tipo de domicilio eligen las partes para un acto jurídico determinado, como un contrato?",
+          "palabras_clave": ["elegir", "contrato", "relación", "limitado", "acto", "procesal", "contractual", "específico"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "6-11",
+      "causas": [
+        {
+          "id": 0,
+          "emoji": "👶",
+          "text": "Una persona concibe un hijo"
+        },
+        {
+          "id": 1,
+          "emoji": "📋",
+          "text": "Un grupo de personas constituye una S.R.L. e inscribe el estatuto"
+        },
+        {
+          "id": 2,
+          "emoji": "🏠",
+          "text": "Una persona se muda efectivamente a otra ciudad"
+        },
+        {
+          "id": 3,
+          "emoji": "📅",
+          "text": "Una persona cumple 18 años"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 0,
+          "causa_id": 0,
+          "emoji": "🛡️",
+          "text": "El concebido adquiere protección legal como persona humana desde ese momento"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "🏢",
+          "text": "La S.R.L. adquiere personalidad jurídica propia, independiente de sus socios"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "📍",
+          "text": "Su domicilio real cambia sin necesidad de ningún trámite judicial"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "✅",
+          "text": "Adquiere capacidad de hecho plena para realizar actos jurídicos por sí misma"
+        }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos para que una asociación civil obtenga personería jurídica:",
+      "paginas_referencia": "18",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 0,
+          "emoji": "🤝",
+          "text": "Un grupo de personas decide constituir una asociación civil con fines específicos"
+        },
+        {
+          "id": 1,
+          "emoji": "📝",
+          "text": "Redactan el estatuto con los objetivos, nombre y reglas de funcionamiento"
+        },
+        {
+          "id": 2,
+          "emoji": "📋",
+          "text": "Presentan la documentación ante la autoridad de registro (IGJ u organismo provincial)"
+        },
+        {
+          "id": 3,
+          "emoji": "🔍",
+          "text": "El organismo evalúa si cumple los requisitos legales"
+        },
+        {
+          "id": 4,
+          "emoji": "✅",
+          "text": "Se otorga la personería jurídica y la asociación puede actuar legalmente"
+        }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "6",
+      "concepto_a": {
+        "nombre": "Persona Humana",
+        "emoji": "👤",
+        "color": "#DC2626"
+      },
+      "concepto_b": {
+        "nombre": "Persona Jurídica",
+        "emoji": "🏢",
+        "color": "#EA580C"
+      }
+    }
+  },
+
+  "nucleo_b": {
+    "bloque_info": {
+      "id": "b",
+      "emoji": "🛡️",
+      "titulo": "BLOQUE B: Incapacidad, Tutela y Curatela",
+      "color": "#EA580C",
+      "paginas": [11, 12, 13, 14, 15]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená las etapas de la vida según la capacidad jurídica que corresponde a cada una:",
+      "paginas_referencia": "11-13",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "👶",
+          "text": "Personas por nacer: incapacidad absoluta desde la concepción (Art. 24 CCyC)"
+        },
+        {
+          "id": 1,
+          "emoji": "🧒",
+          "text": "Niños hasta 13 años: incapacidad absoluta, representados por padres o tutores"
+        },
+        {
+          "id": 2,
+          "emoji": "🧑",
+          "text": "Adolescentes 13-18 años: capacidad restringida con capacidad progresiva"
+        },
+        {
+          "id": 3,
+          "emoji": "👩",
+          "text": "Mayores de 18 años: capacidad de hecho plena (salvo sentencia judicial)"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada situación según corresponda a Tutela o Curatela:",
+      "paginas_referencia": "13-14",
+      "categorias": [
+        {
+          "name": "Tutela",
+          "emoji": "👦",
+          "color": "#EA580C"
+        },
+        {
+          "name": "Curatela",
+          "emoji": "🧑‍⚕️",
+          "color": "#9A3412"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "Se aplica a menores de edad sin patria potestad",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Se aplica a adultos declarados incapaces por sentencia judicial",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Termina cuando el tutelado cumple 18 años",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "El curador puede actuar como representante total o solo como sistema de apoyo",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "El tutor siempre implica representación legal en todos los actos",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Puede aplicarse a personas con discapacidad por alteración mental permanente",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "11-15",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "Las sentencias que restringen la capacidad deben revisarse periódicamente, con un máximo de cada",
+          "respuesta_correcta": "3 años",
+          "pista": "_ años"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "Los 'apoyos' son personas o instituciones que promueven la autonomía y facilitan la comunicación y la manifestación de voluntad, según el Art.",
+          "respuesta_correcta": "43 CCyC",
+          "pista": "__ CCyC"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "La tutela es para menores; la curatela es para",
+          "respuesta_correcta": "adultos",
+          "pista": "A_____"
+        }
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "11-15",
+      "afirmaciones": [
+        {
+          "texto": "La incapacidad jurídica tiene como finalidad castigar a la persona que la padece",
+          "correcto": false,
+          "explicacion": "Falso. La incapacidad tiene un fin esencialmente protectorio: salvaguardar los intereses y el bienestar de quienes no pueden valerse plenamente. No es un concepto punitivo sino de protección."
+        },
+        {
+          "texto": "El sistema de apoyos busca que la persona tome sus propias decisiones, siendo la restricción de capacidad una medida excepcional",
+          "correcto": true,
+          "explicacion": "Verdadero. El CCyC, alineado con la Convención sobre los Derechos de las Personas con Discapacidad, prioriza la autonomía personal. La restricción de capacidad es siempre la medida menos restrictiva posible."
+        },
+        {
+          "texto": "Un tutor puede ser cualquier persona que lo desee, sin importar su idoneidad o vínculo con el menor",
+          "correcto": false,
+          "explicacion": "Falso. El tutor generalmente es designado por los padres en testamento o escritura pública, o en su defecto por el juez. Se prioriza el vínculo afectivo y la idoneidad del tutor (Arts. 106, 107, 109 CCyC)."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "11-15",
+      "pares": [
+        {
+          "izquierda": "Incapacidad absoluta",
+          "derecha": "Imposibilidad total de realizar actos jurídicos válidos por sí mismo",
+          "emoji": "🚫"
+        },
+        {
+          "izquierda": "Capacidad restringida",
+          "derecha": "Restricción solo para ciertos actos; conserva capacidad para los demás",
+          "emoji": "⚠️"
+        },
+        {
+          "izquierda": "Tutela",
+          "derecha": "Protección legal para menores sin patria potestad",
+          "emoji": "👦"
+        },
+        {
+          "izquierda": "Sistema de apoyos",
+          "derecha": "Mecanismo moderno que asiste sin reemplazar la voluntad de la persona",
+          "emoji": "🤝"
+        }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "consigna": "Encontrá el elemento que NO corresponde en cada grupo",
+      "paginas_referencia": "12-15",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🚫",
+          "pregunta": "¿Cuál NO es una causa de incapacidad de ejercicio?",
+          "paginas": "12-13",
+          "palabras": [
+            {
+              "text": "Minoría de edad",
+              "es_intrusa": false
+            },
+            {
+              "text": "Alteración mental grave y permanente",
+              "es_intrusa": false
+            },
+            {
+              "text": "Ser extranjero no residente",
+              "es_intrusa": true
+            },
+            {
+              "text": "Adicciones que impiden el ejercicio de la voluntad",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "Ser extranjero no residente no causa incapacidad de ejercicio en Argentina. Las causas son: minoría de edad, alteración mental grave y permanente, y adicciones que impiden el pleno ejercicio de la voluntad."
+        },
+        {
+          "id": 1,
+          "emoji": "👦",
+          "pregunta": "¿Cuál NO es una responsabilidad del tutor?",
+          "paginas": "14",
+          "palabras": [
+            {
+              "text": "Representar al menor en actos jurídicos",
+              "es_intrusa": false
+            },
+            {
+              "text": "Administrar los bienes del menor",
+              "es_intrusa": false
+            },
+            {
+              "text": "Elegir libremente el destino del patrimonio sin rendir cuentas",
+              "es_intrusa": true
+            },
+            {
+              "text": "Velar por la educación, salud y bienestar del tutelado",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "El tutor NO puede disponer del patrimonio sin rendir cuentas. Debe rendir cuentas periódicamente ante el juez (Arts. 120, 126 CCyC). Administra los bienes pero con supervisión judicial."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "12-15",
+      "conceptos": [
+        {
+          "termino": "Tutela",
+          "pista": "¿Cómo se llama la institución legal que protege a los menores de edad que no tienen padres que ejerzan la patria potestad?",
+          "palabras_clave": ["menor", "edad", "protección", "representación", "bienes", "patria potestad", "tutor", "juez"]
+        },
+        {
+          "termino": "Curatela",
+          "pista": "¿Qué institución protege a adultos declarados incapaces por sentencia judicial, asignándoles un curador?",
+          "palabras_clave": ["adulto", "incapaz", "sentencia", "curador", "apoyo", "representación", "bienes", "autonomía"]
+        },
+        {
+          "termino": "Sistema de apoyos",
+          "pista": "¿Cómo se llama el mecanismo moderno del CCyC que ayuda a las personas con discapacidad a tomar sus propias decisiones sin reemplazar su voluntad?",
+          "palabras_clave": ["autonomía", "comunicación", "voluntad", "facilitar", "excepcional", "decisiones", "discapacidad", "apoyos"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "12-15",
+      "causas": [
+        {
+          "id": 0,
+          "emoji": "👶",
+          "text": "Un niño de 10 años queda sin padres y sin familiares que ejerzan la patria potestad"
+        },
+        {
+          "id": 1,
+          "emoji": "🏥",
+          "text": "Un adulto mayor es declarado incapaz por sentencia judicial debido a una alteración mental grave"
+        },
+        {
+          "id": 2,
+          "emoji": "🧑",
+          "text": "Un adolescente de 15 años necesita atención médica no urgente"
+        },
+        {
+          "id": 3,
+          "emoji": "📅",
+          "text": "Han pasado 3 años desde la sentencia que restringió la capacidad de una persona"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 0,
+          "causa_id": 0,
+          "emoji": "👦",
+          "text": "El juez designa un tutor para representarlo y administrar sus bienes"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "🧑‍⚕️",
+          "text": "Se le designa un curador que lo representa o asiste según la sentencia"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "📋",
+          "text": "Requiere consentimiento de sus padres o tutores para el tratamiento"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "🔍",
+          "text": "La sentencia debe revisarse para adecuar el sistema de apoyos a la evolución de la persona"
+        }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos del proceso judicial para declarar la incapacidad de una persona adulta:",
+      "paginas_referencia": "13-15",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 0,
+          "emoji": "📋",
+          "text": "Se presenta una solicitud ante el juez (por familiar, Ministerio Público u otro legitimado)"
+        },
+        {
+          "id": 1,
+          "emoji": "🔍",
+          "text": "El juez evalúa la situación y ordena pericias médicas y psicológicas"
+        },
+        {
+          "id": 2,
+          "emoji": "🗣️",
+          "text": "La persona afectada es escuchada para expresar su voluntad y preferencias"
+        },
+        {
+          "id": 3,
+          "emoji": "⚖️",
+          "text": "El juez dicta sentencia definiendo límites, apoyos y quiénes serán los apoyos"
+        },
+        {
+          "id": 4,
+          "emoji": "📅",
+          "text": "La sentencia se revisa cada 3 años para ajustarse a la evolución de la persona"
+        }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "13-14",
+      "concepto_a": {
+        "nombre": "Tutela",
+        "emoji": "👦",
+        "color": "#EA580C"
+      },
+      "concepto_b": {
+        "nombre": "Curatela",
+        "emoji": "🧑‍⚕️",
+        "color": "#9A3412"
+      }
+    }
+  },
+
+  "nucleo_c": {
+    "bloque_info": {
+      "id": "c",
+      "emoji": "⚖️",
+      "titulo": "BLOQUE C: Actos Jurídicos y Responsabilidad Civil",
+      "color": "#9A3412",
+      "paginas": [19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená la clasificación de los hechos, de la categoría más amplia a la más específica:",
+      "paginas_referencia": "19-21",
+      "items": [
+        {
+          "id": 0,
+          "emoji": "🌍",
+          "text": "Hechos (todo suceso o acontecimiento, natural o humano)"
+        },
+        {
+          "id": 1,
+          "emoji": "👤",
+          "text": "Hechos humanos (producidos por la actividad del hombre)"
+        },
+        {
+          "id": 2,
+          "emoji": "✅",
+          "text": "Hechos voluntarios (con discernimiento, intención y libertad)"
+        },
+        {
+          "id": 3,
+          "emoji": "📜",
+          "text": "Actos lícitos con finalidad jurídica (actos jurídicos)"
+        }
+      ],
+      "orden_correcto": [0, 1, 2, 3]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada ejemplo según sea un Hecho Jurídico o un Acto Jurídico:",
+      "paginas_referencia": "19-22",
+      "categorias": [
+        {
+          "name": "Hecho Jurídico",
+          "emoji": "⚡",
+          "color": "#DC2626"
+        },
+        {
+          "name": "Acto Jurídico",
+          "emoji": "✍️",
+          "color": "#EA580C"
+        }
+      ],
+      "items": [
+        {
+          "id": 0,
+          "text": "El nacimiento de una persona",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Firmar un contrato de compraventa",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Un terremoto que destruye una propiedad",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "Otorgar un testamento",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "El fallecimiento de una persona",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Constituir una sociedad comercial",
+          "categoria_correcta": 1
+        }
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "21-26",
+      "blanks": [
+        {
+          "id": "b1",
+          "texto_antes": "El acto jurídico es el acto voluntario lícito que tiene por fin inmediato la adquisición, modificación o extinción de relaciones o situaciones",
+          "respuesta_correcta": "jurídicas",
+          "pista": "J_______"
+        },
+        {
+          "id": "b2",
+          "texto_antes": "Los instrumentos públicos gozan de fe pública y presunción de",
+          "respuesta_correcta": "autenticidad",
+          "pista": "A___________"
+        },
+        {
+          "id": "b3",
+          "texto_antes": "Para que exista responsabilidad civil, uno de los cuatro requisitos es que la conducta sea la causa directa del daño; esto se llama relación de",
+          "respuesta_correcta": "causalidad",
+          "pista": "C_________"
+        }
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "19-32",
+      "afirmaciones": [
+        {
+          "texto": "Los hechos involuntarios generan responsabilidad civil para su autor",
+          "correcto": false,
+          "explicacion": "Falso. Los hechos involuntarios (realizados sin discernimiento, intención o libertad) no generan responsabilidad para su autor. La responsabilidad surge de los hechos voluntarios."
+        },
+        {
+          "texto": "Un instrumento privado adquiere plena fuerza probatoria cuando las firmas de las partes son reconocidas o declaradas auténticas",
+          "correcto": true,
+          "explicacion": "Verdadero. Los instrumentos privados (contratos entre particulares, pagarés, etc.) no gozan automáticamente de fe pública. Alcanzan valor probatorio pleno recién cuando las firmas son reconocidas judicialmente o por las partes."
+        },
+        {
+          "texto": "En la responsabilidad civil objetiva, la persona solo responde si actuó con intención de dañar",
+          "correcto": false,
+          "explicacion": "Falso. En la responsabilidad civil objetiva, la persona responde aunque no haya actuado con intención ni descuido. No es necesario probar culpa; basta con el riesgo o vicio de la cosa. Ejemplo: el dueño de un perro responde aunque no haya querido el daño."
+        }
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "27-32",
+      "pares": [
+        {
+          "izquierda": "Antijuridicidad",
+          "derecha": "Conducta que viola el deber general de no dañar (Art. 1716 CCyC)",
+          "emoji": "🚫"
+        },
+        {
+          "izquierda": "Daño patrimonial",
+          "derecha": "Perjuicio que afecta bienes económicos de la víctima",
+          "emoji": "💸"
+        },
+        {
+          "izquierda": "Daño extrapatrimonial",
+          "derecha": "Daño moral o afectación espiritual de la persona",
+          "emoji": "💔"
+        },
+        {
+          "izquierda": "Factor de atribución",
+          "derecha": "Fundamento por el cual la ley hace responsable a una persona",
+          "emoji": "⚖️"
+        }
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "consigna": "Encontrá el elemento que NO corresponde en cada grupo",
+      "paginas_referencia": "20-32",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "✍️",
+          "pregunta": "¿Cuál NO es un elemento esencial del acto jurídico?",
+          "paginas": "21-23",
+          "palabras": [
+            {
+              "text": "Voluntad",
+              "es_intrusa": false
+            },
+            {
+              "text": "Objeto lícito",
+              "es_intrusa": false
+            },
+            {
+              "text": "Registro en AFIP",
+              "es_intrusa": true
+            },
+            {
+              "text": "Finalidad jurídica",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "El registro en AFIP no es un elemento esencial del acto jurídico. Los elementos esenciales son: sujeto (voluntad), objeto y finalidad jurídica. El registro fiscal puede ser un requisito tributario, pero no define la validez jurídica del acto."
+        },
+        {
+          "id": 1,
+          "emoji": "⚖️",
+          "pregunta": "¿Cuál NO es un requisito para que exista responsabilidad civil?",
+          "paginas": "27-32",
+          "palabras": [
+            {
+              "text": "Conducta antijurídica",
+              "es_intrusa": false
+            },
+            {
+              "text": "Daño real",
+              "es_intrusa": false
+            },
+            {
+              "text": "Intención de enriquecerse",
+              "es_intrusa": true
+            },
+            {
+              "text": "Relación de causalidad",
+              "es_intrusa": false
+            }
+          ],
+          "explicacion": "La intención de enriquecerse no es un requisito de la responsabilidad civil. Los cuatro requisitos son: conducta antijurídica, daño, relación de causalidad y factor de atribución. Además, en la responsabilidad objetiva ni siquiera hace falta probar culpa o intención."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "19-32",
+      "conceptos": [
+        {
+          "termino": "Acto jurídico",
+          "pista": "¿Cómo se define el acto voluntario, lícito, que tiene como fin inmediato crear, modificar o extinguir derechos?",
+          "palabras_clave": ["voluntario", "lícito", "finalidad", "derechos", "modificar", "extinguir", "adquirir", "relaciones"]
+        },
+        {
+          "termino": "Instrumento público",
+          "pista": "¿Cómo se llama el documento autorizado por un funcionario público que goza de fe pública y presunción de autenticidad?",
+          "palabras_clave": ["funcionario", "público", "fe pública", "autenticidad", "escritura", "notarial", "solemnidades", "fehaciente"]
+        },
+        {
+          "termino": "Responsabilidad civil",
+          "pista": "¿Cómo se llama la obligación de reparar un daño causado a otra persona, basada en el principio de no dañar a otro?",
+          "palabras_clave": ["reparar", "daño", "obligación", "indemnizar", "víctima", "antijurídico", "causado", "perjuicio"]
+        }
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "19-32",
+      "causas": [
+        {
+          "id": 0,
+          "emoji": "😤",
+          "text": "Alguien firma un contrato bajo amenaza de violencia física"
+        },
+        {
+          "id": 1,
+          "emoji": "🐕",
+          "text": "Un perro muerde a un transeúnte en la vía pública"
+        },
+        {
+          "id": 2,
+          "emoji": "🏠",
+          "text": "Dos personas acuerdan vender un inmueble ante un escribano"
+        },
+        {
+          "id": 3,
+          "emoji": "🚗",
+          "text": "Un conductor ebrio atropella a un peatón"
+        }
+      ],
+      "efectos": [
+        {
+          "id": 0,
+          "causa_id": 0,
+          "emoji": "❌",
+          "text": "El acto es anulable por vicio de la voluntad (violencia): falta libertad"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "emoji": "⚖️",
+          "text": "El dueño del perro responde por responsabilidad objetiva aunque no haya querido el daño"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "emoji": "📜",
+          "text": "Se otorga una escritura pública (instrumento público) con fe pública y fecha cierta"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "emoji": "⚠️",
+          "text": "Genera responsabilidad penal (castigo) Y civil (indemnización a la víctima) simultáneamente"
+        }
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos para determinar si existe responsabilidad civil en un caso concreto:",
+      "paginas_referencia": "27-32",
+      "pasos_en_orden_correcto": [
+        {
+          "id": 0,
+          "emoji": "🔍",
+          "text": "Identificar si existió una conducta antijurídica (se violó el deber de no dañar)"
+        },
+        {
+          "id": 1,
+          "emoji": "💔",
+          "text": "Verificar que exista un daño real (patrimonial o extrapatrimonial)"
+        },
+        {
+          "id": 2,
+          "emoji": "🔗",
+          "text": "Establecer la relación de causalidad: ¿la conducta fue la causa directa del daño?"
+        },
+        {
+          "id": 3,
+          "emoji": "⚖️",
+          "text": "Determinar el factor de atribución: ¿hubo dolo, culpa o aplica responsabilidad objetiva?"
+        },
+        {
+          "id": 4,
+          "emoji": "💰",
+          "text": "Si se cumplen los cuatro requisitos, surge la obligación de indemnizar"
+        }
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "24-26",
+      "concepto_a": {
+        "nombre": "Instrumento Público",
+        "emoji": "🏛️",
+        "color": "#DC2626"
+      },
+      "concepto_b": {
+        "nombre": "Instrumento Privado",
+        "emoji": "📝",
+        "color": "#EA580C"
+      }
+    }
+  },
+
+  "senales": {
+    "conceptos_clave": [
+      {
+        "emoji": "👤",
+        "termino": "Persona jurídica",
+        "color": "#DC2626",
+        "definicion": "Ente abstracto creado por la ley para lograr fines específicos, con capacidad para ejercer derechos y contraer obligaciones de forma independiente de sus miembros. Se clasifican en públicas, privadas e internacionales.",
+        "importancia": "Sin entender la persona jurídica, no podés comprender cómo funcionan las empresas, el Estado o las ONGs. Ellas 'actúan' legalmente igual que una persona humana."
+      },
+      {
+        "emoji": "⚖️",
+        "termino": "Capacidad jurídica",
+        "color": "#EA580C",
+        "definicion": "Aptitud de una persona para ser titular de derechos (capacidad de derecho) y para ejercerlos por sí misma (capacidad de hecho). La plena capacidad de hecho se adquiere a los 18 años.",
+        "importancia": "Determina quién puede actuar por sí solo y quién necesita representación. Es fundamental para saber si un contrato que firmaste o te hicieron firmar es válido."
+      },
+      {
+        "emoji": "✍️",
+        "termino": "Acto jurídico",
+        "color": "#B91C1C",
+        "definicion": "Acto voluntario lícito que tiene por fin inmediato la adquisición, modificación o extinción de relaciones jurídicas. Sus elementos son: sujeto, voluntad, objeto y finalidad jurídica.",
+        "importancia": "Todo contrato, testamento, donación o constitución de sociedad es un acto jurídico. Conocer sus elementos te permite saber cuándo un acto es válido y cuándo puede impugnarse."
+      },
+      {
+        "emoji": "🔨",
+        "termino": "Responsabilidad civil",
+        "color": "#9A3412",
+        "definicion": "Obligación de reparar un daño causado a otra persona. Requiere: conducta antijurídica, daño, relación de causalidad y factor de atribución. Puede ser subjetiva (con culpa) u objetiva (sin necesidad de culpa).",
+        "importancia": "Regula las consecuencias de causar daño. Saber cuándo debés indemnizar y cuándo tenés derecho a ser indemnizado es esencial para la vida cotidiana y profesional."
+      }
+    ],
+    "semaforo_conceptos": [
+      {
+        "emoji": "📜",
+        "termino": "Código Civil y Comercial"
+      },
+      {
+        "emoji": "👤",
+        "termino": "Persona jurídica"
+      },
+      {
+        "emoji": "✍️",
+        "termino": "Acto jurídico"
+      },
+      {
+        "emoji": "🏛️",
+        "termino": "Instrumento público"
+      },
+      {
+        "emoji": "⚖️",
+        "termino": "Responsabilidad civil"
+      }
+    ],
+    "postits_conceptos": [
+      "Persona jurídica",
+      "Acto jurídico",
+      "Instrumento público",
+      "Responsabilidad civil"
+    ]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {
+        "emoji": "📚",
+        "color": "#DC2626",
+        "frente": "Vélez Sarsfield redactó el Código Civil original en solo 5 años",
+        "dorso": "Dalmacio Vélez Sarsfield, jurista cordobés nacido en 1800, redactó el primer Código Civil argentino entre 1864 y 1869. Lo hizo prácticamente solo, con una biblioteca personal de miles de libros y sin computadoras ni equipos. El Código original tenía 4.051 artículos y rigió Argentina por más de 140 años hasta la reforma de 2015."
+      },
+      {
+        "emoji": "🐾",
+        "color": "#EA580C",
+        "frente": "El dueño de un perro responde legalmente aunque no haya hecho nada malo",
+        "dorso": "La responsabilidad civil objetiva del CCyC establece que el dueño de un animal responde por los daños que cause, aunque haya tomado todos los cuidados del caso. No es necesario probar culpa. Lo mismo aplica para accidentes con automotores u objetos que generan riesgo. El principio: quien pone en circulación un riesgo, responde por sus consecuencias."
+      },
+      {
+        "emoji": "👶",
+        "color": "#9A3412",
+        "frente": "Una persona puede heredar bienes antes de nacer",
+        "dorso": "El CCyC establece que la persona humana existe desde la concepción. Esto significa que un concebido pero no nacido puede ser beneficiario de una herencia o donación, siempre que nazca con vida. Si nace muerto, esos bienes vuelven al patrimonio original como si nunca los hubiera recibido. Esta protección del concebido es un principio fundamental del derecho civil argentino."
+      }
+    ],
+    "linea_de_tiempo": [
+      {
+        "emoji": "📜",
+        "year": "1869",
+        "text": "Vélez Sarsfield redacta el Código Civil original con 4.051 artículos, inspirado en códigos europeos y latinoamericanos"
+      },
+      {
+        "emoji": "✏️",
+        "year": "1968",
+        "text": "Ley 17.711: primera reforma sustancial, con cambios en familia, responsabilidad civil y contratos"
+      },
+      {
+        "emoji": "🔄",
+        "year": "1995-2011",
+        "text": "Varios proyectos de unificación civil-comercial son debatidos sin llegar a sancionarse"
+      },
+      {
+        "emoji": "🆕",
+        "year": "2015",
+        "text": "Ley 26.994: se aprueba el Código Civil y Comercial unificado con 2.671 artículos, vigente desde agosto de 2015"
+      }
+    ],
+    "encuesta": {
+      "pregunta": "¿Cuál de estos temas te parece más importante para tu vida cotidiana?",
+      "opciones": [
+        {
+          "emoji": "✍️",
+          "text": "Saber cuándo un contrato es válido o puede anularse",
+          "votos_iniciales": 45
+        },
+        {
+          "emoji": "⚖️",
+          "text": "Entender cuándo y cómo se puede reclamar una indemnización",
+          "votos_iniciales": 38
+        },
+        {
+          "emoji": "👤",
+          "text": "Conocer los derechos de menores e incapaces ante la ley",
+          "votos_iniciales": 27
+        }
+      ]
+    }
+  },
+
+  "cruces": {
+    "consigna_general": "Elegí un tema de cada bloque que te haya interesado y preparalo para explicárselo a un compañero. Podés usar esquemas, dibujos, ejemplos... ¡lo que quieras!",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "📜",
+        "titulo": "BLOQUE A: El Código y las Personas",
+        "color": "#DC2626",
+        "temas_sugeridos": [
+          "Por qué se unificó el Código Civil y Comercial en 2015 y qué cambió",
+          "Diferencias entre persona humana y persona jurídica con ejemplos reales",
+          "Los cinco atributos de la persona humana y para qué sirve cada uno",
+          "Tipos de domicilio: real, legal y especial — cuándo aplica cada uno",
+          "Diferencia entre capacidad de derecho y capacidad de hecho",
+          "Cómo se adquiere la personería jurídica y para qué sirve"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+      },
+      {
+        "id": "b",
+        "emoji": "🛡️",
+        "titulo": "BLOQUE B: Incapacidad, Tutela y Curatela",
+        "color": "#EA580C",
+        "temas_sugeridos": [
+          "Diferencia entre incapacidad absoluta y capacidad restringida",
+          "La tutela: quién la ejerce, cuándo termina y cuáles son las responsabilidades",
+          "La curatela: cómo se diferencia de la tutela y para qué sirve",
+          "El sistema de apoyos: la visión moderna de la discapacidad y la autonomía",
+          "Por qué la incapacidad protege y no castiga",
+          "Qué pasa con un menor de 13 años que quiere celebrar un contrato"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+      },
+      {
+        "id": "c",
+        "emoji": "⚖️",
+        "titulo": "BLOQUE C: Actos Jurídicos y Responsabilidad Civil",
+        "color": "#9A3412",
+        "temas_sugeridos": [
+          "Clasificación de los hechos: naturales, humanos, simples, jurídicos",
+          "Diferencia entre hecho jurídico y acto jurídico con ejemplos",
+          "Los elementos del acto jurídico: voluntad, objeto y finalidad",
+          "Instrumento público vs. instrumento privado: cuándo usar cada uno",
+          "Los cuatro requisitos para que exista responsabilidad civil",
+          "Diferencia entre responsabilidad subjetiva y objetiva con ejemplos prácticos"
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar..."
+      }
+    ]
+  },
+
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "¿Debería la mayoría de edad legal bajarse a 16 años en Argentina?",
+      "contexto": "Actualmente la capacidad de hecho plena se adquiere a los 18 años. Sin embargo, los adolescentes de 16 y 17 años ya tienen capacidad progresiva en muchos aspectos (trabajo, decisiones médicas). Hay quienes argumentan que en la práctica ya actúan como adultos. ¿Debería la ley reflejar esa realidad?",
+      "roles": [
+        {
+          "id": "fiscal",
+          "emoji": "🟢",
+          "label": "A favor de bajarla a 16",
+          "desc": "Argumentá por qué los adolescentes de 16 años ya tienen madurez suficiente para la capacidad plena: trabajan, votan en elecciones, toman decisiones médicas y asumen responsabilidades reales",
+          "color": "#10B981"
+        },
+        {
+          "id": "defensa",
+          "emoji": "🔴",
+          "label": "En contra de bajarla",
+          "desc": "Argumentá por qué mantener los 18 años protege a los adolescentes de decisiones precipitadas, contratos abusivos o situaciones que no pueden dimensionar plenamente a esa edad",
+          "color": "#DC2626"
+        },
+        {
+          "id": "juez",
+          "emoji": "⚖️",
+          "label": "Posición equilibrada",
+          "desc": "Proponé un sistema intermedio: ¿qué actos deberían poder hacer solos a los 16 y cuáles deberían seguir requiriendo asistencia de adultos?",
+          "color": "#EA580C"
+        }
+      ]
+    },
+    "tesis": {
+      "consigna": "Formulá una tesis sobre la responsabilidad civil objetiva en la Argentina contemporánea. Incluí: (1) Tu tesis principal, (2) Dos ejemplos concretos que la apoyen, (3) Dos objeciones posibles al sistema, (4) Una conclusión que defienda tu postura sobre si el sistema actual protege adecuadamente a las víctimas."
+    },
+    "critica": {
+      "consigna": "Analizá críticamente el sistema de tutela y curatela tradicional vs. el sistema moderno de apoyos: ¿Qué visión de la discapacidad tiene cada uno? ¿Cuál respeta más la dignidad de la persona? ¿Qué limitaciones tiene el sistema de apoyos en la práctica? ¿Qué cambiarías para hacerlo más efectivo?"
+    }
+  },
+
+  "autotest": {
+    "banco_respuestas_docente": [
+      "1. B - La Ley 26.994 unificó el Código Civil y Comercial, vigente desde agosto de 2015 (p. 2-3)",
+      "2. C - Prenombre y apellido, capacidad, domicilio, estado civil y patrimonio (p. 7)",
+      "3. A - Desde la concepción, adquiriendo protección legal integral (p. 6-7)",
+      "4. B - Domicilio especial: las partes lo eligen para un acto o relación jurídica determinada (p. 10)",
+      "5. C - Toda persona humana goza de capacidad de derecho desde su concepción, sin distinción alguna (p. 11)",
+      "6. A - Tutela: para menores sin patria potestad; curatela: para adultos declarados incapaces (p. 13-14)",
+      "7. B - Máximo cada 3 años, para adecuar el sistema de apoyos a la evolución de la persona (p. 15)",
+      "8. C - Acto jurídico: la persona actúa CON intención de producir efectos jurídicos (p. 22)",
+      "9. A - Instrumento público: intervención de funcionario público, fecha cierta, presunción de autenticidad (p. 24)",
+      "10. B - Los cuatro requisitos son: conducta antijurídica, daño, relación de causalidad y factor de atribución (p. 31)",
+      "11. VERDADERO - La persona humana existe desde la concepción (p. 6-7)",
+      "12. FALSO - Los hechos involuntarios no generan responsabilidad para su autor (p. 20)",
+      "13. VERDADERO - El instrumento privado requiere reconocimiento de firmas para plena eficacia probatoria (p. 25)",
+      "14. FALSO - En la responsabilidad objetiva no es necesario probar culpa ni intención (p. 28-32)",
+      "15. VERDADERO - El sistema de apoyos busca la medida menos restrictiva y prioriza la autonomía personal (p. 15)"
+    ],
+    "preguntas": [
+      {
+        "pregunta": "¿Qué ley unificó el Código Civil y Comercial argentino, vigente desde 2015?",
+        "opciones": [
+          "Ley 17.711",
+          "Ley 26.994",
+          "Ley 20.744",
+          "Ley 24.013"
+        ],
+        "correcta": 1,
+        "explicacion": "La Ley 26.994 sancionó el Código Civil y Comercial de la Nación, unificando la normativa civil y comercial en un único cuerpo legal con 2.671 artículos, vigente desde agosto de 2015. Revisá las páginas 2-3."
+      },
+      {
+        "pregunta": "¿Cuáles son los cinco atributos de la persona humana según el CCyC?",
+        "opciones": [
+          "Nombre, DNI, domicilio, trabajo y salud",
+          "Nombre, edad, domicilio, religión y nacionalidad",
+          "Nombre, capacidad, domicilio, estado civil y patrimonio",
+          "Nombre, apellido, CUIL, domicilio y estado civil"
+        ],
+        "correcta": 2,
+        "explicacion": "Los cinco atributos de la persona humana son: nombre (prenombre y apellido), capacidad (aptitud jurídica), domicilio (ubicación legal), estado civil (situación jurídica familiar) y patrimonio (bienes de valor económico). Más en la página 7."
+      },
+      {
+        "pregunta": "¿Desde cuándo existe legalmente la persona humana según el Código Civil y Comercial?",
+        "opciones": [
+          "Desde la concepción, adquiriendo protección legal integral",
+          "Desde el nacimiento con vida",
+          "Desde la inscripción en el Registro Civil",
+          "Desde los 18 años de edad"
+        ],
+        "correcta": 0,
+        "explicacion": "El CCyC establece que la existencia de la persona humana comienza con la concepción. Desde ese momento es titular de derechos fundamentales, aunque su ejercicio pleno esté supeditado al nacimiento con vida. Revisá las páginas 6-7."
+      },
+      {
+        "pregunta": "¿Qué tipo de domicilio eligen las partes para un contrato específico?",
+        "opciones": [
+          "Domicilio real",
+          "Domicilio especial",
+          "Domicilio legal",
+          "Domicilio fiscal"
+        ],
+        "correcta": 1,
+        "explicacion": "El domicilio especial es el que las partes eligen para un acto o relación jurídica determinada. Su efecto es limitado a esa relación específica y puede ser contractual o procesal. Revisá la página 10."
+      },
+      {
+        "pregunta": "¿Desde cuándo existe la capacidad de derecho en las personas humanas?",
+        "opciones": [
+          "Desde los 18 años de edad",
+          "Desde el nacimiento con vida",
+          "Desde la concepción, sin distinción alguna",
+          "Desde la mayoría de edad judicial"
+        ],
+        "correcta": 2,
+        "explicacion": "Toda persona humana goza de capacidad de derecho (aptitud para ser titular de derechos y obligaciones) desde su concepción, sin distinción alguna. Es diferente a la capacidad de hecho, que se adquiere plenamente a los 18 años. Ver página 11."
+      },
+      {
+        "pregunta": "¿Cuál es la diferencia principal entre tutela y curatela?",
+        "opciones": [
+          "La tutela protege adultos; la curatela protege menores",
+          "La tutela protege menores sin patria potestad; la curatela protege adultos declarados incapaces",
+          "Son lo mismo pero con diferente nombre según la edad del juez",
+          "La tutela es voluntaria; la curatela siempre es obligatoria"
+        ],
+        "correcta": 1,
+        "explicacion": "La tutela es para menores de edad que no están bajo patria potestad. La curatela se aplica a adultos que han sido declarados incapaces o con capacidad restringida por sentencia judicial. Ambas implican protección, pero para personas en situaciones distintas. Ver páginas 13-14."
+      },
+      {
+        "pregunta": "¿Con qué frecuencia máxima deben revisarse las sentencias que restringen la capacidad?",
+        "opciones": [
+          "Cada 5 años",
+          "Cada 10 años",
+          "Cada 3 años, según el Art. 40 CCyC",
+          "Solo cuando la persona lo solicite"
+        ],
+        "correcta": 2,
+        "explicacion": "El Art. 40 CCyC establece que las sentencias que restringen la capacidad deben revisarse periódicamente con un máximo de cada 3 años, para adecuar el sistema de apoyos a la evolución de la persona. Revisá la página 15."
+      },
+      {
+        "pregunta": "¿Cuál es la diferencia clave entre un hecho jurídico y un acto jurídico?",
+        "opciones": [
+          "El hecho jurídico siempre lo produce la naturaleza; el acto jurídico, el hombre",
+          "El hecho jurídico produce efectos sin que haya intención; el acto jurídico implica voluntad de producir esos efectos",
+          "El acto jurídico no tiene consecuencias legales; el hecho jurídico sí",
+          "No hay diferencia: son sinónimos en el derecho argentino"
+        ],
+        "correcta": 1,
+        "explicacion": "La diferencia clave es la intención: el hecho jurídico produce efectos jurídicos aunque no haya intención (ej: nacimiento, muerte, accidente). El acto jurídico implica que la persona actúa CON intención de producir esos efectos (ej: contrato, testamento, donación). Ver página 22."
+      },
+      {
+        "pregunta": "¿Cuál de estas es una característica exclusiva del instrumento público?",
+        "opciones": [
+          "Intervención de funcionario público competente y presunción de autenticidad",
+          "Puede ser redactado por cualquiera de las partes libremente",
+          "Solo vale entre las partes firmantes, no frente a terceros",
+          "No necesita firma ni fecha para tener validez"
+        ],
+        "correcta": 0,
+        "explicacion": "El instrumento público se caracteriza por la intervención de un funcionario público competente (escribano, juez, oficial de registro civil), fecha cierta, presunción de autenticidad y cumplimiento de solemnidades legales. Goza de fe pública, a diferencia del privado. Ver página 24."
+      },
+      {
+        "pregunta": "¿Cuáles son los cuatro requisitos para que exista responsabilidad civil?",
+        "opciones": [
+          "Intención, daño, testigos y documentación",
+          "Conducta antijurídica, daño, relación de causalidad y factor de atribución",
+          "Culpa, dolo, perjuicio y juicio previo",
+          "Contrato previo, incumplimiento, daño e indemnización acordada"
+        ],
+        "correcta": 1,
+        "explicacion": "Para que exista responsabilidad civil deben concurrir los cuatro requisitos: (1) conducta antijurídica, (2) daño real, (3) relación de causalidad entre la conducta y el daño, y (4) factor de atribución (dolo, culpa o responsabilidad objetiva). Si falta alguno, no hay obligación de indemnizar. Ver página 31."
+      }
+    ],
+    "verdadero_falso": [
+      {
+        "texto": "La existencia de la persona humana comienza desde la concepción, según el Código Civil y Comercial",
+        "correcto": true,
+        "explicacion": "VERDADERO. El CCyC establece que la persona humana existe desde la concepción, siendo titular de derechos fundamentales desde ese momento. Su ejercicio pleno está supeditado al nacimiento con vida, pero la protección legal comienza antes. Repasá las páginas 6-7."
+      },
+      {
+        "texto": "Los hechos involuntarios generan responsabilidad civil para su autor",
+        "correcto": false,
+        "explicacion": "FALSO. Los hechos involuntarios (realizados sin discernimiento, intención o libertad, como los actos de una persona bajo violencia o un demente) no generan responsabilidad para su autor. La responsabilidad civil surge de los hechos voluntarios. Revisá la página 20."
+      },
+      {
+        "texto": "Un instrumento privado entre particulares requiere reconocimiento de firmas para tener plena eficacia probatoria",
+        "correcto": true,
+        "explicacion": "VERDADERO. A diferencia del instrumento público (que goza de fe pública automáticamente), el instrumento privado adquiere valor probatorio pleno solo cuando las firmas de las partes son reconocidas judicialmente o declaradas auténticas. Revisá la página 25."
+      },
+      {
+        "texto": "En la responsabilidad civil objetiva es necesario probar que la persona actuó con intención de dañar",
+        "correcto": false,
+        "explicacion": "FALSO. En la responsabilidad objetiva no se necesita probar culpa ni intención. La persona responde aunque no haya actuado con dolo ni descuido. Ejemplo: el dueño de un perro que muerde responde aunque haya tomado todos los cuidados. Ver páginas 28-32."
+      },
+      {
+        "texto": "El sistema de apoyos del CCyC busca la medida menos restrictiva de la capacidad, priorizando la autonomía de la persona",
+        "correcto": true,
+        "explicacion": "VERDADERO. El CCyC, alineado con la Convención sobre los Derechos de las Personas con Discapacidad, establece que el sistema de apoyos busca que la persona tome sus propias decisiones. La restricción de la capacidad es una medida excepcional, siempre la menos restrictiva posible. Revisá la página 15."
+      }
+    ]
+  },
+
+  "cierre": {
+    "glosario": [
+      {
+        "emoji": "📜",
+        "termino": "Código Civil y Comercial (CCyC)",
+        "categoria": "Fuente del derecho",
+        "definicion": "Ley 26.994, vigente desde agosto de 2015. Unifica la normativa civil y comercial argentina en 2.671 artículos organizados en 6 libros. Reemplazó al Código Civil de Vélez Sarsfield (1869)."
+      },
+      {
+        "emoji": "👤",
+        "termino": "Persona humana",
+        "categoria": "Sujeto de derecho",
+        "definicion": "Individuo con existencia real y tangible. Su personalidad jurídica se inicia desde la concepción. Posee cinco atributos: nombre, capacidad, domicilio, estado civil y patrimonio."
+      },
+      {
+        "emoji": "🏢",
+        "termino": "Persona jurídica",
+        "categoria": "Sujeto de derecho",
+        "definicion": "Ente abstracto creado por la ley para lograr fines específicos. Adquiere personalidad jurídica con la inscripción en registros públicos. Se clasifica en pública, privada e internacional."
+      },
+      {
+        "emoji": "⚖️",
+        "termino": "Capacidad de derecho",
+        "categoria": "Atributo",
+        "definicion": "Aptitud para ser titular de derechos y obligaciones. Toda persona humana la tiene desde su concepción, sin distinción. La ley puede establecer incapacidades relativas y específicas."
+      },
+      {
+        "emoji": "✋",
+        "termino": "Capacidad de hecho",
+        "categoria": "Atributo",
+        "definicion": "Aptitud para ejercer por sí misma los derechos y cumplir las obligaciones de forma autónoma. Se adquiere plenamente a los 18 años. Puede estar restringida por sentencia judicial."
+      },
+      {
+        "emoji": "👦",
+        "termino": "Tutela",
+        "categoria": "Protección jurídica",
+        "definicion": "Institución legal para proteger la persona y bienes de un menor de edad sin patria potestad (Art. 104 CCyC). El tutor representa al menor en actos jurídicos y administra sus bienes."
+      },
+      {
+        "emoji": "🧑‍⚕️",
+        "termino": "Curatela",
+        "categoria": "Protección jurídica",
+        "definicion": "Institución para proteger a adultos declarados incapaces por sentencia judicial (Art. 138 CCyC). El curador puede actuar como representante total o como sistema de apoyo según la sentencia."
+      },
+      {
+        "emoji": "✍️",
+        "termino": "Acto jurídico",
+        "categoria": "Actos y hechos",
+        "definicion": "Acto voluntario lícito que tiene por fin inmediato la adquisición, modificación o extinción de relaciones o situaciones jurídicas. Requiere: sujeto capaz, voluntad no viciada, objeto lícito y finalidad jurídica."
+      },
+      {
+        "emoji": "🏛️",
+        "termino": "Instrumento público",
+        "categoria": "Formas",
+        "definicion": "Documento autorizado por funcionario público en ejercicio de sus funciones. Goza de fe pública y presunción de autenticidad solo desvirtualizable judicialmente. Ej: escrituras, actas notariales, documentos del Registro Civil."
+      },
+      {
+        "emoji": "⚖️",
+        "termino": "Responsabilidad civil",
+        "categoria": "Obligaciones",
+        "definicion": "Obligación de reparar un daño causado a otra persona. Requiere: conducta antijurídica, daño, relación de causalidad y factor de atribución. Puede ser subjetiva (dolo/culpa) u objetiva (sin necesidad de culpa)."
+      }
+    ],
+    "recursos": [
+      {
+        "tipo": "🌐 Web",
+        "title": "InfoLEG — Código Civil y Comercial completo",
+        "desc": "Texto oficial y actualizado del CCyC disponible en el portal del Ministerio de Justicia. Podés buscar cualquier artículo mencionado en la unidad",
+        "nivel": "Todos los niveles",
+        "color": "#DC2626"
+      },
+      {
+        "tipo": "📖 Libro",
+        "title": "Manual de Derecho Civil — Ricardo Lorenzetti",
+        "desc": "El principal comentarista del CCyC de 2015, ex presidente de la Corte Suprema. Sus manuales son la referencia académica más usada para entender la reforma",
+        "nivel": "Avanzado",
+        "color": "#EA580C"
+      },
+      {
+        "tipo": "🌐 Web",
+        "title": "Argentina.gob.ar — Trámites y derechos civiles",
+        "desc": "Portal oficial con información sobre domicilio, nombres, registros y otros temas del CCyC aplicados a trámites reales de la vida cotidiana",
+        "nivel": "Introductorio",
+        "color": "#B91C1C"
+      },
+      {
+        "tipo": "🎬 Video",
+        "title": "Canal de YouTube del Ministerio de Justicia — Explicaciones del CCyC",
+        "desc": "Videos institucionales explicando los cambios más importantes del Código Civil y Comercial en lenguaje accesible para no especialistas",
+        "nivel": "Introductorio",
+        "color": "#9A3412"
+      },
+      {
+        "tipo": "📄 Artículo",
+        "title": "CIJ — Centro de Información Judicial (cij.gov.ar)",
+        "desc": "Acceso a fallos judiciales reales. Podés buscar casos de responsabilidad civil, tutela, curatela o actos jurídicos para ver cómo se aplican en la práctica",
+        "nivel": "Avanzado",
+        "color": "#7F1D1D"
+      }
+    ]
+  }
+}
