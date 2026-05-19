@@ -324,7 +324,7 @@ function countUniqueAct(progArray){
   var tags = new Set();
   progArray.forEach(function(p){
     var s = normalizeString(p.seccion);
-    if(s && s !== "__ESTADO_UNIDAD__" && SECCIONES.indexOf(s) !== -1){
+    if(s && !s.startsWith("__estado_unidad__") && SECCIONES.indexOf(s) !== -1){
       tags.add(norm(p.alumno_codigo) + "|" + normalizeString(p.materia) + "|" + normalizeString(p.unidad) + "|" + s);
     }
   });
@@ -362,58 +362,35 @@ if(sessionStorage.getItem("docente_auth")==="ok"){
 
 // ----- API -----
 async function sb(table, params){
-  // 1. Obtener cantidad total de registros
-  var urlCount = SUPABASE_URL + "/rest/v1/" + table + "?" + (params || "select=*") + "&limit=1";
-  var rCount = await fetch(urlCount, {
-    method: "HEAD",
-    headers: {
-      "apikey": SUPABASE_KEY,
-      "Authorization": "Bearer " + SUPABASE_KEY,
-      "Prefer": "count=exact"
-    }
-  });
-
-  var cr = rCount.headers.get("Content-Range");
-  if(!cr) {
-    var allData = [];
-    var limit = 1000;
-    var offset = 0;
-    var hasMore = true;
-    while(hasMore){
-      var url = SUPABASE_URL + "/rest/v1/" + table + "?" + (params || "select=*") + "&limit=" + limit + "&offset=" + offset;
-      var r = await fetch(url, { headers: { "apikey": SUPABASE_KEY, "Authorization": "Bearer " + SUPABASE_KEY, "Content-Type": "application/json" } });
-      var data = await r.json();
-      if(data && Array.isArray(data) && data.length > 0){
-        allData = allData.concat(data);
-        offset += limit;
-        if(data.length < limit) hasMore = false;
-      } else { hasMore = false; }
-    }
-    return allData;
-  }
-
-  var total = parseInt(cr.split("/")[1]);
-  if(total === 0) return [];
-
-  // 2. Hacer las peticiones en paralelo de a 1000
-  var limit = 1000;
-  var promises = [];
-  for(var offset = 0; offset < total; offset += limit){
-    var url = SUPABASE_URL + "/rest/v1/" + table + "?" + (params || "select=*") + "&limit=" + limit + "&offset=" + offset;
-    promises.push(fetch(url, {
-      headers: {
-        "apikey": SUPABASE_KEY,
-        "Authorization": "Bearer " + SUPABASE_KEY,
-        "Content-Type": "application/json"
-      }
-    }).then(function(res){ return res.json(); }));
-  }
-
-  var results = await Promise.all(promises);
   var allData = [];
-  results.forEach(function(batch){
-    if(batch && Array.isArray(batch)) allData = allData.concat(batch);
-  });
+  var limit = 1000;
+  var offset = 0;
+  var hasMore = true;
+  
+  while(hasMore){
+    var url = SUPABASE_URL + "/rest/v1/" + table + "?" + (params || "select=*") + "&limit=" + limit + "&offset=" + offset;
+    var r = await fetch(url, { 
+      headers: { 
+        "apikey": SUPABASE_KEY, 
+        "Authorization": "Bearer " + SUPABASE_KEY, 
+        "Content-Type": "application/json" 
+      } 
+    });
+    
+    if(!r.ok) {
+      console.warn("Error en sb fetch para " + table, r.status, r.statusText);
+      break;
+    }
+    
+    var data = await r.json();
+    if(data && Array.isArray(data) && data.length > 0){
+      allData = allData.concat(data);
+      offset += limit;
+      if(data.length < limit) hasMore = false;
+    } else { 
+      hasMore = false; 
+    }
+  }
   return allData;
 }
 
@@ -798,10 +775,10 @@ function renderProgreso(){
         var progMateriaUnidad = progMateria.filter(function(p){return unitsMatch(p.unidad, unidad);});
         
         // Detectar secciones completas (explícitas o en el estado autoguardado)
-        var stateRec = progMateriaUnidad.find(function(p){return p.seccion === "__ESTADO_UNIDAD__"});
+        var stateRec = progMateriaUnidad.find(function(p){return p.seccion && p.seccion.startsWith("__ESTADO_UNIDAD__")});
         var stateData = (stateRec && stateRec.datos) ? stateRec.datos : {};
         
-        var secsMarcadas = progMateriaUnidad.filter(function(p){return p.seccion !== "__ESTADO_UNIDAD__"}).map(function(p){return p.seccion;});
+        var secsMarcadas = progMateriaUnidad.filter(function(p){return p.seccion && !p.seccion.startsWith("__ESTADO_UNIDAD__")}).map(function(p){return p.seccion;});
         var secsInProceso = [];
         
         var prefixes = {
@@ -1423,7 +1400,7 @@ async function verDetalle(progId, forcedSection){
     return norm(lp.alumno_codigo) === aCode && 
            matsMatch(lp.materia, p.materia) && 
            unitsMatch(lp.unidad, p.unidad) && 
-           lp.seccion === "__ESTADO_UNIDAD__";
+           lp.seccion && lp.seccion.startsWith("__ESTADO_UNIDAD__");
   });
   
   if(!p.datos) {
@@ -1788,7 +1765,7 @@ async function abrirModalAvance(codigo, forcedMateria, forcedUnidad){
   var materia = forcedMateria || (progMat.length ? progMat[0].materia : "");
   var unidad = forcedUnidad;
   if(!unidad && progMat.length){
-    var lastRec = progMat.find(function(r){return r.seccion && normalizeString(r.seccion) !== normalizeString("__ESTADO_UNIDAD__")}) || progMat[progMat.length-1];
+    var lastRec = progMat.find(function(r){return r.seccion && !normalizeString(r.seccion).startsWith(normalizeString("__ESTADO_UNIDAD__"))}) || progMat[progMat.length-1];
     unidad = lastRec.unidad;
   }
   
@@ -1846,7 +1823,7 @@ function renderGridAvance(codigo, materia, unidad){
     return norm(p.alumno_codigo) === aCode && matsMatch(p.materia, materia) && unitsMatch(p.unidad, unidad);
   });
 
-  var stateRec = progAlumno.find(function(p){return normalizeString(p.seccion) === normalizeString("__ESTADO_UNIDAD__")});
+  var stateRec = progAlumno.find(function(p){return p.seccion && normalizeString(p.seccion).startsWith(normalizeString("__ESTADO_UNIDAD__"))});
   var stateData = (stateRec && stateRec.datos) ? stateRec.datos : {};
   
   var totalSecciones = SECCIONES.length;
