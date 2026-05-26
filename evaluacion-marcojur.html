@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación: Marco Jurídico - 5to A</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #F59E0B;
+            --primary-dark: #D97706;
+            --bg: #0F172A;
+            --card-bg: #1E293B;
+            --text: #F8FAFC;
+            --text-muted: #94A3B8;
+            --accent: #6366F1;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'DM Sans', sans-serif; }
+        body { background-color: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+
+        .orbs { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; }
+        .orb1 { width: 400px; height: 400px; background: var(--primary); top: -100px; right: -100px; animation: float 15s infinite alternate; }
+        .orb2 { width: 350px; height: 350px; background: var(--accent); bottom: -50px; left: -100px; animation: float 18s infinite alternate-reverse; }
+        @keyframes float { from { transform: translate(0,0); } to { transform: translate(40px, 40px); } }
+
+        .container { position: relative; z-index: 1; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+
+        .header { text-align: center; margin-bottom: 40px; }
+        .header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; background: linear-gradient(135deg, #A78BFA, #F59E0B); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
+        .header p { color: var(--text-muted); font-size: 16px; }
+
+        .setup-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 40px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        .setup-card h2 { margin-bottom: 24px; font-family: 'Space Grotesk', sans-serif; }
+        .select-wrapper { margin-bottom: 24px; text-align: left; }
+        .select-wrapper label { display: block; margin-bottom: 8px; color: var(--text-muted); font-size: 14px; font-weight: 600; }
+        select { width: 100%; padding: 14px; border-radius: 12px; background: var(--bg); border: 2px solid rgba(255,255,255,0.1); color: white; font-size: 16px; cursor: pointer; outline: none; transition: border-color 0.3s; }
+        select:focus { border-color: var(--primary); }
+
+        .btn-start { width: 100%; padding: 16px; border-radius: 12px; border: none; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; font-size: 18px; font-weight: 700; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn-start:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(245, 158, 11, 0.3); }
+
+        #quiz-screen { display: none; }
+        .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: rgba(255,255,255,0.05); padding: 15px 25px; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); position: sticky; top: 20px; z-index: 10; }
+        .timer { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #F59E0B; display: flex; align-items: center; gap: 8px; }
+        .progress-container { flex-grow: 1; margin: 0 30px; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; }
+        .progress-bar { height: 100%; background: var(--primary); width: 0%; transition: width 0.3s; }
+
+        .question-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 35px; margin-bottom: 20px; animation: slideIn 0.5s ease; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .q-number { color: var(--primary); font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: block; }
+        .q-text { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 25px; }
+
+        .options { display: grid; gap: 12px; }
+        .option { padding: 16px 20px; border-radius: 14px; background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.08); cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 15px; }
+        .option:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); transform: translateX(5px); }
+        .option.selected { background: rgba(245, 158, 11, 0.1); border-color: var(--primary); }
+        .option-bullet { width: 20px; height: 20px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; flex-shrink: 0; }
+        .option.selected .option-bullet { background: var(--primary); border-color: var(--primary); color: white; }
+
+        .quiz-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; }
+        .btn-nav { padding: 12px 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: var(--card-bg); color: white; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+        .btn-nav:hover:not(:disabled) { background: rgba(255,255,255,0.1); }
+        .btn-nav:disabled { opacity: 0.3; cursor: not-allowed; }
+        .btn-submit { padding: 12px 30px; border-radius: 12px; border: none; background: var(--primary); color: white; font-weight: 700; cursor: pointer; display: none; }
+
+        #results-screen { display: none; text-align: center; }
+        .result-card { background: var(--card-bg); border-radius: 24px; padding: 50px; border: 1px solid rgba(255,255,255,0.1); }
+        .score-circle { width: 150px; height: 150px; border-radius: 50%; border: 8px solid var(--primary); margin: 0 auto 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .score-val { font-size: 48px; font-weight: 800; font-family: 'Space Grotesk', sans-serif; }
+        .score-label { font-size: 14px; color: var(--text-muted); text-transform: uppercase; }
+
+        .summary-list { text-align: left; margin: 30px 0; background: rgba(0,0,0,0.2); border-radius: 15px; padding: 20px; }
+        .summary-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .summary-item:last-child { border: none; }
+
+        @media (max-width: 600px) {
+            .quiz-header { flex-wrap: wrap; gap: 10px; }
+            .progress-container { order: 3; width: 100%; margin: 10px 0 0 0; }
+            .header h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="orbs"><div class="orb orb1"></div><div class="orb orb2"></div></div>
+
+<div class="container">
+    <div class="header">
+        <h1>⚖️ Marco Jurídico</h1>
+        <p>Evaluación de Diagnóstico · 5to Año "A"</p>
+    </div>
+
+    <div id="setup-screen" class="setup-card">
+        <h2>Bienvenido/a</h2>
+        <p style="margin-bottom: 30px;">Esta evaluación consta de 10 preguntas seleccionadas al azar de un banco de 30. Tenés 10 minutos para completar.</p>
+
+        <div class="select-wrapper">
+            <label for="student-select">Seleccioná tu nombre:</label>
+            <select id="student-select" style="margin-bottom: 16px;">
+                <option value="" disabled selected>Elegí tu nombre de la lista...</option>
+            </select>
+
+            <label for="student-password">Palabra Clave:</label>
+            <input type="password" id="student-password" placeholder="Ingresá tu palabra clave" style="width: 100%; padding: 14px; border-radius: 12px; background: var(--bg); border: 2px solid rgba(255,255,255,0.1); color: white; font-size: 16px; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+        </div>
+
+        <button class="btn-start" onclick="startQuiz()">Comenzar Evaluación 🚀</button>
+    </div>
+
+    <div id="quiz-screen">
+        <div class="quiz-header">
+            <div id="student-name-display" style="font-weight: 700; font-size: 14px; max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Estudiante</div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <div class="timer">
+                <span>⏱️</span> <span id="timer-val">10:00</span>
+            </div>
+        </div>
+
+        <div id="question-container"></div>
+
+        <div class="quiz-footer">
+            <button class="btn-nav" id="btn-prev" onclick="prevQuestion()" disabled>Anterior</button>
+            <div id="page-indicator" style="color: var(--text-muted); font-size: 14px; font-weight: 600;">1 de 10</div>
+            <button class="btn-nav" id="btn-next" onclick="nextQuestion()">Siguiente</button>
+            <button class="btn-submit" id="btn-submit" onclick="finishQuiz()">Finalizar y Entregar</button>
+        </div>
+    </div>
+
+    <div id="results-screen">
+        <div class="result-card">
+            <div id="result-emoji" style="font-size: 64px; margin-bottom: 20px;">🎉</div>
+            <h2 id="result-title">¡Evaluación Completada!</h2>
+            <p id="result-student" style="color: var(--text-muted); margin-bottom: 30px;">Estudiante</p>
+
+            <div class="score-circle">
+                <span class="score-val" id="score-val">8</span>
+                <span class="score-label">Correctas</span>
+            </div>
+
+            <div class="summary-list">
+                <div class="summary-item">
+                    <span>Preguntas respondidas:</span>
+                    <span id="summary-total">10/10</span>
+                </div>
+                <div class="summary-item">
+                    <span>Tiempo utilizado:</span>
+                    <span id="summary-time">04:25</span>
+                </div>
+                <div class="summary-item">
+                    <span>Estado:</span>
+                    <span id="summary-status" style="color: var(--primary); font-weight: 700;">Aprobado</span>
+                </div>
+            </div>
+
+            <button class="btn-start" onclick="location.reload()">Cerrar sesión</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const SUPABASE_URL = "https://ygafevogfxwupmgwksto.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlnYWZldm9nZnh3dXBtZ3drc3RvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MDA5NDMsImV4cCI6MjA4ODI3Njk0M30.5LoSWrwtFCR4qoQnmNY6UZB1SuiVpx-G9N1AG6cOev8";
+
+    async function sbInsert(table, data) {
+        try {
+            const r = await fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
+                method: "POST",
+                headers: {
+                    "apikey": SUPABASE_KEY,
+                    "Authorization": `Bearer ${SUPABASE_KEY}`,
+                    "Content-Type": "application/json",
+                    "Prefer": "return=representation"
+                },
+                body: JSON.stringify(data)
+            });
+            return await r.json();
+        } catch (e) {
+            console.error("Error saving to Supabase:", e);
+        }
+    }
+
+    async function sbFetch(table, params) {
+        try {
+            const r = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${params}`, {
+                method: "GET",
+                headers: {
+                    "apikey": SUPABASE_KEY,
+                    "Authorization": `Bearer ${SUPABASE_KEY}`,
+                    "Content-Type": "application/json"
+                }
+            });
+            return await r.json();
+        } catch (e) {
+            console.error("Error fetching from Supabase:", e);
+            return [];
+        }
+    }
+
+    const students = [
+        { name: "ALBORNOZ, ROMÁN JAVIER", code: "krakow" },
+        { name: "ALBORUA, JOCABED NAHIR", code: "salvador" },
+        { name: "ALI, SAÍD BAUTISTA", code: "recife" },
+        { name: "BANEGAS, BRIAN AQUILES", code: "guadalajara" },
+        { name: "BONFIGLIO, ZAIRA ARACELI", code: "monterrey" },
+        { name: "BUSTOS, IGNACIO", code: "toronto" },
+        { name: "CASTILLO, LUDMILA SOLEDAD", code: "montreal" },
+        { name: "CEJAS, MELANI TATIANA", code: "vancouver" },
+        { name: "CLERICO, MÁXIMO EMANUEL", code: "casablanca" },
+        { name: "CORONEL, UZIEL EXEQUIEL", code: "capetown" },
+        { name: "DELLOSA, VALENTÍN SEBASTIÁN", code: "lagos" },
+        { name: "FERREYRA, JORGE AGUSTÍN", code: "amazonas" },
+        { name: "GRAGLIA, VALENTINA ANAHÍ", code: "nilo" },
+        { name: "LEALI, ISABEL", code: "ganges" },
+        { name: "MONTIVERO, ROMÁN MARTÍN", code: "danubio" },
+        { name: "MORENO, THIAGO NICOLÁS", code: "volga" },
+        { name: "MOYA GUZMAN, MIQUEAS", code: "misisipi" },
+        { name: "RODRIGUEZ, JOSEFINA ABRIL", code: "yangtsé" },
+        { name: "TORRILLA, LOURDES AIMÉ", code: "orinoco" },
+        { name: "ZUVIRIA, AGUSTINA", code: "zuviria" },
+        { name: "PROFE 1", code: "profe1" },
+        { name: "PROFE 2", code: "profe2" }
+    ];
+
+    const questionBank = [
+        { q: "¿Cuál es la definición de Derecho según el jurista Llambías?", a: ["Un conjunto de leyes escritas y codificadas", '"Un ordenamiento social justo"', "Un sistema de sanciones obligatorias del Estado", "Un conjunto de costumbres y tradiciones sociales"], c: 1 },
+        { q: "¿Cuál es la característica del ser humano que lo impulsa a vivir en sociedad?", a: ["Su naturaleza solitaria e independiente", "Su naturaleza racional y filosófica", "Su naturaleza gregaria", "Su naturaleza instintiva y animal"], c: 2 },
+        { q: "¿Cuál de las siguientes NO es una fuente del Derecho?", a: ["La ley", "La costumbre", "La jurisprudencia", "La moral"], c: 3 },
+        { q: "¿Qué distingue al Derecho Natural del Derecho Positivo?", a: ["El Derecho Natural está escrito en leyes; el Positivo no", "El Derecho Natural es eterno e inmutable; el Positivo es vigente en un Estado y puede cambiar", "El Derecho Natural es creado por el hombre; el Positivo surge de la razón", "El Derecho Natural se aplica en tribunales; el Positivo, en la conciencia"], c: 1 },
+        { q: "Una norma jurídica se diferencia de una norma moral porque:", a: ["La norma jurídica es autónoma y la moral es heterónoma", "La norma jurídica regula conductas internas y la moral las externas", "La norma jurídica es coercible y la moral no lo es", "La norma jurídica es unilateral y la moral bilateral"], c: 2 },
+        { q: "¿Cuál es la fuente más importante del Derecho en la actualidad?", a: ["La doctrina", "La costumbre", "La jurisprudencia", "La ley"], c: 3 },
+        { q: "¿Qué es la jurisprudencia como fuente del Derecho?", a: ["Las opiniones de los estudiosos del Derecho sobre temas jurídicos", "Los comportamientos constantes y uniformes de una comunidad", "Las normas constitucionales emanadas del Poder Ejecutivo", "Las decisiones judiciales previas que interpretan y aplican las leyes a casos concretos"], c: 3 },
+        { q: "¿Desde cuándo comienza la existencia legal de la persona humana según el Código Civil y Comercial?", a: ["Desde el nacimiento con vida", "Desde la inscripción en el Registro Civil", "Desde la concepción", "Desde los 18 años de edad"], c: 2 },
+        { q: "¿Cuál es la diferencia entre Derecho Objetivo y Derecho Subjetivo?", a: ["El Derecho Objetivo es para el Estado; el Subjetivo, para los particulares", "El Derecho Objetivo es el conjunto de normas vigentes; el Subjetivo es la facultad reconocida a la persona por la ley", "El Derecho Objetivo es natural; el Subjetivo es positivo", "El Derecho Objetivo es coercible; el Subjetivo, no"], c: 1 },
+        { q: "¿Qué principio del Derecho establece que nadie puede ser castigado por una acción que no esté prohibida por una ley preexistente?", a: ["Justicia", "Buena fe", "Legalidad", "Igualdad ante la ley"], c: 2 },
+        { q: "¿A cuál de las siguientes ramas pertenece el Derecho Penal?", a: ["Derecho Privado", "Derecho Internacional Privado", "Derecho Público", "Derecho Comercial"], c: 2 },
+        { q: "¿Qué rama del Derecho regula las relaciones personales y patrimoniales de los individuos, como el matrimonio y las sucesiones?", a: ["Derecho Administrativo", "Derecho Penal", "Derecho Civil", "Derecho Constitucional"], c: 2 },
+        { q: "¿En qué año entró en vigencia el nuevo Código Civil y Comercial de la Nación Argentina?", a: ["1969", "1995", "2010", "2015"], c: 3 },
+        { q: "¿Cuántos artículos tiene el Código Civil y Comercial de la Nación unificado?", a: ["4.051", "2.671", "1.500", "3.200"], c: 1 },
+        { q: "¿Qué es la capacidad de ejercicio (hecho) y a qué edad se adquiere plenamente en Argentina?", a: ["La aptitud para ser titular de derechos, desde la concepción", "La capacidad plena para realizar actos jurídicos de forma autónoma, a los 18 años", "La aptitud exclusiva de las personas jurídicas, desde su inscripción", "La capacidad de firmar contratos comerciales, a los 16 años"], c: 1 },
+        { q: "¿Qué es la capacidad de derecho (goce)?", a: ["La aptitud para ejercer por sí mismo los derechos de forma autónoma", "La aptitud para ser titular de derechos y obligaciones, reconocida a toda persona", "La capacidad de firmar contratos sin necesidad de representante", "La aptitud exclusiva de las personas jurídicas de derecho privado"], c: 1 },
+        { q: "¿Cuáles son los atributos de la personalidad de la persona humana reconocidos por el Código?", a: ["Nombre, domicilio, patrimonio, capacidad y estado civil", "Nombre, trabajo, domicilio y capacidad laboral", "Apellido, domicilio, edad y patrimonio económico", "Nombre, educación, patrimonio y vínculo familiar"], c: 0 },
+        { q: "¿Cuál es la diferencia principal entre tutela y curatela?", a: ["La tutela es para adultos con discapacidad; la curatela, para menores de edad", "La tutela es para menores de edad sin patria potestad; la curatela, para adultos declarados incapaces", "Son lo mismo, solo cambia el nombre según la época histórica", "La tutela implica solo asistencia; la curatela, siempre representación legal total"], c: 1 },
+        { q: "¿Qué es el domicilio real?", a: ["El lugar donde la ley presume que reside la persona, sin admitir prueba en contrario", "El lugar elegido por las partes para un acto jurídico determinado en un contrato", "El lugar de residencia habitual de la persona, con intención de permanecer en él", "El domicilio fijado en un expediente judicial"], c: 2 },
+        { q: "¿Qué característica de la ley establece que rige siempre hacia adelante en el tiempo y no puede castigar actos pasados?", a: ["Generalidad", "Impersonalidad", "Obligatoriedad", "Irretroactividad"], c: 3 },
+        { q: "¿Qué tipo de personas jurídicas son el Estado Nacional, las provincias y los municipios?", a: ["Personas jurídicas de derecho privado reguladas por el CCyC", "Personas jurídicas internacionales creadas por acuerdos entre Estados", "Personas jurídicas de derecho público", "Personas jurídicas mixtas con fines comerciales"], c: 2 },
+        { q: "¿Cuántos prenombres (nombres de pila) como máximo se pueden inscribir en Argentina?", a: ["Uno", "Dos", "Tres", "Cuatro"], c: 2 },
+        { q: "¿Qué tipo de interpretación de la ley se enfoca en el significado exacto de las palabras del texto legal, sin añadir ni quitar ideas?", a: ["Interpretación teleológica", "Interpretación literal", "Interpretación sistemática", "Interpretación histórica"], c: 1 },
+        { q: "¿Qué estableció la Ley 26.994 en Argentina?", a: ["La reforma parcial del Código Civil mediante modificaciones en familia y contratos", "La sanción del Código Civil original redactado por Vélez Sarsfield en 1869", "La unificación del Código Civil y Comercial en un único cuerpo legal", "La creación del Registro Civil y el sistema de estado civil"], c: 2 },
+        { q: "Según el principio de proporcionalidad del Derecho, ¿qué condición debe cumplir una sanción?", a: ["Debe ser aplicada exclusivamente por un juez en forma pública", "Debe ser proporcional a la falta cometida, sin exceder lo razonable", "Debe estar basada en la costumbre imperante en la comunidad", "Debe ser siempre la más severa posible para cumplir su función disuasoria"], c: 1 },
+        { q: "¿Qué son las personas jurídicas de derecho privado?", a: ["Entidades creadas por el Estado para cumplir fines de interés público general", "Entidades creadas mediante acuerdos formales entre dos o más Estados soberanos", "Entidades creadas por particulares para fines específicos, reguladas por el derecho privado", "Organismos descentralizados del Estado con autonomía administrativa y financiera"], c: 2 },
+        { q: "¿Qué es la doctrina como fuente del Derecho?", a: ["Las decisiones judiciales previas que interpretan y aplican las leyes a casos concretos", "Los comportamientos repetidos y constantes de una comunidad con convicción de obligatoriedad", "La opinión de los estudiosos e investigadores sobre temas de Derecho", "Las normas reglamentarias emanadas del Poder Ejecutivo Nacional"], c: 2 },
+        { q: "¿Qué institución legal se aplica a personas con capacidad restringida para promover su autonomía según el CCyC?", a: ["La tutela tradicional con representación legal completa", "La curatela en su forma más restrictiva e intervencionista", "El sistema de apoyos que asiste en la toma de decisiones", "La representación judicial obligatoria para todos los actos"], c: 2 },
+        { q: "¿Quién redactó el primer Código Civil argentino, que rigió por más de 140 años?", a: ["Bartolomé Mitre", "Juan Bautista Alberdi", "Dalmacio Vélez Sarsfield", "Domingo Faustino Sarmiento"], c: 2 },
+        { q: "¿Qué principio del Derecho establece que todas las personas son iguales en derechos y obligaciones frente a la ley, sin importar su origen o condición social?", a: ["Buena fe", "Igualdad ante la ley", "Solidaridad", "Autonomía de la voluntad"], c: 1 }
+    ];
+
+    let currentQuestions = [];
+    let userAnswers = [];
+    let currentIdx = 0;
+    let timerInterval;
+    let timeLeft = 10 * 60;
+    let startTime;
+
+    window.onload = () => {
+        const select = document.getElementById('student-select');
+        students.sort((a, b) => a.name.localeCompare(b.name)).forEach(s => {
+            const opt = document.createElement('option');
+            opt.value = s.code;
+            opt.textContent = s.name;
+            select.appendChild(opt);
+        });
+    };
+
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    async function startQuiz() {
+        const studentCode = document.getElementById('student-select').value;
+        const student = students.find(s => s.code === studentCode);
+        const enteredPassword = document.getElementById('student-password').value.trim().toLowerCase();
+
+        if (!studentCode) { alert("Por favor, seleccioná tu nombre."); return; }
+        if (!enteredPassword) { alert("Por favor, ingresá tu palabra clave."); return; }
+        if (enteredPassword !== studentCode.toLowerCase()) {
+            alert("Palabra clave incorrecta. Por favor, verificá y volvé a intentar.");
+            return;
+        }
+
+        if (studentCode !== "profe1" && studentCode !== "profe2") {
+            const btn = document.querySelector('.setup-card button');
+            const originalText = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = "Verificando...";
+
+            const previous = await sbFetch("progreso", `select=nota&alumno_codigo=eq.${studentCode}&seccion=eq.EVALUACION&materia=eq.Marco%20Jur%C3%ADdico`);
+
+            if (previous && previous.length > 0) {
+                alert(`Lo sentimos, ${student.name}. Ya has realizado esta evaluación.\nTu calificación registrada fue: ${previous[0].nota}/100.`);
+                btn.disabled = false;
+                btn.textContent = originalText;
+                return;
+            }
+            btn.disabled = false;
+            btn.textContent = originalText;
+        }
+
+        currentQuestions = shuffle([...questionBank]).slice(0, 10);
+        currentQuestions.forEach(q => {
+            const correctAnswerText = q.a[q.c];
+            shuffle(q.a);
+            q.newCorrectIdx = q.a.indexOf(correctAnswerText);
+        });
+
+        userAnswers = new Array(10).fill(null);
+        currentIdx = 0;
+        startTime = Date.now();
+
+        document.getElementById('student-name-display').textContent = student.name;
+        document.getElementById('student-name-display').dataset.code = student.code;
+        document.getElementById('setup-screen').style.display = 'none';
+        document.getElementById('quiz-screen').style.display = 'block';
+
+        renderQuestion();
+        startTimer();
+    }
+
+    function renderQuestion() {
+        const q = currentQuestions[currentIdx];
+        const container = document.getElementById('question-container');
+        const letters = ['A', 'B', 'C', 'D'];
+        let optionsHtml = '';
+
+        q.a.forEach((optText, i) => {
+            const isSelected = userAnswers[currentIdx] === i;
+            optionsHtml += `
+                <div class="option ${isSelected ? 'selected' : ''}" onclick="selectOption(${i})">
+                    <div class="option-bullet">${letters[i]}</div>
+                    <div class="option-text">${optText}</div>
+                </div>
+            `;
+        });
+
+        container.innerHTML = `
+            <div class="question-card">
+                <span class="q-number">Pregunta ${currentIdx + 1} de 10</span>
+                <div class="q-text">${q.q}</div>
+                <div class="options">${optionsHtml}</div>
+            </div>
+        `;
+
+        updateNav();
+    }
+
+    function selectOption(idx) {
+        userAnswers[currentIdx] = idx;
+        renderQuestion();
+        if (currentIdx < 9) {
+            setTimeout(() => {
+                if (userAnswers[currentIdx] === idx) nextQuestion();
+            }, 600);
+        }
+    }
+
+    function updateNav() {
+        document.getElementById('btn-prev').disabled = currentIdx === 0;
+        const isLast = currentIdx === 9;
+        document.getElementById('btn-next').style.display = isLast ? 'none' : 'block';
+        document.getElementById('btn-submit').style.display = isLast ? 'block' : 'none';
+        document.getElementById('progress-bar').style.width = `${((currentIdx + 1) / 10) * 100}%`;
+        document.getElementById('page-indicator').textContent = `${currentIdx + 1} de 10`;
+    }
+
+    function nextQuestion() { if (currentIdx < 9) { currentIdx++; renderQuestion(); } }
+    function prevQuestion() { if (currentIdx > 0) { currentIdx--; renderQuestion(); } }
+
+    function startTimer() {
+        timerInterval = setInterval(() => {
+            timeLeft--;
+            if (timeLeft <= 0) { clearInterval(timerInterval); finishQuiz(true); }
+            const mins = Math.floor(timeLeft / 60);
+            const secs = timeLeft % 60;
+            document.getElementById('timer-val').textContent =
+                `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            if (timeLeft < 60) {
+                document.querySelector('.timer').style.color = '#EF4444';
+                document.querySelector('.timer').style.animation = 'pulse 1s infinite';
+            }
+        }, 1000);
+    }
+
+    async function finishQuiz(auto = false) {
+        if (!auto) {
+            const unanswered = userAnswers.filter(a => a === null).length;
+            if (unanswered > 0) {
+                if (!confirm(`Todavía tenés ${unanswered} preguntas sin responder. ¿Querés entregar igual?`)) return;
+            }
+        }
+
+        clearInterval(timerInterval);
+
+        let score = 0;
+        const processedAnswers = currentQuestions.map((q, i) => {
+            const selectedIdx = userAnswers[i];
+            const isCorrect = selectedIdx === q.newCorrectIdx;
+            if (isCorrect) score++;
+            return {
+                text: selectedIdx !== null ? q.a[selectedIdx] : "Sin respuesta",
+                isCorrect: isCorrect
+            };
+        });
+
+        const timeUsed = 10 * 60 - timeLeft;
+        const mins = Math.floor(timeUsed / 60);
+        const secs = timeUsed % 60;
+        const timeStr = `${mins}:${secs.toString().padStart(2, '0')}`;
+
+        const studentName = document.getElementById('student-name-display').textContent;
+        const studentCode = document.getElementById('student-name-display').dataset.code;
+
+        document.getElementById('result-title').textContent = "Guardando resultados...";
+
+        await sbInsert("progreso", {
+            alumno_codigo: studentCode,
+            materia: "Marco Jurídico",
+            unidad: "Evaluación 30",
+            seccion: "EVALUACION",
+            nota: score * 10,
+            datos: {
+                alumno_nombre: studentName,
+                tiempo_usado: timeStr,
+                respuestas: processedAnswers,
+                preguntas: currentQuestions.map(q => q.q),
+                fecha: new Date().toISOString()
+            }
+        });
+
+        try {
+            await fetch("https://formsubmit.co/ajax/14f4f473357c2cd083f563a355a538de", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    "Evaluación": "Marco Jurídico",
+                    "Estudiante": studentName,
+                    "Nota": (score * 10) + "/100",
+                    "Respuestas Correctas": score + "/10",
+                    "Tiempo Utilizado": timeStr,
+                    "_subject": "✅ Resultado de Evaluación: " + studentName,
+                    "_captcha": "false"
+                })
+            });
+        } catch (e) {
+            console.error("Error al enviar el correo:", e);
+        }
+
+        alert("✅ Evaluación finalizada y guardada con éxito.");
+
+        document.getElementById('quiz-screen').style.display = 'none';
+        document.getElementById('results-screen').style.display = 'block';
+
+        document.getElementById('score-val').textContent = score;
+        document.getElementById('result-student').textContent = studentName;
+        document.getElementById('summary-time').textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+        document.getElementById('summary-total').textContent = `${userAnswers.filter(a => a !== null).length}/10`;
+
+        const status = document.getElementById('summary-status');
+        if (score >= 6) {
+            status.textContent = "Aprobado";
+            status.style.color = "#F59E0B";
+            document.getElementById('result-emoji').textContent = "🎉";
+            document.getElementById('result-title').textContent = "¡Excelente Trabajo!";
+        } else {
+            status.textContent = "En Proceso";
+            status.style.color = "#F59E0B";
+            document.getElementById('result-emoji').textContent = "📚";
+            document.getElementById('result-title').textContent = "Sigue practicando";
+        }
+    }
+</script>
+
+</body>
+</html>
