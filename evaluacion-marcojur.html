@@ -296,23 +296,6 @@
             return;
         }
 
-        if (studentCode !== "profe1" && studentCode !== "profe2") {
-            const btn = document.querySelector('.setup-card button');
-            const originalText = btn.textContent;
-            btn.disabled = true;
-            btn.textContent = "Verificando...";
-
-            const previous = await sbFetch("progreso", `select=nota&alumno_codigo=eq.${studentCode}&seccion=eq.EVALUACION&materia=eq.Marco%20Jur%C3%ADdico`);
-
-            if (previous && previous.length > 1) {
-                alert(`Lo sentimos, ${student.name}. Ya has realizado esta evaluación 2 veces.\nTu última calificación registrada fue: ${previous[previous.length - 1].nota}/100.`);
-                btn.disabled = false;
-                btn.textContent = originalText;
-                return;
-            }
-            btn.disabled = false;
-            btn.textContent = originalText;
-        }
 
         currentQuestions = shuffle([...questionBank]).slice(0, 10);
         currentQuestions.forEach(q => {
