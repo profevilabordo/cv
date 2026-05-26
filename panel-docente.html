@@ -1047,7 +1047,15 @@ function renderHeatmap(){
       var cls = pSec ? 'cell-done' : 'cell-empty';
       var action = pSec ? 'onclick="verDetalle(\''+pSec.id+'\')"' : '';
       var extraStyle = isNucleo ? 'border-left:2px solid rgba(99,102,241,0.2); border-right:2px solid rgba(99,102,241,0.2); background-color:' + (pSec ? 'rgba(99,102,241,0.2)' : 'rgba(99,102,241,0.05)') + ';' : '';
-      h += '<td class="'+cls+'" '+(pSec?'style="cursor:pointer;'+extraStyle+'" ':'style="'+extraStyle+'"')+action+'>'+(pSec?'✓':'')+'</td>';
+      var cellContent;
+      if(s === 'autotest' && pSec && pSec.nota !== null && pSec.nota !== undefined) {
+        var nota = pSec.nota;
+        var notaColor = nota >= 70 ? '#10B981' : (nota >= 50 ? '#F59E0B' : '#EF4444');
+        cellContent = '<span style="font-size:10px;font-weight:700;color:'+notaColor+'">' + Math.round(nota) + '%</span>';
+      } else {
+        cellContent = pSec ? '✓' : '';
+      }
+      h += '<td class="'+cls+'" '+(pSec?'style="cursor:pointer;'+extraStyle+'" ':'style="'+extraStyle+'"')+action+'>'+cellContent+'</td>';
     });
     h += '<td style="font-weight:800;color:#F59E0B">'+medCount+'</td>';
     h += '</tr>';
