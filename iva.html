@@ -12,363 +12,138 @@
     --azul: #0984e3;
     --naranja: #e17055;
     --amarillo: #fdcb6e;
+    --violeta: #a29bfe;
     --fondo: #0f1923;
     --card: #162230;
     --card2: #1c2e40;
     --texto: #e8f0f7;
     --gris: #8899aa;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--fondo); color: var(--texto); font-family: 'DM Sans', sans-serif; min-height: 100vh; padding: 0 0 60px; }
 
-  body {
-    background: var(--fondo);
-    color: var(--texto);
-    font-family: 'DM Sans', sans-serif;
-    min-height: 100vh;
-    padding: 0 0 60px;
-  }
-
-  /* HEADER */
   header {
     background: linear-gradient(135deg, #0d2137 0%, #0f1923 100%);
     border-bottom: 3px solid var(--verde);
     padding: 28px 24px 22px;
     text-align: center;
-    position: relative;
-    overflow: hidden;
+    position: relative; overflow: hidden;
   }
   header::before {
-    content: '';
-    position: absolute; inset: 0;
+    content: ''; position: absolute; inset: 0;
     background: radial-gradient(ellipse at 50% 0%, rgba(0,184,148,0.12) 0%, transparent 70%);
     pointer-events: none;
   }
-  .escuela {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--verde);
-    margin-bottom: 6px;
-    font-weight: 600;
-  }
-  header h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(1.6rem, 5vw, 2.6rem);
-    font-weight: 800;
-    color: #fff;
-    line-height: 1.1;
-  }
-  header h1 span {
-    color: var(--verde);
-  }
-  .subtitulo-header {
-    margin-top: 8px;
-    color: var(--gris);
-    font-size: 14px;
-  }
+  .escuela { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--verde); margin-bottom: 6px; font-weight: 600; }
+  header h1 { font-family: 'Syne', sans-serif; font-size: clamp(1.6rem, 5vw, 2.6rem); font-weight: 800; color: #fff; line-height: 1.1; }
+  header h1 span { color: var(--verde); }
+  .subtitulo-header { margin-top: 8px; color: var(--gris); font-size: 14px; }
 
-  /* TABS */
   .tabs {
-    display: flex;
-    gap: 6px;
-    padding: 20px 16px 0;
-    max-width: 860px;
-    margin: 0 auto;
+    display: flex; gap: 4px; padding: 20px 16px 0;
+    max-width: 900px; margin: 0 auto; flex-wrap: wrap;
   }
   .tab {
-    flex: 1;
-    padding: 11px 8px;
-    border: 2px solid transparent;
-    border-radius: 10px 10px 0 0;
-    background: var(--card);
-    color: var(--gris);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all .2s;
-    text-align: center;
+    flex: 1; min-width: 120px;
+    padding: 11px 6px;
+    border: 2px solid transparent; border-radius: 10px 10px 0 0;
+    background: var(--card); color: var(--gris);
+    font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600;
+    cursor: pointer; transition: all .2s; text-align: center;
   }
   .tab:hover { color: var(--texto); border-color: var(--card2); }
-  .tab.activo {
-    background: var(--card2);
-    color: #fff;
-    border-color: var(--verde);
-    border-bottom-color: var(--card2);
-  }
+  .tab.activo { background: var(--card2); color: #fff; border-color: var(--verde); border-bottom-color: var(--card2); }
 
-  /* CONTENIDO */
   .contenido {
-    max-width: 860px;
-    margin: 0 auto;
-    background: var(--card2);
-    border-radius: 0 0 16px 16px;
-    border: 2px solid var(--verde);
-    border-top: none;
+    max-width: 900px; margin: 0 auto;
+    background: var(--card2); border-radius: 0 0 16px 16px;
+    border: 2px solid var(--verde); border-top: none;
     padding: 28px 20px 32px;
   }
-
   .panel { display: none; }
   .panel.activo { display: block; }
 
   /* TEORÍA */
-  .bloque-teoria {
-    background: var(--card);
-    border-left: 4px solid var(--verde);
-    border-radius: 0 10px 10px 0;
-    padding: 18px 20px;
-    margin-bottom: 18px;
-  }
-  .bloque-teoria h2 {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.1rem;
-    color: var(--verde);
-    margin-bottom: 10px;
-  }
-  .bloque-teoria p {
-    font-size: 14.5px;
-    line-height: 1.7;
-    color: #c8d8e8;
-  }
-
-  .formula-box {
-    background: #0d2137;
-    border: 2px solid var(--verde-claro);
-    border-radius: 12px;
-    padding: 18px 22px;
-    margin: 14px 0;
-    text-align: center;
-  }
-  .formula-box .label {
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--verde-claro);
-    margin-bottom: 8px;
-    font-weight: 600;
-  }
-  .formula {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(1rem, 3vw, 1.4rem);
-    color: #fff;
-    font-weight: 700;
-  }
+  .bloque-teoria { background: var(--card); border-left: 4px solid var(--verde); border-radius: 0 10px 10px 0; padding: 18px 20px; margin-bottom: 18px; }
+  .bloque-teoria h2 { font-family: 'Syne', sans-serif; font-size: 1.1rem; color: var(--verde); margin-bottom: 10px; }
+  .bloque-teoria p { font-size: 14.5px; line-height: 1.7; color: #c8d8e8; }
+  .formula-box { background: #0d2137; border: 2px solid var(--verde-claro); border-radius: 12px; padding: 18px 22px; margin: 14px 0; text-align: center; }
+  .formula-box .label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--verde-claro); margin-bottom: 8px; font-weight: 600; }
+  .formula { font-family: 'Syne', sans-serif; font-size: clamp(1rem, 3vw, 1.4rem); color: #fff; font-weight: 700; }
   .formula span { color: var(--amarillo); }
-
-  .ejemplo-rapido {
-    background: rgba(0,184,148,0.08);
-    border: 1px solid rgba(0,184,148,0.3);
-    border-radius: 10px;
-    padding: 14px 18px;
-    margin-top: 14px;
-  }
+  .ejemplo-rapido { background: rgba(0,184,148,0.08); border: 1px solid rgba(0,184,148,0.3); border-radius: 10px; padding: 14px 18px; margin-top: 14px; }
   .ejemplo-rapido strong { color: var(--verde); }
 
   /* CALCULADORA */
-  .calcu-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
+  .calcu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   @media (max-width: 560px) { .calcu-grid { grid-template-columns: 1fr; } }
-
-  .calcu-card {
-    background: var(--card);
-    border-radius: 14px;
-    padding: 22px 18px;
-    border: 2px solid transparent;
-    transition: border-color .2s;
-  }
+  .calcu-card { background: var(--card); border-radius: 14px; padding: 22px 18px; border: 2px solid transparent; transition: border-color .2s; }
   .calcu-card:hover { border-color: rgba(0,184,148,0.4); }
-
-  .calcu-card h3 {
-    font-family: 'Syne', sans-serif;
-    font-size: 1rem;
-    margin-bottom: 6px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .calcu-card h3 .icono {
-    width: 28px; height: 28px;
-    border-radius: 8px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 15px;
-  }
+  .calcu-card h3 { font-family: 'Syne', sans-serif; font-size: 1rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .calcu-card h3 .icono { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; }
   .calcu-card.tipo1 h3 .icono { background: rgba(9,132,227,0.2); }
   .calcu-card.tipo2 h3 .icono { background: rgba(225,112,85,0.2); }
   .calcu-card .desc { font-size: 12px; color: var(--gris); margin-bottom: 16px; line-height: 1.5; }
-
-  label {
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--gris);
-    letter-spacing: .5px;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-  }
-  input[type="number"] {
-    width: 100%;
-    background: #0d1e2e;
-    border: 2px solid #2a3d52;
-    border-radius: 8px;
-    color: #fff;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 1.1rem;
-    padding: 10px 14px;
-    outline: none;
-    transition: border-color .2s;
-    -moz-appearance: textfield;
-  }
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button { -webkit-appearance: none; }
+  label { display: block; font-size: 12px; font-weight: 600; color: var(--gris); letter-spacing: .5px; margin-bottom: 5px; text-transform: uppercase; }
+  input[type="number"] { width: 100%; background: #0d1e2e; border: 2px solid #2a3d52; border-radius: 8px; color: #fff; font-family: 'DM Sans', sans-serif; font-size: 1.1rem; padding: 10px 14px; outline: none; transition: border-color .2s; -moz-appearance: textfield; }
+  input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; }
   input:focus { border-color: var(--verde); }
-
-  .btn-calcu {
-    width: 100%;
-    margin-top: 14px;
-    padding: 11px;
-    border: none;
-    border-radius: 8px;
-    font-family: 'Syne', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    letter-spacing: .5px;
-    transition: opacity .2s, transform .1s;
-  }
+  .btn-calcu { width: 100%; margin-top: 14px; padding: 11px; border: none; border-radius: 8px; font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; cursor: pointer; letter-spacing: .5px; transition: opacity .2s, transform .1s; }
   .btn-calcu:hover { opacity: .88; }
   .btn-calcu:active { transform: scale(.97); }
   .calcu-card.tipo1 .btn-calcu { background: var(--azul); color: #fff; }
   .calcu-card.tipo2 .btn-calcu { background: var(--naranja); color: #fff; }
-
-  .resultado {
-    margin-top: 14px;
-    background: #0d1e2e;
-    border-radius: 10px;
-    padding: 14px 16px;
-    min-height: 56px;
-    display: none;
-  }
+  .resultado { margin-top: 14px; background: #0d1e2e; border-radius: 10px; padding: 14px 16px; min-height: 56px; display: none; }
   .resultado.visible { display: block; }
-  .res-fila {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 4px 0;
-    font-size: 14px;
-    border-bottom: 1px solid #1c2e40;
-  }
+  .res-fila { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; font-size: 14px; border-bottom: 1px solid #1c2e40; }
   .res-fila:last-child { border-bottom: none; font-weight: 600; }
   .res-fila .etiq { color: var(--gris); }
   .res-fila .val { color: #fff; font-weight: 500; }
   .res-fila.total .val { color: var(--verde); font-size: 1.1rem; }
   .res-fila.total .etiq { color: var(--verde-claro); }
 
-  /* EJERCICIOS */
-  .ejercicio {
-    background: var(--card);
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 16px;
-    border: 2px solid transparent;
-    transition: border-color .2s;
+  /* EJERCICIOS COMÚN */
+  .puntaje-bar { display: flex; align-items: center; gap: 12px; background: var(--card); border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; }
+  .puntaje-bar .pts { font-family: 'Syne', sans-serif; font-size: 1.5rem; font-weight: 800; color: var(--verde); min-width: 70px; }
+  .puntaje-bar .pts span { font-size: .9rem; color: var(--gris); font-weight: 400; }
+  .barra-prog { flex: 1; height: 8px; background: #0d1e2e; border-radius: 999px; overflow: hidden; }
+  .barra-fill { height: 100%; background: linear-gradient(90deg, var(--verde), var(--verde-claro)); border-radius: 999px; width: 0%; transition: width .4s ease; }
+
+  /* badge mental / calcu */
+  .badge-tip {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    letter-spacing: 1px; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 999px; margin-bottom: 16px;
   }
+  .badge-mental { background: rgba(162,155,254,0.15); color: var(--violeta); border: 1px solid rgba(162,155,254,0.4); }
+  .badge-calcu  { background: rgba(253,203,110,0.12); color: var(--amarillo); border: 1px solid rgba(253,203,110,0.35); }
+
+  .ejercicio { background: var(--card); border-radius: 12px; padding: 20px; margin-bottom: 16px; border: 2px solid transparent; transition: border-color .2s; }
   .ejercicio.correcto { border-color: var(--verde) !important; }
   .ejercicio.incorrecto { border-color: var(--naranja) !important; }
-
-  .num-ejercicio {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--amarillo);
-    margin-bottom: 6px;
-  }
-  .enunciado {
-    font-size: 15px;
-    color: #d0e0f0;
-    margin-bottom: 14px;
-    line-height: 1.6;
-  }
+  .num-ejercicio { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--amarillo); margin-bottom: 6px; }
+  .enunciado { font-size: 15px; color: #d0e0f0; margin-bottom: 14px; line-height: 1.6; }
   .enunciado strong { color: #fff; }
-
-  .opciones {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-  }
+  .opciones { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   @media (max-width: 440px) { .opciones { grid-template-columns: 1fr; } }
-
-  .opcion {
-    background: #0d1e2e;
-    border: 2px solid #2a3d52;
-    border-radius: 8px;
-    padding: 10px 14px;
-    color: #b0c4d8;
-    font-size: 14px;
-    cursor: pointer;
-    transition: all .15s;
-    text-align: left;
-  }
+  .opcion { background: #0d1e2e; border: 2px solid #2a3d52; border-radius: 8px; padding: 10px 14px; color: #b0c4d8; font-size: 14px; cursor: pointer; transition: all .15s; text-align: left; }
   .opcion:hover { border-color: #4a6d8a; color: #fff; }
   .opcion.correcto { background: rgba(0,184,148,0.15); border-color: var(--verde); color: #fff; }
   .opcion.incorrecto { background: rgba(225,112,85,0.15); border-color: var(--naranja); color: #fff; }
   .opcion.revelar { background: rgba(0,184,148,0.08); border-color: rgba(0,184,148,0.4); color: #aaa; }
-  .opcion:disabled, .opcion.bloqueado { pointer-events: none; }
-
-  .feedback {
-    margin-top: 12px;
-    padding: 10px 14px;
-    border-radius: 8px;
-    font-size: 13.5px;
-    line-height: 1.5;
-    display: none;
-  }
+  .opcion.bloqueado { pointer-events: none; }
+  .feedback { margin-top: 12px; padding: 10px 14px; border-radius: 8px; font-size: 13.5px; line-height: 1.5; display: none; }
   .feedback.visible { display: block; }
   .feedback.ok { background: rgba(0,184,148,0.12); color: #9ef5e0; border-left: 3px solid var(--verde); }
   .feedback.mal { background: rgba(225,112,85,0.12); color: #f5c4b8; border-left: 3px solid var(--naranja); }
 
-  /* PUNTAJE */
-  .puntaje-bar {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: var(--card);
-    border-radius: 10px;
-    padding: 14px 18px;
-    margin-bottom: 20px;
-  }
-  .puntaje-bar .pts {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--verde);
-    min-width: 60px;
-  }
-  .puntaje-bar .pts span { font-size: .9rem; color: var(--gris); font-weight: 400; }
-  .barra-prog {
-    flex: 1;
-    height: 8px;
-    background: #0d1e2e;
-    border-radius: 999px;
-    overflow: hidden;
-  }
-  .barra-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--verde), var(--verde-claro));
-    border-radius: 999px;
-    width: 0%;
-    transition: width .4s ease;
-  }
+  /* resultado final */
+  .resultado-final { display: none; margin-top: 24px; background: #0d1e2e; border-radius: 14px; padding: 24px 22px; text-align: center; border: 2px solid var(--verde); }
+  .resultado-final.visible { display: block; }
+  .resultado-final .puntos-grandes { font-family: 'Syne', sans-serif; font-size: 3rem; font-weight: 800; color: var(--verde); }
+  .resultado-final .mensaje { margin-top: 8px; font-size: 15px; color: #b0c8e0; }
 
-  /* RESPONSIVE */
-  @media (max-width: 600px) {
-    .contenido { padding: 20px 14px 28px; }
-    .tabs { padding: 16px 12px 0; }
-  }
+  @media (max-width: 600px) { .contenido { padding: 20px 14px 28px; } .tabs { padding: 16px 12px 0; } }
 </style>
 </head>
 <body>
@@ -380,279 +155,556 @@
 </header>
 
 <div class="tabs">
-  <button class="tab activo" onclick="cambiarTab(0)">📖 Teoría</button>
-  <button class="tab" onclick="cambiarTab(1)">🔢 Calculadora</button>
-  <button class="tab" onclick="cambiarTab(2)">✏️ Práctica</button>
+  <button class="tab activo"  onclick="cambiarTab(0)">📖 Teoría</button>
+  <button class="tab"         onclick="cambiarTab(1)">🔢 Calculadora</button>
+  <button class="tab"         onclick="cambiarTab(2)">✏️ Práctica 1</button>
+  <button class="tab"         onclick="cambiarTab(3)">🧠 Práctica 2</button>
+  <button class="tab"         onclick="cambiarTab(4)">🖩 Práctica 3</button>
 </div>
 
 <div class="contenido">
 
-  <!-- PANEL 1: TEORÍA -->
-  <div class="panel activo" id="panel0">
-
-    <div class="bloque-teoria">
-      <h2>¿Qué es el IVA?</h2>
-      <p>El <strong>IVA (Impuesto al Valor Agregado)</strong> es un impuesto que se agrega al precio de los bienes y servicios. En Argentina, la alícuota general es del <strong>21%</strong>. Aparece discriminado en facturas A y B, y es clave para calcular correctamente los importes en los documentos comerciales.</p>
-    </div>
-
-    <div class="bloque-teoria">
-      <h2>🔵 Caso 1 – Tengo el precio SIN IVA y quiero saber cuánto es el IVA</h2>
-      <p>Cuando el precio <em>no incluye</em> el impuesto (precio neto), multiplicás por 0,21 para obtener el monto del IVA.</p>
-      <div class="formula-box">
-        <div class="label">Fórmula</div>
-        <div class="formula">IVA = Precio sin IVA <span>×</span> 0,21</div>
-      </div>
-      <div class="formula-box">
-        <div class="label">Precio total (con IVA incluido)</div>
-        <div class="formula">Total = Precio sin IVA <span>×</span> 1,21</div>
-      </div>
-      <div class="ejemplo-rapido">
-        <strong>Ejemplo:</strong> Una mercadería cuesta $10.000 sin IVA.<br>
-        IVA = $10.000 × 0,21 = <strong>$2.100</strong><br>
-        Total a pagar = $10.000 + $2.100 = <strong>$12.100</strong>
-      </div>
-    </div>
-
-    <div class="bloque-teoria" style="border-color: var(--naranja)">
-      <h2 style="color:var(--naranja)">🟠 Caso 2 – Tengo el precio CON IVA incluido y quiero separarlo</h2>
-      <p>A veces el precio ya tiene el IVA adentro (precio bruto). Para saber el precio sin IVA y cuánto es el impuesto, tenés que <em>dividir</em> en vez de multiplicar.</p>
-      <div class="formula-box" style="border-color: var(--naranja)">
-        <div class="label" style="color:var(--naranja)">Precio sin IVA (neto)</div>
-        <div class="formula">Neto = Precio con IVA <span>÷</span> 1,21</div>
-      </div>
-      <div class="formula-box" style="border-color: var(--naranja)">
-        <div class="label" style="color:var(--naranja)">IVA contenido en el precio</div>
-        <div class="formula">IVA = Precio con IVA <span>–</span> Neto</div>
-      </div>
-      <div class="ejemplo-rapido" style="border-color: rgba(225,112,85,0.3); background: rgba(225,112,85,0.08)">
-        <strong style="color:var(--naranja)">Ejemplo:</strong> Una heladera cuesta $72.600 con IVA incluido.<br>
-        Neto = $72.600 ÷ 1,21 = <strong>$60.000</strong><br>
-        IVA = $72.600 – $60.000 = <strong>$12.600</strong>
-      </div>
-    </div>
-
-    <div class="bloque-teoria" style="border-color: var(--amarillo)">
-      <h2 style="color:var(--amarillo)">⚠️ ¡Error frecuente!</h2>
-      <p>Para sacar el IVA de un precio que ya lo tiene incluido, <strong>no multiplicás por 21%</strong>. Si lo hacés, obtenés un número más alto que el real. Siempre dividís por 1,21 para obtener el precio neto primero.</p>
-    </div>
-
+<!-- ══════════════════════════════════════════════
+     PANEL 0 – TEORÍA
+══════════════════════════════════════════════ -->
+<div class="panel activo" id="panel0">
+  <div class="bloque-teoria">
+    <h2>¿Qué es el IVA?</h2>
+    <p>El <strong>IVA (Impuesto al Valor Agregado)</strong> es un impuesto que se agrega al precio de los bienes y servicios. En Argentina, la alícuota general es del <strong>21%</strong>. Aparece discriminado en facturas A y B, y es clave para calcular correctamente los importes en los documentos comerciales.</p>
   </div>
-
-  <!-- PANEL 2: CALCULADORA -->
-  <div class="panel" id="panel1">
-
-    <div class="calcu-grid">
-
-      <!-- CASO 1 -->
-      <div class="calcu-card tipo1">
-        <h3>
-          <span class="icono">🔵</span>
-          Agregar IVA al precio
-        </h3>
-        <p class="desc">Ingresá el precio <strong>sin IVA</strong> y calculá cuánto IVA corresponde y el total a pagar.</p>
-        <label for="sinIVA">Precio sin IVA ($)</label>
-        <input type="number" id="sinIVA" placeholder="Ej: 10000" min="0" oninput="calcularDesdeNeto()">
-        <button class="btn-calcu" onclick="calcularDesdeNeto()">Calcular IVA →</button>
-        <div class="resultado" id="res1">
-          <div class="res-fila">
-            <span class="etiq">Precio sin IVA</span>
-            <span class="val" id="r1_neto">—</span>
-          </div>
-          <div class="res-fila">
-            <span class="etiq">IVA (21%)</span>
-            <span class="val" id="r1_iva">—</span>
-          </div>
-          <div class="res-fila total">
-            <span class="etiq">Total con IVA</span>
-            <span class="val" id="r1_total">—</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- CASO 2 -->
-      <div class="calcu-card tipo2">
-        <h3>
-          <span class="icono">🟠</span>
-          Separar IVA del precio
-        </h3>
-        <p class="desc">Ingresá el precio <strong>con IVA incluido</strong> y calculá cuánto es el IVA y el precio neto.</p>
-        <label for="conIVA">Precio con IVA incluido ($)</label>
-        <input type="number" id="conIVA" placeholder="Ej: 12100" min="0" oninput="calcularDesdeBruto()">
-        <button class="btn-calcu" onclick="calcularDesdeBruto()">Separar IVA →</button>
-        <div class="resultado" id="res2">
-          <div class="res-fila total" style="border-bottom:1px solid #1c2e40;">
-            <span class="etiq">Precio con IVA</span>
-            <span class="val" id="r2_total" style="color:var(--naranja)">—</span>
-          </div>
-          <div class="res-fila">
-            <span class="etiq">Precio sin IVA (neto)</span>
-            <span class="val" id="r2_neto">—</span>
-          </div>
-          <div class="res-fila">
-            <span class="etiq">IVA contenido (21%)</span>
-            <span class="val" id="r2_iva">—</span>
-          </div>
-        </div>
-      </div>
-
+  <div class="bloque-teoria">
+    <h2>🔵 Caso 1 – Tengo el precio SIN IVA y quiero saber cuánto es el IVA</h2>
+    <p>Cuando el precio no incluye el impuesto (precio neto), multiplicás por 0,21 para obtener el monto del IVA.</p>
+    <div class="formula-box">
+      <div class="label">Fórmula</div>
+      <div class="formula">IVA = Precio sin IVA <span>×</span> 0,21</div>
+    </div>
+    <div class="formula-box">
+      <div class="label">Precio total (con IVA incluido)</div>
+      <div class="formula">Total = Precio sin IVA <span>×</span> 1,21</div>
+    </div>
+    <div class="ejemplo-rapido">
+      <strong>Ejemplo:</strong> Una mercadería cuesta $10.000 sin IVA.<br>
+      IVA = $10.000 × 0,21 = <strong>$2.100</strong><br>
+      Total a pagar = $10.000 + $2.100 = <strong>$12.100</strong>
     </div>
   </div>
-
-  <!-- PANEL 3: PRÁCTICA -->
-  <div class="panel" id="panel2">
-
-    <div class="puntaje-bar">
-      <div class="pts" id="pts-texto">0 <span>/ 5 pts</span></div>
-      <div class="barra-prog"><div class="barra-fill" id="barra"></div></div>
+  <div class="bloque-teoria" style="border-color:var(--naranja)">
+    <h2 style="color:var(--naranja)">🟠 Caso 2 – Tengo el precio CON IVA incluido y quiero separarlo</h2>
+    <p>A veces el precio ya tiene el IVA adentro (precio bruto). Para saber el precio sin IVA y cuánto es el impuesto, tenés que dividir en vez de multiplicar.</p>
+    <div class="formula-box" style="border-color:var(--naranja)">
+      <div class="label" style="color:var(--naranja)">Precio sin IVA (neto)</div>
+      <div class="formula">Neto = Precio con IVA <span>÷</span> 1,21</div>
     </div>
-
-    <!-- EJ 1 -->
-    <div class="ejercicio" id="ej1">
-      <div class="num-ejercicio">Ejercicio 1 · Agregar IVA</div>
-      <div class="enunciado">Una empresa vende un escritorio por <strong>$50.000 sin IVA</strong>. ¿Cuánto es el IVA (21%) que debe agregar a la factura?</div>
-      <div class="opciones">
-        <button class="opcion" onclick="verificar(1, this, false)">$9.500</button>
-        <button class="opcion" onclick="verificar(1, this, true)">$10.500</button>
-        <button class="opcion" onclick="verificar(1, this, false)">$10.000</button>
-        <button class="opcion" onclick="verificar(1, this, false)">$5.000</button>
-      </div>
-      <div class="feedback" id="fb1"></div>
+    <div class="formula-box" style="border-color:var(--naranja)">
+      <div class="label" style="color:var(--naranja)">IVA contenido en el precio</div>
+      <div class="formula">IVA = Precio con IVA <span>–</span> Neto</div>
     </div>
-
-    <!-- EJ 2 -->
-    <div class="ejercicio" id="ej2">
-      <div class="num-ejercicio">Ejercicio 2 · Total con IVA</div>
-      <div class="enunciado">Una mercadería tiene un precio neto de <strong>$80.000</strong>. ¿Cuál es el precio <em>total a pagar</em> con IVA del 21% incluido?</div>
-      <div class="opciones">
-        <button class="opcion" onclick="verificar(2, this, false)">$80.800</button>
-        <button class="opcion" onclick="verificar(2, this, false)">$84.000</button>
-        <button class="opcion" onclick="verificar(2, this, true)">$96.800</button>
-        <button class="opcion" onclick="verificar(2, this, false)">$100.000</button>
-      </div>
-      <div class="feedback" id="fb2"></div>
+    <div class="ejemplo-rapido" style="border-color:rgba(225,112,85,0.3);background:rgba(225,112,85,0.08)">
+      <strong style="color:var(--naranja)">Ejemplo:</strong> Una heladera cuesta $72.600 con IVA incluido.<br>
+      Neto = $72.600 ÷ 1,21 = <strong>$60.000</strong><br>
+      IVA = $72.600 – $60.000 = <strong>$12.600</strong>
     </div>
-
-    <!-- EJ 3 -->
-    <div class="ejercicio" id="ej3">
-      <div class="num-ejercicio">Ejercicio 3 · Separar IVA</div>
-      <div class="enunciado">Una notebook se vende en <strong>$242.000 con IVA incluido</strong>. ¿Cuál es el precio sin IVA (precio neto)?</div>
-      <div class="opciones">
-        <button class="opcion" onclick="verificar(3, this, false)">$195.000</button>
-        <button class="opcion" onclick="verificar(3, this, true)">$200.000</button>
-        <button class="opcion" onclick="verificar(3, this, false)">$220.000</button>
-        <button class="opcion" onclick="verificar(3, this, false)">$215.000</button>
-      </div>
-      <div class="feedback" id="fb3"></div>
-    </div>
-
-    <!-- EJ 4 -->
-    <div class="ejercicio" id="ej4">
-      <div class="num-ejercicio">Ejercicio 4 · IVA contenido</div>
-      <div class="enunciado">Una silla de oficina cuesta <strong>$36.300 con IVA incluido</strong>. ¿Cuánto es el IVA que está incluido en ese precio?</div>
-      <div class="opciones">
-        <button class="opcion" onclick="verificar(4, this, false)">$7.623</button>
-        <button class="opcion" onclick="verificar(4, this, false)">$6.300</button>
-        <button class="opcion" onclick="verificar(4, this, true)">$6.300</button>
-        <button class="opcion" onclick="verificar(4, this, false)">$5.000</button>
-      </div>
-      <div class="feedback" id="fb4"></div>
-    </div>
-
-    <!-- EJ 5 -->
-    <div class="ejercicio" id="ej5">
-      <div class="num-ejercicio">Ejercicio 5 · Razonamiento</div>
-      <div class="enunciado">Un proveedor cobra <strong>$60.500 con IVA incluido</strong>. Para completar la factura, necesitás saber el neto y el IVA por separado. ¿Cuál es el IVA discriminado?</div>
-      <div class="opciones">
-        <button class="opcion" onclick="verificar(5, this, false)">$12.705</button>
-        <button class="opcion" onclick="verificar(5, this, true)">$10.500</button>
-        <button class="opcion" onclick="verificar(5, this, false)">$11.000</button>
-        <button class="opcion" onclick="verificar(5, this, false)">$9.800</button>
-      </div>
-      <div class="feedback" id="fb5"></div>
-    </div>
-
+  </div>
+  <div class="bloque-teoria" style="border-color:var(--amarillo)">
+    <h2 style="color:var(--amarillo)">⚠️ ¡Error frecuente!</h2>
+    <p>Para sacar el IVA de un precio que ya lo tiene incluido, <strong>no multiplicás por 21%</strong>. Si lo hacés, obtenés un número más alto que el real. Siempre dividís por 1,21 para obtener el precio neto primero.</p>
   </div>
 </div>
 
+<!-- ══════════════════════════════════════════════
+     PANEL 1 – CALCULADORA
+══════════════════════════════════════════════ -->
+<div class="panel" id="panel1">
+  <div class="calcu-grid">
+    <div class="calcu-card tipo1">
+      <h3><span class="icono">🔵</span> Agregar IVA al precio</h3>
+      <p class="desc">Ingresá el precio <strong>sin IVA</strong> y calculá cuánto IVA corresponde y el total a pagar.</p>
+      <label for="sinIVA">Precio sin IVA ($)</label>
+      <input type="number" id="sinIVA" placeholder="Ej: 10000" min="0" oninput="calcularDesdeNeto()">
+      <button class="btn-calcu" onclick="calcularDesdeNeto()">Calcular IVA →</button>
+      <div class="resultado" id="res1">
+        <div class="res-fila"><span class="etiq">Precio sin IVA</span><span class="val" id="r1_neto">—</span></div>
+        <div class="res-fila"><span class="etiq">IVA (21%)</span><span class="val" id="r1_iva">—</span></div>
+        <div class="res-fila total"><span class="etiq">Total con IVA</span><span class="val" id="r1_total">—</span></div>
+      </div>
+    </div>
+    <div class="calcu-card tipo2">
+      <h3><span class="icono">🟠</span> Separar IVA del precio</h3>
+      <p class="desc">Ingresá el precio <strong>con IVA incluido</strong> y calculá cuánto es el IVA y el precio neto.</p>
+      <label for="conIVA">Precio con IVA incluido ($)</label>
+      <input type="number" id="conIVA" placeholder="Ej: 12100" min="0" oninput="calcularDesdeBruto()">
+      <button class="btn-calcu" onclick="calcularDesdeBruto()">Separar IVA →</button>
+      <div class="resultado" id="res2">
+        <div class="res-fila total" style="border-bottom:1px solid #1c2e40;"><span class="etiq">Precio con IVA</span><span class="val" id="r2_total" style="color:var(--naranja)">—</span></div>
+        <div class="res-fila"><span class="etiq">Precio sin IVA (neto)</span><span class="val" id="r2_neto">—</span></div>
+        <div class="res-fila"><span class="etiq">IVA contenido (21%)</span><span class="val" id="r2_iva">—</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PANEL 2 – PRÁCTICA 1 (5 ejercicios originales)
+══════════════════════════════════════════════ -->
+<div class="panel" id="panel2">
+  <div class="puntaje-bar">
+    <div class="pts" id="pts1-texto">0 <span>/ 5 pts</span></div>
+    <div class="barra-prog"><div class="barra-fill" id="barra1"></div></div>
+  </div>
+
+  <div class="ejercicio" id="p1e1">
+    <div class="num-ejercicio">Ejercicio 1 · Agregar IVA</div>
+    <div class="enunciado">Una empresa vende un escritorio por <strong>$50.000 sin IVA</strong>. ¿Cuánto es el IVA (21%) que debe agregar a la factura?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p1',1,this,false)">$9.500</button>
+      <button class="opcion" onclick="ver('p1',1,this,true)">$10.500</button>
+      <button class="opcion" onclick="ver('p1',1,this,false)">$10.000</button>
+      <button class="opcion" onclick="ver('p1',1,this,false)">$5.000</button>
+    </div>
+    <div class="feedback" id="p1fb1"></div>
+  </div>
+
+  <div class="ejercicio" id="p1e2">
+    <div class="num-ejercicio">Ejercicio 2 · Total con IVA</div>
+    <div class="enunciado">Una mercadería tiene un precio neto de <strong>$80.000</strong>. ¿Cuál es el precio total a pagar con IVA del 21% incluido?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p1',2,this,false)">$80.800</button>
+      <button class="opcion" onclick="ver('p1',2,this,false)">$84.000</button>
+      <button class="opcion" onclick="ver('p1',2,this,true)">$96.800</button>
+      <button class="opcion" onclick="ver('p1',2,this,false)">$100.000</button>
+    </div>
+    <div class="feedback" id="p1fb2"></div>
+  </div>
+
+  <div class="ejercicio" id="p1e3">
+    <div class="num-ejercicio">Ejercicio 3 · Separar IVA</div>
+    <div class="enunciado">Una notebook se vende en <strong>$242.000 con IVA incluido</strong>. ¿Cuál es el precio sin IVA (precio neto)?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p1',3,this,false)">$195.000</button>
+      <button class="opcion" onclick="ver('p1',3,this,true)">$200.000</button>
+      <button class="opcion" onclick="ver('p1',3,this,false)">$220.000</button>
+      <button class="opcion" onclick="ver('p1',3,this,false)">$215.000</button>
+    </div>
+    <div class="feedback" id="p1fb3"></div>
+  </div>
+
+  <div class="ejercicio" id="p1e4">
+    <div class="num-ejercicio">Ejercicio 4 · IVA contenido</div>
+    <div class="enunciado">Una silla de oficina cuesta <strong>$36.300 con IVA incluido</strong>. ¿Cuánto es el IVA que está incluido en ese precio?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p1',4,this,false)">$7.623</button>
+      <button class="opcion" onclick="ver('p1',4,this,true)">$6.300</button>
+      <button class="opcion" onclick="ver('p1',4,this,false)">$7.260</button>
+      <button class="opcion" onclick="ver('p1',4,this,false)">$5.000</button>
+    </div>
+    <div class="feedback" id="p1fb4"></div>
+  </div>
+
+  <div class="ejercicio" id="p1e5">
+    <div class="num-ejercicio">Ejercicio 5 · Razonamiento</div>
+    <div class="enunciado">Un proveedor cobra <strong>$60.500 con IVA incluido</strong>. Para completar la factura necesitás el neto y el IVA por separado. ¿Cuál es el IVA discriminado?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p1',5,this,false)">$12.705</button>
+      <button class="opcion" onclick="ver('p1',5,this,true)">$10.500</button>
+      <button class="opcion" onclick="ver('p1',5,this,false)">$11.000</button>
+      <button class="opcion" onclick="ver('p1',5,this,false)">$9.800</button>
+    </div>
+    <div class="feedback" id="p1fb5"></div>
+  </div>
+
+  <div class="resultado-final" id="p1final">
+    <div class="puntos-grandes" id="p1final-pts">—</div>
+    <div class="mensaje" id="p1final-msg"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PANEL 3 – PRÁCTICA 2 (cálculo mental, 10 ej)
+══════════════════════════════════════════════ -->
+<div class="panel" id="panel3">
+  <div class="puntaje-bar">
+    <div class="pts" id="pts2-texto">0 <span>/ 10 pts</span></div>
+    <div class="barra-prog"><div class="barra-fill" id="barra2"></div></div>
+  </div>
+  <div class="badge-tip badge-mental">🧠 Cálculo mental — números redondos</div>
+
+  <div class="ejercicio" id="p2e1">
+    <div class="num-ejercicio">Ejercicio 1 · IVA sobre neto</div>
+    <div class="enunciado">Un producto cuesta <strong>$1.000 sin IVA</strong>. ¿Cuánto es el IVA del 21%?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p2',1,this,false)">$200</button>
+      <button class="opcion" onclick="ver('p2',1,this,true)">$210</button>
+      <button class="opcion" onclick="ver('p2',1,this,false)">$110</button>
+      <button class="opcion" onclick="ver('p2',1,this,false)">$250</button>
+    </div>
+    <div class="feedback" id="p2fb1"></div>
+  </div>
+
+  <div class="ejercicio" id="p2e2">
+    <div class="num-ejercicio">Ejercicio 2 · Total con IVA</div>
+    <div class="enunciado">Un servicio vale <strong>$5.000 sin IVA</strong>. ¿Cuál es el total con IVA incluido?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p2',2,this,false)">$5.200</button>
+      <button class="opcion" onclick="ver('p2',2,this,false)">$5.500</button>
+      <button class="opcion" onclick="ver('p2',2,this,true)">$6.050</button>
+      <button class="opcion" onclick="ver('p2',2,this,false)">$6.000</button>
+    </div>
+    <div class="feedback" id="p2fb2"></div>
+  </div>
+
+  <div class="ejercicio" id="p2e3">
+    <div class="num-ejercicio">Ejercicio 3 · Neto desde precio con IVA</div>
+    <div class="enunciado">Un artículo cuesta <strong>$12.100 con IVA incluido</strong>. ¿Cuál es el precio neto (sin IVA)?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p2',3,this,false)">$9.500</button>
+      <button class="opcion" onclick="ver('p2',3,this,false)">$11.000</button>
+      <button class="opcion" onclick="ver('p2',3,this,true)">$10.000</button>
+      <button class="opcion" onclick="ver('p2',3,this,false)">$10.500</button>
+    </div>
+    <div class="feedback" id="p2fb3"></div>
+  </div>
+
+  <div class="ejercicio" id="p2e4">
+    <div class="num-ejercicio">Ejercicio 4 · IVA contenido</div>
+    <div class="enunciado">Una mercadería se cobra <strong>$24.200 con IVA incluido</strong>. ¿Cuánto es el IVA incluido en ese precio?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p2',4,this,true)">$4.200</button>
+      <button class="opcion" onclick="ver('p2',4,this,false)">$5.082</button>
+      <button class="opcion" onclick="ver('p2',4,this,false)">$4.840</button>
+      <button class="opcion" onclick="ver('p2',4,this,false)">$3.200</button>
+    </div>
+    <div class="feedback" id="p2fb4"></div>
+  </div>
+
+  <div class="ejercicio" id="p2e5">
+    <div class="num-ejercicio">Ejercicio 5 · IVA sobre neto</div>
+    <div class="enunciado">Un proveedor factura <strong>$20.000 neto</strong>. ¿Cuánto IVA debe agregar a la factura?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p2',5,this,false)">$3.000</button>
+      <button class="opcion" onclick="ver('p2',5,this,false)">$3.800</button>
+      <button class="opcion" onclick="ver('p2',5,this,true)">$4.200</button>
+      <button class="opcion" onclick="ver('p2',5,this,false)">$2.000</button>
+    </div>
+    <div class="feedback" id="p2fb5"></div>
+  </div>
+
+  <div class="ejercicio" id="p2e6">
+    <div class="num-ejercicio">Ejercicio 6 · Total con IVA</div>
+    <div class="enunciado">Una impresora vale <strong>$30.000 sin IVA</strong>. ¿Cuánto hay que pagar en total?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p2',6,this,false)">$33.000</button>
+      <button class="opcion" onclick="ver('p2',6,this,true)">$36.300</button>
+      <button class="opcion" onclick="ver('p2',6,this,false)">$37.000</button>
+      <button class="opcion" onclick="ver('p2',6,this,false)">$35.000</button>
+    </div>
+    <div class="feedback" id="p2fb6"></div>
+  </div>
+
+  <div class="ejercicio" id="p2e7">
+    <div class="num-ejercicio">Ejercicio 7 · Neto desde precio con IVA</div>
+    <div class="enunciado">Una silla cuesta <strong>$48.400 con IVA incluido</strong>. ¿Cuál es el precio neto?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p2',7,this,false)">$38.000</button>
+      <button class="opcion" onclick="ver('p2',7,this,false)">$45.000</button>
+      <button class="opcion" onclick="ver('p2',7,this,true)">$40.000</button>
+      <button class="opcion" onclick="ver('p2',7,this,false)">$42.000</button>
+    </div>
+    <div class="feedback" id="p2fb7"></div>
+  </div>
+
+  <div class="ejercicio" id="p2e8">
+    <div class="num-ejercicio">Ejercicio 8 · IVA contenido</div>
+    <div class="enunciado">Un monitor se vende en <strong>$72.600 con IVA incluido</strong>. ¿Cuánto es el IVA discriminado?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p2',8,this,false)">$15.246</button>
+      <button class="opcion" onclick="ver('p2',8,this,false)">$14.000</button>
+      <button class="opcion" onclick="ver('p2',8,this,true)">$12.600</button>
+      <button class="opcion" onclick="ver('p2',8,this,false)">$13.200</button>
+    </div>
+    <div class="feedback" id="p2fb8"></div>
+  </div>
+
+  <div class="ejercicio" id="p2e9">
+    <div class="num-ejercicio">Ejercicio 9 · Total con IVA</div>
+    <div class="enunciado">Una empresa compra insumos por <strong>$100.000 neto</strong>. ¿Cuánto figura en la factura con IVA?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p2',9,this,false)">$110.000</button>
+      <button class="opcion" onclick="ver('p2',9,this,false)">$120.000</button>
+      <button class="opcion" onclick="ver('p2',9,this,true)">$121.000</button>
+      <button class="opcion" onclick="ver('p2',9,this,false)">$115.000</button>
+    </div>
+    <div class="feedback" id="p2fb9"></div>
+  </div>
+
+  <div class="ejercicio" id="p2e10">
+    <div class="num-ejercicio">Ejercicio 10 · Razonamiento final</div>
+    <div class="enunciado">En una factura figura: IVA = <strong>$8.400</strong>. ¿Cuál era el precio neto (sin IVA) sobre el que se calculó ese IVA?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p2',10,this,false)">$38.000</button>
+      <button class="opcion" onclick="ver('p2',10,this,true)">$40.000</button>
+      <button class="opcion" onclick="ver('p2',10,this,false)">$42.000</button>
+      <button class="opcion" onclick="ver('p2',10,this,false)">$35.000</button>
+    </div>
+    <div class="feedback" id="p2fb10"></div>
+  </div>
+
+  <div class="resultado-final" id="p2final">
+    <div class="puntos-grandes" id="p2final-pts">—</div>
+    <div class="mensaje" id="p2final-msg"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     PANEL 4 – PRÁCTICA 3 (calculadora, decimales, 10 ej)
+══════════════════════════════════════════════ -->
+<div class="panel" id="panel4">
+  <div class="puntaje-bar">
+    <div class="pts" id="pts3-texto">0 <span>/ 10 pts</span></div>
+    <div class="barra-prog"><div class="barra-fill" id="barra3"></div></div>
+  </div>
+  <div class="badge-tip badge-calcu">🖩 Usá la calculadora — con decimales</div>
+
+  <div class="ejercicio" id="p3e1">
+    <div class="num-ejercicio">Ejercicio 1 · IVA sobre neto</div>
+    <div class="enunciado">Un producto cuesta <strong>$18.450,00 sin IVA</strong>. ¿Cuánto es el IVA del 21%?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p3',1,this,false)">$3.874,50</button>
+      <button class="opcion" onclick="ver('p3',1,this,true)">$3.874,50</button>
+      <button class="opcion" onclick="ver('p3',1,this,false)">$3.690,00</button>
+      <button class="opcion" onclick="ver('p3',1,this,false)">$4.012,25</button>
+    </div>
+    <div class="feedback" id="p3fb1"></div>
+  </div>
+
+  <div class="ejercicio" id="p3e2">
+    <div class="num-ejercicio">Ejercicio 2 · Total con IVA</div>
+    <div class="enunciado">Una mercadería tiene precio neto de <strong>$47.320,50</strong>. ¿Cuál es el total con IVA incluido?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p3',2,this,false)">$55.000,00</button>
+      <button class="opcion" onclick="ver('p3',2,this,true)">$57.257,81</button>
+      <button class="opcion" onclick="ver('p3',2,this,false)">$56.900,50</button>
+      <button class="opcion" onclick="ver('p3',2,this,false)">$58.100,00</button>
+    </div>
+    <div class="feedback" id="p3fb2"></div>
+  </div>
+
+  <div class="ejercicio" id="p3e3">
+    <div class="num-ejercicio">Ejercicio 3 · Neto desde precio con IVA</div>
+    <div class="enunciado">Un artículo se vende en <strong>$29.887,50 con IVA incluido</strong>. ¿Cuál es el precio neto?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p3',3,this,true)">$24.700,00</button>
+      <button class="opcion" onclick="ver('p3',3,this,false)">$25.000,00</button>
+      <button class="opcion" onclick="ver('p3',3,this,false)">$23.450,00</button>
+      <button class="opcion" onclick="ver('p3',3,this,false)">$26.200,00</button>
+    </div>
+    <div class="feedback" id="p3fb3"></div>
+  </div>
+
+  <div class="ejercicio" id="p3e4">
+    <div class="num-ejercicio">Ejercicio 4 · IVA discriminado</div>
+    <div class="enunciado">Una factura indica precio con IVA de <strong>$83.765,40</strong>. ¿Cuánto es el IVA discriminado?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p3',4,this,false)">$17.590,73</button>
+      <button class="opcion" onclick="ver('p3',4,this,false)">$14.530,00</button>
+      <button class="opcion" onclick="ver('p3',4,this,true)">$14.527,68</button>
+      <button class="opcion" onclick="ver('p3',4,this,false)">$16.341,00</button>
+    </div>
+    <div class="feedback" id="p3fb4"></div>
+  </div>
+
+  <div class="ejercicio" id="p3e5">
+    <div class="num-ejercicio">Ejercicio 5 · Total con IVA</div>
+    <div class="enunciado">Un proveedor cobra <strong>$62.750,75 neto</strong>. ¿Cuánto es el total de la factura con IVA?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p3',5,this,false)">$75.000,00</button>
+      <button class="opcion" onclick="ver('p3',5,this,false)">$74.900,50</button>
+      <button class="opcion" onclick="ver('p3',5,this,true)">$75.928,41</button>
+      <button class="opcion" onclick="ver('p3',5,this,false)">$76.100,00</button>
+    </div>
+    <div class="feedback" id="p3fb5"></div>
+  </div>
+
+  <div class="ejercicio" id="p3e6">
+    <div class="num-ejercicio">Ejercicio 6 · Neto desde precio con IVA</div>
+    <div class="enunciado">Una heladera comercial cuesta <strong>$154.088,00 con IVA incluido</strong>. ¿Cuál es el precio neto?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p3',6,this,false)">$125.000,00</button>
+      <button class="opcion" onclick="ver('p3',6,this,false)">$128.000,00</button>
+      <button class="opcion" onclick="ver('p3',6,this,true)">$127.346,28</button>
+      <button class="opcion" onclick="ver('p3',6,this,false)">$130.500,00</button>
+    </div>
+    <div class="feedback" id="p3fb6"></div>
+  </div>
+
+  <div class="ejercicio" id="p3e7">
+    <div class="num-ejercicio">Ejercicio 7 · IVA sobre neto</div>
+    <div class="enunciado">Un servicio de mantenimiento cuesta <strong>$9.375,00 neto</strong>. ¿Cuánto es el IVA?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p3',7,this,false)">$1.875,50</button>
+      <button class="opcion" onclick="ver('p3',7,this,true)">$1.968,75</button>
+      <button class="opcion" onclick="ver('p3',7,this,false)">$2.100,00</button>
+      <button class="opcion" onclick="ver('p3',7,this,false)">$1.500,00</button>
+    </div>
+    <div class="feedback" id="p3fb7"></div>
+  </div>
+
+  <div class="ejercicio" id="p3e8">
+    <div class="num-ejercicio">Ejercicio 8 · IVA discriminado</div>
+    <div class="enunciado">Una factura de compra indica <strong>$38.115,00 con IVA incluido</strong>. ¿Cuánto es el IVA?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p3',8,this,false)">$7.600,00</button>
+      <button class="opcion" onclick="ver('p3',8,this,false)">$6.615,00</button>
+      <button class="opcion" onclick="ver('p3',8,this,true)">$6.615,00</button>
+      <button class="opcion" onclick="ver('p3',8,this,false)">$8.004,15</button>
+    </div>
+    <div class="feedback" id="p3fb8"></div>
+  </div>
+
+  <div class="ejercicio" id="p3e9">
+    <div class="num-ejercicio">Ejercicio 9 · Neto y total</div>
+    <div class="enunciado">Un equipo informático vale <strong>$210.455,00 con IVA incluido</strong>. ¿Cuánto es el precio neto?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p3',9,this,false)">$175.000,00</button>
+      <button class="opcion" onclick="ver('p3',9,this,false)">$172.000,00</button>
+      <button class="opcion" onclick="ver('p3',9,this,true)">$173.929,75</button>
+      <button class="opcion" onclick="ver('p3',9,this,false)">$180.500,00</button>
+    </div>
+    <div class="feedback" id="p3fb9"></div>
+  </div>
+
+  <div class="ejercicio" id="p3e10">
+    <div class="num-ejercicio">Ejercicio 10 · Caso real de factura</div>
+    <div class="enunciado">En una factura A se detalla: Precio neto <strong>$55.840,00</strong>. Completá: ¿cuánto es el IVA 21% y cuál es el total de la factura?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="ver('p3',10,this,false)">IVA $11.000,00 / Total $66.840,00</button>
+      <button class="opcion" onclick="ver('p3',10,this,true)">IVA $11.726,40 / Total $67.566,40</button>
+      <button class="opcion" onclick="ver('p3',10,this,false)">IVA $11.168,00 / Total $67.008,00</button>
+      <button class="opcion" onclick="ver('p3',10,this,false)">IVA $12.500,00 / Total $68.340,00</button>
+    </div>
+    <div class="feedback" id="p3fb10"></div>
+  </div>
+
+  <div class="resultado-final" id="p3final">
+    <div class="puntos-grandes" id="p3final-pts">—</div>
+    <div class="mensaje" id="p3final-msg"></div>
+  </div>
+</div>
+
+</div><!-- /contenido -->
+
 <script>
-  // ── TABS ──────────────────────────────────────────
-  function cambiarTab(idx) {
-    document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('activo', i===idx));
-    document.querySelectorAll('.panel').forEach((p,i) => p.classList.toggle('activo', i===idx));
+// ── TABS ─────────────────────────────────────────────────────
+function cambiarTab(idx) {
+  document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('activo', i===idx));
+  document.querySelectorAll('.panel').forEach((p,i) => p.classList.toggle('activo', i===idx));
+}
+
+// ── CALCULADORA ──────────────────────────────────────────────
+const $e = id => document.getElementById(id);
+const fmt = n => '$' + n.toLocaleString('es-AR', {minimumFractionDigits:2, maximumFractionDigits:2});
+
+function calcularDesdeNeto() {
+  const neto = parseFloat($e('sinIVA').value);
+  if (isNaN(neto)||neto<=0){ $e('res1').classList.remove('visible'); return; }
+  const iva = neto*0.21, total = neto+iva;
+  $e('r1_neto').textContent=fmt(neto); $e('r1_iva').textContent=fmt(iva); $e('r1_total').textContent=fmt(total);
+  $e('res1').classList.add('visible');
+}
+function calcularDesdeBruto() {
+  const bruto = parseFloat($e('conIVA').value);
+  if (isNaN(bruto)||bruto<=0){ $e('res2').classList.remove('visible'); return; }
+  const neto = bruto/1.21, iva = bruto-neto;
+  $e('r2_total').textContent=fmt(bruto); $e('r2_neto').textContent=fmt(neto); $e('r2_iva').textContent=fmt(iva);
+  $e('res2').classList.add('visible');
+}
+
+// ── EJERCICIOS ───────────────────────────────────────────────
+const puntajes = { p1:0, p2:0, p3:0 };
+const respondidos = {};
+const totales = { p1:5, p2:10, p3:10 };
+
+const feedbacks = {
+  // Práctica 1
+  'p1-1': { ok:'✅ ¡Correcto! $50.000 × 0,21 = $10.500 de IVA.', mal:'❌ IVA = precio sin IVA × 0,21. $50.000 × 0,21 = $10.500.' },
+  'p1-2': { ok:'✅ ¡Exacto! $80.000 × 1,21 = $96.800.', mal:'❌ Para el total multiplicás por 1,21: $80.000 × 1,21 = $96.800.' },
+  'p1-3': { ok:'✅ ¡Muy bien! $242.000 ÷ 1,21 = $200.000.', mal:'❌ Para sacar el neto dividís por 1,21: $242.000 ÷ 1,21 = $200.000.' },
+  'p1-4': { ok:'✅ ¡Correcto! Neto = $36.300 ÷ 1,21 = $30.000. IVA = $36.300 – $30.000 = $6.300.', mal:'❌ Neto = $36.300 ÷ 1,21 = $30.000. IVA = $36.300 – $30.000 = $6.300.' },
+  'p1-5': { ok:'✅ ¡Perfecto! Neto = $60.500 ÷ 1,21 = $50.000. IVA = $10.500.', mal:'❌ Neto = $60.500 ÷ 1,21 = $50.000. IVA = $60.500 – $50.000 = $10.500.' },
+  // Práctica 2
+  'p2-1':  { ok:'✅ ¡Correcto! $1.000 × 0,21 = $210.', mal:'❌ $1.000 × 0,21 = $210. Multiplicás el neto por 0,21.' },
+  'p2-2':  { ok:'✅ ¡Bien! $5.000 × 1,21 = $6.050.', mal:'❌ Total = neto × 1,21. $5.000 × 1,21 = $6.050.' },
+  'p2-3':  { ok:'✅ ¡Exacto! $12.100 ÷ 1,21 = $10.000.', mal:'❌ $12.100 ÷ 1,21 = $10.000. Siempre dividís por 1,21 para sacar el neto.' },
+  'p2-4':  { ok:'✅ ¡Correcto! Neto = $24.200 ÷ 1,21 = $20.000. IVA = $24.200 – $20.000 = $4.200.', mal:'❌ Neto = $24.200 ÷ 1,21 = $20.000. IVA = $24.200 – $20.000 = $4.200.' },
+  'p2-5':  { ok:'✅ ¡Bien! $20.000 × 0,21 = $4.200.', mal:'❌ IVA = $20.000 × 0,21 = $4.200.' },
+  'p2-6':  { ok:'✅ ¡Correcto! $30.000 × 1,21 = $36.300.', mal:'❌ Total = $30.000 × 1,21 = $36.300.' },
+  'p2-7':  { ok:'✅ ¡Muy bien! $48.400 ÷ 1,21 = $40.000.', mal:'❌ $48.400 ÷ 1,21 = $40.000.' },
+  'p2-8':  { ok:'✅ ¡Exacto! Neto = $72.600 ÷ 1,21 = $60.000. IVA = $72.600 – $60.000 = $12.600.', mal:'❌ Neto = $72.600 ÷ 1,21 = $60.000. IVA = $12.600.' },
+  'p2-9':  { ok:'✅ ¡Correcto! $100.000 × 1,21 = $121.000.', mal:'❌ $100.000 × 1,21 = $121.000.' },
+  'p2-10': { ok:'✅ ¡Excelente! Si IVA = $8.400, entonces: Neto = $8.400 ÷ 0,21 = $40.000.', mal:'❌ Para encontrar el neto cuando sabés el IVA: Neto = IVA ÷ 0,21. $8.400 ÷ 0,21 = $40.000.' },
+  // Práctica 3
+  'p3-1':  { ok:'✅ ¡Correcto! $18.450 × 0,21 = $3.874,50.', mal:'❌ $18.450 × 0,21 = $3.874,50. Usá la calculadora.' },
+  'p3-2':  { ok:'✅ ¡Bien! $47.320,50 × 1,21 = $57.257,81.', mal:'❌ Total = $47.320,50 × 1,21 = $57.257,81.' },
+  'p3-3':  { ok:'✅ ¡Exacto! $29.887,50 ÷ 1,21 = $24.700,00.', mal:'❌ $29.887,50 ÷ 1,21 = $24.700,00.' },
+  'p3-4':  { ok:'✅ ¡Correcto! Neto = $83.765,40 ÷ 1,21 = $69.237,52. IVA = $83.765,40 – $69.237,52 = $14.527,68.', mal:'❌ Neto = $83.765,40 ÷ 1,21 = $69.237,52. IVA = $83.765,40 – $69.237,52 = $14.527,68.' },
+  'p3-5':  { ok:'✅ ¡Bien! $62.750,75 × 1,21 = $75.928,41.', mal:'❌ Total = $62.750,75 × 1,21 = $75.928,41.' },
+  'p3-6':  { ok:'✅ ¡Correcto! $154.088 ÷ 1,21 = $127.346,28.', mal:'❌ $154.088 ÷ 1,21 = $127.346,28.' },
+  'p3-7':  { ok:'✅ ¡Exacto! $9.375 × 0,21 = $1.968,75.', mal:'❌ $9.375 × 0,21 = $1.968,75.' },
+  'p3-8':  { ok:'✅ ¡Correcto! Neto = $38.115 ÷ 1,21 = $31.500. IVA = $38.115 – $31.500 = $6.615.', mal:'❌ Neto = $38.115 ÷ 1,21 = $31.500. IVA = $38.115 – $31.500 = $6.615.' },
+  'p3-9':  { ok:'✅ ¡Bien! $210.455 ÷ 1,21 = $173.929,75.', mal:'❌ $210.455 ÷ 1,21 = $173.929,75.' },
+  'p3-10': { ok:'✅ ¡Perfecto! IVA = $55.840 × 0,21 = $11.726,40. Total = $55.840 + $11.726,40 = $67.566,40.', mal:'❌ IVA = $55.840 × 0,21 = $11.726,40. Total = $55.840 + $11.726,40 = $67.566,40.' },
+};
+
+const mensajesFinal = (pts, total) => {
+  const pct = pts/total;
+  if (pct === 1)   return '🏆 ¡Perfecto! ¡Dominás el IVA al 100%!';
+  if (pct >= 0.8)  return '🎉 ¡Muy bien! Casi perfecto, seguí así.';
+  if (pct >= 0.6)  return '👍 Bien, pero repasá los errores.';
+  if (pct >= 0.4)  return '📚 Hay que repasar. Volvé a la teoría.';
+  return '💪 No te rindas, practicá un poco más.';
+};
+
+function ver(practica, num, btn, esCorrecta) {
+  const key = practica + '-' + num;
+  if (respondidos[key]) return;
+  respondidos[key] = true;
+
+  const ej = $e(practica + 'e' + num);
+  const fb = $e(practica + 'fb' + num);
+  const opciones = ej.querySelectorAll('.opcion');
+  opciones.forEach(o => o.classList.add('bloqueado'));
+
+  if (esCorrecta) {
+    btn.classList.add('correcto');
+    ej.classList.add('correcto');
+    fb.className = 'feedback visible ok';
+    fb.textContent = feedbacks[key].ok;
+    puntajes[practica]++;
+  } else {
+    btn.classList.add('incorrecto');
+    ej.classList.add('incorrecto');
+    fb.className = 'feedback visible mal';
+    fb.textContent = feedbacks[key].mal;
+    opciones.forEach(o => { if (o.getAttribute('onclick').includes('true')) o.classList.add('revelar'); });
   }
 
-  // ── CALCULADORA ───────────────────────────────────
-  const $ = id => document.getElementById(id);
-  const fmt = n => '$' + n.toLocaleString('es-AR', {minimumFractionDigits:2, maximumFractionDigits:2});
+  // actualizar barra
+  const total = totales[practica];
+  const pts = puntajes[practica];
+  const numPractica = practica.replace('p','');
+  $e('pts' + numPractica + '-texto').innerHTML = pts + ' <span>/ ' + total + ' pts</span>';
+  $e('barra' + numPractica).style.width = (pts/total*100) + '%';
 
-  function calcularDesdeNeto() {
-    const neto = parseFloat($('sinIVA').value);
-    if (isNaN(neto) || neto <= 0) { $('res1').classList.remove('visible'); return; }
-    const iva = neto * 0.21;
-    const total = neto + iva;
-    $('r1_neto').textContent = fmt(neto);
-    $('r1_iva').textContent = fmt(iva);
-    $('r1_total').textContent = fmt(total);
-    $('res1').classList.add('visible');
+  // mostrar resultado final si completó todos
+  const respondidosEnPractica = Object.keys(respondidos).filter(k => k.startsWith(practica+'-')).length;
+  if (respondidosEnPractica === total) {
+    const fin = $e(practica + 'final');
+    $e(practica + 'final-pts').textContent = pts + ' / ' + total;
+    $e(practica + 'final-msg').textContent = mensajesFinal(pts, total);
+    fin.classList.add('visible');
+    setTimeout(() => fin.scrollIntoView({behavior:'smooth', block:'center'}), 300);
   }
-
-  function calcularDesdeBruto() {
-    const bruto = parseFloat($('conIVA').value);
-    if (isNaN(bruto) || bruto <= 0) { $('res2').classList.remove('visible'); return; }
-    const neto = bruto / 1.21;
-    const iva = bruto - neto;
-    $('r2_total').textContent = fmt(bruto);
-    $('r2_neto').textContent = fmt(neto);
-    $('r2_iva').textContent = fmt(iva);
-    $('res2').classList.add('visible');
-  }
-
-  // ── EJERCICIOS ────────────────────────────────────
-  let puntaje = 0;
-  const respuestos = {};
-
-  const feedbacks = {
-    1: { ok: '✅ ¡Correcto! $50.000 × 0,21 = $10.500 de IVA.', mal: '❌ Recordá: IVA = precio sin IVA × 0,21. $50.000 × 0,21 = $10.500.' },
-    2: { ok: '✅ ¡Exacto! $80.000 × 1,21 = $96.800. El 1,21 incluye el precio más el 21%.', mal: '❌ Para el total con IVA multiplicás por 1,21: $80.000 × 1,21 = $96.800.' },
-    3: { ok: '✅ ¡Muy bien! $242.000 ÷ 1,21 = $200.000 neto.', mal: '❌ Para sacar el neto de un precio con IVA, dividís por 1,21: $242.000 ÷ 1,21 = $200.000.' },
-    4: { ok: '✅ ¡Correcto! Neto = $36.300 ÷ 1,21 = $30.000. IVA = $36.300 – $30.000 = $6.300.', mal: '❌ Primero sacás el neto: $36.300 ÷ 1,21 = $30.000. Luego el IVA: $36.300 – $30.000 = $6.300.' },
-    5: { ok: '✅ ¡Perfecto! Neto = $60.500 ÷ 1,21 = $50.000. IVA = $60.500 – $50.000 = $10.500.', mal: '❌ Neto = $60.500 ÷ 1,21 = $50.000. IVA discriminado = $60.500 – $50.000 = $10.500.' },
-  };
-
-  function verificar(num, btn, esCorrecta) {
-    if (respuestos[num]) return;
-    respuestos[num] = true;
-
-    const ej = $('ej' + num);
-    const fb = $('fb' + num);
-    const opciones = ej.querySelectorAll('.opcion');
-
-    opciones.forEach(o => o.classList.add('bloqueado'));
-
-    if (esCorrecta) {
-      btn.classList.add('correcto');
-      ej.classList.add('correcto');
-      fb.className = 'feedback visible ok';
-      fb.textContent = feedbacks[num].ok;
-      puntaje++;
-    } else {
-      btn.classList.add('incorrecto');
-      ej.classList.add('incorrecto');
-      fb.className = 'feedback visible mal';
-      fb.textContent = feedbacks[num].mal;
-      // revelar correcta
-      opciones.forEach(o => {
-        if (o.onclick.toString().includes('true')) o.classList.add('revelar');
-      });
-    }
-
-    actualizarPuntaje();
-  }
-
-  function actualizarPuntaje() {
-    $('pts-texto').innerHTML = puntaje + ' <span>/ 5 pts</span>';
-    $('barra').style.width = (puntaje / 5 * 100) + '%';
-  }
+}
 </script>
 </body>
 </html>
