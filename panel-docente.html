@@ -424,20 +424,67 @@ async function loadAllData(){
   try {
     var [rawAlumnos, progresoData, sesionesData] = await Promise.all([
       sb("alumnos", "select=*&order=nombre.asc"),
-      sb("progreso", "select=*&order=fecha.desc"),
+      sbDiag("progreso", "select=*&order=fecha.desc"),
       sb("sesiones", "select=*&order=fecha.desc")
     ]);
-    allProgreso = progresoData;
+    allProgreso = progresoData.data;
     allSesiones = sesionesData;
-    
+
+    if(progresoData.error) {
+      console.error("Error Supabase progreso:", progresoData.error);
+      var diagDiv = document.createElement('div');
+      diagDiv.style = "position:fixed;bottom:20px;right:20px;background:#EF444420;border:1px solid #EF4444;border-radius:10px;padding:12px 16px;font-size:12px;color:#FCA5A5;z-index:9999;max-width:400px;";
+      diagDiv.innerHTML = "⚠️ <b>Error al cargar progreso:</b><br>" + JSON.stringify(progresoData.error);
+      document.body.appendChild(diagDiv);
+      setTimeout(function(){ diagDiv.remove(); }, 15000);
+    }
+
     // Unificar alumnos registrados con "fantasmas" que tengan actividad
     allAlumnos = getUnifiedAlumnos(rawAlumnos, allProgreso, allSesiones);
-    
+
     updateStats();
     renderTab();
   } catch(e){
-    document.getElementById("tabContent").innerHTML = '<div class="empty-state">⚠️ No se pudo conectar con Supabase.<br>Verificá la URL y la API key en el archivo.</div>';
+    document.getElementById("tabContent").innerHTML = '<div class="empty-state">⚠️ No se pudo conectar con Supabase.<br>Verificá la URL y la API key en el archivo.<br><small>' + e.message + '</small></div>';
   }
+}
+
+// Igual que sb() pero captura el error real de Supabase si devuelve array vacío
+async function sbDiag(table, params){
+  var allData = [];
+  var lastError = null;
+  var limit = 1000;
+  var offset = 0;
+  var hasMore = true;
+
+  while(hasMore){
+    var url = SUPABASE_URL + "/rest/v1/" + table + "?" + (params || "select=*") + "&limit=" + limit + "&offset=" + offset;
+    var r = await fetch(url, {
+      headers: {
+        "apikey": SUPABASE_KEY,
+        "Authorization": "Bearer " + SUPABASE_KEY,
+        "Content-Type": "application/json",
+        "Prefer": "count=none"
+      }
+    });
+
+    var data = await r.json();
+
+    if(!r.ok) {
+      console.warn("Error en sbDiag fetch para " + table, r.status, data);
+      lastError = data;
+      break;
+    }
+
+    if(data && Array.isArray(data) && data.length > 0){
+      allData = allData.concat(data);
+      offset += limit;
+      if(data.length < limit) hasMore = false;
+    } else {
+      hasMore = false;
+    }
+  }
+  return { data: allData, error: lastError };
 }
 
 function updateStats(){
