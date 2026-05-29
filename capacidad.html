@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listado — Capacidad de derecho / de ejercicio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c1714;--paper:#f4ece0;
+    --derecho:#7a2e2e;--derecho-bg:#f0d9d0;
+    --ejercicio:#1f4d3f;--ejercicio-bg:#d4e3da;
+    --gold:#b8893a;--line:#cdbfa8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Newsreader',serif;background:var(--paper);color:var(--ink);line-height:1.5;padding:1.2rem;
+    background-image:radial-gradient(circle at 1px 1px,rgba(120,90,50,.07) 1px,transparent 0);background-size:22px 22px}
+  .wrap{max-width:720px;margin:0 auto}
+  header{text-align:center;padding:1.4rem 0 1rem;border-bottom:2.5px solid var(--ink)}
+  .kicker{font-family:'Fraunces',serif;font-style:italic;color:var(--derecho);font-size:.95rem}
+  h1{font-family:'Fraunces',serif;font-weight:900;font-size:clamp(1.7rem,5.5vw,2.6rem);line-height:1.05;margin:.3rem 0}
+  .sub{font-size:.95rem;color:#5a4f44;max-width:540px;margin:.3rem auto 0}
+  .legend{display:flex;gap:.6rem;justify-content:center;margin:1.1rem 0 .3rem;flex-wrap:wrap}
+  .legend span{font-family:'Fraunces',serif;font-size:.82rem;padding:.3rem .7rem;border:1.5px solid var(--ink)}
+  .legend .d{background:var(--derecho-bg)} .legend .e{background:var(--ejercicio-bg)}
+  .bar{display:flex;align-items:center;gap:.6rem;margin:1.1rem 0 .6rem}
+  .count{font-family:'Fraunces',serif;font-weight:600;font-size:.9rem;white-space:nowrap}
+  .progress{height:8px;background:#e0d4c0;border:1px solid var(--line);border-radius:99px;overflow:hidden;flex:1}
+  .progress span{display:block;height:100%;width:0;background:var(--gold);transition:width .35s}
+  ul{list-style:none}
+  li{background:#fdfaf3;border:1.5px solid var(--ink);box-shadow:4px 4px 0 rgba(28,23,20,.1);
+    margin:.6rem 0;padding:.65rem .8rem;display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+  .item-n{font-family:'Fraunces',serif;font-weight:900;color:var(--gold);font-size:.95rem;min-width:1.4rem}
+  .item-txt{flex:1;min-width:170px;font-size:1.02rem}
+  .pick{display:flex;gap:.4rem}
+  .pick button{font-family:'Fraunces',serif;font-weight:600;font-size:.8rem;padding:.42rem .7rem;border:1.5px solid var(--ink);background:#fff;cursor:pointer;transition:.12s;color:var(--ink)}
+  .pick button[data-k="d"]:hover{background:var(--derecho-bg)}
+  .pick button[data-k="e"]:hover{background:var(--ejercicio-bg)}
+  .pick button.ok{background:#2f7d57;color:#fff;border-color:#1f4d3f}
+  .pick button.bad{background:#a33;color:#fff;border-color:#7a2e2e}
+  .pick button.right{outline:3px dashed var(--gold);outline-offset:-5px}
+  .pick button:disabled{cursor:default}
+  #result{display:none;text-align:center;margin:1.6rem 0;padding:1.4rem;border:2.5px solid var(--ink);background:#fdfaf3}
+  #result.show{display:block}
+  .score{font-family:'Fraunces',serif;font-weight:900;font-size:2.8rem;color:var(--derecho);line-height:1}
+  .btns{display:flex;gap:.7rem;justify-content:center;flex-wrap:wrap;margin-top:1rem}
+  .btns button{font-family:'Fraunces',serif;font-weight:600;padding:.65rem 1.2rem;border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;font-size:.92rem}
+  .btns button.alt{background:transparent;color:var(--ink)}
+  footer{text-align:center;font-size:.78rem;color:#7a6f60;margin:2rem 0 1rem;font-style:italic}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">Derecho · Marco Jurídico — CCyC arts. 22 y 23</div>
+    <h1>¿Derecho o ejercicio?</h1>
+    <p class="sub">Clasificá cada ítem. ¿Se trata de <strong>ser titular</strong> de un derecho, o de <strong>poder ejercerlo</strong> por uno mismo?</p>
+  </header>
+
+  <div class="legend">
+    <span class="d"><strong>Derecho</strong> = ser titular (lo tienen todos)</span>
+    <span class="e"><strong>Ejercicio</strong> = obrar por sí mismo</span>
+  </div>
+
+  <div class="bar">
+    <span class="count" id="count">0 / 20</span>
+    <div class="progress"><span id="pbar"></span></div>
+  </div>
+
+  <ul id="list"></ul>
+
+  <div id="result">
+    <div class="score" id="scoreNum">0/20</div>
+    <p id="scoreMsg"></p>
+    <div class="btns">
+      <button onclick="restart(true)">Mezclar de nuevo</button>
+      <button class="alt" onclick="restart(false)">Repetir igual</button>
+    </div>
+  </div>
+
+  <footer>Práctico de aula — EESO N°206 &amp; EETP N°602 · Prof. V. Vila Bordó</footer>
+</div>
+
+<script>
+// d = capacidad de DERECHO (ser titular) | e = capacidad de EJERCICIO (obrar por sí)
+const BANK=[
+  {t:"d",x:"Derecho a la vida"},
+  {t:"e",x:"Votar en una elección"},
+  {t:"d",x:"Derecho a tener un nombre"},
+  {t:"e",x:"Firmar un contrato de alquiler"},
+  {t:"d",x:"Derecho a heredar bienes"},
+  {t:"e",x:"Casarse"},
+  {t:"d",x:"Ser titular de una propiedad"},
+  {t:"e",x:"Abrir una cuenta bancaria por sí mismo"},
+  {t:"d",x:"Derecho a la identidad"},
+  {t:"e",x:"Vender el propio auto y firmar la transferencia"},
+  {t:"d",x:"Derecho al honor y a la imagen"},
+  {t:"e",x:"Iniciar un juicio por sí mismo"},
+  {t:"d",x:"Derecho a recibir una donación"},
+  {t:"e",x:"Otorgar un poder ante escribano"},
+  {t:"d",x:"Derecho a la nacionalidad"},
+  {t:"e",x:"Trabajar en relación de dependencia (firmar el contrato)"},
+  {t:"d",x:"Derecho a la salud"},
+  {t:"e",x:"Conducir y obtener la licencia"},
+  {t:"d",x:"Ser beneficiario de un seguro de vida"},
+  {t:"e",x:"Administrar y disponer de los propios bienes"}
+];
+const LABEL={d:"Capacidad de derecho",e:"Capacidad de ejercicio"};
+let items=[],answered=0,correct=0;
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function build(re){
+  items=re?shuffle(BANK):(items.length?items:shuffle(BANK));
+  answered=0;correct=0;
+  const ul=document.getElementById('list');ul.innerHTML='';
+  items.forEach((it,i)=>{
+    const li=document.createElement('li');
+    li.innerHTML=`<span class="item-n">${i+1}</span>
+      <span class="item-txt">${it.x}</span>
+      <span class="pick">
+        <button data-k="d">Derecho</button>
+        <button data-k="e">Ejercicio</button>
+      </span>`;
+    const btns=li.querySelectorAll('button');
+    btns.forEach(b=>b.onclick=()=>pick(b,btns,it));
+    ul.appendChild(li);
+  });
+  document.getElementById('result').classList.remove('show');
+  upd();
+}
+function pick(btn,btns,it){
+  if([...btns].some(b=>b.disabled))return;
+  const ok=btn.dataset.k===it.t;
+  btns.forEach(b=>{b.disabled=true;if(b.dataset.k===it.t)b.classList.add('right')});
+  btn.classList.add(ok?'ok':'bad');
+  answered++;if(ok)correct++;upd();
+  if(answered===items.length)finish();
+}
+function upd(){
+  document.getElementById('count').textContent=`${answered} / ${items.length}`;
+  document.getElementById('pbar').style.width=(answered/items.length*100)+'%';
+}
+function finish(){
+  document.getElementById('scoreNum').textContent=`${correct}/${items.length}`;
+  const p=correct/items.length;
+  document.getElementById('scoreMsg').textContent=
+    p===1?"¡Perfecto! Tenés clarísima la diferencia entre tener el derecho y poder ejercerlo.":
+    p>=.7?"Muy bien. Revisá los que quedaron en rojo.":
+    "A repasar: preguntate siempre «¿ser titular o obrar por sí mismo?».";
+  const r=document.getElementById('result');r.classList.add('show');r.scrollIntoView({behavior:'smooth'});
+}
+function restart(re){build(re);window.scrollTo({top:0,behavior:'smooth'})}
+build(true);
+</script>
+</body>
+</html>
