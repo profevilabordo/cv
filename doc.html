@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentos Comerciales | 5to A EETP 602</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #f5f2ec;
+  --bg2:       #edeae1;
+  --tinta:     #1a1410;
+  --gris:      #6b6560;
+  --linea:     #ccc7bc;
+
+  --pedido:    #2563eb;
+  --remito:    #059669;
+  --factura:   #d97706;
+  --recibo:    #7c3aed;
+  --credito:   #0891b2;
+  --debito:    #dc2626;
+
+  --fA:        #b45309;
+  --fB:        #1d4ed8;
+  --fC:        #15803d;
+
+  --radius: 14px;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--tinta);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+/* ── FONDO SUTIL ── */
+body::before {
+  content:'';
+  position: fixed; inset:0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, var(--linea) 39px, var(--linea) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(0,0,0,0.04) 39px, rgba(0,0,0,0.04) 40px);
+  opacity: .35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── HEADER ── */
+header {
+  position: relative; z-index: 1;
+  background: var(--tinta);
+  padding: 36px 24px 30px;
+  text-align: center;
+  overflow: hidden;
+}
+header::after {
+  content:'';
+  position: absolute; bottom: -1px; left:0; right:0;
+  height: 6px;
+  background: repeating-linear-gradient(90deg, #d97706 0 30px, #2563eb 30px 60px, #059669 60px 90px, #7c3aed 90px 120px, #0891b2 120px 150px, #dc2626 150px 180px);
+}
+.escuela {
+  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
+  color: #8b7355; font-weight: 600; margin-bottom: 10px;
+}
+header h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1.1;
+}
+header h1 em {
+  font-style: normal;
+  color: #d97706;
+  border-bottom: 3px solid #d97706;
+}
+.sub-header {
+  margin-top: 10px; color: #9e9287; font-size: 14px;
+}
+
+/* ── NAV TABS ── */
+.nav {
+  position: relative; z-index: 1;
+  display: flex; gap: 6px; flex-wrap: wrap;
+  padding: 20px 16px 0;
+  max-width: 980px; margin: 0 auto;
+}
+.nav-btn {
+  flex: 1; min-width: 140px;
+  padding: 10px 8px;
+  border: 2px solid var(--linea);
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  background: var(--bg2);
+  color: var(--gris);
+  font-family: 'Outfit', sans-serif;
+  font-size: 12.5px; font-weight: 600;
+  cursor: pointer; transition: all .2s;
+  text-align: center;
+}
+.nav-btn:hover { color: var(--tinta); border-color: #aaa; }
+.nav-btn.on {
+  background: #fff;
+  color: var(--tinta);
+  border-color: var(--tinta);
+  border-bottom-color: #fff;
+  z-index: 2;
+}
+
+/* ── CONTENIDO ── */
+.caja {
+  position: relative; z-index: 1;
+  max-width: 980px; margin: 0 auto;
+  background: #fff;
+  border: 2px solid var(--tinta);
+  border-radius: 0 0 var(--radius) var(--radius);
+  padding: 32px 24px 40px;
+}
+.panel { display: none; }
+.panel.on { display: block; }
+
+/* ── SECCIÓN TÍTULO ── */
+.sec-titulo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem; font-weight: 700;
+  margin-bottom: 6px;
+  display: flex; align-items: center; gap: 10px;
+}
+.sec-titulo .dot {
+  width: 12px; height: 12px; border-radius: 50%;
+  display: inline-block; flex-shrink: 0;
+}
+.sec-desc {
+  font-size: 14px; color: var(--gris);
+  margin-bottom: 28px; line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════
+   CIRCUITO VISUAL
+═══════════════════════════════════════════ */
+.circuito {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  margin: 10px 0 36px;
+  padding: 24px 0;
+  background: #f9f7f3;
+  border: 2px dashed var(--linea);
+  border-radius: var(--radius);
+}
+.circ-paso {
+  display: flex; flex-direction: column; align-items: center;
+  cursor: pointer;
+  padding: 12px 10px;
+  border-radius: 12px;
+  transition: background .15s;
+  position: relative;
+}
+.circ-paso:hover { background: rgba(0,0,0,0.05); }
+.circ-icono {
+  width: 56px; height: 56px;
+  border-radius: 14px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px;
+  margin-bottom: 7px;
+  border: 3px solid transparent;
+  transition: transform .2s, box-shadow .2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+.circ-paso:hover .circ-icono {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+.circ-paso.activo .circ-icono {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  border-color: var(--tinta);
+}
+.circ-label {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .5px; text-transform: uppercase;
+  text-align: center; max-width: 70px;
+}
+.circ-flecha {
+  font-size: 22px; color: #bbb;
+  padding: 0 2px; margin-top: -22px;
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  .circ-flecha { display: none; }
+  .circuito { gap: 6px; }
+}
+
+/* colores de cada doc */
+.cp-pedido  .circ-icono { background: #dbeafe; color: var(--pedido); }
+.cp-remito  .circ-icono { background: #d1fae5; color: var(--remito); }
+.cp-factura .circ-icono { background: #fef3c7; color: var(--factura); }
+.cp-recibo  .circ-icono { background: #ede9fe; color: var(--recibo); }
+.cp-credito .circ-icono { background: #cffafe; color: var(--credito); }
+.cp-debito  .circ-icono { background: #fee2e2; color: var(--debito); }
+
+/* ── DETAIL CARD ── */
+.detail-card {
+  display: none;
+  background: #f9f7f3;
+  border-radius: var(--radius);
+  border: 2px solid var(--linea);
+  padding: 24px 22px;
+  margin-top: 4px;
+  animation: slideIn .2s ease;
+}
+.detail-card.show { display: block; }
+@keyframes slideIn {
+  from { opacity:0; transform: translateY(-8px); }
+  to   { opacity:1; transform: translateY(0); }
+}
+.dc-header {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 16px;
+}
+.dc-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 24px; flex-shrink: 0;
+}
+.dc-titulo { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; }
+.dc-subtitulo { font-size: 13px; color: var(--gris); margin-top: 2px; }
+
+.dc-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 12px; margin-top: 12px;
+}
+@media (max-width: 540px) { .dc-grid { grid-template-columns: 1fr; } }
+.dc-bloque {
+  background: #fff; border-radius: 10px; padding: 14px 16px;
+  border-left: 4px solid;
+}
+.dc-bloque h4 { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gris); margin-bottom: 7px; }
+.dc-bloque p, .dc-bloque ul { font-size: 13.5px; line-height: 1.6; }
+.dc-bloque ul { padding-left: 16px; }
+.dc-bloque li { margin-bottom: 3px; }
+
+.dc-ejemplo {
+  margin-top: 12px; background: #fff;
+  border-radius: 10px; padding: 14px 16px;
+  font-size: 13.5px; line-height: 1.7;
+  border: 2px dashed var(--linea);
+}
+.dc-ejemplo strong { font-weight: 700; }
+
+/* ═══════════════════════════════════════════
+   PANEL 2 – TIPOS DE FACTURA
+═══════════════════════════════════════════ */
+.fact-grid {
+  display: grid; grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px; margin-bottom: 32px;
+}
+@media (max-width: 640px) { .fact-grid { grid-template-columns: 1fr; } }
+
+.fact-card {
+  border-radius: var(--radius); padding: 22px 18px;
+  border: 3px solid transparent;
+  position: relative; overflow: hidden;
+  cursor: default;
+  transition: transform .2s, box-shadow .2s;
+}
+.fact-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.12); }
+
+.fact-card.fA { background: #fefce8; border-color: var(--fA); }
+.fact-card.fB { background: #eff6ff; border-color: var(--fB); }
+.fact-card.fC { background: #f0fdf4; border-color: var(--fC); }
+
+.fact-letra {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem; font-weight: 900;
+  line-height: 1; margin-bottom: 8px;
+}
+.fA .fact-letra { color: var(--fA); }
+.fB .fact-letra { color: var(--fB); }
+.fC .fact-letra { color: var(--fC); }
+
+.fact-nombre {
+  font-weight: 700; font-size: 15px; margin-bottom: 10px;
+}
+.fact-quien {
+  font-size: 13px; color: var(--gris); line-height: 1.6; margin-bottom: 12px;
+}
+.fact-tag {
+  display: inline-block; font-size: 11px; font-weight: 700;
+  letter-spacing: .5px; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 999px; margin-bottom: 14px;
+}
+.fA .fact-tag { background: rgba(180,83,9,0.12); color: var(--fA); }
+.fB .fact-tag { background: rgba(29,78,216,0.12); color: var(--fB); }
+.fC .fact-tag { background: rgba(21,128,61,0.12); color: var(--fC); }
+
+.fact-lista { font-size: 13px; line-height: 1.8; padding-left: 16px; color: #333; }
+
+/* tabla comparativa */
+.tabla-comp {
+  width: 100%; border-collapse: collapse;
+  font-size: 13.5px; margin-top: 10px;
+}
+.tabla-comp th {
+  background: var(--tinta); color: #fff;
+  padding: 10px 14px; text-align: left;
+  font-weight: 600;
+}
+.tabla-comp th:first-child { border-radius: 8px 0 0 0; }
+.tabla-comp th:last-child  { border-radius: 0 8px 0 0; }
+.tabla-comp td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--linea);
+  vertical-align: top;
+}
+.tabla-comp tr:last-child td { border-bottom: none; }
+.tabla-comp tr:nth-child(even) td { background: #f9f7f3; }
+.tabla-comp td:first-child { font-weight: 600; }
+.chip {
+  display: inline-block; padding: 2px 8px; border-radius: 999px;
+  font-size: 11px; font-weight: 700; letter-spacing: .3px;
+}
+.chip-a { background: rgba(180,83,9,0.12); color: var(--fA); }
+.chip-b { background: rgba(29,78,216,0.12); color: var(--fB); }
+.chip-c { background: rgba(21,128,61,0.12); color: var(--fC); }
+
+/* ÁRBOL DE DECISIÓN */
+.arbol {
+  background: #f9f7f3;
+  border: 2px dashed var(--linea);
+  border-radius: var(--radius);
+  padding: 24px 20px; margin-top: 24px;
+}
+.arbol h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem; margin-bottom: 18px;
+}
+.pregunta {
+  background: var(--tinta); color: #fff;
+  border-radius: 10px; padding: 12px 18px;
+  font-weight: 600; font-size: 14px;
+  display: inline-block; margin-bottom: 12px;
+}
+.rama { padding-left: 28px; border-left: 3px solid var(--linea); margin-bottom: 14px; }
+.rama-si, .rama-no {
+  font-size: 13px; padding: 8px 14px;
+  border-radius: 8px; margin: 6px 0; display: inline-block;
+  font-weight: 500;
+}
+.rama-si { background: #d1fae5; color: #065f46; border-left: 4px solid #059669; }
+.rama-no { background: #fee2e2; color: #991b1b; border-left: 4px solid #dc2626; }
+.resultado-arbol {
+  display: inline-block; padding: 8px 16px; border-radius: 8px;
+  font-weight: 700; font-size: 13.5px; margin: 4px 0;
+}
+.res-a { background: #fef3c7; color: var(--fA); border: 2px solid var(--fA); }
+.res-b { background: #eff6ff; color: var(--fB); border: 2px solid var(--fB); }
+.res-c { background: #f0fdf4; color: var(--fC); border: 2px solid var(--fC); }
+
+/* ═══════════════════════════════════════════
+   PANEL 3 – PRÁCTICA
+═══════════════════════════════════════════ */
+.puntaje-bar {
+  display: flex; align-items: center; gap: 12px;
+  background: #f9f7f3; border-radius: 10px;
+  padding: 14px 18px; margin-bottom: 24px;
+  border: 2px solid var(--linea);
+}
+.puntaje-bar .pts {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem; font-weight: 700; color: var(--tinta); min-width: 70px;
+}
+.puntaje-bar .pts span { font-size: .85rem; color: var(--gris); font-weight: 400; }
+.barra-prog { flex: 1; height: 8px; background: #e2ddd6; border-radius: 999px; overflow: hidden; }
+.barra-fill { height: 100%; background: linear-gradient(90deg, #2563eb, #059669); border-radius: 999px; width: 0%; transition: width .4s ease; }
+
+.ejercicio {
+  background: #f9f7f3; border-radius: var(--radius);
+  padding: 20px 22px; margin-bottom: 14px;
+  border: 2px solid var(--linea);
+  transition: border-color .2s;
+}
+.ejercicio.correcto { border-color: #059669 !important; }
+.ejercicio.incorrecto { border-color: #dc2626 !important; }
+.num-ej {
+  font-size: 10px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: #b45309; margin-bottom: 6px;
+}
+.enunciado {
+  font-size: 14.5px; line-height: 1.7; color: #333; margin-bottom: 14px;
+}
+.enunciado strong { color: var(--tinta); }
+.opciones { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+@media (max-width: 440px) { .opciones { grid-template-columns: 1fr; } }
+.opcion {
+  background: #fff; border: 2px solid #d4cfc7;
+  border-radius: 8px; padding: 10px 14px;
+  color: #444; font-size: 13.5px;
+  cursor: pointer; transition: all .15s; text-align: left;
+  font-family: 'Outfit', sans-serif;
+}
+.opcion:hover { border-color: #999; color: var(--tinta); }
+.opcion.correcto { background: #d1fae5; border-color: #059669; color: #065f46; font-weight: 600; }
+.opcion.incorrecto { background: #fee2e2; border-color: #dc2626; color: #991b1b; }
+.opcion.revelar { background: #f0fdf4; border-color: #86efac; color: #166534; }
+.opcion.bloqueado { pointer-events: none; }
+.feedback {
+  margin-top: 12px; padding: 10px 14px;
+  border-radius: 8px; font-size: 13.5px; line-height: 1.5;
+  display: none;
+}
+.feedback.visible { display: block; }
+.feedback.ok  { background: #d1fae5; color: #065f46; border-left: 4px solid #059669; }
+.feedback.mal { background: #fee2e2; color: #991b1b; border-left: 4px solid #dc2626; }
+
+.resultado-final {
+  display: none; margin-top: 24px;
+  background: var(--tinta); border-radius: var(--radius);
+  padding: 28px 24px; text-align: center;
+}
+.resultado-final.visible { display: block; }
+.rf-pts { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: #d97706; }
+.rf-msg { margin-top: 8px; font-size: 15px; color: #b0a89e; }
+
+@media (max-width: 600px) { .caja { padding: 20px 14px 32px; } .nav { padding: 14px 10px 0; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="escuela">EETP N°602 · 5to A · Administración</div>
+  <h1><em>Documentos</em> Comerciales</h1>
+  <p class="sub-header">Reconocé cada documento, cuándo se usa y qué tipo de factura corresponde</p>
+</header>
+
+<div class="nav">
+  <button class="nav-btn on"  onclick="tab(0)">📋 El circuito</button>
+  <button class="nav-btn"     onclick="tab(1)">🧾 Tipos de factura</button>
+  <button class="nav-btn"     onclick="tab(2)">✏️ Práctica</button>
+</div>
+
+<div class="caja">
+
+<!-- ════════════════════════════════════════
+     PANEL 0 – EL CIRCUITO
+════════════════════════════════════════ -->
+<div class="panel on" id="p0">
+
+  <div class="sec-titulo">
+    <span class="dot" style="background:#d97706"></span>
+    El circuito de documentos
+  </div>
+  <p class="sec-desc">En toda operación comercial circulan documentos en un orden lógico. Hacé clic en cada documento para ver sus detalles.</p>
+
+  <!-- CIRCUITO VISUAL -->
+  <div class="circuito">
+    <div class="circ-paso cp-pedido"  onclick="abrirDoc('pedido')">
+      <div class="circ-icono">📝</div>
+      <div class="circ-label" style="color:var(--pedido)">Nota de Pedido</div>
+    </div>
+    <div class="circ-flecha">→</div>
+    <div class="circ-paso cp-remito"  onclick="abrirDoc('remito')">
+      <div class="circ-icono">📦</div>
+      <div class="circ-label" style="color:var(--remito)">Remito</div>
+    </div>
+    <div class="circ-flecha">→</div>
+    <div class="circ-paso cp-factura" onclick="abrirDoc('factura')">
+      <div class="circ-icono">🧾</div>
+      <div class="circ-label" style="color:var(--factura)">Factura</div>
+    </div>
+    <div class="circ-flecha">→</div>
+    <div class="circ-paso cp-recibo"  onclick="abrirDoc('recibo')">
+      <div class="circ-icono">✅</div>
+      <div class="circ-label" style="color:var(--recibo)">Recibo</div>
+    </div>
+    <div class="circ-flecha" style="color:#e5c97e">⤵</div>
+    <div class="circ-paso cp-credito" onclick="abrirDoc('credito')">
+      <div class="circ-icono">📉</div>
+      <div class="circ-label" style="color:var(--credito)">Nota de Crédito</div>
+    </div>
+    <div class="circ-flecha">↔</div>
+    <div class="circ-paso cp-debito"  onclick="abrirDoc('debito')">
+      <div class="circ-icono">📈</div>
+      <div class="circ-label" style="color:var(--debito)">Nota de Débito</div>
+    </div>
+  </div>
+
+  <p style="font-size:12px;color:var(--gris);text-align:center;margin-top:-20px;margin-bottom:24px;">
+    ↑ Las notas de crédito y débito son correctivos que pueden surgir después de la factura
+  </p>
+
+  <!-- DETAIL CARDS (ocultas, se muestran al click) -->
+
+  <div class="detail-card" id="dc-pedido">
+    <div class="dc-header">
+      <div class="dc-icon" style="background:#dbeafe;color:var(--pedido)">📝</div>
+      <div>
+        <div class="dc-titulo">Nota de Pedido</div>
+        <div class="dc-subtitulo">Primer documento del circuito · No tiene valor impositivo</div>
+      </div>
+    </div>
+    <div class="dc-grid">
+      <div class="dc-bloque" style="border-color:var(--pedido)">
+        <h4>¿Qué es?</h4>
+        <p>Es el documento mediante el cual el <strong>comprador solicita</strong> mercadería o servicios al vendedor. Da inicio al circuito comercial.</p>
+      </div>
+      <div class="dc-bloque" style="border-color:var(--pedido)">
+        <h4>¿Quién lo emite?</h4>
+        <p>Lo emite el <strong>comprador</strong> (cliente) y lo recibe el <strong>vendedor</strong>. Es una propuesta de compra.</p>
+      </div>
+      <div class="dc-bloque" style="border-color:var(--pedido)">
+        <h4>¿Qué contiene?</h4>
+        <ul>
+          <li>Datos del comprador y vendedor</li>
+          <li>Detalle de productos o servicios</li>
+          <li>Cantidad, precio estimado</li>
+          <li>Fecha y condición de entrega</li>
+        </ul>
+      </div>
+      <div class="dc-bloque" style="border-color:var(--pedido)">
+        <h4>Dato clave</h4>
+        <p>No es un comprobante de pago ni de entrega. Es solo una <strong>solicitud</strong>. El vendedor puede aceptar o rechazar el pedido.</p>
+      </div>
+    </div>
+    <div class="dc-ejemplo">
+      🏪 <strong>Ejemplo:</strong> La librería "El Saber" envía una nota de pedido a un distribuidor solicitando 50 resmas de papel A4 y 30 cajas de biromes.
+    </div>
+  </div>
+
+  <div class="detail-card" id="dc-remito">
+    <div class="dc-header">
+      <div class="dc-icon" style="background:#d1fae5;color:var(--remito)">📦</div>
+      <div>
+        <div class="dc-titulo">Remito</div>
+        <div class="dc-subtitulo">Acompaña la mercadería · Acredita la entrega</div>
+      </div>
+    </div>
+    <div class="dc-grid">
+      <div class="dc-bloque" style="border-color:var(--remito)">
+        <h4>¿Qué es?</h4>
+        <p>Documento que acompaña la <strong>entrega física</strong> de la mercadería. Prueba que los productos fueron entregados al comprador.</p>
+      </div>
+      <div class="dc-bloque" style="border-color:var(--remito)">
+        <h4>¿Quién lo emite?</h4>
+        <p>Lo emite el <strong>vendedor</strong> y lo firma el <strong>comprador</strong> al recibir la mercadería. Se emite en duplicado.</p>
+      </div>
+      <div class="dc-bloque" style="border-color:var(--remito)">
+        <h4>¿Qué contiene?</h4>
+        <ul>
+          <li>Datos del emisor y receptor</li>
+          <li>Fecha y lugar de entrega</li>
+          <li>Detalle y cantidad de mercadería</li>
+          <li>Firma y aclaración del receptor</li>
+        </ul>
+      </div>
+      <div class="dc-bloque" style="border-color:var(--remito)">
+        <h4>Dato clave</h4>
+        <p>El remito <strong>no tiene precio</strong>. Solo certifica qué se entregó y cuánto. La factura es el documento que tiene el valor económico.</p>
+      </div>
+    </div>
+    <div class="dc-ejemplo">
+      🚚 <strong>Ejemplo:</strong> El distribuidor entrega las resmas y biromes. El chofer lleva el remito, el encargado de la librería lo firma y queda una copia para cada parte.
+    </div>
+  </div>
+
+  <div class="detail-card" id="dc-factura">
+    <div class="dc-header">
+      <div class="dc-icon" style="background:#fef3c7;color:var(--factura)">🧾</div>
+      <div>
+        <div class="dc-titulo">Factura</div>
+        <div class="dc-subtitulo">Documento principal · Tiene valor impositivo y legal</div>
+      </div>
+    </div>
+    <div class="dc-grid">
+      <div class="dc-bloque" style="border-color:var(--factura)">
+        <h4>¿Qué es?</h4>
+        <p>Es el comprobante que detalla la <strong>venta o prestación de servicios</strong>, con precio, IVA y condiciones. Es el documento más importante del circuito.</p>
+      </div>
+      <div class="dc-bloque" style="border-color:var(--factura)">
+        <h4>¿Quién lo emite?</h4>
+        <p>Lo emite el <strong>vendedor</strong> al comprador. Puede ser factura <strong>A, B o C</strong> según la condición fiscal de ambas partes.</p>
+      </div>
+      <div class="dc-bloque" style="border-color:var(--factura)">
+        <h4>¿Qué contiene?</h4>
+        <ul>
+          <li>CUIT del emisor y receptor</li>
+          <li>Precio neto, IVA discriminado o no</li>
+          <li>Condición de venta (contado/crédito)</li>
+          <li>Número de comprobante, fecha, CAE</li>
+        </ul>
+      </div>
+      <div class="dc-bloque" style="border-color:var(--factura)">
+        <h4>Dato clave</h4>
+        <p>La factura <strong>genera la obligación de pago</strong>. Sin factura no hay deuda legalmente exigible. Es obligatoria en toda operación comercial.</p>
+      </div>
+    </div>
+    <div class="dc-ejemplo">
+      🧾 <strong>Ejemplo:</strong> El distribuidor emite una Factura B a la librería por las 50 resmas y 30 cajas de biromes, con precio neto e IVA incluido.
+    </div>
+  </div>
+
+  <div class="detail-card" id="dc-recibo">
+    <div class="dc-header">
+      <div class="dc-icon" style="background:#ede9fe;color:var(--recibo)">✅</div>
+      <div>
+        <div class="dc-titulo">Recibo</div>
+        <div class="dc-subtitulo">Cancela la deuda · Prueba el pago</div>
+      </div>
+    </div>
+    <div class="dc-grid">
+      <div class="dc-bloque" style="border-color:var(--recibo)">
+        <h4>¿Qué es?</h4>
+        <p>Es el documento que acredita que el <strong>comprador pagó</strong> la factura. Cancela la obligación de pago y cierra el circuito.</p>
+      </div>
+      <div class="dc-bloque" style="border-color:var(--recibo)">
+        <h4>¿Quién lo emite?</h4>
+        <p>Lo emite el <strong>vendedor (cobrador)</strong> cuando recibe el pago. El comprador conserva el recibo como prueba de que pagó.</p>
+      </div>
+      <div class="dc-bloque" style="border-color:var(--recibo)">
+        <h4>¿Qué contiene?</h4>
+        <ul>
+          <li>Datos del que paga y del que cobra</li>
+          <li>Monto recibido (letras y números)</li>
+          <li>Concepto del pago (factura N°...)</li>
+          <li>Forma de pago y firma</li>
+        </ul>
+      </div>
+      <div class="dc-bloque" style="border-color:var(--recibo)">
+        <h4>Dato clave</h4>
+        <p>El recibo <strong>no es la factura</strong>. La factura documenta la venta; el recibo documenta el cobro. Son dos momentos distintos.</p>
+      </div>
+    </div>
+    <div class="dc-ejemplo">
+      💰 <strong>Ejemplo:</strong> La librería paga la factura. El distribuidor emite el recibo por el monto total abonado en efectivo.
+    </div>
+  </div>
+
+  <div class="detail-card" id="dc-credito">
+    <div class="dc-header">
+      <div class="dc-icon" style="background:#cffafe;color:var(--credito)">📉</div>
+      <div>
+        <div class="dc-titulo">Nota de Crédito</div>
+        <div class="dc-subtitulo">Reduce la deuda del comprador · Beneficia al cliente</div>
+      </div>
+    </div>
+    <div class="dc-grid">
+      <div class="dc-bloque" style="border-color:var(--credito)">
+        <h4>¿Qué es?</h4>
+        <p>Documento que el <strong>vendedor emite para reducir</strong> el importe de una factura ya emitida. <em>Acredita</em> a favor del comprador.</p>
+      </div>
+      <div class="dc-bloque" style="border-color:var(--credito)">
+        <h4>¿Cuándo se usa?</h4>
+        <ul>
+          <li>Devolución de mercadería</li>
+          <li>Descuento no aplicado en la factura</li>
+          <li>Error de precio (se cobró de más)</li>
+          <li>Bonificación posterior</li>
+        </ul>
+      </div>
+      <div class="dc-bloque" style="border-color:var(--credito)">
+        <h4>¿Qué efecto tiene?</h4>
+        <p>Disminuye lo que el comprador debe pagar. Es como un "descuento" posterior a la factura. <strong>Favorece al comprador.</strong></p>
+      </div>
+      <div class="dc-bloque" style="border-color:var(--credito)">
+        <h4>Dato clave</h4>
+        <p>Siempre hace referencia a una <strong>factura anterior</strong>. No es un documento independiente: corrige o ajusta una venta ya documentada.</p>
+      </div>
+    </div>
+    <div class="dc-ejemplo">
+      🔄 <strong>Ejemplo:</strong> La librería devuelve 5 resmas dañadas. El distribuidor emite una Nota de Crédito por el valor de esas resmas, reduciendo la deuda.
+    </div>
+  </div>
+
+  <div class="detail-card" id="dc-debito">
+    <div class="dc-header">
+      <div class="dc-icon" style="background:#fee2e2;color:var(--debito)">📈</div>
+      <div>
+        <div class="dc-titulo">Nota de Débito</div>
+        <div class="dc-subtitulo">Aumenta la deuda del comprador · Perjudica al cliente</div>
+      </div>
+    </div>
+    <div class="dc-grid">
+      <div class="dc-bloque" style="border-color:var(--debito)">
+        <h4>¿Qué es?</h4>
+        <p>Documento que el <strong>vendedor emite para aumentar</strong> el importe de una factura ya emitida. <em>Debita</em> al comprador.</p>
+      </div>
+      <div class="dc-bloque" style="border-color:var(--debito)">
+        <h4>¿Cuándo se usa?</h4>
+        <ul>
+          <li>Error de precio (se cobró de menos)</li>
+          <li>Gasto de envío no incluido</li>
+          <li>Intereses por pago fuera de término</li>
+          <li>Diferencia de cambio</li>
+        </ul>
+      </div>
+      <div class="dc-bloque" style="border-color:var(--debito)">
+        <h4>¿Qué efecto tiene?</h4>
+        <p>Aumenta lo que el comprador debe pagar. Es un cargo adicional posterior a la factura. <strong>Perjudica al comprador.</strong></p>
+      </div>
+      <div class="dc-bloque" style="border-color:var(--debito)">
+        <h4>Dato clave</h4>
+        <p>Igual que la nota de crédito, siempre hace referencia a una <strong>factura anterior</strong>. Es el opuesto de la nota de crédito.</p>
+      </div>
+    </div>
+    <div class="dc-ejemplo">
+      📮 <strong>Ejemplo:</strong> El distribuidor olvidó cargar $500 de flete en la factura. Emite una Nota de Débito por $500 que la librería deberá abonar.
+    </div>
+  </div>
+
+</div><!-- /p0 -->
+
+<!-- ════════════════════════════════════════
+     PANEL 1 – TIPOS DE FACTURA
+════════════════════════════════════════ -->
+<div class="panel" id="p1">
+
+  <div class="sec-titulo">
+    <span class="dot" style="background:var(--factura)"></span>
+    Factura A, B y C — ¿Cuándo corresponde cada una?
+  </div>
+  <p class="sec-desc">El tipo de factura depende de la <strong>condición fiscal del vendedor y del comprador</strong> frente al IVA. No es una elección libre.</p>
+
+  <div class="fact-grid">
+    <div class="fact-card fA">
+      <div class="fact-letra">A</div>
+      <div class="fact-nombre">Factura A</div>
+      <div class="fact-tag">IVA discriminado</div>
+      <div class="fact-quien">Vendedor <strong>Responsable Inscripto</strong> → Comprador <strong>Responsable Inscripto</strong></div>
+      <ul class="fact-lista">
+        <li>Muestra el precio neto + IVA por separado</li>
+        <li>El comprador puede usar el IVA como crédito fiscal</li>
+        <li>Se usa entre <strong>empresas / comercios inscriptos</strong></li>
+        <li>Requiere CUIT del comprador obligatoriamente</li>
+      </ul>
+    </div>
+    <div class="fact-card fB">
+      <div class="fact-letra">B</div>
+      <div class="fact-nombre">Factura B</div>
+      <div class="fact-tag">IVA incluido</div>
+      <div class="fact-quien">Vendedor <strong>Responsable Inscripto</strong> → Comprador <strong>Consumidor Final / Exento / Monotributista</strong></div>
+      <ul class="fact-lista">
+        <li>El IVA está incluido en el precio total (no se discrimina)</li>
+        <li>El comprador no puede computar crédito fiscal</li>
+        <li>Es la factura de los comercios al público en general</li>
+        <li>Ej: cuando comprás en un supermercado</li>
+      </ul>
+    </div>
+    <div class="fact-card fC">
+      <div class="fact-letra">C</div>
+      <div class="fact-nombre">Factura C</div>
+      <div class="fact-tag">Sin IVA — precio final directo</div>
+      <div class="fact-quien">Vendedor <strong>Monotributista o Exento</strong> → Cualquier comprador</div>
+      <ul class="fact-lista">
+        <li>El IVA <strong>no está discriminado</strong>, pero tampoco está "incluido" como en la B</li>
+        <li>El monotributista <strong>no liquida IVA</strong>: no lo cobra ni lo suma al precio</li>
+        <li>El monto total es el precio final — ese impuesto directamente <strong>no existe</strong> en la operación</li>
+        <li>El comprador <strong>no puede computar crédito fiscal</strong></li>
+        <li>Ej: diseñadora freelance, kiosco, plomero monotributista</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- TABLA COMPARATIVA -->
+  <table class="tabla-comp">
+    <thead>
+      <tr>
+        <th>Situación</th>
+        <th>Vendedor</th>
+        <th>Comprador</th>
+        <th>Factura</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Fábrica le vende a una empresa</td>
+        <td>RI</td>
+        <td>RI</td>
+        <td><span class="chip chip-a">A</span></td>
+      </tr>
+      <tr>
+        <td>Supermercado al consumidor</td>
+        <td>RI</td>
+        <td>Consumidor final</td>
+        <td><span class="chip chip-b">B</span></td>
+      </tr>
+      <tr>
+        <td>RI le vende a un monotributista</td>
+        <td>RI</td>
+        <td>Monotributista</td>
+        <td><span class="chip chip-b">B</span></td>
+      </tr>
+      <tr>
+        <td>RI le vende a una entidad exenta</td>
+        <td>RI</td>
+        <td>Exento (ej: escuela)</td>
+        <td><span class="chip chip-b">B</span></td>
+      </tr>
+      <tr>
+        <td>Diseñadora freelance a cualquier cliente</td>
+        <td>Monotributista</td>
+        <td>Cualquiera</td>
+        <td><span class="chip chip-c">C</span></td>
+      </tr>
+      <tr>
+        <td>Kiosco del barrio</td>
+        <td>Monotributista</td>
+        <td>Consumidor final</td>
+        <td><span class="chip chip-c">C</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:14px;background:#f0fdf4;border-left:4px solid var(--fC);border-radius:0 10px 10px 0;padding:14px 18px;font-size:13.5px;line-height:1.7;">
+    <strong style="color:var(--fC)">⚠️ Importante sobre Factura C:</strong> El monotributista <strong>no liquida IVA</strong>. Esto significa que el precio que cobra <em>es</em> el precio final, sin agregarle ni incluirle ningún porcentaje de IVA. No es que "tiene el IVA adentro" como en la B — es que directamente ese impuesto no existe en la operación. Por eso el comprador tampoco puede computarlo como crédito fiscal.
+  </div>
+
+  <!-- ÁRBOL DE DECISIÓN -->
+  <div class="arbol">
+    <h3>🌳 ¿Cómo decidir el tipo de factura?</h3>
+    <div class="pregunta">¿El vendedor es Responsable Inscripto (RI)?</div>
+    <div class="rama">
+      <div class="rama-si">✅ SÍ, es RI</div>
+      <div style="padding-left:20px;margin-top:6px;">
+        <div class="pregunta" style="font-size:13px;padding:8px 14px;">¿El comprador también es Responsable Inscripto?</div>
+        <div class="rama" style="margin-top:8px;">
+          <div class="rama-si">✅ SÍ → <span class="resultado-arbol res-a">Factura A</span></div>
+          <div class="rama-no">❌ NO (consumidor final, monotrib., exento) → <span class="resultado-arbol res-b">Factura B</span></div>
+        </div>
+      </div>
+      <div class="rama-no" style="margin-top:10px;">❌ NO (es Monotributista o Exento) → <span class="resultado-arbol res-c">Factura C</span></div>
+    </div>
+    <p style="font-size:12px;color:var(--gris);margin-top:12px;">
+      RI = Responsable Inscripto en IVA (régimen general AFIP)
+    </p>
+  </div>
+
+</div><!-- /p1 -->
+
+<!-- ════════════════════════════════════════
+     PANEL 2 – PRÁCTICA
+════════════════════════════════════════ -->
+<div class="panel" id="p2">
+
+  <div class="puntaje-bar">
+    <div class="pts" id="pts-txt">0 <span>/ 12 pts</span></div>
+    <div class="barra-prog"><div class="barra-fill" id="barra"></div></div>
+  </div>
+
+  <!-- ej 1 -->
+  <div class="ejercicio" id="e1">
+    <div class="num-ej">Ejercicio 1 · Identificar documento</div>
+    <div class="enunciado">La empresa "Maderas del Sur" <strong>solicita 200 tablones</strong> al aserradero "Roble". ¿Qué documento emite Maderas del Sur?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="v(1,this,true)">Nota de pedido</button>
+      <button class="opcion" onclick="v(1,this,false)">Remito</button>
+      <button class="opcion" onclick="v(1,this,false)">Factura</button>
+      <button class="opcion" onclick="v(1,this,false)">Recibo</button>
+    </div>
+    <div class="feedback" id="fb1"></div>
+  </div>
+
+  <!-- ej 2 -->
+  <div class="ejercicio" id="e2">
+    <div class="num-ej">Ejercicio 2 · Identificar documento</div>
+    <div class="enunciado">El aserradero entrega los tablones. El conductor lleva un documento que el depósito de Maderas del Sur <strong>firma al recibir la mercadería</strong>. ¿Qué documento es?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="v(2,this,false)">Nota de pedido</button>
+      <button class="opcion" onclick="v(2,this,true)">Remito</button>
+      <button class="opcion" onclick="v(2,this,false)">Factura</button>
+      <button class="opcion" onclick="v(2,this,false)">Nota de crédito</button>
+    </div>
+    <div class="feedback" id="fb2"></div>
+  </div>
+
+  <!-- ej 3 -->
+  <div class="ejercicio" id="e3">
+    <div class="num-ej">Ejercicio 3 · Identificar documento</div>
+    <div class="enunciado">Maderas del Sur <strong>paga la factura</strong> del aserradero. El aserradero entrega un comprobante de que recibió el dinero. ¿Qué documento es ese comprobante?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="v(3,this,false)">Factura</button>
+      <button class="opcion" onclick="v(3,this,false)">Remito</button>
+      <button class="opcion" onclick="v(3,this,false)">Nota de débito</button>
+      <button class="opcion" onclick="v(3,this,true)">Recibo</button>
+    </div>
+    <div class="feedback" id="fb3"></div>
+  </div>
+
+  <!-- ej 4 -->
+  <div class="ejercicio" id="e4">
+    <div class="num-ej">Ejercicio 4 · Nota de crédito o débito</div>
+    <div class="enunciado">Maderas del Sur devuelve 10 tablones defectuosos. El aserradero debe <strong>reducir el monto cobrado</strong>. ¿Qué documento emite?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="v(4,this,false)">Nota de débito</button>
+      <button class="opcion" onclick="v(4,this,true)">Nota de crédito</button>
+      <button class="opcion" onclick="v(4,this,false)">Factura</button>
+      <button class="opcion" onclick="v(4,this,false)">Remito</button>
+    </div>
+    <div class="feedback" id="fb4"></div>
+  </div>
+
+  <!-- ej 5 -->
+  <div class="ejercicio" id="e5">
+    <div class="num-ej">Ejercicio 5 · Nota de crédito o débito</div>
+    <div class="enunciado">El aserradero olvidó cargar $800 de flete en la factura. Debe <strong>cobrarle esa diferencia</strong> a Maderas del Sur. ¿Qué emite?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="v(5,this,true)">Nota de débito</button>
+      <button class="opcion" onclick="v(5,this,false)">Nota de crédito</button>
+      <button class="opcion" onclick="v(5,this,false)">Factura nueva</button>
+      <button class="opcion" onclick="v(5,this,false)">Recibo</button>
+    </div>
+    <div class="feedback" id="fb5"></div>
+  </div>
+
+  <!-- ej 6 -->
+  <div class="ejercicio" id="e6">
+    <div class="num-ej">Ejercicio 6 · Tipo de factura</div>
+    <div class="enunciado">Una distribuidora (RI) le vende mercadería a un supermercado (también RI). ¿Qué tipo de factura emite la distribuidora?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="v(6,this,true)">Factura A</button>
+      <button class="opcion" onclick="v(6,this,false)">Factura B</button>
+      <button class="opcion" onclick="v(6,this,false)">Factura C</button>
+      <button class="opcion" onclick="v(6,this,false)">Cualquiera de las tres</button>
+    </div>
+    <div class="feedback" id="fb6"></div>
+  </div>
+
+  <!-- ej 7 -->
+  <div class="ejercicio" id="e7">
+    <div class="num-ej">Ejercicio 7 · Tipo de factura</div>
+    <div class="enunciado">Un supermercado (RI) vende artículos a una persona que <strong>no tiene CUIT</strong> (consumidor final). ¿Qué factura corresponde?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="v(7,this,false)">Factura A</button>
+      <button class="opcion" onclick="v(7,this,true)">Factura B</button>
+      <button class="opcion" onclick="v(7,this,false)">Factura C</button>
+      <button class="opcion" onclick="v(7,this,false)">No corresponde ninguna</button>
+    </div>
+    <div class="feedback" id="fb7"></div>
+  </div>
+
+  <!-- ej 8 -->
+  <div class="ejercicio" id="e8">
+    <div class="num-ej">Ejercicio 8 · Tipo de factura</div>
+    <div class="enunciado">Una profesora <strong>monotributista</strong> brinda clases particulares y emite comprobante. ¿Qué tipo de factura usa?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="v(8,this,false)">Factura A</button>
+      <button class="opcion" onclick="v(8,this,false)">Factura B</button>
+      <button class="opcion" onclick="v(8,this,true)">Factura C</button>
+      <button class="opcion" onclick="v(8,this,false)">No emite factura</button>
+    </div>
+    <div class="feedback" id="fb8"></div>
+  </div>
+
+  <!-- ej 9 -->
+  <div class="ejercicio" id="e9">
+    <div class="num-ej">Ejercicio 9 · ¿Qué documento falta?</div>
+    <div class="enunciado">Una empresa recibe mercadería y la factura, pero <strong>aún no pagó</strong>. ¿Qué documento del circuito todavía no se generó?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="v(9,this,false)">Nota de pedido</button>
+      <button class="opcion" onclick="v(9,this,false)">Remito</button>
+      <button class="opcion" onclick="v(9,this,false)">Factura</button>
+      <button class="opcion" onclick="v(9,this,true)">Recibo</button>
+    </div>
+    <div class="feedback" id="fb9"></div>
+  </div>
+
+  <!-- ej 10 -->
+  <div class="ejercicio" id="e10">
+    <div class="num-ej">Ejercicio 10 · Diferencia factura / recibo</div>
+    <div class="enunciado">¿Cuál de estas afirmaciones es <strong>correcta</strong>?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="v(10,this,false)">El recibo documenta la venta</button>
+      <button class="opcion" onclick="v(10,this,false)">La factura prueba que se cobró</button>
+      <button class="opcion" onclick="v(10,this,true)">La factura documenta la venta; el recibo prueba el cobro</button>
+      <button class="opcion" onclick="v(10,this,false)">Son el mismo documento con distinto nombre</button>
+    </div>
+    <div class="feedback" id="fb10"></div>
+  </div>
+
+  <!-- ej 11 -->
+  <div class="ejercicio" id="e11">
+    <div class="num-ej">Ejercicio 11 · Factura A y el IVA</div>
+    <div class="enunciado">En una Factura A, el IVA aparece…</div>
+    <div class="opciones">
+      <button class="opcion" onclick="v(11,this,false)">Incluido en el precio, sin detallar</button>
+      <button class="opcion" onclick="v(11,this,true)">Discriminado por separado del precio neto</button>
+      <button class="opcion" onclick="v(11,this,false)">No aparece porque el vendedor es monotributista</button>
+      <button class="opcion" onclick="v(11,this,false)">Solo si el comprador lo solicita</button>
+    </div>
+    <div class="feedback" id="fb11"></div>
+  </div>
+
+  <!-- ej 12 -->
+  <div class="ejercicio" id="e12">
+    <div class="num-ej">Ejercicio 12 · Caso completo</div>
+    <div class="enunciado">Un RI le vende a una <strong>escuela pública</strong> (que es entidad exenta de IVA). ¿Qué factura emite?</div>
+    <div class="opciones">
+      <button class="opcion" onclick="v(12,this,false)">Factura A (exento también es RI)</button>
+      <button class="opcion" onclick="v(12,this,true)">Factura B (el comprador no es RI)</button>
+      <button class="opcion" onclick="v(12,this,false)">Factura C (vende a institución)</button>
+      <button class="opcion" onclick="v(12,this,false)">No corresponde factura</button>
+    </div>
+    <div class="feedback" id="fb12"></div>
+  </div>
+
+  <div class="resultado-final" id="rfinal">
+    <div class="rf-pts" id="rf-pts">—</div>
+    <div class="rf-msg" id="rf-msg"></div>
+  </div>
+
+</div><!-- /p2 -->
+
+</div><!-- /caja -->
+
+<script>
+// ── TABS ──────────────────────────────────
+function tab(i) {
+  document.querySelectorAll('.nav-btn').forEach((b,j) => b.classList.toggle('on', i===j));
+  document.querySelectorAll('.panel').forEach((p,j) => p.classList.toggle('on', i===j));
+}
+
+// ── CIRCUITO ──────────────────────────────
+let docActivo = null;
+function abrirDoc(id) {
+  // cerrar anterior
+  if (docActivo) {
+    document.getElementById('dc-'+docActivo).classList.remove('show');
+    document.querySelector('.cp-'+docActivo).classList.remove('activo');
+  }
+  if (docActivo === id) { docActivo = null; return; }
+  docActivo = id;
+  const card = document.getElementById('dc-'+id);
+  card.classList.add('show');
+  document.querySelector('.cp-'+id).classList.add('activo');
+  setTimeout(() => card.scrollIntoView({behavior:'smooth', block:'nearest'}), 50);
+}
+
+// ── PRÁCTICA ──────────────────────────────
+let puntaje = 0;
+const resp = {};
+const TOTAL = 12;
+
+const FBs = {
+  1:  { ok:'✅ ¡Correcto! La nota de pedido la emite el COMPRADOR para solicitar mercadería.', mal:'❌ La nota de pedido la emite el comprador (Maderas del Sur) para solicitar la mercadería al vendedor.' },
+  2:  { ok:'✅ ¡Bien! El remito acompaña la entrega y es firmado por quien recibe.', mal:'❌ Es el remito: acompaña la mercadería y el receptor lo firma como prueba de recepción.' },
+  3:  { ok:'✅ ¡Exacto! El recibo prueba que se efectuó el pago.', mal:'❌ Es el recibo: lo emite el cobrador como prueba de que recibió el pago.' },
+  4:  { ok:'✅ ¡Correcto! La nota de crédito reduce la deuda; beneficia al comprador.', mal:'❌ Es una Nota de Crédito: el vendedor la emite cuando REDUCE lo que el comprador debe.' },
+  5:  { ok:'✅ ¡Bien! La nota de débito aumenta la deuda; perjudica al comprador.', mal:'❌ Es una Nota de Débito: el vendedor la emite cuando necesita cobrar un monto adicional no incluido en la factura.' },
+  6:  { ok:'✅ ¡Exacto! RI → RI siempre es Factura A, con IVA discriminado.', mal:'❌ Cuando AMBAS partes son RI, corresponde Factura A (IVA discriminado).' },
+  7:  { ok:'✅ ¡Correcto! RI que vende al consumidor final emite Factura B.', mal:'❌ RI que vende a consumidor final (sin CUIT) emite Factura B.' },
+  8:  { ok:'✅ ¡Bien! Los monotributistas emiten Factura C. No liquidan IVA: el precio que cobran es el precio final, sin impuesto encima ni adentro.', mal:'❌ Los monotributistas emiten Factura C. No liquidan IVA: el precio es el precio final, sin agregar ni incluir ningún porcentaje de IVA.' },
+  9:  { ok:'✅ ¡Exacto! El recibo se emite cuando se paga. Sin pago, no hay recibo.', mal:'❌ El recibo. Se genera recién cuando el comprador efectúa el pago.' },
+  10: { ok:'✅ ¡Correcto! Son momentos distintos: la factura documenta la venta; el recibo, el cobro.', mal:'❌ La factura documenta la venta (genera la deuda). El recibo documenta el cobro (cancela la deuda).' },
+  11: { ok:'✅ ¡Bien! En la Factura A el IVA siempre aparece discriminado (precio neto + IVA por separado).', mal:'❌ En la Factura A el IVA está discriminado: se muestra el precio neto y el IVA por separado.' },
+  12: { ok:'✅ ¡Exacto! Los exentos no son RI, por lo tanto el RI les emite Factura B.', mal:'❌ Una entidad exenta no es RI. El RI que vende a no-RI (exento incluido) siempre emite Factura B.' },
+};
+
+function v(num, btn, ok) {
+  if (resp[num]) return;
+  resp[num] = true;
+  const ej = document.getElementById('e'+num);
+  const fb = document.getElementById('fb'+num);
+  ej.querySelectorAll('.opcion').forEach(o => o.classList.add('bloqueado'));
+  if (ok) {
+    btn.classList.add('correcto'); ej.classList.add('correcto');
+    fb.className = 'feedback visible ok';
+    fb.textContent = FBs[num].ok;
+    puntaje++;
+  } else {
+    btn.classList.add('incorrecto'); ej.classList.add('incorrecto');
+    fb.className = 'feedback visible mal';
+    fb.textContent = FBs[num].mal;
+    ej.querySelectorAll('.opcion').forEach(o => {
+      if (o.getAttribute('onclick').includes('true')) o.classList.add('revelar');
+    });
+  }
+  document.getElementById('pts-txt').innerHTML = puntaje + ' <span>/ '+TOTAL+' pts</span>';
+  document.getElementById('barra').style.width = (puntaje/TOTAL*100)+'%';
+
+  if (Object.keys(resp).length === TOTAL) {
+    const pct = puntaje/TOTAL;
+    const msgs = ['💪 Seguí practicando, podés mejorar.','📚 Bien, pero hay que repasar algunos conceptos.','👍 Muy bien, vas por buen camino.','🎉 ¡Excelente! Dominás los documentos comerciales.','🏆 ¡Perfecto! ¡10/10!'];
+    const msg = pct < .4 ? msgs[0] : pct < .6 ? msgs[1] : pct < .8 ? msgs[2] : pct < 1 ? msgs[3] : msgs[4];
+    const rf = document.getElementById('rfinal');
+    document.getElementById('rf-pts').textContent = puntaje + ' / ' + TOTAL;
+    document.getElementById('rf-msg').textContent = msg;
+    rf.classList.add('visible');
+    setTimeout(() => rf.scrollIntoView({behavior:'smooth', block:'center'}), 300);
+  }
+}
+</script>
+</body>
+</html>
