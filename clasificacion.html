@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clasificación de Empresas - Ejercicios Interactivos</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green-primary: #2d6a4f;
+            --green-light: #52b788;
+            --green-pale: #d8f3dc;
+            --success: #40916c;
+            --error: #d62828;
+            --warning: #f77f00;
+            --gray-dark: #2b2d42;
+            --gray-light: #f0f3f4;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--green-primary) 0%, #1b4332 100%);
+            color: var(--gray-dark);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 40px;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            animation: slideUp 0.6s ease-out 0.1s both;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            border: none;
+            background: var(--white);
+            color: var(--green-primary);
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .tab-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .tab-btn.active {
+            background: var(--green-primary);
+            color: var(--white);
+        }
+
+        .exercise {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            display: none;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        .exercise.active {
+            display: block;
+        }
+
+        .exercise h2 {
+            color: var(--green-primary);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .exercise-info {
+            background: var(--green-pale);
+            padding: 15px;
+            border-left: 4px solid var(--green-primary);
+            margin-bottom: 20px;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        /* EJERCICIO 1: EMPAREJAMIENTO */
+        .matching-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .matching-column h3 {
+            color: var(--green-primary);
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .matching-item {
+            padding: 12px;
+            background: var(--gray-light);
+            border-radius: 6px;
+            margin-bottom: 10px;
+            cursor: move;
+            border-left: 4px solid var(--green-light);
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .matching-item:hover {
+            background: #e8f5f0;
+            transform: translateX(4px);
+        }
+
+        .matching-item.dragging {
+            opacity: 0.6;
+            transform: rotate(-2deg);
+        }
+
+        .matching-drop {
+            min-height: 300px;
+            background: #fafafa;
+            border: 2px dashed var(--green-light);
+            border-radius: 8px;
+            padding: 15px;
+        }
+
+        .matched-pair {
+            background: var(--green-pale);
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            border-left: 4px solid var(--success);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .remove-match {
+            background: var(--error);
+            color: var(--white);
+            border: none;
+            padding: 4px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85em;
+            transition: all 0.2s ease;
+        }
+
+        .remove-match:hover {
+            background: #c41e1e;
+        }
+
+        /* EJERCICIO 2: OPCIÓN MÚLTIPLE */
+        .question {
+            background: var(--gray-light);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .question-text {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--gray-dark);
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .option {
+            padding: 12px;
+            background: var(--white);
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.95em;
+        }
+
+        .option:hover {
+            border-color: var(--green-light);
+            background: var(--green-pale);
+        }
+
+        .option.selected {
+            border-color: var(--green-primary);
+            background: var(--green-pale);
+        }
+
+        .option.correct {
+            border-color: var(--success);
+            background: #d4edda;
+            color: var(--success);
+        }
+
+        .option.incorrect {
+            border-color: var(--error);
+            background: #f8d7da;
+        }
+
+        .feedback {
+            font-size: 0.9em;
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        /* EJERCICIO 3: CLASIFICACIÓN POR ARRASTRE */
+        .classification-item {
+            background: var(--green-pale);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--green-primary);
+            cursor: grab;
+            transition: all 0.2s ease;
+        }
+
+        .classification-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .classification-item:active {
+            cursor: grabbing;
+        }
+
+        .classification-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .category-drop {
+            min-height: 200px;
+            background: linear-gradient(135deg, var(--gray-light) 0%, #f5f5f5 100%);
+            border: 2px solid var(--green-light);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+        }
+
+        .category-title {
+            font-weight: 600;
+            color: var(--green-primary);
+            margin-bottom: 15px;
+            font-size: 0.95em;
+        }
+
+        .category-drop.drag-over {
+            background: var(--green-pale);
+            border-color: var(--green-primary);
+        }
+
+        .dropped-item {
+            background: var(--success);
+            color: var(--white);
+            padding: 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+            font-size: 0.85em;
+            cursor: grab;
+        }
+
+        /* RESULTADO Y BOTONES */
+        .result {
+            background: var(--gray-light);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        .result.success {
+            background: #d4edda;
+            border-left: 4px solid var(--success);
+            color: var(--success);
+        }
+
+        .result.error {
+            background: #f8d7da;
+            border-left: 4px solid var(--error);
+            color: var(--error);
+        }
+
+        .result-text {
+            font-weight: 600;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .score {
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+
+        button.submit {
+            background: var(--green-primary);
+            color: var(--white);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        button.submit:hover {
+            background: var(--success);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        button.reset {
+            background: var(--gray-dark);
+            color: var(--white);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            margin-left: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button.reset:hover {
+            background: #1a1d2e;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .matching-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .exercise {
+                padding: 20px;
+            }
+
+            .classification-categories {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Clasificación de Empresas</h1>
+            <p>Ejercicios Interactivos - 4toA Fundamentos de Gestión</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="switchExercise(0)">Ejercicio 1: Emparejamiento</button>
+            <button class="tab-btn" onclick="switchExercise(1)">Ejercicio 2: Opción Múltiple</button>
+            <button class="tab-btn" onclick="switchExercise(2)">Ejercicio 3: Clasificación</button>
+        </div>
+
+        <!-- EJERCICIO 1: EMPAREJAMIENTO -->
+        <div class="exercise active" id="exercise-0">
+            <h2>Ejercicio 1: Empareja Empresas con sus Características</h2>
+            <div class="exercise-info">
+                📌 Arrastra las empresas desde la izquierda hacia la característica correcta en la derecha.
+            </div>
+
+            <div class="matching-container">
+                <div class="matching-column">
+                    <h3>Empresas</h3>
+                    <div id="matching-items"></div>
+                </div>
+                <div class="matching-column">
+                    <h3>Características</h3>
+                    <div id="matching-drop1" class="matching-drop"></div>
+                </div>
+            </div>
+
+            <button class="submit" onclick="checkMatching()">Verificar Respuestas</button>
+            <button class="reset" onclick="resetExercise(0)">Reiniciar</button>
+            <div id="result-0" class="result"></div>
+        </div>
+
+        <!-- EJERCICIO 2: OPCIÓN MÚLTIPLE -->
+        <div class="exercise" id="exercise-1">
+            <h2>Ejercicio 2: Selecciona la Respuesta Correcta</h2>
+            <div class="exercise-info">
+                ✓ Elige la opción que mejor completa cada pregunta. Puedes verificar al final.
+            </div>
+
+            <div id="questions-container"></div>
+
+            <button class="submit" onclick="checkMultiple()">Verificar Respuestas</button>
+            <button class="reset" onclick="resetExercise(1)">Reiniciar</button>
+            <div id="result-1" class="result"></div>
+        </div>
+
+        <!-- EJERCICIO 3: CLASIFICACIÓN POR ARRASTRE -->
+        <div class="exercise" id="exercise-2">
+            <h2>Ejercicio 3: Clasifica Empresas en Múltiples Categorías</h2>
+            <div class="exercise-info">
+                🎯 Arrastra cada empresa a TODAS las categorías que le correspondan según su clasificación.
+            </div>
+
+            <div id="classification-items"></div>
+            <div class="classification-categories" id="categories-container"></div>
+
+            <button class="submit" onclick="checkClassification()">Verificar Respuestas</button>
+            <button class="reset" onclick="resetExercise(2)">Reiniciar</button>
+            <div id="result-2" class="result"></div>
+        </div>
+    </div>
+
+    <script>
+        // DATOS
+        const matchingData = [
+            { company: "Google", characteristic: "Global: presencia en todo el mundo" },
+            { company: "Kiosco del barrio", characteristic: "Local: opera en una ciudad o barrio" },
+            { company: "YPF", characteristic: "Mixta: capital compartido entre Estado y privados" },
+            { company: "Mercado Libre", characteristic: "Grande empresa: más de 200 empleados" },
+            { company: "Freelancer de programación", characteristic: "Unipersonal: una sola persona es dueña" }
+        ];
+
+        const multipleChoiceData = [
+            {
+                question: "Una empresa con 75 empleados se clasifica como:",
+                options: ["Microempresa", "Pequeña empresa", "Mediana empresa (PyME)", "Grande empresa"],
+                correct: 2
+            },
+            {
+                question: "El sector primario es el que:",
+                options: ["Presta servicios", "Transforma materias primas", "Extrae recursos naturales", "Distribuye productos"],
+                correct: 2
+            },
+            {
+                question: "Una S.R.L. tiene:",
+                options: ["Responsabilidad ilimitada", "Responsabilidad limitada al capital aportado", "Capital dividido en acciones", "Propiedad colectiva de trabajadores"],
+                correct: 1
+            },
+            {
+                question: "ANSES es una empresa:",
+                options: ["Privada", "Mixta", "Pública", "Multinacional"],
+                correct: 2
+            },
+            {
+                question: "Una empresa que opera en 5 provincias es:",
+                options: ["Local", "Regional", "Nacional", "Global"],
+                correct: 1
+            }
+        ];
+
+        const classificationData = [
+            {
+                company: "Globant",
+                correct: ["Grande empresa", "Privada", "Sector Terciario", "Nacional"]
+            },
+            {
+                company: "Una panadería del barrio",
+                correct: ["Microempresa", "Privada", "Sector Secundario", "Local"]
+            },
+            {
+                company: "Claro Argentina",
+                correct: ["Grande empresa", "Privada", "Sector Terciario", "Nacional"]
+            }
+        ];
+
+        let currentAnswers = {};
+
+        // INICIALIZACIÓN
+        function init() {
+            initMatching();
+            initMultiple();
+            initClassification();
+        }
+
+        // EJERCICIO 1: EMPAREJAMIENTO
+        function initMatching() {
+            const itemsDiv = document.getElementById('matching-items');
+            matchingData.forEach((item, idx) => {
+                const div = document.createElement('div');
+                div.className = 'matching-item';
+                div.draggable = true;
+                div.textContent = item.company;
+                div.dataset.index = idx;
+                
+                div.addEventListener('dragstart', (e) => {
+                    e.dataTransfer.effectAllowed = 'move';
+                    e.target.classList.add('dragging');
+                });
+                
+                div.addEventListener('dragend', (e) => {
+                    e.target.classList.remove('dragging');
+                });
+                
+                itemsDiv.appendChild(div);
+            });
+
+            const dropDiv = document.getElementById('matching-drop1');
+            dropDiv.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+
+            dropDiv.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const idx = e.dataTransfer.getData('text/html') ? null : null;
+            });
+        }
+
+        function checkMatching() {
+            const drop = document.getElementById('matching-drop1');
+            const pairs = drop.querySelectorAll('.matched-pair');
+            const result = document.getElementById('result-0');
+            
+            if (pairs.length === 0) {
+                result.classList.add('show', 'error');
+                result.innerHTML = '<div class="result-text">⚠️ Debes emparejar al menos una empresa</div>';
+                return;
+            }
+
+            let correct = 0;
+            pairs.forEach(pair => {
+                const text = pair.textContent;
+                const isCorrect = matchingData.some(item => text.includes(item.company) && text.includes(item.characteristic));
+                if (isCorrect) correct++;
+            });
+
+            result.classList.add('show');
+            result.classList.toggle('success', correct === matchingData.length);
+            result.classList.toggle('error', correct < matchingData.length);
+            result.innerHTML = `<div class="result-text">${correct === matchingData.length ? '✓ ¡Excelente!' : '✗ Revisa tus respuestas'}</div>
+                <div class="score">${correct}/${matchingData.length} emparejamientos correctos</div>`;
+        }
+
+        // EJERCICIO 2: OPCIÓN MÚLTIPLE
+        function initMultiple() {
+            const container = document.getElementById('questions-container');
+            multipleChoiceData.forEach((q, idx) => {
+                const div = document.createElement('div');
+                div.className = 'question';
+                div.innerHTML = `<div class="question-text">Pregunta ${idx + 1}: ${q.question}</div>
+                    <div class="options">
+                        ${q.options.map((opt, optIdx) => `
+                            <div class="option" onclick="selectOption(${idx}, ${optIdx})">
+                                ${opt}
+                            </div>
+                        `).join('')}
+                    </div>`;
+                container.appendChild(div);
+            });
+        }
+
+        function selectOption(qIdx, optIdx) {
+            currentAnswers[qIdx] = optIdx;
+            const options = document.querySelectorAll(`#questions-container .question`)[qIdx].querySelectorAll('.option');
+            options.forEach((opt, idx) => {
+                opt.classList.toggle('selected', idx === optIdx);
+            });
+        }
+
+        function checkMultiple() {
+            const result = document.getElementById('result-1');
+            let correct = 0;
+
+            multipleChoiceData.forEach((q, idx) => {
+                if (currentAnswers[idx] === q.correct) correct++;
+            });
+
+            result.classList.add('show');
+            result.classList.toggle('success', correct === multipleChoiceData.length);
+            result.classList.toggle('error', correct < multipleChoiceData.length);
+            result.innerHTML = `<div class="result-text">${correct === multipleChoiceData.length ? '✓ ¡Perfecto!' : '✗ Algunas respuestas son incorrectas'}</div>
+                <div class="score">${correct}/${multipleChoiceData.length} preguntas correctas</div>`;
+        }
+
+        // EJERCICIO 3: CLASIFICACIÓN
+        function initClassification() {
+            const itemsDiv = document.getElementById('classification-items');
+            classificationData.forEach((item) => {
+                const div = document.createElement('div');
+                div.className = 'classification-item';
+                div.draggable = true;
+                div.textContent = item.company;
+                div.dataset.company = item.company;
+                
+                div.addEventListener('dragstart', (e) => {
+                    e.dataTransfer.effectAllowed = 'copy';
+                    e.dataTransfer.setData('text/plain', item.company);
+                });
+                
+                itemsDiv.appendChild(div);
+            });
+
+            const allCategories = new Set();
+            classificationData.forEach(item => {
+                item.correct.forEach(cat => allCategories.add(cat));
+            });
+
+            const catContainer = document.getElementById('categories-container');
+            allCategories.forEach(cat => {
+                const div = document.createElement('div');
+                div.className = 'category-drop';
+                div.dataset.category = cat;
+                div.innerHTML = `<div class="category-title">${cat}</div>`;
+                
+                div.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    div.classList.add('drag-over');
+                });
+                
+                div.addEventListener('dragleave', () => {
+                    div.classList.remove('drag-over');
+                });
+                
+                div.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    div.classList.remove('drag-over');
+                    const company = e.dataTransfer.getData('text/plain');
+                    addClassification(company, cat);
+                });
+                
+                catContainer.appendChild(div);
+            });
+        }
+
+        function addClassification(company, category) {
+            const cat = document.querySelector(`[data-category="${category}"]`);
+            if (!cat.querySelector(`[data-company="${company}"]`)) {
+                const item = document.createElement('div');
+                item.className = 'dropped-item';
+                item.textContent = company;
+                item.dataset.company = company;
+                cat.appendChild(item);
+            }
+        }
+
+        function checkClassification() {
+            const result = document.getElementById('result-2');
+            let correct = 0;
+            let total = 0;
+
+            classificationData.forEach(item => {
+                item.correct.forEach(cat => {
+                    total++;
+                    const catDiv = document.querySelector(`[data-category="${cat}"]`);
+                    if (catDiv.querySelector(`[data-company="${item.company}"]`)) {
+                        correct++;
+                    }
+                });
+            });
+
+            result.classList.add('show');
+            result.classList.toggle('success', correct === total);
+            result.classList.toggle('error', correct < total);
+            result.innerHTML = `<div class="result-text">${correct === total ? '✓ ¡Correcto!' : '✗ Revisa las clasificaciones'}</div>
+                <div class="score">${correct}/${total} clasificaciones correctas</div>`;
+        }
+
+        // UTILIDADES
+        function switchExercise(idx) {
+            document.querySelectorAll('.exercise').forEach(e => e.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(`exercise-${idx}`).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function resetExercise(idx) {
+            location.reload();
+        }
+
+        // INICIAR
+        init();
+    </script>
+</body>
+</html>
