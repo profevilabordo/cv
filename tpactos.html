@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajo Práctico - Derecho</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --verde-eetp: #2d5016;
+            --verde-claro: #4a7c2c;
+            --gris-neutro: #f5f5f5;
+            --gris-oscuro: #333333;
+            --blanco: #ffffff;
+            --acento: #d9534f;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, var(--gris-neutro) 0%, #e8f0e0 100%);
+            color: var(--gris-oscuro);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .contenedor {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--blanco);
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--verde-eetp) 0%, var(--verde-claro) 100%);
+            color: var(--blanco);
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.2em;
+            margin-bottom: 8px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 1em;
+            opacity: 0.95;
+            margin-bottom: 5px;
+        }
+
+        .barra-info {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            font-size: 0.9em;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .controles {
+            background: var(--gris-neutro);
+            padding: 25px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .grupo-control {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .grupo-control label {
+            font-weight: 600;
+            color: var(--verde-eetp);
+            font-size: 0.95em;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            padding: 10px 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 0.95em;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus {
+            outline: none;
+            border-color: var(--verde-claro);
+        }
+
+        .botones {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 11px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95em;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-descargar {
+            background: var(--verde-eetp);
+            color: var(--blanco);
+        }
+
+        .btn-descargar:hover {
+            background: var(--verde-claro);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(45, 80, 22, 0.3);
+        }
+
+        .btn-blanco {
+            background: #f0f0f0;
+            color: var(--gris-oscuro);
+            border: 2px solid var(--verde-eetp);
+        }
+
+        .btn-blanco:hover {
+            background: var(--verde-eetp);
+            color: var(--blanco);
+        }
+
+        .btn-limpiar {
+            background: #e8e8e8;
+            color: var(--gris-oscuro);
+        }
+
+        .btn-limpiar:hover {
+            background: #d0d0d0;
+        }
+
+        .contenido {
+            padding: 40px 30px;
+        }
+
+        .pregunta {
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .pregunta:last-child {
+            border-bottom: none;
+        }
+
+        .numero-pregunta {
+            display: inline-block;
+            background: var(--verde-eetp);
+            color: var(--blanco);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 700;
+            margin-right: 12px;
+            font-size: 0.9em;
+        }
+
+        .pregunta h3 {
+            color: var(--gris-oscuro);
+            font-size: 1.05em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .respuesta-container {
+            margin-top: 12px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 15px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 0.95em;
+            resize: vertical;
+            transition: border-color 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--verde-claro);
+            background: #fafffe;
+        }
+
+        .alerta {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border-radius: 3px;
+            color: #856404;
+            font-size: 0.95em;
+        }
+
+        .nota-investigacion {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 12px 15px;
+            margin-top: 10px;
+            border-radius: 3px;
+            color: #0c5aa0;
+            font-size: 0.9em;
+        }
+
+        .pie {
+            background: var(--gris-neutro);
+            padding: 20px 30px;
+            text-align: center;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.6em;
+            }
+
+            .controles {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .grupo-control {
+                flex-direction: column;
+            }
+
+            input[type="text"],
+            input[type="email"] {
+                width: 100%;
+            }
+
+            .botones {
+                width: 100%;
+            }
+
+            button {
+                flex: 1;
+                min-width: 120px;
+            }
+
+            .contenido {
+                padding: 20px 15px;
+            }
+
+            .pregunta {
+                margin-bottom: 25px;
+                padding-bottom: 20px;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .contenedor {
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .controles {
+                display: none;
+            }
+
+            .pie {
+                display: none;
+            }
+        }
+
+        .enviado {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border-radius: 3px;
+            color: #155724;
+            display: none;
+        }
+
+        .enviado.mostrar {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <h1>Trabajo Práctico de Derecho</h1>
+            <p>EETP Nº 602 "Gral. José de San Martín"</p>
+            <div class="barra-info">
+                <p><strong>Estudiante:</strong> <span id="info-estudiante">Sin completar</span></p>
+            </div>
+        </header>
+
+        <div class="controles">
+            <div class="grupo-control">
+                <label for="nombre-estudiante">Nombre del estudiante:</label>
+                <input type="text" id="nombre-estudiante" placeholder="Ej: Juan Pérez">
+            </div>
+
+            <div class="grupo-control" style="margin-left: auto;">
+                <label for="email-estudiante">Email (opcional):</label>
+                <input type="email" id="email-estudiante" placeholder="tu@email.com">
+            </div>
+
+            <div class="botones">
+                <button class="btn-descargar" onclick="descargarPDF('completado')">📥 Descargar PDF</button>
+                <button class="btn-blanco" onclick="descargarPDF('blanco')">📄 PDF en Blanco</button>
+                <button class="btn-limpiar" onclick="limpiarRespuestas()">🗑️ Limpiar</button>
+            </div>
+        </div>
+
+        <div class="contenido">
+            <div id="mensaje-guardado" class="enviado"></div>
+
+            <div class="alerta">
+                <strong>💡 Tip:</strong> Tus respuestas se guardan automáticamente en tu navegador. Puedes cerrar y volver más tarde sin perder lo que escribiste.
+            </div>
+
+            <!-- PREGUNTA 1 -->
+            <div class="pregunta">
+                <h3>
+                    <span class="numero-pregunta">1</span>
+                    ¿Qué diferencia existe entre un simple hecho y un hecho jurídico? Ejemplifique.
+                </h3>
+                <div class="respuesta-container">
+                    <textarea id="respuesta-1" placeholder="Escribe tu respuesta aquí..."></textarea>
+                </div>
+            </div>
+
+            <!-- PREGUNTA 2 -->
+            <div class="pregunta">
+                <h3>
+                    <span class="numero-pregunta">2</span>
+                    ¿Cuáles pueden ser las consecuencias jurídicas de un hecho? De ejemplos de cada una.
+                </h3>
+                <div class="respuesta-container">
+                    <textarea id="respuesta-2" placeholder="Escribe tu respuesta aquí..."></textarea>
+                </div>
+            </div>
+
+            <!-- PREGUNTA 3 -->
+            <div class="pregunta">
+                <h3>
+                    <span class="numero-pregunta">3</span>
+                    ¿Qué son los hechos voluntarios y como se clasifican (art. 260)? Ejemplifique.
+                </h3>
+                <div class="respuesta-container">
+                    <textarea id="respuesta-3" placeholder="Escribe tu respuesta aquí..."></textarea>
+                </div>
+            </div>
+
+            <!-- PREGUNTA 4 -->
+            <div class="pregunta">
+                <h3>
+                    <span class="numero-pregunta">4</span>
+                    ¿Cómo define entonces "acto jurídico lícito" (art. 259)? Ejemplifique.
+                </h3>
+                <div class="respuesta-container">
+                    <textarea id="respuesta-4" placeholder="Escribe tu respuesta aquí..."></textarea>
+                </div>
+            </div>
+
+            <!-- PREGUNTA 5 -->
+            <div class="pregunta">
+                <h3>
+                    <span class="numero-pregunta">5</span>
+                    ¿Cómo se clasifican los actos ilícitos? Defina con ejemplos aclarando el significado de: acto ilícito, dolo, culpa, negligencia, imprudencia.
+                </h3>
+                <div class="respuesta-container">
+                    <textarea id="respuesta-5" placeholder="Escribe tu respuesta aquí..."></textarea>
+                </div>
+            </div>
+
+            <!-- PREGUNTA 6 -->
+            <div class="pregunta">
+                <h3>
+                    <span class="numero-pregunta">6</span>
+                    Indique a qué categoría pertenecen los siguientes hechos:
+                </h3>
+                <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; margin-top: 12px; font-size: 0.95em;">
+                    <p style="margin-bottom: 8px;"><strong>a)</strong> Un violento tornado derriba el muro divisorio de dos propiedades.</p>
+                    <p style="margin-bottom: 8px;"><strong>b)</strong> Un club adquiere la propiedad que pertenecía a un particular, con el objetivo de construir un gimnasio.</p>
+                    <p style="margin-bottom: 8px;"><strong>c)</strong> Un hombre vende con documentos falsos una casa que no le pertenecía.</p>
+                    <p style="margin-bottom: 8px;"><strong>d)</strong> Un conductor, debido a una falla técnica del automóvil, atropella a un peatón, causándole heridas.</p>
+                    <p><strong>e)</strong> Una chica de 8 años de edad se apodera de una bicicleta perteneciente a un vecino, que éste había dejado en la vereda.</p>
+                </div>
+                <div class="respuesta-container">
+                    <textarea id="respuesta-6" placeholder="a) ... b) ... c) ... d) ... e) ..."></textarea>
+                </div>
+            </div>
+
+            <!-- PREGUNTA 7 -->
+            <div class="pregunta">
+                <h3>
+                    <span class="numero-pregunta">7</span>
+                    Imagine y describa:
+                </h3>
+                <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; margin-top: 12px; font-size: 0.95em;">
+                    <p style="margin-bottom: 8px;"><strong>a)</strong> Tres hechos naturales sin consecuencias jurídicas</p>
+                    <p style="margin-bottom: 8px;"><strong>b)</strong> Tres hechos naturales con consecuencias jurídicas</p>
+                    <p style="margin-bottom: 8px;"><strong>c)</strong> Tres hechos humanos involuntarios</p>
+                    <p><strong>d)</strong> Tres actos jurídicos</p>
+                </div>
+                <div class="respuesta-container">
+                    <textarea id="respuesta-7" placeholder="a) ... b) ... c) ... d) ..."></textarea>
+                </div>
+            </div>
+
+            <!-- PREGUNTA 8 -->
+            <div class="pregunta">
+                <h3>
+                    <span class="numero-pregunta">8</span>
+                    ¿Qué cosas y hechos no pueden ser objeto de un acto jurídico? Lea el artículo 279 del Código Civil, explíquelo y ejemplifique cada uno de los supuestos.
+                </h3>
+                <div class="respuesta-container">
+                    <textarea id="respuesta-8" placeholder="Escribe tu respuesta aquí..."></textarea>
+                </div>
+            </div>
+
+            <!-- PREGUNTA 9 -->
+            <div class="pregunta">
+                <h3>
+                    <span class="numero-pregunta">9</span>
+                    Haga un cuadro sinóptico con la clasificación de los actos jurídicos, ejemplificando cada caso.
+                </h3>
+                <div class="respuesta-container">
+                    <textarea id="respuesta-9" placeholder="Puedes describir el cuadro en forma de esquema o texto..."></textarea>
+                </div>
+            </div>
+
+            <!-- PREGUNTA 10 -->
+            <div class="pregunta">
+                <h3>
+                    <span class="numero-pregunta">10</span>
+                    ¿Qué es un instrumento privado, cuáles sus requisitos y cuál su valor probatorio?
+                </h3>
+                <div class="respuesta-container">
+                    <textarea id="respuesta-10" placeholder="Escribe tu respuesta aquí..."></textarea>
+                </div>
+            </div>
+
+            <!-- PREGUNTA 11 -->
+            <div class="pregunta">
+                <h3>
+                    <span class="numero-pregunta">11</span>
+                    ¿Qué es un instrumento público, cuáles sus requisitos y cuál su valor probatorio?
+                </h3>
+                <div class="respuesta-container">
+                    <textarea id="respuesta-11" placeholder="Escribe tu respuesta aquí..."></textarea>
+                </div>
+            </div>
+
+            <!-- PREGUNTA 12 -->
+            <div class="pregunta">
+                <h3>
+                    <span class="numero-pregunta">12</span>
+                    Visitar una escribanía, entrevistar a su personal y redactar un informe.
+                </h3>
+                <div class="nota-investigacion">
+                    <strong>📋 Incluye en tu informe:</strong> Funciones de un escribano • Actividades habituales • Actos jurídicos más frecuentes • Utilidad social • Requisitos para ejercer como escribano público
+                </div>
+                <div class="respuesta-container">
+                    <textarea id="respuesta-12" placeholder="Redacta aquí tu informe sobre la visita a la escribanía..."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="pie">
+            <p>Trabajo Práctico Interactivo | EETP Nº 602 | Creado con ❤️ para facilitar tu aprendizaje</p>
+        </div>
+    </div>
+
+    <script>
+        const idRespuestas = 12;
+        
+        // Cargar respuestas guardadas
+        function cargarRespuestas() {
+            for (let i = 1; i <= idRespuestas; i++) {
+                const textarea = document.getElementById(`respuesta-${i}`);
+                const guardada = localStorage.getItem(`respuesta-${i}`);
+                if (guardada) {
+                    textarea.value = guardada;
+                }
+            }
+            
+            const nombreGuardado = localStorage.getItem('nombre-estudiante');
+            if (nombreGuardado) {
+                document.getElementById('nombre-estudiante').value = nombreGuardado;
+            }
+
+            const emailGuardado = localStorage.getItem('email-estudiante');
+            if (emailGuardado) {
+                document.getElementById('email-estudiante').value = emailGuardado;
+            }
+
+            actualizarNombreHeader();
+        }
+
+        // Guardar respuestas cuando se escriben
+        document.addEventListener('input', function(e) {
+            if (e.target.tagName === 'TEXTAREA') {
+                const id = e.target.id;
+                localStorage.setItem(id, e.target.value);
+            } else if (e.target.id === 'nombre-estudiante' || e.target.id === 'email-estudiante') {
+                localStorage.setItem(e.target.id, e.target.value);
+                if (e.target.id === 'nombre-estudiante') {
+                    actualizarNombreHeader();
+                }
+            }
+        });
+
+        function actualizarNombreHeader() {
+            const nombre = document.getElementById('nombre-estudiante').value || 'Sin completar';
+            document.getElementById('info-estudiante').textContent = nombre;
+        }
+
+        function limpiarRespuestas() {
+            if (confirm('¿Estás seguro de que deseas limpiar todas las respuestas? Esta acción no se puede deshacer.')) {
+                for (let i = 1; i <= idRespuestas; i++) {
+                    localStorage.removeItem(`respuesta-${i}`);
+                    document.getElementById(`respuesta-${i}`).value = '';
+                }
+                localStorage.removeItem('nombre-estudiante');
+                localStorage.removeItem('email-estudiante');
+                document.getElementById('nombre-estudiante').value = '';
+                document.getElementById('email-estudiante').value = '';
+                actualizarNombreHeader();
+                mostrarMensaje('✅ Respuestas limpiadas correctamente');
+            }
+        }
+
+        function mostrarMensaje(texto) {
+            const div = document.getElementById('mensaje-guardado');
+            div.textContent = texto;
+            div.classList.add('mostrar');
+            setTimeout(() => {
+                div.classList.remove('mostrar');
+            }, 3000);
+        }
+
+        function descargarPDF(tipo) {
+            const nombre = document.getElementById('nombre-estudiante').value || 'Estudiante';
+            const contenedor = document.querySelector('.contenedor');
+            
+            const opcionesHtml2Pdf = {
+                margin: 10,
+                filename: `TP_Derecho_${nombre.replace(/\s+/g, '_')}_${tipo}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+            };
+
+            if (tipo === 'blanco') {
+                // Crear versión en blanco
+                const contenedorClon = contenedor.cloneNode(true);
+                
+                // Limpiar todas las textareas
+                const textareas = contenedorClon.querySelectorAll('textarea');
+                textareas.forEach(ta => ta.value = '');
+                
+                // Ocultar controles
+                contenedorClon.querySelector('.controles').style.display = 'none';
+                contenedorClon.querySelector('#mensaje-guardado').style.display = 'none';
+                
+                // Crear div temporal
+                const temp = document.createElement('div');
+                temp.style.display = 'none';
+                temp.appendChild(contenedorClon);
+                document.body.appendChild(temp);
+                
+                opcionesHtml2Pdf.filename = `TP_Derecho_EN_BLANCO.pdf`;
+                html2pdf().set(opcionesHtml2Pdf).from(contenedorClon).save().then(() => {
+                    document.body.removeChild(temp);
+                });
+            } else {
+                // Descargar con respuestas
+                const contenedorClon = contenedor.cloneNode(true);
+                contenedorClon.querySelector('.controles').style.display = 'none';
+                contenedorClon.querySelector('#mensaje-guardado').style.display = 'none';
+                
+                const temp = document.createElement('div');
+                temp.style.display = 'none';
+                temp.appendChild(contenedorClon);
+                document.body.appendChild(temp);
+                
+                html2pdf().set(opcionesHtml2Pdf).from(contenedorClon).save().then(() => {
+                    document.body.removeChild(temp);
+                    mostrarMensaje('✅ PDF descargado correctamente');
+                });
+            }
+        }
+
+        // Cargar respuestas cuando se carga la página
+        window.addEventListener('load', cargarRespuestas);
+    </script>
+</body>
+</html>
