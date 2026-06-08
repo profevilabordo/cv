@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Economía Unidad 1 - Guía Carpeta y Actividades</title>
+<style>
+* { 
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
+}
+
+body { 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.8; 
+  color: #333;
+  background-color: #f9f9f9;
+  padding: 0;
+}
+
+.container { 
+  max-width: 950px; 
+  margin: 0 auto;
+  padding: 2rem 1.5rem; 
+  background-color: white;
+}
+
+.header { 
+  background: linear-gradient(135deg, #1e5abe 0%, #3b82f6 100%);
+  color: white;
+  padding: 2.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.header h1 { 
+  font-size: 32px; 
+  font-weight: 600; 
+  margin-bottom: 0.5rem; 
+}
+
+.header p { 
+  font-size: 16px;
+  opacity: 0.95;
+}
+
+.section { 
+  margin-bottom: 3rem; 
+}
+
+.section-title { 
+  font-size: 22px; 
+  font-weight: 600; 
+  margin-bottom: 1.5rem; 
+  padding-bottom: 1rem; 
+  border-bottom: 3px solid #2563eb;
+  color: #1e5abe;
+}
+
+.card { 
+  background: #f5f7fa;
+  border-radius: 10px;
+  padding: 1.5rem; 
+  margin-bottom: 1.5rem; 
+  border-left: 5px solid;
+}
+
+.card.info { 
+  border-left-color: #2563eb;
+  background: #eff6ff;
+}
+
+.card.success { 
+  border-left-color: #059669;
+  background: #f0fdf4;
+}
+
+.card.warning { 
+  border-left-color: #d97706;
+  background: #fffbeb;
+}
+
+.card h3 { 
+  font-size: 18px; 
+  font-weight: 600; 
+  margin-bottom: 0.8rem;
+  color: #1e5abe;
+}
+
+.card p { 
+  font-size: 15px; 
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 0.8rem;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.tag { 
+  display: inline-block;
+  background: #e0e7ff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-right: 0.8rem;
+  margin-bottom: 0.8rem;
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.activity { 
+  background: #f5f7fa;
+  border-radius: 10px;
+  padding: 1.5rem; 
+  margin-bottom: 1.5rem; 
+  border-top: 4px solid #2563eb;
+  border-left: 1px solid #e5e7eb;
+}
+
+.activity-number { 
+  display: inline-block;
+  background: #2563eb;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-weight: 700;
+  font-size: 16px;
+  margin-right: 1rem;
+  vertical-align: middle;
+}
+
+.activity h3 { 
+  font-size: 17px; 
+  font-weight: 600; 
+  margin-bottom: 1rem;
+  color: #1e5abe;
+  display: flex;
+  align-items: center;
+}
+
+.activity p { 
+  color: #555;
+  font-size: 15px; 
+  margin-bottom: 1rem;
+  line-height: 1.7;
+}
+
+.activity ul { 
+  margin-left: 1.8rem; 
+  margin-bottom: 1rem;
+}
+
+.activity li { 
+  font-size: 15px; 
+  margin-bottom: 0.6rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.theory-box { 
+  background: #fafbfc;
+  padding: 1.2rem; 
+  border-radius: 8px;
+  margin-bottom: 1.2rem;
+  border-left: 4px solid #3b82f6;
+  border-top: 1px solid #e5e7eb;
+}
+
+.theory-box strong { 
+  color: #1e5abe;
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+.theory-box p {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.8;
+  margin-bottom: 0.8rem;
+}
+
+.theory-box p:last-child {
+  margin-bottom: 0;
+}
+
+.theory-box ul {
+  margin-left: 1.8rem;
+  margin-top: 0.8rem;
+}
+
+.theory-box li {
+  color: #555;
+  font-size: 15px;
+  margin-bottom: 0.6rem;
+  line-height: 1.6;
+}
+
+.highlight { 
+  background: #fef3c7;
+  padding: 1.5rem; 
+  border-radius: 10px;
+  border-left: 5px solid #d97706;
+  margin: 1.5rem 0;
+}
+
+.highlight-title { 
+  font-weight: 700;
+  color: #92400e;
+  margin-bottom: 0.8rem;
+  font-size: 16px;
+}
+
+.highlight p {
+  color: #78350f;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.highlight-info {
+  background: #dbeafe;
+  border-left-color: #2563eb;
+}
+
+.highlight-info .highlight-title {
+  color: #1e40af;
+}
+
+.highlight-info p {
+  color: #1e3a8a;
+}
+
+code { 
+  background: #f0f1f3;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+}
+
+.footer { 
+  background: #f0fdf4;
+  padding: 2rem; 
+  border-radius: 10px;
+  margin-top: 3rem;
+  border-top: 4px solid #059669;
+  border-left: 1px solid #bbf7d0;
+}
+
+.footer h3 { 
+  font-size: 18px; 
+  font-weight: 600; 
+  margin-bottom: 1.5rem;
+  color: #166534;
+}
+
+.footer ul { 
+  list-style: none;
+  padding: 0;
+}
+
+.footer li { 
+  font-size: 15px; 
+  margin-bottom: 1rem;
+  color: #555;
+  padding-left: 2rem;
+  position: relative;
+  line-height: 1.7;
+}
+
+.footer li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #059669;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.divider { 
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #d1d5db, transparent);
+  margin: 2.5rem 0;
+}
+
+.instruction-box {
+  background: #f0f4f8;
+  padding: 1.2rem;
+  border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+  margin-bottom: 1.2rem;
+}
+
+.instruction-box p {
+  color: #1e3a8a;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+}
+
+.instruction-box strong {
+  color: #1e40af;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .header {
+    padding: 1.5rem;
+  }
+  
+  .header h1 {
+    font-size: 24px;
+  }
+  
+  .section-title {
+    font-size: 18px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+  <h1>📚 ECONOMÍA - UNIDAD 1</h1>
+  <p>Guía completa: teoría para carpeta + actividades + instrucciones de entrega</p>
+</div>
+
+<!-- INSTRUCCIONES GENERALES -->
+<div class="section">
+  <div class="section-title">📋 Instrucciones generales</div>
+  <div class="card info">
+    <h3>Cómo usar esta guía</h3>
+    <p><strong>Paso 1:</strong> Fijate qué teoría YA TIENEN en carpeta (no hay que copiar nuevamente).</p>
+    <p><strong>Paso 2:</strong> Copia la TEORÍA NUEVA a tu carpeta (todo está redactado y listo para copiar).</p>
+    <p><strong>Paso 3:</strong> Realiza TODAS las actividades propuestas (aplican a toda la teoría del PDF).</p>
+    <p><strong>Paso 4:</strong> Presenta las respuestas según las instrucciones de entrega.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- QUÉ YA TIENEN -->
+<div class="section">
+  <div class="section-title">✅ Qué ya tienen en carpeta (NO COPIEN ESTO)</div>
+  <div class="card warning">
+    <h3>Temas que ya cubrimos</h3>
+    <p>Estos temas ya fueron incluidos en la carpeta anterior. <strong>NO hay que copiarlos nuevamente:</strong></p>
+    <div style="margin-top: 1.2rem;">
+      <span class="tag">• La Primera Revolución Industrial (1760–1840)</span><br>
+      <span class="tag">• Adam Smith y la Economía Moderna</span><br>
+      <span class="tag">• Otros Economistas Clásicos (Ricardo, Malthus, Mill)</span><br>
+      <span class="tag">• Consecuencias Sociales de la Primera Revolución Industrial</span>
+    </div>
+    <p style="margin-top: 1.5rem; font-size: 15px; color: #92400e;"><strong>⚠️ Si no tienen estos apuntes en carpeta, avisen a la profe ahora mismo.</strong> El resto de la teoría sí hay que copiar.</p>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- TEORÍA NUEVA -->
+<div class="section">
+  <div class="section-title">✏️ Teoría NUEVA para copiar a la carpeta</div>
+  
+  <div class="highlight highlight-info" style="border-left-color: #059669; background: #f0fdf4;">
+    <div class="highlight-title" style="color: #166534;">📌 INDICACIÓN IMPORTANTE</div>
+    <p style="color: #166534;">Copien cada uno de los siguientes apartados tal cual aparecen aquí. Usen <strong>títulos y subtítulos</strong>. Pueden subrayar con color o resaltar los conceptos clave. Si escriben a mano, letra clara. Si lo pasan en limpio a Word, usen fuente de mínimo 12pt.</p>
+  </div>
+
+  <!-- TEMA 1 -->
+  <div class="theory-box">
+    <strong>TEMA 1: LA SEGUNDA REVOLUCIÓN INDUSTRIAL (1870–1914)</strong>
+    <p>Entre 1870 y 1914, la Segunda Revolución Industrial marcó un punto de inflexión respecto a su predecesora al pasar del predominio del carbón y el hierro a la era del acero, la electricidad y el petróleo.</p>
+    <p>A diferencia de la primera fase, esta etapa se caracterizó por una profunda integración entre la ciencia aplicada y la producción industrial, permitiendo procesos de manufactura más complejos y eficientes. Estos avances tecnológicos no solo transformaron los sistemas de producción, sino que dieron lugar a una economía global altamente interconectada.</p>
+    
+    <p><strong>Avances tecnológicos principales:</strong></p>
+    <ul>
+      <li><strong>Electricidad:</strong> Edison (bombilla), Tesla (corriente alterna). Permitió iluminación 24 horas y mayor precisión en la manufactura.</li>
+      <li><strong>Petróleo y motor:</strong> Pozo petrolífero comercial (1859), automóvil de Benz (1885), primer vuelo de los hermanos Wright (1903).</li>
+      <li><strong>Química:</strong> Tintes sintéticos, fertilizantes artificiales, desarrollo de la industria farmacéutica.</li>
+      <li><strong>Comunicaciones:</strong> Teléfono (1876), radio (1895), cine (1895). Estos permitieron la transmisión de información a nivel global.</li>
+    </ul>
+  </div>
+
+  <!-- TEMA 2 -->
+  <div class="theory-box">
+    <strong>TEMA 2: LA CRISIS DE SUPERPRODUCCIÓN DE 1873 – CONTEXTO Y CAUSAS</strong>
+    
+    <p><strong>¿Qué pasó antes de la crisis? (1850–1873): Un auge económico sin frenos</strong></p>
+    <p>Entre 1850 y 1873, el mundo capitalista experimentó un crecimiento económico acelerado. Esto fue impulsado por:</p>
+    <ul>
+      <li><strong>Expansión ferroviaria:</strong> Construcción masiva de vías férreas en Europa, EE.UU. y otras regiones. Demandó inversiones enormes y generó burbujas especulativas (inversores apostaban a que los ferrocarriles siempre traerían ganancias).</li>
+      <li><strong>Innovaciones tecnológicas:</strong> Mejoras en máquinas de vapor, acero (proceso Bessemer), telégrafo. Todo multiplicaba la capacidad productiva.</li>
+      <li><strong>Mundialización económica:</strong> Reducción de aranceles, mejora de transportes marítimos. Los mercados se abrían entre naciones.</li>
+      <li><strong>Sobreproducción:</strong> LA CLAVE. La oferta de bienes (textiles, acero, ferrocarriles, etc.) superó la demanda efectiva (lo que la gente podía realmente comprar). ¿Por qué? Porque la riqueza estaba concentrada en pocas manos (capitalistas, terratenientes). Los trabajadores ganaban poco y no podían comprar lo que se producía.</li>
+    </ul>
+
+    <p><strong>La chispa de la crisis: Octubre de 1873</strong></p>
+    <p>El colapso vino de un evento específico: el quiebre del banco Jay Cooke & Company en Filadelfia (20 de septiembre de 1873). Este era el principal financista del ferrocarril Northern Pacific Railway. El banco había invertido masivamente en ferrocarriles (como todos creían que sería rentable). Pero cuando una emisión de bonos fracasó, el banco quebró. El pánico estalló en Nueva York. Los inversores vendían acciones desesperadamente.</p>
+    <p><strong>El contagio global:</strong> La crisis se extendió rápidamente a través de los mercados interconectados. Alemania sufrió una crisis bancaria. Viena tuvo el "Viernes Negro". Desde Londres a Buenos Aires, los mercados se desplomaban.</p>
+  </div>
+
+  <!-- TEMA 3 -->
+  <div class="theory-box">
+    <strong>TEMA 3: LA GRAN DEPRESIÓN DEL SIGLO XIX (1873–1896)</strong>
+    <p>Tras el crash, la economía entró en un largo estancamiento de 23 años. Fue la primera gran crisis sistémica global del capitalismo.</p>
+    
+    <p><strong>Consecuencias en cadena:</strong></p>
+    <ul>
+      <li><strong>Deflación y caída de precios:</strong> Con la sobreproducción, los precios se desplomaban. Un empresario que producía acero veía sus ganancias colapsar. Dejaba de invertir. Menos inversión = menos producción = menos empleos.</li>
+      <li><strong>Quiebras en cascada:</strong> Numerosos bancos y empresas quebró. El crédito se congeló (los bancos no prestaban dinero porque tenían miedo). Sin crédito, las inversiones se paralizaban.</li>
+      <li><strong>Desempleo masivo:</strong> Millones perdieron empleos. En EE.UU., el desempleo alcanzó el 14% en 1876 (un número enorme para la época). En ciudades manufactureras, era mucho peor.</li>
+      <li><strong>Pobreza y sufrimiento social:</strong> Trabajadores sin dinero, familias en la miseria, hacinamiento en ciudades, hambre.</li>
+      <li><strong>Impacto global diferenciado:</strong> Fue la PRIMERA GRAN CRISIS SISTÉMICA. Países como Argentina, que dependían de exportar alimentos baratos a Europa, sufrieron especialmente. Los precios de sus productos cayeron. Las inversiones extranjeras en Argentina se frenaron.</li>
+    </ul>
+
+    <p><strong>Lección histórica fundamental:</strong> La crisis de 1873 demostró que el capitalismo tiene inestabilidades intrínsecas. Las crisis pueden ser globales. El libre mercado NO garantiza prosperidad automática. Estos problemas reaparecerían aún más devastadoramente en 1929.</p>
+  </div>
+
+  <!-- TEMA 4 -->
+  <div class="theory-box">
+    <strong>TEMA 4: RESPUESTAS A LA CRISIS (1873–1896 Y DESPUÉS)</strong>
+    
+    <p><strong>A) Cuestionamiento del liberalismo económico</strong></p>
+    <p>La crisis fue un golpe demoledor para la confianza en Adam Smith y la "mano invisible". Si el mercado se autorregulaba, ¿por qué colapsó así? ¿Por qué millones sufrían? Las respuestas:</p>
+    <ul>
+      <li>La crisis demostró que el mercado NO siempre se autocorregía cuando enfrentaba crisis severas.</li>
+      <li>Quedó claro que había "fallos del mercado": competencia destructiva, sobreproducción, desigualdad estructural.</li>
+      <li>Surgió la idea de que era necesaria la intervención gubernamental para estabilizar la economía (idea que después desarrollaría Keynes).</li>
+    </ul>
+
+    <p><strong>B) Proteccionismo comercial</strong></p>
+    <p>Muchos países europeos, frente a mercados saturados y competencia feroz, abandonaron el libre comercio. Implementaron aranceles altos (impuestos a importaciones) para proteger sus industrias nacionales. Alemania, Francia, EE.UU. subieron aranceles.</p>
+    <p>Esto desencadenó "guerras comerciales" entre potencias, cada una tratando de proteger su producción.</p>
+    <p><strong>Impacto en Argentina:</strong> Como país productor de alimentos (trigo, carne), Argentina fue profundamente afectada. Europa levantó barreras a sus productos agrícolas, pese a la demanda global de alimentos. Las ganancias por exportación cayeron.</p>
+
+    <p><strong>C) Imperialismo acelerado</strong></p>
+    <p>Ante mercados saturados en Europa, las potencias industriales se lanzaron en una "carrera frenética por colonias". Buscaban:</p>
+    <ul>
+      <li>Nuevos mercados cautivos (colonias donde vender sus productos).</li>
+      <li>Fuentes baratas de materias primas (algodón, caucho, metales).</li>
+    </ul>
+    <p>Esto intensificó la conquista de África y Asia. Frecuentemente con conflictos y violencia. Argentina, aunque no fue colonizada formalmente, se integró a este sistema como proveedor de materias primas y mercado para productos europeos.</p>
+
+    <p><strong>D) Movimiento obrero radicalizados</strong></p>
+    <p>La crisis intensificó el sufrimiento de los trabajadores. Como respuesta, el movimiento obrero se organizó y radicalizó:</p>
+    <ul>
+      <li><strong>Sindicatos:</strong> Trabajadores se agrupaban para defender derechos colectivos, negocias salarios, organizar huelgas.</li>
+      <li><strong>Ideologías revolucionarias:</strong> El socialismo y el anarquismo ganaban adeptos. ¿Por qué? Porque la crisis mostraba que el capitalismo generaba contradicciones insolubles: riqueza concentrada, miseria masiva, ciclos de crisis.</li>
+      <li><strong>La Primera Internacional:</strong> En 1876 se formó la Primera Internacional Obrera, uniendo sindicatos y organizaciones obreras de varios países para acción coordinada.</li>
+      <li><strong>Huelgas masivas:</strong> Confrontación directa entre el capital (empresarios y gobiernos) y el trabajo (obreros organizados).</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- ACTIVIDADES -->
+<div class="section">
+  <div class="section-title">📝 ACTIVIDADES</div>
+
+  <div class="highlight highlight-info">
+    <div class="highlight-title">📌 Indicaciones para las actividades</div>
+    <p style="margin-bottom: 0;">Realicen <strong>TODAS las actividades</strong> que aparecen abajo. Pueden hacerlas en la carpeta a mano, o en Word, o en un documento digital. Las respuestas hay que entregarlas según las instrucciones al final.</p>
+  </div>
+
+  <!-- ACT 1 -->
+  <div class="activity">
+    <h3><span class="activity-number">1</span>Línea de tiempo</h3>
+    <p>Ordenen cronológicamente los siguientes eventos y ubíquenlos en una línea de tiempo (pueden dibujarla):</p>
+    <ul>
+      <li>Auge económico pre-crisis (1850–1873)</li>
+      <li>Quiebra de Jay Cooke & Company (20 de septiembre de 1873)</li>
+      <li>Pánico bursátil global / Crisis de Viena (1873)</li>
+      <li>Gran Depresión del siglo XIX (1873–1896)</li>
+      <li>Pico de desempleo en EE.UU. (1876, alcanza 14%)</li>
+      <li>Fin de la Gran Depresión (1896)</li>
+    </ul>
+    <p><strong>¿Qué deben incluir?</strong> La línea con los eventos + al lado de CADA uno, escriban 2–3 líneas explicando POR QUÉ fue importante.</p>
+  </div>
+
+  <!-- ACT 2 -->
+  <div class="activity">
+    <h3><span class="activity-number">2</span>Comparación: Primera vs Segunda Revolución Industrial</h3>
+    <p>Hagan un <strong>cuadro comparativo</strong> (tabla de dos columnas: Primera / Segunda) con estos aspectos:</p>
+    <ul>
+      <li>Período (años)</li>
+      <li>Fuentes de energía principales</li>
+      <li>Sectores industriales más importantes</li>
+      <li>Integración entre ciencia y producción industrial (baja/media/alta)</li>
+      <li>Nivel de globalización/interconexión económica</li>
+      <li>3 innovaciones tecnológicas clave</li>
+    </ul>
+    <p><strong>Consejo:</strong> Usen una tabla clara, pueden hacerla a mano con regla o en Word.</p>
+  </div>
+
+  <!-- ACT 3 -->
+  <div class="activity">
+    <h3><span class="activity-number">3</span>Análisis: ¿Cuáles fueron las principales CAUSAS de la crisis de 1873?</h3>
+    <p>Escriban con sus propias palabras: ¿Cuáles fueron los <strong>TRES PRINCIPALES factores</strong> que llevaron a la crisis de 1873? Justifiquen cada uno con ejemplos del texto.</p>
+    <p><strong>Pistas:</strong> Piensen en: sobreproducción, expansión ferroviaria especulativa, desigualdad en la distribución de riqueza, butujas en mercados financieros.</p>
+    <p><strong>Extensión:</strong> 10–15 líneas aproximadamente (pueden ser más).</p>
+  </div>
+
+  <!-- ACT 4 -->
+  <div class="activity">
+    <h3><span class="activity-number">4</span>Consecuencias en cadena</h3>
+    <p>Conecten con flechas cómo una consecuencia llevó a la siguiente. Completen los espacios vacíos:</p>
+    <div class="instruction-box" style="background: #e0f4ff; border-left-color: #0284c7;">
+      <p><strong>Sobreproducción</strong> → <strong>Caída de precios</strong> → <strong>?</strong> → <strong>?</strong> → <strong>Desempleo masivo</strong> → <strong>Descontento social</strong> → <strong>?</strong></p>
+    </div>
+    <p style="margin-top: 1rem;"><strong>Completen los espacios vacíos</strong> basándose en lo que aprendieron sobre cómo la crisis se propagó.</p>
+  </div>
+
+  <!-- ACT 5 -->
+  <div class="activity">
+    <h3><span class="activity-number">5</span>Impacto en Argentina</h3>
+    <p>La crisis de 1873 afectó particularmente a Argentina como país productor de materias primas. <strong>Escriban 8–12 líneas explicando:</strong></p>
+    <ul>
+      <li>¿Por qué Argentina fue afectada? (su rol en la economía global)</li>
+      <li>¿Qué pasó con los precios de productos argentinos (granos, carne)?</li>
+      <li>¿Qué pasó con las inversiones extranjeras en Argentina?</li>
+      <li>¿Cómo el proteccionismo europeo perjudicó a Argentina?</li>
+    </ul>
+    <p style="margin-top: 1rem;"><strong>Pistas:</strong> Piensen en: dependencia de exportaciones, caída de precios internacionales, proteccionismo europeo que cerró mercados, freno de inversiones.</p>
+  </div>
+
+  <!-- ACT 6 -->
+  <div class="activity">
+    <h3><span class="activity-number">6</span>Crítica a Adam Smith y la "mano invisible"</h3>
+    <p>Adam Smith creía que la búsqueda del autointerés individual promovería automáticamente el bienestar social, y que el mercado se autorregularía.</p>
+    <p><strong>¿Qué evidencia de la crisis de 1873 cuestiona esta idea?</strong> Escriban 8–12 líneas.</p>
+    <p style="margin-top: 1rem;"><strong>Pistas para pensar:</strong> ¿Quién se benefició con el crecimiento 1850–1873? ¿Quién sufrió con la crisis? ¿Se autocorrigió el mercado o necesitó intervención estatal? ¿El autointerés llevó al bienestar colectivo o a la catástrofe?</p>
+  </div>
+
+  <!-- ACT 7 -->
+  <div class="activity">
+    <h3><span class="activity-number">7</span>Verdadero o Falso con justificación</h3>
+    <p>Escriban <strong>V (Verdadero)</strong> o <strong>F (Falso)</strong> y justifiquen cada respuesta en 2–4 líneas:</p>
+    <ul>
+      <li><strong>El movimiento obrero surgió COMO RESPUESTA DIRECTA a las condiciones de explotación de la Revolución Industrial y la crisis de 1873.</strong></li>
+      <li><strong>El socialismo y anarquismo ganaron millones de adeptos PORQUE la crisis mostró que el capitalismo generaba contradicciones insolubles.</strong></li>
+      <li><strong>La Primera Internacional fue un fracaso porque no logró impedir la crisis de 1873.</strong></li>
+      <li><strong>El movimiento obrero cuestionaba directamente la economía capitalista y proponía alternativas.</strong></li>
+    </ul>
+  </div>
+
+  <!-- ACT 8 -->
+  <div class="activity">
+    <h3><span class="activity-number">8</span>Cuestionamiento del liberalismo económico</h3>
+    <p><strong>Escriban un párrafo coherente (10–15 líneas) respondiendo:</strong></p>
+    <p>¿Por qué la crisis de 1873 obligó a gobiernos y economistas a REPENSAR el liberalismo económico de Adam Smith? ¿Qué nuevos roles asumió el Estado como respuesta?</p>
+    <p style="margin-top: 1rem;"><strong>Mencionen:</strong> Intervención estatal, regulación, proteccionismo, debate sobre responsabilidad social.</p>
+  </div>
+
+  <!-- ACT 9 -->
+  <div class="activity">
+    <h3><span class="activity-number">9</span>Conexión histórica: De 1873 a 1929</h3>
+    <p>El PDF menciona que la crisis de 1873 fue un "aviso" y un "preámbulo de 1929".</p>
+    <p><strong>¿Qué problemas del capitalismo que vieron en 1873 VOLVIERON a ocurrir en 1929?</strong> Escriban 12–20 líneas.</p>
+    <p style="margin-top: 1rem;"><strong>Piensen en:</strong> Sobreproducción, especulación financiera, quiebras en cascada, desempleo masivo, concentración de riqueza, ciclos de boom y crisis.</p>
+    <p style="font-size: 14px; color: #666; margin-top: 1rem;"><strong>Nota:</strong> Pueden usar lo que saben o lo que investiguen sobre la Gran Depresión de 1929.</p>
+  </div>
+
+  <!-- ACT 10 -->
+  <div class="activity">
+    <h3><span class="activity-number">10</span>Reflexión: ¿Qué aprendemos hoy?</h3>
+    <p><strong>Pregunta de reflexión personal (12–18 líneas):</strong></p>
+    <p>¿Cómo la historia de la crisis de 1873 nos ayuda a entender problemas económicos modernos (inflación, desempleo, desigualdad, crisis financieras)? ¿Sigue siendo relevante hoy el debate histórico sobre si el capitalismo es intrínsecamente inestable?</p>
+    <p style="margin-top: 1rem;"><strong>Pueden:</strong> Mencionar crisis actuales, opiniones personales, conexiones con lo que ven en las noticias.</p>
+  </div>
+
+</div>
+
+<div class="divider"></div>
+
+<!-- CÓMO ENTREGAR -->
+<div class="section">
+  <div class="section-title">📤 Cómo entregar las respuestas</div>
+
+  <div class="footer">
+    <h3>Instrucciones de entrega DETALLADAS</h3>
+    <ul>
+      <li><strong>Formato:</strong> Pueden entregar en carpeta manuscrita (a mano) O en un documento Word/PDF digital. A ustedes les elige.</li>
+      <li><strong>Estructura:</strong> Al principio de todo escriban: su nombre, apellido, curso, fecha, y "ECONOMÍA - UNIDAD 1".</li>
+      <li><strong>Qué incluir:</strong> Los números de actividad (1, 2, 3... 10) + sus respuestas completas. Debe verse claramente dónde termina una y comienza la otra.</li>
+      <li><strong>Extensión:</strong> No hay límite de páginas. Usen lo que necesiten, pero sean concretos (no repitan innecesariamente).</li>
+      <li><strong>Presentación si es manuscrito:</strong> Letra clara, limpio, sin manchones. Márgenes normales. Si usan colores para resaltar, que sea legible.</li>
+      <li><strong>Presentación si es digital:</strong> Fuente de mínimo 12pt (Arial, Calibri, Times New Roman están bien). Márgenes normales (2–3cm). Interlineado 1.5 o doble.</li>
+      <li><strong>Fecha de entrega:</strong> La que indique la profe en clase. Anótenla en la carpeta.</li>
+      <li><strong>¿Dónde entregar?</strong> En la carpeta física (cuando la profe lo pida) O por email/plataforma según lo que diga la profe en clase.</li>
+    </ul>
+
+    <div style="background: #fee2e2; padding: 1.5rem; border-radius: 8px; border-left: 5px solid #dc2626; margin-top: 2rem;">
+      <p style="color: #7f1d1d; font-weight: 700; font-size: 16px; margin-bottom: 1rem;">⚠️ IMPORTANTE - ESTO NO TIENE EXCEPCIÓN</p>
+      <ul style="list-style: none; padding: 0; color: #7f1d1d;">
+        <li style="padding-left: 0; margin-bottom: 0.8rem;"><strong>✓ La entrega de actividades es OBLIGATORIA.</strong> Sin entregar, la unidad no se considera completa.</li>
+        <li style="padding-left: 0; margin-bottom: 0.8rem;"><strong>✓ Si no entienden algo de las actividades, pregunten en clase o por email.</strong> No dejen dudas sin aclarar.</li>
+        <li style="padding-left: 0;"><strong>✓ No dejen para el último día.</strong> Hagan las actividades mientras avanzan con la teoría, no todo junto.</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PIE DE PÁGINA -->
+<div style="text-align: center; padding: 2rem 0; color: #999; font-size: 14px;">
+  <p>Guía preparada por la profe de Economía — EESO Nº 206 / EETP Nº 602</p>
+  <p style="margin-top: 0.5rem;">Verano 2026 — Unidad 1: Revoluciones Industriales y Crisis del Capitalismo</p>
+</div>
+
+</div>
+
+</body>
+</html>
