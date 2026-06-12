@@ -15,10 +15,16 @@
         :root {
             --verde-eetp: #2d5016;
             --verde-claro: #4a7c2c;
+            --rojo-eeso: #c41e3a;
+            --rojo-claro: #d84a52;
             --gris-neutro: #f5f5f5;
             --gris-oscuro: #333333;
             --blanco: #ffffff;
             --acento: #d9534f;
+            
+            /* Color dinámico según escuela */
+            --color-primario: var(--color-primario);
+            --color-secundario: var(--color-secundario);
         }
 
         body {
@@ -40,7 +46,7 @@
         }
 
         header {
-            background: linear-gradient(135deg, var(--verde-eetp) 0%, var(--verde-claro) 100%);
+            background: linear-gradient(135deg, var(--color-primario) 0%, var(--color-secundario) 100%);
             color: var(--blanco);
             padding: 40px 30px;
             text-align: center;
@@ -84,7 +90,7 @@
 
         .grupo-control label {
             font-weight: 600;
-            color: var(--verde-eetp);
+            color: var(--color-primario);
             font-size: 0.95em;
         }
 
@@ -100,7 +106,7 @@
         input[type="text"]:focus,
         input[type="email"]:focus {
             outline: none;
-            border-color: var(--verde-claro);
+            border-color: var(--color-secundario);
         }
 
         .botones {
@@ -122,12 +128,12 @@
         }
 
         .btn-descargar {
-            background: var(--verde-eetp);
+            background: var(--color-primario);
             color: var(--blanco);
         }
 
         .btn-descargar:hover {
-            background: var(--verde-claro);
+            background: var(--color-secundario);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(45, 80, 22, 0.3);
         }
@@ -135,11 +141,11 @@
         .btn-blanco {
             background: #f0f0f0;
             color: var(--gris-oscuro);
-            border: 2px solid var(--verde-eetp);
+            border: 2px solid var(--color-primario);
         }
 
         .btn-blanco:hover {
-            background: var(--verde-eetp);
+            background: var(--color-primario);
             color: var(--blanco);
         }
 
@@ -168,7 +174,7 @@
 
         .numero-pregunta {
             display: inline-block;
-            background: var(--verde-eetp);
+            background: var(--color-primario);
             color: var(--blanco);
             width: 32px;
             height: 32px;
@@ -207,7 +213,7 @@
 
         textarea:focus {
             outline: none;
-            border-color: var(--verde-claro);
+            border-color: var(--color-secundario);
             background: #fafffe;
         }
 
@@ -231,6 +237,47 @@
             font-size: 0.9em;
         }
 
+        .pestanas {
+            display: flex;
+            background: var(--gris-neutro);
+            border-bottom: 3px solid #ddd;
+            padding: 0;
+        }
+
+        .pestana-btn {
+            flex: 1;
+            padding: 18px 20px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            font-size: 1em;
+            border-bottom: 4px solid transparent;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .pestana-btn:hover {
+            background: rgba(45, 80, 22, 0.05);
+            color: var(--color-primario);
+        }
+
+        .pestana-btn.activa {
+            color: var(--blanco);
+            background: var(--color-primario);
+            border-bottom-color: var(--color-secundario);
+        }
+
+        .contenido-pestana {
+            display: none;
+        }
+
+        .contenido-pestana.activo {
+            display: block;
+        }
+
         .pie {
             background: var(--gris-neutro);
             padding: 20px 30px;
@@ -238,6 +285,160 @@
             color: #666;
             font-size: 0.9em;
             border-top: 2px solid #e0e0e0;
+        }
+
+        /* ESTILOS PARA LA TABLA DE CLASIFICACIÓN */
+        .tabla-clasificacion {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .tabla-clasificacion thead {
+            background: var(--color-primario);
+            color: var(--blanco);
+        }
+
+        .tabla-clasificacion th {
+            padding: 15px 12px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.92em;
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .tabla-clasificacion th:last-child {
+            border-right: none;
+        }
+
+        .tabla-clasificacion td {
+            padding: 12px;
+            border-bottom: 1px solid #e8e8e8;
+            font-size: 0.93em;
+        }
+
+        .tabla-clasificacion tbody tr:hover {
+            background: #f5faf5;
+        }
+
+        .tabla-clasificacion tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .acto-nombre {
+            font-weight: 600;
+            color: var(--color-primario);
+            min-width: 200px;
+        }
+
+        .input-clasificacion {
+            width: 100%;
+            padding: 8px;
+            border: 2px solid #ddd;
+            border-radius: 3px;
+            font-size: 0.9em;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .input-clasificacion:focus {
+            outline: none;
+            border-color: var(--color-secundario);
+            background: #fafffe;
+        }
+
+        .input-clasificacion::placeholder {
+            color: #ccc;
+            font-size: 0.85em;
+        }
+
+        .guia-rapida {
+            background: #e7f3ff;
+            border-left: 4px solid #2196F3;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 3px;
+            color: #0c5aa0;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .guia-rapida strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .criterios-list {
+            columns: 2;
+            gap: 20px;
+        }
+
+        .criterios-list li {
+            margin-bottom: 8px;
+            break-inside: avoid;
+        }
+
+        .botones-tabla {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 1024px) {
+            .tabla-clasificacion {
+                font-size: 0.85em;
+            }
+
+            .tabla-clasificacion th,
+            .tabla-clasificacion td {
+                padding: 10px 8px;
+            }
+
+            .input-clasificacion {
+                font-size: 0.85em;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .pestanas {
+                flex-direction: column;
+            }
+
+            .pestana-btn {
+                padding: 15px;
+                font-size: 0.9em;
+                text-align: left;
+            }
+
+            .tabla-clasificacion {
+                font-size: 0.8em;
+            }
+
+            .tabla-clasificacion th,
+            .tabla-clasificacion td {
+                padding: 8px 6px;
+            }
+
+            .acto-nombre {
+                min-width: 100px;
+            }
+
+            .input-clasificacion {
+                padding: 6px;
+                font-size: 0.85em;
+            }
+
+            .guia-rapida {
+                font-size: 0.9em;
+            }
+
+            .criterios-list {
+                columns: 1;
+            }
         }
 
         @media (max-width: 600px) {
@@ -311,19 +512,160 @@
         .enviado.mostrar {
             display: block;
         }
+
+        .seccion-teoria {
+            background: linear-gradient(135deg, #f0f8f0 0%, #f5faf5 100%);
+            border-left: 5px solid var(--color-secundario);
+            margin: 30px 0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .btn-teoria {
+            width: 100%;
+            padding: 20px;
+            background: var(--color-primario);
+            color: var(--blanco);
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .btn-teoria:hover {
+            background: var(--color-secundario);
+        }
+
+        .btn-teoria.activo {
+            background: var(--color-secundario);
+        }
+
+        .icono-chevron {
+            font-size: 1.3em;
+            transition: transform 0.3s;
+            display: inline-block;
+        }
+
+        .btn-teoria.activo .icono-chevron {
+            transform: rotate(180deg);
+        }
+
+        .contenido-teoria {
+            display: none;
+            padding: 30px;
+            background: var(--blanco);
+        }
+
+        .contenido-teoria.mostrar {
+            display: block;
+        }
+
+        .clasificacion-item {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .clasificacion-item:last-child {
+            border-bottom: none;
+        }
+
+        .clasificacion-titulo {
+            color: var(--color-primario);
+            font-weight: 700;
+            font-size: 1.08em;
+            margin-bottom: 15px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .numero-clasificacion {
+            background: var(--color-primario);
+            color: var(--blanco);
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            font-size: 0.85em;
+            flex-shrink: 0;
+        }
+
+        .subcategoria {
+            margin-left: 15px;
+            margin-top: 10px;
+            padding-left: 15px;
+            border-left: 3px solid var(--color-secundario);
+        }
+
+        .subcategoria-titulo {
+            font-weight: 600;
+            color: var(--color-secundario);
+            margin-bottom: 8px;
+            font-size: 0.98em;
+        }
+
+        .subcategoria-desc {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .subcategoria-ejemplo {
+            background: #f9f9f9;
+            padding: 10px 12px;
+            border-radius: 3px;
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        .subcategoria + .subcategoria {
+            margin-top: 18px;
+        }
+
+        @media (max-width: 600px) {
+            .btn-teoria {
+                padding: 15px;
+                font-size: 1em;
+            }
+
+            .contenido-teoria {
+                padding: 20px;
+            }
+
+            .clasificacion-titulo {
+                font-size: 1em;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="contenedor">
         <header>
             <h1>Trabajo Práctico de Derecho</h1>
-            <p>EETP Nº 602 "Gral. José de San Martín"</p>
+            <p id="nombre-escuela">EETP Nº 602 "Gral. José de San Martín"</p>
             <div class="barra-info">
                 <p><strong>Estudiante:</strong> <span id="info-estudiante">Sin completar</span></p>
             </div>
         </header>
 
         <div class="controles">
+            <div class="grupo-control">
+                <label for="escuela-select">Escuela:</label>
+                <select id="escuela-select" onchange="cambiarEscuela(this.value)" style="padding: 10px 12px; border: 2px solid #ddd; border-radius: 5px; font-size: 0.95em; background: white; cursor: pointer;">
+                    <option value="eetp602">EETP Nº 602 "Gral. José de San Martín"</option>
+                    <option value="eeso206">EESO Nº 206 "Rosa Turner de Estrugamou"</option>
+                </select>
+            </div>
+
             <div class="grupo-control">
                 <label for="nombre-estudiante">Nombre del estudiante:</label>
                 <input type="text" id="nombre-estudiante" placeholder="Ej: Juan Pérez">
@@ -341,8 +683,20 @@
             </div>
         </div>
 
-        <div class="contenido">
-            <div id="mensaje-guardado" class="enviado"></div>
+        <!-- SISTEMA DE PESTAÑAS -->
+        <div class="pestanas">
+            <button class="pestana-btn activa" onclick="cambiarPestana(event, 'cuestionario')">
+                📋 Cuestionario
+            </button>
+            <button class="pestana-btn" onclick="cambiarPestana(event, 'clasificacion')">
+                📊 Tabla de Clasificación
+            </button>
+        </div>
+
+        <!-- PESTAÑA 1: CUESTIONARIO -->
+        <div id="cuestionario" class="contenido-pestana activo">
+            <div class="contenido">
+                <div id="mensaje-guardado" class="enviado"></div>
 
             <div class="alerta">
                 <strong>💡 Tip:</strong> Tus respuestas se guardan automáticamente en tu navegador. Puedes cerrar y volver más tarde sin perder lo que escribiste.
@@ -496,6 +850,271 @@
                 </div>
             </div>
         </div>
+        </div>
+
+        <!-- PESTAÑA 2: TABLA DE CLASIFICACIÓN -->
+        <div id="clasificacion" class="contenido-pestana">
+            <div class="contenido">
+                <!-- SECCIÓN DE TEORÍA -->
+                <div class="seccion-teoria">
+                    <button class="btn-teoria" onclick="toggleTeoria()">
+                        <span>📚 Clasificación de los Actos Jurídicos - Consulta rápida</span>
+                        <span class="icono-chevron">▼</span>
+                    </button>
+                    <div class="contenido-teoria" id="contenido-teoria-box">
+                        <div class="clasificacion-item">
+                            <div class="clasificacion-titulo">
+                                <span class="numero-clasificacion">1</span>
+                                <span>Según el número de personas que participan:</span>
+                            </div>
+                            <div class="subcategoria">
+                                <div class="subcategoria-titulo">a) UNILATERALES</div>
+                                <div class="subcategoria-desc">Se celebran con la expresión de voluntad de una sola persona.</div>
+                                <div class="subcategoria-ejemplo">Ej: Redactar un testamento, Reconocer una deuda, Otorgar un poder</div>
+                            </div>
+                            <div class="subcategoria">
+                                <div class="subcategoria-titulo">b) BILATERALES</div>
+                                <div class="subcategoria-desc">Se celebran con la expresión de voluntad de más de una persona.</div>
+                                <div class="subcategoria-ejemplo">Ej: El contrato de compraventa, El contrato de trabajo, El matrimonio</div>
+                            </div>
+                        </div>
+
+                        <div class="clasificacion-item">
+                            <div class="clasificacion-titulo">
+                                <span class="numero-clasificacion">2</span>
+                                <span>Según el modo de exteriorización:</span>
+                            </div>
+                            <div class="subcategoria">
+                                <div class="subcategoria-titulo">a) POSITIVOS</div>
+                                <div class="subcategoria-desc">Cuando el nacimiento, modificación o extinción de un derecho depende de la realización de un acto.</div>
+                                <div class="subcategoria-ejemplo">Ej: La entrega de una suma de dinero, La realización de un trabajo, La firma de un pagó</div>
+                            </div>
+                            <div class="subcategoria">
+                                <div class="subcategoria-titulo">b) NEGATIVOS</div>
+                                <div class="subcategoria-desc">Los actos son negativos cuando el nacimiento, modificación o extinción de un derecho depende de la abstención u omisión de una conducta.</div>
+                                <div class="subcategoria-ejemplo">Ej: "Juan es propietario de la casa y decide alquilarla a Pedro. En este caso, Juan debe abstenerse de perturbación a Pedro"</div>
+                            </div>
+                        </div>
+
+                        <div class="clasificacion-item">
+                            <div class="clasificacion-titulo">
+                                <span class="numero-clasificacion">3</span>
+                                <span>Según la forma:</span>
+                            </div>
+                            <div class="subcategoria">
+                                <div class="subcategoria-titulo">a) FORMALES</div>
+                                <div class="subcategoria-desc">Su eficacia depende del cumplimiento de los requisitos formales establecidos por la ley.</div>
+                                <div class="subcategoria-ejemplo">Ej: La compra de una casa a través de escritura pública, El matrimonio debe celebrarse ante funcionario del Registro Civil, El divorcio debe ser declarado judicialmente</div>
+                            </div>
+                            <div class="subcategoria">
+                                <div class="subcategoria-titulo">b) NO FORMALES</div>
+                                <div class="subcategoria-desc">Su eficacia o validez no depende del cumplimiento de una forma establecida por la ley.</div>
+                                <div class="subcategoria-ejemplo">Ej: El contrato de alquiler, El usufructo: Ana acuerda con su hermana María usar y disfrutar de su cocina hasta que esta pueda comprar una</div>
+                            </div>
+                        </div>
+
+                        <div class="clasificacion-item">
+                            <div class="clasificacion-titulo">
+                                <span class="numero-clasificacion">4</span>
+                                <span>Según la influencia sobre el patrimonio:</span>
+                            </div>
+                            <div class="subcategoria">
+                                <div class="subcategoria-titulo">a) DE ADMINISTRACIÓN</div>
+                                <div class="subcategoria-desc">Mantienen la integridad del patrimonio.</div>
+                                <div class="subcategoria-ejemplo">Ej: El pago de impuestos, El cobro de una deuda</div>
+                            </div>
+                            <div class="subcategoria">
+                                <div class="subcategoria-titulo">b) DE DISPOSICIÓN</div>
+                                <div class="subcategoria-desc">Tienden a disminuir o modificar sustancialmente el patrimonio.</div>
+                                <div class="subcategoria-ejemplo">Ej: La venta de una casa, La venta de un auto, La donación, El perdón de una deuda</div>
+                            </div>
+                        </div>
+
+                        <div class="clasificacion-item">
+                            <div class="clasificacion-titulo">
+                                <span class="numero-clasificacion">5</span>
+                                <span>Según las prestaciones de las partes:</span>
+                            </div>
+                            <div class="subcategoria">
+                                <div class="subcategoria-titulo">a) TÍTULO ONEROSO</div>
+                                <div class="subcategoria-desc">Las partes que intervienen en el realizan prestaciones recíprocas.</div>
+                                <div class="subcategoria-ejemplo">Ej: La compraventa (el comprador paga y el vendedor entrega la cosa), La locación (el propietario da a un inquilino y el inquilino le paga una suma de dinero), El concepto de doble</div>
+                            </div>
+                            <div class="subcategoria">
+                                <div class="subcategoria-titulo">b) TÍTULO GRATUITO</div>
+                                <div class="subcategoria-desc">Una de las partes realiza una prestación sin que la otra beneficia la otra sin esperar nada a cambio.</div>
+                                <div class="subcategoria-ejemplo">Ej: La donación, La renuncia a un derecho, La herencia</div>
+                            </div>
+                        </div>
+
+                        <div class="clasificacion-item">
+                            <div class="clasificacion-titulo">
+                                <span class="numero-clasificacion">6</span>
+                                <span>Según el grado de dependencia:</span>
+                            </div>
+                            <div class="subcategoria">
+                                <div class="subcategoria-titulo">a) PRINCIPALES</div>
+                                <div class="subcategoria-desc">Su existencia no depende de ningún otro acto.</div>
+                                <div class="subcategoria-ejemplo">Ej: El contrato de alquiler, La cesión de derechos, La compraventa</div>
+                            </div>
+                            <div class="subcategoria">
+                                <div class="subcategoria-titulo">b) ACCESORIOS</div>
+                                <div class="subcategoria-desc">Aseguran el cumplimiento de una obligación principal.</div>
+                                <div class="subcategoria-ejemplo">Ej: La fianza, La prenda, La hipoteca (garantiza el cumplimiento de una obligación principal); si se paga la deuda (principal), se extingue la hipoteca (accesorio)</div>
+                            </div>
+                        </div>
+
+                        <div class="clasificacion-item">
+                            <div class="clasificacion-titulo">
+                                <span class="numero-clasificacion">7</span>
+                                <span>Según el momento de su eficacia:</span>
+                            </div>
+                            <div class="subcategoria">
+                                <div class="subcategoria-titulo">a) ENTRE VIVOS</div>
+                                <div class="subcategoria-desc">Se producen sus efectos durante la vida de ambas partes.</div>
+                                <div class="subcategoria-ejemplo">Ej: El contrato de alquiler, El matrimonio</div>
+                            </div>
+                            <div class="subcategoria">
+                                <div class="subcategoria-titulo">b) DE ÚLTIMA VOLUNTAD</div>
+                                <div class="subcategoria-desc">Se producen sus efectos después del fallecimiento de una de las partes.</div>
+                                <div class="subcategoria-ejemplo">Ej: El testamento (produce sus efectos después del fallecimiento de uno de los sujetos que lo realizó)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guia-rapida">
+                    <strong>📌 Instrucciones:</strong>
+                    Completa la tabla clasificando cada acto jurídico según los 7 criterios estudiados. 
+                    Puedes escribir el nombre de la clasificación (ej: "Unilateral", "Bilateral") o una descripción breve.
+                </div>
+
+                <div style="overflow-x: auto;">
+                    <table class="tabla-clasificacion">
+                        <thead>
+                            <tr>
+                                <th style="min-width: 220px;">Acto Jurídico</th>
+                                <th style="min-width: 140px;">1. Nº de personas</th>
+                                <th style="min-width: 130px;">2. Exteriorización</th>
+                                <th style="min-width: 110px;">3. Forma</th>
+                                <th style="min-width: 140px;">4. Patrimonio</th>
+                                <th style="min-width: 130px;">5. Prestaciones</th>
+                                <th style="min-width: 130px;">6. Dependencia</th>
+                                <th style="min-width: 110px;">7. Eficacia</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="acto-nombre">1. Contrato de compraventa de un auto</td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-1-1" placeholder="Bilateral/Unilateral"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-1-2" placeholder="Positivo/Negativo"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-1-3" placeholder="Formal/No formal"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-1-4" placeholder="Administración/Disposición"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-1-5" placeholder="Oneroso/Gratuito"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-1-6" placeholder="Principal/Accesorio"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-1-7" placeholder="Entre vivos/Última voluntad"></td>
+                            </tr>
+                            <tr>
+                                <td class="acto-nombre">2. Testamento</td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-2-1"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-2-2"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-2-3"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-2-4"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-2-5"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-2-6"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-2-7"></td>
+                            </tr>
+                            <tr>
+                                <td class="acto-nombre">3. Contrato de alquiler de casa</td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-3-1"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-3-2"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-3-3"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-3-4"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-3-5"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-3-6"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-3-7"></td>
+                            </tr>
+                            <tr>
+                                <td class="acto-nombre">4. Donación de dinero</td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-4-1"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-4-2"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-4-3"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-4-4"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-4-5"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-4-6"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-4-7"></td>
+                            </tr>
+                            <tr>
+                                <td class="acto-nombre">5. Matrimonio</td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-5-1"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-5-2"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-5-3"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-5-4"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-5-5"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-5-6"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-5-7"></td>
+                            </tr>
+                            <tr>
+                                <td class="acto-nombre">6. Pago de una deuda</td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-6-1"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-6-2"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-6-3"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-6-4"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-6-5"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-6-6"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-6-7"></td>
+                            </tr>
+                            <tr>
+                                <td class="acto-nombre">7. Contrato de trabajo</td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-7-1"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-7-2"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-7-3"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-7-4"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-7-5"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-7-6"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-7-7"></td>
+                            </tr>
+                            <tr>
+                                <td class="acto-nombre">8. Hipoteca (garantía)</td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-8-1"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-8-2"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-8-3"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-8-4"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-8-5"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-8-6"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-8-7"></td>
+                            </tr>
+                            <tr>
+                                <td class="acto-nombre">9. Reconocimiento de deuda</td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-9-1"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-9-2"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-9-3"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-9-4"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-9-5"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-9-6"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-9-7"></td>
+                            </tr>
+                            <tr>
+                                <td class="acto-nombre">10. Contrato de prestación de servicios</td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-10-1"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-10-2"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-10-3"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-10-4"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-10-5"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-10-6"></td>
+                                <td><input type="text" class="input-clasificacion" id="tabla-10-7"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="botones-tabla">
+                    <button class="btn-descargar" onclick="descargarPDFTabla('completada')">📥 Descargar Tabla (Completada)</button>
+                    <button class="btn-blanco" onclick="descargarPDFTabla('blanca')">📄 Tabla en Blanco</button>
+                    <button class="btn-limpiar" onclick="limpiarTabla()">🗑️ Limpiar Tabla</button>
+                </div>
+            </div>
+        </div>
 
         <div class="pie">
             <p>Trabajo Práctico Interactivo | EETP Nº 602 | Creado con ❤️ para facilitar tu aprendizaje</p>
@@ -504,6 +1123,52 @@
 
     <script>
         const idRespuestas = 12;
+
+        // Toggle para sección de teoría
+        function toggleTeoria() {
+            const contenido = document.getElementById('contenido-teoria-box');
+            const btn = document.querySelector('.btn-teoria');
+            
+            contenido.classList.toggle('mostrar');
+            btn.classList.toggle('activo');
+        }
+
+        // Cambiar entre pestañas
+        function cambiarPestana(event, nombrePestana) {
+            // Ocultar todas las pestañas
+            const pestanas = document.querySelectorAll('.contenido-pestana');
+            pestanas.forEach(p => p.classList.remove('activo'));
+
+            // Desactivar todos los botones
+            const botones = document.querySelectorAll('.pestana-btn');
+            botones.forEach(b => b.classList.remove('activa'));
+
+            // Mostrar la pestaña seleccionada
+            document.getElementById(nombrePestana).classList.add('activo');
+            event.target.classList.add('activa');
+        }
+
+        // Cambiar escuela y colores
+        function cambiarEscuela(escuela) {
+            localStorage.setItem('escuela-seleccionada', escuela);
+            
+            const root = document.documentElement;
+            const nombreEscuela = document.getElementById('nombre-escuela');
+            
+            if (escuela === 'eeso206') {
+                // EESO 206 - Colores Rojo
+                root.style.setProperty('--color-primario', '#c41e3a');
+                root.style.setProperty('--color-secundario', '#d84a52');
+                nombreEscuela.textContent = 'EESO Nº 206 "Rosa Turner de Estrugamou"';
+                document.getElementById('escuela-select').value = 'eeso206';
+            } else {
+                // EETP 602 - Colores Verde (por defecto)
+                root.style.setProperty('--color-primario', '#2d5016');
+                root.style.setProperty('--color-secundario', '#4a7c2c');
+                nombreEscuela.textContent = 'EETP Nº 602 "Gral. José de San Martín"';
+                document.getElementById('escuela-select').value = 'eetp602';
+            }
+        }
         
         // Cargar respuestas guardadas
         function cargarRespuestas() {
@@ -525,6 +1190,22 @@
                 document.getElementById('email-estudiante').value = emailGuardado;
             }
 
+            // Cargar datos de la tabla de clasificación
+            for (let fila = 1; fila <= 10; fila++) {
+                for (let col = 1; col <= 7; col++) {
+                    const id = `tabla-${fila}-${col}`;
+                    const input = document.getElementById(id);
+                    const guardado = localStorage.getItem(id);
+                    if (guardado && input) {
+                        input.value = guardado;
+                    }
+                }
+            }
+
+            // Cargar escuela guardada
+            const escuelaGuardada = localStorage.getItem('escuela-seleccionada') || 'eetp602';
+            cambiarEscuela(escuelaGuardada);
+
             actualizarNombreHeader();
         }
 
@@ -538,6 +1219,9 @@
                 if (e.target.id === 'nombre-estudiante') {
                     actualizarNombreHeader();
                 }
+            } else if (e.target.classList.contains('input-clasificacion')) {
+                // Guardar datos de la tabla de clasificación
+                localStorage.setItem(e.target.id, e.target.value);
             }
         });
 
@@ -620,6 +1304,72 @@
                     document.body.removeChild(temp);
                     mostrarMensaje('✅ PDF descargado correctamente');
                 });
+            }
+        }
+
+        // Descargar PDF de la tabla de clasificación
+        function descargarPDFTabla(tipo) {
+            const nombre = document.getElementById('nombre-estudiante').value || 'Estudiante';
+            const tabla = document.querySelector('.tabla-clasificacion');
+            const tablaClon = tabla.cloneNode(true);
+
+            // Si es blanco, limpiar los inputs
+            if (tipo === 'blanca') {
+                const inputs = tablaClon.querySelectorAll('input');
+                inputs.forEach(inp => inp.value = '');
+            }
+
+            const contenedorTemp = document.createElement('div');
+            contenedorTemp.style.padding = '20px';
+            contenedorTemp.style.background = 'white';
+            
+            const titulo = document.createElement('h2');
+            titulo.textContent = 'Tabla de Clasificación de Actos Jurídicos';
+            titulo.style.marginBottom = '10px';
+            titulo.style.color = '#2d5016';
+            
+            const estudiante = document.createElement('p');
+            estudiante.textContent = `Estudiante: ${nombre}`;
+            estudiante.style.marginBottom = '20px';
+            
+            contenedorTemp.appendChild(titulo);
+            contenedorTemp.appendChild(estudiante);
+            contenedorTemp.appendChild(tablaClon);
+
+            const opcionesHtml2Pdf = {
+                margin: 5,
+                filename: `Tabla_Clasificacion_${nombre.replace(/\s+/g, '_')}_${tipo}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'landscape' },
+                pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+            };
+
+            const temp = document.createElement('div');
+            temp.style.display = 'none';
+            temp.appendChild(contenedorTemp);
+            document.body.appendChild(temp);
+
+            html2pdf().set(opcionesHtml2Pdf).from(contenedorTemp).save().then(() => {
+                document.body.removeChild(temp);
+                mostrarMensaje('✅ Tabla descargada correctamente');
+            });
+        }
+
+        // Limpiar tabla de clasificación
+        function limpiarTabla() {
+            if (confirm('¿Estás seguro de que deseas limpiar la tabla? Esta acción no se puede deshacer.')) {
+                for (let fila = 1; fila <= 10; fila++) {
+                    for (let col = 1; col <= 7; col++) {
+                        const id = `tabla-${fila}-${col}`;
+                        const input = document.getElementById(id);
+                        if (input) {
+                            input.value = '';
+                            localStorage.removeItem(id);
+                        }
+                    }
+                }
+                mostrarMensaje('✅ Tabla limpiada correctamente');
             }
         }
 
