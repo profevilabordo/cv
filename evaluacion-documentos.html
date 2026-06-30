@@ -107,7 +107,7 @@
     <!-- Screen 1: Setup -->
     <div id="setup-screen" class="setup-card">
         <h2>Bienvenido/a</h2>
-        <p style="margin-bottom: 30px;">20 preguntas al azar de un banco de 40 (35 de teoría de documentos comerciales + 5 de cálculo mental de IVA, <strong>sin calculadora</strong>). Tenés 15 minutos para completarla. Tenés 3 intentos para ingresar tu palabra clave.</p>
+        <p style="margin-bottom: 30px;">20 preguntas al azar de un banco de 40 (35 de teoría de documentos comerciales + 5 de cálculo mental de IVA, <strong>sin calculadora</strong>). Tenés 15 minutos para completarla. Podés rendirla hasta <strong>3 veces</strong>. Para ingresar tu palabra clave tenés 3 intentos.</p>
 
         <div class="select-wrapper">
             <label for="student-select">Seleccioná tu nombre:</label>
@@ -185,6 +185,7 @@
     const TOTAL_PREGUNTAS = 20;
     const TIEMPO_TOTAL = 15 * 60; // segundos
     const MAX_INTENTOS = 3;
+    const MAX_RENDICIONES = 3;
 
     async function sbInsert(table, data) {
         try {
@@ -369,8 +370,9 @@
 
             const previous = await sbFetch("progreso", `select=nota&alumno_codigo=eq.${studentCode}&seccion=eq.EVALUACION&materia=eq.${encodeURIComponent(MATERIA)}`);
 
-            if (previous && previous.length > 0) {
-                alert(`Lo sentimos, ${student.name}. Ya has realizado esta evaluación.\nTu calificación registrada fue: ${previous[0].nota}/100.`);
+            if (previous && previous.length >= MAX_RENDICIONES) {
+                const notas = previous.map(p => p.nota).join(", ");
+                alert(`Lo sentimos, ${student.name}. Ya usaste tus ${MAX_RENDICIONES} intentos de esta evaluación.\nTus calificaciones registradas fueron: ${notas}.`);
                 btn.disabled = false;
                 btn.textContent = originalText;
                 return;
