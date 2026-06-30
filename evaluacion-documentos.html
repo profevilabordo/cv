@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación: Documentos Comerciales - 5to A</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981;
+            --primary-dark: #059669;
+            --bg: #0F172A;
+            --card-bg: #1E293B;
+            --text: #F8FAFC;
+            --text-muted: #94A3B8;
+            --accent: #6366F1;
+            --mental: #A78BFA;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'DM Sans', sans-serif; }
+        body { background-color: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+
+        .orbs { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; }
+        .orb1 { width: 400px; height: 400px; background: var(--primary); top: -100px; right: -100px; animation: float 15s infinite alternate; }
+        .orb2 { width: 350px; height: 350px; background: var(--accent); bottom: -50px; left: -100px; animation: float 18s infinite alternate-reverse; }
+        @keyframes float { from { transform: translate(0,0); } to { transform: translate(40px, 40px); } }
+
+        .container { position: relative; z-index: 1; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+
+        .header { text-align: center; margin-bottom: 40px; }
+        .header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; background: linear-gradient(135deg, #A78BFA, #10B981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
+        .header p { color: var(--text-muted); font-size: 16px; }
+
+        /* Setup Screen */
+        .setup-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 40px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        .setup-card h2 { margin-bottom: 24px; font-family: 'Space Grotesk', sans-serif; }
+        .select-wrapper { margin-bottom: 24px; text-align: left; }
+        .select-wrapper label { display: block; margin-bottom: 8px; color: var(--text-muted); font-size: 14px; font-weight: 600; }
+        select { width: 100%; padding: 14px; border-radius: 12px; background: var(--bg); border: 2px solid rgba(255,255,255,0.1); color: white; font-size: 16px; cursor: pointer; outline: none; transition: border-color 0.3s; }
+        select:focus { border-color: var(--primary); }
+        input[type="password"] { width: 100%; padding: 14px; border-radius: 12px; background: var(--bg); border: 2px solid rgba(255,255,255,0.1); color: white; font-size: 16px; outline: none; transition: border-color 0.3s; }
+        input[type="password"]:focus { border-color: var(--primary); }
+
+        .btn-start { width: 100%; padding: 16px; border-radius: 12px; border: none; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; font-size: 18px; font-weight: 700; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn-start:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3); }
+        .btn-start:disabled { opacity: .5; cursor: not-allowed; transform: none; box-shadow: none; }
+
+        .intentos-msg { font-size: 13px; color: #F59E0B; margin-top: 14px; min-height: 18px; }
+        .intentos-msg.bloqueado { color: #EF4444; font-weight: 700; }
+
+        /* Quiz Screen */
+        #quiz-screen { display: none; }
+        .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: rgba(255,255,255,0.05); padding: 15px 25px; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); position: sticky; top: 20px; z-index: 10; }
+        .timer { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #F59E0B; display: flex; align-items: center; gap: 8px; }
+        .progress-container { flex-grow: 1; margin: 0 30px; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; }
+        .progress-bar { height: 100%; background: var(--primary); width: 0%; transition: width 0.3s; }
+
+        .question-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 35px; margin-bottom: 20px; animation: slideIn 0.5s ease; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .q-number { color: var(--primary); font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+        .tag-mental { background: rgba(167,139,250,0.15); color: var(--mental); border: 1px solid rgba(167,139,250,0.4); padding: 2px 10px; border-radius: 999px; font-size: 11px; letter-spacing: .5px; }
+        .q-text { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 25px; }
+
+        .options { display: grid; gap: 12px; }
+        .option { padding: 16px 20px; border-radius: 14px; background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.08); cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 15px; }
+        .option:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); transform: translateX(5px); }
+        .option.selected { background: rgba(16, 185, 129, 0.1); border-color: var(--primary); }
+        .option-bullet { width: 20px; height: 20px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; flex-shrink: 0; }
+        .option.selected .option-bullet { background: var(--primary); border-color: var(--primary); color: white; }
+
+        .quiz-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; }
+        .btn-nav { padding: 12px 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: var(--card-bg); color: white; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+        .btn-nav:hover:not(:disabled) { background: rgba(255,255,255,0.1); }
+        .btn-nav:disabled { opacity: 0.3; cursor: not-allowed; }
+        .btn-submit { padding: 12px 30px; border-radius: 12px; border: none; background: var(--primary); color: white; font-weight: 700; cursor: pointer; display: none; }
+
+        /* Results Screen */
+        #results-screen { display: none; text-align: center; }
+        .result-card { background: var(--card-bg); border-radius: 24px; padding: 50px; border: 1px solid rgba(255,255,255,0.1); }
+        .score-circle { width: 150px; height: 150px; border-radius: 50%; border: 8px solid var(--primary); margin: 0 auto 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .score-val { font-size: 48px; font-weight: 800; font-family: 'Space Grotesk', sans-serif; }
+        .score-label { font-size: 14px; color: var(--text-muted); text-transform: uppercase; }
+
+        .summary-list { text-align: left; margin: 30px 0; background: rgba(0,0,0,0.2); border-radius: 15px; padding: 20px; }
+        .summary-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .summary-item:last-child { border: none; }
+
+        @media (max-width: 600px) {
+            .quiz-header { flex-wrap: wrap; gap: 10px; }
+            .progress-container { order: 3; width: 100%; margin: 10px 0 0 0; }
+            .header h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="orbs"><div class="orb orb1"></div><div class="orb orb2"></div></div>
+
+<div class="container">
+    <div class="header">
+        <h1>Documentos Comerciales</h1>
+        <p>Evaluación · 5to Año "A" · EETP N°602</p>
+    </div>
+
+    <!-- Screen 1: Setup -->
+    <div id="setup-screen" class="setup-card">
+        <h2>Bienvenido/a</h2>
+        <p style="margin-bottom: 30px;">20 preguntas al azar de un banco de 40 (35 de teoría de documentos comerciales + 5 de cálculo mental de IVA, <strong>sin calculadora</strong>). Tenés 15 minutos para completarla. Tenés 3 intentos para ingresar tu palabra clave.</p>
+
+        <div class="select-wrapper">
+            <label for="student-select">Seleccioná tu nombre:</label>
+            <select id="student-select" style="margin-bottom: 16px;">
+                <option value="" disabled selected>Elegí tu nombre de la lista...</option>
+            </select>
+
+            <label for="student-password">Palabra Clave:</label>
+            <input type="password" id="student-password" placeholder="Ingresá tu palabra clave">
+        </div>
+
+        <button class="btn-start" onclick="startQuiz()">Comenzar Evaluación 🚀</button>
+        <div class="intentos-msg" id="intentos-msg"></div>
+    </div>
+
+    <!-- Screen 2: Quiz -->
+    <div id="quiz-screen">
+        <div class="quiz-header">
+            <div id="student-name-display" style="font-weight: 700; font-size: 14px; max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Estudiante</div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <div class="timer">
+                <span>⏱️</span> <span id="timer-val">15:00</span>
+            </div>
+        </div>
+
+        <div id="question-container"></div>
+
+        <div class="quiz-footer">
+            <button class="btn-nav" id="btn-prev" onclick="prevQuestion()" disabled>Anterior</button>
+            <div id="page-indicator" style="color: var(--text-muted); font-size: 14px; font-weight: 600;">1 de 20</div>
+            <button class="btn-nav" id="btn-next" onclick="nextQuestion()">Siguiente</button>
+            <button class="btn-submit" id="btn-submit" onclick="finishQuiz()">Finalizar y Entregar</button>
+        </div>
+    </div>
+
+    <!-- Screen 3: Results -->
+    <div id="results-screen">
+        <div class="result-card">
+            <div id="result-emoji" style="font-size: 64px; margin-bottom: 20px;">🎉</div>
+            <h2 id="result-title">¡Evaluación Completada!</h2>
+            <p id="result-student" style="color: var(--text-muted); margin-bottom: 30px;">Estudiante</p>
+
+            <div class="score-circle">
+                <span class="score-val" id="score-val">8</span>
+                <span class="score-label">Correctas</span>
+            </div>
+
+            <div class="summary-list">
+                <div class="summary-item">
+                    <span>Preguntas respondidas:</span>
+                    <span id="summary-total">20/20</span>
+                </div>
+                <div class="summary-item">
+                    <span>Tiempo utilizado:</span>
+                    <span id="summary-time">04:25</span>
+                </div>
+                <div class="summary-item">
+                    <span>Estado:</span>
+                    <span id="summary-status" style="color: var(--primary); font-weight: 700;">Aprobado</span>
+                </div>
+            </div>
+
+            <button class="btn-start" onclick="location.reload()">Cerrar sesión</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // --- SUPABASE CONFIG (mismo proyecto que Procesos Productivos) ---
+    const SUPABASE_URL = "https://ygafevogfxwupmgwksto.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlnYWZldm9nZnh3dXBtZ3drc3RvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MDA5NDMsImV4cCI6MjA4ODI3Njk0M30.5LoSWrwtFCR4qoQnmNY6UZB1SuiVpx-G9N1AG6cOev8";
+    const MATERIA = "Documentos Comerciales";
+    const TOTAL_PREGUNTAS = 20;
+    const TIEMPO_TOTAL = 15 * 60; // segundos
+    const MAX_INTENTOS = 3;
+
+    async function sbInsert(table, data) {
+        try {
+            const r = await fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
+                method: "POST",
+                headers: {
+                    "apikey": SUPABASE_KEY,
+                    "Authorization": `Bearer ${SUPABASE_KEY}`,
+                    "Content-Type": "application/json",
+                    "Prefer": "return=representation"
+                },
+                body: JSON.stringify(data)
+            });
+            return await r.json();
+        } catch (e) {
+            console.error("Error saving to Supabase:", e);
+        }
+    }
+
+    async function sbFetch(table, params) {
+        try {
+            const r = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${params}`, {
+                method: "GET",
+                headers: {
+                    "apikey": SUPABASE_KEY,
+                    "Authorization": `Bearer ${SUPABASE_KEY}`,
+                    "Content-Type": "application/json"
+                }
+            });
+            return await r.json();
+        } catch (e) {
+            console.error("Error fetching from Supabase:", e);
+            return [];
+        }
+    }
+
+    // --- ALUMNOS ---
+    const students = [
+        { name: "ALBORNOZ, ROMÁN JAVIER", code: "krakow" },
+        { name: "ALBORUA, JOCABED NAHIR", code: "salvador" },
+        { name: "ALI, SAÍD BAUTISTA", code: "recife" },
+        { name: "BANEGAS, BRIAN AQUILES", code: "guadalajara" },
+        { name: "BONFIGLIO, ZAIRA ARACELI", code: "monterrey" },
+        { name: "BUSTOS, IGNACIO", code: "toronto" },
+        { name: "CASTILLO, LUDMILA SOLEDAD", code: "montreal" },
+        { name: "CEJAS, MELANI TATIANA", code: "vancouver" },
+        { name: "CLERICO, MÁXIMO EMANUEL", code: "casablanca" },
+        { name: "CORONEL, UZIEL EXEQUIEL", code: "capetown" },
+        { name: "DELLOSA, VALENTÍN SEBASTIÁN", code: "lagos" },
+        { name: "FERREYRA, JORGE AGUSTÍN", code: "amazonas" },
+        { name: "GRAGLIA, VALENTINA ANAHÍ", code: "nilo" },
+        { name: "LEALI, ISABEL", code: "ganges" },
+        { name: "MONTIVERO, ROMÁN MARTÍN", code: "danubio" },
+        { name: "MORENO, THIAGO NICOLÁS", code: "volga" },
+        { name: "MOYA GUZMAN, MIQUEAS", code: "misisipi" },
+        { name: "RODRIGUEZ, JOSEFINA ABRIL", code: "yangtsé" },
+        { name: "TORRILLA, LOURDES AIMÉ", code: "orinoco" },
+        { name: "ZUVIRIA, AGUSTINA", code: "parana" },
+        { name: "PROFE 1", code: "profe1" },
+        { name: "PROFE 2", code: "profe2" }
+    ];
+
+    // --- BANCO DE PREGUNTAS (40: 35 teoría + 5 IVA mental) ---
+    const questionBank = [
+        // ===== PEDIDO =====
+        { q: "¿Quién emite el Pedido?", a: ["El vendedor", "El comprador", "El banco", "El transportista"], c: 1, mental: false },
+        { q: "El Pedido es el documento que:", a: ["Cierra el circuito comercial", "Da inicio al circuito comercial", "Certifica el pago", "Certifica la entrega física"], c: 1, mental: false },
+        { q: "¿El Pedido es un comprobante de pago o de entrega?", a: ["Sí, de pago", "Sí, de entrega", "No, es solo una solicitud", "Es ambas cosas"], c: 2, mental: false },
+        { q: "Al recibir un Pedido, el vendedor puede:", a: ["Solo aceptarlo, nunca rechazarlo", "Aceptarlo o rechazarlo", "Solo rechazarlo", "Modificar el CUIT del comprador"], c: 1, mental: false },
+        { q: "¿Cuál de estos datos NO suele figurar en un Pedido?", a: ["Datos del comprador y vendedor", "Cantidad y precio estimado", "Firma y aclaración del receptor de la mercadería", "Fecha y condición de entrega"], c: 2, mental: false },
+
+        // ===== REMITO =====
+        { q: "El Remito es el documento que acompaña:", a: ["El pago de la factura", "La entrega física de la mercadería", "El pedido inicial", "La devolución de productos"], c: 1, mental: false },
+        { q: "¿Quién emite el Remito y quién lo firma?", a: ["Lo emite el comprador, lo firma el vendedor", "Lo emite el vendedor, lo firma el comprador al recibir", "Lo emite el banco, lo firma el vendedor", "Lo emite y firma el mismo comprador"], c: 1, mental: false },
+        { q: "¿El Remito tiene precio de la mercadería?", a: ["Sí, siempre", "No, solo certifica qué y cuánto se entregó", "Solo si es factura A", "Solo si el comprador lo pide"], c: 1, mental: false },
+        { q: "¿En cuántos ejemplares se emite habitualmente el Remito?", a: ["En original único", "En duplicado", "En triplicado solamente para exportación", "No se emite en papel"], c: 1, mental: false },
+        { q: "La diferencia clave entre Remito y Factura es que:", a: ["El Remito tiene CAE y la Factura no", "El Remito no tiene valor económico, la Factura sí", "El Remito lo paga el comprador y la Factura no", "No hay diferencia, son lo mismo"], c: 1, mental: false },
+
+        // ===== FACTURA (general) =====
+        { q: "La Factura es el comprobante que detalla:", a: ["Solo la entrega física", "La venta o prestación de servicios, con precio, IVA y condiciones", "Únicamente el pago recibido", "La solicitud inicial de compra"], c: 1, mental: false },
+        { q: "¿Quién emite la Factura?", a: ["El comprador", "El vendedor", "El transportista", "El banco emisor"], c: 1, mental: false },
+        { q: "La Factura genera:", a: ["Una simple sugerencia de pago", "La obligación legal de pago", "La cancelación automática de la deuda", "Ningún efecto legal"], c: 1, mental: false },
+        { q: "¿Cuál de estos datos es obligatorio en una Factura?", a: ["Firma del transportista", "CUIT del emisor y receptor", "Color del producto", "Horario de atención del local"], c: 1, mental: false },
+        { q: "¿Es obligatoria la Factura en una operación comercial?", a: ["No, es opcional", "Sí, es obligatoria en toda operación comercial", "Solo si el comprador la pide expresamente", "Solo en operaciones mayores a $1.000.000"], c: 1, mental: false },
+
+        // ===== FACTURA A / B / C =====
+        { q: "La Factura A muestra el precio neto y el IVA:", a: ["Incluido, sin discriminar", "Discriminado por separado", "No figura el IVA", "Solo aparece en otra factura"], c: 1, mental: false },
+        { q: "La Factura A se usa principalmente entre:", a: ["Consumidores finales", "Empresas / comercios inscriptos en IVA", "Monotributistas exclusivamente", "Organismos del Estado solamente"], c: 1, mental: false },
+        { q: "Para emitir una Factura A es obligatorio contar con:", a: ["El DNI del vendedor", "El CUIT del comprador", "El domicilio del transportista", "El número de cuenta bancaria"], c: 1, mental: false },
+        { q: "En la Factura B, el IVA está:", a: ["Discriminado por separado", "Incluido en el precio total, sin discriminar", "Exento totalmente", "Calculado al doble"], c: 1, mental: false },
+        { q: "La Factura B es la que se usa típicamente:", a: ["Entre empresas inscriptas en IVA", "Para la venta a consumidores finales", "Solo para exportaciones", "Solo para servicios profesionales"], c: 1, mental: false },
+        { q: "¿Quién emite la Factura C?", a: ["Un responsable inscripto en IVA", "Un monotributista", "El Estado nacional", "Cualquier banco"], c: 1, mental: false },
+        { q: "En la Factura C, el IVA:", a: ["Está discriminado igual que en la A", "Directamente no existe en la operación, porque el monotributista no lo liquida", "Está incluido pero oculto en el precio", "Se cobra al 10,5%"], c: 1, mental: false },
+        { q: "¿Quién puede computar crédito fiscal por el IVA pagado?", a: ["Quien recibe una Factura C", "Quien recibe una Factura A", "Quien recibe un Remito", "Nadie puede hacerlo"], c: 1, mental: false },
+
+        // ===== RECIBO =====
+        { q: "El Recibo es el documento que acredita que:", a: ["Se entregó la mercadería", "El comprador pagó la factura", "Se inició la compra", "Se anuló la venta"], c: 1, mental: false },
+        { q: "¿Quién emite el Recibo?", a: ["El comprador", "El vendedor (cobrador), al recibir el pago", "El transportista", "El banco central"], c: 1, mental: false },
+        { q: "La diferencia entre Factura y Recibo es que:", a: ["Son exactamente el mismo documento", "La Factura documenta la venta y el Recibo documenta el cobro", "El Recibo documenta la venta y la Factura el cobro", "El Recibo reemplaza siempre a la Factura"], c: 1, mental: false },
+        { q: "¿Qué dato debe figurar en un Recibo?", a: ["El monto recibido, en letras y números", "El stock disponible del producto", "La condición impositiva del transportista", "El color del embalaje"], c: 0, mental: false },
+
+        // ===== NOTA DE CRÉDITO =====
+        { q: "La Nota de Crédito la emite el vendedor para:", a: ["Aumentar el importe de una factura", "Reducir el importe de una factura ya emitida", "Reemplazar al Remito", "Iniciar el circuito comercial"], c: 1, mental: false },
+        { q: "Una Nota de Crédito favorece a:", a: ["Al vendedor", "Al comprador", "Al transportista", "Al Estado"], c: 1, mental: false },
+        { q: "¿Cuál de estas situaciones suele originar una Nota de Crédito?", a: ["Intereses por pago fuera de término", "Devolución de mercadería", "Gasto de envío no incluido", "Diferencia de cambio a favor del vendedor"], c: 1, mental: false },
+        { q: "¿Una Nota de Crédito puede existir sin una factura anterior?", a: ["Sí, es un documento totalmente independiente", "No, siempre hace referencia a una factura anterior", "Solo en Factura C", "Solo si la firma un escribano"], c: 1, mental: false },
+
+        // ===== NOTA DE DÉBITO =====
+        { q: "La Nota de Débito la emite el vendedor para:", a: ["Reducir el importe de una factura", "Aumentar el importe de una factura ya emitida", "Anular el Pedido", "Certificar la entrega"], c: 1, mental: false },
+        { q: "Una Nota de Débito perjudica a:", a: ["Al vendedor", "Al comprador", "A ninguna de las partes", "Al banco"], c: 1, mental: false },
+        { q: "¿Cuál de estas situaciones suele originar una Nota de Débito?", a: ["Devolución de mercadería", "Intereses por pago fuera de término", "Bonificación posterior", "Descuento no aplicado en la factura"], c: 1, mental: false },
+        { q: "La Nota de Débito es, respecto de la Nota de Crédito:", a: ["Exactamente lo mismo", "Su documento opuesto", "Un tipo de Remito", "Un comprobante de pago"], c: 1, mental: false },
+
+        // ===== IVA MENTAL (sin calculadora) =====
+        { q: "🧮 MENTAL: Un producto cuesta $400 sin IVA. ¿Cuánto es el IVA (21%)?", a: ["$80", "$84", "$88", "$100"], c: 1, mental: true },
+        { q: "🧮 MENTAL: Un producto cuesta $1.000 sin IVA. ¿Cuál es el precio final con IVA incluido?", a: ["$1.200", "$1.210", "$1.190", "$1.221"], c: 1, mental: true },
+        { q: "🧮 MENTAL: Pagaste $605 con IVA incluido. ¿Cuál era el precio sin IVA?", a: ["$484", "$500", "$521", "$605"], c: 1, mental: true },
+        { q: "🧮 MENTAL: El IVA de una compra fue de $210. ¿Cuál era el precio sin IVA?", a: ["$880", "$1.000", "$1.050", "$998"], c: 1, mental: true },
+        { q: "🧮 MENTAL: El precio final de un producto, con IVA incluido, es $1.936. ¿Cuánto corresponde al IVA?", a: ["$336", "$406", "$387", "$400"], c: 0, mental: true },
+    ];
+
+    let currentQuestions = [];
+    let userAnswers = [];
+    let currentIdx = 0;
+    let timerInterval;
+    let timeLeft;
+    let intentos = 0;
+
+    window.onload = () => {
+        const select = document.getElementById('student-select');
+        students.sort((a, b) => a.name.localeCompare(b.name)).forEach(s => {
+            const opt = document.createElement('option');
+            opt.value = s.code;
+            opt.textContent = s.name;
+            select.appendChild(opt);
+        });
+    };
+
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    async function startQuiz() {
+        const studentCode = document.getElementById('student-select').value;
+        const student = students.find(s => s.code === studentCode);
+        const enteredPassword = document.getElementById('student-password').value.trim().toLowerCase();
+        const msg = document.getElementById('intentos-msg');
+
+        if (!studentCode) {
+            alert("Por favor, seleccioná tu nombre.");
+            return;
+        }
+        if (!enteredPassword) {
+            alert("Por favor, ingresá tu palabra clave.");
+            return;
+        }
+
+        if (enteredPassword !== studentCode.toLowerCase()) {
+            intentos++;
+            const restantes = MAX_INTENTOS - intentos;
+            if (restantes <= 0) {
+                msg.textContent = "❌ Agotaste tus 3 intentos. Pedile ayuda al profesor/a.";
+                msg.classList.add('bloqueado');
+                document.querySelector('.btn-start').disabled = true;
+                document.getElementById('student-password').disabled = true;
+            } else {
+                msg.textContent = `❌ Palabra clave incorrecta. Te quedan ${restantes} intento(s).`;
+            }
+            return;
+        }
+
+        // Check for previous attempt (except test users)
+        if (studentCode !== "profe1" && studentCode !== "profe2") {
+            const btn = document.querySelector('.setup-card button');
+            const originalText = btn.textContent;
+            btn.disabled = true;
+            btn.textContent = "Verificando...";
+
+            const previous = await sbFetch("progreso", `select=nota&alumno_codigo=eq.${studentCode}&seccion=eq.EVALUACION&materia=eq.${encodeURIComponent(MATERIA)}`);
+
+            if (previous && previous.length > 0) {
+                alert(`Lo sentimos, ${student.name}. Ya has realizado esta evaluación.\nTu calificación registrada fue: ${previous[0].nota}/100.`);
+                btn.disabled = false;
+                btn.textContent = originalText;
+                return;
+            }
+            btn.disabled = false;
+            btn.textContent = originalText;
+        }
+
+        // 20 preguntas al azar de 40
+        currentQuestions = shuffle([...questionBank]).slice(0, TOTAL_PREGUNTAS);
+        currentQuestions.forEach(q => {
+            const correctAnswerText = q.a[q.c];
+            const opciones = [...q.a];
+            shuffle(opciones);
+            q.shuffledOptions = opciones;
+            q.newCorrectIdx = opciones.indexOf(correctAnswerText);
+        });
+
+        userAnswers = new Array(TOTAL_PREGUNTAS).fill(null);
+        currentIdx = 0;
+        timeLeft = TIEMPO_TOTAL;
+
+        document.getElementById('student-name-display').textContent = student.name;
+        document.getElementById('student-name-display').dataset.code = student.code;
+        document.getElementById('setup-screen').style.display = 'none';
+        document.getElementById('quiz-screen').style.display = 'block';
+
+        renderQuestion();
+        startTimer();
+    }
+
+    function renderQuestion() {
+        const q = currentQuestions[currentIdx];
+        const container = document.getElementById('question-container');
+
+        let optionsHtml = '';
+        const letters = ['A', 'B', 'C', 'D'];
+
+        q.shuffledOptions.forEach((optText, i) => {
+            const isSelected = userAnswers[currentIdx] === i;
+            optionsHtml += `
+                <div class="option ${isSelected ? 'selected' : ''}" onclick="selectOption(${i})">
+                    <div class="option-bullet">${letters[i]}</div>
+                    <div class="option-text">${optText}</div>
+                </div>
+            `;
+        });
+
+        container.innerHTML = `
+            <div class="question-card">
+                <span class="q-number">Pregunta ${currentIdx + 1} de ${TOTAL_PREGUNTAS} ${q.mental ? '<span class="tag-mental">Cálculo mental · sin calculadora</span>' : ''}</span>
+                <div class="q-text">${q.q}</div>
+                <div class="options">
+                    ${optionsHtml}
+                </div>
+            </div>
+        `;
+
+        updateNav();
+    }
+
+    function selectOption(idx) {
+        userAnswers[currentIdx] = idx;
+        renderQuestion();
+
+        if (currentIdx < TOTAL_PREGUNTAS - 1) {
+            setTimeout(() => {
+                if (userAnswers[currentIdx] === idx) nextQuestion();
+            }, 600);
+        }
+    }
+
+    function updateNav() {
+        document.getElementById('btn-prev').disabled = currentIdx === 0;
+        const isLast = currentIdx === TOTAL_PREGUNTAS - 1;
+        document.getElementById('btn-next').style.display = isLast ? 'none' : 'block';
+        document.getElementById('btn-submit').style.display = isLast ? 'block' : 'none';
+
+        const progress = ((currentIdx + 1) / TOTAL_PREGUNTAS) * 100;
+        document.getElementById('progress-bar').style.width = `${progress}%`;
+        document.getElementById('page-indicator').textContent = `${currentIdx + 1} de ${TOTAL_PREGUNTAS}`;
+    }
+
+    function nextQuestion() {
+        if (currentIdx < TOTAL_PREGUNTAS - 1) {
+            currentIdx++;
+            renderQuestion();
+        }
+    }
+
+    function prevQuestion() {
+        if (currentIdx > 0) {
+            currentIdx--;
+            renderQuestion();
+        }
+    }
+
+    function startTimer() {
+        timerInterval = setInterval(() => {
+            timeLeft--;
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                finishQuiz(true);
+            }
+            const mins = Math.floor(timeLeft / 60);
+            const secs = timeLeft % 60;
+            document.getElementById('timer-val').textContent =
+                `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+
+            if (timeLeft < 60) {
+                document.querySelector('.timer').style.color = '#EF4444';
+                document.querySelector('.timer').style.animation = 'pulse 1s infinite';
+            }
+        }, 1000);
+    }
+
+    async function finishQuiz(auto = false) {
+        if (!auto) {
+            const unanswered = userAnswers.filter(a => a === null).length;
+            if (unanswered > 0) {
+                if (!confirm(`Todavía tenés ${unanswered} preguntas sin responder. ¿Querés entregar igual?`)) return;
+            }
+        }
+
+        clearInterval(timerInterval);
+
+        let score = 0;
+        const processedAnswers = currentQuestions.map((q, i) => {
+            const selectedIdx = userAnswers[i];
+            const isCorrect = selectedIdx === q.newCorrectIdx;
+            if (isCorrect) score++;
+
+            return {
+                text: selectedIdx !== null ? q.shuffledOptions[selectedIdx] : "Sin respuesta",
+                isCorrect: isCorrect
+            };
+        });
+
+        const timeUsed = TIEMPO_TOTAL - timeLeft;
+        const mins = Math.floor(timeUsed / 60);
+        const secs = timeUsed % 60;
+        const timeStr = `${mins}:${secs.toString().padStart(2, '0')}`;
+        const notaFinal = Math.round(score * 100 / TOTAL_PREGUNTAS);
+
+        const studentName = document.getElementById('student-name-display').textContent;
+        const studentCode = document.getElementById('student-name-display').dataset.code;
+
+        document.getElementById('result-title').textContent = "Guardando resultados...";
+
+        await sbInsert("progreso", {
+            alumno_codigo: studentCode,
+            materia: MATERIA,
+            unidad: "Evaluación 40",
+            seccion: "EVALUACION",
+            nota: notaFinal,
+            datos: {
+                alumno_nombre: studentName,
+                tiempo_usado: timeStr,
+                respuestas: processedAnswers,
+                preguntas: currentQuestions.map(q => q.q),
+                fecha: new Date().toISOString()
+            }
+        });
+
+        // Enviar email con los resultados vía FormSubmit
+        try {
+            await fetch("https://formsubmit.co/ajax/profevilabordo@gmail.com", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    "Evaluación": "Documentos Comerciales (5to A - EETP 602)",
+                    "Estudiante": studentName,
+                    "Nota": notaFinal + "/100",
+                    "Respuestas Correctas": score + "/" + TOTAL_PREGUNTAS,
+                    "Tiempo Utilizado": timeStr,
+                    "_subject": "✅ Resultado de Evaluación: " + studentName,
+                    "_captcha": "false"
+                })
+            });
+        } catch (e) {
+            console.error("Error al enviar el correo:", e);
+        }
+
+        alert("✅ Evaluación finalizada y guardada con éxito.");
+
+        document.getElementById('quiz-screen').style.display = 'none';
+        document.getElementById('results-screen').style.display = 'block';
+
+        document.getElementById('score-val').textContent = score;
+        document.getElementById('result-student').textContent = studentName;
+        document.getElementById('summary-time').textContent = timeStr;
+        document.getElementById('summary-total').textContent = `${userAnswers.filter(a => a !== null).length}/${TOTAL_PREGUNTAS}`;
+
+        const status = document.getElementById('summary-status');
+        if (notaFinal >= 60) {
+            status.textContent = "Aprobado";
+            status.style.color = "#10B981";
+            document.getElementById('result-emoji').textContent = "🎉";
+            document.getElementById('result-title').textContent = "¡Excelente Trabajo!";
+        } else {
+            status.textContent = "En Proceso";
+            status.style.color = "#F59E0B";
+            document.getElementById('result-emoji').textContent = "📚";
+            document.getElementById('result-title').textContent = "Sigue practicando";
+        }
+    }
+</script>
+
+</body>
+</html>
