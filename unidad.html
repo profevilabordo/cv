@@ -231,6 +231,7 @@ function marcarSeccion(tabKey){
   var ok = confirm("¿Marcás la sección " + nombre + " como completada?\n\n⚠️ Esta acción no se puede deshacer.");
   if(!ok) return;
   localStorage.setItem(getCheckKey(tabKey), "1");
+  if(tabKey.indexOf("nucleo")===0){ try{enviarNotaNucleo(tabKey);}catch(_e){console.error(_e);} }
   // Guardar en Supabase si está activo
   if(typeof SUPABASE_ACTIVO !== "undefined" && SUPABASE_ACTIVO){
     trackProgreso(tabKey, undefined, _S);
@@ -347,7 +348,7 @@ function cerrarSesion(){
   window.location.href = "index.html";
 }
 
-function render(){
+function render(){ try{tomarSnapshotsNotas();}catch(_e){}
   if(!D) return;
   var t=TABS[CT];
   
@@ -1376,13 +1377,13 @@ function rAT(){
     
     if(esPrimerIntento){
       // 🚀 GUARDAR EN SUPABASE (primer intento)
-      trackProgreso("autotest_1er_intento", pct).then(function(){
+      (function(){try{enviarNotaAutotest(pct, true, datosAutotest);}catch(_e){console.error(_e);}})(); trackProgreso("autotest_1er_intento", pct).then(function(){
         // Recargar datos para próximas veces
         obtenerDatosAutotest().then(function(datos){ AUTOTEST_DATA = datos; });
       });
     } else {
       // 🚀 GUARDAR EN SUPABASE (reintento)
-      trackProgreso("autotest_reintento", pct).then(function(){
+      (function(){try{enviarNotaAutotest(pct, false, datosAutotest);}catch(_e){console.error(_e);}})(); trackProgreso("autotest_reintento", pct).then(function(){
         // Recargar datos para próximas veces
         obtenerDatosAutotest().then(function(datos){ AUTOTEST_DATA = datos; });
       });
@@ -1580,6 +1581,249 @@ function rCI3(){
 // ============================================================
 
 // ----- CONFIGURACIÓN -----
+// ═══════════════ CAPA DE NOTAS → FORMSUBMIT (Cuaderno Vivo) ═══════════════
+// Calcula la nota de cada núcleo (promedio entre 1er intento y final),
+// y la envía por FormSubmit al marcar la sección como completada.
+var FORMSUBMIT_EMAIL = "profevilabordo@gmail.com";
+
+function metadatosUnidad(){
+  var esc="", curso="";
+  var m = (D && D.id ? String(D.id) : "").match(/^(eetp|eeso)(\d+)_(\d+)([a-z])/i);
+  if(m){ esc = m[1].toUpperCase()+" "+m[2]; curso = m[3]+"\u00B0"+m[4].toUpperCase(); }
+  return {
+    escuela: (D && D.escuela) || esc || "\u2014",
+    curso:   (D && D.curso)   || curso || "\u2014",
+    materia: (D && D.materia) || "\u2014",
+    unidad:  (D && D.unidad)  || "?",
+    titulo:  (D && D.titulo)  || ""
+  };
+}
+
+function identidadAlumno(){
+  var nombre = "", codigo = "";
+  try{
+    nombre = localStorage.getItem("campus_alumno_nombre") || "";
+    codigo = localStorage.getItem("campus_alumno_codigo") || "";
+    if(!nombre && sessionStorage.getItem("is_docente")==="true") nombre = "PROFE 1";
+  }catch(e){}
+  return { nombre: nombre || "Sin identificar", codigo: codigo || "\u2014" };
+}
+
+// Puntaje de una actividad a partir de su estado actual en S
+function puntosActividad(nucleo, key){
+  var d = D && D[nucleo] && D[nucleo][key];
+  if(!d) return null;
+  var s, sk, t, p = 0, comp = false, i;
+  if(key==="n1_ordenar_cronologicamente"){
+    sk = nucleo+"_n1"; s = S[sk]; t = d.items.length;
+    if(s && s.dn){
+      comp = true;
+      var ids = d.items.map(function(x){return x.id});
+      ids.sort(function(a,b){return s.pl[a]-s.pl[b]});
+      for(i=0;i<ids.length;i++) if(ids[i]===d.orden_correcto[i]) p++;
+    }
+    return {sk:sk, nombre:"Ordenar cronol\u00F3gicamente", p:p, t:t, comp:comp, tipo:"auto"};
+  }
+  if(key==="n2_clasificador"){
+    sk = nucleo+"_n2"; s = S[sk]; t = d.items.length;
+    if(s){ for(i=0;i<d.items.length;i++) if(s.a[d.items[i].id]===d.items[i].categoria_correcta) p++; }
+    comp = !!(s && s.sh);
+    return {sk:sk, nombre:"Clasificador", p:p, t:t, comp:comp, tipo:"auto"};
+  }
+  if(key==="n3_completar_mapa"){
+    sk = nucleo+"_n3"; s = S[sk]; t = d.blanks.length;
+    if(s){ for(i=0;i<d.blanks.length;i++){ var v=(s.a[d.blanks[i].id]||"").toLowerCase().trim(); if(v===d.blanks[i].respuesta_correcta.toLowerCase()) p++; } }
+    comp = !!(s && s.c);
+    return {sk:sk, nombre:"Completar", p:p, t:t, comp:comp, tipo:"auto"};
+  }
+  if(key==="n4_verdadero_falso"){
+    sk = nucleo+"_n4"; s = S[sk]; t = d.afirmaciones.length;
+    var resp = 0;
+    if(s){ for(i=0;i<d.afirmaciones.length;i++){ if(s.a[i]!==undefined){ resp++; if(s.a[i]===d.afirmaciones[i].correcto) p++; } } }
+    comp = resp===t;
+    return {sk:sk, nombre:"V o F", p:p, t:t, comp:comp, tipo:"auto"};
+  }
+  if(key==="n5_relacionar_columnas"){
+    sk = nucleo+"_n5"; s = S[sk]; t = d.pares.length;
+    p = s ? Object.keys(s.mt).length : 0; comp = p===t;
+    return {sk:sk, nombre:"Relacionar", p:p, t:t, comp:comp, tipo:"auto"};
+  }
+  if(key==="n6_palabra_intrusa"){
+    sk = nucleo+"_n6"; s = S[sk]; t = d.grupos.length;
+    p = s ? Math.min(s.ci + (s.sel!==null?1:0), t) : 0; comp = p===t;
+    return {sk:sk, nombre:"Palabra intrusa", p:p, t:t, comp:comp, tipo:"auto"};
+  }
+  if(key==="n7_defini_con_tus_palabras"){
+    sk = nucleo+"_n7"; t = d.conceptos.length;
+    for(i=0;i<t;i++) if(S[sk+"_sub_"+i]) p++;
+    comp = p===t;
+    return {sk:sk, nombre:"Defin\u00ED (escrito)", p:p, t:t, comp:comp, tipo:"texto"};
+  }
+  if(key==="n8_causa_efecto"){
+    sk = nucleo+"_n8"; s = S[sk]; t = d.causas.length;
+    p = s ? Object.keys(s.cn).length : 0; comp = p===t;
+    return {sk:sk, nombre:"Causa\u2192Efecto", p:p, t:t, comp:comp, tipo:"auto"};
+  }
+  if(key==="n9_ordenar_proceso"){
+    sk = nucleo+"_n9"; s = S[sk]; t = d.pasos_en_orden_correcto.length;
+    if(s && s.pl && s.pl.length===t){
+      comp = true;
+      for(i=0;i<t;i++) if(s.pl[i].id===d.pasos_en_orden_correcto[i].id) p++;
+    }
+    return {sk:sk, nombre:"Ordenar proceso", p:p, t:t, comp:comp, tipo:"auto"};
+  }
+  if(key==="n10_comparador"){
+    sk = nucleo+"_n10"; s = S[sk]; t = 6;
+    var campos = ["s1","s2","d1","d2","d3","d4"];
+    if(s){ for(i=0;i<campos.length;i++) if((s[campos[i]]||"").trim().length>=3) p++; }
+    comp = p===t;
+    return {sk:sk, nombre:"Comparador (escrito)", p:p, t:t, comp:comp, tipo:"texto"};
+  }
+  return null;
+}
+
+var CLAVES_ACTIVIDADES = ["n1_ordenar_cronologicamente","n2_clasificador","n3_completar_mapa","n4_verdadero_falso","n5_relacionar_columnas","n6_palabra_intrusa","n7_defini_con_tus_palabras","n8_causa_efecto","n9_ordenar_proceso","n10_comparador"];
+
+function listaActividades(nucleo){
+  var out = [];
+  for(var i=0;i<CLAVES_ACTIVIDADES.length;i++){
+    var r = puntosActividad(nucleo, CLAVES_ACTIVIDADES[i]);
+    if(r) out.push(r);
+  }
+  return out;
+}
+
+// Foto del "primer intento": la primera vez que una actividad queda
+// verificada/completa, guardamos su puntaje en S (viaja a Supabase también)
+function tomarSnapshotsNotas(){
+  if(!D) return;
+  var nus = ["nucleo_a","nucleo_b","nucleo_c"];
+  for(var n=0;n<nus.length;n++){
+    if(!D[nus[n]]) continue;
+    var acts = listaActividades(nus[n]);
+    for(var i=0;i<acts.length;i++){
+      var r = acts[i];
+      if(r.comp && !S["snap_"+r.sk]) S["snap_"+r.sk] = {p:r.p, t:r.t};
+    }
+  }
+}
+
+function calcularNotaSeccion(nucleo){
+  var acts = listaActividades(nucleo);
+  if(!acts.length) return null;
+  var sumT=0, sumFin=0, sumPri=0, det=[];
+  for(var i=0;i<acts.length;i++){
+    var r = acts[i];
+    var snap = S["snap_"+r.sk] || {p:r.p, t:r.t};
+    sumT += r.t; sumFin += r.p; sumPri += snap.p;
+    var linea = r.nombre+": "+r.p+"/"+r.t;
+    if(snap.p !== r.p) linea += " (1\u00BA intento "+snap.p+"/"+r.t+")";
+    if(r.tipo==="texto") linea += " \u270D\uFE0F";
+    if(!r.comp) linea += " \u26A0\uFE0F incompleta";
+    det.push(linea);
+  }
+  var notaPri = Math.round(sumPri/sumT*100);
+  var notaFin = Math.round(sumFin/sumT*100);
+  return {
+    total: sumT,
+    notaPrimer: notaPri,
+    notaFinal: notaFin,
+    notaProm: Math.round((notaPri+notaFin)/2),
+    detalle: det.join(" | ")
+  };
+}
+
+// ── Envío con cola de pendientes por si no hay internet en la escuela ──
+function toastNota(msg){
+  try{
+    var t = document.createElement("div");
+    t.textContent = msg;
+    t.style.cssText = "position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1E293B;color:#fff;padding:12px 22px;border-radius:12px;font-size:14px;font-weight:600;z-index:99999;box-shadow:0 8px 24px rgba(0,0,0,.25)";
+    document.body.appendChild(t);
+    setTimeout(function(){ t.remove(); }, 4000);
+  }catch(e){}
+}
+function guardarMailPendiente(data){
+  try{
+    var q = JSON.parse(localStorage.getItem("cv_mails_pendientes")||"[]");
+    q.push(data);
+    localStorage.setItem("cv_mails_pendientes", JSON.stringify(q));
+  }catch(e){}
+}
+function enviarFormSubmit(data){
+  return fetch("https://formsubmit.co/ajax/"+FORMSUBMIT_EMAIL, {
+    method:"POST",
+    headers:{"Content-Type":"application/json","Accept":"application/json"},
+    body: JSON.stringify(data)
+  }).then(function(r){
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    toastNota("\u{1F4E7} Tu nota se envi\u00F3 a la profe");
+  }).catch(function(e){
+    guardarMailPendiente(data);
+    toastNota("\u{1F4EE} Sin conexi\u00F3n: tu nota se enviar\u00E1 autom\u00E1ticamente m\u00E1s tarde");
+  });
+}
+function reintentarMailsPendientes(){
+  try{
+    var q = JSON.parse(localStorage.getItem("cv_mails_pendientes")||"[]");
+    if(!q.length) return;
+    localStorage.setItem("cv_mails_pendientes","[]");
+    for(var i=0;i<q.length;i++) enviarFormSubmit(q[i]);
+  }catch(e){}
+}
+setTimeout(reintentarMailsPendientes, 5000);
+
+function enviarNotaNucleo(tabKey){
+  var res = calcularNotaSeccion(tabKey);
+  if(!res || !res.total) return;
+  var md = metadatosUnidad(), al = identidadAlumno();
+  var letra = (tabKey.split("_")[1]||"").toUpperCase();
+  var sec = "N\u00FAcleo "+letra;
+  var bloqueTit = (D[tabKey] && D[tabKey].bloque_info && D[tabKey].bloque_info.titulo) || sec;
+  enviarFormSubmit({
+    "Evaluaci\u00F3n": "U"+md.unidad+" "+sec+" \u2014 "+md.titulo,
+    "Escuela": md.escuela,
+    "Curso": md.curso,
+    "Asignatura": md.materia,
+    "Unidad": "U"+md.unidad,
+    "Trimestre": "T"+md.unidad,
+    "Secci\u00F3n": bloqueTit,
+    "Estudiante": al.nombre,
+    "C\u00F3digo": al.codigo,
+    "Nota": res.notaProm+"/100",
+    "Nota Primer Intento": res.notaPrimer+"/100",
+    "Nota Final": res.notaFinal+"/100",
+    "Detalle": res.detalle,
+    "_subject": "\u2705 ["+md.curso+"-"+md.materia+"-U"+md.unidad+"] "+sec+": "+al.nombre,
+    "_captcha": "false"
+  });
+}
+
+function enviarNotaAutotest(pct, esPrimer, datos){
+  var md = metadatosUnidad(), al = identidadAlumno();
+  var primer = esPrimer ? pct : ((datos && datos.primerIntento) ? datos.primerIntento.nota : pct);
+  var prom = Math.round((primer + pct)/2);
+  var intento = esPrimer ? 1 : (2 + ((datos && datos.reintentos) ? datos.reintentos.length : 0));
+  enviarFormSubmit({
+    "Evaluaci\u00F3n": "U"+md.unidad+" Autotest \u2014 "+md.titulo,
+    "Escuela": md.escuela,
+    "Curso": md.curso,
+    "Asignatura": md.materia,
+    "Unidad": "U"+md.unidad,
+    "Trimestre": "T"+md.unidad,
+    "Secci\u00F3n": "Autotest",
+    "Estudiante": al.nombre,
+    "C\u00F3digo": al.codigo,
+    "Nota": prom+"/100",
+    "Nota Primer Intento": primer+"/100",
+    "Nota Este Intento": pct+"/100",
+    "Detalle": "Intento N\u00BA "+intento,
+    "_subject": "\u2705 ["+md.curso+"-"+md.materia+"-U"+md.unidad+"] Autotest: "+al.nombre,
+    "_captcha": "false"
+  });
+}
+// ═══════════════ FIN CAPA DE NOTAS ═══════════════
+
 var SUPABASE_URL = "https://ygafevogfxwupmgwksto.supabase.co";
 var SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlnYWZldm9nZnh3dXBtZ3drc3RvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MDA5NDMsImV4cCI6MjA4ODI3Njk0M30.5LoSWrwtFCR4qoQnmNY6UZB1SuiVpx-G9N1AG6cOev8";
 
