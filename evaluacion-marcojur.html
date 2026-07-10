@@ -157,7 +157,8 @@
                 </div>
             </div>
 
-            <button class="btn-start" onclick="location.reload()">Cerrar sesión</button>
+            <button class="btn-start" onclick="resetQuiz()" style="margin-bottom:12px">Volver a intentar 🔁</button>
+            <button class="btn-nav" onclick="location.reload()" style="width:100%;margin-top:8px">Cerrar sesión</button>
         </div>
     </div>
 </div>
@@ -296,6 +297,12 @@
             return;
         }
 
+        // Buscar el código real del alumno en la tabla alumnos
+        let realCode = studentCode;
+        try {
+            const alumnosData = await sbFetch("alumnos", `select=codigo&nombre=eq.${encodeURIComponent(student.name)}`);
+            if (alumnosData && alumnosData.length > 0) realCode = alumnosData[0].codigo;
+        } catch(e) { console.warn("No se pudo obtener código real del alumno:", e); }
 
         currentQuestions = shuffle([...questionBank]).slice(0, 10);
         currentQuestions.forEach(q => {
@@ -309,7 +316,7 @@
         startTime = Date.now();
 
         document.getElementById('student-name-display').textContent = student.name;
-        document.getElementById('student-name-display').dataset.code = student.code;
+        document.getElementById('student-name-display').dataset.code = realCode;
         document.getElementById('setup-screen').style.display = 'none';
         document.getElementById('quiz-screen').style.display = 'block';
 
@@ -365,6 +372,20 @@
 
     function nextQuestion() { if (currentIdx < 9) { currentIdx++; renderQuestion(); } }
     function prevQuestion() { if (currentIdx > 0) { currentIdx--; renderQuestion(); } }
+
+    function resetQuiz() {
+        clearInterval(timerInterval);
+        timeLeft = 10 * 60;
+        currentQuestions = [];
+        userAnswers = [];
+        currentIdx = 0;
+        document.getElementById('results-screen').style.display = 'none';
+        document.getElementById('quiz-screen').style.display = 'none';
+        document.getElementById('setup-screen').style.display = 'block';
+        document.getElementById('student-password').value = '';
+        document.getElementById('timer-val').textContent = '10:00';
+        document.querySelector('.timer').style.color = '#F59E0B';
+    }
 
     function startTimer() {
         timerInterval = setInterval(() => {
