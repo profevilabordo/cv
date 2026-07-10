@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acto Jurídico</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --eeso-red: #C41E3A;
+            --eetp-green: #2E7D32;
+            --accent-blue: #1e40af;
+            --dark-text: #1f2937;
+            --light-bg: #f9fafb;
+            --border: #e5e7eb;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f0f4f8 0%, #f9fafb 100%);
+            color: var(--dark-text);
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--eeso-red) 0%, var(--eetp-green) 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 0;
+            border-bottom: 2px solid var(--border);
+            background: var(--light-bg);
+            padding: 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-tabs button {
+            flex: 1;
+            padding: 16px 20px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            color: #6b7280;
+            transition: all 0.3s ease;
+            position: relative;
+            min-width: 120px;
+        }
+
+        .nav-tabs button:hover {
+            background: rgba(196, 30, 58, 0.05);
+            color: var(--dark-text);
+        }
+
+        .nav-tabs button.active {
+            color: var(--eeso-red);
+            background: white;
+        }
+
+        .nav-tabs button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--eeso-red);
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .intro-text {
+            font-size: 1.1em;
+            color: #374151;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(to right, rgba(196, 30, 58, 0.05), rgba(46, 125, 50, 0.05));
+            border-left: 4px solid var(--eeso-red);
+            border-radius: 6px;
+        }
+
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: white;
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(196, 30, 58, 0.1);
+            border-color: var(--eeso-red);
+            transform: translateY(-2px);
+        }
+
+        .card-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--eeso-red);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-title.green {
+            color: var(--eetp-green);
+        }
+
+        .card-icon {
+            font-size: 1.5em;
+        }
+
+        .card-content {
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .attribute-list {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .attribute-list li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .attribute-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--eetp-green);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .comparison-section {
+            margin: 30px 0;
+        }
+
+        .comparison-section h3 {
+            font-size: 1.3em;
+            color: var(--dark-text);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .example-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 6px;
+        }
+
+        .example-box strong {
+            color: #d97706;
+        }
+
+        .activity-section {
+            background: linear-gradient(135deg, rgba(30, 64, 175, 0.05), rgba(196, 30, 58, 0.05));
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .activity-section h3 {
+            color: var(--accent-blue);
+            margin-bottom: 20px;
+            font-size: 1.2em;
+        }
+
+        .quiz-question {
+            margin: 20px 0;
+        }
+
+        .quiz-question p {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark-text);
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .quiz-option {
+            padding: 15px;
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--eeso-red);
+            background: rgba(196, 30, 58, 0.05);
+        }
+
+        .quiz-option input {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+        }
+
+        .feedback.show {
+            display: block;
+        }
+
+        .feedback.correct {
+            background: #dcfce7;
+            color: #166534;
+            border: 1px solid var(--eetp-green);
+        }
+
+        .feedback.incorrect {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #ef4444;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--eeso-red);
+            color: white;
+            margin-top: 15px;
+        }
+
+        .btn-primary:hover {
+            background: #a01730;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            background: var(--light-bg);
+            padding: 20px 30px;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.95em;
+            border-top: 2px solid var(--border);
+        }
+
+        .institution-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            margin: 2px;
+        }
+
+        .badge-206 {
+            background: rgba(196, 30, 58, 0.1);
+            color: var(--eeso-red);
+        }
+
+        .badge-602 {
+            background: rgba(46, 125, 50, 0.1);
+            color: var(--eetp-green);
+        }
+
+        .highlight {
+            background: linear-gradient(to right, rgba(196, 30, 58, 0.2), transparent);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+
+        .diagram {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid var(--border);
+        }
+
+        .diagram h4 {
+            color: var(--eeso-red);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .flow-chart {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .flow-item {
+            padding: 12px 20px;
+            background: white;
+            border: 2px solid var(--eeso-red);
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        .flow-arrow {
+            font-size: 1.5em;
+            color: var(--eeso-red);
+        }
+
+        .requisite-card {
+            background: #f0f9ff;
+            border-left: 4px solid var(--accent-blue);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+
+        .requisite-card h5 {
+            color: var(--accent-blue);
+            margin-bottom: 8px;
+        }
+
+        .dos-and-donts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        @media (max-width: 768px) {
+            .dos-and-donts {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .do-box {
+            background: #dcfce7;
+            border-left: 4px solid var(--eetp-green);
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .do-box h5 {
+            color: var(--eetp-green);
+            margin-bottom: 10px;
+        }
+
+        .dont-box {
+            background: #fee2e2;
+            border-left: 4px solid #ef4444;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .dont-box h5 {
+            color: #991b1b;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <h1>Acto Jurídico</h1>
+            <p>¿Qué es y para qué sirve?</p>
+        </div>
+
+        <!-- NAVIGATION TABS -->
+        <div class="nav-tabs">
+            <button class="nav-btn active" data-tab="que-es">¿Qué es?</button>
+            <button class="nav-btn" data-tab="requisitos">Requisitos</button>
+            <button class="nav-btn" data-tab="comparacion">Hecho vs Acto</button>
+            <button class="nav-btn" data-tab="ejemplos">Ejemplos</button>
+            <button class="nav-btn" data-tab="actividad">Actividad</button>
+        </div>
+
+        <!-- MAIN CONTENT -->
+        <div class="content">
+            
+            <!-- TAB 1: QUÉ ES -->
+            <div id="que-es" class="tab-content active">
+                <div class="intro-text">
+                    <strong>Un Acto Jurídico es una acción voluntaria de una persona que tiene la intención de <span class="highlight">CREAR, MODIFICAR o ELIMINAR derechos y obligaciones</span>.</strong>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-title">
+                            <span class="card-icon">📋</span>
+                            ¿QUÉ ES?
+                        </div>
+                        <div class="card-content">
+                            <p>Es un acto <strong>voluntario</strong> (hecho a propósito), <strong>lícito</strong> (permitido por la ley), realizado por una persona <strong>con intención</strong> de producir efectos legales.</p>
+                            <p style="margin-top: 15px; font-style: italic; color: #6b7280;">La clave: <strong>INTENCIÓN DE CREAR CONSECUENCIAS JURÍDICAS</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-title green">
+                            <span class="card-icon">⚖️</span>
+                            ¿PARA QUÉ SIRVE?
+                        </div>
+                        <div class="card-content">
+                            <ul class="attribute-list">
+                                <li>Crear nuevos derechos u obligaciones</li>
+                                <li>Modificar derechos existentes</li>
+                                <li>Extinguir o eliminar derechos</li>
+                                <li>Permitir transacciones legales</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-section">
+                    <h3>🎯 El CONCEPTO CLAVE</h3>
+                    <div class="example-box">
+                        <strong>Todo acto jurídico GENERA EFECTOS LEGALES.</strong> Es decir:
+                        <ul class="attribute-list" style="margin-top: 15px;">
+                            <li>Firma un contrato → Nace una obligación</li>
+                            <li>Firma una venta → Se transfiere la propiedad</li>
+                            <li>Firma un testamento → Se define quién hereda</li>
+                            <li>Firma un contrato de trabajo → Nace relación laboral</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="diagram">
+                    <h4>La estructura básica de un ACTO JURÍDICO</h4>
+                    <div class="flow-chart">
+                        <div class="flow-item">Persona</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-item">Acción Voluntaria</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-item">Con Intención Legal</div>
+                        <div class="flow-arrow">→</div>
+                        <div class="flow-item">Efectos Jurídicos</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 2: REQUISITOS -->
+            <div id="requisitos" class="tab-content">
+                <div class="intro-text">
+                    <strong>Para que un acto sea realmente "jurídico", debe cumplir REQUISITOS.</strong> Si falta uno, el acto NO es válido o NO tiene efectos.
+                </div>
+
+                <div class="comparison-section">
+                    <h3>✓ Los 4 REQUISITOS ESENCIALES</h3>
+                </div>
+
+                <div class="requisite-card">
+                    <h5>1️⃣ SUJETO: Una persona con capacidad</h5>
+                    <p>Debe existir una persona (física o jurídica) que PUEDA actuar ante la ley.</p>
+                    <p style="margin-top: 10px; font-size: 0.95em;"><strong>Ejemplo:</strong> Un niño de 8 años NO puede firmar un contrato solo (no tiene capacidad) → El acto NO es válido</p>
+                </div>
+
+                <div class="requisite-card">
+                    <h5>2️⃣ OBJETO: Algo lícito y posible</h5>
+                    <p>El acto debe versarse sobre algo que sea permitido por la ley y que sea posible de realizar.</p>
+                    <p style="margin-top: 10px; font-size: 0.95em;"><strong>Ejemplo:</strong> No puedo firmar un contrato para vender algo robado (ilícito) → El acto NO es válido</p>
+                </div>
+
+                <div class="requisite-card">
+                    <h5>3️⃣ FORMA: Los requisitos que exige la ley</h5>
+                    <p>Algunos actos DEBEN cumplir una forma específica (escrita, por escribano, con testigos, etc).</p>
+                    <p style="margin-top: 10px; font-size: 0.95em;"><strong>Ejemplo:</strong> Un testamento DEBE ser escrito y ante escribano (si no, NO es válido)</p>
+                </div>
+
+                <div class="requisite-card">
+                    <h5>4️⃣ CONSENTIMIENTO: Voluntad libre y consciente</h5>
+                    <p>Las partes deben estar de acuerdo sin presión, error o engaño (fraude).</p>
+                    <p style="margin-top: 10px; font-size: 0.95em;"><strong>Ejemplo:</strong> Si Juan firma una venta porque lo amenazaron (falta consentimiento libre) → El acto NO es válido</p>
+                </div>
+
+                <div class="comparison-section">
+                    <h3>⚠️ ¿Qué pasa si falta un requisito?</h3>
+                    <div class="dos-and-donts">
+                        <div class="dont-box">
+                            <h5>❌ ACTO INVÁLIDO</h5>
+                            <p>El acto NO produce efectos jurídicos. Es como si nunca hubiera pasado.</p>
+                            <p style="margin-top: 10px; font-size: 0.9em;"><strong>Ejemplo:</strong> Un contrato sin consentimiento real es NULO</p>
+                        </div>
+                        <div class="do-box">
+                            <h5>✓ ACTO VÁLIDO</h5>
+                            <p>El acto produce todos sus efectos jurídicos. Las partes están obligadas.</p>
+                            <p style="margin-top: 10px; font-size: 0.9em;"><strong>Ejemplo:</strong> Un contrato firmado correctamente obliga a ambas partes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 3: HECHO VS ACTO -->
+            <div id="comparacion" class="tab-content">
+                <div class="intro-text">
+                    <strong>No todo acto humano es un ACTO JURÍDICO.</strong> Hay diferencia entre <span class="highlight">HECHO</span> y <span class="highlight">ACTO JURÍDICO</span>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <div class="card-title">
+                            <span class="card-icon">🚶</span>
+                            HECHO HUMANO
+                        </div>
+                        <div class="card-content">
+                            <p><strong>¿Qué es?</strong> Un acto humano, pero SIN intención de crear efectos jurídicos.</p>
+                            <p style="margin-top: 15px;"><strong>Ejemplos:</strong></p>
+                            <ul class="attribute-list" style="font-size: 0.95em;">
+                                <li>Caminar por la calle</li>
+                                <li>Hablar con un amigo</li>
+                                <li>Comer una manzana</li>
+                                <li>Saludar a alguien</li>
+                            </ul>
+                            <p style="margin-top: 15px; color: #6b7280; font-size: 0.9em;"><strong>Efecto legal:</strong> NINGUNO (no obliga a nadie)</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-title green">
+                            <span class="card-icon">📝</span>
+                            ACTO JURÍDICO
+                        </div>
+                        <div class="card-content">
+                            <p><strong>¿Qué es?</strong> Un acto voluntario CON intención de crear/modificar/eliminar derechos.</p>
+                            <p style="margin-top: 15px;"><strong>Ejemplos:</strong></p>
+                            <ul class="attribute-list" style="font-size: 0.95em;">
+                                <li>Firmar un contrato de compra</li>
+                                <li>Hacer una donación</li>
+                                <li>Firmar un cheque</li>
+                                <li>Otorgar un poder notarial</li>
+                            </ul>
+                            <p style="margin-top: 15px; color: #6b7280; font-size: 0.9em;"><strong>Efecto legal:</strong> GENERA DERECHOS Y OBLIGACIONES</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comparison-section">
+                    <h3>🎯 La DIFERENCIA ESENCIAL</h3>
+                    <div class="example-box">
+                        <p><strong>🚶 HECHO:</strong> "Corro en el parque" → Es un acto humano, pero NO tiene intención legal → NO crea obligaciones</p>
+                        <br>
+                        <p><strong>📝 ACTO JURÍDICO:</strong> "Firmo un contrato de entrenador personal en el parque" → Es un acto CON intención legal → CREA obligaciones (el entrenador debe entrenarme, yo debo pagarle)</p>
+                    </div>
+                </div>
+
+                <div class="diagram">
+                    <h4>¿Cómo saber si es ACTO JURÍDICO?</h4>
+                    <div style="background: white; padding: 15px; border-radius: 6px; margin-top: 15px;">
+                        <p><strong>Pregúntate:</strong> <span style="color: var(--eeso-red);">¿Tiene INTENCIÓN de crear, modificar o eliminar derechos u obligaciones?</span></p>
+                        <p style="margin-top: 15px;">
+                            <strong>SÍ</strong> → Es ACTO JURÍDICO ✓<br>
+                            <strong>NO</strong> → Es solo un HECHO ✗
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: EJEMPLOS -->
+            <div id="ejemplos" class="tab-content">
+                <div class="intro-text">
+                    Ejemplos de ACTOS JURÍDICOS reales que ocurren todos los días
+                </div>
+
+                <div class="comparison-section">
+                    <h3>📋 EJEMPLO 1: Contrato de Compra</h3>
+                    <div class="example-box">
+                        <p><strong>La situación:</strong> Veronika compra una bicicleta a Carlos por $500.</p>
+                        <p style="margin-top: 15px;"><strong>¿Qué pasa?</strong></p>
+                        <ul class="attribute-list" style="font-size: 0.95em;">
+                            <li><strong>Sujetos:</strong> Veronika (compradora) y Carlos (vendedor)</li>
+                            <li><strong>Objeto:</strong> Una bicicleta (lícito y posible)</li>
+                            <li><strong>Consentimiento:</strong> Ambos están de acuerdo</li>
+                            <li><strong>Forma:</strong> Puede ser oral o escrita</li>
+                        </ul>
+                        <p style="margin-top: 15px;"><strong>Efectos jurídicos:</strong></p>
+                        <ul class="attribute-list" style="font-size: 0.95em;">
+                            <li>Carlos tiene DERECHO a recibir $500</li>
+                            <li>Veronika tiene DERECHO a recibir la bicicleta</li>
+                            <li>Veronika tiene OBLIGACIÓN de pagar $500</li>
+                            <li>Carlos tiene OBLIGACIÓN de entregar la bicicleta</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="comparison-section">
+                    <h3>📋 EJEMPLO 2: Contrato de Trabajo</h3>
+                    <div class="example-box">
+                        <p><strong>La situación:</strong> Martín firma un contrato para trabajar en una tienda como vendedor.</p>
+                        <p style="margin-top: 15px;"><strong>¿Qué pasa?</strong></p>
+                        <ul class="attribute-list" style="font-size: 0.95em;">
+                            <li><strong>Sujetos:</strong> Martín (trabajador) y el dueño (empleador)</li>
+                            <li><strong>Objeto:</strong> Trabajo como vendedor (lícito)</li>
+                            <li><strong>Consentimiento:</strong> Los dos están de acuerdo en los términos</li>
+                            <li><strong>Forma:</strong> Debe ser escrita y debe cumplir la LCT</li>
+                        </ul>
+                        <p style="margin-top: 15px;"><strong>Efectos jurídicos:</strong></p>
+                        <ul class="attribute-list" style="font-size: 0.95em;">
+                            <li>Martín tiene DERECHO a recibir sueldo</li>
+                            <li>El dueño tiene DERECHO a recibir el trabajo de Martín</li>
+                            <li>Martín tiene OBLIGACIÓN de trabajar (con dedicación)</li>
+                            <li>El dueño tiene OBLIGACIÓN de pagar el sueldo</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="comparison-section">
+                    <h3>📋 EJEMPLO 3: Otorgamiento de Poder</h3>
+                    <div class="example-box">
+                        <p><strong>La situación:</strong> Ana, que está enferma, le da poder a su hermano Julio para que venda una propiedad en su nombre.</p>
+                        <p style="margin-top: 15px;"><strong>¿Qué pasa?</strong></p>
+                        <ul class="attribute-list" style="font-size: 0.95em;">
+                            <li><strong>Sujeto:</strong> Ana (con capacidad legal)</li>
+                            <li><strong>Objeto:</strong> Autorizar a Julio a vender propiedad (lícito)</li>
+                            <li><strong>Consentimiento:</strong> Ana quiere dar el poder libremente</li>
+                            <li><strong>Forma:</strong> DEBE ser ante escribano público</li>
+                        </ul>
+                        <p style="margin-top: 15px;"><strong>Efectos jurídicos:</strong></p>
+                        <ul class="attribute-list" style="font-size: 0.95em;">
+                            <li>Julio tiene DERECHO a actuar en nombre de Ana para vender</li>
+                            <li>Ana tiene OBLIGACIÓN de cumplir lo que Julio haga en su nombre</li>
+                            <li>Los terceros pueden confiar en que Julio representa a Ana</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="comparison-section">
+                    <h3>⚠️ ACTOS INVÁLIDOS (sin efectos)</h3>
+                    <div class="example-box">
+                        <p><strong>Caso 1:</strong> Pablo (de 10 años) firma un contrato para comprar una moto → <span style="color: #991b1b; font-weight: bold;">INVÁLIDO (falta capacidad)</span></p>
+                        <p style="margin-top: 15px;"><strong>Caso 2:</strong> Rosa firma un contrato obligada por su novio que la amenaza → <span style="color: #991b1b; font-weight: bold;">INVÁLIDO (falta consentimiento libre)</span></p>
+                        <p style="margin-top: 15px;"><strong>Caso 3:</strong> Un testamento escrito a mano sin testigos (cuando la ley exige testigos) → <span style="color: #991b1b; font-weight: bold;">INVÁLIDO (falta forma)</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 5: ACTIVIDAD -->
+            <div id="actividad" class="tab-content">
+                <div class="intro-text">
+                    <strong>Testea tus conocimientos</strong> sobre actos jurídicos
+                </div>
+
+                <div class="activity-section">
+                    <h3>❓ PREGUNTA 1</h3>
+                    <div class="quiz-question">
+                        <p>¿Cuál es la característica PRINCIPAL de un Acto Jurídico?</p>
+                        <div class="quiz-options">
+                            <label class="quiz-option">
+                                <input type="radio" name="q1" value="a"> 
+                                <span>Que es un acto humano (cualquier acción que hace una persona)</span>
+                            </label>
+                            <label class="quiz-option">
+                                <input type="radio" name="q1" value="b"> 
+                                <span>Que es voluntario y tiene INTENCIÓN de crear, modificar o eliminar derechos u obligaciones</span>
+                            </label>
+                            <label class="quiz-option">
+                                <input type="radio" name="q1" value="c"> 
+                                <span>Que siempre debe ser escrito y ante un escribano</span>
+                            </label>
+                        </div>
+                        <div id="feedback1" class="feedback"></div>
+                    </div>
+                </div>
+
+                <div class="activity-section">
+                    <h3>❓ PREGUNTA 2</h3>
+                    <div class="quiz-question">
+                        <p>¿Cuál de estos es un ACTO JURÍDICO?</p>
+                        <div class="quiz-options">
+                            <label class="quiz-option">
+                                <input type="radio" name="q2" value="a"> 
+                                <span>Caminar por la calle</span>
+                            </label>
+                            <label class="quiz-option">
+                                <input type="radio" name="q2" value="b"> 
+                                <span>Firmar un contrato de venta de una computadora</span>
+                            </label>
+                            <label class="quiz-option">
+                                <input type="radio" name="q2" value="c"> 
+                                <span>Comer un sándwich en el colegio</span>
+                            </label>
+                        </div>
+                        <div id="feedback2" class="feedback"></div>
+                    </div>
+                </div>
+
+                <div class="activity-section">
+                    <h3>❓ PREGUNTA 3</h3>
+                    <div class="quiz-question">
+                        <p>¿Qué requisito falta en este acto y lo hace INVÁLIDO?<br><strong>Caso:</strong> Javier (de 12 años) firma un contrato para vender su bicicleta.</p>
+                        <div class="quiz-options">
+                            <label class="quiz-option">
+                                <input type="radio" name="q3" value="a"> 
+                                <span>Falta forma (debe ser escrito)</span>
+                            </label>
+                            <label class="quiz-option">
+                                <input type="radio" name="q3" value="b"> 
+                                <span>Falta capacidad (es menor de edad, no puede contratar solo)</span>
+                            </label>
+                            <label class="quiz-option">
+                                <input type="radio" name="q3" value="c"> 
+                                <span>Falta objeto (una bicicleta es ilícita)</span>
+                            </label>
+                        </div>
+                        <div id="feedback3" class="feedback"></div>
+                    </div>
+                </div>
+
+                <div class="activity-section">
+                    <h3>❓ PREGUNTA 4</h3>
+                    <div class="quiz-question">
+                        <p>¿Cuáles son los 4 requisitos esenciales de un Acto Jurídico?</p>
+                        <div class="quiz-options">
+                            <label class="quiz-option">
+                                <input type="radio" name="q4" value="a"> 
+                                <span>Sujeto, Objeto, Forma y Consentimiento</span>
+                            </label>
+                            <label class="quiz-option">
+                                <input type="radio" name="q4" value="b"> 
+                                <span>Dinero, Testigo, Escribano y Firma</span>
+                            </label>
+                            <label class="quiz-option">
+                                <input type="radio" name="q4" value="c"> 
+                                <span>Intención, Edad, Domicilio y Nacionalidad</span>
+                            </label>
+                        </div>
+                        <div id="feedback4" class="feedback"></div>
+                    </div>
+                </div>
+
+                <button class="btn btn-primary" onclick="checkAnswers()">✓ Verificar respuestas</button>
+            </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>
+                <span class="institution-badge badge-206">EESO Nº 206 "Rosa Turner de Estrugamou" - 4°C y 4°D</span>
+                <span class="institution-badge badge-602">EETP Nº 602 "Gral. José de San Martín" - 5°A y 6°B</span>
+            </p>
+            <p style="margin-top: 15px; font-size: 0.9em;">Material educativo interactivo | Aula Digital con Verónica</p>
+        </div>
+    </div>
+
+    <script>
+        // TAB NAVIGATION
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active from all
+                document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+                
+                // Add active to clicked
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab).classList.add('active');
+            });
+        });
+
+        // QUIZ FUNCTIONALITY
+        function checkAnswers() {
+            const correctAnswers = {
+                'q1': 'b',
+                'q2': 'b',
+                'q3': 'b',
+                'q4': 'a'
+            };
+
+            let allAnswered = true;
+            let allCorrect = true;
+
+            // Check q1
+            const q1Answer = document.querySelector('input[name="q1"]:checked');
+            if (!q1Answer) {
+                allAnswered = false;
+            } else {
+                const feedback1 = document.getElementById('feedback1');
+                const isCorrect = q1Answer.value === correctAnswers.q1;
+                
+                if (isCorrect) {
+                    feedback1.innerHTML = '✓ ¡Correcto! Un Acto Jurídico es voluntario y tiene intención de crear, modificar o eliminar derechos.';
+                    feedback1.classList.add('show', 'correct');
+                } else {
+                    feedback1.innerHTML = '✗ Incorrecto. La característica PRINCIPAL es que es voluntario y tiene INTENCIÓN de crear, modificar o eliminar derechos u obligaciones.';
+                    feedback1.classList.add('show', 'incorrect');
+                    allCorrect = false;
+                }
+            }
+
+            // Check q2
+            const q2Answer = document.querySelector('input[name="q2"]:checked');
+            if (!q2Answer) {
+                allAnswered = false;
+            } else {
+                const feedback2 = document.getElementById('feedback2');
+                const isCorrect = q2Answer.value === correctAnswers.q2;
+                
+                if (isCorrect) {
+                    feedback2.innerHTML = '✓ ¡Exacto! Firmar un contrato de venta es un Acto Jurídico porque crea derechos y obligaciones.';
+                    feedback2.classList.add('show', 'correct');
+                } else {
+                    feedback2.innerHTML = '✗ Incorrecto. Caminar y comer son hechos humanos, pero NO son actos jurídicos. Firmar un contrato SÍ es un acto jurídico.';
+                    feedback2.classList.add('show', 'incorrect');
+                    allCorrect = false;
+                }
+            }
+
+            // Check q3
+            const q3Answer = document.querySelector('input[name="q3"]:checked');
+            if (!q3Answer) {
+                allAnswered = false;
+            } else {
+                const feedback3 = document.getElementById('feedback3');
+                const isCorrect = q3Answer.value === correctAnswers.q3;
+                
+                if (isCorrect) {
+                    feedback3.innerHTML = '✓ ¡Muy bien! Javier es menor de edad, le falta CAPACIDAD para contratar.';
+                    feedback3.classList.add('show', 'correct');
+                } else {
+                    feedback3.innerHTML = '✗ Incorrecto. El problema es la falta de CAPACIDAD (ser menor de edad).';
+                    feedback3.classList.add('show', 'incorrect');
+                    allCorrect = false;
+                }
+            }
+
+            // Check q4
+            const q4Answer = document.querySelector('input[name="q4"]:checked');
+            if (!q4Answer) {
+                allAnswered = false;
+            } else {
+                const feedback4 = document.getElementById('feedback4');
+                const isCorrect = q4Answer.value === correctAnswers.q4;
+                
+                if (isCorrect) {
+                    feedback4.innerHTML = '✓ ¡Perfecto! Los 4 requisitos son: Sujeto (con capacidad), Objeto (lícito y posible), Forma y Consentimiento libre.';
+                    feedback4.classList.add('show', 'correct');
+                } else {
+                    feedback4.innerHTML = '✗ Incorrecto. Los requisitos son: Sujeto (con capacidad), Objeto (lícito y posible), Forma y Consentimiento (libre y consciente).';
+                    feedback4.classList.add('show', 'incorrect');
+                    allCorrect = false;
+                }
+            }
+
+            if (!allAnswered) {
+                alert('⚠️ Por favor, responde todas las preguntas');
+            } else if (allCorrect) {
+                alert('🎉 ¡EXCELENTE! ¡Dominaste Actos Jurídicos!');
+            }
+        }
+    </script>
+</body>
+</html>

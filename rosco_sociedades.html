@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rosco de Sociedades — EETP N°602</title>
+<style>
+  :root{
+    --verde-osc:#153A2C;
+    --verde:#2D6A4F;
+    --verde-luz:#74C69D;
+    --dorado:#C9A227;
+    --dorado-luz:#E6C763;
+    --pergamino:#F6F2E7;
+    --pergamino-osc:#EBE3D0;
+    --tinta:#1F241F;
+    --correcto:#3E8E5C;
+    --incorrecto:#A4373A;
+    --pendiente:#B9AF95;
+    --sombra: 0 10px 30px rgba(21,58,44,0.18);
+    --font-display: Georgia, 'Iowan Old Style', 'Times New Roman', serif;
+    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background: var(--pergamino);
+    background-image:
+      radial-gradient(circle at 15% 10%, rgba(45,106,79,0.06), transparent 40%),
+      radial-gradient(circle at 85% 90%, rgba(201,162,39,0.08), transparent 40%);
+    color: var(--tinta);
+    font-family: var(--font-body);
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding: 0 0 40px 0;
+  }
+  :focus-visible{ outline: 3px solid var(--dorado); outline-offset: 2px; }
+
+  header.banner{
+    width:100%;
+    background: linear-gradient(180deg, var(--verde-osc), var(--verde));
+    color: var(--pergamino);
+    text-align:center;
+    padding: 28px 16px 22px;
+    box-shadow: var(--sombra);
+    position:relative;
+  }
+  header.banner::after{
+    content:"";
+    position:absolute; left:0; right:0; bottom:-8px; height:8px;
+    background: repeating-linear-gradient(135deg, var(--dorado) 0 10px, var(--dorado-luz) 10px 20px);
+  }
+  header.banner h1{
+    font-family: var(--font-display);
+    font-weight:700;
+    letter-spacing: 1px;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    margin: 0 0 6px 0;
+  }
+  header.banner p{
+    margin:0;
+    font-size: 0.9rem;
+    opacity:0.9;
+    letter-spacing:0.4px;
+  }
+
+  main{
+    width:100%;
+    max-width: 720px;
+    padding: 28px 18px 0;
+  }
+
+  .card{
+    background: #fff;
+    border: 1px solid var(--pergamino-osc);
+    border-radius: 14px;
+    box-shadow: var(--sombra);
+    padding: 22px;
+    margin-bottom: 20px;
+  }
+  h2.section-title{
+    font-family: var(--font-display);
+    color: var(--verde-osc);
+    font-size: 1.3rem;
+    margin: 0 0 14px 0;
+    border-bottom: 2px solid var(--dorado);
+    padding-bottom: 8px;
+  }
+
+  /* --- Setup screen --- */
+  .team-count-row{ display:flex; gap:10px; flex-wrap:wrap; margin-bottom: 4px;}
+  .team-count-row button{
+    flex:1; min-width:64px;
+    padding:12px; border-radius:10px; border:2px solid var(--verde);
+    background:#fff; color:var(--verde-osc); font-weight:600; font-size:1rem;
+    cursor:pointer; transition: all .15s;
+  }
+  .team-count-row button.active{ background:var(--verde); color:#fff; }
+  .team-count-row button:hover{ background: var(--verde-luz); color:var(--verde-osc); }
+
+  .team-block{
+    border:1px solid var(--pergamino-osc);
+    border-left: 5px solid var(--dorado);
+    border-radius:10px;
+    padding:16px;
+    margin-top:16px;
+    background: var(--pergamino);
+  }
+  .team-block .ronda-tag{
+    display:inline-block; background:var(--verde-osc); color:#fff; font-size:0.7rem;
+    font-weight:700; padding:3px 10px; border-radius:999px; margin-bottom:10px; letter-spacing:0.4px;
+  }
+  .team-block label{ font-size:0.82rem; font-weight:600; color:var(--verde-osc); display:block; margin-bottom:4px;}
+  .team-block input[type=text]{
+    width:100%; padding:10px; border-radius:8px; border:1px solid #ccc2a3;
+    font-size:1rem; margin-bottom:10px; font-family:var(--font-body);
+  }
+  .member-row{ display:flex; gap:8px; margin-bottom:8px; align-items:center;}
+  .member-row input{ flex:1; }
+  .member-row button{
+    background:var(--incorrecto); color:#fff; border:none; border-radius:6px;
+    width:32px; height:32px; cursor:pointer; font-size:1rem; flex-shrink:0;
+  }
+  .add-member{
+    background:none; border:1.5px dashed var(--verde); color:var(--verde-osc);
+    border-radius:8px; padding:8px 12px; cursor:pointer; font-size:0.85rem; font-weight:600;
+    width:100%;
+  }
+  .add-member:hover{ background: var(--verde-luz); }
+
+  .big-btn{
+    display:block; width:100%; margin-top:22px;
+    background: linear-gradient(180deg, var(--dorado-luz), var(--dorado));
+    color: var(--verde-osc); font-weight:700; font-size:1.05rem;
+    border:none; border-radius:12px; padding:16px; cursor:pointer;
+    box-shadow: var(--sombra);
+    letter-spacing:0.3px;
+  }
+  .big-btn:hover{ filter:brightness(1.05); }
+  .big-btn:disabled{ opacity:0.5; cursor:not-allowed; }
+
+  .note{ font-size:0.8rem; color:#6b6350; margin-top:6px;}
+
+  /* --- Game screen --- */
+  .game-topbar{
+    display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:10px; margin-bottom:18px;
+  }
+  .team-tag{
+    font-family:var(--font-display); font-size:1.3rem; color:var(--verde-osc); font-weight:700;
+  }
+  .members-tag{ font-size:0.78rem; color:#6b6350; }
+  .ronda-tag-game{ font-size:0.72rem; color:var(--dorado); font-weight:700; letter-spacing:0.4px; text-transform:uppercase; }
+  .score-pill{
+    background:var(--verde-osc); color:#fff; padding:8px 16px; border-radius:999px;
+    font-weight:700; font-size:0.95rem;
+  }
+  .lap-pill{
+    background:var(--dorado); color:var(--verde-osc); padding:6px 12px; border-radius:999px;
+    font-weight:700; font-size:0.78rem;
+  }
+
+  .rosco-wrap{
+    position:relative; width:100%; max-width:480px; aspect-ratio:1/1;
+    margin: 0 auto 20px;
+  }
+  .rosco-wrap svg{ width:100%; height:100%; display:block; }
+  .letter-tile-label{
+    font-family: var(--font-display); font-weight:700; font-size:15px;
+    fill: #fff; text-anchor:middle; dominant-baseline:central;
+  }
+
+  .clue-center{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    pointer-events:none;
+  }
+  .clue-card{
+    pointer-events:auto;
+    width:64%; aspect-ratio:1/1; border-radius:50%;
+    background: radial-gradient(circle at 30% 25%, #fff, var(--pergamino));
+    border: 3px solid var(--dorado);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding: 8%;
+    box-shadow: inset 0 0 0 6px rgba(255,255,255,0.6), var(--sombra);
+  }
+  .clue-letter{
+    font-family: var(--font-display); font-size: clamp(2.2rem, 8vw, 3.2rem);
+    color: var(--verde-osc); font-weight:700; line-height:1;
+  }
+  .clue-hint{ font-size:0.68rem; color:var(--dorado); font-weight:700; letter-spacing:1px; margin-bottom:4px; text-transform:uppercase;}
+  .clue-text{
+    font-size: clamp(0.72rem, 2vw, 0.85rem); color:var(--tinta); margin-top:8px; line-height:1.3;
+  }
+  .timer-num{
+    font-family:var(--font-display); font-size:1rem; font-weight:700; color:var(--verde);
+    margin-top:6px;
+  }
+  .timer-num.warn{ color: var(--incorrecto); }
+
+  .answer-buttons{
+    display:flex; gap:10px; margin-top:6px; flex-wrap:wrap;
+  }
+  .answer-buttons button{
+    flex:1; min-width:110px; padding:14px 8px; border-radius:10px; border:none;
+    font-weight:700; font-size:0.92rem; cursor:pointer; color:#fff;
+    box-shadow: var(--sombra); transition: transform .1s;
+  }
+  .answer-buttons button:active{ transform: scale(0.97); }
+  .btn-correcto{ background: var(--correcto); }
+  .btn-incorrecto{ background: var(--incorrecto); }
+  .btn-pasapalabra{ background: var(--dorado); color:var(--verde-osc); }
+
+  .recap-list{ list-style:none; padding:0; margin:0; display:grid; gap:6px; grid-template-columns: 1fr 1fr; }
+  .recap-list li{
+    font-size:0.85rem; padding:8px 10px; border-radius:8px; display:flex; justify-content:space-between; gap:6px;
+  }
+  .recap-correcto{ background: rgba(62,142,92,0.14); color: var(--correcto); }
+  .recap-incorrecto{ background: rgba(164,55,58,0.14); color: var(--incorrecto); }
+
+  .final-team{
+    display:flex; align-items:center; gap:14px; padding:14px; border-radius:12px;
+    margin-bottom:10px; background: var(--pergamino); border:1px solid var(--pergamino-osc);
+  }
+  .final-team.first{ border: 2px solid var(--dorado); background: linear-gradient(90deg, rgba(201,162,39,0.14), transparent); }
+  .rank-badge{
+    font-family:var(--font-display); font-size:1.4rem; font-weight:700; color:var(--verde-osc);
+    width:40px; text-align:center; flex-shrink:0;
+  }
+  .final-team-info{ flex:1; }
+  .final-team-info .fname{ font-weight:700; color:var(--verde-osc); }
+  .final-team-info .fmembers{ font-size:0.75rem; color:#6b6350; }
+  .final-score{ font-family:var(--font-display); font-size:1.3rem; font-weight:700; color:var(--verde); }
+
+  .footer-note{
+    text-align:center; font-size:0.72rem; color:#8a8262; margin-top:26px; padding: 0 20px;
+  }
+
+  .hidden{ display:none !important; }
+
+  @media (max-width:480px){
+    .recap-list{ grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="banner">
+  <h1>Rosco de Sociedades Comerciales</h1>
+  <p>EETP N°602 "Gral. José de San Martín" · Marco Jurídico · 5°A Informática y 6°B Electrónica</p>
+</header>
+
+<main id="app"></main>
+
+<script>
+// ---------- 4 bancos de palabras distintos (una ronda por equipo) ----------
+// Mismo tema (Unidad 2, Parte III: Sociedades, puntos 10 y 11), pero con términos
+// distintos por letra en cada ronda cuando el vocabulario del apunte lo permite,
+// para que un equipo no pueda copiar la respuesta que escuchó del anterior.
+
+const RONDA_1 = [
+  {letter:"A", tipo:"empieza", clue:"Es lo que cada socio entrega a la sociedad —dinero, bienes o trabajo— para poder participar de las ganancias.", answer:"Aporte"},
+  {letter:"B", tipo:"empieza", clue:"Los aportes no siempre son dinero: también pueden consistir en estas cosas materiales.", answer:"Bienes"},
+  {letter:"C", tipo:"empieza", clue:"Tipo de sociedad donde los socios responden en forma subsidiaria, ilimitada y solidaria; hoy se usa poco, típica de negocios familiares.", answer:"Colectiva"},
+  {letter:"D", tipo:"empieza", clue:"Es el lugar donde la sociedad tiene su sede, distinto del de cada uno de los socios.", answer:"Domicilio"},
+  {letter:"E", tipo:"empieza", clue:"Junto con el contrato social, es el documento que fija las reglas de funcionamiento de una sociedad (típico de la SA).", answer:"Estatuto"},
+  {letter:"F", tipo:"empieza", clue:"Tipo de negocios donde suele usarse la Sociedad Colectiva, por la alta confianza que existe entre los socios.", answer:"Familiares"},
+  {letter:"G", tipo:"empieza", clue:"Personas —socios o no— designadas para administrar una Sociedad de Responsabilidad Limitada.", answer:"Gerentes"},
+  {letter:"H", tipo:"empieza", clue:"Con esta palabra empieza la definición legal de sociedad en el artículo 1° de la Ley General de Sociedades: '____ sociedad si una o más personas...'", answer:"Habrá"},
+  {letter:"I", tipo:"empieza", clue:"Nombre de la teoría que permite 'correr el velo' y hacer responsables a los socios cuando usan la sociedad para cometer fraude.", answer:"Inoponibilidad"},
+  {letter:"J", tipo:"empieza", clue:"Tipo de persona que es la sociedad regularmente constituida: distinta de los socios, con nombre, patrimonio y capacidad propios.", answer:"Jurídica"},
+  {letter:"K", tipo:"empieza", clue:"En la Sociedad de Capital e Industria, el socio industrial no aporta dinero: aporta trabajo y esto, su saber hacer técnico.", answer:"Know-how"},
+  {letter:"L", tipo:"empieza", clue:"Norma N° 19.550 que regula los tipos societarios en la Argentina, conocida por sus siglas LGS.", answer:"Ley General de Sociedades"},
+  {letter:"M", tipo:"empieza", clue:"Tipo de capital que la ley exige como piso obligatorio para poder constituir una Sociedad Anónima.", answer:"Mínimo"},
+  {letter:"N", tipo:"empieza", clue:"Atributo de la personalidad jurídica que identifica a la sociedad ante terceros, junto con el domicilio y el patrimonio.", answer:"Nombre propio"},
+  {letter:"Ñ", tipo:"contiene", clue:"Contiene esta letra: la razón social de una Sociedad Colectiva suele decir 'Pérez y ____', usando esta palabra que significa sociedad comercial.", answer:"Compañía"},
+  {letter:"O", tipo:"empieza", clue:"Nombre genérico que reciben la asamblea, el directorio y la sindicatura dentro de una Sociedad Anónima.", answer:"Órganos"},
+  {letter:"P", tipo:"empieza", clue:"Conjunto de bienes propio de la sociedad, distinto del patrimonio personal de cada socio.", answer:"Patrimonio"},
+  {letter:"Q", tipo:"contiene", clue:"Contiene esta letra: en la Sociedad Colectiva, la administración puede estar a cargo de ____ socio, si el contrato no dice lo contrario.", answer:"Cualquier"},
+  {letter:"R", tipo:"empieza", clue:"Trámite que se hace ante la Inspección General de Personas Jurídicas y le da regularidad a una sociedad.", answer:"Registro Público"},
+  {letter:"S", tipo:"empieza", clue:"Persona jurídica formada por los aportes de sus integrantes para producir bienes o servicios, repartiendo ganancias y pérdidas.", answer:"Sociedad"},
+  {letter:"T", tipo:"empieza", clue:"Nombre que reciben los papeles que representan partes del capital de una SA; pueden ser ordinarios o preferidos.", answer:"Títulos (acciones)"},
+  {letter:"U", tipo:"empieza", clue:"Tipo de sociedad que, desde la reforma de 2015, se puede constituir con un solo socio, como ocurre en la SA o la SAS.", answer:"Unipersonal"},
+  {letter:"V", tipo:"empieza", clue:"Es lo que los jueces 'corren' —societario— cuando descubren que se usó la sociedad para cometer un fraude.", answer:"Velo"},
+  {letter:"X", tipo:"contiene", clue:"Contiene esta letra: es el verbo que significa 'atacar primero el patrimonio social' antes de ir contra los socios, en la Sociedad Colectiva.", answer:"Excutir"},
+];
+
+const RONDA_2 = [
+  {letter:"A", tipo:"empieza", clue:"Nombre que reciben los socios de una Sociedad Anónima, dueños de las acciones.", answer:"Accionistas"},
+  {letter:"B", tipo:"empieza", clue:"Junto con las pérdidas, es lo que los socios se reparten según su participación en la sociedad.", answer:"Beneficios"},
+  {letter:"C", tipo:"empieza", clue:"En la Sociedad en Comandita Simple, son los socios que responden en forma ilimitada y solidaria, y generalmente administran.", answer:"Comanditados"},
+  {letter:"D", tipo:"empieza", clue:"Órgano de administración de la SA, integrado por uno o más directores designados por la asamblea.", answer:"Directorio"},
+  {letter:"E", tipo:"empieza", clue:"Junto con el contrato social, es el documento que fija las reglas de funcionamiento de una sociedad (típico de la SA).", answer:"Estatuto"},
+  {letter:"F", tipo:"empieza", clue:"Es lo que los jueces buscan evitar al 'correr el velo societario', quitándole efecto a la personalidad jurídica.", answer:"Fraude"},
+  {letter:"G", tipo:"empieza", clue:"Personas —socios o no— designadas para administrar una Sociedad de Responsabilidad Limitada.", answer:"Gerentes"},
+  {letter:"H", tipo:"empieza", clue:"Con esta palabra empieza la definición legal de sociedad en el artículo 1° de la Ley General de Sociedades: '____ sociedad si una o más personas...'", answer:"Habrá"},
+  {letter:"I", tipo:"empieza", clue:"En la Sociedad de Capital e Industria, son los socios que solo aportan su trabajo personal y responden únicamente hasta las ganancias no percibidas.", answer:"Industriales"},
+  {letter:"J", tipo:"empieza", clue:"Tipo de persona que es la sociedad regularmente constituida: distinta de los socios, con nombre, patrimonio y capacidad propios.", answer:"Jurídica"},
+  {letter:"K", tipo:"empieza", clue:"En la Sociedad de Capital e Industria, el socio industrial no aporta dinero: aporta trabajo y esto, su saber hacer técnico.", answer:"Know-how"},
+  {letter:"L", tipo:"empieza", clue:"Norma N° 27.349 que regula un tipo societario moderno pensado para emprendedores y startups (la SAS).", answer:"Ley de Sociedades por Acciones Simplificada"},
+  {letter:"M", tipo:"empieza", clue:"Tipo de capital que la ley exige como piso obligatorio para poder constituir una Sociedad Anónima.", answer:"Mínimo"},
+  {letter:"N", tipo:"empieza", clue:"Atributo de la personalidad jurídica que identifica a la sociedad ante terceros, junto con el domicilio y el patrimonio.", answer:"Nombre propio"},
+  {letter:"Ñ", tipo:"contiene", clue:"Contiene esta letra: la razón social de una Sociedad Colectiva suele decir 'Pérez y ____', usando esta palabra que significa sociedad comercial.", answer:"Compañía"},
+  {letter:"O", tipo:"empieza", clue:"Las sociedades deben constituirse en forma ____, conforme a uno de los tipos previstos por la ley.", answer:"Organizada"},
+  {letter:"P", tipo:"empieza", clue:"El artículo 1° de la LGS dice que 'una o más ____' pueden formar una sociedad.", answer:"Personas"},
+  {letter:"Q", tipo:"contiene", clue:"Contiene esta letra: en la Sociedad Colectiva, la administración puede estar a cargo de ____ socio, si el contrato no dice lo contrario.", answer:"Cualquier"},
+  {letter:"R", tipo:"empieza", clue:"Es lo que cada socio asume frente a las deudas de la sociedad; puede ser limitada o ilimitada según el tipo societario.", answer:"Responsabilidad"},
+  {letter:"S", tipo:"empieza", clue:"Sigla del tipo societario más usado por las PyMEs, donde los socios limitan su responsabilidad al aporte.", answer:"SRL"},
+  {letter:"T", tipo:"empieza", clue:"La Ley General de Sociedades prevé varios de estos, como la SRL, la SA o la Colectiva.", answer:"Tipos societarios"},
+  {letter:"U", tipo:"empieza", clue:"Tipo de sociedad que, desde la reforma de 2015, se puede constituir con un solo socio, como ocurre en la SA o la SAS.", answer:"Unipersonal"},
+  {letter:"V", tipo:"empieza", clue:"Consejo de ____: junto con la sindicatura, es el órgano de fiscalización de la SA.", answer:"Vigilancia"},
+  {letter:"X", tipo:"contiene", clue:"Contiene esta letra: es el verbo que significa 'atacar primero el patrimonio social' antes de ir contra los socios, en la Sociedad Colectiva.", answer:"Excutir"},
+];
+
+const RONDA_3 = [
+  {letter:"A", tipo:"empieza", clue:"Órgano de gobierno de la SA que reúne a todos los accionistas para aprobar balances o designar directores.", answer:"Asamblea de accionistas"},
+  {letter:"B", tipo:"empieza", clue:"Lugar donde cotizan las acciones de una Sociedad Anónima, dándoles gran agilidad para cambiar de dueño.", answer:"Bolsa de Valores"},
+  {letter:"C", tipo:"empieza", clue:"En la Sociedad de Capital e Industria, son los socios que aportan dinero o bienes y responden en forma ilimitada.", answer:"Capitalistas"},
+  {letter:"D", tipo:"empieza", clue:"Nombre con el que actúa la sociedad; puede incluir el de uno o más socios seguido del tipo societario.", answer:"Denominación"},
+  {letter:"E", tipo:"empieza", clue:"Junto con el contrato social, es el documento que fija las reglas de funcionamiento de una sociedad (típico de la SA).", answer:"Estatuto"},
+  {letter:"F", tipo:"empieza", clue:"Tipo de negocios donde suele usarse la Sociedad Colectiva, por la alta confianza que existe entre los socios.", answer:"Familiares"},
+  {letter:"G", tipo:"empieza", clue:"Personas —socios o no— designadas para administrar una Sociedad de Responsabilidad Limitada.", answer:"Gerentes"},
+  {letter:"H", tipo:"empieza", clue:"Con esta palabra empieza la definición legal de sociedad en el artículo 1° de la Ley General de Sociedades: '____ sociedad si una o más personas...'", answer:"Habrá"},
+  {letter:"I", tipo:"empieza", clue:"Trámite que le da regularidad a la sociedad, realizado en el Registro Público.", answer:"Inscripción"},
+  {letter:"J", tipo:"empieza", clue:"Tipo de persona que es la sociedad regularmente constituida: distinta de los socios, con nombre, patrimonio y capacidad propios.", answer:"Jurídica"},
+  {letter:"K", tipo:"empieza", clue:"En la Sociedad de Capital e Industria, el socio industrial no aporta dinero: aporta trabajo y esto, su saber hacer técnico.", answer:"Know-how"},
+  {letter:"L", tipo:"empieza", clue:"Norma N° 19.550 que regula los tipos societarios en la Argentina, conocida por sus siglas LGS.", answer:"Ley General de Sociedades"},
+  {letter:"M", tipo:"empieza", clue:"Tipo de capital que la ley exige como piso obligatorio para poder constituir una Sociedad Anónima.", answer:"Mínimo"},
+  {letter:"N", tipo:"empieza", clue:"Atributo de la personalidad jurídica que identifica a la sociedad ante terceros, junto con el domicilio y el patrimonio.", answer:"Nombre propio"},
+  {letter:"Ñ", tipo:"contiene", clue:"Contiene esta letra: la razón social de una Sociedad Colectiva suele decir 'Pérez y ____', usando esta palabra que significa sociedad comercial.", answer:"Compañía"},
+  {letter:"O", tipo:"empieza", clue:"Nombre genérico que reciben la asamblea, el directorio y la sindicatura dentro de una Sociedad Anónima.", answer:"Órganos"},
+  {letter:"P", tipo:"empieza", clue:"Junto con los beneficios, es lo que los socios deben soportar según su participación en la sociedad.", answer:"Pérdidas"},
+  {letter:"Q", tipo:"contiene", clue:"Contiene esta letra: en la Sociedad Colectiva, la administración puede estar a cargo de ____ socio, si el contrato no dice lo contrario.", answer:"Cualquier"},
+  {letter:"R", tipo:"empieza", clue:"Nombre de una sociedad que incluye el de uno o más socios, como en la Sociedad Colectiva.", answer:"Razón social"},
+  {letter:"S", tipo:"empieza", clue:"Personas que integran una sociedad, realizan aportes y participan de las ganancias y pérdidas.", answer:"Socios"},
+  {letter:"T", tipo:"empieza", clue:"Nombre que reciben los papeles que representan partes del capital de una SA; pueden ser ordinarios o preferidos.", answer:"Títulos (acciones)"},
+  {letter:"U", tipo:"empieza", clue:"Tipo de sociedad que, desde la reforma de 2015, se puede constituir con un solo socio, como ocurre en la SA o la SAS.", answer:"Unipersonal"},
+  {letter:"V", tipo:"empieza", clue:"La Bolsa de ____ es donde cotizan las acciones de las sociedades anónimas.", answer:"Valores"},
+  {letter:"X", tipo:"contiene", clue:"Contiene esta letra: es el verbo que significa 'atacar primero el patrimonio social' antes de ir contra los socios, en la Sociedad Colectiva.", answer:"Excutir"},
+];
+
+const RONDA_4 = [
+  {letter:"A", tipo:"empieza", clue:"Es la gestión cotidiana de la sociedad; en la Colectiva puede estar a cargo de cualquier socio si el contrato no dice lo contrario.", answer:"Administración"},
+  {letter:"B", tipo:"empieza", clue:"Los aportes no siempre son dinero: también pueden consistir en estas cosas materiales.", answer:"Bienes"},
+  {letter:"C", tipo:"empieza", clue:"Es en lo que se divide el capital de una SRL, a diferencia de las acciones de la SA.", answer:"Cuotas sociales"},
+  {letter:"D", tipo:"empieza", clue:"Es el lugar donde la sociedad tiene su sede, distinto del de cada uno de los socios.", answer:"Domicilio"},
+  {letter:"E", tipo:"empieza", clue:"Junto con el contrato social, es el documento que fija las reglas de funcionamiento de una sociedad (típico de la SA).", answer:"Estatuto"},
+  {letter:"F", tipo:"empieza", clue:"Es lo que los jueces buscan evitar al 'correr el velo societario', quitándole efecto a la personalidad jurídica.", answer:"Fraude"},
+  {letter:"G", tipo:"empieza", clue:"Personas —socios o no— designadas para administrar una Sociedad de Responsabilidad Limitada.", answer:"Gerentes"},
+  {letter:"H", tipo:"empieza", clue:"Con esta palabra empieza la definición legal de sociedad en el artículo 1° de la Ley General de Sociedades: '____ sociedad si una o más personas...'", answer:"Habrá"},
+  {letter:"I", tipo:"empieza", clue:"Organismo, conocido por sus siglas IGPJ, ante el cual se inscriben las sociedades en Santa Fe.", answer:"Inspección General de Personas Jurídicas"},
+  {letter:"J", tipo:"empieza", clue:"Tipo de persona que es la sociedad regularmente constituida: distinta de los socios, con nombre, patrimonio y capacidad propios.", answer:"Jurídica"},
+  {letter:"K", tipo:"empieza", clue:"En la Sociedad de Capital e Industria, el socio industrial no aporta dinero: aporta trabajo y esto, su saber hacer técnico.", answer:"Know-how"},
+  {letter:"L", tipo:"empieza", clue:"Norma N° 27.349 que regula un tipo societario moderno pensado para emprendedores y startups (la SAS).", answer:"Ley de Sociedades por Acciones Simplificada"},
+  {letter:"M", tipo:"empieza", clue:"Tipo de capital que la ley exige como piso obligatorio para poder constituir una Sociedad Anónima.", answer:"Mínimo"},
+  {letter:"N", tipo:"empieza", clue:"Atributo de la personalidad jurídica que identifica a la sociedad ante terceros, junto con el domicilio y el patrimonio.", answer:"Nombre propio"},
+  {letter:"Ñ", tipo:"contiene", clue:"Contiene esta letra: la razón social de una Sociedad Colectiva suele decir 'Pérez y ____', usando esta palabra que significa sociedad comercial.", answer:"Compañía"},
+  {letter:"O", tipo:"empieza", clue:"Las sociedades deben constituirse en forma ____, conforme a uno de los tipos previstos por la ley.", answer:"Organizada"},
+  {letter:"P", tipo:"empieza", clue:"Conjunto de bienes propio de la sociedad, distinto del patrimonio personal de cada socio.", answer:"Patrimonio"},
+  {letter:"Q", tipo:"contiene", clue:"Contiene esta letra: en la Sociedad Colectiva, la administración puede estar a cargo de ____ socio, si el contrato no dice lo contrario.", answer:"Cualquier"},
+  {letter:"R", tipo:"empieza", clue:"Trámite que se hace ante la Inspección General de Personas Jurídicas y le da regularidad a una sociedad.", answer:"Registro Público"},
+  {letter:"S", tipo:"empieza", clue:"Junto con la sindicatura, es el órgano de fiscalización que controla al directorio en una SA.", answer:"Sindicatura"},
+  {letter:"T", tipo:"empieza", clue:"La Ley General de Sociedades prevé varios de estos, como la SRL, la SA o la Colectiva.", answer:"Tipos societarios"},
+  {letter:"U", tipo:"empieza", clue:"Tipo de sociedad que, desde la reforma de 2015, se puede constituir con un solo socio, como ocurre en la SA o la SAS.", answer:"Unipersonal"},
+  {letter:"V", tipo:"empieza", clue:"Es lo que los jueces 'corren' —societario— cuando descubren que se usó la sociedad para cometer un fraude.", answer:"Velo"},
+  {letter:"X", tipo:"contiene", clue:"Contiene esta letra: es el verbo que significa 'atacar primero el patrimonio social' antes de ir contra los socios, en la Sociedad Colectiva.", answer:"Excutir"},
+];
+
+const WORDBANKS = [RONDA_1, RONDA_2, RONDA_3, RONDA_4];
+
+// ---------- Estado ----------
+let state = {
+  screen: "setup",
+  numTeams: 2,
+  teams: [],
+  currentTeamIndex: 0,
+  queue: [],
+  lap: 1,
+  currentIdx: null,
+  timeLeft: 40,
+  timerId: null,
+};
+
+function freshTeam(n){
+  return { name: "", members: [""], score: 0, statuses: new Array(WORDBANKS[n % 4].length).fill("pending") };
+}
+function initTeams(){
+  state.teams = [];
+  for(let i=0;i<state.numTeams;i++) state.teams.push(freshTeam(i));
+}
+initTeams();
+
+const app = document.getElementById("app");
+function currentBank(teamIdx){ return WORDBANKS[teamIdx % 4]; }
+
+function render(){
+  if(state.screen==="setup") renderSetup();
+  else if(state.screen==="game") renderGame();
+  else if(state.screen==="teamRecap") renderTeamRecap();
+  else if(state.screen==="final") renderFinal();
+}
+
+// ---------- SETUP ----------
+function renderSetup(){
+  let teamsHtml = "";
+  for(let i=0;i<state.numTeams;i++){
+    const t = state.teams[i];
+    let membersHtml = t.members.map((m,mi)=>`
+      <div class="member-row">
+        <input type="text" placeholder="Apellido y nombre" value="${escapeHtml(m)}"
+          oninput="updateMember(${i},${mi},this.value)">
+        ${t.members.length>1 ? `<button aria-label="Quitar integrante" onclick="removeMember(${i},${mi})">✕</button>` : ""}
+      </div>`).join("");
+    teamsHtml += `
+      <div class="team-block">
+        <span class="ronda-tag">Ronda ${i+1} de vocabulario</span>
+        <label>Nombre del equipo ${i+1}</label>
+        <input type="text" placeholder="Ej: Los Comanditarios" value="${escapeHtml(t.name)}"
+          oninput="updateTeamName(${i},this.value)">
+        <label>Integrantes</label>
+        ${membersHtml}
+        <button class="add-member" onclick="addMember(${i})">+ Agregar integrante</button>
+      </div>`;
+  }
+
+  app.innerHTML = `
+    <div class="card">
+      <h2 class="section-title">Armá los equipos</h2>
+      <label style="font-weight:600;color:var(--verde-osc);font-size:0.9rem;">¿Cuántos equipos juegan? (máximo 4)</label>
+      <div class="team-count-row" style="margin-top:8px;">
+        ${[1,2,3,4].map(n=>`<button class="${state.numTeams===n?'active':''}" onclick="setNumTeams(${n})">${n}</button>`).join("")}
+      </div>
+      ${teamsHtml}
+      <button class="big-btn" ${!teamsValid() ? "disabled":""} onclick="startGame()">Comenzar el rosco</button>
+      <p class="note">Cada equipo juega una ronda distinta (24 letras, A a V sin W/Y/Z) sobre el mismo tema —personalidad jurídica y tipos societarios— pero con preguntas diferentes en la mayoría de las letras, para que no se copien escuchando al equipo anterior. Algunas letras muy escasas en vocabulario (E, G, H, J, K, M, N, Ñ, Q, U, X) se repiten en las 4 rondas porque el apunte no tiene más de un término posible. 40 segundos por palabra, con una segunda vuelta para las que se pasen.</p>
+    </div>`;
+}
+function teamsValid(){
+  return state.teams.slice(0,state.numTeams).every(t=>t.name.trim().length>0);
+}
+function setNumTeams(n){
+  state.numTeams = n;
+  while(state.teams.length < n) state.teams.push(freshTeam(state.teams.length));
+  render();
+}
+function updateTeamName(i,val){ state.teams[i].name = val; renderKeepFocus(); }
+function updateMember(i,mi,val){ state.teams[i].members[mi] = val; }
+function addMember(i){ state.teams[i].members.push(""); render(); }
+function removeMember(i,mi){ state.teams[i].members.splice(mi,1); render(); }
+function escapeHtml(s){ return (s||"").replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+function renderKeepFocus(){
+  const btn = document.querySelector(".big-btn");
+  if(btn) btn.disabled = !teamsValid();
+}
+
+// ---------- GAME FLOW ----------
+function startGame(){
+  state.currentTeamIndex = 0;
+  startTeamRosco(0);
+}
+function startTeamRosco(teamIdx){
+  state.currentTeamIndex = teamIdx;
+  const bank = currentBank(teamIdx);
+  state.teams[teamIdx].statuses = new Array(bank.length).fill("pending");
+  state.queue = bank.map((_,i)=>i);
+  state.lap = 1;
+  state.screen = "game";
+  nextLetter();
+}
+function nextLetter(){
+  clearTimer();
+  const bank = currentBank(state.currentTeamIndex);
+  if(state.queue.length===0){
+    const team = state.teams[state.currentTeamIndex];
+    const pasapalabras = team.statuses.map((s,i)=>({s,i})).filter(o=>o.s==="pasapalabra").map(o=>o.i);
+    if(state.lap===1 && pasapalabras.length>0){
+      state.lap = 2;
+      state.queue = pasapalabras;
+    } else {
+      state.screen = "teamRecap";
+      render();
+      return;
+    }
+  }
+  state.currentIdx = state.queue.shift();
+  state.timeLeft = 40;
+  state.screen = "game";
+  render();
+  startTimer();
+}
+function startTimer(){
+  clearTimer();
+  state.timerId = setInterval(()=>{
+    state.timeLeft--;
+    updateTimerDisplay();
+    if(state.timeLeft<=0){
+      clearTimer();
+      markAnswer("incorrecto");
+    }
+  },1000);
+}
+function clearTimer(){
+  if(state.timerId){ clearInterval(state.timerId); state.timerId=null; }
+}
+function updateTimerDisplay(){
+  const el = document.getElementById("timerNum");
+  if(el){
+    el.textContent = state.timeLeft + "s";
+    el.classList.toggle("warn", state.timeLeft<=8);
+  }
+}
+function markAnswer(status){
+  clearTimer();
+  const team = state.teams[state.currentTeamIndex];
+  team.statuses[state.currentIdx] = status;
+  if(status==="correcto") team.score += 1;
+  nextLetter();
+}
+
+function renderGame(){
+  const team = state.teams[state.currentTeamIndex];
+  const bank = currentBank(state.currentTeamIndex);
+  const word = bank[state.currentIdx];
+  const n = bank.length;
+  const radius = 200, cx = 260, cy = 260;
+
+  let tiles = "";
+  bank.forEach((w,i)=>{
+    const angle = (Math.PI*2 * i / n) - Math.PI/2;
+    const x = cx + radius*Math.cos(angle);
+    const y = cy + radius*Math.sin(angle);
+    let fill = "var(--pendiente)";
+    if(team.statuses[i]==="correcto") fill = "var(--correcto)";
+    else if(team.statuses[i]==="incorrecto") fill = "var(--incorrecto)";
+    else if(team.statuses[i]==="pasapalabra") fill = "var(--dorado)";
+    const isCurrent = i===state.currentIdx;
+    tiles += `
+      <circle cx="${x}" cy="${y}" r="${isCurrent?24:20}" fill="${fill}"
+        stroke="${isCurrent?'var(--verde-osc)':'#fff'}" stroke-width="${isCurrent?3:2}"/>
+      <text x="${x}" y="${y+1}" class="letter-tile-label" font-size="${isCurrent?17:14}">${w.letter}</text>`;
+  });
+
+  const hint = word.tipo==="contiene" ? "Contiene la letra" : "Empieza con la letra";
+
+  app.innerHTML = `
+    <div class="card">
+      <div class="game-topbar">
+        <div>
+          <div class="ronda-tag-game">Ronda ${state.currentTeamIndex+1}</div>
+          <div class="team-tag">${escapeHtml(team.name)}</div>
+          <div class="members-tag">${team.members.filter(m=>m.trim()).map(escapeHtml).join(" · ")}</div>
+        </div>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <span class="lap-pill">Vuelta ${state.lap}/2</span>
+          <span class="score-pill">${team.score} pts</span>
+        </div>
+      </div>
+
+      <div class="rosco-wrap">
+        <svg viewBox="0 0 520 520">${tiles}</svg>
+        <div class="clue-center">
+          <div class="clue-card">
+            <div class="clue-hint">${hint}</div>
+            <div class="clue-letter">${word.letter}</div>
+            <div class="clue-text">${escapeHtml(word.clue)}</div>
+            <div id="timerNum" class="timer-num">${state.timeLeft}s</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="answer-buttons">
+        <button class="btn-correcto" onclick="markAnswer('correcto')">✓ Correcto</button>
+        <button class="btn-incorrecto" onclick="markAnswer('incorrecto')">✗ Incorrecto</button>
+        <button class="btn-pasapalabra" onclick="markAnswer('pasapalabra')">⟳ Pasapalabra</button>
+      </div>
+    </div>`;
+  updateTimerDisplay();
+}
+
+// ---------- TEAM RECAP ----------
+function renderTeamRecap(){
+  const team = state.teams[state.currentTeamIndex];
+  const bank = currentBank(state.currentTeamIndex);
+  const isLastTeam = state.currentTeamIndex >= state.numTeams-1;
+  let items = bank.map((w,i)=>{
+    const st = team.statuses[i];
+    const cls = st==="correcto" ? "recap-correcto" : "recap-incorrecto";
+    const mark = st==="correcto" ? "✓" : "✗";
+    return `<li class="${cls}"><span>${w.letter} · ${escapeHtml(w.answer)}</span><span>${mark}</span></li>`;
+  }).join("");
+
+  app.innerHTML = `
+    <div class="card">
+      <h2 class="section-title">Resultado de ${escapeHtml(team.name)}</h2>
+      <p style="font-family:var(--font-display);font-size:1.6rem;color:var(--verde-osc);margin:0 0 14px;">
+        ${team.score} / ${bank.length} puntos
+      </p>
+      <ul class="recap-list">${items}</ul>
+      <button class="big-btn" onclick="afterRecap()">
+        ${isLastTeam ? "Ver resultados finales" : "Siguiente equipo →"}
+      </button>
+    </div>`;
+}
+function afterRecap(){
+  if(state.currentTeamIndex >= state.numTeams-1){
+    state.screen = "final";
+    render();
+  } else {
+    startTeamRosco(state.currentTeamIndex+1);
+  }
+}
+
+// ---------- FINAL ----------
+function renderFinal(){
+  const ranked = state.teams.slice(0,state.numTeams)
+    .map((t,i)=>({...t, idx:i}))
+    .sort((a,b)=>b.score-a.score);
+
+  let rows = ranked.map((t,pos)=>`
+    <div class="final-team ${pos===0?'first':''}">
+      <div class="rank-badge">${pos+1}°</div>
+      <div class="final-team-info">
+        <div class="fname">${escapeHtml(t.name)}</div>
+        <div class="fmembers">${t.members.filter(m=>m.trim()).map(escapeHtml).join(" · ")}</div>
+      </div>
+      <div class="final-score">${t.score} pts</div>
+    </div>`).join("");
+
+  app.innerHTML = `
+    <div class="card">
+      <h2 class="section-title">Resultados finales — Sociedades Comerciales</h2>
+      ${rows}
+      <button class="big-btn" onclick="resetAll()">Jugar de nuevo</button>
+    </div>`;
+}
+function resetAll(){
+  state = { screen:"setup", numTeams:2, teams:[], currentTeamIndex:0, queue:[], lap:1, currentIdx:null, timeLeft:40, timerId:null };
+  initTeams();
+  render();
+}
+
+render();
+</script>
+
+<p class="footer-note">Rosco basado en la Unidad 2 — Parte III (Sociedades Comerciales), puntos 10 y 11 · Prof. Verónica · EETP N°602</p>
+
+</body>
+</html>

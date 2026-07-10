@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Café Económico — 6to B</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Special+Elite&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #F3EBDD;
+    --card: #FFFBF2;
+    --ink: #3B2316;
+    --ink-soft: #6B5644;
+    --rule: #D9CBB4;
+    --mercado: #C1542C;
+    --mercado-bg: #FBE6DC;
+    --mixto: #A4791E;
+    --mixto-bg: #F7ECD2;
+    --planificado: #2F5D50;
+    --planificado-bg: #DEEAE5;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(59,35,22,0.05) 1px, transparent 0);
+    background-size: 18px 18px;
+    color: var(--ink);
+    font-family: 'Source Sans 3', sans-serif;
+    padding: 40px 24px 80px;
+  }
+
+  .masthead{
+    max-width: 920px;
+    margin: 0 auto 36px;
+    text-align: center;
+    border-bottom: 3px double var(--ink);
+    padding-bottom: 18px;
+  }
+  .masthead .eyebrow{
+    font-family: 'Special Elite', monospace;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .masthead h1{
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 6vw, 54px);
+    margin: 6px 0 4px;
+    font-weight: 700;
+  }
+  .masthead p{
+    margin: 0;
+    font-size: 15px;
+    color: var(--ink-soft);
+  }
+
+  .intro{
+    max-width: 760px;
+    margin: 0 auto 40px;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 22px 28px;
+    box-shadow: 0 1px 0 var(--rule);
+  }
+  .intro h2{
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin: 0 0 10px;
+  }
+  .intro ol{
+    margin: 0;
+    padding-left: 20px;
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+  .intro li{ margin-bottom: 4px; }
+  .intro li b{ color: var(--ink); }
+
+  .legend{
+    max-width: 760px;
+    margin: 0 auto 40px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-family: 'Special Elite', monospace;
+    font-size: 11.5px;
+  }
+  .legend span{
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid currentColor;
+  }
+  .legend .mercado{ color: var(--mercado); background: var(--mercado-bg); }
+  .legend .mixto{ color: var(--mixto); background: var(--mixto-bg); }
+  .legend .planificado{ color: var(--planificado); background: var(--planificado-bg); }
+
+  .grid{
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 26px;
+  }
+
+  .ticket{
+    background: var(--card);
+    border: 1.5px dashed var(--ink-soft);
+    border-radius: 6px;
+    padding: 20px 18px 18px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .ticket::before{
+    content: "✂ — — — — — — — — — — — — — — — —";
+    position: absolute;
+    top: -11px;
+    left: 14px;
+    font-size: 11px;
+    color: var(--ink-soft);
+    background: var(--paper);
+    padding: 0 6px;
+    letter-spacing: 1px;
+  }
+  .ticket.model{
+    border-style: solid;
+    border-color: var(--ink);
+    border-width: 2px;
+  }
+  .ticket.model::before{ content: "★ MODELO — LO LEE LA PROFE PRIMERO ★"; color: var(--ink); }
+
+  .ticket .top-row{
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    gap: 8px;
+  }
+  .ticket .mesa{
+    font-family: 'Special Elite', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .ticket .mesa b{
+    display:block;
+    font-size: 15px;
+    color: var(--ink);
+    text-transform: uppercase;
+  }
+  .badge{
+    font-family: 'Special Elite', monospace;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 4px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .badge.mercado{ color: var(--mercado); background: var(--mercado-bg); }
+  .badge.mixto{ color: var(--mixto); background: var(--mixto-bg); }
+  .badge.planificado{ color: var(--planificado); background: var(--planificado-bg); }
+
+  .ticket h3{
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    line-height: 1.3;
+    margin: 0 0 10px;
+  }
+  .ticket p.body{
+    font-size: 13.8px;
+    line-height: 1.55;
+    color: #463124;
+    margin: 0 0 12px;
+    flex-grow: 1;
+  }
+  .ticket .source{
+    font-size: 12px;
+    color: var(--ink-soft);
+    border-top: 1px solid var(--rule);
+    padding-top: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .ticket .read-link{
+    display: inline-block;
+    margin-top: 10px;
+    font-family: 'Special Elite', monospace;
+    font-size: 11.5px;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--ink-soft);
+    padding-bottom: 1px;
+    word-break: break-all;
+  }
+  .ticket .read-link:hover{ color: var(--mercado); border-color: var(--mercado); }
+
+  @media print{
+    .ticket .read-link::after{
+      content: " (" attr(href) ")";
+      font-size: 9px;
+      color: var(--ink-soft);
+    }
+  }
+
+  .clave-stamp{
+    font-family: 'Special Elite', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+  }
+
+  footer{
+    max-width: 760px;
+    margin: 50px auto 0;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-soft);
+    font-family: 'Special Elite', monospace;
+  }
+
+  .print-btn{
+    display:block;
+    margin: 0 auto 30px;
+    max-width: 200px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    font-family: 'Special Elite', monospace;
+    font-size: 13px;
+    padding: 10px 18px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .print-btn:hover{ opacity: 0.88; }
+
+  @media print{
+    .print-btn{ display:none; }
+    body{ background: #fff; padding: 10px; }
+    .ticket{ box-shadow:none; }
+  }
+
+  /* ===== TABS ===== */
+  .tabs{
+    max-width: 460px;
+    margin: 0 auto 30px;
+    display: flex;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .tab-btn{
+    flex: 1;
+    background: var(--paper);
+    border: none;
+    color: var(--ink);
+    font-family: 'Special Elite', monospace;
+    font-size: 13px;
+    padding: 11px 10px;
+    cursor: pointer;
+  }
+  .tab-btn.active{
+    background: var(--ink);
+    color: var(--paper);
+  }
+  @media print{ .tabs{ display:none; } }
+
+  /* ===== GAME ===== */
+  #tab-juego{ max-width: 1080px; margin: 0 auto; }
+
+  .scoreboard{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    max-width: 900px;
+    margin: 0 auto 30px;
+  }
+  .score-card{
+    background: var(--card);
+    border: 2px solid var(--rule);
+    border-radius: 8px;
+    padding: 10px 8px;
+    text-align: center;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .score-card .name{
+    font-family: 'Special Elite', monospace;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .score-card .student{
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    text-transform: none;
+    font-family: 'Source Sans 3', sans-serif;
+    margin-top: 1px;
+  }
+  .score-card .points{
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+  .score-card.leader{
+    border-color: var(--mercado);
+    box-shadow: 0 0 0 3px var(--mercado-bg);
+  }
+  .score-card.bump{
+    transform: scale(1.12);
+  }
+  .score-card .medal{ font-size: 14px; }
+
+  .game-progress{
+    max-width: 700px;
+    margin: 0 auto 18px;
+    height: 8px;
+    background: var(--rule);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .game-progress > div{
+    height: 100%;
+    background: var(--planificado);
+    width: 0%;
+    transition: width 0.35s ease;
+  }
+  .game-meta{
+    text-align: center;
+    font-family: 'Special Elite', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+  }
+
+  .quiz-card{
+    max-width: 700px;
+    margin: 0 auto 24px;
+    background: var(--card);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 28px 26px;
+    text-align: center;
+  }
+  .quiz-card .qbadge{
+    margin-bottom: 14px;
+  }
+  .quiz-card .statement{
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    line-height: 1.4;
+    margin: 0 0 24px;
+  }
+  .vf-row{
+    display:flex;
+    gap: 14px;
+    justify-content:center;
+    margin-bottom: 16px;
+  }
+  .vf-btn{
+    flex:1;
+    max-width: 220px;
+    padding: 18px 10px;
+    font-family: 'Special Elite', monospace;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid;
+    background: var(--card);
+    transition: transform 0.15s ease;
+  }
+  .vf-btn:hover{ transform: translateY(-2px); }
+  .vf-btn.v{ color: var(--planificado); border-color: var(--planificado); }
+  .vf-btn.f{ color: var(--mercado); border-color: var(--mercado); }
+  .vf-btn.correct{ background: var(--planificado); color: #fff; }
+  .vf-btn.wrong{ background: var(--mercado); color: #fff; }
+  .vf-btn:disabled{ cursor: default; opacity: 0.55; }
+  .vf-btn:disabled:hover{ transform:none; }
+
+  .reveal-box{
+    display:none;
+    margin: 6px 0 18px;
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  .award-row{
+    display:none;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content:center;
+    margin-bottom: 18px;
+  }
+  .award-row p{
+    width:100%;
+    font-family: 'Special Elite', monospace;
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    margin: 0 0 6px;
+  }
+  .award-btn{
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 2px solid var(--ink);
+    background: var(--card);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .award-btn.given{
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  .next-btn{
+    display:none;
+    margin: 0 auto;
+    font-family: 'Special Elite', monospace;
+    font-size: 13px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 10px 22px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+
+  .podium-wrap{ display:none; text-align:center; }
+  .podium-wrap h2{
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    margin-bottom: 6px;
+  }
+  .podium-wrap .winner{
+    font-size: 17px;
+    color: var(--ink-soft);
+    margin-bottom: 26px;
+  }
+  .ranking{
+    max-width: 480px;
+    margin: 0 auto 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .rank-row{
+    display:flex;
+    align-items:center;
+    gap: 14px;
+    background: var(--card);
+    border: 2px solid var(--rule);
+    border-radius: 8px;
+    padding: 10px 16px;
+    text-align: left;
+  }
+  .rank-row.top{
+    border-color: var(--mercado);
+    background: var(--mercado-bg);
+  }
+  .rank-row .rank-num{
+    font-family: 'Special Elite', monospace;
+    font-size: 16px;
+    width: 34px;
+    flex-shrink: 0;
+    text-align: center;
+  }
+  .rank-row .rank-info{ flex-grow: 1; }
+  .rank-row .rank-team{
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .rank-row .rank-student{
+    font-size: 11.5px;
+    color: var(--ink-soft);
+  }
+  .rank-row .rank-pts{
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  .reset-btn{
+    display:block;
+    margin: 0 auto;
+    font-family: 'Special Elite', monospace;
+    font-size: 12px;
+    background: none;
+    color: var(--ink-soft);
+    border: 1px dashed var(--ink-soft);
+    padding: 8px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+
+  /* ===== ATTENDANCE SCREEN ===== */
+  .attendance-wrap{
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    background: var(--card);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 30px 26px;
+  }
+  .attendance-wrap h2{
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin: 0 0 6px;
+  }
+  .attendance-wrap p{
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    margin: 0 0 22px;
+  }
+  .attendance-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 10px;
+    margin-bottom: 26px;
+  }
+  .attend-chip{
+    font-family: 'Special Elite', monospace;
+    font-size: 13px;
+    padding: 14px 8px;
+    border-radius: 8px;
+    border: 2px solid var(--ink);
+    background: var(--card);
+    color: var(--ink);
+    cursor: pointer;
+    line-height: 1.4;
+  }
+  .attend-chip .student{
+    display: block;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 10.5px;
+    font-weight: 600;
+    text-transform: none;
+    margin-top: 2px;
+  }
+  .attend-chip.present{
+    background: var(--planificado);
+    border-color: var(--planificado);
+    color: #fff;
+  }
+  .attend-chip.present::before{ content: "✓ "; }
+  .start-game-btn{
+    font-family: 'Special Elite', monospace;
+    font-size: 14px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 12px 26px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .start-game-btn:disabled{ opacity: 0.4; cursor: not-allowed; }
+
+  .mode-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 10px;
+    margin-bottom: 26px;
+  }
+  .mode-chip{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    text-align:left;
+    gap: 4px;
+    border: 2px solid var(--rule);
+    background: var(--card);
+    color: var(--ink);
+    border-radius: 8px;
+    padding: 12px 14px;
+    cursor: pointer;
+  }
+  .mode-chip .mode-title{
+    font-family: 'Special Elite', monospace;
+    font-size: 13px;
+  }
+  .mode-chip .mode-sub{
+    font-size: 11px;
+    color: var(--ink-soft);
+    line-height: 1.4;
+  }
+  .mode-chip.selected{
+    border-color: var(--planificado);
+    background: var(--planificado-bg);
+  }
+</style>
+</head>
+<body>
+
+  <div class="masthead">
+    <div class="eyebrow">EETP N°602 · 6to "B" · Sistemas Económicos</div>
+    <h1>Café Económico</h1>
+    <p>Una noticia por mesa — leemos, identificamos el sistema, debatimos</p>
+  </div>
+
+  <button class="print-btn" onclick="window.print()">🖨️ Imprimir / Guardar PDF</button>
+
+  <div class="tabs">
+    <button class="tab-btn active" id="btn-tab-noticias" onclick="showTab('noticias')">📰 Noticias</button>
+    <button class="tab-btn" id="btn-tab-juego" onclick="showTab('juego')">🎮 Juego</button>
+  </div>
+
+  <section id="tab-noticias">
+
+  <div class="intro">
+    <h2>Cómo se "extrae" una noticia</h2>
+    <ol>
+      <li><b>¿De qué habla?</b> Resumir en una frase qué pasó.</li>
+      <li><b>¿Qué sistema económico refleja?</b> ¿Libertad de precios y poca intervención (mercado)? ¿Estado y privados conviven (mixto)? ¿El Estado decide qué y cuánto se produce (planificado)?</li>
+      <li><b>¿Qué dato lo prueba?</b> Subrayar un dato o cifra concreta que justifique la clasificación.</li>
+    </ol>
+  </div>
+
+  <div class="legend">
+    <span class="mercado">● Mercado</span>
+    <span class="mixto">● Mixto</span>
+    <span class="planificado">● Planificado</span>
+  </div>
+
+  <div class="grid">
+
+    <div class="ticket model">
+      <div class="top-row">
+        <div class="mesa">Mesa<b>Modelo</b></div>
+        <span class="badge mercado">Mercado</span>
+      </div>
+      <h3>Milei defiende los números de su gestión económica</h3>
+      <p class="body">En una entrevista, el presidente argentino defendió los datos de su gestión señalando que el indicador EMAE creció 2,3% en el primer trimestre, y argumentó que sin las crisis políticas que enfrentó la economía habría crecido aún más rápido.</p>
+      <div class="source"><span>Infobae</span><span>29/06/2026</span></div>
+      <a class="read-link" href="https://www.infobae.com/economia/2026/06/29/javier-milei-el-riesgo-pais-de-mi-gobierno-de-esta-gestion-es-60-puntos-basicos/" target="_blank" rel="noopener">🔗 Leer noticia completa</a>
+    </div>
+
+    <div class="ticket">
+      <div class="top-row">
+        <div class="mesa">Mesa<b>Milan</b></div>
+        <span class="badge mercado">Mercado</span>
+      </div>
+      <div class="clave-stamp">Caballero, Agustín</div>
+      <h3>Argentina avanza hacia una economía "más libre"</h3>
+      <p class="body">El Gobierno nacional señaló que la economía argentina converge hacia un esquema de menos impuestos y menos restricciones, con el objetivo declarado de "hacer la economía más libre".</p>
+      <div class="source"><span>Argentina.gob.ar</span><span>Mayo 2026</span></div>
+      <a class="read-link" href="https://www.argentina.gob.ar/noticias/milei-destaco-el-programa-de-estabilizacion-y-aseguro-que-la-economia-empieza-expandirse" target="_blank" rel="noopener">🔗 Leer noticia completa</a>
+    </div>
+
+    <div class="ticket">
+      <div class="top-row">
+        <div class="mesa">Mesa<b>Florence</b></div>
+        <span class="badge mercado">Mercado</span>
+      </div>
+      <div class="clave-stamp">Chelia, Candela Abigail</div>
+      <h3>Dos años de reformas: ganadores y perdedores</h3>
+      <p class="body">Un informe muestra que el ajuste fiscal y la desregulación alteraron por completo la estructura de la economía argentina: algunos sectores crecieron gracias a la apertura comercial, mientras otros perdieron empleo formal.</p>
+      <div class="source"><span>Infobae</span><span>Marzo 2026</span></div>
+      <a class="read-link" href="https://www.infobae.com/economia/2026/03/01/las-reformas-de-milei-como-cambiaron-el-trabajo-y-la-economia-tras-dos-anos-de-administracion-libertaria/" target="_blank" rel="noopener">🔗 Leer noticia completa</a>
+    </div>
+
+    <div class="ticket">
+      <div class="top-row">
+        <div class="mesa">Mesa<b>Venice</b></div>
+        <span class="badge mercado">Mercado</span>
+      </div>
+      <div class="clave-stamp">Echaniz Ontiveros, Lucas Jeremías</div>
+      <h3>Cripto se destraba y los activos se "tokenizan"</h3>
+      <p class="body">Se eliminó una restricción vigente desde 2021 sobre beneficios fiscales para criptomonedas, mientras la tokenización de activos —desde inmuebles hasta instrumentos financieros— gana velocidad en el país, prometiendo menores costos y más acceso para pequeños inversores.</p>
+      <div class="source"><span>Rosario3 / Ecos365</span><span>Junio 2026</span></div>
+      <a class="read-link" href="https://www.rosario3.com/ecos365/noticias/claves-del-dia-la-favorita-baja-sus-persianas-construir-cuesta-mas-y-milei-acelera-reformas-con-el-mercado-en-alerta-20260630-0001.html" target="_blank" rel="noopener">🔗 Leer noticia completa</a>
+    </div>
+
+    <div class="ticket">
+      <div class="top-row">
+        <div class="mesa">Mesa<b>Naples</b></div>
+        <span class="badge mixto">Mixto</span>
+      </div>
+      <div class="clave-stamp">Fretes, Yésica</div>
+      <h3>Nuevos subsidios focalizados de luz y gas</h3>
+      <p class="body">El Gobierno creó un régimen de Subsidios Energéticos Focalizados que unifica la ayuda estatal para luz, gas y garrafas según el ingreso de cada familia: el Estado interviene, pero los precios siguen funcionando en el mercado.</p>
+      <div class="source"><span>Argentina.gob.ar</span><span>Enero 2026</span></div>
+      <a class="read-link" href="https://www.argentina.gob.ar/noticias/el-gobierno-oficializa-el-nuevo-esquema-de-subsidios-energeticos-tras-la-consulta-publica" target="_blank" rel="noopener">🔗 Leer noticia completa</a>
+    </div>
+
+    <div class="ticket">
+      <div class="top-row">
+        <div class="mesa">Mesa<b>Seattle</b></div>
+        <span class="badge mixto">Mixto</span>
+      </div>
+      <div class="clave-stamp">Pollini, Juan José</div>
+      <h3>El Estado se retira de a poco de los subsidios</h3>
+      <p class="body">Los subsidios económicos pasarán de representar más de 2 puntos del PBI en 2023 a niveles cercanos a cero hacia fin de la década, mostrando cómo el Estado reduce gradualmente su intervención en los precios de los servicios.</p>
+      <div class="source"><span>El Cronista</span><span>Mayo 2026</span></div>
+      <a class="read-link" href="https://www.cronista.com/economia-politica/que-subsidios-tocan-un-piso-historico-y-consolidan-la-mirada-externa-positiva/" target="_blank" rel="noopener">🔗 Leer noticia completa</a>
+    </div>
+
+    <div class="ticket">
+      <div class="top-row">
+        <div class="mesa">Mesa<b>Houston</b></div>
+        <span class="badge planificado">Planificado</span>
+      </div>
+      <div class="clave-stamp">Santucho, Simón</div>
+      <h3>Cuba presenta su Plan de la Economía 2026</h3>
+      <p class="body">El gobierno cubano presentó ante la Asamblea Nacional su Plan de la Economía para 2026, que prioriza la producción de alimentos garantizando insumos básicos al productor estatal: es el Estado quien fija las metas de producción.</p>
+      <div class="source"><span>Min. de Economía y Planificación, Cuba</span><span>Dic. 2025</span></div>
+      <a class="read-link" href="https://www.mep.gob.cu/es/noticia/los-retos-que-enfrenta-cuba-en-2025-y-2026-solo-se-resolveran-con-trabajo-concreto-control" target="_blank" rel="noopener">🔗 Leer noticia completa</a>
+    </div>
+
+    <div class="ticket">
+      <div class="top-row">
+        <div class="mesa">Mesa<b>Chicago</b></div>
+        <span class="badge planificado">Planificado</span>
+      </div>
+      <div class="clave-stamp">Valetti, Víctor Orlando</div>
+      <h3>Cuba planifica cuánto se va a vender en 2026</h3>
+      <p class="body">El ministro de Economía cubano explicó que la circulación de bienes y servicios para 2026 fue planificada en 252.679 millones de pesos: el Estado define de antemano cuánto se va a producir y vender.</p>
+      <div class="source"><span>Min. de Economía y Planificación, Cuba</span><span>Mayo 2026</span></div>
+      <a class="read-link" href="https://www.mep.gob.cu/en/node/3523" target="_blank" rel="noopener">🔗 Leer noticia completa</a>
+    </div>
+
+  </div>
+
+  </section>
+
+  <section id="tab-juego" style="display:none;">
+
+    <div class="attendance-wrap" id="attendance-wrap">
+      <h2>☕ ¿Quiénes están hoy?</h2>
+      <p>Tildá las mesas presentes. Las que falten no aparecen en el marcador.</p>
+      <div class="attendance-grid" id="attendance-grid"></div>
+
+      <h2 style="font-size:18px; margin-top:10px;">⏱ ¿Cuánto tiempo tenés?</h2>
+      <p style="margin-bottom:14px;">Elegí la duración de la ronda</p>
+      <div class="mode-grid" id="mode-grid">
+        <button class="mode-chip" data-mode="C" onclick="selectMode('C')">
+          <span class="mode-title">C · Rápida</span>
+          <span class="mode-sub">1 pregunta x noticia · 8 en total · ~10 min</span>
+        </button>
+        <button class="mode-chip" data-mode="B" onclick="selectMode('B')">
+          <span class="mode-title">B · Media</span>
+          <span class="mode-sub">2 preguntas x noticia · 16 en total · ~18 min</span>
+        </button>
+        <button class="mode-chip selected" data-mode="A" onclick="selectMode('A')">
+          <span class="mode-title">A · Completa</span>
+          <span class="mode-sub">3 preguntas x noticia · 24 en total · ~25 min</span>
+        </button>
+      </div>
+
+      <button class="start-game-btn" id="start-game-btn" onclick="startGame()">Empezar juego →</button>
+    </div>
+
+    <div id="game-content" style="display:none;">
+
+    <div class="game-meta" id="game-meta">☕ ¿Quién leyó mejor su noticia? — Verdadero o Falso</div>
+
+    <div class="scoreboard" id="scoreboard"></div>
+
+    <div class="game-progress"><div id="progress-fill"></div></div>
+
+    <div id="quiz-area">
+      <div class="quiz-card" id="quiz-card">
+        <div class="qbadge"><span class="badge" id="q-badge">Mesa</span></div>
+        <p class="statement" id="q-statement">Cargando...</p>
+        <div class="vf-row">
+          <button class="vf-btn v" id="btn-v" onclick="answer(true)">✅ VERDADERO</button>
+          <button class="vf-btn f" id="btn-f" onclick="answer(false)">❌ FALSO</button>
+        </div>
+        <div class="reveal-box" id="reveal-box"></div>
+        <div class="award-row" id="award-row">
+          <p>¿Qué mesa(s) acertaron? Tocá para sumarles 1 punto:</p>
+          <div id="award-buttons"></div>
+        </div>
+        <button class="next-btn" id="next-btn" onclick="nextQuestion()">Siguiente pregunta →</button>
+      </div>
+    </div>
+
+    <div class="podium-wrap" id="podium-wrap">
+      <h2>🏆 ¡Fin del juego!</h2>
+      <p class="winner" id="winner-text"></p>
+      <div class="ranking" id="ranking"></div>
+      <button class="reset-btn" onclick="resetGame()">↺ Jugar de nuevo</button>
+    </div>
+
+    </div>
+
+  </section>
+
+  <footer>★ Aula Digital con Verónica ★ EETP N°602 "Gral. José de San Martín"</footer>
+
+  <script>
+    const teams = ["Milan","Florence","Venice","Naples","Seattle","Houston","Chicago"];
+    const studentNames = {
+      Milan: "Caballero, Agustín",
+      Florence: "Chelia, Candela",
+      Venice: "Echaniz Ontiveros, Lucas",
+      Naples: "Fretes, Yésica",
+      Seattle: "Pollini, Juan José",
+      Houston: "Santucho, Simón",
+      Chicago: "Valetti, Víctor"
+    };
+    let scores = {};
+    teams.forEach(t => scores[t] = 0);
+    let present = new Set(teams); // todas tildadas por defecto
+
+    const questions = [
+      {team:"Modelo", badge:"mercado", label:"Mercado", statement:"Milei dijo que el EMAE creció 2,3% en el primer trimestre.", answer:true, note:"Verdadero. Fue el dato que él mismo mencionó como 'su peor número' del año."},
+      {team:"Modelo", badge:"mercado", label:"Mercado", statement:"Milei reconoció que la economía se contrajo en el primer trimestre.", answer:false, note:"Falso. La economía creció (2,3% trimestral), no se contrajo."},
+      {team:"Modelo", badge:"mercado", label:"Mercado", statement:"Milei dijo que, sin las crisis políticas, la economía habría crecido aún más rápido.", answer:true, note:"Verdadero, así lo argumentó en la entrevista."},
+
+      {team:"Milan", badge:"mercado", label:"Mercado", statement:"El Gobierno busca bajar impuestos y eliminar restricciones económicas.", answer:true, note:"Verdadero, es el objetivo declarado del programa."},
+      {team:"Milan", badge:"mercado", label:"Mercado", statement:"El objetivo oficial es tener más regulaciones estatales sobre la economía.", answer:false, note:"Falso. El objetivo es 'una economía más libre', con menos regulación."},
+      {team:"Milan", badge:"mercado", label:"Mercado", statement:"El discurso se dio en un evento del Banco de Valores en el MALBA.", answer:true, note:"Verdadero, así lo describe la nota."},
+
+      {team:"Florence", badge:"mercado", label:"Mercado", statement:"Algunos sectores crecieron por la apertura comercial mientras otros perdieron empleo formal.", answer:true, note:"Verdadero, el informe muestra ganadores y perdedores del nuevo esquema."},
+      {team:"Florence", badge:"mercado", label:"Mercado", statement:"Todos los sectores de la economía crecieron por igual con las reformas.", answer:false, note:"Falso. Hubo una evolución muy desigual entre sectores."},
+      {team:"Florence", badge:"mercado", label:"Mercado", statement:"El informe analiza dos años de gestión basados en ajuste fiscal y desregulación.", answer:true, note:"Verdadero."},
+
+      {team:"Venice", badge:"mercado", label:"Mercado", statement:"Se eliminó una restricción de 2021 sobre beneficios fiscales para criptomonedas.", answer:true, note:"Verdadero, la ARCA eliminó esa restricción."},
+      {team:"Venice", badge:"mercado", label:"Mercado", statement:"La tokenización de activos solo aplica a inmuebles, no a otros instrumentos financieros.", answer:false, note:"Falso, la nota dice 'desde inmuebles hasta instrumentos financieros'."},
+      {team:"Venice", badge:"mercado", label:"Mercado", statement:"La tokenización promete reducir costos y ampliar el acceso a pequeños inversores.", answer:true, note:"Verdadero, así lo describe la nota."},
+
+      {team:"Naples", badge:"mixto", label:"Mixto", statement:"El nuevo régimen de subsidios depende del ingreso de cada familia.", answer:true, note:"Verdadero, se accede según ingresos y patrimonio."},
+      {team:"Naples", badge:"mixto", label:"Mixto", statement:"Los subsidios energéticos desaparecieron por completo en 2026.", answer:false, note:"Falso, se redujeron y focalizaron, pero siguen existiendo."},
+      {team:"Naples", badge:"mixto", label:"Mixto", statement:"El Estado sigue interviniendo en los precios de luz y gas.", answer:true, note:"Verdadero, por eso es un ejemplo de economía mixta."},
+
+      {team:"Seattle", badge:"mixto", label:"Mixto", statement:"Los subsidios económicos representaban más de 2 puntos del PBI en 2023.", answer:true, note:"Verdadero, según el informe del FMI/Gobierno."},
+      {team:"Seattle", badge:"mixto", label:"Mixto", statement:"El gobierno planea aumentar los subsidios hacia 2030.", answer:false, note:"Falso, la meta es bajarlos a niveles cercanos a cero."},
+      {team:"Seattle", badge:"mixto", label:"Mixto", statement:"La meta es que los subsidios lleguen a niveles cercanos a cero.", answer:true, note:"Verdadero."},
+
+      {team:"Houston", badge:"planificado", label:"Planificado", statement:"El gobierno cubano presentó un Plan de la Economía 2026 ante la Asamblea Nacional.", answer:true, note:"Verdadero."},
+      {team:"Houston", badge:"planificado", label:"Planificado", statement:"En Cuba, las empresas privadas deciden libremente qué y cuánto producir.", answer:false, note:"Falso, es el Estado quien fija las metas de producción."},
+      {team:"Houston", badge:"planificado", label:"Planificado", statement:"El plan prioriza garantizar insumos básicos al productor estatal.", answer:true, note:"Verdadero."},
+
+      {team:"Chicago", badge:"planificado", label:"Planificado", statement:"El Estado cubano planificó de antemano cuánto se va a vender en 2026.", answer:true, note:"Verdadero, es la lógica de una economía planificada."},
+      {team:"Chicago", badge:"planificado", label:"Planificado", statement:"En Cuba los precios y cantidades se definen libremente por oferta y demanda.", answer:false, note:"Falso, eso describe una economía de mercado, no la cubana."},
+      {team:"Chicago", badge:"planificado", label:"Planificado", statement:"La cifra de circulación mercantil planificada fue de 252.679 millones de pesos.", answer:true, note:"Verdadero."},
+    ];
+
+    let idx = 0;
+    let selectedMode = 'A';
+    let activeQuestions = [];
+
+    function selectMode(mode){
+      selectedMode = mode;
+      document.querySelectorAll('.mode-chip').forEach(c => {
+        c.classList.toggle('selected', c.dataset.mode === mode);
+      });
+    }
+
+    function buildActiveQuestions(mode){
+      const list = [];
+      for(let i = 0; i < questions.length; i += 3){
+        const group = [questions[i], questions[i+1], questions[i+2]];
+        const groupIdx = i / 3;
+        if(mode === 'A'){
+          list.push(group[0], group[1], group[2]);
+        } else if(mode === 'B'){
+          list.push(group[0], group[1]);
+        } else { // C: 1 por noticia, alternando V/F
+          list.push(groupIdx % 2 === 0 ? group[0] : group[1]);
+        }
+      }
+      return list;
+    }
+
+    function activeTeams(){
+      return teams.filter(t => present.has(t));
+    }
+
+    function renderAttendanceGrid(){
+      const grid = document.getElementById('attendance-grid');
+      grid.innerHTML = '';
+      teams.forEach(t => {
+        const chip = document.createElement('button');
+        chip.className = 'attend-chip' + (present.has(t) ? ' present' : '');
+        chip.innerHTML = t + '<span class="student">' + studentNames[t] + '</span>';
+        chip.onclick = () => {
+          if(present.has(t)) present.delete(t); else present.add(t);
+          renderAttendanceGrid();
+          updateStartBtn();
+        };
+        grid.appendChild(chip);
+      });
+    }
+
+    function updateStartBtn(){
+      document.getElementById('start-game-btn').disabled = activeTeams().length === 0;
+    }
+
+    function startGame(){
+      document.getElementById('attendance-wrap').style.display = 'none';
+      document.getElementById('game-content').style.display = 'block';
+      activeQuestions = buildActiveQuestions(selectedMode);
+      idx = 0;
+      activeTeams().forEach(t => scores[t] = 0);
+      renderScoreboard(null);
+      renderQuestion();
+    }
+
+    function renderScoreboard(bumpTeam){
+      const board = document.getElementById('scoreboard');
+      board.innerHTML = '';
+      const active = activeTeams();
+      const max = Math.max(0, ...active.map(t => scores[t]));
+      const sorted = [...active].sort((a,b) => scores[b]-scores[a]);
+      sorted.forEach((t, i) => {
+        const div = document.createElement('div');
+        div.className = 'score-card' + (scores[t] === max && max > 0 ? ' leader' : '') + (t === bumpTeam ? ' bump' : '');
+        const medal = i === 0 && scores[t] > 0 ? '🥇 ' : '';
+        div.innerHTML = `<div class="name">${medal}${t}</div><div class="student">${studentNames[t]}</div><div class="points">${scores[t]}</div>`;
+        board.appendChild(div);
+      });
+      if(bumpTeam){
+        setTimeout(() => renderScoreboard(null), 320);
+      }
+    }
+
+    function renderQuestion(){
+      if(idx >= activeQuestions.length){
+        document.getElementById('quiz-area').style.display = 'none';
+        showPodium();
+        return;
+      }
+      const q = activeQuestions[idx];
+      document.getElementById('progress-fill').style.width = (idx/activeQuestions.length*100) + '%';
+      document.getElementById('game-meta').textContent = `☕ Pregunta ${idx+1} de ${activeQuestions.length} — Ronda ${selectedMode}`;
+      const badgeEl = document.getElementById('q-badge');
+      badgeEl.textContent = q.team + ' · ' + q.label;
+      badgeEl.className = 'badge ' + q.badge;
+      document.getElementById('q-statement').textContent = q.statement;
+      document.getElementById('reveal-box').style.display = 'none';
+      document.getElementById('award-row').style.display = 'none';
+      document.getElementById('next-btn').style.display = 'none';
+      const btnV = document.getElementById('btn-v');
+      const btnF = document.getElementById('btn-f');
+      btnV.disabled = false; btnF.disabled = false;
+      btnV.className = 'vf-btn v'; btnF.className = 'vf-btn f';
+
+      const awardDiv = document.getElementById('award-buttons');
+      awardDiv.innerHTML = '';
+      activeTeams().forEach(t => {
+        const b = document.createElement('button');
+        b.className = 'award-btn';
+        b.innerHTML = t + '<br><small style="font-weight:400;font-size:10px;opacity:0.75">' + studentNames[t] + '</small>';
+        b.onclick = () => giveScore(t, b);
+        awardDiv.appendChild(b);
+      });
+    }
+
+    function answer(choice){
+      const q = activeQuestions[idx];
+      const btnV = document.getElementById('btn-v');
+      const btnF = document.getElementById('btn-f');
+      btnV.disabled = true; btnF.disabled = true;
+      if(q.answer === true){ btnV.classList.add('correct'); if(choice===false) btnF.classList.add('wrong'); }
+      else { btnF.classList.add('correct'); if(choice===true) btnV.classList.add('wrong'); }
+      const rb = document.getElementById('reveal-box');
+      rb.textContent = (q.answer ? '✅ Es VERDADERO. ' : '❌ Es FALSO. ') + q.note;
+      rb.style.display = 'block';
+      document.getElementById('award-row').style.display = 'flex';
+      document.getElementById('next-btn').style.display = 'inline-block';
+    }
+
+    function giveScore(team, btn){
+      scores[team] += 1;
+      btn.classList.add('given');
+      renderScoreboard(team);
+    }
+
+    function nextQuestion(){
+      idx += 1;
+      renderQuestion();
+    }
+
+    function showPodium(){
+      document.getElementById('progress-fill').style.width = '100%';
+      const active = activeTeams();
+      const sorted = [...active].sort((a,b) => scores[b]-scores[a]);
+
+      // Asignar puesto real considerando empates (1°,1°,3°,4°...)
+      let ranked_cache = 1;
+      const finalRanked = sorted.map((t, i) => {
+        if(i === 0){ ranked_cache = 1; }
+        else if(scores[t] !== scores[sorted[i-1]]){ ranked_cache = i + 1; }
+        return {team: t, rank: ranked_cache};
+      });
+
+      const winners = finalRanked.filter(r => r.rank === 1).map(r => r.team);
+      document.getElementById('winner-text').textContent = winners.length
+        ? (winners.length > 1
+            ? `🏆 ¡Empate en el primer puesto!: ${winners.join(' y ')} con ${scores[winners[0]]} puntos`
+            : `🏆 Mesa ganadora: ${winners[0]} con ${scores[winners[0]]} puntos`)
+        : '';
+
+      const list = document.getElementById('ranking');
+      list.innerHTML = finalRanked.map(r => {
+        const medal = r.rank === 1 ? '🥇' : r.rank === 2 ? '🥈' : r.rank === 3 ? '🥉' : (r.rank + '°');
+        return `
+        <div class="rank-row ${r.rank === 1 ? 'top' : ''}">
+          <div class="rank-num">${medal}</div>
+          <div class="rank-info">
+            <div class="rank-team">${r.team}</div>
+            <div class="rank-student">${studentNames[r.team]}</div>
+          </div>
+          <div class="rank-pts">${scores[r.team]} pts</div>
+        </div>`;
+      }).join('');
+
+      document.getElementById('podium-wrap').style.display = 'block';
+    }
+
+    function resetGame(){
+      teams.forEach(t => scores[t] = 0);
+      idx = 0;
+      selectMode('A');
+      document.getElementById('podium-wrap').style.display = 'none';
+      document.getElementById('game-content').style.display = 'none';
+      document.getElementById('quiz-area').style.display = 'block';
+      document.getElementById('attendance-wrap').style.display = 'block';
+      renderAttendanceGrid();
+      updateStartBtn();
+    }
+
+    function showTab(tab){
+      document.getElementById('tab-noticias').style.display = tab === 'noticias' ? 'block' : 'none';
+      document.getElementById('tab-juego').style.display = tab === 'juego' ? 'block' : 'none';
+      document.getElementById('btn-tab-noticias').classList.toggle('active', tab === 'noticias');
+      document.getElementById('btn-tab-juego').classList.toggle('active', tab === 'juego');
+    }
+
+    renderAttendanceGrid();
+    updateStartBtn();
+  </script>
+
+</body>
+</html>

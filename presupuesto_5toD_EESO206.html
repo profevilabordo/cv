@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Presupuesto · Administración 5°D · EESO N°206</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #1a7a4a;
+    --verde-claro: #2ecc71;
+    --verde-oscuro: #0f4a2c;
+    --oro: #c99a3a;
+    --oro-claro: #f0c96b;
+    --rojo: #c0392b;
+    --rojo-claro: #fdecea;
+    --bg: #f5f7f5;
+    --blanco: #ffffff;
+    --texto: #1c1c1c;
+    --gris: #6b7280;
+    --borde: #d1d9d1;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'DM Sans', sans-serif; background:var(--bg); color:var(--texto); line-height:1.7; }
+
+  header { background:var(--verde-oscuro); color:#fff; position:relative; overflow:hidden; }
+  header::before { content:''; position:absolute; top:-60px; right:-60px; width:300px; height:300px; border-radius:50%; background:rgba(46,204,113,0.12); }
+  header::after { content:''; position:absolute; bottom:-40px; left:20%; width:200px; height:200px; border-radius:50%; background:rgba(46,204,113,0.07); }
+  .header-inner { max-width:900px; margin:0 auto; padding:40px 28px 28px; position:relative; z-index:1; }
+  .badge { display:inline-block; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.25); padding:5px 14px; border-radius:999px; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; margin-bottom:14px; }
+  h1 { font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(1.6rem,4vw,2.4rem); }
+  .subtitle { color:#bcd9c8; margin-top:6px; font-weight:300; font-size:1rem; }
+
+  nav.tabs { display:flex; max-width:900px; margin:0 auto; padding:0 28px; gap:8px; margin-top:18px; position:relative; z-index:1; }
+  nav.tabs button { flex:1; background:rgba(255,255,255,0.08); color:#e6efe9; border:1px solid rgba(255,255,255,0.2); border-bottom:none; padding:12px 10px; font-family:'Syne',sans-serif; font-weight:700; font-size:0.95rem; border-radius:10px 10px 0 0; cursor:pointer; transition:background .2s; }
+  nav.tabs button.active { background:var(--bg); color:var(--verde-oscuro); }
+
+  main { max-width:900px; margin:0 auto; padding:28px; }
+  section.tabpanel { display:none; }
+  section.tabpanel.active { display:block; }
+
+  .card { background:var(--blanco); border:1px solid var(--borde); border-radius:14px; padding:24px 26px; margin-bottom:22px; box-shadow:0 1px 3px rgba(0,0,0,0.04); }
+  .card h2 { font-family:'Syne',sans-serif; color:var(--verde-oscuro); font-size:1.25rem; margin-bottom:12px; display:flex; align-items:center; gap:10px; }
+  .card h2 .num { background:var(--verde); color:#fff; font-size:0.8rem; width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .card p { margin-bottom:10px; }
+  .card ul { margin:8px 0 8px 20px; }
+  .card li { margin-bottom:6px; }
+
+  table.tabla { width:100%; border-collapse:collapse; margin:14px 0; font-size:0.92rem; }
+  table.tabla th { background:var(--verde-oscuro); color:#fff; text-align:left; padding:9px 12px; font-weight:600; }
+  table.tabla td { padding:9px 12px; border-bottom:1px solid var(--borde); }
+  table.tabla tr:nth-child(even) td { background:#f0f5f1; }
+  table.tabla td.num { text-align:right; font-variant-numeric:tabular-nums; }
+
+  .formula { background:#eef7f0; border-left:4px solid var(--verde); padding:14px 18px; border-radius:0 8px 8px 0; margin:12px 0; font-family:'Syne',sans-serif; font-weight:600; color:var(--verde-oscuro); }
+
+  .grid3 { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:12px 0; }
+  .mini { background:#f0f5f1; border-radius:10px; padding:14px; text-align:center; }
+  .mini .t { font-family:'Syne',sans-serif; font-weight:700; color:var(--verde-oscuro); font-size:0.9rem; margin-bottom:4px; }
+  .mini .d { font-size:0.82rem; color:var(--gris); }
+
+  .diff-box { background:linear-gradient(135deg,#fff8ec,#fdecea); border:2px dashed var(--oro); border-radius:14px; padding:22px 24px; margin-top:6px; }
+  .diff-box h2 { color:#8a5a12; }
+  .diff-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:14px; }
+  .diff-col { background:#fff; border-radius:10px; padding:16px; }
+  .diff-col.presu { border-top:4px solid var(--verde); }
+  .diff-col.cash { border-top:4px solid var(--rojo); }
+  .diff-col h3 { font-family:'Syne',sans-serif; font-size:1rem; margin-bottom:8px; }
+  .diff-col.presu h3 { color:var(--verde-oscuro); }
+  .diff-col.cash h3 { color:var(--rojo); }
+  .diff-col li { font-size:0.9rem; margin-bottom:6px; }
+  @media (max-width:640px){ .diff-grid{grid-template-columns:1fr;} .grid3{grid-template-columns:1fr;} }
+
+  .callout { background:#eef7f0; border-radius:10px; padding:14px 18px; font-size:0.92rem; margin-top:10px; }
+  .callout b { color:var(--verde-oscuro); }
+
+  /* ---- JUEGO ---- */
+  .attend-wrap { text-align:center; }
+  .attend-wrap h2 { font-family:'Syne',sans-serif; color:var(--verde-oscuro); margin-bottom:6px; }
+  .attend-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(140px,1fr)); gap:10px; margin:18px 0; }
+  .attend-chip { background:#fff; border:2px solid var(--borde); border-radius:10px; padding:12px 8px; cursor:pointer; font-family:'Syne',sans-serif; font-weight:700; color:var(--gris); transition:.15s; }
+  .attend-chip .student { display:block; font-family:'DM Sans',sans-serif; font-weight:400; font-size:0.78rem; margin-top:3px; }
+  .attend-chip.present { border-color:var(--verde); background:#eef7f0; color:var(--verde-oscuro); }
+
+  .mode-row { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:20px 0; }
+  .mode-btn { background:#fff; border:2px solid var(--borde); border-radius:12px; padding:14px 18px; cursor:pointer; text-align:left; min-width:150px; }
+  .mode-btn.selected { border-color:var(--verde); background:#eef7f0; }
+  .mode-btn .mt { font-family:'Syne',sans-serif; font-weight:700; color:var(--verde-oscuro); }
+  .mode-btn .md { font-size:0.8rem; color:var(--gris); }
+
+  .btn-primary { background:var(--verde); color:#fff; border:none; padding:14px 28px; border-radius:999px; font-family:'Syne',sans-serif; font-weight:700; font-size:1rem; cursor:pointer; }
+  .btn-primary:disabled { background:#b6c9bd; cursor:not-allowed; }
+
+  .progress-bar { height:8px; background:#e2e8e4; border-radius:999px; overflow:hidden; margin-bottom:18px; }
+  .progress-fill { height:100%; background:var(--verde); width:0%; transition:width .3s; }
+
+  .scoreboard { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; margin-bottom:22px; }
+  .score-card { background:#fff; border:2px solid var(--borde); border-radius:12px; padding:12px 10px; text-align:center; transition:transform .2s,border-color .2s,background .2s; }
+  .score-card.bump { transform:translateY(-6px); }
+  .score-card .team { font-family:'Syne',sans-serif; font-weight:700; font-size:0.85rem; color:var(--verde-oscuro); }
+  .score-card .student { font-size:0.68rem; color:var(--gris); margin-bottom:8px; }
+  .score-card .pts { font-size:1.3rem; font-weight:800; color:var(--verde); margin-top:2px; }
+  .score-card.leader { border-color:var(--oro); box-shadow:0 0 0 2px var(--oro-claro); }
+  .score-card .mark-btns { display:flex; gap:4px; justify-content:center; margin-top:6px; }
+  .mk-btn { border:2px solid var(--borde); background:#fff; border-radius:7px; padding:5px 8px; font-family:'Syne',sans-serif; font-weight:800; font-size:0.75rem; cursor:pointer; color:var(--gris); flex:1; }
+  .mk-btn:disabled { cursor:default; }
+  .mk-btn.v.selected { background:var(--verde); border-color:var(--verde); color:#fff; }
+  .mk-btn.f.selected { background:var(--rojo); border-color:var(--rojo); color:#fff; }
+  .mk-btn.a.selected { background:var(--gris); border-color:var(--gris); color:#fff; }
+  .score-card.correct { border-color:var(--verde); background:#eef9f1; }
+  .score-card.incorrect { border-color:var(--rojo); background:#fdecea; }
+  .score-card.no-mark { opacity:0.55; }
+
+  .qcard { background:#fff; border:1px solid var(--borde); border-radius:14px; padding:26px; text-align:center; }
+  .qtag { font-size:0.78rem; text-transform:uppercase; letter-spacing:0.06em; color:var(--verde); font-weight:700; margin-bottom:8px; }
+  .qtext { font-size:1.15rem; font-weight:500; margin-bottom:10px; }
+  .result-box { display:none; border-radius:10px; padding:14px 18px; margin:14px 0; text-align:left; font-size:0.95rem; }
+  .result-box.correct { background:#e6f7ec; color:#0f4a2c; }
+  .next-btn { display:none; margin-top:10px; }
+
+  .podium-wrap { display:none; text-align:center; }
+  #winner-text { font-family:'Syne',sans-serif; font-size:1.3rem; color:var(--verde-oscuro); margin-bottom:18px; }
+  .rank-list { max-width:420px; margin:0 auto; text-align:left; }
+  .rank-row { display:flex; align-items:center; gap:12px; background:#fff; border:1px solid var(--borde); border-radius:10px; padding:10px 14px; margin-bottom:8px; }
+  .rank-row .pos { font-family:'Syne',sans-serif; font-weight:800; color:var(--oro); width:28px; }
+  .rank-row .name { flex:1; font-weight:600; }
+  .rank-row .pts { color:var(--verde); font-weight:700; }
+  .reset-btn { margin-top:20px; background:none; border:1px solid var(--borde); border-radius:999px; padding:10px 20px; cursor:pointer; font-family:'Syne',sans-serif; font-weight:700; color:var(--gris); }
+
+  footer { text-align:center; padding:26px; color:var(--gris); font-size:0.82rem; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <span class="badge">Administración III · 5° D</span>
+    <h1>Presupuesto empresarial</h1>
+    <p class="subtitle">Teoría, tipos de presupuesto y punto de equilibrio — y cómo se diferencia del Cash Flow</p>
+  </div>
+  <nav class="tabs">
+    <button id="btn-tab-teoria" class="active" onclick="showTab('teoria')">📘 Teoría</button>
+    <button id="btn-tab-juego" onclick="showTab('juego')">🎮 Juego</button>
+  </nav>
+</header>
+
+<main>
+
+<!-- ============ TEORÍA ============ -->
+<section id="tab-teoria" class="tabpanel active">
+
+  <div class="card">
+    <h2><span class="num">1</span>Estructura del presupuesto general</h2>
+    <p>El presupuesto general de una empresa se compone de varios presupuestos parciales que, integrados, dan una visión completa de la actividad económica y financiera proyectada.</p>
+    <table class="tabla">
+      <tr><th>Presupuesto Económico</th><th>Presupuesto Financiero</th><th>Balance General Proyectado</th></tr>
+      <tr><td>Presupuesto de ventas</td><td>Presupuesto de ingresos</td><td rowspan="3">Determina la situación patrimonial proyectada al cierre del período.</td></tr>
+      <tr><td>Presupuesto de costos</td><td>Presupuesto de egresos</td></tr>
+      <tr><td>Presupuesto de gastos</td><td>Otros movimientos financieros</td></tr>
+      <tr><td>Otros (resultados extraordinarios)</td><td></td><td></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">2</span>Presupuesto de Ventas</h2>
+    <p>Es el <b>punto de partida</b> de todos los demás presupuestos: si se proyecta vender más, hay que producir más, comprar más insumos y tener mayor capacidad operativa.</p>
+    <p>Para realizarlo se tiene en cuenta la experiencia histórica, los objetivos de los directivos, la publicidad, la situación económica del país, el lanzamiento de nuevos productos propios y de la competencia, entre otros factores.</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">3</span>Presupuesto de Costos</h2>
+    <p>Se obtiene multiplicando la cantidad de insumos necesarios para producir una unidad por el precio de cada insumo.</p>
+    <div class="formula">Insumos por unidad × Precio de cada insumo = Costo unitario</div>
+    <div class="formula">Costo unitario × Cantidad total a producir = Costo total de producción</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">4</span>Presupuesto de Gastos</h2>
+    <p>Los gastos presupuestados se dividen en tres grandes categorías:</p>
+    <div class="grid3">
+      <div class="mini"><div class="t">Variables de ventas</div><div class="d">Varían en relación directa con el volumen de ventas: impuestos sobre ventas, fletes, comisiones.</div></div>
+      <div class="mini"><div class="t">Fijos</div><div class="d">No varían con el volumen producido o vendido: producción, comercialización y administración.</div></div>
+      <div class="mini"><div class="t">Financieros</div><div class="d">Intereses y gastos por obligaciones contraídas: préstamos, descuento de documentos, comisiones.</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">5</span>Presupuesto Económico</h2>
+    <p>Resulta de recopilar los valores obtenidos en los presupuestos de ventas, costos y gastos. Trabaja con criterio de lo <b>devengado</b>: registra ventas, costos y gastos aunque todavía no se hayan cobrado o pagado.</p>
+    <table class="tabla">
+      <tr><th>Concepto</th><th>Importe</th></tr>
+      <tr><td>Ventas</td><td class="num">$ ...........</td></tr>
+      <tr><td>(−) Costos de mercaderías vendidas</td><td class="num">($ ...........)</td></tr>
+      <tr><td><b>= Utilidad Bruta</b></td><td class="num"><b>$ ...........</b></td></tr>
+      <tr><td>(−) Gastos Variables</td><td class="num">($ ...........)</td></tr>
+      <tr><td>(−) Gastos Fijos</td><td class="num">($ ...........)</td></tr>
+      <tr><td>(−) Gastos Financieros</td><td class="num">($ ...........)</td></tr>
+      <tr><td><b>= Resultado Operativo</b></td><td class="num"><b>$ ...........</b></td></tr>
+      <tr><td>(+/−) Resultados no operativos</td><td class="num">$ ...........</td></tr>
+      <tr><td>(−) Impuesto a las Ganancias</td><td class="num">($ ...........)</td></tr>
+      <tr><td><b>= Resultado del Ejercicio</b></td><td class="num"><b>$ ...........</b></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">6</span>Presupuesto de Egresos e Ingresos</h2>
+    <p><b>Presupuesto de Egresos:</b> se confecciona considerando deudas comerciales, bancarias, financieras, cargas sociales, cargas fiscales, alquileres, comisiones, honorarios, etc. A diferencia del presupuesto de gastos, registra solamente las <b>salidas reales de dinero</b> del período.</p>
+    <p><b>Presupuesto de Ingresos:</b> incluye el dinero que ingresa por ventas más los montos a cobrar de ventas a plazo anteriores. Es clave diferenciar la <b>venta</b> (se registra al facturar) del <b>cobro</b> (se registra cuando entra el dinero).</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">7</span>Presupuesto Financiero</h2>
+    <p>Se realiza comparando los presupuestos de ingresos y egresos con las disponibilidades al comienzo del período. Luego se decide si invertir el dinero sobrante o pedir préstamos, según resulte déficit o superávit.</p>
+    <table class="tabla">
+      <tr><th>Concepto</th><th>Importe</th></tr>
+      <tr><td>Ingresos</td><td class="num">$ ...........</td></tr>
+      <tr><td>(−) Egresos</td><td class="num">($ ...........)</td></tr>
+      <tr><td><b>= Déficit o Superávit</b></td><td class="num"><b>$ ...........</b></td></tr>
+      <tr><td>(+) Disponibilidad inicial</td><td class="num">$ ...........</td></tr>
+      <tr><td><b>= Saldo final de caja</b></td><td class="num"><b>$ ...........</b></td></tr>
+    </table>
+    <div class="callout">Fijate que esta tabla se parece mucho a un Cash Flow — más abajo vemos exactamente en qué se diferencian.</div>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">8</span>Balance General Proyectado</h2>
+    <p>Tiene por objeto determinar la situación patrimonial al cierre del período presupuestario, con las cifras que aportan los distintos presupuestos. Muestra qué tendrá y qué deberá la empresa al final del período si se cumplen las proyecciones.</p>
+  </div>
+
+  <div class="card">
+    <h2><span class="num">9</span>Punto de equilibrio</h2>
+    <p>Es función del Departamento de Administración y Finanzas hacer un seguimiento de los resultados de ventas y cotejarlos con los gastos, para conocer la situación económica y financiera de la empresa y tomar decisiones.</p>
+    <div class="callout"><b>Definición:</b> el punto de equilibrio es aquel en que la empresa cubre sus gastos de estructura (fijos y semifijos de producción y comercialización) con la producción y comercialización de sus productos. Vendiendo esa cantidad, la empresa no gana ni pierde.</div>
+    <div class="formula">Punto de equilibrio = Gastos de estructura totales ÷ (Precio unitario − Costo variable unitario)</div>
+    <p style="font-size:0.88rem;color:var(--gris)">El denominador (Pu − Cvu) se llama <b>margen de contribución unitario</b>. Para cada producto debe calcularse por separado.</p>
+
+    <div class="grid3" style="grid-template-columns:1fr 1fr;">
+      <div class="mini"><div class="t">Económico</div><div class="d">Considera todos los gastos de estructura, desembolsables y no desembolsables (ej: amortizaciones).</div></div>
+      <div class="mini"><div class="t">Financiero</div><div class="d">Considera solo los gastos de estructura desembolsables — los que implican salida real de dinero. No incluye amortizaciones.</div></div>
+    </div>
+    <p style="margin-top:10px">Por eso una empresa puede tener utilidad económica pero problemas para pagar sus cuentas (muchas amortizaciones), o al revés, pagar todo lo que debe pero perder plata en términos económicos.</p>
+
+    <h2 style="margin-top:18px"><span class="num">✓</span>Caso: Empresa Marteio</h2>
+    <p>Fabrica un único producto y quiere conocer su punto de equilibrio.</p>
+    <table class="tabla">
+      <tr><th>Concepto</th><th>Importe unitario</th></tr>
+      <tr><td>Materia prima</td><td class="num">$25</td></tr>
+      <tr><td>Mano de obra</td><td class="num">$30</td></tr>
+      <tr><td>Otras variables de producción</td><td class="num">$5</td></tr>
+      <tr><td>Otras variables de comercialización</td><td class="num">$3,20</td></tr>
+      <tr><td><b>Total costo variable unitario</b></td><td class="num"><b>$63,20</b></td></tr>
+      <tr><td>Gastos fijos de producción (×50.000 unid.)</td><td class="num">$200.000</td></tr>
+      <tr><td>Gastos fijos de comercialización (×50.000 unid.)</td><td class="num">$20.000</td></tr>
+      <tr><td><b>Total gastos de estructura</b></td><td class="num"><b>$220.000</b></td></tr>
+    </table>
+    <p style="font-size:0.88rem;color:var(--gris)">Datos adicionales: margen de beneficio del 17% sobre el costo de ventas, volumen anual proyectado de 50.000 unidades, y gastos fijos desembolsables equivalentes al 30% de los gastos fijos totales.</p>
+    <div class="callout"><b>Para resolver en clase:</b> con el margen de beneficio (17% sobre el costo de ventas) calculá el precio unitario de venta, y con eso, el punto de equilibrio económico y el financiero de Marteio.</div>
+  </div>
+
+  <div class="diff-box">
+    <h2><span class="num" style="background:var(--oro)">⚡</span>Presupuesto vs. Cash Flow — no son lo mismo</h2>
+    <p>Es el error más común: confundir el presupuesto financiero con el cash flow porque las dos tablas se ven parecidas (ingresos, egresos, saldo). La diferencia está en <b>cuándo</b> se hace y <b>qué</b> registra cada uno.</p>
+    <div class="diff-grid">
+      <div class="diff-col presu">
+        <h3>📅 Presupuesto</h3>
+        <ul>
+          <li>Es una <b>proyección a futuro</b>, antes de que ocurran los hechos económicos.</li>
+          <li>El Presupuesto Económico usa criterio de lo <b>devengado</b>: registra ventas y costos aunque todavía no se hayan cobrado o pagado.</li>
+          <li>El Presupuesto Financiero proyecta cómo va a moverse la caja en el futuro.</li>
+          <li>Sirve para planificar y anticipar decisiones.</li>
+        </ul>
+      </div>
+      <div class="diff-col cash">
+        <h3>💵 Cash Flow</h3>
+        <ul>
+          <li>Registra el movimiento <b>real</b> del dinero, ya sucedido.</li>
+          <li>Usa siempre criterio de <b>caja</b>: solo cuenta lo que efectivamente entró o salió.</li>
+          <li>No proyecta: constata lo que pasó en el período.</li>
+          <li>Sirve para controlar la liquidez real de la empresa.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:14px;background:#fff8ec;"><b>Para recordar:</b> el Presupuesto Financiero es como la "versión proyectada" de lo que el Cash Flow va a medir después, en la realidad.</div>
+  </div>
+
+</section>
+
+<!-- ============ JUEGO ============ -->
+<section id="tab-juego" class="tabpanel">
+
+  <div id="attendance-wrap" class="attend-wrap">
+    <h2>¿Quiénes están hoy?</h2>
+    <p style="color:var(--gris)">Tocá cada mesa para marcar presentes. Solo esas mesas van a aparecer en el marcador.</p>
+    <div id="attendance-grid" class="attend-grid"></div>
+
+    <h2 style="margin-top:10px">Elegí la ronda</h2>
+    <div class="mode-row" id="mode-row"></div>
+
+    <button class="btn-primary" id="start-game-btn" onclick="startGame()" disabled>Empezar juego</button>
+  </div>
+
+  <div id="game-content" style="display:none">
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div id="scoreboard" class="scoreboard"></div>
+
+    <div id="quiz-area">
+      <div class="qcard">
+        <div class="qtag" id="qtag">Pregunta</div>
+        <div class="qtext" id="qtext"></div>
+        <div style="font-size:0.82rem;color:var(--gris);margin-bottom:14px;">Marcá V, F o Ausente en cada mesa (arriba) y después tocá Verificar.</div>
+        <button class="btn-primary" id="verify-btn" onclick="verifyAnswer()">Verificar</button>
+        <div class="result-box" id="result-box"></div>
+        <button class="btn-primary next-btn" id="next-btn" onclick="nextQuestion()">Siguiente →</button>
+      </div>
+    </div>
+
+    <div class="podium-wrap" id="podium-wrap">
+      <div id="winner-text"></div>
+      <div class="rank-list" id="rank-list"></div>
+      <button class="reset-btn" onclick="resetGame()">↺ Jugar de nuevo</button>
+    </div>
+  </div>
+
+</section>
+
+</main>
+
+<footer>★ Aula Digital con Verónica ★ EESO N°206 "Rosa Turner de Estrugamou" · Administración III · 5°D</footer>
+
+<script>
+  // ---- Equipos (mesas) ----
+  const teams = ['Mesa 1','Mesa 2','Mesa 3','Mesa 4','Mesa 5','Mesa 6','Mesa 7','Mesa 8','Mesa 9','Mesa 10','Mesa 11','Mesa 12'];
+  const studentNames = {
+    'Mesa 1':'Carruego','Mesa 2':'Contreras','Mesa 3':'Diaz','Mesa 4':'Falcón',
+    'Mesa 5':'Geuna','Mesa 6':'Gomez Madero','Mesa 7':'Guillen','Mesa 8':'Leiva',
+    'Mesa 9':'Morello','Mesa 10':'Pace','Mesa 11':'Pauloski','Mesa 12':'Rios'
+  };
+  let present = new Set(teams);
+  let scores = {};
+
+  // ---- Preguntas V/F agrupadas por tema (grupos de 3) ----
+  const groups = [
+    { tag:'Estructura del presupuesto', qs:[
+      {text:'El presupuesto general se compone de un único presupuesto que resume toda la actividad de la empresa.', v:false, note:'Se compone de varios presupuestos parciales integrados: económico, financiero y balance general proyectado.'},
+      {text:'El Balance General Proyectado determina la situación patrimonial estimada al cierre del período.', v:true, note:'Correcto, muestra qué tendrá y qué deberá la empresa si se cumplen las proyecciones.'},
+      {text:'El presupuesto de ventas es uno de los presupuestos parciales que integra el presupuesto económico.', v:true, note:'Correcto, junto con costos, gastos y otros resultados.'},
+    ]},
+    { tag:'Presupuesto de Ventas', qs:[
+      {text:'El presupuesto de ventas es el punto de partida de todos los demás presupuestos.', v:true, note:'Si se proyecta vender más, hay que producir más, comprar más insumos y tener mayor capacidad operativa.'},
+      {text:'El presupuesto de ventas se elabora sin tener en cuenta la experiencia histórica de la empresa.', v:false, note:'Sí se tiene en cuenta la experiencia histórica, los objetivos de los directivos, la publicidad, etc.'},
+      {text:'Si se proyecta vender más, la empresa necesitará producir más y comprar más insumos.', v:true, note:'Exacto, el presupuesto de ventas arrastra al resto de los presupuestos.'},
+    ]},
+    { tag:'Presupuesto de Costos', qs:[
+      {text:'El costo unitario se obtiene multiplicando el precio de venta por la cantidad de insumos.', v:false, note:'Se obtiene multiplicando insumos por unidad × precio de cada insumo.'},
+      {text:'El costo total de producción estimado surge de multiplicar el costo unitario por la cantidad total a producir.', v:true, note:'Correcto, esa es la fórmula.'},
+      {text:'El presupuesto de costos no tiene relación con el presupuesto de ventas.', v:false, note:'Sí tiene relación: si se proyecta vender más, hay que producir más y eso implica más costos.'},
+    ]},
+    { tag:'Presupuesto de Gastos', qs:[
+      {text:'Los gastos variables de ventas varían en relación directa con el volumen de ventas.', v:true, note:'Ejemplos: impuestos sobre ventas, fletes, comisiones a vendedores.'},
+      {text:'Los gastos fijos varían según el volumen producido o vendido.', v:false, note:'No varían en función del volumen; se calculan según datos históricos y políticas de la dirección.'},
+      {text:'Los intereses por préstamos bancarios son un ejemplo de gasto financiero.', v:true, note:'Correcto, junto con descuento de documentos y comisiones.'},
+    ]},
+    { tag:'Presupuesto Económico', qs:[
+      {text:'El presupuesto económico se calcula restando a las ventas los costos y gastos, hasta llegar al resultado del ejercicio.', v:true, note:'Correcto, esa es su estructura completa.'},
+      {text:'El presupuesto económico registra únicamente los movimientos de dinero en efectivo.', v:false, note:'Eso corresponde al presupuesto financiero / cash flow. El económico usa criterio devengado.'},
+      {text:'El Impuesto a las Ganancias se resta antes de llegar al Resultado del Ejercicio.', v:true, note:'Correcto, es el último descuento antes del resultado final.'},
+    ]},
+    { tag:'Ingresos, Egresos y Pto. Financiero', qs:[
+      {text:'El presupuesto de egresos registra las salidas reales de dinero, a diferencia del presupuesto de gastos.', v:true, note:'Correcto, esa es la diferencia clave entre ambos.'},
+      {text:'La venta se registra en el presupuesto de ingresos en el momento de facturar, sin diferenciar del momento del cobro.', v:false, note:'Es importante diferenciar la venta (al facturar) del cobro (cuando entra el dinero).'},
+      {text:'El presupuesto financiero compara ingresos y egresos con la disponibilidad inicial para obtener el saldo final de caja.', v:true, note:'Correcto, esa es su estructura.'},
+    ]},
+    { tag:'Punto de Equilibrio', qs:[
+      {text:'En el punto de equilibrio, la empresa no gana ni pierde.', v:true, note:'Correcto, cubre exactamente sus gastos de estructura.'},
+      {text:'El punto de equilibrio financiero incluye las amortizaciones dentro de los gastos de estructura.', v:false, note:'Las amortizaciones se incluyen en el económico; el financiero solo considera gastos desembolsables.'},
+      {text:'El margen de contribución unitario es la diferencia entre el precio unitario y el costo variable unitario.', v:true, note:'Correcto, es el denominador de la fórmula del punto de equilibrio.'},
+    ]},
+    { tag:'Presupuesto vs. Cash Flow', qs:[
+      {text:'El presupuesto es una proyección hecha antes de que ocurran los hechos económicos, mientras que el cash flow registra lo que efectivamente ya sucedió.', v:true, note:'Esa es la diferencia clave: proyección a futuro vs. registro real.'},
+      {text:'El cash flow y el presupuesto económico son exactamente lo mismo porque los dos usan el criterio de lo devengado.', v:false, note:'El económico usa devengado; el cash flow usa base caja, solo dinero que realmente entró o salió.'},
+      {text:'El presupuesto financiero puede pensarse como la versión proyectada de lo que el cash flow mide después en la realidad.', v:true, note:'Exacto, esa es la relación entre ambos.'},
+    ]},
+  ];
+
+  const modes = [
+    { id:'A', label:'Ronda A', desc:'24 preguntas · ~25 min', perGroup:3 },
+    { id:'B', label:'Ronda B', desc:'16 preguntas · ~18 min', perGroup:2 },
+    { id:'C', label:'Ronda C', desc:'8 preguntas · ~10 min', perGroup:1 },
+  ];
+  let selectedMode = 'A';
+  let activeQuestions = [];
+  let idx = 0;
+  let markState = {};
+  let verified = false;
+
+  function buildActiveQuestions(modeId){
+    const mode = modes.find(m=>m.id===modeId);
+    let list = [];
+    groups.forEach(g=>{
+      for(let i=0;i<mode.perGroup;i++){
+        list.push({...g.qs[i], tag:g.tag});
+      }
+    });
+    return list;
+  }
+
+  function renderModeRow(){
+    const row = document.getElementById('mode-row');
+    row.innerHTML='';
+    modes.forEach(m=>{
+      const b = document.createElement('div');
+      b.className = 'mode-btn' + (selectedMode===m.id ? ' selected':'');
+      b.innerHTML = `<div class="mt">${m.label}</div><div class="md">${m.desc}</div>`;
+      b.onclick = ()=>{ selectedMode = m.id; renderModeRow(); };
+      row.appendChild(b);
+    });
+  }
+
+  function activeTeams(){ return teams.filter(t=>present.has(t)); }
+
+  function renderAttendanceGrid(){
+    const grid = document.getElementById('attendance-grid');
+    grid.innerHTML='';
+    teams.forEach(t=>{
+      const chip = document.createElement('button');
+      chip.className = 'attend-chip' + (present.has(t) ? ' present':'');
+      chip.innerHTML = t + '<span class="student">'+studentNames[t]+'</span>';
+      chip.onclick = ()=>{
+        if(present.has(t)) present.delete(t); else present.add(t);
+        renderAttendanceGrid();
+        updateStartBtn();
+      };
+      grid.appendChild(chip);
+    });
+  }
+
+  function updateStartBtn(){
+    document.getElementById('start-game-btn').disabled = activeTeams().length===0;
+  }
+
+  function startGame(){
+    document.getElementById('attendance-wrap').style.display='none';
+    document.getElementById('game-content').style.display='block';
+    document.getElementById('podium-wrap').style.display='none';
+    document.getElementById('quiz-area').style.display='block';
+    activeQuestions = buildActiveQuestions(selectedMode);
+    idx = 0;
+    activeTeams().forEach(t=>scores[t]=0);
+    renderQuestion();
+  }
+
+  function renderQuestion(){
+    verified = false;
+    markState = {};
+    activeTeams().forEach(t=>markState[t]=null);
+    document.getElementById('progress-fill').style.width = (idx/activeQuestions.length*100)+'%';
+    const q = activeQuestions[idx];
+    document.getElementById('qtag').textContent = `${q.tag} · Pregunta ${idx+1} de ${activeQuestions.length}`;
+    document.getElementById('qtext').textContent = q.text;
+    document.getElementById('result-box').style.display='none';
+    document.getElementById('result-box').className='result-box';
+    document.getElementById('verify-btn').style.display='inline-block';
+    document.getElementById('next-btn').style.display='none';
+    renderScoreboard();
+  }
+
+  function setMark(team, val){
+    if(verified) return;
+    markState[team] = (markState[team] === val) ? null : val;
+    renderScoreboard();
+  }
+
+  function renderScoreboard(){
+    const sb = document.getElementById('scoreboard');
+    const at = activeTeams();
+    const maxScore = Math.max(0, ...at.map(t=>scores[t]));
+    const q = activeQuestions[idx];
+
+    sb.innerHTML = at.map(t=>{
+      const st = markState[t];
+      let extraClass = '';
+      let marksHtml;
+
+      if(verified){
+        if(st === 'V' || st === 'F'){
+          const userTrue = st === 'V';
+          const correct = userTrue === q.v;
+          extraClass = correct ? 'correct' : 'incorrect';
+        } else {
+          extraClass = 'no-mark';
+        }
+        marksHtml = `<div class="mark-btns">
+          <button class="mk-btn v ${st==='V'?'selected':''}" disabled>V</button>
+          <button class="mk-btn f ${st==='F'?'selected':''}" disabled>F</button>
+          <button class="mk-btn a ${st==='ausente'?'selected':''}" disabled>Aus.</button>
+        </div>`;
+      } else {
+        const isLeader = scores[t]===maxScore && maxScore>0;
+        extraClass = isLeader ? 'leader' : '';
+        marksHtml = `<div class="mark-btns">
+          <button class="mk-btn v ${st==='V'?'selected':''}" onclick="setMark('${t}','V')">V</button>
+          <button class="mk-btn f ${st==='F'?'selected':''}" onclick="setMark('${t}','F')">F</button>
+          <button class="mk-btn a ${st==='ausente'?'selected':''}" onclick="setMark('${t}','ausente')">Aus.</button>
+        </div>`;
+      }
+
+      return `<div class="score-card ${extraClass}">
+        <div class="team">${t}</div>
+        <div class="student">${studentNames[t]}</div>
+        ${marksHtml}
+        <div class="pts">${scores[t]}</div>
+      </div>`;
+    }).join('');
+  }
+
+  function verifyAnswer(){
+    if(verified) return;
+    verified = true;
+    const q = activeQuestions[idx];
+    activeTeams().forEach(t=>{
+      const st = markState[t];
+      if(st === 'V' || st === 'F'){
+        const userTrue = st === 'V';
+        if(userTrue === q.v) scores[t] += 1;
+      }
+    });
+    renderScoreboard();
+    const rb = document.getElementById('result-box');
+    rb.classList.add('correct');
+    rb.textContent = (q.v ? '✅ Es VERDADERO. ' : '❌ Es FALSO. ') + q.note;
+    rb.style.display = 'block';
+    document.getElementById('verify-btn').style.display = 'none';
+    document.getElementById('next-btn').style.display = 'inline-block';
+  }
+
+  function nextQuestion(){
+    idx += 1;
+    if(idx >= activeQuestions.length){ showPodium(); return; }
+    renderQuestion();
+  }
+
+  function rankRowsHtml(teamsList){
+    let html = '';
+    let lastScore = null, lastPos = 0;
+    teamsList.forEach((t,i)=>{
+      let pos;
+      if(scores[t] === lastScore){ pos = lastPos; }
+      else { pos = i+1; lastPos = pos; lastScore = scores[t]; }
+      html += `<div class="rank-row"><div class="pos">${pos}°</div><div class="name">${t} <span style="color:var(--gris);font-weight:400">(${studentNames[t]})</span></div><div class="pts">${scores[t]} pts</div></div>`;
+    });
+    return html;
+  }
+
+  function showPodium(){
+    document.getElementById('progress-fill').style.width='100%';
+    document.getElementById('quiz-area').style.display='none';
+    const at = activeTeams();
+    const sorted = [...at].sort((a,b)=>scores[b]-scores[a]);
+    document.getElementById('winner-text').textContent = sorted.length ? `🏆 Mesa ganadora: ${sorted[0]} con ${scores[sorted[0]]} puntos` : '';
+    document.getElementById('rank-list').innerHTML = rankRowsHtml(sorted);
+    document.getElementById('podium-wrap').style.display='block';
+  }
+
+  function resetGame(){
+    activeTeams().forEach(t=>scores[t]=0);
+    idx = 0;
+    document.getElementById('podium-wrap').style.display='none';
+    document.getElementById('game-content').style.display='none';
+    document.getElementById('quiz-area').style.display='block';
+    document.getElementById('attendance-wrap').style.display='block';
+    renderAttendanceGrid();
+    updateStartBtn();
+  }
+
+  function showTab(tab){
+    document.getElementById('tab-teoria').classList.toggle('active', tab==='teoria');
+    document.getElementById('tab-juego').classList.toggle('active', tab==='juego');
+    document.getElementById('btn-tab-teoria').classList.toggle('active', tab==='teoria');
+    document.getElementById('btn-tab-juego').classList.toggle('active', tab==='juego');
+  }
+
+  renderAttendanceGrid();
+  renderModeRow();
+  updateStartBtn();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad 2 · Dos leyes, un mismo trabajo</title>
+<style>
+  :root{
+    --paper:#FAF6EE;
+    --paper-2:#F1EADA;
+    --ink:#1E2A3C;
+    --ink-soft:#4B5768;
+    --antes:#8A6A3C;
+    --antes-bg:#F3ECDD;
+    --ahora:#B0472E;
+    --ahora-bg:#FBECE7;
+    --line:#D9CEB8;
+    --focus:#2B5FAE;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Georgia","Iowan Old Style",serif;
+    line-height:1.55;
+  }
+  .sans{font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;}
+
+  a:focus-visible, button:focus-visible, summary:focus-visible{
+    outline:3px solid var(--focus);
+    outline-offset:2px;
+  }
+
+  header{
+    padding:56px 24px 40px;
+    text-align:center;
+    border-bottom:1px solid var(--line);
+    background:
+      linear-gradient(var(--paper), var(--paper)) padding-box;
+  }
+  .eyebrow{
+    font-family:-apple-system,"Segoe UI",Roboto,sans-serif;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:.72rem;
+    color:var(--ink-soft);
+    margin:0 0 10px;
+  }
+  h1{
+    font-size:clamp(1.7rem,4vw,2.5rem);
+    margin:0 0 14px;
+    font-weight:700;
+  }
+  header p.lead{
+    font-family:-apple-system,"Segoe UI",Roboto,sans-serif;
+    max-width:640px;
+    margin:0 auto;
+    color:var(--ink-soft);
+    font-size:1.02rem;
+  }
+
+  main{
+    max-width:860px;
+    margin:0 auto;
+    padding:36px 20px 80px;
+  }
+
+  .intro-box{
+    background:var(--paper-2);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:22px 24px;
+    margin-bottom:36px;
+    font-family:-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:.98rem;
+  }
+  .intro-box strong{color:var(--ahora);}
+
+  .legend{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    margin:0 0 30px;
+    font-family:-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:.85rem;
+  }
+  .legend span{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+  }
+  .dot{width:11px;height:11px;border-radius:50%;display:inline-block;}
+  .dot.antes{background:var(--antes);}
+  .dot.ahora{background:var(--ahora);}
+
+  .card{
+    border:1px solid var(--line);
+    border-radius:12px;
+    background:#fff;
+    margin-bottom:22px;
+    overflow:hidden;
+  }
+  .card-head{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:12px;
+    padding:16px 20px;
+    background:var(--paper-2);
+    border-bottom:1px solid var(--line);
+  }
+  .card-head h2{
+    font-size:1.15rem;
+    margin:0;
+  }
+  .tag{
+    font-family:-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:.68rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    white-space:nowrap;
+  }
+  .split{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+  @media (max-width:560px){
+    .split{grid-template-columns:1fr;}
+  }
+  .col{
+    padding:18px 20px;
+    font-family:-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:.94rem;
+  }
+  .col.antes{
+    background:var(--antes-bg);
+    border-right:1px solid var(--line);
+  }
+  @media (max-width:560px){
+    .col.antes{border-right:none;border-bottom:1px solid var(--line);}
+  }
+  .col.ahora{background:var(--ahora-bg);}
+  .col-label{
+    display:block;
+    font-weight:700;
+    font-size:.72rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    margin-bottom:8px;
+  }
+  .col.antes .col-label{color:var(--antes);}
+  .col.ahora .col-label{color:var(--ahora);}
+
+  .why{
+    font-family:-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:.88rem;
+    color:var(--ink-soft);
+    padding:14px 20px 18px;
+    border-top:1px solid var(--line);
+  }
+  .why strong{color:var(--ink);}
+
+  h3.section-title{
+    font-size:1.3rem;
+    margin:48px 0 18px;
+    border-bottom:2px solid var(--ink);
+    padding-bottom:8px;
+  }
+
+  details.gloss{
+    border:1px solid var(--line);
+    border-radius:8px;
+    margin-bottom:10px;
+    background:#fff;
+    font-family:-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  details.gloss summary{
+    padding:13px 18px;
+    cursor:pointer;
+    font-weight:700;
+    font-size:.95rem;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  details.gloss summary::-webkit-details-marker{display:none;}
+  details.gloss summary::after{
+    content:"+";
+    font-size:1.2rem;
+    color:var(--ink-soft);
+  }
+  details.gloss[open] summary::after{content:"–";}
+  details.gloss p{
+    margin:0;
+    padding:0 18px 16px;
+    font-size:.9rem;
+    color:var(--ink-soft);
+  }
+
+  .quiz{
+    background:var(--ink);
+    color:var(--paper);
+    border-radius:12px;
+    padding:26px 24px;
+    margin-top:44px;
+    font-family:-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  .quiz h3{margin-top:0;font-size:1.1rem;}
+  .quiz ol{padding-left:20px;font-size:.95rem;}
+  .quiz li{margin-bottom:10px;}
+
+  .stays-box{
+    background:#EEF3EA;
+    border:1px solid #C7D6BE;
+    border-radius:12px;
+    padding:20px 24px;
+    margin-bottom:36px;
+    font-family:-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:.95rem;
+  }
+  .stays-box h4{
+    margin:0 0 10px;
+    color:#4A6B3A;
+    font-size:.95rem;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+  }
+  .stays-box ul{
+    margin:0;
+    padding-left:20px;
+  }
+  .stays-box li{margin-bottom:6px;}
+
+  .timeline{
+    list-style:none;
+    margin:24px 0 36px;
+    padding:0;
+    font-family:-apple-system,"Segoe UI",Roboto,sans-serif;
+    border-left:2px solid var(--line);
+  }
+  .timeline li{
+    position:relative;
+    padding:0 0 26px 24px;
+  }
+  .timeline li:last-child{padding-bottom:0;}
+  .timeline li::before{
+    content:"";
+    position:absolute;
+    left:-7px;
+    top:3px;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:var(--ahora);
+    border:2px solid var(--paper);
+  }
+  .timeline .date{
+    display:block;
+    font-weight:700;
+    font-size:.85rem;
+    color:var(--ahora);
+    margin-bottom:3px;
+  }
+  .timeline .desc{
+    font-size:.9rem;
+    color:var(--ink-soft);
+  }
+
+  .sources{
+    font-family:-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:.78rem;
+    color:var(--ink-soft);
+    max-width:500px;
+    margin:0 auto;
+    line-height:1.6;
+  }
+  .sources a{color:var(--ink-soft);}
+
+  .principle{
+    border:2px solid var(--ink);
+    border-radius:12px;
+    padding:24px;
+    margin:20px 0 28px;
+    background:#fff;
+  }
+  .principle h4{
+    margin:0 0 10px;
+    font-size:1.05rem;
+    font-family:"Georgia",serif;
+  }
+  .principle p{
+    font-family:-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:.94rem;
+    margin:0 0 14px;
+    color:var(--ink-soft);
+  }
+  .principle-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin-top:14px;
+  }
+  @media (max-width:560px){
+    .principle-grid{grid-template-columns:1fr;}
+  }
+  .principle-grid div{
+    font-family:-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:.9rem;
+    padding:14px 16px;
+    border-radius:8px;
+  }
+  .principle-grid .regla{
+    background:var(--ahora-bg);
+    border:1px solid #E8C9BE;
+  }
+  .principle-grid .excepcion{
+    background:var(--antes-bg);
+    border:1px solid #E3D6B8;
+  }
+  .principle-grid .lbl{
+    display:block;
+    font-weight:700;
+    font-size:.72rem;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    margin-bottom:6px;
+  }
+  .principle-grid .regla .lbl{color:var(--ahora);}
+  .principle-grid .excepcion .lbl{color:var(--antes);}
+
+  .case-box{
+    background:var(--paper-2);
+    border:1px dashed var(--ink-soft);
+    border-radius:12px;
+    padding:22px 24px;
+    margin:20px 0 36px;
+    font-family:-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:.92rem;
+  }
+  .case-box h4{
+    margin:0 0 12px;
+    font-size:.95rem;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:var(--ink-soft);
+  }
+  .case-box .step{
+    margin-bottom:10px;
+    padding-left:14px;
+    border-left:3px solid var(--ahora);
+  }
+  .case-box .step strong{display:block;color:var(--ink);}
+
+  .duda-box{
+    background:#FBF3E3;
+    border:1px solid #E3C77E;
+    border-left:5px solid #C99A2E;
+    border-radius:10px;
+    padding:20px 24px;
+    margin:20px 0 36px;
+    font-family:-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:.92rem;
+  }
+  .duda-box h4{
+    margin:0 0 10px;
+    font-size:.9rem;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:#8A6A1E;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .duda-box h4::before{
+    content:"?";
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:#C99A2E;
+    color:#fff;
+    font-weight:700;
+    font-size:.8rem;
+  }
+  .duda-box p{margin:0 0 10px;}
+  .duda-box p:last-child{margin-bottom:0;}
+
+  .tabs{margin:20px 0 36px;}
+  .tabs input{position:absolute;opacity:0;pointer-events:none;}
+  .tab-labels{
+    display:flex;
+    gap:8px;
+    margin-bottom:0;
+    border-bottom:1px solid var(--line);
+  }
+  .tab-labels label{
+    font-family:-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:.92rem;
+    font-weight:700;
+    padding:12px 18px;
+    cursor:pointer;
+    border:1px solid var(--line);
+    border-bottom:none;
+    border-radius:10px 10px 0 0;
+    background:var(--paper-2);
+    color:var(--ink-soft);
+    margin-bottom:-1px;
+  }
+  #tab-vieja:checked ~ .tab-labels label[for="tab-vieja"],
+  #tab-nueva:checked ~ .tab-labels label[for="tab-nueva"]{
+    background:#fff;
+    color:var(--ink);
+    border-bottom:1px solid #fff;
+  }
+  .tab-panel{
+    display:none;
+    border:1px solid var(--line);
+    border-top:none;
+    border-radius:0 0 12px 12px;
+    background:#fff;
+    padding:22px 24px;
+  }
+  #tab-vieja:checked ~ .tab-panels .panel-vieja,
+  #tab-nueva:checked ~ .tab-panels .panel-nueva{
+    display:block;
+  }
+  .tab-item{
+    display:flex;
+    gap:14px;
+    padding:12px 0;
+    border-bottom:1px solid var(--line);
+    font-family:-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  .tab-item:last-child{border-bottom:none;}
+  .tab-item .art{
+    flex:0 0 auto;
+    font-size:.68rem;
+    font-weight:700;
+    letter-spacing:.05em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    width:110px;
+  }
+  .tab-item .desc{font-size:.92rem;color:var(--ink-soft);}
+  .tab-item .desc strong{color:var(--ink);}
+  @media (max-width:560px){
+    .tab-item{flex-direction:column;gap:4px;}
+    .tab-item .art{width:auto;}
+    .tab-labels label{padding:10px 12px;font-size:.85rem;}
+  }
+
+  footer{
+    text-align:center;
+    padding:30px 20px 50px;
+    font-family:-apple-system,"Segoe UI",Roboto,sans-serif;
+    font-size:.8rem;
+    color:var(--ink-soft);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">Unidad 2 · OCL</p>
+  <h1>Dos leyes, un mismo trabajo</h1>
+  <p class="lead">Argentina tiene hoy dos normas conviviendo: la Ley de Contrato de Trabajo (20.744), de 1974, y la Ley de Modernización Laboral (27.802), vigente desde marzo de 2026. Esta guía te muestra qué cambió, en criollo.</p>
+</header>
+
+<main>
+
+  <div class="intro-box">
+    Casi todo lo que decía la Ley 20.744 <strong>sigue vigente</strong>: la 27.802 no la reemplaza, la reforma. Es una ley extensa —218 artículos organizados en 26 títulos— que modifica o complementa otras 38 normas laborales, sindicales e impositivas. Acá no vas a ver los 218 artículos: vas a ver los puntos donde el cambio altera algo concreto para vos como futuro empleado o empleador, con el número de artículo para ir a buscarlo si querés profundizar.
+  </div>
+
+  <div class="legend">
+    <span><span class="dot antes"></span> Ley 20.744 (1974)</span>
+    <span><span class="dot ahora"></span> Ley 27.802 (2026)</span>
+  </div>
+
+  <!-- CARD 1 -->
+  <div class="card">
+    <div class="card-head">
+      <h2>Indemnización por despido</h2>
+      <span class="tag">Art. 245 LCT (reformado)</span>
+    </div>
+    <div class="split">
+      <div class="col antes">
+        <span class="col-label">Antes</span>
+        Un mes de sueldo por año trabajado (o fracción mayor a tres meses). La base del cálculo incluía el aguinaldo (SAC) en muchos fallos, sin una regla uniforme entre juzgados.
+      </div>
+      <div class="col ahora">
+        <span class="col-label">Ahora</span>
+        Se mantiene el mes por año, pero la ley aclara por escrito que el SAC, las vacaciones y los premios no mensuales quedan fuera de la base. Incorpora también el "tope Vizzoti" —un límite que ya usaba la Corte Suprema— para que la reducción nunca sea inferior al 67% de lo que daría la fórmula sin tope.
+      </div>
+    </div>
+    <div class="why"><strong>Para el aula:</strong> es el cambio con más impacto práctico. La ley también crea el <strong>FAL (Fondo de Asistencia Laboral)</strong>, un fondo al que las empresas aportan mensualmente desde junio de 2026 para cubrir parte del costo de futuros despidos.</div>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="card">
+    <div class="card-head">
+      <h2>Período de prueba</h2>
+      <span class="tag">Art. 92 bis LCT</span>
+    </div>
+    <div class="split">
+      <div class="col antes">
+        <span class="col-label">Antes</span>
+        3 meses, igual para cualquier empresa.
+      </div>
+      <div class="col ahora">
+        <span class="col-label">Ahora</span>
+        6 meses en general. Puede extenderse a 8 en empresas medianas o hasta 12 en empresas muy chicas, si el convenio colectivo lo permite.
+      </div>
+    </div>
+    <div class="why"><strong>Para el aula:</strong> más tiempo sin estabilidad para el trabajador nuevo.</div>
+  </div>
+
+  <!-- CARD 3 -->
+  <div class="card">
+    <div class="card-head">
+      <h2>Registro y recibos de sueldo</h2>
+      <span class="tag">Trámites</span>
+    </div>
+    <div class="split">
+      <div class="col antes">
+        <span class="col-label">Antes</span>
+        Libro de sueldos físico obligatorio y recibo en "doble ejemplar" (papel, firmado a mano).
+      </div>
+      <div class="col ahora">
+        <span class="col-label">Ahora</span>
+        Alcanza con la inscripción digital en ARCA. Los recibos pueden ser digitales, con firma electrónica.
+      </div>
+    </div>
+    <div class="why"><strong>Para el aula:</strong> menos papeleo para la empresa, todo se digitaliza.</div>
+  </div>
+
+  <!-- CARD 4 -->
+  <div class="card">
+    <div class="card-head">
+      <h2>Intereses si hay juicio laboral</h2>
+      <span class="tag">Art. 275 y otros</span>
+    </div>
+    <div class="split">
+      <div class="col antes">
+        <span class="col-label">Antes</span>
+        Tasas variables según cada juzgado, a veces muy altas.
+      </div>
+      <div class="col ahora">
+        <span class="col-label">Ahora</span>
+        Tope fijo: inflación (IPC) más 3% anual. Y las sentencias grandes se pueden pagar en cuotas.
+      </div>
+    </div>
+    <div class="why"><strong>Para el aula:</strong> busca que haya menos juicios largos y montos más previsibles.</div>
+  </div>
+
+  <!-- CARD 5 -->
+  <div class="card">
+    <div class="card-head">
+      <h2>Repartidores y apps (Rappi, PedidosYa, etc.)</h2>
+      <span class="tag">Plataformas digitales</span>
+    </div>
+    <div class="split">
+      <div class="col antes">
+        <span class="col-label">Antes</span>
+        No estaban contemplados. Los jueces decidían caso por caso si eran empleados o no.
+      </div>
+      <div class="col ahora">
+        <span class="col-label">Ahora</span>
+        Quedan afuera de la LCT: son "prestadores independientes", con un régimen propio y derechos más limitados.
+      </div>
+    </div>
+    <div class="why"><strong>Para el aula:</strong> excelente ejemplo real para debatir en clase: ¿son trabajadores o no?</div>
+  </div>
+
+  <!-- CARD 6 -->
+  <div class="card">
+    <div class="card-head">
+      <h2>Teletrabajo</h2>
+      <span class="tag">Ley 27.555</span>
+    </div>
+    <div class="split">
+      <div class="col antes">
+        <span class="col-label">Antes</span>
+        Regulado por una ley propia (27.555), con reglas específicas para trabajo remoto.
+      </div>
+      <div class="col ahora">
+        <span class="col-label">Ahora</span>
+        Esa ley queda derogada desde el 1° de enero de 2027. El teletrabajo pasa a regirse por las reglas generales de la LCT.
+      </div>
+    </div>
+    <div class="why"><strong>Para el aula:</strong> todavía convive un año de transición.</div>
+  </div>
+
+  <!-- CARD 7 -->
+  <div class="card">
+    <div class="card-head">
+      <h2>Subcontratación: ¿quién responde si el contratista no paga?</h2>
+      <span class="tag">Art. 30 LCT (reformado)</span>
+    </div>
+    <div class="split">
+      <div class="col antes">
+        <span class="col-label">Antes</span>
+        Si una empresa (la "principal") contrataba a otra para tareas de su actividad normal, respondía de forma solidaria y casi automática por las deudas laborales del contratista con sus empleados.
+      </div>
+      <div class="col ahora">
+        <span class="col-label">Ahora</span>
+        La empresa principal puede eximirse de esa responsabilidad si controla y guarda la documentación del contratista: el CUIL de cada trabajador, los comprobantes de aportes y los pagos de sueldos.
+      </div>
+    </div>
+    <div class="why"><strong>Para el aula:</strong> útil para explicar cadenas de tercerización (limpieza, seguridad, logística) y por qué a veces un trabajador termina reclamándole a una empresa que no era "su" empleador directo.</div>
+  </div>
+
+  <!-- CARD 8 -->
+  <div class="card">
+    <div class="card-head">
+      <h2>Vacaciones y jornada</h2>
+      <span class="tag">Arts. 150-157 LCT</span>
+    </div>
+    <div class="split">
+      <div class="col antes">
+        <span class="col-label">Antes</span>
+        Las vacaciones se tomaban en un solo período, generalmente en verano, según la antigüedad del trabajador. La jornada laboral tenía un esquema más rígido de horas y descansos.
+      </div>
+      <div class="col ahora">
+        <span class="col-label">Ahora</span>
+        Se habilita el fraccionamiento de vacaciones (dividirlas en más de un período, si hay acuerdo) y se flexibilizan los horarios mediante "banco de horas": se pueden compensar horas de más en una semana con horas de menos en otra, dentro de ciertos límites.
+      </div>
+    </div>
+    <div class="why"><strong>Para el aula:</strong> buen disparador para hablar de flexibilidad laboral: ¿beneficia al trabajador, a la empresa, o depende del caso?</div>
+  </div>
+
+  <!-- CARD 9 -->
+  <div class="card">
+    <div class="card-head">
+      <h2>Sindicatos y actividad gremial</h2>
+      <span class="tag">Régimen sindical</span>
+    </div>
+    <div class="split">
+      <div class="col antes">
+        <span class="col-label">Antes</span>
+        La cuota sindical se descontaba del sueldo sin un tope legal expreso. Los bloqueos o tomas de establecimiento en el marco de un conflicto gremial no tenían una calificación específica en la ley.
+      </div>
+      <div class="col ahora">
+        <span class="col-label">Ahora</span>
+        La cuota solidaria a favor del sindicato queda topeada en el 2% del sueldo. Los bloqueos que impidan el ingreso a la empresa pasan a ser una infracción "muy grave" y pueden ser causal de despido para quien los protagonice.
+      </div>
+    </div>
+    <div class="why"><strong>Para el aula:</strong> es el punto más discutido de la reforma en el plano gremial: para el Gobierno protege la libertad de trabajar, para los sindicatos limita el derecho a la protesta.</div>
+  </div>
+
+  <div class="stays-box">
+    <h4>Lo que no cambió</h4>
+    <ul>
+      <li><strong>Licencias especiales</strong> (nacimiento, matrimonio, fallecimiento, exámenes): siguen exactamente igual que en la LCT original.</li>
+      <li><strong>Licencia por maternidad</strong>: se mantiene en 90 días.</li>
+      <li><strong>Aguinaldo (SAC)</strong>: se sigue cobrando en dos cuotas, junio y diciembre, como siempre. Lo único que cambió es que no se usa como base para calcular la indemnización.</li>
+    </ul>
+  </div>
+
+  <h3 class="section-title">¿Cómo conviven dos leyes en el tiempo?</h3>
+
+  <div class="principle">
+    <h4>El principio: efecto inmediato</h4>
+    <p>El contrato de trabajo es de <strong>tracto sucesivo</strong>: no se agota en un momento, se prolonga en el tiempo (a diferencia de, por ejemplo, comprar un producto). Por eso, cuando aparece una ley laboral nueva, no espera a que terminen los contratos viejos: se aplica <em>desde su vigencia</em> a los hechos que ocurren de ahí en adelante, sin importar la fecha en que empezó el contrato. Esto es distinto a como suele funcionar en otras ramas del derecho, donde a veces prima la ley vigente al momento de firmar.</p>
+    <div class="principle-grid">
+      <div class="regla">
+        <span class="lbl">La regla</span>
+        Un hecho laboral (un despido, un accidente, un reclamo) que ocurre después del 6/3/2026 se rige por la Ley 27.802, aunque el contrato haya empezado en 1995.
+      </div>
+      <div class="excepcion">
+        <span class="lbl">La excepción</span>
+        Lo que ya se pagó o se liquidó <em>antes</em> del 6/3/2026 es un derecho consolidado: no se recalcula con la ley nueva. La ley no es retroactiva sobre lo ya cumplido.
+      </div>
+    </div>
+  </div>
+
+  <div class="case-box">
+    <h4>Caso para entenderlo: Ana</h4>
+    <div class="step"><strong>2018 — Ana empieza a trabajar</strong> en una empresa. En ese momento solo existe la LCT 20.744.</div>
+    <div class="step"><strong>Abril de 2026 — la despiden sin causa.</strong> El despido ocurre después del 6 de marzo de 2026.</div>
+    <div class="step"><strong>Resultado (según la regla del efecto inmediato):</strong> su indemnización se calcula con las reglas de la Ley 27.802 (sin SAC en la base, con tope Vizzoti), aunque haya empezado a trabajar ocho años antes de que esa ley existiera. Lo que importa no es cuándo arrancó el contrato, sino <em>cuándo ocurre el hecho</em> que genera el derecho.</div>
+  </div>
+
+  <div class="duda-box">
+    <h4>Pero acá hay una duda real, no de manual</h4>
+    <p><strong>¿No debería aplicarse a Ana la ley más favorable, que en su caso sería la vieja?</strong> Es una pregunta lógica, pero mezcla dos principios distintos. El art. 9 LCT (norma más favorable) sirve para elegir entre normas que rigen <em>al mismo tiempo</em> —por ejemplo, ley contra convenio colectivo—, no para decidir qué ley aplica según el momento del hecho. Además, la propia reforma modificó ese artículo: ahora exige comparar "por instituciones" (todo el bloque de indemnización de una ley contra el de la otra), ya no se puede combinar lo mejor de cada una artículo por artículo.</p>
+    <p>Lo que sí está en juego es <strong>otro</strong> principio: el de <strong>progresividad y no regresividad</strong>, que dice que una reforma no debería empeorar derechos ya reconocidos. Es, de hecho, el argumento central que usó la CGT para pedirle a la Justicia que frenara la reforma: en marzo de 2026 un juez laboral le dio la razón y suspendió más de 80 artículos; en mayo, una cámara de apelaciones revirtió esa suspensión y la ley volvió a regir. El conflicto sigue judicializado y podría llegar a la Corte Suprema.</p>
+    <p><strong>Para el aula:</strong> no hay una respuesta cerrada — es un ejemplo perfecto de cómo el derecho no siempre da certezas inmediatas, y de por qué conviene seguir de cerca las noticias judiciales, no solo el texto de la ley.</p>
+  </div>
+
+  <div class="intro-box sans" style="font-size:.92rem;">
+    <strong>Un criterio que sigue vigente (aunque retocado):</strong> el artículo 9 de la LCT mantiene el principio de que, si hay duda sobre qué norma aplicar, se opta por la más favorable al trabajador. La reforma no lo eliminó, pero le agregó el criterio de "agrupamiento por instituciones" explicado arriba, lo que en la práctica limita su alcance.
+  </div>
+
+  <div class="intro-box sans" style="font-size:.95rem;">
+    Las excepciones a la vigencia inmediata del 6/3/2026 tienen su propia fecha, marcadas en la línea de tiempo:
+  </div>
+
+  <ul class="timeline">
+    <li>
+      <span class="date">6 de marzo de 2026</span>
+      <span class="desc">Entra en vigencia la Ley 27.802 en general: indemnizaciones, registro, jornada, intereses judiciales y régimen sindical.</span>
+    </li>
+    <li>
+      <span class="date">30 de marzo de 2026</span>
+      <span class="desc">La CGT logra que un juez laboral suspenda más de 80 artículos de la ley, invocando el principio de progresividad. Por unas semanas, vuelve a regir el régimen anterior en esos puntos.</span>
+    </li>
+    <li>
+      <span class="date">9 de mayo de 2026</span>
+      <span class="desc">Un juzgado contencioso administrativo revierte la suspensión: la ley recupera plena vigencia. La CGT puede seguir apelando, así que el conflicto judicial continúa abierto.</span>
+    </li>
+    <li>
+      <span class="date">1 de junio de 2026</span>
+      <span class="desc">Empieza a funcionar el FAL (Fondo de Asistencia Laboral); las empresas comienzan a aportar mensualmente.</span>
+    </li>
+    <li>
+      <span class="date">1 de enero de 2027</span>
+      <span class="desc">Queda derogada la Ley de Teletrabajo (27.555) y entran en vigencia los cambios en obras sociales y contribuciones patronales.</span>
+    </li>
+  </ul>
+
+  <h3 class="section-title">Cada ley, por separado</h3>
+  <div class="intro-box sans" style="font-size:.92rem;">
+    Ya viste los cambios tema por tema. Ahora, la foto completa: qué quedó tal cual en la 20.744 y qué es genuinamente nuevo, algo que antes no existía en ninguna norma laboral.
+  </div>
+
+  <div class="tabs">
+    <input type="radio" name="tabs" id="tab-vieja" checked>
+    <input type="radio" name="tabs" id="tab-nueva">
+    <div class="tab-labels">
+      <label for="tab-vieja">Ley 20.744 · Lo que sigue firme</label>
+      <label for="tab-nueva">Ley 27.802 · Lo que es nuevo</label>
+    </div>
+    <div class="tab-panels">
+      <div class="tab-panel panel-vieja">
+        <div class="tab-item">
+          <span class="art">Arts. 21-22</span>
+          <span class="desc"><strong>Concepto de contrato y relación de dependencia.</strong> Se mantiene la esencia: prestación personal, subordinación y remuneración.</span>
+        </div>
+        <div class="tab-item">
+          <span class="art">Art. 12</span>
+          <span class="desc"><strong>Irrenunciabilidad.</strong> Ningún acuerdo puede quitarle al trabajador sus derechos mínimos.</span>
+        </div>
+        <div class="tab-item">
+          <span class="art">Art. 158</span>
+          <span class="desc"><strong>Licencias especiales.</strong> Nacimiento, matrimonio, fallecimiento, exámenes: mismos días de siempre.</span>
+        </div>
+        <div class="tab-item">
+          <span class="art">Art. 177</span>
+          <span class="desc"><strong>Licencia por maternidad.</strong> 90 días, sin cambios.</span>
+        </div>
+        <div class="tab-item">
+          <span class="art">Arts. 121-123</span>
+          <span class="desc"><strong>Aguinaldo (SAC).</strong> Se sigue cobrando en dos cuotas, junio y diciembre.</span>
+        </div>
+        <div class="tab-item">
+          <span class="art">Arts. 231-233</span>
+          <span class="desc"><strong>Preaviso.</strong> Los plazos para avisar la desvinculación no se tocaron.</span>
+        </div>
+        <div class="tab-item">
+          <span class="art">Arts. 150-155</span>
+          <span class="desc"><strong>Vacaciones según antigüedad.</strong> Siguen escalonadas (14, 21, 28 o 35 días); lo único que se sumó es la posibilidad de fraccionarlas.</span>
+        </div>
+        <div class="tab-item">
+          <span class="art">Arts. 208-213</span>
+          <span class="desc"><strong>Enfermedades inculpables.</strong> El derecho a conservar el empleo y cobrar el sueldo mientras estás enfermo sigue vigente.</span>
+        </div>
+      </div>
+      <div class="tab-panel panel-nueva">
+        <div class="tab-item">
+          <span class="art">Nuevo estatuto</span>
+          <span class="desc"><strong>Plataformas digitales (repartidores, choferes de apps).</strong> Antes no había ninguna norma específica; ahora tienen un régimen propio, afuera de la LCT.</span>
+        </div>
+        <div class="tab-item">
+          <span class="art">Nuevo fondo</span>
+          <span class="desc"><strong>FAL (Fondo de Asistencia Laboral).</strong> Un fondo mensual para financiar futuras indemnizaciones. No existía nada parecido.</span>
+        </div>
+        <div class="tab-item">
+          <span class="art">Art. 245</span>
+          <span class="desc"><strong>Tope Vizzoti con rango legal.</strong> Antes era solo un criterio de la Corte Suprema; ahora está escrito directamente en la ley.</span>
+        </div>
+        <div class="tab-item">
+          <span class="art">Art. 245 bis</span>
+          <span class="desc"><strong>Despido discriminatorio agravado.</strong> Artículo totalmente nuevo: si el despido fue discriminatorio, la indemnización se incrementa entre un 50% y un 100%.</span>
+        </div>
+        <div class="tab-item">
+          <span class="art">Art. 11 bis</span>
+          <span class="desc"><strong>Derecho a la formación profesional.</strong> Por primera vez, un artículo reconoce expresamente este derecho.</span>
+        </div>
+        <div class="tab-item">
+          <span class="art">Banco de horas</span>
+          <span class="desc"><strong>Compensación de horas.</strong> Permite compensar horas de más en una semana con horas de menos en otra; no existía como figura legal.</span>
+        </div>
+        <div class="tab-item">
+          <span class="art">Registro digital</span>
+          <span class="desc"><strong>Inscripción única en ARCA.</strong> Reemplaza el viejo libro de sueldos en papel por un registro digital centralizado.</span>
+        </div>
+        <div class="tab-item">
+          <span class="art">Desde 2027</span>
+          <span class="desc"><strong>Trabajo remoto sin ley propia.</strong> Al derogarse la Ley 27.555, el teletrabajo pasa, por primera vez, a regirse directamente por las reglas generales de la LCT (no es que haya un capítulo nuevo dedicado a esto, sino que deja de tener una ley aparte).</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="section-title">Glosario rápido</h3>
+
+  <details class="gloss">
+    <summary>LCT</summary>
+    <p>Ley de Contrato de Trabajo (20.744), la norma base que regula el empleo privado en Argentina desde 1974.</p>
+  </details>
+  <details class="gloss">
+    <summary>Indemnización por antigüedad</summary>
+    <p>El dinero que la empresa debe pagarle al trabajador cuando lo despide sin una causa justificada.</p>
+  </details>
+  <details class="gloss">
+    <summary>SAC (aguinaldo)</summary>
+    <p>Sueldo Anual Complementario: un sueldo extra que se cobra en dos partes, en junio y en diciembre.</p>
+  </details>
+  <details class="gloss">
+    <summary>Período de prueba</summary>
+    <p>Los primeros meses de un contrato, donde cualquiera de las dos partes puede terminarlo sin pagar indemnización.</p>
+  </details>
+  <details class="gloss">
+    <summary>ARCA</summary>
+    <p>El organismo que reemplazó a la AFIP; ahí se hace ahora el registro digital de los trabajadores.</p>
+  </details>
+  <details class="gloss">
+    <summary>FAL (Fondo de Asistencia Laboral)</summary>
+    <p>Un fondo al que las empresas aportan todos los meses para cubrir, en parte, el costo de futuros despidos.</p>
+  </details>
+  <details class="gloss">
+    <summary>Responsabilidad solidaria</summary>
+    <p>Cuando una empresa puede tener que responder por las deudas laborales de otra con la que trabaja, aunque no sea el empleador directo.</p>
+  </details>
+
+  <div class="quiz">
+    <h3>Para pensar en clase</h3>
+    <ol>
+      <li>Sos dueño de un local de 4 empleados y querés tomar a alguien nuevo. ¿Cuánto puede durar el período de prueba?</li>
+      <li>Un repartidor de una app tiene un accidente trabajando. ¿La LCT lo protege igual que a un empleado de comercio? ¿Por qué?</li>
+      <li>¿Por qué te conviene, como futuro trabajador, saber que el SAC ya no cuenta para calcular tu indemnización?</li>
+      <li>Una fábrica tercerizó la limpieza en otra empresa que no le paga bien a sus empleados. Según la reforma, ¿cuándo queda libre de responsabilidad la fábrica?</li>
+      <li>Un compañero de trabajo de Ana entró en 2024 y todavía no lo despidieron. Si lo despiden en 2027, ¿con qué ley se calcula su indemnización? ¿Y si en cambio cobró un plus por productividad en febrero de 2026, antes de la reforma: se lo pueden recalcular?</li>
+    </ol>
+  </div>
+
+</main>
+
+<footer>
+  Unidad 2 · Comparación LCT 20.744 y Ley 27.802 de Modernización Laboral · Material de cátedra
+  <p class="sources">
+    Fuentes: Ley 27.802, Boletín Oficial de la República Argentina (6/3/2026) · InfoLeg, Información Legislativa (servicios.infoleg.gob.ar) · Decreto de promulgación N° 137/2026 · Cobertura judicial de la causa "CGT c/ Estado Nacional" (medida cautelar del 30/3/2026 y su reversión del 9/5/2026). La situación judicial puede seguir cambiando; contenido con fines didácticos, ante dudas sobre un caso concreto consultá el texto oficial actualizado o a un profesional matriculado.
+  </p>
+</footer>
+
+</body>
+</html>

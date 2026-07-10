@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TP · Cash Flow · 5°D · EESO 206</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #1a7a4a;
+    --verde-claro: #2ecc71;
+    --verde-medio: #27ae60;
+    --verde-oscuro: #0f4a2c;
+    --rojo: #c0392b;
+    --rojo-claro: #e74c3c;
+    --amarillo: #f39c12;
+    --azul: #2980b9;
+    --bg: #f0f4f1;
+    --blanco: #ffffff;
+    --texto: #1c2b1c;
+    --gris: #5a6e5a;
+    --borde: #c8dac8;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'DM Sans',sans-serif; background:var(--bg); color:var(--texto); min-height:100vh; }
+
+  /* ── HEADER ── */
+  header { background:var(--verde-oscuro); position:relative; overflow:hidden; }
+  header::before { content:''; position:absolute; top:-80px; right:-80px; width:320px; height:320px; border-radius:50%; background:rgba(46,204,113,0.1); pointer-events:none; }
+  .header-inner { max-width:940px; margin:0 auto; padding:44px 32px 36px; position:relative; z-index:1; display:flex; align-items:flex-end; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+  .header-left .pill { display:inline-block; background:rgba(46,204,113,0.18); border:1px solid rgba(46,204,113,0.35); color:var(--verde-claro); font-family:'Syne',sans-serif; font-size:10px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; padding:5px 14px; border-radius:20px; margin-bottom:14px; }
+  header h1 { font-family:'Syne',sans-serif; font-size:clamp(1.9rem,5vw,3rem); font-weight:800; color:white; line-height:1.1; }
+  header h1 em { font-style:normal; color:var(--verde-claro); }
+  .header-sub { margin-top:8px; color:rgba(255,255,255,0.5); font-size:13px; font-weight:300; }
+  .progreso-global { background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12); border-radius:14px; padding:16px 22px; min-width:160px; text-align:center; }
+  .progreso-global .label { font-family:'Syne',sans-serif; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:8px; }
+  .progreso-global .numero { font-family:'Syne',sans-serif; font-size:2.2rem; font-weight:800; color:var(--verde-claro); line-height:1; }
+  .progreso-global .de { font-size:12px; color:rgba(255,255,255,0.4); margin-top:2px; }
+
+  /* ── NAV ── */
+  .nav-acts { max-width:940px; margin:28px auto 0; padding:0 32px; display:flex; gap:10px; flex-wrap:wrap; }
+  .nav-btn { font-family:'Syne',sans-serif; font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; padding:10px 20px; border-radius:8px; border:2px solid var(--borde); cursor:pointer; background:white; color:var(--gris); transition:all 0.2s; }
+  .nav-btn.activo { background:var(--verde-oscuro); color:white; border-color:var(--verde-oscuro); }
+  .nav-btn:hover:not(.activo) { border-color:var(--verde-medio); color:var(--verde); }
+
+  /* ── MAIN ── */
+  main { max-width:940px; margin:0 auto; padding:32px 32px 80px; }
+  .panel { display:none; animation:aparecer 0.35s ease; }
+  .panel.visible { display:block; }
+  @keyframes aparecer { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+  /* ── ACTIVIDAD CARD ── */
+  .act-header { background:white; border-radius:16px 16px 0 0; padding:28px 32px 22px; border-bottom:2px solid var(--bg); display:flex; align-items:flex-start; gap:18px; }
+  .act-numero { background:var(--verde-oscuro); color:var(--verde-claro); font-family:'Syne',sans-serif; font-size:1.4rem; font-weight:800; width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .act-info h2 { font-family:'Syne',sans-serif; font-size:1.2rem; font-weight:800; color:var(--verde-oscuro); margin-bottom:4px; }
+  .act-info p { font-size:0.9rem; color:var(--gris); line-height:1.5; }
+  .act-body { background:white; border-radius:0 0 16px 16px; padding:28px 32px 32px; box-shadow:0 4px 20px rgba(0,0,0,0.07); margin-bottom:24px; }
+
+  .consigna { background:var(--bg); border-left:4px solid var(--verde-claro); border-radius:0 10px 10px 0; padding:16px 20px; margin-bottom:24px; font-size:0.95rem; line-height:1.65; }
+  .consigna strong { color:var(--verde-oscuro); }
+
+  /* ── ACT 1 CLASIFICAR ── */
+  .items-arrastrar { display:flex; flex-wrap:wrap; gap:10px; margin-bottom:24px; min-height:60px; padding:14px; background:#f8faf8; border:2px dashed var(--borde); border-radius:12px; }
+  .chip { background:white; border:2px solid var(--borde); border-radius:8px; padding:8px 16px; font-size:0.88rem; font-weight:500; cursor:pointer; transition:all 0.2s; user-select:none; }
+  .chip:hover { border-color:var(--verde-claro); background:#f0fff6; }
+  .chip.seleccionado { border-color:var(--verde-claro); background:#e8faf0; color:var(--verde-oscuro); }
+  .chip.usado { opacity:0.35; pointer-events:none; }
+  .zonas-drop { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .zona { border-radius:12px; min-height:140px; padding:16px; border:2px dashed transparent; transition:all 0.2s; }
+  .zona-ingreso { background:#edfaf3; border-color:#a3e4bc; }
+  .zona-egreso { background:#fdf0ee; border-color:#f5b8b3; }
+  .zona-titulo { font-family:'Syne',sans-serif; font-size:0.8rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:12px; display:flex; align-items:center; gap:6px; }
+  .zona-ingreso .zona-titulo { color:var(--verde); }
+  .zona-egreso .zona-titulo { color:var(--rojo); }
+  .zona-items { display:flex; flex-wrap:wrap; gap:8px; min-height:40px; }
+  .chip-colocado { border-radius:7px; padding:6px 12px; font-size:0.82rem; font-weight:500; cursor:pointer; border:none; transition:all 0.2s; }
+  .zona-ingreso .chip-colocado { background:#c8f0d8; color:var(--verde-oscuro); }
+  .zona-egreso .chip-colocado { background:#fad4ce; color:var(--rojo); }
+  .chip-colocado:hover { opacity:0.75; }
+  .chip-colocado.correcto { outline:2px solid var(--verde-claro); }
+  .chip-colocado.incorrecto { outline:2px solid var(--rojo-claro); background:#ffd5d0 !important; }
+
+  /* ── BOTONES ── */
+  .btn-row { display:flex; gap:12px; margin-top:22px; flex-wrap:wrap; }
+  .btn-verificar { background:var(--verde-oscuro); color:white; border:none; border-radius:9px; padding:12px 28px; font-family:'Syne',sans-serif; font-size:13px; font-weight:700; letter-spacing:1px; text-transform:uppercase; cursor:pointer; transition:background 0.2s; }
+  .btn-verificar:hover { background:var(--verde); }
+  .btn-reset { background:transparent; color:var(--gris); border:2px solid var(--borde); border-radius:9px; padding:12px 22px; font-family:'Syne',sans-serif; font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; cursor:pointer; transition:all 0.2s; }
+  .btn-reset:hover { border-color:var(--gris); color:var(--texto); }
+
+  .resultado-msg { margin-top:16px; padding:14px 18px; border-radius:10px; font-size:0.92rem; font-weight:500; display:none; }
+  .resultado-msg.show { display:block; }
+  .resultado-msg.ok { background:#d4f5e4; color:var(--verde-oscuro); border:1.5px solid #a3e4bc; }
+  .resultado-msg.error { background:#fde8e5; color:var(--rojo); border:1.5px solid #f5b8b3; }
+  .resultado-msg.parcial { background:#fff3d6; color:#7a5000; border:1.5px solid #f6d860; }
+
+  /* ── TABLA CF ── */
+  .tabla-cf { width:100%; border-collapse:collapse; font-size:0.9rem; margin:8px 0 20px; }
+  .tabla-cf thead tr { background:var(--verde-oscuro); color:white; }
+  .tabla-cf thead th { padding:12px 16px; text-align:left; font-family:'Syne',sans-serif; font-size:0.82rem; font-weight:700; letter-spacing:0.5px; }
+  .tabla-cf tbody tr { border-bottom:1px solid var(--borde); }
+  .tabla-cf tbody tr:last-child { border-bottom:none; }
+  .tabla-cf td { padding:10px 16px; vertical-align:middle; }
+  .tabla-cf tr.subtotal td { background:#f0faf4; font-weight:600; }
+  .tabla-cf tr.total-final td { background:#d4f5e4; font-weight:700; font-size:0.95rem; }
+  .tabla-cf tr.seccion-label td { background:#f8faf8; font-family:'Syne',sans-serif; font-size:0.75rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--gris); padding:8px 16px; }
+  .campo-calc { width:105px; padding:8px 10px; border:2px solid var(--borde); border-radius:8px; font-family:'DM Sans',sans-serif; font-size:0.9rem; color:var(--texto); background:white; transition:border-color 0.2s; text-align:right; }
+  .campo-calc:focus { outline:none; border-color:var(--verde-claro); }
+  .campo-calc.correcto-input { border-color:var(--verde-claro); background:#edfaf3; color:var(--verde-oscuro); }
+  .campo-calc.incorrecto-input { border-color:var(--rojo-claro); background:#fdf0ee; color:var(--rojo); }
+  .hint { font-size:0.75rem; color:var(--gris); margin-top:2px; font-style:italic; }
+  .valor-fijo { font-weight:500; color:var(--texto); }
+
+  /* ── ACT 3 ANÁLISIS ── */
+  .caso { background:#f8faf8; border:1.5px solid var(--borde); border-radius:12px; padding:20px 22px; margin-bottom:22px; }
+  .caso-titulo { font-family:'Syne',sans-serif; font-size:0.82rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--gris); margin-bottom:10px; }
+  .caso p { font-size:0.93rem; line-height:1.65; }
+  .dato-destacado { display:inline-block; background:var(--verde-oscuro); color:var(--verde-claro); font-family:'Syne',sans-serif; font-size:0.82rem; font-weight:700; padding:3px 10px; border-radius:5px; margin:2px 2px; }
+  .dato-rojo { background:var(--rojo) !important; color:white !important; }
+  .pregunta-bloque { margin-bottom:22px; }
+  .pregunta-label { font-family:'Syne',sans-serif; font-size:0.82rem; font-weight:700; color:var(--verde-oscuro); text-transform:uppercase; letter-spacing:1px; margin-bottom:8px; display:flex; align-items:center; gap:8px; }
+  .pregunta-num { background:var(--verde-oscuro); color:white; width:22px; height:22px; border-radius:50%; font-size:11px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .pregunta-bloque textarea { width:100%; min-height:90px; padding:14px 16px; border:2px solid var(--borde); border-radius:10px; font-family:'DM Sans',sans-serif; font-size:0.92rem; line-height:1.6; color:var(--texto); background:white; resize:vertical; transition:border-color 0.2s; }
+  .pregunta-bloque textarea:focus { outline:none; border-color:var(--verde-claro); }
+  .contador-chars { text-align:right; font-size:0.75rem; color:var(--gris); margin-top:4px; }
+  .opciones { display:flex; flex-direction:column; gap:10px; margin-top:8px; }
+  .opcion { display:flex; align-items:flex-start; gap:12px; padding:12px 16px; border:2px solid var(--borde); border-radius:10px; cursor:pointer; transition:all 0.18s; background:white; }
+  .opcion:hover { border-color:var(--verde-claro); background:#f0fff6; }
+  .opcion.seleccionada { border-color:var(--verde-claro); background:#edfaf3; }
+  .opcion.opcion-ok { border-color:var(--verde-claro); background:#d4f5e4; }
+  .opcion.opcion-mal { border-color:var(--rojo-claro); background:#fde8e5; }
+  .opcion-letra { background:var(--borde); color:var(--gris); font-family:'Syne',sans-serif; font-weight:700; font-size:12px; width:26px; height:26px; border-radius:6px; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:all 0.18s; }
+  .opcion.seleccionada .opcion-letra { background:var(--verde-claro); color:white; }
+  .opcion-texto { font-size:0.91rem; line-height:1.5; padding-top:2px; }
+
+  /* ── BARRA PROGRESO ── */
+  .barra-prog { background:var(--borde); border-radius:20px; height:6px; margin:20px 0 6px; overflow:hidden; }
+  .barra-fill { height:100%; background:linear-gradient(to right,var(--verde-medio),var(--verde-claro)); border-radius:20px; transition:width 0.5s ease; width:0%; }
+  .prog-texto { font-size:0.78rem; color:var(--gris); text-align:right; }
+
+  /* ── ACTS 4 y 5 — PYME ── */
+  .datos-pyme { background:#f8faf8; border:1.5px solid var(--borde); border-radius:12px; padding:20px 24px; margin-bottom:24px; }
+  .datos-pyme h3 { font-family:'Syne',sans-serif; font-size:0.82rem; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--gris); margin-bottom:14px; }
+  .datos-pyme table { width:100%; border-collapse:collapse; font-size:0.88rem; }
+  .datos-pyme table td { padding:6px 10px; border-bottom:1px solid var(--borde); vertical-align:top; }
+  .datos-pyme table tr:last-child td { border-bottom:none; }
+  .datos-pyme table td:first-child { color:var(--gris); width:55%; }
+  .datos-pyme table td:last-child { font-weight:600; color:var(--verde-oscuro); }
+  .datos-pyme .nota { font-size:0.8rem; color:var(--gris); font-style:italic; margin-top:10px; }
+
+  .preguntas-pyme { margin-top:24px; }
+  .preg-pyme { background:#f0faf4; border-left:3px solid var(--verde-claro); border-radius:0 10px 10px 0; padding:12px 16px; margin-bottom:12px; font-size:0.9rem; line-height:1.6; }
+  .preg-pyme strong { color:var(--verde-oscuro); font-family:'Syne',sans-serif; font-size:0.8rem; letter-spacing:0.5px; }
+  .preg-pyme textarea { width:100%; margin-top:8px; min-height:80px; padding:12px 14px; border:2px solid var(--borde); border-radius:8px; font-family:'DM Sans',sans-serif; font-size:0.88rem; line-height:1.55; color:var(--texto); background:white; resize:vertical; transition:border-color 0.2s; }
+  .preg-pyme textarea:focus { outline:none; border-color:var(--verde-claro); }
+
+  /* ── BOTÓN PDF ── */
+  .pdf-section { background:var(--verde-oscuro); border-radius:16px; padding:28px 32px; margin-top:32px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+  .pdf-section .pdf-texto h3 { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:800; color:white; margin-bottom:6px; }
+  .pdf-section .pdf-texto p { font-size:0.88rem; color:rgba(255,255,255,0.55); line-height:1.5; }
+  .pdf-section .pdf-info { font-size:0.78rem; color:rgba(255,255,255,0.35); margin-top:4px; }
+  .btn-pdf { background:var(--verde-claro); color:var(--verde-oscuro); border:none; border-radius:10px; padding:14px 32px; font-family:'Syne',sans-serif; font-size:14px; font-weight:800; letter-spacing:1px; text-transform:uppercase; cursor:pointer; transition:all 0.2s; display:flex; align-items:center; gap:8px; white-space:nowrap; }
+  .btn-pdf:hover { background:white; transform:translateY(-1px); box-shadow:0 6px 20px rgba(0,0,0,0.2); }
+
+  /* ── NOMBRE INPUT ── */
+  .alumno-input-wrap { margin-bottom:20px; }
+  .alumno-input-wrap label { font-family:'Syne',sans-serif; font-size:0.8rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:var(--verde-oscuro); display:block; margin-bottom:8px; }
+  .alumno-input-wrap input { width:100%; max-width:400px; padding:12px 16px; border:2px solid var(--borde); border-radius:10px; font-family:'DM Sans',sans-serif; font-size:0.95rem; color:var(--texto); background:white; transition:border-color 0.2s; }
+  .alumno-input-wrap input:focus { outline:none; border-color:var(--verde-claro); }
+
+  /* ── PRINT / PDF ── */
+  @media print {
+    header, .nav-acts, .btn-row, .btn-pdf, .pdf-section, .resultado-msg,
+    .barra-prog, .prog-texto, .items-arrastrar, .zonas-drop { display:none !important; }
+    .panel { display:block !important; }
+    .act-header, .act-body { box-shadow:none; border:1px solid #ccc; }
+    body { background:white; }
+    .campo-calc { border:1px solid #aaa !important; background:white !important; color:black !important; }
+    .preg-pyme textarea { border:1px solid #aaa; min-height:60px; }
+    .pregunta-bloque textarea { border:1px solid #aaa; }
+    .print-titulo { display:block !important; }
+    .opcion { border:1px solid #ccc; }
+  }
+  .print-titulo { display:none; font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:800; color:var(--verde-oscuro); margin-bottom:16px; }
+
+  /* ── FOOTER ── */
+  footer { background:var(--verde-oscuro); color:rgba(255,255,255,0.45); text-align:center; padding:22px 20px; font-size:0.8rem; font-family:'Syne',sans-serif; letter-spacing:0.5px; }
+  footer span { color:var(--verde-claro); }
+
+  @media(max-width:600px) {
+    main { padding:24px 16px 60px; }
+    .header-inner { padding:32px 20px 28px; }
+    .nav-acts { padding:0 16px; }
+    .act-header,.act-body { padding:20px; }
+    .zonas-drop { grid-template-columns:1fr; }
+    .campo-calc { width:90px; }
+    .pdf-section { flex-direction:column; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="pill">EESO N°206 · 5°D · Administración</div>
+      <h1>TP · <em>Cash Flow</em></h1>
+      <p class="header-sub">Trabajo Práctico · 5 actividades · 2026</p>
+    </div>
+    <div class="progreso-global">
+      <div class="label">Puntos obtenidos</div>
+      <div class="numero" id="pts-total">0</div>
+      <div class="de">de 50 puntos</div>
+    </div>
+  </div>
+</header>
+
+<div class="nav-acts">
+  <button class="nav-btn activo" onclick="mostrar(1,this)">Actividad 1</button>
+  <button class="nav-btn" onclick="mostrar(2,this)">Actividad 2</button>
+  <button class="nav-btn" onclick="mostrar(3,this)">Actividad 3</button>
+  <button class="nav-btn" onclick="mostrar(4,this)">Actividad 4</button>
+  <button class="nav-btn" onclick="mostrar(5,this)">Actividad 5</button>
+</div>
+
+<main>
+
+<!-- ══════════════════════════════════════════
+     ACTIVIDAD 1 — CLASIFICAR INGRESOS/EGRESOS
+     ══════════════════════════════════════════ -->
+<div class="panel visible" id="panel-1">
+  <div class="act-header">
+    <div class="act-numero">1</div>
+    <div class="act-info">
+      <h2>Clasificá: Ingresos y Egresos</h2>
+      <p>Hacé clic en cada concepto para seleccionarlo, luego clic en la zona donde corresponde colocarlo. Para devolver un concepto al banco, hacé clic sobre él dentro de la zona.</p>
+    </div>
+  </div>
+  <div class="act-body">
+    <div class="consigna"><strong>Consigna (10 puntos):</strong> Los siguientes conceptos corresponden a movimientos de una empresa durante abril. Clasificalos correctamente en <strong>Ingresos</strong> o <strong>Egresos</strong>.</div>
+    <div class="barra-prog"><div class="barra-fill" id="prog-1"></div></div>
+    <div class="prog-texto" id="prog-txt-1">0 de 10 colocados</div>
+    <div class="items-arrastrar" id="banco-chips">
+      <div class="chip" id="ch-1" onclick="seleccionar('ch-1')">Ventas al contado</div>
+      <div class="chip" id="ch-2" onclick="seleccionar('ch-2')">Pago de alquiler</div>
+      <div class="chip" id="ch-3" onclick="seleccionar('ch-3')">Cobro de deudores</div>
+      <div class="chip" id="ch-4" onclick="seleccionar('ch-4')">Sueldos pagados</div>
+      <div class="chip" id="ch-5" onclick="seleccionar('ch-5')">Préstamo bancario recibido</div>
+      <div class="chip" id="ch-6" onclick="seleccionar('ch-6')">Pago a proveedor</div>
+      <div class="chip" id="ch-7" onclick="seleccionar('ch-7')">Venta de una camioneta</div>
+      <div class="chip" id="ch-8" onclick="seleccionar('ch-8')">Cuota de préstamo</div>
+      <div class="chip" id="ch-9" onclick="seleccionar('ch-9')">Aporte de socio</div>
+      <div class="chip" id="ch-10" onclick="seleccionar('ch-10')">Compra de computadora</div>
+    </div>
+    <div class="zonas-drop">
+      <div class="zona zona-ingreso" onclick="colocarEn('ingreso')">
+        <div class="zona-titulo">💚 Ingresos (entradas)</div>
+        <div class="zona-items" id="zona-ingreso"></div>
+      </div>
+      <div class="zona zona-egreso" onclick="colocarEn('egreso')">
+        <div class="zona-titulo">❤️ Egresos (salidas)</div>
+        <div class="zona-items" id="zona-egreso"></div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="btn-verificar" onclick="verificarAct1()">Verificar respuestas</button>
+      <button class="btn-reset" onclick="resetAct1()">Reiniciar</button>
+    </div>
+    <div class="resultado-msg" id="res-act1"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     ACTIVIDAD 2 — COMPLETAR TABLA (BIMESTRE)
+     ══════════════════════════════════════════ -->
+<div class="panel" id="panel-2">
+  <div class="act-header">
+    <div class="act-numero">2</div>
+    <div class="act-info">
+      <h2>Completá la tabla de Cash Flow</h2>
+      <p>Calculá los valores que faltan en el flujo de fondos de "Textil del Sur" para el primer bimestre.</p>
+    </div>
+  </div>
+  <div class="act-body">
+    <div class="consigna"><strong>Consigna (10 puntos):</strong> Completá los <strong>8 campos en blanco</strong> con los valores correctos. Ingresá solo el número, sin puntos ni signo $.</div>
+    <div style="overflow-x:auto;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.07);">
+    <table class="tabla-cf">
+      <thead><tr><th style="width:45%">Concepto</th><th>Enero</th><th>Febrero</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Saldo inicial de caja</strong></td>
+          <td class="valor-fijo">$40.000</td>
+          <td><input type="number" class="campo-calc" id="c-saldo-feb-ini" placeholder="?"><br><span class="hint">= saldo final enero</span></td>
+        </tr>
+        <tr class="seccion-label"><td colspan="3">INGRESOS</td></tr>
+        <tr><td>Ventas al contado</td><td class="valor-fijo">$70.000</td><td class="valor-fijo">$85.000</td></tr>
+        <tr><td>Cobranzas a 30 días</td><td class="valor-fijo">$20.000</td><td class="valor-fijo">$30.000</td></tr>
+        <tr class="subtotal">
+          <td>Total ingresos</td>
+          <td><input type="number" class="campo-calc" id="c-ing-ene" placeholder="?"></td>
+          <td><input type="number" class="campo-calc" id="c-ing-feb" placeholder="?"></td>
+        </tr>
+        <tr class="seccion-label"><td colspan="3">EGRESOS</td></tr>
+        <tr><td>Sueldos y cargas sociales</td><td class="valor-fijo">$35.000</td><td class="valor-fijo">$35.000</td></tr>
+        <tr><td>Pago a proveedores</td><td class="valor-fijo">$28.000</td><td class="valor-fijo">$40.000</td></tr>
+        <tr><td>Alquiler</td><td class="valor-fijo">$10.000</td><td class="valor-fijo">$10.000</td></tr>
+        <tr><td>Servicios</td><td class="valor-fijo">$5.000</td><td class="valor-fijo">$5.000</td></tr>
+        <tr class="subtotal">
+          <td>Total egresos</td>
+          <td><input type="number" class="campo-calc" id="c-eg-ene" placeholder="?"></td>
+          <td><input type="number" class="campo-calc" id="c-eg-feb" placeholder="?"></td>
+        </tr>
+        <tr>
+          <td><strong>Flujo neto del período</strong><br><span class="hint">Ingresos − Egresos</span></td>
+          <td><input type="number" class="campo-calc" id="c-neto-ene" placeholder="?"></td>
+          <td><input type="number" class="campo-calc" id="c-neto-feb" placeholder="?"></td>
+        </tr>
+        <tr class="total-final">
+          <td><strong>Saldo final de caja</strong><br><span class="hint">Saldo inicial + Flujo neto</span></td>
+          <td><input type="number" class="campo-calc" id="c-final-ene" placeholder="?"></td>
+          <td><input type="number" class="campo-calc" id="c-final-feb" placeholder="?"></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="btn-row">
+      <button class="btn-verificar" onclick="verificarAct2()">Verificar respuestas</button>
+      <button class="btn-reset" onclick="resetAct2()">Reiniciar</button>
+    </div>
+    <div class="resultado-msg" id="res-act2"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     ACTIVIDAD 3 — ANÁLISIS DE CASOS
+     ══════════════════════════════════════════ -->
+<div class="panel" id="panel-3">
+  <div class="act-header">
+    <div class="act-numero">3</div>
+    <div class="act-info">
+      <h2>Análisis de casos y reflexión</h2>
+      <p>Leé los casos, respondé las preguntas de opción múltiple y desarrollá tu análisis.</p>
+    </div>
+  </div>
+  <div class="act-body">
+    <div class="consigna"><strong>Consigna (10 puntos):</strong> Analizá los casos y respondé. Las opciones múltiples se corrigen automáticamente. Las de desarrollo se entregan a la docente.</div>
+
+    <div class="caso">
+      <div class="caso-titulo">📋 Caso 1 — Librería "El Faro"</div>
+      <p>La librería vendió en agosto <span class="dato-destacado">$180.000</span> en mercadería para escuelas. El 70% fue a 60 días. Ese mes tuvo que pagar <span class="dato-destacado dato-rojo">$120.000</span> en sueldos, <span class="dato-destacado dato-rojo">$15.000</span> de alquiler y <span class="dato-destacado dato-rojo">$30.000</span> al proveedor. Comenzó agosto con <span class="dato-destacado">$50.000</span> en caja.</p>
+    </div>
+
+    <div class="pregunta-bloque">
+      <div class="pregunta-label"><span class="pregunta-num">1</span>¿Cuánto cobró efectivamente la librería en agosto?</div>
+      <div class="opciones" id="opc-1">
+        <div class="opcion" onclick="elegir('opc-1','a',false)"><span class="opcion-letra">A</span><span class="opcion-texto">$180.000 (total de ventas)</span></div>
+        <div class="opcion" onclick="elegir('opc-1','b',true)"><span class="opcion-letra">B</span><span class="opcion-texto">$54.000 (solo el 30% al contado)</span></div>
+        <div class="opcion" onclick="elegir('opc-1','c',false)"><span class="opcion-letra">C</span><span class="opcion-texto">$126.000 (el 70% a crédito)</span></div>
+        <div class="opcion" onclick="elegir('opc-1','d',false)"><span class="opcion-letra">D</span><span class="opcion-texto">$0 porque todo fue a crédito</span></div>
+      </div>
+    </div>
+
+    <div class="pregunta-bloque">
+      <div class="pregunta-label"><span class="pregunta-num">2</span>¿Cuál fue el saldo final de caja en agosto?</div>
+      <div class="opciones" id="opc-2">
+        <div class="opcion" onclick="elegir('opc-2','a',false)"><span class="opcion-letra">A</span><span class="opcion-texto">$65.000 (superávit)</span></div>
+        <div class="opcion" onclick="elegir('opc-2','b',false)"><span class="opcion-letra">B</span><span class="opcion-texto">$15.000 (apenas positivo)</span></div>
+        <div class="opcion" onclick="elegir('opc-2','c',true)"><span class="opcion-letra">C</span><span class="opcion-texto">-$61.000 (déficit: la librería no puede pagar)</span></div>
+        <div class="opcion" onclick="elegir('opc-2','d',false)"><span class="opcion-letra">D</span><span class="opcion-texto">$50.000 (igual que el saldo inicial)</span></div>
+      </div>
+    </div>
+
+    <div class="caso" style="margin-top:28px;">
+      <div class="caso-titulo">📋 Caso 2 — Fábrica de muebles "Roldán"</div>
+      <p>Tiene utilidades contables de <span class="dato-destacado">$200.000</span> en el año. En octubre debe pagar una cuota de <span class="dato-destacado dato-rojo">$90.000</span> y sueldos de <span class="dato-destacado dato-rojo">$150.000</span>. Saldo disponible: <span class="dato-destacado dato-rojo">$60.000</span>. La mayoría de sus ventas son a 90 días.</p>
+    </div>
+
+    <div class="pregunta-bloque">
+      <div class="pregunta-label"><span class="pregunta-num">3</span>¿Qué problema tiene "Roldán" a pesar de ser rentable?</div>
+      <div class="opciones" id="opc-3">
+        <div class="opcion" onclick="elegir('opc-3','a',false)"><span class="opcion-letra">A</span><span class="opcion-texto">Tiene demasiadas deudas en términos contables</span></div>
+        <div class="opcion" onclick="elegir('opc-3','b',true)"><span class="opcion-letra">B</span><span class="opcion-texto">Tiene un problema de liquidez: ganancias pero sin efectivo disponible</span></div>
+        <div class="opcion" onclick="elegir('opc-3','c',false)"><span class="opcion-letra">C</span><span class="opcion-texto">Sus ventas son insuficientes para cubrir gastos</span></div>
+        <div class="opcion" onclick="elegir('opc-3','d',false)"><span class="opcion-letra">D</span><span class="opcion-texto">No tiene problema porque sus utilidades son positivas</span></div>
+      </div>
+    </div>
+
+    <div class="pregunta-bloque">
+      <div class="pregunta-label"><span class="pregunta-num">4</span>¿Qué medida podría tomar "Roldán" para mejorar su caja?</div>
+      <div class="opciones" id="opc-4">
+        <div class="opcion" onclick="elegir('opc-4','a',false)"><span class="opcion-letra">A</span><span class="opcion-texto">Aumentar sus gastos para mostrar más actividad</span></div>
+        <div class="opcion" onclick="elegir('opc-4','b',false)"><span class="opcion-letra">B</span><span class="opcion-texto">Emitir más facturas aunque no cobre</span></div>
+        <div class="opcion" onclick="elegir('opc-4','c',true)"><span class="opcion-letra">C</span><span class="opcion-texto">Negociar un descuento por pronto pago o solicitar un adelanto bancario</span></div>
+        <div class="opcion" onclick="elegir('opc-4','d',false)"><span class="opcion-letra">D</span><span class="opcion-texto">No pagar sueldos hasta que entren los cobros</span></div>
+      </div>
+    </div>
+
+    <div class="pregunta-bloque" style="margin-top:28px;">
+      <div class="pregunta-label"><span class="pregunta-num">5</span>Desarrollo — Reflexión</div>
+      <p style="font-size:0.9rem;color:var(--gris);margin-bottom:10px;">¿Por qué crees que muchas empresas argentinas tienen problemas de liquidez aun siendo rentables? Mencioná al menos un factor del contexto económico local.</p>
+      <textarea id="resp-5" placeholder="Escribí tu respuesta acá..." oninput="contarChars('resp-5','cnt-5')"></textarea>
+      <div class="contador-chars" id="cnt-5">0 caracteres</div>
+    </div>
+
+    <div class="pregunta-bloque">
+      <div class="pregunta-label"><span class="pregunta-num">6</span>Desarrollo — Propuesta de mejora</div>
+      <p style="font-size:0.9rem;color:var(--gris);margin-bottom:10px;">Imaginá que sos el/la administrador/a de "Roldán". Proponé <strong>dos acciones concretas</strong> para mejorar el Cash Flow sin aumentar las ventas.</p>
+      <textarea id="resp-6" placeholder="Describí las dos acciones con su justificación..." oninput="contarChars('resp-6','cnt-6')"></textarea>
+      <div class="contador-chars" id="cnt-6">0 caracteres</div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-verificar" onclick="verificarAct3()">Verificar opciones múltiples</button>
+    </div>
+    <div class="resultado-msg" id="res-act3"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     ACTIVIDAD 4 — PYME: DISTRIBUIDORA SAN MARTÍN
+     ══════════════════════════════════════════ -->
+<div class="panel" id="panel-4">
+  <div class="act-header">
+    <div class="act-numero">4</div>
+    <div class="act-info">
+      <h2>Cash Flow — Distribuidora San Martín</h2>
+      <p>Elaborá el flujo de fondos completo del 1er trimestre 2026 y respondé las preguntas de análisis.</p>
+    </div>
+  </div>
+  <div class="act-body">
+    <div class="consigna"><strong>Consigna (10 puntos):</strong> Con los datos provistos, completá la tabla de Cash Flow y respondé las 2 preguntas de análisis. Los campos numéricos se corrigen automáticamente.</div>
+
+    <div class="datos-pyme">
+      <h3>📋 Datos de la empresa</h3>
+      <table>
+        <tr><td>Saldo inicial de caja</td><td>$85.000</td></tr>
+        <tr><td>Ventas al contado</td><td>Enero $95.000 · Febrero $110.000 · Marzo $100.000</td></tr>
+        <tr><td>Cobros a 30 días (40% del mes anterior)</td><td>Diciembre anterior fue $80.000</td></tr>
+        <tr><td>Sueldos</td><td>$52.000 (enero y febrero) · $58.000 (marzo)</td></tr>
+        <tr><td>Pago a proveedores</td><td>Enero $35.000 · Febrero $40.000 · Marzo $38.000</td></tr>
+        <tr><td>Alquiler</td><td>$12.000 mensuales</td></tr>
+        <tr><td>Servicios</td><td>$5.000 mensuales</td></tr>
+        <tr><td>Cuota de préstamo</td><td>$18.000 mensuales (los 3 meses)</td></tr>
+        <tr><td>Compra de computadora (solo marzo)</td><td>$30.000 al contado</td></tr>
+      </table>
+      <p class="nota">💡 Cobros a 30 días enero = 40% × $80.000 = $32.000 · febrero = 40% × $95.000 = $38.000 · marzo = 40% × $110.000 = $44.000</p>
+    </div>
+
+    <div style="overflow-x:auto;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.07);">
+    <table class="tabla-cf">
+      <thead><tr><th style="width:38%">Concepto</th><th>Enero</th><th>Febrero</th><th>Marzo</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Saldo inicial</strong></td>
+          <td class="valor-fijo">$85.000</td>
+          <td><input type="number" class="campo-calc" id="d-si-feb" placeholder="?"><br><span class="hint">= saldo final enero</span></td>
+          <td><input type="number" class="campo-calc" id="d-si-mar" placeholder="?"><br><span class="hint">= saldo final febrero</span></td>
+        </tr>
+        <tr class="seccion-label"><td colspan="4">INGRESOS</td></tr>
+        <tr><td>Ventas al contado</td><td class="valor-fijo">$95.000</td><td class="valor-fijo">$110.000</td><td class="valor-fijo">$100.000</td></tr>
+        <tr><td>Cobros a 30 días</td><td class="valor-fijo">$32.000</td><td class="valor-fijo">$38.000</td><td class="valor-fijo">$44.000</td></tr>
+        <tr class="subtotal">
+          <td>Total ingresos</td>
+          <td><input type="number" class="campo-calc" id="d-ing-ene" placeholder="?"></td>
+          <td><input type="number" class="campo-calc" id="d-ing-feb" placeholder="?"></td>
+          <td><input type="number" class="campo-calc" id="d-ing-mar" placeholder="?"></td>
+        </tr>
+        <tr class="seccion-label"><td colspan="4">EGRESOS</td></tr>
+        <tr><td>Sueldos</td><td class="valor-fijo">$52.000</td><td class="valor-fijo">$52.000</td><td class="valor-fijo">$58.000</td></tr>
+        <tr><td>Pago a proveedores</td><td class="valor-fijo">$35.000</td><td class="valor-fijo">$40.000</td><td class="valor-fijo">$38.000</td></tr>
+        <tr><td>Alquiler</td><td class="valor-fijo">$12.000</td><td class="valor-fijo">$12.000</td><td class="valor-fijo">$12.000</td></tr>
+        <tr><td>Servicios</td><td class="valor-fijo">$5.000</td><td class="valor-fijo">$5.000</td><td class="valor-fijo">$5.000</td></tr>
+        <tr><td>Cuota préstamo</td><td class="valor-fijo">$18.000</td><td class="valor-fijo">$18.000</td><td class="valor-fijo">$18.000</td></tr>
+        <tr><td>Compra computadora</td><td class="valor-fijo">—</td><td class="valor-fijo">—</td><td class="valor-fijo">$30.000</td></tr>
+        <tr class="subtotal">
+          <td>Total egresos</td>
+          <td><input type="number" class="campo-calc" id="d-eg-ene" placeholder="?"></td>
+          <td><input type="number" class="campo-calc" id="d-eg-feb" placeholder="?"></td>
+          <td><input type="number" class="campo-calc" id="d-eg-mar" placeholder="?"></td>
+        </tr>
+        <tr>
+          <td><strong>Flujo neto</strong><br><span class="hint">Ingresos − Egresos</span></td>
+          <td><input type="number" class="campo-calc" id="d-neto-ene" placeholder="?"></td>
+          <td><input type="number" class="campo-calc" id="d-neto-feb" placeholder="?"></td>
+          <td><input type="number" class="campo-calc" id="d-neto-mar" placeholder="?"></td>
+        </tr>
+        <tr class="total-final">
+          <td><strong>Saldo final</strong><br><span class="hint">Saldo inicial + Flujo neto</span></td>
+          <td><input type="number" class="campo-calc" id="d-sf-ene" placeholder="?"></td>
+          <td><input type="number" class="campo-calc" id="d-sf-feb" placeholder="?"></td>
+          <td><input type="number" class="campo-calc" id="d-sf-mar" placeholder="?"></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="preguntas-pyme">
+      <div class="preg-pyme">
+        <strong>Pregunta A —</strong> ¿En algún mes la empresa podría tener problemas de liquidez? Justificá tu respuesta con los datos de la tabla.
+        <textarea id="d-resp-a" placeholder="Analizá los saldos mes a mes y explicá..." oninput="contarChars('d-resp-a','d-cnt-a')"></textarea>
+        <div class="contador-chars" id="d-cnt-a">0 caracteres</div>
+      </div>
+      <div class="preg-pyme">
+        <strong>Pregunta B —</strong> ¿Qué medida podría tomar la empresa si el saldo final de algún mes fuera negativo? Mencioná al menos dos opciones concretas.
+        <textarea id="d-resp-b" placeholder="Pensá en alternativas de financiamiento, reducción de gastos, etc." oninput="contarChars('d-resp-b','d-cnt-b')"></textarea>
+        <div class="contador-chars" id="d-cnt-b">0 caracteres</div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-verificar" onclick="verificarAct4()">Verificar tabla</button>
+      <button class="btn-reset" onclick="resetAct4()">Reiniciar</button>
+    </div>
+    <div class="resultado-msg" id="res-act4"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     ACTIVIDAD 5 — PYME: HELADERÍA PATAGONIA
+     ══════════════════════════════════════════ -->
+<div class="panel" id="panel-5">
+  <div class="act-header">
+    <div class="act-numero">5</div>
+    <div class="act-info">
+      <h2>Cash Flow — Heladería "Patagonia"</h2>
+      <p>Elaborá el flujo de fondos del 2do trimestre 2026 y analizá la situación financiera de la empresa.</p>
+    </div>
+  </div>
+  <div class="act-body">
+    <div class="consigna"><strong>Consigna (10 puntos):</strong> La heladería "Patagonia" necesita conocer su situación de liquidez para el segundo trimestre. Completá la tabla y respondé las preguntas.</div>
+
+    <div class="datos-pyme">
+      <h3>📋 Datos de la empresa</h3>
+      <table>
+        <tr><td>Saldo inicial de caja (abril)</td><td>$45.000</td></tr>
+        <tr><td>Ventas al contado</td><td>Abril $130.000 · Mayo $160.000 · Junio $90.000</td></tr>
+        <tr><td>Cobros por delivery (50% del mes anterior)</td><td>Marzo anterior fue $70.000</td></tr>
+        <tr><td>Sueldos (3 empleados)</td><td>$45.000 mensuales (en junio baja a $38.000 por temporada baja)</td></tr>
+        <tr><td>Compra de materias primas</td><td>Abril $40.000 · Mayo $55.000 · Junio $28.000</td></tr>
+        <tr><td>Alquiler del local</td><td>$18.000 mensuales</td></tr>
+        <tr><td>Servicios (electricidad, gas, etc.)</td><td>$8.000 mensuales</td></tr>
+        <tr><td>Cuota de heladera industrial (préstamo)</td><td>$12.000 mensuales (los 3 meses)</td></tr>
+        <tr><td>Publicidad redes sociales (solo abril)</td><td>$15.000 pago único</td></tr>
+        <tr><td>Mantenimiento del local (solo junio)</td><td>$20.000 pago único</td></tr>
+      </table>
+      <p class="nota">💡 Cobros delivery: Abril = 50% × $70.000 = $35.000 · Mayo = 50% × $130.000 = $65.000 · Junio = 50% × $160.000 = $80.000</p>
+    </div>
+
+    <div style="overflow-x:auto;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.07);">
+    <table class="tabla-cf">
+      <thead><tr><th style="width:38%">Concepto</th><th>Abril</th><th>Mayo</th><th>Junio</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Saldo inicial</strong></td>
+          <td class="valor-fijo">$45.000</td>
+          <td><input type="number" class="campo-calc" id="h-si-may" placeholder="?"><br><span class="hint">= saldo final abril</span></td>
+          <td><input type="number" class="campo-calc" id="h-si-jun" placeholder="?"><br><span class="hint">= saldo final mayo</span></td>
+        </tr>
+        <tr class="seccion-label"><td colspan="4">INGRESOS</td></tr>
+        <tr><td>Ventas al contado</td><td class="valor-fijo">$130.000</td><td class="valor-fijo">$160.000</td><td class="valor-fijo">$90.000</td></tr>
+        <tr><td>Cobros delivery (50% mes ant.)</td><td class="valor-fijo">$35.000</td><td class="valor-fijo">$65.000</td><td class="valor-fijo">$80.000</td></tr>
+        <tr class="subtotal">
+          <td>Total ingresos</td>
+          <td><input type="number" class="campo-calc" id="h-ing-abr" placeholder="?"></td>
+          <td><input type="number" class="campo-calc" id="h-ing-may" placeholder="?"></td>
+          <td><input type="number" class="campo-calc" id="h-ing-jun" placeholder="?"></td>
+        </tr>
+        <tr class="seccion-label"><td colspan="4">EGRESOS</td></tr>
+        <tr><td>Sueldos</td><td class="valor-fijo">$45.000</td><td class="valor-fijo">$45.000</td><td class="valor-fijo">$38.000</td></tr>
+        <tr><td>Compra materias primas</td><td class="valor-fijo">$40.000</td><td class="valor-fijo">$55.000</td><td class="valor-fijo">$28.000</td></tr>
+        <tr><td>Alquiler</td><td class="valor-fijo">$18.000</td><td class="valor-fijo">$18.000</td><td class="valor-fijo">$18.000</td></tr>
+        <tr><td>Servicios</td><td class="valor-fijo">$8.000</td><td class="valor-fijo">$8.000</td><td class="valor-fijo">$8.000</td></tr>
+        <tr><td>Cuota heladera industrial</td><td class="valor-fijo">$12.000</td><td class="valor-fijo">$12.000</td><td class="valor-fijo">$12.000</td></tr>
+        <tr><td>Publicidad (solo abril)</td><td class="valor-fijo">$15.000</td><td class="valor-fijo">—</td><td class="valor-fijo">—</td></tr>
+        <tr><td>Mantenimiento (solo junio)</td><td class="valor-fijo">—</td><td class="valor-fijo">—</td><td class="valor-fijo">$20.000</td></tr>
+        <tr class="subtotal">
+          <td>Total egresos</td>
+          <td><input type="number" class="campo-calc" id="h-eg-abr" placeholder="?"></td>
+          <td><input type="number" class="campo-calc" id="h-eg-may" placeholder="?"></td>
+          <td><input type="number" class="campo-calc" id="h-eg-jun" placeholder="?"></td>
+        </tr>
+        <tr>
+          <td><strong>Flujo neto</strong><br><span class="hint">Ingresos − Egresos</span></td>
+          <td><input type="number" class="campo-calc" id="h-neto-abr" placeholder="?"></td>
+          <td><input type="number" class="campo-calc" id="h-neto-may" placeholder="?"></td>
+          <td><input type="number" class="campo-calc" id="h-neto-jun" placeholder="?"></td>
+        </tr>
+        <tr class="total-final">
+          <td><strong>Saldo final</strong><br><span class="hint">Saldo inicial + Flujo neto</span></td>
+          <td><input type="number" class="campo-calc" id="h-sf-abr" placeholder="?"></td>
+          <td><input type="number" class="campo-calc" id="h-sf-may" placeholder="?"></td>
+          <td><input type="number" class="campo-calc" id="h-sf-jun" placeholder="?"></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="preguntas-pyme">
+      <div class="preg-pyme">
+        <strong>Pregunta A —</strong> ¿En qué mes la heladería tuvo mejor situación de liquidez? ¿Y en cuál fue más ajustada? Justificá con los datos.
+        <textarea id="h-resp-a" placeholder="Compará los saldos finales de cada mes y explicá..." oninput="contarChars('h-resp-a','h-cnt-a')"></textarea>
+        <div class="contador-chars" id="h-cnt-a">0 caracteres</div>
+      </div>
+      <div class="preg-pyme">
+        <strong>Pregunta B —</strong> ¿Por qué crees que en junio los ingresos bajan respecto a mayo? ¿Cómo podría la empresa prepararse para los meses de menor actividad?
+        <textarea id="h-resp-b" placeholder="Pensá en la estacionalidad del negocio y qué estrategias podría usar..." oninput="contarChars('h-resp-b','h-cnt-b')"></textarea>
+        <div class="contador-chars" id="h-cnt-b">0 caracteres</div>
+      </div>
+      <div class="preg-pyme">
+        <strong>Pregunta C —</strong> ¿Qué diferencia notás entre un negocio estacional (como una heladería) y uno con ingresos constantes, a la hora de planificar el Cash Flow?
+        <textarea id="h-resp-c" placeholder="Reflexioná sobre la importancia del Cash Flow proyectado en negocios estacionales..." oninput="contarChars('h-resp-c','h-cnt-c')"></textarea>
+        <div class="contador-chars" id="h-cnt-c">0 caracteres</div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-verificar" onclick="verificarAct5()">Verificar tabla</button>
+      <button class="btn-reset" onclick="resetAct5()">Reiniciar</button>
+    </div>
+    <div class="resultado-msg" id="res-act5"></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECCIÓN ENVÍO / PDF
+     ══════════════════════════════════════════ -->
+<div class="alumno-input-wrap" style="margin-top:32px;">
+  <label>Tu nombre completo (aparecerá en el PDF)</label>
+  <input type="text" id="nombre-alumno" placeholder="Ej: Lucía Rodríguez" />
+</div>
+
+<div class="pdf-section">
+  <div class="pdf-texto">
+    <h3>📄 Generar PDF para entregar</h3>
+    <p>El PDF incluirá todas tus respuestas, los resultados de la verificación y tu nombre. Guardalo y enviáselo a tu docente.</p>
+    <p class="pdf-info">Tip: cuando se abra la ventana de impresión, elegí "Guardar como PDF" en el destino.</p>
+  </div>
+  <button class="btn-pdf" onclick="generarPDF()">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+    Generar PDF
+  </button>
+</div>
+
+</main>
+
+<footer>
+  <strong style="color:white">EESO N°206 "Rosa Turner de Estrugamou"</strong> · Administración · 5°D · <span>2026</span> · Venado Tuerto
+</footer>
+
+<script>
+// ══════════════════════════════
+// ESTADO
+// ══════════════════════════════
+let pts1=0,pts2=0,pts3=0,pts4=0,pts5=0;
+let act1V=false,act2V=false,act3V=false,act4V=false,act5V=false;
+
+function actualizarPuntos(){
+  document.getElementById('pts-total').textContent = Math.round(pts1+pts2+pts3+pts4+pts5);
+}
+
+// ══════════════════════════════
+// NAVEGACIÓN
+// ══════════════════════════════
+function mostrar(n,btn){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('visible'));
+  document.getElementById('panel-'+n).classList.add('visible');
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('activo'));
+  btn.classList.add('activo');
+}
+
+// ══════════════════════════════
+// ACT 1 — CLASIFICAR
+// ══════════════════════════════
+const rc1={'ch-1':'ingreso','ch-2':'egreso','ch-3':'ingreso','ch-4':'egreso','ch-5':'ingreso','ch-6':'egreso','ch-7':'ingreso','ch-8':'egreso','ch-9':'ingreso','ch-10':'egreso'};
+let chipSel=null, asig={};
+
+function seleccionar(id){
+  if(act1V) return;
+  if(document.getElementById(id).classList.contains('usado')) return;
+  if(chipSel){ document.getElementById(chipSel).classList.remove('seleccionado'); }
+  if(chipSel===id){ chipSel=null; return; }
+  chipSel=id;
+  document.getElementById(id).classList.add('seleccionado');
+}
+
+function colocarEn(zona){
+  if(!chipSel||act1V) return;
+  const texto=document.getElementById(chipSel).textContent;
+  const id=chipSel;
+  const div=document.createElement('div');
+  div.className='chip-colocado'; div.textContent=texto; div.dataset.chipId=id;
+  div.onclick=()=>devolverABanco(id,div);
+  document.getElementById('zona-'+zona).appendChild(div);
+  document.getElementById(id).classList.add('usado','');
+  document.getElementById(id).classList.remove('seleccionado');
+  asig[id]=zona; chipSel=null; actualizarProg1();
+}
+
+function devolverABanco(chipId,el){
+  if(act1V) return;
+  el.remove(); delete asig[chipId];
+  const c=document.getElementById(chipId);
+  c.classList.remove('usado','seleccionado');
+  actualizarProg1();
+}
+
+function actualizarProg1(){
+  const n=Object.keys(asig).length;
+  document.getElementById('prog-1').style.width=(n/10*100)+'%';
+  document.getElementById('prog-txt-1').textContent=n+' de 10 colocados';
+}
+
+function verificarAct1(){
+  if(act1V) return;
+  let ok=0;
+  ['ingreso','egreso'].forEach(z=>{
+    document.querySelectorAll('#zona-'+z+' .chip-colocado').forEach(el=>{
+      const id=el.dataset.chipId;
+      if(rc1[id]===z){el.classList.add('correcto');ok++;}
+      else el.classList.add('incorrecto');
+    });
+  });
+  pts1=ok; act1V=true; actualizarPuntos();
+  const m=document.getElementById('res-act1');
+  m.classList.add('show');
+  if(ok===10){m.className='resultado-msg show ok';m.textContent='¡Perfecto! 10/10 ✓';}
+  else if(ok>=7){m.className='resultado-msg show parcial';m.textContent=ok+'/10 correctos. Revisá los marcados en rojo.';}
+  else{m.className='resultado-msg show error';m.textContent=ok+'/10 correctos. Repasá la diferencia entre ingresos y egresos.';}
+}
+
+function resetAct1(){
+  act1V=false;pts1=0;asig={};chipSel=null;
+  ['ingreso','egreso'].forEach(z=>document.getElementById('zona-'+z).innerHTML='');
+  for(let i=1;i<=10;i++){const c=document.getElementById('ch-'+i);c.className='chip';}
+  document.getElementById('prog-1').style.width='0%';
+  document.getElementById('prog-txt-1').textContent='0 de 10 colocados';
+  document.getElementById('res-act1').className='resultado-msg';
+  actualizarPuntos();
+}
+
+// ══════════════════════════════
+// ACT 2 — TABLA BIMESTRE
+// ══════════════════════════════
+const cv2={
+  'c-ing-ene':90000,'c-ing-feb':115000,
+  'c-eg-ene':78000,'c-eg-feb':90000,
+  'c-neto-ene':12000,'c-neto-feb':25000,
+  'c-final-ene':52000,'c-saldo-feb-ini':52000,
+  'c-final-feb':77000
+};
+
+function verificarAct2(){
+  if(act2V) return;
+  let ok=0; const total=Object.keys(cv2).length;
+  Object.keys(cv2).forEach(id=>{
+    const el=document.getElementById(id); if(!el) return;
+    if(parseInt(el.value)===cv2[id]){el.classList.add('correcto-input');ok++;}
+    else el.classList.add('incorrecto-input');
+  });
+  act2V=true; pts2=Math.round(ok/total*10); actualizarPuntos();
+  const m=document.getElementById('res-act2');
+  m.classList.add('show');
+  if(ok===total){m.className='resultado-msg show ok';m.textContent='¡Excelente! '+ok+'/'+total+' correctos.';}
+  else if(ok>=5){m.className='resultado-msg show parcial';m.textContent=ok+'/'+total+' correctos. Revisá la fórmula: Saldo final = Saldo inicial + Ingresos − Egresos.';}
+  else{m.className='resultado-msg show error';m.textContent=ok+'/'+total+' correctos. Repasá los cálculos.';}
+}
+
+function resetAct2(){
+  act2V=false;pts2=0;
+  Object.keys(cv2).forEach(id=>{const el=document.getElementById(id);if(el){el.value='';el.className='campo-calc';}});
+  document.getElementById('res-act2').className='resultado-msg';
+  actualizarPuntos();
+}
+
+// ══════════════════════════════
+// ACT 3 — ANÁLISIS
+// ══════════════════════════════
+let resp3={};
+function elegir(gid,letra,esOk){
+  if(act3V) return;
+  document.querySelectorAll('#'+gid+' .opcion').forEach(o=>o.classList.remove('seleccionada'));
+  const idx=['a','b','c','d'].indexOf(letra);
+  if(idx>=0){document.querySelectorAll('#'+gid+' .opcion')[idx].classList.add('seleccionada');}
+  resp3[gid]={letra,esOk};
+}
+function contarChars(id,cntId){
+  document.getElementById(cntId).textContent=document.getElementById(id).value.length+' caracteres';
+}
+function verificarAct3(){
+  if(act3V) return;
+  let ok=0;
+  ['opc-1','opc-2','opc-3','opc-4'].forEach(g=>{
+    const ops=document.querySelectorAll('#'+g+' .opcion');
+    ops.forEach(o=>{
+      const fn=o.getAttribute('onclick');
+      if(fn&&fn.includes('true')) o.classList.add('opcion-ok');
+      const idx=[...ops].indexOf(o);
+      const l=['a','b','c','d'][idx];
+      if(resp3[g]&&resp3[g].letra===l&&!resp3[g].esOk) o.classList.add('opcion-mal');
+    });
+    if(resp3[g]&&resp3[g].esOk) ok++;
+  });
+  act3V=true; pts3=ok*2.5; actualizarPuntos();
+  const m=document.getElementById('res-act3');
+  m.classList.add('show');
+  if(ok===4){m.className='resultado-msg show ok';m.textContent='¡Perfecto! 4/4 correctas. ✓ No olvidés completar el desarrollo.';}
+  else if(ok>=2){m.className='resultado-msg show parcial';m.textContent=ok+'/4 correctas. Las correctas están en verde.';}
+  else{m.className='resultado-msg show error';m.textContent=ok+'/4 correctas. Repasá la diferencia entre rentabilidad y liquidez.';}
+}
+
+// ══════════════════════════════
+// ACT 4 — PYME DISTRIBUIDORA
+// ══════════════════════════════
+// Valores correctos:
+// Ingresos: ene=127000, feb=148000, mar=144000
+// Egresos:  ene=122000, feb=127000, mar=161000
+// Neto:     ene=5000,   feb=21000,  mar=-17000
+// SF:       ene=90000,  feb=111000, mar=94000
+// SI:       feb=90000,  mar=111000
+const cv4={
+  'd-ing-ene':127000,'d-ing-feb':148000,'d-ing-mar':144000,
+  'd-eg-ene':122000,'d-eg-feb':127000,'d-eg-mar':161000,
+  'd-neto-ene':5000,'d-neto-feb':21000,'d-neto-mar':-17000,
+  'd-sf-ene':90000,'d-sf-feb':111000,'d-sf-mar':94000,
+  'd-si-feb':90000,'d-si-mar':111000
+};
+
+function verificarAct4(){
+  if(act4V) return;
+  let ok=0; const total=Object.keys(cv4).length;
+  Object.keys(cv4).forEach(id=>{
+    const el=document.getElementById(id); if(!el) return;
+    if(parseInt(el.value)===cv4[id]){el.classList.add('correcto-input');ok++;}
+    else el.classList.add('incorrecto-input');
+  });
+  act4V=true; pts4=Math.round(ok/total*10); actualizarPuntos();
+  const m=document.getElementById('res-act4');
+  m.classList.add('show');
+  if(ok===total){m.className='resultado-msg show ok';m.textContent='¡Perfecto! '+ok+'/'+total+' valores correctos. ✓ No olvidés responder las preguntas de análisis.';}
+  else if(ok>=9){m.className='resultado-msg show parcial';m.textContent=ok+'/'+total+' correctos. Muy bien. Revisá los valores en rojo.';}
+  else{m.className='resultado-msg show parcial';m.textContent=ok+'/'+total+' correctos. Revisá los cálculos y la cadena de saldos iniciales.';}
+}
+
+function resetAct4(){
+  act4V=false;pts4=0;
+  Object.keys(cv4).forEach(id=>{const el=document.getElementById(id);if(el){el.value='';el.className='campo-calc';}});
+  document.getElementById('res-act4').className='resultado-msg';
+  actualizarPuntos();
+}
+
+// ══════════════════════════════
+// ACT 5 — PYME HELADERÍA
+// ══════════════════════════════
+// Ingresos: abr=165000, may=225000, jun=170000
+// Egresos:  abr=138000, may=138000, jun=116000
+// Neto:     abr=27000,  may=87000,  jun=54000
+// SF:       abr=72000,  may=159000, jun=213000
+// SI:       may=72000,  jun=159000
+const cv5={
+  'h-ing-abr':165000,'h-ing-may':225000,'h-ing-jun':170000,
+  'h-eg-abr':138000,'h-eg-may':138000,'h-eg-jun':124000,
+  'h-neto-abr':27000,'h-neto-may':87000,'h-neto-jun':46000,
+  'h-sf-abr':72000,'h-sf-may':159000,'h-sf-jun':205000,
+  'h-si-may':72000,'h-si-jun':159000
+};
+
+function verificarAct5(){
+  if(act5V) return;
+  let ok=0; const total=Object.keys(cv5).length;
+  Object.keys(cv5).forEach(id=>{
+    const el=document.getElementById(id); if(!el) return;
+    if(parseInt(el.value)===cv5[id]){el.classList.add('correcto-input');ok++;}
+    else el.classList.add('incorrecto-input');
+  });
+  act5V=true; pts5=Math.round(ok/total*10); actualizarPuntos();
+  const m=document.getElementById('res-act5');
+  m.classList.add('show');
+  if(ok===total){m.className='resultado-msg show ok';m.textContent='¡Excelente! '+ok+'/'+total+' valores correctos. ✓ Completá también las preguntas de análisis.';}
+  else if(ok>=9){m.className='resultado-msg show parcial';m.textContent=ok+'/'+total+' correctos. Revisá los valores en rojo.';}
+  else{m.className='resultado-msg show parcial';m.textContent=ok+'/'+total+' correctos. Revisá los cálculos.';}
+}
+
+function resetAct5(){
+  act5V=false;pts5=0;
+  Object.keys(cv5).forEach(id=>{const el=document.getElementById(id);if(el){el.value='';el.className='campo-calc';}});
+  document.getElementById('res-act5').className='resultado-msg';
+  actualizarPuntos();
+}
+
+// ══════════════════════════════
+// GENERAR PDF
+// ══════════════════════════════
+function generarPDF(){
+  const nombre=document.getElementById('nombre-alumno').value.trim()||'Sin nombre';
+  const puntaje=Math.round(pts1+pts2+pts3+pts4+pts5);
+
+  // Hacer todos los paneles visibles temporalmente para impresión
+  document.querySelectorAll('.panel').forEach(p=>p.style.display='block');
+
+  // Agregar cabecera de impresión
+  const cabecera=document.createElement('div');
+  cabecera.id='print-header';
+  cabecera.style.cssText='padding:20px 32px 16px;background:#0f4a2c;color:white;font-family:Syne,sans-serif;print-color-adjust:exact;-webkit-print-color-adjust:exact;';
+  cabecera.innerHTML=`<div style="font-size:11px;letter-spacing:2px;color:#2ecc71;text-transform:uppercase;margin-bottom:6px;">EESO N°206 · Administración · 5°D · 2026</div>
+    <div style="font-size:1.4rem;font-weight:800;">TP — Cash Flow</div>
+    <div style="margin-top:8px;display:flex;gap:24px;font-size:13px;color:rgba(255,255,255,0.7);">
+      <span>👤 ${nombre}</span>
+      <span>📊 Puntaje automático: ${puntaje}/50</span>
+      <span>📅 ${new Date().toLocaleDateString('es-AR',{day:'2-digit',month:'long',year:'numeric'})}</span>
+    </div>`;
+  document.body.insertBefore(cabecera,document.body.firstChild);
+
+  window.print();
+
+  // Restaurar
+  setTimeout(()=>{
+    cabecera.remove();
+    document.querySelectorAll('.panel').forEach((p,i)=>{
+      p.style.display='';
+      if(i===0) p.classList.add('visible');
+      else p.classList.remove('visible');
+    });
+  },1000);
+}
+</script>
+</body>
+</html>
