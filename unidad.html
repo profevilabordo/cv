@@ -259,10 +259,21 @@ function actualizarBarra(){
   document.getElementById("pbDots").innerHTML = dotsHtml;
 }
 
+function desmarcarSeccion(tabKey){
+  var nombre = TAB_LABELS[TAB_KEYS.indexOf(tabKey)];
+  if(!confirm('\u00bfQuer\u00e9s desmarcar "' + nombre + '" para volver a completarla?')) return;
+  localStorage.removeItem(getCheckKey(tabKey));
+  actualizarBarra();
+  render();
+}
+
 function renderCheckBtn(tabKey){
   var nombre = TAB_LABELS[TAB_KEYS.indexOf(tabKey)];
   if(isChecked(tabKey)){
-    return '<div class="check-section-done">\u2705 ' + nombre + ' completada</div>';
+    return '<div class="check-section-done" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">'
+      + '<span>\u2705 ' + nombre + ' completada</span>'
+      + '<button onclick="desmarcarSeccion(\'' + tabKey + '\')" style="font-size:12px;padding:4px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.05);color:#94A3B8;cursor:pointer">\ud83d\udd04 Volver a hacer</button>'
+      + '</div>';
   }
   return '<button class="check-section-btn" onclick="marcarSeccion(\'' + tabKey + '\')">' +
     '<span style="font-size:20px">\u2611\ufe0f</span> Marcar ' + nombre + ' como completada' +
