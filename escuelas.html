@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Atlas del Pensamiento Económico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     PALETA — estética de billete / libro de contabilidad antiguo
+     ============================================================ */
+  :root {
+    --papel:    #ECEEE6;  /* fondo papel frío           */
+    --papel-2:  #E2E5DA;  /* papel sombreado            */
+    --tinta:    #1E2A26;  /* tinta verde-negra          */
+    --grabado:  #2E6B4F;  /* verde grabado (influencia) */
+    --burdeos:  #8C2F39;  /* rivalidades                */
+    --dorado:   #A97C22;  /* linaje de Chang            */
+    --dorado-suave: #F3E3BC;
+    --linea:    #B9BFAE;  /* filetes de libro contable  */
+    --azul:     #26547C;  /* selección / interacción    */
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--papel);
+    color: var(--tinta);
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  /* ---------- Cabecera ---------- */
+  header {
+    border-bottom: 3px double var(--tinta);
+    padding: 28px 20px 18px;
+    text-align: center;
+    background:
+      linear-gradient(var(--papel), var(--papel)) padding-box,
+      repeating-linear-gradient(90deg, var(--linea) 0 1px, transparent 1px 9px) border-box;
+  }
+  header .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--grabado);
+  }
+  header h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: clamp(28px, 6vw, 46px);
+    line-height: 1.05;
+    margin: 8px 0 6px;
+  }
+  header .sub {
+    font-style: italic;
+    color: #4a564f;
+    font-size: 15px;
+  }
+
+  /* ---------- Pestañas ---------- */
+  nav {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    padding: 14px 12px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--linea);
+    position: sticky;
+    top: 0;
+    background: var(--papel);
+    z-index: 20;
+  }
+  nav button {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--tinta);
+    color: var(--tinta);
+    padding: 9px 16px;
+    cursor: pointer;
+    transition: background .15s, color .15s;
+  }
+  nav button:hover { background: var(--papel-2); }
+  nav button.activa {
+    background: var(--tinta);
+    color: var(--papel);
+  }
+  nav button:focus-visible,
+  .chip:focus-visible,
+  .tarjeta:focus-visible,
+  .nodo:focus-visible,
+  #btn-chang:focus-visible {
+    outline: 2px solid var(--azul);
+    outline-offset: 2px;
+  }
+
+  main { max-width: 1060px; margin: 0 auto; padding: 26px 18px 80px; }
+  .vista { display: none; }
+  .vista.activa { display: block; }
+
+  /* ============================================================
+     VISTA 1 — LÍNEA DE TIEMPO
+     ============================================================ */
+  .era {
+    margin-bottom: 34px;
+  }
+  .era-titulo {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    border-bottom: 1px solid var(--tinta);
+    padding-bottom: 4px;
+    margin-bottom: 14px;
+  }
+  .era-titulo h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 21px;
+  }
+  .era-titulo .rango {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--grabado);
+  }
+  .tarjeta {
+    border: 1px solid var(--linea);
+    border-left: 4px solid var(--grabado);
+    background: #F4F5EF;
+    margin-bottom: 10px;
+    padding: 13px 16px;
+    cursor: pointer;
+  }
+  .tarjeta.chang-linaje { border-left-color: var(--dorado); }
+  .tarjeta:hover { background: #FAFBF6; }
+  .tarjeta .fila-sup {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .tarjeta h3 {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .tarjeta .fechas {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--grabado);
+    white-space: nowrap;
+  }
+  .tarjeta .resumen {
+    font-size: 14.5px;
+    color: #3c4a44;
+    margin-top: 3px;
+  }
+  .tarjeta .detalle {
+    display: none;
+    margin-top: 12px;
+    border-top: 1px dashed var(--linea);
+    padding-top: 12px;
+    font-size: 14.5px;
+  }
+  .tarjeta.abierta .detalle { display: block; }
+  .detalle dt {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--grabado);
+    margin-top: 9px;
+  }
+  .detalle dd { margin-top: 2px; }
+  .sello-chang {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: .08em;
+    background: var(--dorado-suave);
+    color: var(--dorado);
+    border: 1px solid var(--dorado);
+    padding: 1px 7px;
+    border-radius: 999px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  /* ============================================================
+     VISTA 2 — MAPA DE INFLUENCIAS
+     ============================================================ */
+  .mapa-controles {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+  }
+  #btn-chang {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: .05em;
+    border: 1px solid var(--dorado);
+    color: var(--dorado);
+    background: transparent;
+    padding: 8px 14px;
+    cursor: pointer;
+  }
+  #btn-chang.activo {
+    background: var(--dorado);
+    color: var(--papel);
+  }
+  .leyenda {
+    font-size: 13px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .leyenda span { display: inline-flex; align-items: center; gap: 6px; }
+  .traza { display: inline-block; width: 26px; height: 0; border-top: 2px solid var(--grabado); }
+  .traza.riv { border-top: 2px dashed var(--burdeos); }
+  .traza.oro { border-top: 3px solid var(--dorado); }
+
+  #mapa-lienzo { position: relative; }
+  #mapa-svg {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+  }
+  .mapa-fila {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 12px;
+    align-items: flex-start;
+    padding: 16px 0;
+    border-bottom: 1px dotted var(--linea);
+    position: relative;
+  }
+  .mapa-fila .etiqueta-era {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #7c877e;
+    width: 100%;
+  }
+  .nodo {
+    position: relative;
+    z-index: 2;
+    border: 1.5px solid var(--tinta);
+    background: #F4F5EF;
+    padding: 7px 11px;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    box-shadow: 2px 2px 0 var(--papel-2);
+  }
+  .nodo small {
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+    font-size: 10px;
+    color: var(--grabado);
+  }
+  .nodo:hover { background: #FAFBF6; }
+  .modo-chang .nodo { opacity: .32; }
+  .modo-chang .nodo.oro {
+    opacity: 1;
+    border-color: var(--dorado);
+    background: var(--dorado-suave);
+    box-shadow: 2px 2px 0 #d8c68f;
+  }
+
+  /* ============================================================
+     VISTA 3 — COMPARADOR
+     ============================================================ */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+  .chip {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    border: 1px solid var(--tinta);
+    background: transparent;
+    color: var(--tinta);
+    padding: 6px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .chip.sel {
+    background: var(--azul);
+    border-color: var(--azul);
+    color: var(--papel);
+  }
+  .aviso {
+    font-size: 13.5px;
+    font-style: italic;
+    color: #55615a;
+    margin-bottom: 14px;
+  }
+  .comp-scroll { overflow-x: auto; }
+  table.comp {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 560px;
+    font-size: 14px;
+  }
+  table.comp th, table.comp td {
+    border: 1px solid var(--linea);
+    padding: 10px 12px;
+    vertical-align: top;
+    text-align: left;
+  }
+  table.comp th.fila-nombre {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--grabado);
+    background: var(--papel-2);
+    width: 130px;
+  }
+  table.comp thead th {
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    background: var(--tinta);
+    color: var(--papel);
+  }
+
+  /* ---------- Buscador ---------- */
+  .buscador { margin-bottom: 24px; position: relative; }
+  #busqueda {
+    width: 100%;
+    padding: 11px 14px;
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 15px;
+    color: var(--tinta);
+    background: #F4F5EF;
+    border: 1.5px solid var(--tinta);
+  }
+  #busqueda:focus { outline: 2px solid var(--azul); outline-offset: 1px; }
+  #resultados .res {
+    border: 1px solid var(--linea);
+    border-top: none;
+    background: #FAFBF6;
+    padding: 10px 14px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  #resultados .res:hover { background: var(--papel-2); }
+  #resultados .res.sin { cursor: default; font-style: italic; color: #55615a; }
+  #resultados .res-fechas {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11.5px;
+    color: var(--grabado);
+  }
+  #resultados .res-idea { color: #4a564f; font-size: 13.5px; }
+
+  footer {
+    text-align: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: #7c877e;
+    padding: 26px 16px;
+    border-top: 3px double var(--tinta);
+  }
+
+  @media (max-width: 640px) {
+    main { padding: 20px 12px 60px; }
+    .tarjeta .fila-sup { flex-direction: column; gap: 2px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Cuaderno de repaso · Historia del pensamiento económico</div>
+  <h1>Atlas del Pensamiento Económico</h1>
+  <div class="sub">De Aristóteles a la economía conductual — con el linaje de Ha-Joon Chang marcado en oro</div>
+</header>
+
+<nav>
+  <button class="activa" data-vista="timeline">Línea de tiempo</button>
+  <button data-vista="mapa">Mapa de influencias</button>
+  <button data-vista="comparador">Comparador</button>
+</nav>
+
+<main>
+  <div class="buscador">
+    <input id="busqueda" type="search" autocomplete="off"
+           placeholder="Buscá un autor, escuela o concepto — ej.: List, Keynes, usura…"
+           aria-label="Buscar autor, escuela o concepto">
+    <div id="resultados"></div>
+  </div>
+
+  <section id="vista-timeline" class="vista activa"></section>
+
+  <section id="vista-mapa" class="vista">
+    <div class="mapa-controles">
+      <button id="btn-chang">✦ ¿Dónde se para Chang?</button>
+      <div class="leyenda">
+        <span><i class="traza"></i> influye en</span>
+        <span><i class="traza riv"></i> rivalidad</span>
+        <span><i class="traza oro"></i> linaje de Chang</span>
+      </div>
+    </div>
+    <div id="mapa-lienzo">
+      <svg id="mapa-svg"></svg>
+      <div id="mapa-filas"></div>
+    </div>
+  </section>
+
+  <section id="vista-comparador" class="vista">
+    <p class="aviso">Elegí hasta tres escuelas para verlas lado a lado.</p>
+    <div class="chips" id="chips"></div>
+    <div class="comp-scroll" id="comp-tabla"></div>
+  </section>
+</main>
+
+<footer>Editá el array ESCUELAS al principio del código para agregar o corregir escuelas · hecho para el repaso de Verónica</footer>
+
+<script>
+/* =====================================================================
+   DATOS — editá acá para agregar, sacar o corregir escuelas.
+   Cada escuela tiene:
+   id ......... nombre corto único (se usa para las flechas del mapa)
+   nombre ..... nombre que se muestra
+   era ........ a qué franja histórica pertenece (ver ERAS más abajo)
+   fechas ..... texto libre con las fechas
+   referentes . autores principales
+   idea ....... la idea central en una frase
+   obra ....... obra clave y año
+   estado ..... postura sobre el rol del Estado (para el comparador)
+   metodo ..... método de estudio (para el comparador)
+   valor ...... teoría del valor (para el comparador)
+   comercio ... postura sobre comercio exterior (para el comparador)
+   detalle .... párrafo ampliado (se ve al abrir la tarjeta)
+   chang ...... true si forma parte del linaje intelectual de Chang
+   ===================================================================== */
+const ERAS = [
+  { id: "antiguedad",  nombre: "Antigüedad y pensamiento filosófico", rango: "s. IV a.C. – s. V" },
+  { id: "medioevo",    nombre: "Escolástica y Salamanca",             rango: "s. XIII – s. XVII" },
+  { id: "moderna",     nombre: "Mercantilismo y fisiócratas",         rango: "s. XVI – s. XVIII" },
+  { id: "clasica",     nombre: "Era clásica y sus críticos",          rango: "1776 – 1870" },
+  { id: "marginal",    nombre: "Revolución marginalista y rivales",   rango: "1870 – 1920" },
+  { id: "sxx",         nombre: "Siglo XX",                            rango: "1930 – 1980" },
+  { id: "contemp",     nombre: "Contemporánea",                       rango: "1980 – hoy" },
+];
+
+const ESCUELAS = [
+  {
+    id: "grecia", nombre: "Pensamiento griego", era: "antiguedad",
+    fechas: "s. IV a.C.",
+    referentes: "Platón, Aristóteles, Jenofonte",
+    idea: "La economía está subordinada a la ética y la política: administrar bien la casa (oikonomía) vs. acumular por acumular (crematística).",
+    obra: "Aristóteles, «Política» y «Ética a Nicómaco»",
+    estado: "La polis ordena la vida económica según el bien común.",
+    metodo: "Filosófico-normativo: qué es lo justo, no cómo funciona el mercado.",
+    valor: "Distinción entre valor de uso y valor de cambio (Aristóteles, embrión de todo el debate posterior).",
+    comercio: "Tolerado si sirve a la comunidad; sospecha del comercio con fines de lucro puro.",
+    detalle: "Jenofonte escribe el «Oikonomikós» (de ahí la palabra economía). Aristóteles condena la usura —el dinero no debe parir dinero— y esboza el precio justo. No hay ciencia económica autónoma: es un capítulo de la filosofía moral.",
+    chang: false
+  },
+  {
+    id: "escolastica", nombre: "Escolástica", era: "medioevo",
+    fechas: "s. XIII",
+    referentes: "Tomás de Aquino, Duns Escoto",
+    idea: "Precio justo, condena de la usura y propiedad privada legitimada como derecho natural secundario.",
+    obra: "Tomás de Aquino, «Suma Teológica» (1265–1274)",
+    estado: "La autoridad debe garantizar la justicia en los intercambios.",
+    metodo: "Deductivo-teológico: razón + fe aplicadas a los contratos y precios.",
+    valor: "Precio justo ligado al costo y a la estimación común del mercado.",
+    comercio: "Lícito si es honesto y con ganancia moderada.",
+    detalle: "Recupera a Aristóteles vía traducciones árabes y cristianiza su economía moral. La discusión del precio justo y la usura estructura siglos de derecho comercial europeo.",
+    chang: false
+  },
+  {
+    id: "salamanca", nombre: "Escuela de Salamanca", era: "medioevo",
+    fechas: "s. XVI – XVII",
+    referentes: "Francisco de Vitoria, Martín de Azpilcueta, Juan de Mariana",
+    idea: "El valor es subjetivo (estimación común) y la llegada de oro americano explica la inflación: teoría cuantitativa temprana.",
+    obra: "Azpilcueta, «Comentario resolutorio de cambios» (1556)",
+    estado: "Límites morales y jurídicos al poder del rey, incluso para alterar la moneda.",
+    metodo: "Casuística escolástica aplicada a problemas nuevos (Indias, banca, cambios).",
+    valor: "Subjetivo: depende de la utilidad y escasez estimadas por la gente.",
+    comercio: "Defensa del libre comercio de gentes (Vitoria) como derecho natural.",
+    detalle: "Los austríacos (Rothbard, Huerta de Soto) los reivindican como sus verdaderos precursores: valor subjetivo y teoría monetaria dos siglos antes que los clásicos. Dato lindo para tu lectura liberal.",
+    chang: false
+  },
+  {
+    id: "mercantilismo", nombre: "Mercantilismo", era: "moderna",
+    fechas: "s. XVI – XVIII",
+    referentes: "Thomas Mun, Jean-Baptiste Colbert",
+    idea: "La riqueza de una nación son sus metales preciosos: exportar mucho, importar poco, y un Estado fuerte que lo garantice.",
+    obra: "Mun, «La riqueza de Inglaterra por el comercio exterior» (1664)",
+    estado: "Intervención total: aranceles, monopolios, compañías de Indias.",
+    metodo: "Práctico-comercial: memoriales de mercaderes y ministros, sin teoría unificada.",
+    valor: "No hay teoría del valor elaborada; riqueza = oro y plata acumulados.",
+    comercio: "Superávit comercial como objetivo supremo de la política.",
+    detalle: "Más una práctica de Estado que una escuela. Smith construye «La riqueza de las naciones» como demolición del mercantilismo. Pero ojo: Chang señala que sus herramientas (aranceles, industria protegida) reaparecen en todos los países que se industrializaron.",
+    chang: false
+  },
+  {
+    id: "fisiocratas", nombre: "Fisiócratas", era: "moderna",
+    fechas: "1750s – 1770s",
+    referentes: "François Quesnay, Turgot",
+    idea: "Solo la tierra genera riqueza nueva; el resto la transforma. Dejar hacer, dejar pasar: el orden natural se regula solo.",
+    obra: "Quesnay, «Tableau économique» (1758)",
+    estado: "Mínimo: acuñan el «laissez faire, laissez passer».",
+    metodo: "Primer modelo de flujo circular de la economía (el Tableau).",
+    valor: "Producto neto: solo la agricultura da excedente real.",
+    comercio: "Libre, especialmente de granos.",
+    detalle: "Primera escuela con pretensión científica. Smith los visitó en París y tomó de ellos el orden natural y el laissez-faire, aunque corrigió el sesgo agrario.",
+    chang: false
+  },
+  {
+    id: "clasica", nombre: "Escuela clásica", era: "clasica",
+    fechas: "1776 – 1870",
+    referentes: "Adam Smith, David Ricardo, Malthus, J.S. Mill",
+    idea: "La mano invisible: el interés propio, bajo competencia, coordina la economía mejor que cualquier plan. Ventajas comparativas en el comercio.",
+    obra: "Smith, «La riqueza de las naciones» (1776)",
+    estado: "Limitado: justicia, defensa y ciertas obras públicas.",
+    metodo: "Deductivo con leyes universales (sobre todo en Ricardo).",
+    valor: "Valor-trabajo: el trabajo incorporado determina el valor.",
+    comercio: "Libre comercio; Ricardo formaliza las ventajas comparativas (1817).",
+    detalle: "La escuela que funda la economía como ciencia autónoma. Es el blanco principal de List y de Chang: para ellos, la teoría que Gran Bretaña predicó al mundo recién después de industrializarse con protección.",
+    chang: false
+  },
+  {
+    id: "proteccionismo", nombre: "Proteccionismo nacional", era: "clasica",
+    fechas: "1791 – 1846",
+    referentes: "Alexander Hamilton, Friedrich List",
+    idea: "Argumento de la industria naciente: proteger a las industrias jóvenes hasta que puedan competir. La economía es nacional, no cosmopolita.",
+    obra: "List, «Sistema Nacional de Economía Política» (1841)",
+    estado: "Activo y estratégico: aranceles, infraestructura, educación técnica.",
+    metodo: "Histórico-comparativo: cada nación según su etapa de desarrollo.",
+    valor: "Fuerzas productivas de la nación por encima del valor de cambio inmediato.",
+    comercio: "Protección temporal para alcanzar a los líderes; libre comercio recién entre iguales.",
+    detalle: "Hamilton lo plantea en su «Informe sobre las manufacturas» (1791); List lo sistematiza tras su exilio en EE.UU. La metáfora de «patear la escalera» es de List: acusó a Gran Bretaña de retirar la escalera por la que había subido. Es el héroe del libro de Chang.",
+    chang: true
+  },
+  {
+    id: "marxismo", nombre: "Marxismo", era: "clasica",
+    fechas: "1848 – 1895",
+    referentes: "Karl Marx, Friedrich Engels",
+    idea: "El capitalismo se funda en la extracción de plusvalía y colapsará por sus propias contradicciones; la historia avanza por lucha de clases.",
+    obra: "Marx, «El Capital» (1867)",
+    estado: "Tras la revolución, propiedad colectiva de los medios de producción.",
+    metodo: "Materialismo histórico-dialéctico.",
+    valor: "Valor-trabajo radicalizado desde Ricardo: la plusvalía es trabajo no pagado.",
+    comercio: "El mercado mundial como expansión necesaria (y crisis) del capital.",
+    detalle: "Marx se considera heredero crítico de los clásicos: toma el valor-trabajo de Ricardo y lo vuelve contra el sistema. Böhm-Bawerk (austríaco) escribe en 1896 la crítica clásica a su teoría del valor.",
+    chang: false
+  },
+  {
+    id: "historica", nombre: "Escuela histórica alemana", era: "marginal",
+    fechas: "1843 – 1920",
+    referentes: "Roscher, Hildebrand, Knies · Schmoller, Wagner · Sombart, Weber",
+    idea: "No hay leyes económicas universales: la economía depende del contexto histórico e institucional de cada nación.",
+    obra: "Schmoller, «Grundriss» (1900); Weber, «La ética protestante» (1905)",
+    estado: "Activo: reformas sociales bismarckianas, Estado como educador económico.",
+    metodo: "Inductivo-histórico: acumular datos antes de teorizar.",
+    valor: "Relativo a cada época; rechazan una teoría universal del valor.",
+    comercio: "Pragmático según la etapa de desarrollo (herencia de List).",
+    detalle: "Tres generaciones: vieja (Roscher, Hildebrand, Knies), joven (Schmoller, Wagner) y más joven (Sombart, Weber). Protagonizan la Methodenstreit (1883) contra Menger: historia vs. teoría deductiva. Capítulo 1 de tu libro.",
+    chang: true
+  },
+  {
+    id: "austriaca", nombre: "Escuela austríaca", era: "marginal",
+    fechas: "1871 – hoy",
+    referentes: "Menger, Böhm-Bawerk, Mises, Hayek",
+    idea: "El valor es subjetivo y el conocimiento está disperso: el mercado es un proceso de descubrimiento que ningún planificador puede reemplazar.",
+    obra: "Menger, «Principios de economía» (1871); Hayek, «Camino de servidumbre» (1944)",
+    estado: "Mínimo; crítica radical a la planificación (debate del cálculo, 1920–1940).",
+    metodo: "Deductivo desde la acción humana (praxeología); anti-matemático.",
+    valor: "Utilidad marginal subjetiva.",
+    comercio: "Libre sin excepciones.",
+    detalle: "Menger inicia la revolución marginalista junto a Jevons y Walras, pero la escuela sigue camino propio. Hayek gana el Nobel en 1974 y nutre el resurgir liberal de los 80. El rival directo de la histórica alemana y, un siglo después, de Chang.",
+    chang: false
+  },
+  {
+    id: "lausanne", nombre: "Escuela de Lausanne", era: "marginal",
+    fechas: "1874 – 1920s",
+    referentes: "Léon Walras, Vilfredo Pareto",
+    idea: "La economía como sistema de ecuaciones: todos los mercados se equilibran simultáneamente (equilibrio general).",
+    obra: "Walras, «Elementos de economía política pura» (1874)",
+    estado: "La teoría pura es neutral; Walras simpatizaba con reformas, Pareto no.",
+    metodo: "Matemático-formal.",
+    valor: "Utilidad marginal, formalizada en ecuaciones.",
+    comercio: "Derivado del modelo de equilibrio.",
+    detalle: "De acá salen el óptimo de Pareto y, décadas después, la prueba formal del equilibrio general (Arrow-Debreu, 1954). Es la rama más matemática del marginalismo.",
+    chang: false
+  },
+  {
+    id: "neoclasica", nombre: "Escuela neoclásica", era: "marginal",
+    fechas: "1871 – 1930s (y hasta hoy como corriente central)",
+    referentes: "Jevons, Alfred Marshall, Pigou",
+    idea: "Síntesis de clásicos y marginalistas: el precio surge de oferta y demanda como las dos hojas de una tijera; equilibrio parcial.",
+    obra: "Marshall, «Principios de economía» (1890)",
+    estado: "Mercado como regla; intervención puntual ante fallas (Pigou y las externalidades).",
+    metodo: "Deductivo con apoyo gráfico y matemático moderado; «ceteris paribus».",
+    valor: "Utilidad marginal + costos: síntesis de las dos tradiciones.",
+    comercio: "Libre comercio como norma.",
+    detalle: "Marshall forma en Cambridge a toda una generación —incluido Keynes—. Su manual definió la enseñanza de la economía por medio siglo y sigue siendo el esqueleto de la microeconomía actual.",
+    chang: false
+  },
+  {
+    id: "institucionalismo", nombre: "Institucionalismo", era: "sxx",
+    fechas: "1899 – hoy",
+    referentes: "Veblen, Commons · North, Coase (neoinstitucionalismo)",
+    idea: "Las instituciones, los hábitos y las normas moldean la economía tanto como los precios; no hay mercado sin reglas.",
+    obra: "Veblen, «Teoría de la clase ociosa» (1899); North, Nobel 1993",
+    estado: "El Estado es una institución constitutiva del mercado, no un intruso.",
+    metodo: "Histórico-evolutivo; luego costos de transacción y análisis institucional.",
+    valor: "El valor está mediado por convenciones sociales (consumo ostentoso).",
+    comercio: "Depende del marco institucional de cada país.",
+    detalle: "Veblen estudió con discípulos de la escuela histórica: es su heredero americano. El neoinstitucionalismo (Coase, North) lo reformula dentro de la corriente principal. Chang se define como economista institucionalista.",
+    chang: true
+  },
+  {
+    id: "keynesianismo", nombre: "Keynesianismo", era: "sxx",
+    fechas: "1936 – 1970s (y retornos posteriores)",
+    referentes: "John Maynard Keynes, Hicks, Samuelson",
+    idea: "La demanda agregada manda: la economía puede equilibrarse con desempleo masivo, y el Estado debe compensar con gasto e inversión.",
+    obra: "Keynes, «Teoría general de la ocupación, el interés y el dinero» (1936)",
+    estado: "Activo: política fiscal contracíclica, pleno empleo como objetivo.",
+    metodo: "Macroeconómico agregado; luego formalizado en el modelo IS-LM.",
+    valor: "Hereda la microeconomía marshalliana; el foco pasa al nivel agregado.",
+    comercio: "Pragmático; en Bretton Woods (1944) diseña un orden de comercio administrado.",
+    detalle: "Nace de la Gran Depresión y domina la posguerra (los «30 gloriosos»). Su duelo con Hayek en los años 30 es el clásico Estado vs. mercado del siglo XX. La estanflación de los 70 abre la puerta a Friedman.",
+    chang: false
+  },
+  {
+    id: "monetarismo", nombre: "Monetarismo · Escuela de Chicago", era: "sxx",
+    fechas: "1956 – 1990s",
+    referentes: "Milton Friedman, Stigler, Becker · Lucas (expectativas racionales)",
+    idea: "La inflación es siempre un fenómeno monetario; la política fiscal activa fracasa y el mercado libre asigna mejor que el Estado.",
+    obra: "Friedman, «Historia monetaria de los Estados Unidos» (1963)",
+    estado: "Mínimo: regla monetaria fija, desregulación, privatizaciones.",
+    metodo: "Empírico-positivista («la economía positiva») y luego modelos de expectativas.",
+    valor: "Marco neoclásico estándar.",
+    comercio: "Libre comercio y apertura como receta universal.",
+    detalle: "La estanflación de los 70 le da la razón frente al keynesianismo y conquista los 80 (Thatcher, Reagan, el Consenso de Washington). Es la ortodoxia que Chang ataca: la receta que los países ricos recomiendan pero no usaron para desarrollarse.",
+    chang: false
+  },
+  {
+    id: "desarrollo", nombre: "Economía del desarrollo", era: "contemp",
+    fechas: "1949 – hoy",
+    referentes: "Prebisch, Hirschman, Gerschenkron · Amsden, Wade, Ha-Joon Chang",
+    idea: "Los países atrasados no repiten el camino de los pioneros: necesitan Estado, política industrial y protección selectiva para alcanzarlos.",
+    obra: "Chang, «Patear la escalera» (2002)",
+    estado: "Estratégico: banca de desarrollo, industria naciente, disciplina exportadora.",
+    metodo: "Histórico-comparativo (¿te suena? es el método de la escuela histórica).",
+    valor: "Foco en transformación productiva más que en teoría del valor.",
+    comercio: "Protección temporal y apertura secuenciada; crítica del libre comercio prematuro.",
+    detalle: "Prebisch (CEPAL, argentino) plantea el deterioro de los términos de intercambio; los estudios del este asiático (Amsden sobre Corea, Wade sobre Taiwán) muestran Estados desarrollistas exitosos. Chang sintetiza: Hamilton → List → histórica → institucionalismo → acá. La contracrítica liberal (Irwin, Krueger): correlación no es causalidad, y la sustitución de importaciones latinoamericana fracasó.",
+    chang: true
+  },
+  {
+    id: "conductual", nombre: "Economía conductual", era: "contemp",
+    fechas: "1979 – hoy",
+    referentes: "Kahneman, Tversky, Thaler",
+    idea: "Las personas no son el homo economicus: decidimos con sesgos, atajos y marcos. La psicología entra a la economía.",
+    obra: "Kahneman y Tversky, «Prospect Theory» (1979); Thaler, «Nudge» (2008)",
+    estado: "Paternalismo libertario: pequeños empujones (nudges) sin prohibir opciones.",
+    metodo: "Experimental: laboratorio y datos de comportamiento real.",
+    valor: "El valor percibido depende del marco: perder duele más que ganar (aversión a la pérdida).",
+    comercio: "No es su eje; su blanco es la racionalidad del modelo neoclásico.",
+    detalle: "Kahneman (psicólogo) gana el Nobel de Economía en 2002; Thaler en 2017. Es la crítica interna más exitosa al supuesto de racionalidad perfecta de la neoclásica.",
+    chang: false
+  }
+];
+
+/* Flechas del mapa: de → a, tipo "inf" (influencia) o "riv" (rivalidad).
+   "oro: true" marca las flechas del linaje de Chang. */
+const FLECHAS = [
+  { de: "grecia", a: "escolastica", tipo: "inf" },
+  { de: "escolastica", a: "salamanca", tipo: "inf" },
+  { de: "salamanca", a: "austriaca", tipo: "inf" },
+  { de: "fisiocratas", a: "clasica", tipo: "inf" },
+  { de: "mercantilismo", a: "clasica", tipo: "riv" },
+  { de: "mercantilismo", a: "proteccionismo", tipo: "inf" },
+  { de: "clasica", a: "proteccionismo", tipo: "riv" },
+  { de: "clasica", a: "marxismo", tipo: "inf" },
+  { de: "clasica", a: "neoclasica", tipo: "inf" },
+  { de: "proteccionismo", a: "historica", tipo: "inf", oro: true },
+  { de: "historica", a: "austriaca", tipo: "riv" },
+  { de: "lausanne", a: "neoclasica", tipo: "inf" },
+  { de: "historica", a: "institucionalismo", tipo: "inf", oro: true },
+  { de: "neoclasica", a: "keynesianismo", tipo: "inf" },
+  { de: "austriaca", a: "keynesianismo", tipo: "riv" },
+  { de: "keynesianismo", a: "monetarismo", tipo: "riv" },
+  { de: "institucionalismo", a: "desarrollo", tipo: "inf", oro: true },
+  { de: "monetarismo", a: "desarrollo", tipo: "riv" },
+  { de: "neoclasica", a: "conductual", tipo: "riv" }
+];
+
+/* =====================================================================
+   LÓGICA — de acá para abajo no hace falta tocar nada.
+   ===================================================================== */
+
+// ---------- Pestañas ----------
+document.querySelectorAll("nav button").forEach(b => {
+  b.addEventListener("click", () => {
+    document.querySelectorAll("nav button").forEach(x => x.classList.remove("activa"));
+    document.querySelectorAll(".vista").forEach(x => x.classList.remove("activa"));
+    b.classList.add("activa");
+    document.getElementById("vista-" + b.dataset.vista).classList.add("activa");
+    if (b.dataset.vista === "mapa") requestAnimationFrame(dibujarFlechas);
+  });
+});
+
+// ---------- Vista 1: línea de tiempo ----------
+const contTL = document.getElementById("vista-timeline");
+ERAS.forEach(era => {
+  const escuelasEra = ESCUELAS.filter(e => e.era === era.id);
+  if (!escuelasEra.length) return;
+  const sec = document.createElement("div");
+  sec.className = "era";
+  sec.innerHTML = `<div class="era-titulo"><h2>${era.nombre}</h2><span class="rango">${era.rango}</span></div>`;
+  escuelasEra.forEach(e => {
+    const t = document.createElement("div");
+    t.className = "tarjeta" + (e.chang ? " chang-linaje" : "");
+    t.tabIndex = 0;
+    t.innerHTML = `
+      <div class="fila-sup">
+        <h3>${e.nombre}${e.chang ? '<span class="sello-chang">✦ linaje Chang</span>' : ""}</h3>
+        <span class="fechas">${e.fechas}</span>
+      </div>
+      <p class="resumen">${e.idea}</p>
+      <dl class="detalle">
+        <dt>Referentes</dt><dd>${e.referentes}</dd>
+        <dt>Obra clave</dt><dd>${e.obra}</dd>
+        <dt>Rol del Estado</dt><dd>${e.estado}</dd>
+        <dt>Método</dt><dd>${e.metodo}</dd>
+        <dt>Para tu lectura</dt><dd>${e.detalle}</dd>
+      </dl>`;
+    const alternar = () => t.classList.toggle("abierta");
+    t.addEventListener("click", alternar);
+    t.addEventListener("keydown", ev => { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); alternar(); } });
+    sec.appendChild(t);
+  });
+  contTL.appendChild(sec);
+});
+
+// ---------- Vista 2: mapa de influencias ----------
+const contFilas = document.getElementById("mapa-filas");
+ERAS.forEach(era => {
+  const escuelasEra = ESCUELAS.filter(e => e.era === era.id);
+  if (!escuelasEra.length) return;
+  const fila = document.createElement("div");
+  fila.className = "mapa-fila";
+  fila.innerHTML = `<span class="etiqueta-era">${era.nombre} · ${era.rango}</span>`;
+  escuelasEra.forEach(e => {
+    const n = document.createElement("div");
+    n.className = "nodo" + (e.chang ? " oro" : "");
+    n.dataset.id = e.id;
+    n.tabIndex = 0;
+    n.innerHTML = `${e.nombre}<small>${e.fechas}</small>`;
+    n.title = e.idea;
+    n.addEventListener("click", () => {
+      // Al tocar un nodo, salta a su tarjeta en la línea de tiempo
+      document.querySelector('nav button[data-vista="timeline"]').click();
+      const tarjetas = [...document.querySelectorAll(".tarjeta h3")];
+      const objetivo = tarjetas.find(h => h.textContent.startsWith(e.nombre));
+      if (objetivo) {
+        const tj = objetivo.closest(".tarjeta");
+        tj.classList.add("abierta");
+        tj.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+    });
+    fila.appendChild(n);
+  });
+  contFilas.appendChild(fila);
+});
+
+const svg = document.getElementById("mapa-svg");
+function dibujarFlechas() {
+  const lienzo = document.getElementById("mapa-lienzo");
+  const base = lienzo.getBoundingClientRect();
+  svg.setAttribute("width", base.width);
+  svg.setAttribute("height", lienzo.scrollHeight);
+  svg.innerHTML = `
+    <defs>
+      <marker id="pInf" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+        <path d="M0,0 L8,4 L0,8 Z" fill="#2E6B4F"/>
+      </marker>
+      <marker id="pRiv" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+        <path d="M0,0 L8,4 L0,8 Z" fill="#8C2F39"/>
+      </marker>
+      <marker id="pOro" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+        <path d="M0,0 L9,4.5 L0,9 Z" fill="#A97C22"/>
+      </marker>
+    </defs>`;
+  const modoChang = document.body.classList.contains("modo-chang");
+  FLECHAS.forEach(f => {
+    const nd = contFilas.querySelector(`.nodo[data-id="${f.de}"]`);
+    const na = contFilas.querySelector(`.nodo[data-id="${f.a}"]`);
+    if (!nd || !na) return;
+    const rd = nd.getBoundingClientRect(), ra = na.getBoundingClientRect();
+    const x1 = rd.left - base.left + rd.width / 2;
+    const y1 = rd.bottom - base.top;
+    const x2 = ra.left - base.left + ra.width / 2;
+    const y2 = ra.top - base.top;
+    const curva = Math.max(24, (y2 - y1) * 0.5);
+    const esOro = !!f.oro;
+    const color = esOro ? "#A97C22" : (f.tipo === "riv" ? "#8C2F39" : "#2E6B4F");
+    const marcador = esOro ? "pOro" : (f.tipo === "riv" ? "pRiv" : "pInf");
+    const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    p.setAttribute("d", `M ${x1} ${y1} C ${x1} ${y1 + curva}, ${x2} ${y2 - curva}, ${x2} ${y2}`);
+    p.setAttribute("fill", "none");
+    p.setAttribute("stroke", color);
+    p.setAttribute("stroke-width", esOro ? 2.6 : 1.7);
+    if (f.tipo === "riv") p.setAttribute("stroke-dasharray", "5 4");
+    p.setAttribute("marker-end", `url(#${marcador})`);
+    p.setAttribute("opacity", modoChang && !esOro ? 0.14 : 0.9);
+    svg.appendChild(p);
+  });
+}
+window.addEventListener("resize", () => {
+  if (document.getElementById("vista-mapa").classList.contains("activa")) dibujarFlechas();
+});
+
+document.getElementById("btn-chang").addEventListener("click", function () {
+  this.classList.toggle("activo");
+  document.body.classList.toggle("modo-chang");
+  dibujarFlechas();
+});
+
+// ---------- Vista 3: comparador ----------
+const chips = document.getElementById("chips");
+const contComp = document.getElementById("comp-tabla");
+let seleccion = ["clasica", "historica"]; // arranca con un contraste lindo
+
+ESCUELAS.forEach(e => {
+  const c = document.createElement("button");
+  c.className = "chip" + (seleccion.includes(e.id) ? " sel" : "");
+  c.textContent = e.nombre;
+  c.dataset.id = e.id;
+  c.addEventListener("click", () => {
+    if (seleccion.includes(e.id)) {
+      seleccion = seleccion.filter(x => x !== e.id);
+    } else {
+      if (seleccion.length >= 3) seleccion.shift(); // sale la más vieja
+      seleccion.push(e.id);
+    }
+    chips.querySelectorAll(".chip").forEach(x =>
+      x.classList.toggle("sel", seleccion.includes(x.dataset.id)));
+    pintarComparador();
+  });
+  chips.appendChild(c);
+});
+
+const FILAS_COMP = [
+  ["Fechas", "fechas"],
+  ["Referentes", "referentes"],
+  ["Idea central", "idea"],
+  ["Rol del Estado", "estado"],
+  ["Método", "metodo"],
+  ["Teoría del valor", "valor"],
+  ["Comercio exterior", "comercio"],
+  ["Obra clave", "obra"]
+];
+
+function pintarComparador() {
+  if (!seleccion.length) {
+    contComp.innerHTML = '<p class="aviso">Tocá una escuela para empezar.</p>';
+    return;
+  }
+  const sel = seleccion.map(id => ESCUELAS.find(e => e.id === id));
+  let html = '<table class="comp"><thead><tr><th class="fila-nombre"></th>';
+  sel.forEach(e => html += `<th>${e.nombre}</th>`);
+  html += "</tr></thead><tbody>";
+  FILAS_COMP.forEach(([rotulo, campo]) => {
+    html += `<tr><th class="fila-nombre">${rotulo}</th>`;
+    sel.forEach(e => html += `<td>${e[campo]}</td>`);
+    html += "</tr>";
+  });
+  html += "</tbody></table>";
+  contComp.innerHTML = html;
+}
+pintarComparador();
+
+// ---------- Buscador ----------
+// Busca en nombre, referentes, idea, obra y detalle de cada escuela,
+// ignorando mayúsculas y tildes. Tocar un resultado abre su tarjeta.
+const inputB = document.getElementById("busqueda");
+const contRes = document.getElementById("resultados");
+const norm = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+const ERA_NOMBRE = Object.fromEntries(ERAS.map(e => [e.id, e.nombre]));
+
+function irATarjeta(nombre) {
+  document.querySelector('nav button[data-vista="timeline"]').click();
+  const titulos = [...document.querySelectorAll(".tarjeta h3")];
+  const objetivo = titulos.find(h => h.textContent.startsWith(nombre));
+  if (objetivo) {
+    const tj = objetivo.closest(".tarjeta");
+    tj.classList.add("abierta");
+    tj.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+}
+
+inputB.addEventListener("input", () => {
+  const q = norm(inputB.value.trim());
+  contRes.innerHTML = "";
+  if (q.length < 2) return;
+
+  const hallazgos = ESCUELAS.filter(e =>
+    norm([e.nombre, e.referentes, e.idea, e.obra, e.detalle].join(" ")).includes(q)
+  );
+
+  if (!hallazgos.length) {
+    contRes.innerHTML = '<div class="res sin">Sin resultados — probá con el apellido del autor o una palabra clave.</div>';
+    return;
+  }
+
+  hallazgos.forEach(e => {
+    const d = document.createElement("div");
+    d.className = "res";
+    // Si lo buscado está entre los referentes, lo dice explícitamente
+    const encabezado = norm(e.referentes).includes(q)
+      ? `Referente de <strong>${e.nombre}</strong>`
+      : `<strong>${e.nombre}</strong>`;
+    d.innerHTML =
+      `${encabezado} · ${ERA_NOMBRE[e.era]} · <span class="res-fechas">${e.fechas}</span>` +
+      (e.chang ? ' <span class="sello-chang">✦ linaje Chang</span>' : "") +
+      `<br><span class="res-idea">${e.idea}</span>`;
+    d.addEventListener("click", () => {
+      irATarjeta(e.nombre);
+      contRes.innerHTML = "";
+      inputB.value = "";
+    });
+    contRes.appendChild(d);
+  });
+});
+</script>
+</body>
+</html>
