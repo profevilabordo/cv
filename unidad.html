@@ -232,6 +232,7 @@ function marcarSeccion(tabKey){
   if(!ok) return;
   localStorage.setItem(getCheckKey(tabKey), "1");
   if(tabKey.indexOf("nucleo")===0){ try{enviarNotaNucleo(tabKey);}catch(_e){console.error(_e);} }
+  else if(tabKey !== "autotest"){ try{enviarNotificacionSeccion(tabKey);}catch(_e){console.error(_e);} }
   // Guardar en Supabase si está activo
   if(typeof SUPABASE_ACTIVO !== "undefined" && SUPABASE_ACTIVO){
     trackProgreso(tabKey, undefined, _S);
@@ -1833,6 +1834,26 @@ function enviarNotaAutotest(pct, esPrimer, datos){
     "_captcha": "false"
   });
 }
+function enviarNotificacionSeccion(tabKey){
+  var md = metadatosUnidad(), al = identidadAlumno();
+  var nombre = TAB_LABELS[TAB_KEYS.indexOf(tabKey)] || tabKey;
+  var emoji = TAB_EMOJIS[TAB_KEYS.indexOf(tabKey)] || "✅";
+  enviarFormSubmit({
+    "Evaluación": "U"+md.unidad+" "+nombre+" — "+md.titulo,
+    "Escuela": md.escuela,
+    "Curso": md.curso,
+    "Asignatura": md.materia,
+    "Unidad": "U"+md.unidad,
+    "Trimestre": "T"+md.unidad,
+    "Sección": nombre,
+    "Estudiante": al.nombre,
+    "Código": al.codigo,
+    "Estado": "Completada ✅",
+    "_subject": emoji+" ["+md.curso+"-"+md.materia+"-U"+md.unidad+"] "+nombre+": "+al.nombre,
+    "_captcha": "false"
+  });
+}
+
 // ═══════════════ FIN CAPA DE NOTAS ═══════════════
 
 var SUPABASE_URL = "https://ygafevogfxwupmgwksto.supabase.co";
