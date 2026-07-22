@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>El Péndulo de los Sistemas Económicos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Special+Elite&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #F3EBDD;
+    --card: #FFFBF2;
+    --ink: #3B2316;
+    --ink-soft: #6B5644;
+    --rule: #D9CBB4;
+    --mercado: #C1542C;
+    --mercado-bg: #FBE6DC;
+    --mixto: #A4791E;
+    --mixto-bg: #F7ECD2;
+    --planificado: #2F5D50;
+    --planificado-bg: #DEEAE5;
+  }
+  *{ box-sizing: border-box; }
+  body{
+    margin:0;
+    background: var(--paper);
+    background-image: radial-gradient(circle at 1px 1px, rgba(59,35,22,0.05) 1px, transparent 0);
+    background-size: 18px 18px;
+    color: var(--ink);
+    font-family: 'Source Sans 3', sans-serif;
+    padding: 36px 18px 70px;
+  }
+
+  .masthead{
+    max-width: 920px;
+    margin: 0 auto 8px;
+    text-align: center;
+    border-bottom: 3px double var(--ink);
+    padding-bottom: 16px;
+  }
+  .masthead .eyebrow{
+    font-family: 'Special Elite', monospace;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-size: 12px;
+    color: var(--ink-soft);
+  }
+  .masthead h1{
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5.5vw, 46px);
+    margin: 6px 0 4px;
+    font-weight: 700;
+  }
+  .masthead p{ margin:0; font-size: 14.5px; color: var(--ink-soft); }
+
+  .note{
+    max-width: 760px;
+    margin: 18px auto 30px;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 14px 20px;
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+
+  /* ===== PENDULUM ===== */
+  .pendulum-wrap{
+    max-width: 640px;
+    margin: 0 auto 6px;
+    position: relative;
+    height: 210px;
+  }
+  .pivot{
+    position:absolute;
+    top: 0; left: 50%;
+    width: 16px; height: 16px;
+    background: var(--ink);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    box-shadow: 0 0 0 4px var(--paper), 0 0 0 5px var(--rule);
+  }
+  .arm{
+    position: absolute;
+    top: 8px; left: 50%;
+    width: 3px; height: 165px;
+    background: var(--ink-soft);
+    transform-origin: top center;
+    transform: translateX(-50%) rotate(0deg);
+    transition: transform 0.12s linear;
+    z-index: 2;
+  }
+  .bob{
+    position: absolute;
+    top: 165px; left: 50%;
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    transform: translate(-50%, -6px);
+    display:flex; align-items:center; justify-content:center;
+    font-size: 18px;
+    border: 3px solid var(--ink);
+    background: var(--card);
+    box-shadow: 0 3px 8px rgba(59,35,22,0.25);
+    transition: background 0.2s ease, border-color 0.2s ease;
+    z-index: 4;
+  }
+  .arc-track{
+    position:absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 10px;
+    border-radius: 999px;
+    background: linear-gradient(to right, var(--mercado), var(--mixto), var(--planificado));
+    opacity: 0.35;
+  }
+  .arc-labels{
+    position:absolute;
+    bottom: 16px; left: 0; right: 0;
+    display:flex; justify-content: space-between;
+    font-family: 'Special Elite', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    padding: 0 4px;
+  }
+
+  .slider-row{
+    max-width: 640px;
+    margin: 0 auto 26px;
+  }
+  input[type="range"]{
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 10px;
+    border-radius: 999px;
+    background: linear-gradient(to right, var(--mercado), var(--mixto), var(--planificado));
+    outline: none;
+    cursor: pointer;
+  }
+  input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 3px solid var(--ink);
+    cursor: pointer;
+    margin-top: -1px;
+  }
+  input[type="range"]::-moz-range-thumb{
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--card);
+    border: 3px solid var(--ink);
+    cursor: pointer;
+  }
+  .slider-labels{
+    display:flex; justify-content: space-between;
+    font-family: 'Special Elite', monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-top: 6px;
+  }
+
+  /* ===== READOUT PANEL ===== */
+  .readout{
+    max-width: 640px;
+    margin: 0 auto 30px;
+    background: var(--card);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 22px 26px;
+    text-align: center;
+  }
+  .readout .score{
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1;
+  }
+  .readout .zone-badge{
+    display:inline-block;
+    margin: 8px 0 14px;
+    font-family: 'Special Elite', monospace;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    padding: 5px 16px;
+    border-radius: 999px;
+    text-transform: uppercase;
+  }
+  .zone-badge.mercado{ background: var(--mercado-bg); color: var(--mercado); }
+  .zone-badge.mixto{ background: var(--mixto-bg); color: var(--mixto); }
+  .zone-badge.planificado{ background: var(--planificado-bg); color: var(--planificado); }
+
+  .readout .zone-def{
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    max-width: 480px;
+    margin: 0 auto 18px;
+    line-height: 1.5;
+  }
+
+  .near-countries{
+    display:flex;
+    justify-content:center;
+    gap: 10px;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--rule);
+    padding-top: 16px;
+  }
+  .near-card{
+    background: var(--paper);
+    border: 1.5px solid var(--rule);
+    border-radius: 8px;
+    padding: 8px 14px;
+    min-width: 120px;
+  }
+  .near-card.closest{
+    border-color: var(--ink);
+    background: #fff;
+  }
+  .near-card .flag{ font-size: 22px; }
+  .near-card .cname{
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 13.5px;
+    margin: 2px 0;
+  }
+  .near-card .cscore{ font-size: 12px; color: var(--ink-soft); }
+  .near-card .cnote{
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    margin-top: 3px;
+    line-height: 1.35;
+  }
+
+  /* ===== QUICK JUMP ===== */
+  .quickjump-title{
+    text-align:center;
+    font-family: 'Special Elite', monospace;
+    font-size: 12px;
+    color: var(--ink-soft);
+    margin: 0 0 10px;
+  }
+  .quickjump{
+    max-width: 900px;
+    margin: 0 auto 34px;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:center;
+    gap: 8px;
+  }
+  .qj-chip{
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 2px solid var(--ink);
+    background: var(--card);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .qj-chip:hover{ background: var(--ink); color: var(--paper); }
+
+  /* ===== FULL LIST ===== */
+  .list-toggle{
+    display:block;
+    margin: 0 auto 14px;
+    font-family: 'Special Elite', monospace;
+    font-size: 12.5px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .full-list{
+    display:none;
+    max-width: 640px;
+    margin: 0 auto 20px;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    max-height: 380px;
+    overflow-y: auto;
+  }
+  .full-list-row{
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    padding: 8px 16px;
+    border-bottom: 1px solid var(--rule);
+    cursor: pointer;
+    font-size: 13px;
+  }
+  .full-list-row:hover{ background: var(--paper); }
+  .full-list-row .fl-flag{ font-size: 16px; width: 22px; }
+  .full-list-row .fl-name{ flex-grow:1; font-weight: 600; }
+  .full-list-row .fl-score{ color: var(--ink-soft); font-family:'Special Elite',monospace; font-size:12px; }
+
+  footer{
+    max-width: 760px;
+    margin: 40px auto 0;
+    text-align: center;
+    font-size: 11.5px;
+    color: var(--ink-soft);
+    font-family: 'Special Elite', monospace;
+    line-height:1.6;
+  }
+
+  /* ===== TABS ===== */
+  .tabs{
+    max-width: 480px;
+    margin: 0 auto 30px;
+    display: flex;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .tab-btn{
+    flex: 1;
+    background: var(--paper);
+    border: none;
+    color: var(--ink);
+    font-family: 'Special Elite', monospace;
+    font-size: 12.5px;
+    padding: 11px 8px;
+    cursor: pointer;
+  }
+  .tab-btn.active{ background: var(--ink); color: var(--paper); }
+
+  /* ===== COMPASS MAP ===== */
+  #tab-mapa{ max-width: 900px; margin: 0 auto; }
+  .compass-intro{
+    max-width: 760px;
+    margin: 0 auto 26px;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 14px 20px;
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  .compass-outer{
+    max-width: 620px;
+    margin: 0 auto 10px;
+  }
+  .compass-axis-top{
+    text-align:center;
+    font-family:'Special Elite',monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-bottom: 4px;
+  }
+  .compass-mid{
+    display:flex;
+    align-items:stretch;
+    gap: 6px;
+  }
+  .compass-axis-left{
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family:'Special Elite',monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    text-align:center;
+    flex-shrink:0;
+    width: 16px;
+  }
+  .compass-box{
+    position:relative;
+    flex-grow:1;
+    aspect-ratio: 1 / 1;
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    overflow: hidden;
+    background:
+      linear-gradient(to right, rgba(193,84,44,0.10), rgba(47,93,80,0.10));
+  }
+  .compass-quad{
+    position:absolute;
+    width:50%; height:50%;
+    display:flex;
+    align-items:flex-start;
+    padding: 6px 8px;
+    font-family:'Special Elite',monospace;
+    font-size: 9.5px;
+    color: var(--ink-soft);
+    line-height:1.3;
+    pointer-events:none;
+  }
+  .compass-quad.tl{ top:0; left:0; }
+  .compass-quad.tr{ top:0; left:50%; justify-content:flex-end; text-align:right; }
+  .compass-quad.bl{ bottom:0; left:0; align-items:flex-end; }
+  .compass-quad.br{ bottom:0; left:50%; align-items:flex-end; justify-content:flex-end; text-align:right; }
+  .compass-gridline{
+    position:absolute;
+    background: var(--rule);
+  }
+  .compass-gridline.h{ left:0; right:0; top:50%; height:1px; }
+  .compass-gridline.v{ top:0; bottom:0; left:50%; width:1px; }
+  .compass-dot{
+    position:absolute;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    border: 2px solid var(--ink);
+    transform: translate(-50%, 50%);
+    cursor:pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    z-index: 2;
+  }
+  .compass-dot:hover, .compass-dot.selected{
+    transform: translate(-50%, 50%) scale(1.5);
+    z-index: 5;
+    box-shadow: 0 2px 6px rgba(59,35,22,0.4);
+  }
+  .compass-axis-bottom{
+    text-align:center;
+    font-family:'Special Elite',monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+
+  .compass-readout{
+    max-width: 620px;
+    margin: 18px auto 26px;
+    background: var(--card);
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 18px 22px;
+    text-align:center;
+    min-height: 90px;
+  }
+  .compass-readout .placeholder{
+    color: var(--ink-soft);
+    font-size: 13px;
+    padding: 12px 0;
+  }
+  .compass-readout .cr-name{
+    font-family:'Playfair Display',serif;
+    font-weight:700;
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+  .compass-readout .cr-scores{
+    display:flex;
+    justify-content:center;
+    gap: 22px;
+    margin: 10px 0 12px;
+    flex-wrap:wrap;
+  }
+  .compass-readout .cr-score-item{
+    text-align:center;
+  }
+  .compass-readout .cr-score-item .lbl{
+    font-family:'Special Elite',monospace;
+    font-size: 10px;
+    color: var(--ink-soft);
+    text-transform:uppercase;
+  }
+  .compass-readout .cr-score-item .val{
+    font-family:'Playfair Display',serif;
+    font-weight:700;
+    font-size: 22px;
+  }
+  .compass-readout .cr-note{
+    font-size: 12.5px;
+    color: var(--ink-soft);
+    max-width: 480px;
+    margin: 0 auto;
+    line-height:1.5;
+  }
+
+  .compass-quickjump{
+    max-width: 900px;
+    margin: 0 auto 20px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap: 8px;
+  }
+
+  .rank-table-toggle{
+    display:block;
+    margin: 0 auto 14px;
+    font-family: 'Special Elite', monospace;
+    font-size: 12.5px;
+    background: var(--ink);
+    color: var(--paper);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .rank-table-wrap{
+    display:none;
+    max-width: 640px;
+    margin: 0 auto 10px;
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    max-height: 460px;
+    overflow-y: auto;
+  }
+  table.rank-table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+  }
+  table.rank-table thead th{
+    position: sticky;
+    top: 0;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Special Elite', monospace;
+    font-size: 10.5px;
+    text-transform: uppercase;
+    padding: 8px 6px;
+    text-align: center;
+    z-index: 1;
+  }
+  table.rank-table thead th.col-country{ text-align: left; padding-left: 14px; }
+  table.rank-table tbody td{
+    padding: 7px 6px;
+    text-align: center;
+    border-bottom: 1px solid var(--rule);
+  }
+  table.rank-table tbody td.col-country{
+    text-align: left;
+    padding-left: 14px;
+    font-weight: 600;
+  }
+  table.rank-table tbody tr{ cursor: pointer; }
+  table.rank-table tbody tr:hover{ background: var(--paper); }
+  table.rank-table .rank-pill{
+    display:inline-block;
+    min-width: 22px;
+    font-family:'Special Elite',monospace;
+    font-size: 11px;
+    color: var(--ink-soft);
+  }
+  table.rank-table .score-econ{ font-weight: 700; }
+  table.rank-table .score-polit{ font-weight: 700; }
+</style>
+</head>
+<body>
+
+  <div class="masthead">
+    <div class="eyebrow">Sistemas Económicos · Mercado · Mixto · Planificado</div>
+    <h1>⚖️ El Péndulo de los Sistemas Económicos</h1>
+    <p>Movete por el espectro y descubrí qué países están en cada punto del recorrido</p>
+  </div>
+
+  <div class="note">
+    Este péndulo usa el <b>Índice de Libertad Económica</b> (The Heritage Foundation, edición 2026) como aproximación: cuanto menos interviene el Estado en precios, propiedad y comercio, más cerca del extremo "Mercado"; cuanto más controla el Estado qué, cuánto y a qué precio se produce, más cerca de "Planificado". No es exactamente lo mismo que el sistema político del país, así que a veces hay sorpresas (por ejemplo, Vietnam es oficialmente comunista pero tiene una economía bastante abierta).
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" id="btn-tab-pendulo" onclick="showMainTab('pendulo')">⚖️ Péndulo económico</button>
+    <button class="tab-btn" id="btn-tab-mapa" onclick="showMainTab('mapa')">🗺️ Mapa político-económico</button>
+  </div>
+
+  <section id="tab-pendulo">
+
+  <div class="pendulum-wrap">
+    <div class="arc-track"></div>
+    <div class="arc-labels">
+      <span>🏛 MERCADO</span>
+      <span>⚖️ MIXTO</span>
+      <span>🚩 PLANIFICADO</span>
+    </div>
+    <div class="pivot"></div>
+    <div class="arm" id="arm"></div>
+    <div class="bob" id="bob">🌍</div>
+  </div>
+
+  <div class="slider-row">
+    <input type="range" id="slider" min="0" max="100" value="60" step="1">
+    <div class="slider-labels">
+      <span>← Libertad total (100)</span>
+      <span>Control total (0) →</span>
+    </div>
+  </div>
+
+  <div class="readout">
+    <div class="score" id="score-display">60</div>
+    <div class="zone-badge" id="zone-badge">Mixto</div>
+    <div class="zone-def" id="zone-def">...</div>
+    <div class="near-countries" id="near-countries"></div>
+  </div>
+
+  <p class="quickjump-title">☕ Ir directo a un país</p>
+  <div class="quickjump" id="quickjump"></div>
+
+  <button class="list-toggle" onclick="toggleList()">📋 Ver los 48 países ordenados</button>
+  <div class="full-list" id="full-list"></div>
+
+  </section>
+
+  <section id="tab-mapa" style="display:none;">
+
+    <div class="compass-intro">
+      Este mapa cruza dos ejes distintos: <b>libertad económica</b> (Heritage Foundation 2026, horizontal) y <b>libertad política</b> — elecciones limpias, libertad de expresión, estado de derecho (Freedom House, "Freedom in the World" 2026, vertical). Son preguntas diferentes: un país puede tener mercado abierto y poca democracia, o viceversa. Tocá un punto para ver el país.
+    </div>
+
+    <div class="compass-outer">
+      <div class="compass-axis-top">🗳️ MÁS DEMOCRACIA (100)</div>
+      <div class="compass-mid">
+        <div class="compass-axis-left">🚩 PLANIFICADO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;🏛 MERCADO</div>
+        <div class="compass-box" id="compass-box">
+          <div class="compass-quad tl">Planificado<br>+ Democracia<br>(poco común)</div>
+          <div class="compass-quad tr">Mercado<br>+ Democracia</div>
+          <div class="compass-quad bl">Planificado<br>+ Autoritario</div>
+          <div class="compass-quad br">Mercado<br>+ Autoritario</div>
+          <div class="compass-gridline h"></div>
+          <div class="compass-gridline v"></div>
+        </div>
+      </div>
+      <div class="compass-axis-bottom">🔒 MÁS AUTORITARISMO (0)</div>
+    </div>
+
+    <div class="compass-readout" id="compass-readout">
+      <div class="placeholder">👆 Tocá un país en el mapa para ver sus datos</div>
+    </div>
+
+    <p class="quickjump-title">☕ Ver un país clave</p>
+    <div class="compass-quickjump" id="compass-quickjump"></div>
+
+    <button class="rank-table-toggle" id="rank-table-toggle-btn">📊 Ver tabla con los dos rankings</button>
+    <div class="rank-table-wrap" id="rank-table-wrap">
+      <table class="rank-table">
+        <thead>
+          <tr>
+            <th class="col-country">País</th>
+            <th>🏛 Rk. Económico</th>
+            <th>🗳️ Rk. Político</th>
+          </tr>
+        </thead>
+        <tbody id="rank-table-body"></tbody>
+      </table>
+    </div>
+
+  </section>
+
+  <footer>★ Aula Digital con Verónica ★ Café Económico — 6to B<br>
+  Datos: The Heritage Foundation, Index of Economic Freedom 2026 · Freedom House, Freedom in the World 2026</footer>
+
+<script>
+  const countries = [
+    {name:"Singapur", code:"SG", score:84.4, political:48, note:"La economía más libre del mundo, aunque con fuerte control político."},
+    {name:"Suiza", code:"CH", score:83.7, political:96},
+    {name:"Irlanda", code:"IE", score:83.3, political:98},
+    {name:"Australia", code:"AU", score:80.1, political:94},
+    {name:"Taiwán", code:"TW", score:79.8, political:94},
+    {name:"Luxemburgo", code:"LU", score:79.7, political:97},
+    {name:"Dinamarca", code:"DK", score:79.0, political:97},
+    {name:"Estonia", code:"EE", score:78.7, political:96},
+    {name:"Países Bajos", code:"NL", score:78.5, political:97},
+    {name:"Nueva Zelanda", code:"NZ", score:78.1, political:99},
+    {name:"Suecia", code:"SE", score:77.9, political:100},
+    {name:"Canadá", code:"CA", score:75.5, political:97},
+    {name:"Corea del Sur", code:"KR", score:74.0, political:83},
+    {name:"Chile", code:"CL", score:73.2, political:95},
+    {name:"Estados Unidos", code:"US", score:72.8, political:81, note:"Subió 2,6 puntos en libertad económica en 2026, pero bajó 3 puntos en libertad política."},
+    {name:"Alemania", code:"DE", score:71.6, political:95},
+    {name:"Emiratos Árabes Unidos", code:"AE", score:71.6, political:17, note:"Mercado muy abierto, pero sin elecciones libres ni oposición política."},
+    {name:"Portugal", code:"PT", score:70.5, political:96},
+    {name:"Uruguay", code:"UY", score:70.2, political:96, note:"Estabilidad institucional y apertura comercial en la región."},
+    {name:"Japón", code:"JP", score:70.2, political:96},
+
+    {name:"Reino Unido", code:"GB", score:69.3, political:91},
+    {name:"Polonia", code:"PL", score:67.1, political:82},
+    {name:"Costa Rica", code:"CR", score:68.6, political:91},
+    {name:"España", code:"ES", score:66.3, political:90},
+    {name:"Perú", code:"PE", score:65.9, political:66},
+    {name:"India", code:"IN", score:65.2, political:62},
+    {name:"Paraguay", code:"PY", score:65.2, political:63},
+    {name:"Vietnam", code:"VN", score:65.2, political:19, note:"Oficialmente comunista, pero con una economía cada vez más abierta."},
+    {name:"Francia", code:"FR", score:64.4, political:89},
+    {name:"México", code:"MX", score:61.3, political:58},
+    {name:"Italia", code:"IT", score:60.9, political:87},
+    {name:"Colombia", code:"CO", score:59.8, political:69},
+    {name:"Sudáfrica", code:"ZA", score:57.3, political:79},
+    {name:"Turquía", code:"TR", score:56.1, political:32},
+    {name:"Brasil", code:"BR", score:55.1, political:73, note:"Fuerte presencia estatal en energía y banca."},
+    {name:"Argentina", code:"AR", score:54.2, political:85, note:"El país que más mejoró en libertad económica en 2026 (+3,2 puntos) por las reformas de Milei."},
+    {name:"Rusia", code:"RU", score:51.6, political:12, note:"Fuerte intervención estatal y sanciones internacionales."},
+    {name:"Laos", code:"LA", score:51.1, political:13, note:"Economía de partido único con planificación estatal."},
+    {name:"Egipto", code:"EG", score:50.9, political:18},
+
+    {name:"China", code:"CN", score:48.3, political:9, note:"Segunda economía del mundo, con control estatal de sectores estratégicos."},
+    {name:"Bielorrusia", code:"BY", score:48.9, political:7, note:"Empresas estatales al estilo soviético."},
+    {name:"Bolivia", code:"BO", score:44.1, political:69},
+    {name:"Eritrea", code:"ER", score:38.6, political:3},
+    {name:"Sudán", code:"SD", score:35.3, political:3},
+    {name:"Zimbabue", code:"ZW", score:35.1, political:28},
+    {name:"Venezuela", code:"VE", score:27.6, political:13, note:"Control de precios, estatizaciones y fuerte caída del PBI."},
+    {name:"Cuba", code:"CU", score:25.4, political:9, note:"El Estado planifica qué, cuánto y a qué precio se produce y vende."},
+    {name:"Corea del Norte", code:"KP", score:3.0, political:3, note:"La economía más cerrada y planificada del planeta."},
+  ].sort((a,b) => b.score - a.score);
+
+  const quickJumpList = ["Singapur","Estados Unidos","Argentina","Uruguay","Brasil","China","Rusia","Venezuela","Cuba","Corea del Norte"];
+
+  function flagEmoji(code){
+    return String.fromCodePoint(...[...code.toUpperCase()].map(c => 127397 + c.charCodeAt(0)));
+  }
+
+  function zoneOf(score){
+    if(score >= 70) return "mercado";
+    if(score >= 50) return "mixto";
+    return "planificado";
+  }
+
+  const zoneLabels = {mercado:"🏛 Mercado", mixto:"⚖️ Mixto", planificado:"🚩 Planificado"};
+  const zoneDefs = {
+    mercado: "Poca intervención estatal: los precios y la producción los define la oferta y la demanda. El Estado protege la propiedad privada y deja actuar al mercado.",
+    mixto: "El Estado y los privados conviven: hay mercado, pero también regulación, subsidios, empresas públicas o impuestos que corrigen al sistema.",
+    planificado: "El Estado concentra el control: decide qué, cuánto y a qué precio se produce y se vende, con poco margen para el mercado libre."
+  };
+  const zoneEmoji = {mercado:"🏛", mixto:"⚖️", planificado:"🚩"};
+
+  function updatePendulum(score){
+    // score: 100 (mercado) -> angle -60deg ; 0 (planificado) -> angle +60deg
+    const angle = (50 - score) * 1.2;
+    document.getElementById('arm').style.transform = `translateX(-50%) rotate(${angle}deg)`;
+
+    const zone = zoneOf(score);
+    document.getElementById('bob').textContent = zoneEmoji[zone];
+    document.getElementById('bob').style.background = `var(--${zone}-bg)`;
+    document.getElementById('bob').style.borderColor = `var(--${zone})`;
+
+    document.getElementById('score-display').textContent = Math.round(score);
+    document.getElementById('score-display').style.color = `var(--${zone})`;
+
+    const badge = document.getElementById('zone-badge');
+    badge.textContent = zoneLabels[zone];
+    badge.className = 'zone-badge ' + zone;
+
+    document.getElementById('zone-def').textContent = zoneDefs[zone];
+
+    // 3 países más cercanos por puntaje
+    const sortedByDist = [...countries].sort((a,b) => Math.abs(a.score-score) - Math.abs(b.score-score));
+    const nearest = sortedByDist.slice(0,3);
+    const nc = document.getElementById('near-countries');
+    nc.innerHTML = nearest.map((c,i) => `
+      <div class="near-card ${i===0 ? 'closest':''}">
+        <div class="flag">${flagEmoji(c.code)}</div>
+        <div class="cname">${c.name}</div>
+        <div class="cscore">${c.score.toFixed(1)} pts</div>
+        ${c.note ? `<div class="cnote">${c.note}</div>` : ''}
+      </div>`).join('');
+  }
+
+  document.getElementById('slider').addEventListener('input', (e) => {
+    updatePendulum(parseFloat(e.target.value));
+  });
+
+  function jumpTo(score){
+    document.getElementById('slider').value = score;
+    updatePendulum(score);
+  }
+
+  // Quick jump chips
+  const qjDiv = document.getElementById('quickjump');
+  quickJumpList.forEach(name => {
+    const c = countries.find(x => x.name === name);
+    if(!c) return;
+    const btn = document.createElement('button');
+    btn.className = 'qj-chip';
+    btn.textContent = flagEmoji(c.code) + ' ' + c.name;
+    btn.onclick = () => jumpTo(c.score);
+    qjDiv.appendChild(btn);
+  });
+
+  // Full list
+  const listDiv = document.getElementById('full-list');
+  listDiv.innerHTML = countries.map(c => `
+    <div class="full-list-row" onclick="jumpTo(${c.score})">
+      <span class="fl-flag">${flagEmoji(c.code)}</span>
+      <span class="fl-name">${c.name}</span>
+      <span class="fl-score">${c.score.toFixed(1)}</span>
+    </div>`).join('');
+
+  function toggleList(){
+    const el = document.getElementById('full-list');
+    el.style.display = el.style.display === 'block' ? 'none' : 'block';
+  }
+
+  // ===== MAIN TABS (Péndulo / Mapa) =====
+  function showMainTab(tab){
+    document.getElementById('tab-pendulo').style.display = tab === 'pendulo' ? 'block' : 'none';
+    document.getElementById('tab-mapa').style.display = tab === 'mapa' ? 'block' : 'none';
+    document.getElementById('btn-tab-pendulo').classList.toggle('active', tab === 'pendulo');
+    document.getElementById('btn-tab-mapa').classList.toggle('active', tab === 'mapa');
+    if(tab === 'mapa') renderCompass();
+  }
+
+  // ===== COMPASS MAP =====
+  let compassBuilt = false;
+
+  function politicalZone(p){
+    if(p >= 70) return "Libre";
+    if(p >= 40) return "Parcialmente libre";
+    return "No libre";
+  }
+
+  function renderCompass(){
+    if(compassBuilt) return;
+    compassBuilt = true;
+    const box = document.getElementById('compass-box');
+    countries.forEach(c => {
+      const dot = document.createElement('div');
+      dot.className = 'compass-dot';
+      dot.style.left = c.score + '%';
+      dot.style.bottom = c.political + '%';
+      dot.style.background = `var(--${zoneOf(c.score)}-bg)`;
+      dot.style.borderColor = `var(--${zoneOf(c.score)})`;
+      dot.title = c.name;
+      dot.onclick = () => selectCompassCountry(c, dot);
+      box.appendChild(dot);
+      c._dot = dot;
+    });
+
+    // Quick jump chips
+    const qj = document.getElementById('compass-quickjump');
+    quickJumpList.forEach(name => {
+      const c = countries.find(x => x.name === name);
+      if(!c) return;
+      const btn = document.createElement('button');
+      btn.className = 'qj-chip';
+      btn.textContent = flagEmoji(c.code) + ' ' + c.name;
+      btn.onclick = () => selectCompassCountry(c, c._dot);
+      qj.appendChild(btn);
+    });
+  }
+
+  function selectCompassCountry(c, dot){
+    document.querySelectorAll('.compass-dot').forEach(d => d.classList.remove('selected'));
+    if(dot) dot.classList.add('selected');
+
+    const econZone = zoneOf(c.score);
+    const politZoneLabel = politicalZone(c.political);
+
+    const readout = document.getElementById('compass-readout');
+    readout.innerHTML = `
+      <div class="cr-name">${flagEmoji(c.code)} ${c.name}</div>
+      <div class="cr-scores">
+        <div class="cr-score-item">
+          <div class="lbl">${zoneEmoji[econZone]} Económico</div>
+          <div class="val" style="color:var(--${econZone})">${c.score.toFixed(1)}</div>
+        </div>
+        <div class="cr-score-item">
+          <div class="lbl">🗳️ Político</div>
+          <div class="val">${c.political} <span style="font-size:12px; font-weight:400;">(${politZoneLabel})</span></div>
+        </div>
+      </div>
+      <div class="cr-note">${c.note ? c.note : 'Tocá otro país para comparar, o mirá qué otros países están cerca en el mapa.'}</div>
+    `;
+  }
+
+  // ===== RANKING TABLE =====
+  function buildRankTable(){
+    // countries ya está ordenado por score económico desc -> ese es el ranking económico
+    const econRank = {};
+    countries.forEach((c, i) => { econRank[c.name] = i + 1; });
+
+    // ranking político aparte
+    const byPolitical = [...countries].sort((a,b) => b.political - a.political);
+    const politRank = {};
+    byPolitical.forEach((c, i) => { politRank[c.name] = i + 1; });
+
+    const body = document.getElementById('rank-table-body');
+    body.innerHTML = '';
+    countries.forEach(c => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td class="col-country">${flagEmoji(c.code)} ${c.name}</td>
+        <td><span class="rank-pill">#${econRank[c.name]}</span> <span class="score-econ" style="color:var(--${zoneOf(c.score)})">${c.score.toFixed(1)}</span></td>
+        <td><span class="rank-pill">#${politRank[c.name]}</span> <span class="score-polit">${c.political}</span></td>
+      `;
+      tr.addEventListener('click', () => {
+        if(!compassBuilt) renderCompass();
+        selectCompassCountry(c, c._dot);
+      });
+      body.appendChild(tr);
+    });
+  }
+
+  buildRankTable();
+
+  const rankToggleBtn = document.getElementById('rank-table-toggle-btn');
+  const rankTableWrap = document.getElementById('rank-table-wrap');
+  rankToggleBtn.addEventListener('click', () => {
+    const isOpen = rankTableWrap.style.display === 'block';
+    rankTableWrap.style.display = isOpen ? 'none' : 'block';
+    rankToggleBtn.textContent = isOpen ? '📊 Ver tabla con los dos rankings' : '📊 Ocultar tabla';
+  });
+
+  // Init
+  updatePendulum(60);
+</script>
+
+</body>
+</html>
