@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan de Cuentas — Contabilidad (Argentina)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F2F4EF; --panel:#FBFCF9; --ink:#1B211C; --muted:#5A625A;
+    --rule:#D8DDD2; --rule-soft:#E7EAE1;
+    --activo:#1F6E4C; --pasivo:#B23A2E; --pn:#3A4E8C;
+    --rpos:#0F766E; --rneg:#A6521A; --reg:#6B5B95;
+    --shadow:0 1px 0 rgba(27,33,28,.04), 0 12px 30px -22px rgba(27,33,28,.35);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:linear-gradient(var(--rule-soft) 1px, transparent 1px) 0 0 / 100% 34px, var(--paper);
+    color:var(--ink); font-family:"Inter",system-ui,sans-serif; line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1000px;margin:0 auto;padding:0 20px 80px}
+  header.hero{padding:44px 0 22px}
+  .eyebrow{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
+  h1{font-family:"Archivo",sans-serif;font-weight:800;font-size:clamp(34px,7vw,60px);line-height:.98;letter-spacing:-.02em;margin:0 0 14px}
+  .lead{font-size:clamp(15px,2.4vw,18px);color:var(--muted);max-width:58ch;margin:0}
+  .taccount{display:inline-grid;grid-template-columns:1fr 1fr;gap:0;border:1.5px solid var(--ink);width:132px;margin-top:22px;font-family:"Space Mono",monospace;font-size:12px;background:var(--panel)}
+  .taccount div{padding:5px 0;text-align:center}
+  .taccount .top{grid-column:1 / -1;border-bottom:1.5px solid var(--ink);font-weight:700;letter-spacing:.1em}
+  .taccount .l{border-right:1.5px solid var(--ink);color:var(--activo);font-weight:700}
+  .taccount .r{color:var(--pasivo);font-weight:700}
+  .controls{position:sticky;top:0;z-index:20;background:linear-gradient(var(--paper) 82%, rgba(242,244,239,0));padding:14px 0 12px;margin:8px 0 6px}
+  .search{position:relative}
+  .search input{width:100%;padding:14px 16px 14px 44px;font-size:16px;font-family:inherit;border:1.5px solid var(--rule);border-radius:12px;background:var(--panel);color:var(--ink);box-shadow:var(--shadow);outline:none}
+  .search input:focus{border-color:var(--ink)}
+  .search svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);color:var(--muted)}
+  .rowtools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:12px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-family:"Space Mono",monospace;font-size:12px;padding:7px 12px;border-radius:999px;border:1.5px solid var(--rule);background:var(--panel);color:var(--muted);cursor:pointer;white-space:nowrap;transition:all .12s ease}
+  .chip:hover{border-color:var(--ink);color:var(--ink)}
+  .chip.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .chip .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;vertical-align:1px}
+  .studytoggle{margin-left:auto;display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);cursor:pointer;user-select:none}
+  .switch{width:40px;height:23px;border-radius:999px;background:var(--rule);position:relative;transition:.15s;flex:none;border:1.5px solid var(--rule)}
+  .switch::after{content:"";position:absolute;width:17px;height:17px;border-radius:50%;background:#fff;top:1.5px;left:2px;transition:.15s;box-shadow:0 1px 2px rgba(0,0,0,.2)}
+  .studytoggle.on .switch{background:var(--ink);border-color:var(--ink)}
+  .studytoggle.on .switch::after{left:19px}
+  .count{font-family:"Space Mono",monospace;font-size:12px;color:var(--muted);margin:14px 0 2px}
+  .hint{display:none;font-size:13px;color:var(--muted);font-style:italic;margin:10px 0 0}
+  body.study .hint{display:block}
+  .rubro{margin-top:30px;scroll-margin-top:150px}
+  .rubro-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;color:#fff;padding:12px 16px;border-radius:10px 10px 0 0}
+  .rubro-head h2{font-family:"Archivo",sans-serif;font-weight:700;font-size:20px;margin:0;letter-spacing:-.01em}
+  .rubro-head .saldo{font-family:"Space Mono",monospace;font-size:11.5px;opacity:.9;margin-left:auto}
+  .rubro-note{background:var(--panel);border:1.5px solid var(--rule);border-top:none;padding:11px 16px;font-size:13.5px;color:var(--muted)}
+  .sub{font-family:"Space Mono",monospace;font-size:11.5px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);padding:16px 4px 8px;border-bottom:1.5px solid var(--rule);margin-bottom:2px}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  @media(max-width:700px){.cards{grid-template-columns:1fr}}
+  .card{border-bottom:1px solid var(--rule-soft);padding:13px 10px 14px 12px;display:flex;flex-direction:column;gap:5px;border-left:3px solid transparent}
+  .card .top{display:flex;align-items:center;gap:9px}
+  .codigo{font-family:"Space Mono",monospace;font-size:11px;color:var(--muted)}
+  .saldo-chip{font-family:"Space Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:5px;border:1.2px solid currentColor;text-transform:uppercase}
+  .saldo-chip.debe{color:var(--activo)}
+  .saldo-chip.haber{color:var(--pasivo)}
+  .cuenta{font-weight:600;font-size:15.5px;color:var(--ink);border-radius:6px}
+  .representa{font-size:13.5px;color:var(--muted)}
+  .comun{font-size:13px;color:var(--muted);padding-left:11px;border-left:2px solid var(--rule);margin-top:2px}
+  .comun b{font-family:"Space Mono",monospace;font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);display:block;margin-bottom:2px;font-weight:700}
+  body.study .cuenta{background:var(--rule-soft);color:transparent;cursor:pointer;position:relative;min-height:1.5em}
+  body.study .cuenta::after{content:"tocá para ver el nombre";position:absolute;inset:0;display:flex;align-items:center;color:var(--muted);font-size:12px;font-style:italic;font-weight:400;padding-left:8px}
+  body.study .cuenta.reveal{background:transparent;color:var(--ink)}
+  body.study .cuenta.reveal::after{display:none}
+  .no-results{padding:40px 4px;color:var(--muted);font-style:italic;display:none}
+  footer{margin-top:50px;padding-top:20px;border-top:1.5px solid var(--rule);font-size:12.5px;color:var(--muted)}
+  footer .legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px}
+  footer .legend span{display:flex;align-items:center;gap:6px}
+  footer .legend i{width:11px;height:11px;border-radius:3px;display:inline-block}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <p class="eyebrow">Contabilidad · Argentina</p>
+    <h1>Plan de Cuentas</h1>
+    <p class="lead">Listado de cuentas por rubro. De cada una vas a ver qué representa, cómo se dice en lenguaje común y de qué lado nace su saldo: Debe o Haber.</p>
+    <div class="taccount" aria-hidden="true">
+      <div class="top">CUENTA</div><div class="l">DEBE</div><div class="r">HABER</div>
+    </div>
+  </header>
+
+  <div class="controls">
+    <div class="search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="q" type="search" placeholder="Buscar… (ej: pagarés, cheques diferidos, IVA)" autocomplete="off">
+    </div>
+    <div class="rowtools">
+      <div class="chips" id="chips"></div>
+      <div class="studytoggle" id="study" role="switch" aria-checked="false" tabindex="0"><span class="switch"></span> Modo estudio</div>
+    </div>
+    <p class="hint">Se tapa el nombre de la cuenta: leé la definición y adiviná cuál es. Tocá el recuadro gris para comprobar.</p>
+    <div class="count" id="count"></div>
+  </div>
+
+  <div id="list"></div>
+  <p class="no-results" id="noresults">No hay cuentas que coincidan con la búsqueda.</p>
+
+  <footer>
+    <div class="legend">
+      <span><i style="background:var(--activo)"></i>Activo</span>
+      <span><i style="background:var(--pasivo)"></i>Pasivo</span>
+      <span><i style="background:var(--pn)"></i>Patrimonio Neto</span>
+      <span><i style="background:var(--rpos)"></i>Resultado positivo</span>
+      <span><i style="background:var(--rneg)"></i>Resultado negativo</span>
+      <span><i style="background:var(--reg)"></i>Regularizadoras</span>
+    </div>
+    Activo, Pasivo y Patrimonio Neto son <strong>cuentas patrimoniales</strong> (van al Estado de Situación Patrimonial). Los resultados positivos y negativos son <strong>cuentas de resultado</strong> (van al Estado de Resultados). Las <strong>regularizadoras</strong> ajustan el valor de otra cuenta y llevan el saldo contrario a la que rectifican.
+  </footer>
+</div>
+
+<script>
+const RUBROS = {
+  activo:{label:"Activo", color:"var(--activo)", saldo:"Saldo deudor (Debe)"},
+  pasivo:{label:"Pasivo", color:"var(--pasivo)", saldo:"Saldo acreedor (Haber)"},
+  pn:{label:"Patrimonio Neto", color:"var(--pn)", saldo:"Saldo acreedor (Haber)"},
+  rpos:{label:"Resultado Positivo", color:"var(--rpos)", saldo:"Ingresos y ganancias · Haber"},
+  rneg:{label:"Resultado Negativo", color:"var(--rneg)", saldo:"Gastos y pérdidas · Debe"},
+  reg:{label:"Cuentas Regularizadoras", color:"var(--reg)", saldo:"Saldo contrario al que rectifican"},
+};
+const NOTES = {
+  activo:"Bienes y derechos del ente. Se dividen en corriente (se convierte en dinero dentro del año) y no corriente.",
+  pasivo:"Deudas y obligaciones con terceros. También se separan en corriente y no corriente.",
+  pn:"Diferencia entre el activo y el pasivo: lo que realmente pertenece al dueño o a los socios.",
+  rpos:"Cuentas que aumentan el patrimonio: ingresos y ganancias del ejercicio.",
+  rneg:"Cuentas que disminuyen el patrimonio: gastos, egresos y pérdidas del ejercicio.",
+  reg:"No van solas: restan (o suman) valor a otra cuenta para mostrarla a su valor real.",
+};
+// [rubro, subgrupo, código, cuenta, saldo(d/h), representa, terminología común]
+const CUENTAS = [
+  ["activo","Corriente","1.1.01","Caja","d","Efectivo, ingresos y egresos de dinero.","Dinero en efectivo."],
+  ["activo","Corriente","1.1.02","Fondo fijo / Caja chica","d","Suma fija destinada a pagar gastos menores del día a día.",""],
+  ["activo","Corriente","1.1.03","Valores a Depositar","d","Cheques recibidos de terceros aún no depositados para su cobro.","Cheques comunes recibidos de terceros."],
+  ["activo","Corriente","1.1.04","Valores Diferidos a Depositar","d","Cheques de pago diferido recibidos de terceros, todavía no vencidos.","Cheques diferidos recibidos de terceros."],
+  ["activo","Corriente","1.1.05","Tarjeta de Crédito «XX»","d","Importes a cobrar a la tarjeta por ventas hechas con ese medio de pago.","Cupones o comprobantes emitidos por ventas con tarjeta de crédito."],
+  ["activo","Corriente","1.1.06","Banco «X» c/c","d","Saldo disponible en la cuenta corriente bancaria del ente.","Dinero depositado en cuenta corriente bancaria."],
+  ["activo","Corriente","1.1.07","Banco «X» caja de ahorro","d","Saldo disponible en la caja de ahorro del ente.",""],
+  ["activo","Corriente","1.1.08","Banco «X» plazo fijo","d","Certificado de plazo fijo a nombre del ente.",""],
+  ["activo","Corriente","1.1.09","Deudores por Ventas","d","Saldos a cobrar por ventas de mercaderías o servicios en cuenta corriente, sin documentar.","Personas que nos deben dinero en cta. cte. (de palabra) por venta de mercaderías o servicios."],
+  ["activo","Corriente","1.1.10","Deudores Varios","d","Saldos a cobrar, sin documentar, por motivos ajenos a la venta de mercaderías o servicios.","Personas que nos deben dinero por créditos otorgados u otros motivos."],
+  ["activo","Corriente","1.1.11","Documentos a Cobrar","d","Pagarés recibidos de terceros que aún no se cobraron.","Pagarés recibidos de terceros a nuestro favor."],
+  ["activo","Corriente","1.1.12","Anticipos a proveedores","d","Sumas entregadas a proveedores a cuenta de compras futuras.",""],
+  ["activo","Corriente","1.1.13","IVA Crédito Fiscal","d","IVA pagado en las compras, que se computa contra el IVA de las ventas.",""],
+  ["activo","Corriente","1.1.14","Mercaderías","d","Bienes adquiridos para ser vendidos.","Bienes destinados para la venta."],
+  ["activo","Corriente","1.1.15","Materias Primas","d","Insumos que se transforman durante el proceso productivo.","Bienes destinados a la fabricación de mercaderías."],
+  ["activo","Corriente","1.1.16","Productos en proceso","d","Bienes en elaboración, todavía no terminados.",""],
+  ["activo","Corriente","1.1.17","Productos terminados","d","Bienes fabricados y listos para la venta.",""],
+  ["activo","No corriente","1.2.01","Muebles y Útiles","d","Bienes usados para desarrollar la actividad del ente.","Sillas, escritorios, mostradores, fotocopiadoras, teléfonos, proyectores, etc."],
+  ["activo","No corriente","1.2.02","Instalaciones","d","Bienes instalados en forma permanente en el edificio.","Estanterías, carteles luminosos, aire acondicionado, estufas, puertas, portones, alarmas, etc."],
+  ["activo","No corriente","1.2.03","Equipos de Computación","d","Computadoras y periféricos usados en la actividad.","Computadoras, scanner, impresoras, modem, monitor, teclado, mouse, notebook, etc."],
+  ["activo","No corriente","1.2.04","Rodados","d","Vehículos propiedad del ente.","Vehículos, camiones, automóviles, etc."],
+  ["activo","No corriente","1.2.05","Maquinarias","d","Máquinas y equipos destinados a la producción.","Máquinas de un taller o fábrica: tornos, guillotinas, dobladoras, etc."],
+  ["activo","No corriente","1.2.06","Herramientas","d","Elementos de trabajo de menor porte.",""],
+  ["activo","No corriente","1.2.07","Inmuebles","d","Terrenos y edificios propiedad del ente.","Casas, locales, terrenos, departamentos, etc."],
+  ["activo","No corriente","1.2.08","Títulos y acciones","d","Inversiones en acciones o títulos de otras entidades.",""],
+  ["activo","No corriente","1.2.09","Llave de negocio","d","Valor intangible por el prestigio y la clientela del negocio.",""],
+  ["activo","No corriente","1.2.10","Marcas y patentes","d","Derechos sobre marcas, patentes y licencias.",""],
+  ["pasivo","Corriente","2.1.01","Proveedores","h","Deudas en cuenta corriente, sin documentar, por compra de mercaderías o servicios.","Personas a quienes debemos dinero en cta. cte. por compra de mercaderías o servicios."],
+  ["pasivo","Corriente","2.1.02","Acreedores Varios","h","Deudas sin documentar por préstamos u otros motivos ajenos a la compra de mercaderías.","Personas a quienes debemos dinero por préstamos obtenidos u otros motivos."],
+  ["pasivo","Corriente","2.1.03","Documentos a Pagar","h","Pagarés de nuestra firma entregados a terceros.","Pagarés de nuestra firma entregados a terceros."],
+  ["pasivo","Corriente","2.1.04","Valores Diferidos a Pagar","h","Cheques de pago diferido de propia firma entregados y todavía no vencidos.","Cheques de pago diferido de propia firma entregados a terceros."],
+  ["pasivo","Corriente","2.1.05","Anticipos de clientes","h","Sumas recibidas de clientes a cuenta de ventas futuras.",""],
+  ["pasivo","Corriente","2.1.06","IVA Débito Fiscal","h","IVA cobrado en las ventas, que debe ingresarse al fisco.",""],
+  ["pasivo","Corriente","2.1.07","Sueldos a pagar","h","Sueldos ya devengados por el personal y todavía no abonados.",""],
+  ["pasivo","Corriente","2.1.08","Cargas sociales a pagar","h","Aportes y contribuciones sobre sueldos pendientes de pago.",""],
+  ["pasivo","Corriente","2.1.09","Impuestos a pagar","h","Impuestos y tasas devengados pendientes de ingreso.",""],
+  ["pasivo","Corriente","2.1.10","Adelanto en cuenta corriente","h","Descubierto bancario: el banco financió más dinero del disponible.",""],
+  ["pasivo","Corriente","2.1.11","Intereses a pagar","h","Intereses ya devengados y todavía no abonados.",""],
+  ["pasivo","No corriente","2.2.01","Préstamos bancarios","h","Financiación bancaria a devolver en un plazo mayor a un año.",""],
+  ["pasivo","No corriente","2.2.02","Hipotecas a pagar","h","Deudas garantizadas con un bien inmueble.",""],
+  ["pasivo","No corriente","2.2.03","Prendas a pagar","h","Deudas garantizadas con un bien mueble: rodado, maquinaria.",""],
+  ["pn","","3.1.01","Capital","h","Aporte de los dueños o socios al ente.","Aporte inicial por constitución de un comercio o empresa."],
+  ["pn","","3.1.02","Ajuste de capital","h","Actualización del capital por efecto de la inflación.",""],
+  ["pn","","3.1.03","Reservas","h","Ganancias retenidas que no se distribuyen entre los socios.","Ganancias no distribuidas."],
+  ["pn","","3.1.04","Reserva legal","h","Reserva obligatoria por ley: 5% anual hasta alcanzar el 20% del capital.",""],
+  ["pn","","3.1.05","Reserva facultativa","h","Reserva constituida por decisión de la asamblea.",""],
+  ["pn","","3.1.06","Resultados no asignados","h","Ganancias o pérdidas de ejercicios anteriores sin destino definido.",""],
+  ["pn","","3.1.07","Resultado del Ejercicio","h","Ganancia (Haber) o pérdida (Debe) del período.","Beneficio o quebranto producido en un ejercicio económico."],
+  ["rpos","","4.1.01","Ventas (Bienes o Servicios)","h","Ingreso por la venta de mercaderías o por servicios prestados.","Importe de la venta de mercaderías o servicios prestados."],
+  ["rpos","","4.1.02","Intereses Ganados","h","Recargo que cobramos a clientes o deudores por pagos fuera de término o por préstamos otorgados.","Recargo que cobramos por pagos fuera de término o préstamos realizados."],
+  ["rpos","","4.1.03","Alquileres Ganados","h","Ganancia por ceder el uso de un inmueble propio a un tercero por un tiempo determinado.","Ganancia por ceder el uso de un inmueble nuestro a un tercero."],
+  ["rpos","","4.1.04","Comisiones Ganadas","h","Ganancia por tareas comerciales realizadas para terceros.","Ganancia lograda por tareas comerciales realizadas para terceros."],
+  ["rpos","","4.1.05","Descuentos Obtenidos","h","Rebaja lograda en el precio de compra o en el pago a proveedores y acreedores.","Rebaja obtenida en el precio de compra o en el pago a proveedores."],
+  ["rpos","","4.1.06","Resultado venta de bienes de uso (ganancia)","h","Utilidad al vender un bien de uso por encima de su valor de libros.",""],
+  ["rneg","","5.1.01","Costo de Mercaderías Vendidas (CMV)","d","Importe que le costó al comerciante la mercadería que vendió.","Importe que le costó al comerciante la mercadería que vendió."],
+  ["rneg","","5.1.02","Sueldos y Jornales","d","Haberes abonados a empleados u operarios por su trabajo.","Haberes abonados a los empleados u operarios por su trabajo."],
+  ["rneg","","5.1.03","Cargas sociales","d","Aportes y contribuciones patronales sobre los sueldos.",""],
+  ["rneg","","5.1.04","Gastos Generales","d","Gastos de bajo importe: papelería, artículos de limpieza, agua, luz, internet, teléfono, gas. Si alguno es significativo, conviene abrirle cuenta propia (ej. Gastos de Electricidad).","Gastos chicos de todos los días."],
+  ["rneg","","5.1.05","Intereses Perdidos","d","Recargo que nos cobran proveedores o bancos por pagos fuera de término o por préstamos solicitados.","Recargo que nos cobran por pagos fuera de término o préstamos."],
+  ["rneg","","5.1.06","Descuentos Cedidos","d","Rebaja concedida en el precio de venta o en el cobro a clientes y deudores.","Rebaja cedida en el precio de venta o en el cobro a nuestros clientes."],
+  ["rneg","","5.1.07","Comisiones Perdidas","d","Pérdida por encargar una tarea comercial a un tercero.","Pérdida ocasionada por encargar una tarea comercial a un tercero."],
+  ["rneg","","5.1.08","Alquileres Perdidos","d","Pérdida por utilizar inmuebles de terceros por un tiempo determinado.","Pérdida por usar inmuebles de terceros por un tiempo determinado."],
+  ["rneg","","5.1.09","Fletes y Acarreos","d","Gasto por el traslado de mercaderías u otros bienes.","Gastos abonados por el traslado de mercaderías u otros bienes."],
+  ["rneg","","5.1.10","Impuestos","d","Pérdida por tributos a favor del Estado (AFIP).","Pérdida ocasionada por tributos a favor del Estado."],
+  ["rneg","","5.1.11","Publicidad Perdida","d","Gasto por promocionar nuestros productos.","Folletos, avisos radiales, televisivos, gráficos, páginas web, etc."],
+  ["rneg","","5.1.12","Seguros","d","Prima abonada a una compañía por seguros sobre personas o bienes.","La prima abonada a una compañía por la contratación de seguros."],
+  ["rneg","","5.1.13","Amortizaciones","d","Desgaste de los bienes de uso imputado al ejercicio.",""],
+  ["rneg","","5.1.14","Deudores incobrables","d","Créditos que se estima que no se van a cobrar.",""],
+  ["reg","Del activo","1.9.01","Amortización acumulada","h","Desgaste acumulado de un bien de uso. Resta valor al activo que rectifica.",""],
+  ["reg","Del activo","1.9.02","Previsión para deudores incobrables","h","Estimación de créditos que podrían no cobrarse. Resta de Deudores.",""],
+  ["reg","Del activo","1.9.03","Intereses a devengar (activo)","h","Intereses incluidos en créditos que todavía no se ganaron. Resta del activo.",""],
+  ["reg","Del pasivo","2.9.01","Intereses a devengar (pasivo)","d","Intereses incluidos en deudas que todavía no se devengaron. Resta del pasivo.",""],
+];
+
+const list=document.getElementById('list');
+const chipsEl=document.getElementById('chips');
+const countEl=document.getElementById('count');
+const noResults=document.getElementById('noresults');
+const qInput=document.getElementById('q');
+const studyBtn=document.getElementById('study');
+let activeRubro="todos";
+const norm=s=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+
+function buildChips(){
+  const all=document.createElement('button');
+  all.className='chip active'; all.textContent='Todos'; all.dataset.r='todos';
+  chipsEl.appendChild(all);
+  Object.entries(RUBROS).forEach(([k,v])=>{
+    const b=document.createElement('button');
+    b.className='chip'; b.dataset.r=k;
+    b.innerHTML='<span class="dot" style="background:'+v.color+'"></span>'+v.label;
+    chipsEl.appendChild(b);
+  });
+  chipsEl.addEventListener('click',e=>{
+    const btn=e.target.closest('.chip'); if(!btn)return;
+    activeRubro=btn.dataset.r;
+    [...chipsEl.children].forEach(c=>c.classList.toggle('active',c===btn));
+    render();
+  });
+}
+
+function render(){
+  const q=norm(qInput.value.trim());
+  list.innerHTML=''; let total=0;
+  Object.keys(RUBROS).forEach(rk=>{
+    if(activeRubro!=="todos" && activeRubro!==rk) return;
+    const rows=CUENTAS.filter(c=>c[0]===rk).filter(c=>!q||norm(c[3]).includes(q)||norm(c[5]).includes(q)||norm(c[6]).includes(q));
+    if(!rows.length) return;
+    total+=rows.length;
+    const sec=document.createElement('section');
+    sec.className='rubro'; sec.id='r-'+rk;
+    const R=RUBROS[rk];
+    sec.innerHTML='<div class="rubro-head" style="background:'+R.color+'"><h2>'+R.label+'</h2><span class="saldo">'+R.saldo+'</span></div><div class="rubro-note">'+NOTES[rk]+'</div>';
+    let currentSub=null, cardsWrap=null;
+    rows.forEach(c=>{
+      const sub=c[1], cod=c[2], cuenta=c[3], saldo=c[4], rep=c[5], comun=c[6];
+      if(sub!==currentSub){
+        currentSub=sub;
+        if(sub){const h=document.createElement('div');h.className='sub';h.textContent=sub;sec.appendChild(h);}
+        cardsWrap=document.createElement('div');cardsWrap.className='cards';sec.appendChild(cardsWrap);
+      }
+      const isDebe=saldo==='d';
+      const card=document.createElement('div');
+      card.className='card'; card.style.borderLeftColor=R.color;
+      let html='<div class="top"><span class="codigo">'+cod+'</span><span class="saldo-chip '+(isDebe?'debe':'haber')+'">'+(isDebe?'Debe':'Haber')+'</span></div>';
+      html+='<div class="cuenta">'+cuenta+'</div>';
+      html+='<div class="representa">'+rep+'</div>';
+      if(comun) html+='<div class="comun"><b>En lenguaje común</b>'+comun+'</div>';
+      card.innerHTML=html;
+      cardsWrap.appendChild(card);
+    });
+    list.appendChild(sec);
+  });
+  noResults.style.display=total?'none':'block';
+  countEl.textContent=total?(total+' cuenta'+(total>1?'s':'')+' en pantalla'):'';
+}
+
+studyBtn.addEventListener('click',toggleStudy);
+studyBtn.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();toggleStudy();}});
+function toggleStudy(){
+  const on=document.body.classList.toggle('study');
+  studyBtn.classList.toggle('on',on);
+  studyBtn.setAttribute('aria-checked',on);
+}
+list.addEventListener('click',e=>{
+  if(!document.body.classList.contains('study'))return;
+  const r=e.target.closest('.cuenta');
+  if(r) r.classList.toggle('reveal');
+});
+qInput.addEventListener('input',render);
+buildChips(); render();
+</script>
+</body>
+</html>
