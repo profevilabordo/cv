@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuasidelitos · Negligencia, imprudencia e impericia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,800;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --tinta:#141b2d;
+    --papel:#f2f1ec;
+    --papel-2:#ffffff;
+    --linea:#d5d2c8;
+    --gris:#5d6274;
+    --omision:#1f6f8b;   /* negligencia */
+    --exceso:#c2410c;    /* imprudencia */
+    --saber:#6d28d9;     /* impericia */
+    --dolo:#9b1239;      /* dolo */
+    --ok:#0f7b4f;
+    --no:#b02a37;
+    --radio:4px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;background:var(--papel);color:var(--tinta);
+    font-family:'Inter',system-ui,sans-serif;font-size:16px;line-height:1.6;
+  }
+  .wrap{max-width:920px;margin:0 auto;padding:0 20px}
+
+  /* ---------- Portada ---------- */
+  header.hero{background:var(--tinta);color:#f2f1ec;padding:56px 0 40px;border-bottom:6px solid var(--exceso)}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:#9aa4c0}
+  h1{font-family:'Spectral',serif;font-weight:800;font-size:clamp(2.1rem,6vw,3.4rem);line-height:1.05;margin:.35em 0 .3em;letter-spacing:-.01em}
+  h1 em{font-style:italic;font-weight:400;color:#e5b25d}
+  .bajada{max-width:56ch;color:#c8cee0;font-size:1.02rem}
+  .art{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:#8a93ad;margin-top:18px;border-left:2px solid var(--exceso);padding-left:10px}
+
+  /* ---------- Eje conceptual (elemento firma) ---------- */
+  .eje{margin:34px 0 10px;background:var(--papel-2);border:1px solid var(--linea);border-radius:var(--radio)}
+  .eje-top{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gris);padding:12px 16px 0}
+  .eje-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
+  .zona{padding:16px;border-right:1px solid var(--linea);transition:background .25s}
+  .zona:last-child{border-right:none}
+  .zona h3{margin:0;font-family:'Spectral',serif;font-size:1.15rem;font-weight:600}
+  .zona p{margin:.35em 0 0;font-size:.88rem;color:var(--gris)}
+  .zona .marca{display:block;height:4px;width:34px;margin-bottom:10px}
+  .z-neg .marca{background:var(--omision)} .z-neg h3{color:var(--omision)}
+  .z-imp .marca{background:var(--exceso)} .z-imp h3{color:var(--exceso)}
+  .z-per .marca{background:var(--saber)} .z-per h3{color:var(--saber)}
+  .zona.on{background:#faf8f2;box-shadow:inset 0 -4px 0 currentColor}
+
+  /* ---------- Secciones ---------- */
+  section{padding:44px 0;border-bottom:1px solid var(--linea)}
+  .sec-num{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.16em;color:var(--exceso);text-transform:uppercase}
+  h2{font-family:'Spectral',serif;font-size:clamp(1.5rem,4vw,2rem);margin:.2em 0 .25em;font-weight:600}
+  .consigna{color:var(--gris);max-width:65ch;margin-bottom:26px}
+
+  /* ---------- Tarjetas de caso ---------- */
+  .caso{background:var(--papel-2);border:1px solid var(--linea);border-radius:var(--radio);padding:18px;margin-bottom:14px}
+  .caso-head{display:flex;gap:12px;align-items:flex-start}
+  .num{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--gris);padding-top:2px;min-width:26px}
+  .texto{font-size:1rem}
+  .opciones{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  button.op{
+    font-family:'Inter',sans-serif;font-size:.86rem;font-weight:600;
+    background:transparent;border:1.5px solid var(--linea);color:var(--tinta);
+    padding:8px 14px;border-radius:999px;cursor:pointer;transition:all .15s
+  }
+  button.op:hover:not(:disabled){border-color:var(--tinta)}
+  button.op:focus-visible{outline:3px solid #e5b25d;outline-offset:2px}
+  button.op:disabled{cursor:default;opacity:.45}
+  button.op.elegida.bien{background:var(--ok);border-color:var(--ok);color:#fff;opacity:1}
+  button.op.elegida.mal{background:var(--no);border-color:var(--no);color:#fff;opacity:1}
+  button.op.correcta{border-color:var(--ok);color:var(--ok);opacity:1}
+  .feedback{margin-top:14px;padding:12px 14px;border-left:3px solid var(--gris);background:#faf9f5;font-size:.92rem;display:none}
+  .feedback.ver{display:block}
+  .feedback b{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:4px}
+  .fb-bien{border-left-color:var(--ok)} .fb-bien b{color:var(--ok)}
+  .fb-mal{border-left-color:var(--no)} .fb-mal b{color:var(--no)}
+  .debate{margin-top:8px;font-size:.85rem;color:var(--gris);font-style:italic}
+
+  /* ---------- Bloques de variantes ---------- */
+  .bloque{background:var(--papel-2);border:1px solid var(--linea);border-left:4px solid var(--tinta);border-radius:var(--radio);padding:20px;margin-bottom:22px}
+  .bloque > h3{font-family:'Spectral',serif;font-size:1.2rem;margin:0 0 .2em}
+  .bloque > .resultado{font-size:.9rem;color:var(--gris);margin:0 0 16px}
+  .variante{border-top:1px dashed var(--linea);padding-top:14px;margin-top:14px}
+
+  /* ---------- V/F ---------- */
+  .vf{display:flex;gap:14px;align-items:flex-start;background:var(--papel-2);border:1px solid var(--linea);padding:16px;margin-bottom:12px;border-radius:var(--radio)}
+  .vf .texto{flex:1}
+
+  /* ---------- Producción escrita ---------- */
+  .escritura label{display:block;font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;margin:18px 0 6px}
+  .escritura textarea{width:100%;min-height:92px;padding:12px;border:1px solid var(--linea);border-radius:var(--radio);font-family:'Inter',sans-serif;font-size:.95rem;resize:vertical;background:var(--papel-2)}
+  .escritura textarea:focus{outline:2px solid var(--tinta);outline-offset:1px}
+  .checklist{background:var(--papel-2);border:1px solid var(--linea);padding:16px;margin-top:22px;border-radius:var(--radio);font-size:.9rem}
+  .checklist li{margin-bottom:6px}
+
+  /* ---------- Marcador ---------- */
+  .marcador{position:sticky;bottom:0;background:var(--tinta);color:#fff;padding:12px 0;z-index:20}
+  .marcador .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+  .puntos{font-family:'JetBrains Mono',monospace;font-size:.85rem;letter-spacing:.06em}
+  .puntos strong{font-size:1.25rem;color:#e5b25d}
+  .barra{flex:1;min-width:120px;height:6px;background:#2c3450;border-radius:99px;overflow:hidden}
+  .barra span{display:block;height:100%;width:0;background:#e5b25d;transition:width .4s}
+  .btn{font-family:'Inter';font-weight:600;font-size:.82rem;background:transparent;color:#fff;border:1.5px solid #4a5678;padding:8px 16px;border-radius:999px;cursor:pointer}
+  .btn:hover{background:#232c47}
+
+  footer{padding:34px 0 60px;font-size:.85rem;color:var(--gris)}
+
+  @media (max-width:680px){
+    .eje-grid{grid-template-columns:1fr}
+    .zona{border-right:none;border-bottom:1px solid var(--linea)}
+    .eje-top{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+  @media print{
+    .marcador,.opciones,.btn{display:none}
+    body{background:#fff}
+    header.hero{background:#fff;color:#000;border-bottom:2px solid #000}
+    .bajada,.art{color:#333}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Derecho · Responsabilidad civil</div>
+    <h1>El mismo daño,<br><em>tres reproches distintos</em></h1>
+    <p class="bajada">Cuando no hubo intención de dañar, igual puede haber responsabilidad. La pregunta no es "¿quiso hacerlo?", sino "¿qué cuidado le faltó?". Ahí se separan la negligencia, la imprudencia y la impericia.</p>
+    <p class="art">Art. 1724 CCyC — La culpa consiste en la omisión de la diligencia debida según la naturaleza de la obligación y las circunstancias de las personas, el tiempo y el lugar. Comprende la imprudencia, la negligencia y la impericia en el arte o profesión.</p>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="eje" id="eje">
+    <div class="eje-top"><span>Hacer de menos</span><span>Hacer de más</span><span>No saber hacer</span></div>
+    <div class="eje-grid">
+      <div class="zona z-neg" data-zona="negligencia"><span class="marca"></span><h3>Negligencia</h3><p>Omite la precaución que debía tomar. Falta una conducta.</p></div>
+      <div class="zona z-imp" data-zona="imprudencia"><span class="marca"></span><h3>Imprudencia</h3><p>Actúa cuando no debía o más rápido de lo debido. Sobra conducta.</p></div>
+      <div class="zona z-per" data-zona="impericia"><span class="marca"></span><h3>Impericia</h3><p>Le falta la formación o destreza que su oficio exige. Falta saber.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ================= EJERCICIO 1 ================= -->
+  <section id="ej1">
+    <div class="sec-num">Ejercicio 1 · Clasificación</div>
+    <h2>Casos para calificar</h2>
+    <p class="consigna">Leé cada situación y determiná si se trata de un cuasidelito por <b>imprudencia</b>, <b>impericia</b> o <b>negligencia</b>. Al elegir vas a ver la justificación: compará si coincide con la tuya.</p>
+    <div id="lista-ej1"></div>
+  </section>
+
+  <!-- ================= EJERCICIO 2 ================= -->
+  <section id="ej2">
+    <div class="sec-num">Ejercicio 2 · Variantes</div>
+    <h2>Un resultado, cuatro conductas</h2>
+    <p class="consigna">Acá el daño es siempre el mismo. Lo único que cambia es cómo se comportó la persona. Clasificá cada variante: puede haber también <b>dolo</b>, cuando hubo intención o indiferencia manifiesta frente al daño.</p>
+    <div id="lista-ej2"></div>
+  </section>
+
+  <!-- ================= EJERCICIO 3 ================= -->
+  <section id="ej3">
+    <div class="sec-num">Ejercicio 3 · Justificación</div>
+    <h2>Elegí la mejor justificación</h2>
+    <p class="consigna">Clasificar es la mitad del trabajo; la otra mitad es fundamentar. Las tres opciones llegan a la misma calificación, pero solo una la justifica bien. Elegí cuál.</p>
+    <div id="lista-ej3"></div>
+  </section>
+
+  <!-- ================= EJERCICIO 4 ================= -->
+  <section id="ej4">
+    <div class="sec-num">Ejercicio 4 · Conceptos</div>
+    <h2>Verdadero o falso</h2>
+    <p class="consigna">Afirmaciones sobre el factor de atribución subjetivo. Marcá y leé la explicación.</p>
+    <div id="lista-ej4"></div>
+  </section>
+
+  <!-- ================= EJERCICIO 5 ================= -->
+  <section id="ej5" class="escritura">
+    <div class="sec-num">Ejercicio 5 · Producción</div>
+    <h2>Escribí tus propios casos</h2>
+    <p class="consigna">Inventá una situación para cada tipo de culpa, ambientada en la escuela, en un comercio o en tu barrio. Después imprimí la página o copiá el texto para entregar.</p>
+
+    <label for="t1">Un caso de negligencia (alguien omitió una precaución)</label>
+    <textarea id="t1" placeholder="Contá qué pasó, qué debía hacer esa persona y qué daño se produjo."></textarea>
+
+    <label for="t2">Un caso de imprudencia (alguien actuó de manera temeraria)</label>
+    <textarea id="t2" placeholder="Contá qué hizo de más, sabiendo el riesgo que corría."></textarea>
+
+    <label for="t3">Un caso de impericia (alguien no tenía el saber técnico que su tarea exige)</label>
+    <textarea id="t3" placeholder="Indicá qué oficio o profesión ejercía y qué conocimiento le faltó."></textarea>
+
+    <label for="t4">Ahora convertí uno de esos casos en un caso de dolo</label>
+    <textarea id="t4" placeholder="Cambiá solo la actitud de la persona: ahora quiere el daño o le resulta indiferente. ¿Qué frase del caso tuviste que modificar?"></textarea>
+
+    <div class="checklist">
+      <b>Antes de entregar, revisá que cada caso tenga:</b>
+      <ul>
+        <li>una conducta concreta (qué hizo o qué dejó de hacer);</li>
+        <li>un daño concreto (a una persona o a una cosa);</li>
+        <li>la relación entre ambos: el daño ocurrió <i>por</i> esa conducta;</li>
+        <li>la palabra clave que define el tipo: omitió / se apuró / no sabía / quiso.</li>
+      </ul>
+    </div>
+    <p style="margin-top:18px"><button class="btn" style="color:var(--tinta);border-color:var(--linea)" onclick="window.print()">Imprimir la hoja</button></p>
+  </section>
+
+  <footer>
+    Material de aula · Los casos con calificación discutible están señalados: sirven para debatir, no tienen una única respuesta cerrada.
+  </footer>
+</div>
+
+<div class="marcador">
+  <div class="wrap">
+    <div class="puntos">Aciertos <strong id="score">0</strong> / <span id="total">0</span></div>
+    <div class="barra"><span id="fill"></span></div>
+    <button class="btn" onclick="reiniciar()">Empezar de nuevo</button>
+  </div>
+</div>
+
+<script>
+/* ====================== DATOS ====================== */
+const TRES = ["negligencia","imprudencia","impericia"];
+const CUATRO = ["negligencia","imprudencia","impericia","dolo"];
+
+const ej1 = [
+ {t:"Un conductor que excede el límite de velocidad permitido y provoca un accidente.",
+  r:"imprudencia", j:"Hay una acción positiva y riesgosa: manejar por encima de lo permitido. No omitió un cuidado, se excedió en el obrar conociendo (o debiendo conocer) el peligro."},
+ {t:"Un médico que comete un error durante una cirugía debido a la falta de habilidad o conocimiento adecuado.",
+  r:"impericia", j:"El propio enunciado señala falta de habilidad o conocimiento: es la culpa referida al arte o profesión. Se le exige el saber técnico propio de su especialidad."},
+ {t:"Un propietario de un edificio que no realiza las reparaciones necesarias, lo que lleva a un colapso estructural.",
+  r:"negligencia", j:"Es una omisión: debía conservar el inmueble en condiciones y no lo hizo. El daño llega por lo que dejó de hacer."},
+ {t:"Un farmacéutico entrega por error un medicamento incorrecto a un paciente debido a una falta de atención en la verificación.",
+  r:"negligencia", j:"Tenía el conocimiento técnico, pero omitió el control de verificación. Por eso es descuido y no impericia.",
+  d:"Ojo: si el farmacéutico hubiera confundido los medicamentos por no conocer sus principios activos, la calificación pasaría a impericia."},
+ {t:"Un conductor deja su automóvil desbloqueado y con las llaves puestas, lo que permite que sea robado fácilmente.",
+  r:"negligencia", j:"Omitió una precaución elemental de custodia de la cosa. No hay acción temeraria ni falta de conocimiento técnico."},
+ {t:"Un piloto de avión novato no logra aterrizar correctamente y causa daños en la aeronave.",
+  r:"impericia", j:"La falta está en la destreza que la actividad exige. La inexperiencia no excusa: quien asume una tarea técnica debe reunir la aptitud para ejecutarla."},
+ {t:"Un peatón cruza una calle transitada sin utilizar el paso de peatones ni mirar el tráfico.",
+  r:"imprudencia", j:"Es una acción temeraria: se lanza a cruzar en un lugar y modo prohibidos, exponiéndose al riesgo de forma activa.",
+  d:"Se puede discutir: el hecho de no mirar es una omisión. Muchos autores hablan de conductas mixtas, donde imprudencia y negligencia conviven."},
+ {t:"Un trabajador de la construcción no utiliza el equipo de protección adecuado al operar una maquinaria pesada.",
+  r:"negligencia", j:"Omite usar los elementos de seguridad que la tarea exige. La falta consiste en no hacer algo debido.",
+  d:"Si además operó la máquina a mayor velocidad o fuera de protocolo, se agrega imprudencia."},
+ {t:"Un electricista comete un error durante la instalación de cables eléctricos, lo que provoca un cortocircuito e incendio.",
+  r:"impericia", j:"El error se produce en el ejercicio del oficio: falla el saber técnico sobre cargas, secciones de cable o aislaciones."},
+ {t:"Un ciclista se salta un semáforo en rojo y causa una colisión con un automóvil.",
+  r:"imprudencia", j:"Avanza contra una prohibición expresa. Es la acción riesgosa por excelencia: hacer lo que no debía hacerse."},
+ {t:"Un estudiante de cocina se corta los dedos al manejar un cuchillo de manera incorrecta.",
+  r:"impericia", j:"Está aprendiendo un oficio y le falta la destreza técnica en el uso de la herramienta.",
+  d:"Como el daño lo sufre él mismo, en rigor no hay responsabilidad frente a un tercero. Buen caso para preguntar: ¿alcanza con la culpa si no hay daño ajeno?"},
+ {t:"Un propietario de un edificio no realiza inspecciones regulares y deja que la infraestructura se deteriore, lo que ocasiona un derrumbe parcial.",
+  r:"negligencia", j:"Nuevamente una omisión sostenida en el tiempo: el deber de inspeccionar y conservar quedó incumplido."}
+];
+
+const ej2 = [
+ {tit:"Incendio en un depósito", res:"Resultado en los cuatro casos: la mercadería se quema por completo.", v:[
+   {t:"El encargado se va a su casa y deja encendida la estufa eléctrica del galpón.", r:"negligencia", j:"Omitió apagarla. El daño se produce por una precaución que faltó."},
+   {t:"El encargado prende una fogata dentro del galpón para calentarse en el turno noche.", r:"imprudencia", j:"Acción temeraria: hacer fuego junto a mercadería inflamable es obrar cuando no se debía."},
+   {t:"El encargado conecta tres estufas al mismo cable fino porque no sabe calcular la carga eléctrica que soporta.", r:"impericia", j:"La falla está en el conocimiento técnico exigible a quien manipula la instalación."},
+   {t:"El encargado, enojado porque lo despidieron, arroja un fósforo sobre las cajas antes de irse.", r:"dolo", j:"Hubo intención de producir el daño. Ya no es cuasidelito sino delito civil."}
+ ]},
+ {tit:"Un cliente sufre quemaduras en un restaurante", res:"Resultado en los cuatro casos: el cliente termina con quemaduras en un brazo.", v:[
+   {t:"El mozo cruza corriendo entre las mesas con la bandeja cargada para ganar tiempo.", r:"imprudencia", j:"Elige una forma de trabajo más rápida y riesgosa de la debida: obra de más."},
+   {t:"El dueño no repone el matafuego vencido hace dos años ni revisa la garrafa de la cocina.", r:"negligencia", j:"Deber de mantenimiento incumplido. El daño llega por lo que no se hizo."},
+   {t:"El cocinero recién ingresado no sabe cómo se carga la freidora industrial y el aceite salpica al salón.", r:"impericia", j:"Le falta la destreza propia del oficio para el que fue contratado."},
+   {t:"El cocinero, para vengarse de un cliente que lo maltrató, le arroja agua hirviendo.", r:"dolo", j:"Actúa con intención directa de dañar."}
+ ]}
+];
+
+const ej3 = [
+ {t:"Una enfermera aplica una inyección sin controlar la etiqueta de la ampolla y le administra al paciente un medicamento equivocado. ¿Por qué es negligencia?",
+  ops:[
+   {t:"Porque provocó un daño grave a un paciente y todo daño grave se considera negligencia.", ok:false, j:"La gravedad del daño no define el tipo de culpa. Un daño leve también puede ser negligente y uno gravísimo puede ser doloso."},
+   {t:"Porque omitió un control que su función le exigía: verificar el rótulo antes de aplicar.", ok:true, j:"Exacto. La justificación tiene que señalar el deber concreto que fue omitido, no el resultado."},
+   {t:"Porque las enfermeras deben tener conocimientos técnicos y ella falló.", ok:false, j:"Esa sería la justificación de la impericia. Acá la enfermera sabía cómo hacerlo: le faltó atención, no formación."}
+  ]},
+ {t:"Un adolescente cruza la ruta en bicicleta sin frenar ni mirar, entre dos autos estacionados. ¿Por qué es imprudencia?",
+  ops:[
+   {t:"Porque es menor de edad y por eso responde de manera atenuada.", ok:false, j:"La edad se discute al analizar la imputabilidad o la responsabilidad de los padres, no para clasificar el tipo de culpa."},
+   {t:"Porque no tenía la destreza necesaria para andar en bicicleta.", ok:false, j:"Eso sería impericia, y además andar en bicicleta no es un arte o profesión que exija título técnico."},
+   {t:"Porque realizó una maniobra activa y riesgosa en un lugar donde el peligro era evidente.", ok:true, j:"Correcto: la clave es que obró, y obró de un modo temerario."}
+  ]},
+ {t:"Un techista instala mal una chapa y a la primera lluvia se filtra el agua y arruina el cielorraso. ¿Por qué es impericia?",
+  ops:[
+   {t:"Porque el daño se produjo en el ejercicio de su oficio, por no dominar la técnica de colocación.", ok:true, j:"Correcto. La impericia siempre se mide contra el estándar del buen profesional de esa actividad."},
+   {t:"Porque se apuró para terminar antes y cobrar más rápido.", ok:false, j:"Si el problema fuera el apuro, la calificación cambiaría a imprudencia. Prestá atención a qué dice el caso, no a lo que imaginamos."},
+   {t:"Porque olvidó revisar el trabajo terminado.", ok:false, j:"Esa sería una omisión de control, es decir negligencia. El caso dice que instaló mal, no que no revisó."}
+  ]}
+];
+
+const ej4 = [
+ {t:"Para que exista culpa hace falta que la persona haya querido el daño.", ok:false,
+  j:"Falso. Justamente lo que distingue la culpa del dolo es que no hay intención de dañar: hay falta de cuidado."},
+ {t:"La diligencia exigible se mide siempre igual, sin importar quién sea la persona ni dónde ocurrió el hecho.", ok:false,
+  j:"Falso. El art. 1724 manda apreciarla según la naturaleza de la obligación y las circunstancias de personas, tiempo y lugar."},
+ {t:"La impericia solo puede reprocharse a quien ejerce un arte, oficio o profesión.", ok:true,
+  j:"Verdadero. Es la culpa profesional: se mide contra el estándar de conocimiento propio de esa actividad."},
+ {t:"El dolo también existe cuando alguien actúa con manifiesta indiferencia frente a los intereses ajenos.", ok:true,
+  j:"Verdadero. Es el llamado dolo eventual: no persigue el daño, pero le da lo mismo que ocurra."},
+ {t:"La negligencia y la imprudencia son sinónimos.", ok:false,
+  j:"Falso. La negligencia es una omisión (hacer de menos) y la imprudencia una acción temeraria (hacer de más)."},
+ {t:"Si el factor de atribución es objetivo, igual hay que probar la culpa del responsable.", ok:false,
+  j:"Falso. En los factores objetivos, como el riesgo creado, se responde sin necesidad de reprochar la conducta."},
+ {t:"Un mismo hecho puede reunir negligencia e imprudencia a la vez.", ok:true,
+  j:"Verdadero. Son categorías descriptivas, no compartimentos estancos: quien maneja alcoholizado y además sin luces reúne las dos."},
+ {t:"Que la conducta sea culposa o dolosa no cambia ninguna consecuencia jurídica.", ok:false,
+  j:"Falso. Cambia la extensión del resarcimiento, la validez de las cláusulas limitativas de responsabilidad y, en el ámbito penal, la figura y la pena aplicable."}
+];
+
+/* ====================== ESTADO ====================== */
+let aciertos=0, total=0;
+function sumaTotal(n){ total+=n; document.getElementById('total').textContent=total; }
+function acerto(){ aciertos++; document.getElementById('score').textContent=aciertos; pintarBarra(); }
+function pintarBarra(){ document.getElementById('fill').style.width = total? (aciertos/total*100)+'%' : '0%'; }
+function reiniciar(){ location.reload(); }
+
+function iluminarZona(z){
+  document.querySelectorAll('.zona').forEach(el=>el.classList.toggle('on', el.dataset.zona===z));
+}
+
+/* ====================== RENDER GENÉRICO ====================== */
+function tarjetaClasificar(caso, etiqueta, opciones, contenedor){
+  const div=document.createElement('div'); div.className='caso';
+  div.innerHTML=`<div class="caso-head"><div class="num">${etiqueta}</div><div class="texto">${caso.t}</div></div>`;
+  const ops=document.createElement('div'); ops.className='opciones';
+  const fb=document.createElement('div'); fb.className='feedback';
+  opciones.forEach(o=>{
+    const b=document.createElement('button'); b.className='op'; b.type='button';
+    b.textContent=o.charAt(0).toUpperCase()+o.slice(1);
+    b.onclick=()=>{
+      const bien = (o===caso.r);
+      ops.querySelectorAll('button').forEach(x=>{ x.disabled=true; if(x.textContent.toLowerCase()===caso.r) x.classList.add('correcta'); });
+      b.classList.add('elegida', bien?'bien':'mal');
+      fb.className='feedback ver '+(bien?'fb-bien':'fb-mal');
+      fb.innerHTML=`<b>${bien?'Bien':'Revisá'} · ${caso.r}</b>${caso.j}`+(caso.d?`<div class="debate">Para debatir: ${caso.d}</div>`:'');
+      if(bien) acerto(); else pintarBarra();
+      iluminarZona(caso.r);
+    };
+    ops.appendChild(b);
+  });
+  div.appendChild(ops); div.appendChild(fb); contenedor.appendChild(div);
+}
+
+/* Ejercicio 1 */
+const c1=document.getElementById('lista-ej1');
+ej1.forEach((c,i)=>tarjetaClasificar(c, String(i+1).padStart(2,'0'), TRES, c1));
+sumaTotal(ej1.length);
+
+/* Ejercicio 2 */
+const c2=document.getElementById('lista-ej2');
+ej2.forEach(bl=>{
+  const box=document.createElement('div'); box.className='bloque';
+  box.innerHTML=`<h3>${bl.tit}</h3><p class="resultado">${bl.res}</p>`;
+  const cont=document.createElement('div');
+  bl.v.forEach((v,i)=>{
+    const wrapV=document.createElement('div'); wrapV.className='variante';
+    cont.appendChild(wrapV);
+    tarjetaClasificar(v, "abcd"[i]+")", CUATRO, wrapV);
+    wrapV.querySelector('.caso').style.border='none';
+    wrapV.querySelector('.caso').style.padding='0';
+    wrapV.querySelector('.caso').style.margin='0';
+    wrapV.querySelector('.caso').style.background='transparent';
+  });
+  box.appendChild(cont); c2.appendChild(box);
+  sumaTotal(bl.v.length);
+});
+
+/* Ejercicio 3 */
+const c3=document.getElementById('lista-ej3');
+ej3.forEach((caso,i)=>{
+  const div=document.createElement('div'); div.className='caso';
+  div.innerHTML=`<div class="caso-head"><div class="num">${String(i+1).padStart(2,'0')}</div><div class="texto">${caso.t}</div></div>`;
+  const fb=document.createElement('div'); fb.className='feedback';
+  const cont=document.createElement('div'); cont.style.marginTop='12px';
+  caso.ops.forEach(o=>{
+    const b=document.createElement('button'); b.type='button'; b.className='op';
+    b.style.cssText='display:block;text-align:left;border-radius:4px;width:100%;margin-bottom:8px;font-weight:500;line-height:1.45';
+    b.textContent=o.t;
+    b.onclick=()=>{
+      cont.querySelectorAll('button').forEach(x=>x.disabled=true);
+      b.classList.add('elegida', o.ok?'bien':'mal');
+      fb.className='feedback ver '+(o.ok?'fb-bien':'fb-mal');
+      fb.innerHTML=`<b>${o.ok?'Justificación correcta':'No es la mejor'}</b>${o.j}`;
+      if(o.ok) acerto(); else pintarBarra();
+    };
+    cont.appendChild(b);
+  });
+  div.appendChild(cont); div.appendChild(fb); c3.appendChild(div);
+});
+sumaTotal(ej3.length);
+
+/* Ejercicio 4 */
+const c4=document.getElementById('lista-ej4');
+ej4.forEach((v,i)=>{
+  const div=document.createElement('div'); div.className='vf';
+  div.innerHTML=`<div class="num" style="min-width:26px;font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--gris)">${String(i+1).padStart(2,'0')}</div>`;
+  const cuerpo=document.createElement('div'); cuerpo.className='texto'; cuerpo.textContent=v.t;
+  const ops=document.createElement('div'); ops.className='opciones';
+  const fb=document.createElement('div'); fb.className='feedback';
+  [['Verdadero',true],['Falso',false]].forEach(([lbl,val])=>{
+    const b=document.createElement('button'); b.type='button'; b.className='op'; b.textContent=lbl;
+    b.onclick=()=>{
+      const bien=(val===v.ok);
+      ops.querySelectorAll('button').forEach(x=>x.disabled=true);
+      b.classList.add('elegida', bien?'bien':'mal');
+      fb.className='feedback ver '+(bien?'fb-bien':'fb-mal');
+      fb.innerHTML=`<b>${v.ok?'Verdadero':'Falso'}</b>${v.j}`;
+      if(bien) acerto(); else pintarBarra();
+    };
+    ops.appendChild(b);
+  });
+  cuerpo.appendChild(ops); cuerpo.appendChild(fb); div.appendChild(cuerpo); c4.appendChild(div);
+});
+sumaTotal(ej4.length);
+
+pintarBarra();
+</script>
+</body>
+</html>
