@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación de Economía · Unidad 2 · 3°A</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #10B981;
+            --primary-dark: #047857;
+            --bg: #0F172A;
+            --card-bg: #1E293B;
+            --text: #F8FAFC;
+            --text-muted: #94A3B8;
+            --accent: #6366F1;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'DM Sans', sans-serif; }
+        body { background-color: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+
+        .orbs { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; }
+        .orb1 { width: 400px; height: 400px; background: var(--primary); top: -100px; right: -100px; animation: float 15s infinite alternate; }
+        .orb2 { width: 350px; height: 350px; background: var(--accent); bottom: -50px; left: -100px; animation: float 18s infinite alternate-reverse; }
+        @keyframes float { from { transform: translate(0,0); } to { transform: translate(40px, 40px); } }
+
+        .container { position: relative; z-index: 1; max-width: 800px; margin: 40px auto; padding: 0 20px; }
+
+        .header { text-align: center; margin-bottom: 40px; }
+        .header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; background: linear-gradient(135deg, #60A5FA, #10B981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
+        .header p { color: var(--text-muted); font-size: 16px; }
+
+        .setup-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 40px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        .setup-card h2 { margin-bottom: 24px; font-family: 'Space Grotesk', sans-serif; }
+        .select-wrapper { margin-bottom: 24px; text-align: left; }
+        .select-wrapper label { display: block; margin-bottom: 8px; color: var(--text-muted); font-size: 14px; font-weight: 600; }
+        select { width: 100%; padding: 14px; border-radius: 12px; background: var(--bg); border: 2px solid rgba(255,255,255,0.1); color: white; font-size: 16px; cursor: pointer; outline: none; transition: border-color 0.3s; }
+        select:focus { border-color: var(--primary); }
+
+        .btn-start { width: 100%; padding: 16px; border-radius: 12px; border: none; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; font-size: 18px; font-weight: 700; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn-start:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3); }
+
+        #quiz-screen { display: none; }
+        .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: rgba(255,255,255,0.05); padding: 15px 25px; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); position: sticky; top: 20px; z-index: 10; }
+        .timer { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: #10B981; display: flex; align-items: center; gap: 8px; }
+        .progress-container { flex-grow: 1; margin: 0 30px; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; }
+        .progress-bar { height: 100%; background: var(--primary); width: 0%; transition: width 0.3s; }
+
+        .question-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 35px; margin-bottom: 20px; animation: slideIn 0.5s ease; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .q-number { color: var(--primary); font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: block; }
+        .q-text { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 25px; }
+
+        .options { display: grid; gap: 12px; }
+        .option { padding: 16px 20px; border-radius: 14px; background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.08); cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 15px; }
+        .option:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); transform: translateX(5px); }
+        .option.selected { background: rgba(16, 185, 129, 0.1); border-color: var(--primary); }
+        .option-bullet { width: 20px; height: 20px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; flex-shrink: 0; }
+        .option.selected .option-bullet { background: var(--primary); border-color: var(--primary); color: white; }
+
+        .quiz-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; }
+        .btn-nav { padding: 12px 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: var(--card-bg); color: white; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+        .btn-nav:hover:not(:disabled) { background: rgba(255,255,255,0.1); }
+        .btn-nav:disabled { opacity: 0.3; cursor: not-allowed; }
+        .btn-submit { padding: 12px 30px; border-radius: 12px; border: none; background: var(--primary); color: white; font-weight: 700; cursor: pointer; display: none; }
+
+        #results-screen { display: none; text-align: center; }
+        .result-card { background: var(--card-bg); border-radius: 24px; padding: 50px; border: 1px solid rgba(255,255,255,0.1); }
+        .score-circle { width: 150px; height: 150px; border-radius: 50%; border: 8px solid var(--primary); margin: 0 auto 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .score-val { font-size: 48px; font-weight: 800; font-family: 'Space Grotesk', sans-serif; }
+        .score-label { font-size: 14px; color: var(--text-muted); text-transform: uppercase; }
+
+        .summary-list { text-align: left; margin: 30px 0; background: rgba(0,0,0,0.2); border-radius: 15px; padding: 20px; }
+        .summary-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .summary-item:last-child { border: none; }
+
+        @media (max-width: 600px) {
+            .quiz-header { flex-wrap: wrap; gap: 10px; }
+            .progress-container { order: 3; width: 100%; margin: 10px 0 0 0; }
+            .header h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="orbs"><div class="orb orb1"></div><div class="orb orb2"></div></div>
+
+<div class="container">
+    <div class="header">
+        <h1>⚡ Economía · Unidad 2</h1>
+        <p>Evaluación · 3° Año "A" · EESO N°206</p>
+    </div>
+
+    <div id="setup-screen" class="setup-card">
+        <h2>Evaluación de Conocimientos</h2>
+        <p style="margin-bottom: 30px;">Esta evaluación consta de 15 consignas seleccionadas al azar. Todas son de opción múltiple o verdadero/falso. Tenés 15 minutos para completar.</p>
+        <p style="margin-bottom: 30px; font-size: 14px; color: var(--text-muted); background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; border-left: 4px solid var(--primary);">
+            📌 Podés hacer esta evaluación <strong>ilimitadas veces</strong>, pero <strong>solo se tendrá en cuenta la nota del primer intento</strong>.
+        </p>
+
+        <div class="select-wrapper">
+            <label for="student-select">Seleccioná tu nombre:</label>
+            <select id="student-select" style="margin-bottom: 16px;">
+                <option value="" disabled selected>Elegí tu nombre de la lista...</option>
+            </select>
+
+            <label for="student-password">Palabra Clave:</label>
+            <input type="password" id="student-password" placeholder="Ingresá tu palabra clave" style="width: 100%; padding: 14px; border-radius: 12px; background: var(--bg); border: 2px solid rgba(255,255,255,0.1); color: white; font-size: 16px; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'">
+        </div>
+
+        <button class="btn-start" onclick="startQuiz()">Comenzar repaso 🚀</button>
+    </div>
+
+    <div id="quiz-screen">
+        <div class="quiz-header">
+            <div id="student-name-display" style="font-weight: 700; font-size: 14px; max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Estudiante</div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <div class="timer">
+                <span>⏱️</span> <span id="timer-val">10:00</span>
+            </div>
+        </div>
+
+        <div id="question-container"></div>
+
+        <div class="quiz-footer">
+            <button class="btn-nav" id="btn-prev" onclick="prevQuestion()" disabled>Anterior</button>
+            <div id="page-indicator" style="color: var(--text-muted); font-size: 14px; font-weight: 600;">1 de 15</div>
+            <button class="btn-nav" id="btn-next" onclick="nextQuestion()">Siguiente</button>
+            <button class="btn-submit" id="btn-submit" onclick="finishQuiz()">Finalizar y Entregar</button>
+        </div>
+    </div>
+
+    <div id="results-screen">
+        <div class="result-card">
+            <div id="result-emoji" style="font-size: 64px; margin-bottom: 20px;">🎉</div>
+            <h2 id="result-title">¡Evaluación Completada!</h2>
+            <p id="result-student" style="color: var(--text-muted); margin-bottom: 30px;">Estudiante</p>
+
+            <div class="score-circle">
+                <span class="score-val" id="score-val">8</span>
+                <span class="score-label">Correctas</span>
+            </div>
+
+            <div class="summary-list">
+                <div class="summary-item">
+                    <span>Preguntas respondidas:</span>
+                    <span id="summary-total">10/15</span>
+                </div>
+                <div class="summary-item">
+                    <span>Tiempo utilizado:</span>
+                    <span id="summary-time">04:25</span>
+                </div>
+                <div class="summary-item">
+                    <span>Estado:</span>
+                    <span id="summary-status" style="color: var(--primary); font-weight: 700;">Aprobado</span>
+                </div>
+            </div>
+
+            <button class="btn-start" onclick="resetQuiz()" style="margin-bottom:12px">Volver a intentar 🔁</button>
+            <button class="btn-nav" onclick="location.reload()" style="width:100%;margin-top:8px">Cerrar sesión</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const SUPABASE_URL = "https://ygafevogfxwupmgwksto.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlnYWZldm9nZnh3dXBtZ3drc3RvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzI3MDA5NDMsImV4cCI6MjA4ODI3Njk0M30.5LoSWrwtFCR4qoQnmNY6UZB1SuiVpx-G9N1AG6cOev8";
+
+    async function sbInsert(table, data) {
+        try {
+            const r = await fetch(`${SUPABASE_URL}/rest/v1/${table}`, {
+                method: "POST",
+                headers: {
+                    "apikey": SUPABASE_KEY,
+                    "Authorization": `Bearer ${SUPABASE_KEY}`,
+                    "Content-Type": "application/json",
+                    "Prefer": "return=representation"
+                },
+                body: JSON.stringify(data)
+            });
+            return await r.json();
+        } catch (e) {
+            console.error("Error saving to Supabase:", e);
+        }
+    }
+
+    async function sbFetch(table, params) {
+        try {
+            const r = await fetch(`${SUPABASE_URL}/rest/v1/${table}?${params}`, {
+                method: "GET",
+                headers: {
+                    "apikey": SUPABASE_KEY,
+                    "Authorization": `Bearer ${SUPABASE_KEY}`,
+                    "Content-Type": "application/json"
+                }
+            });
+            return await r.json();
+        } catch (e) {
+            console.error("Error fetching from Supabase:", e);
+            return [];
+        }
+    }
+
+    const students = [
+        {
+                "name": "ALMARAZ, LUCIANA ELISABETH",
+                "code": "formosa"
+        },
+        {
+                "name": "ARIAS CACERES, VERÓNICA BELÉN",
+                "code": "tokyo"
+        },
+        {
+                "name": "CASADEY, DANTE EUGENIO",
+                "code": "misiones"
+        },
+        {
+                "name": "FRASCA, EMILIA ANAIARA",
+                "code": "jujuy"
+        },
+        {
+                "name": "GARCILAZO, RUTH DARA",
+                "code": "cairo"
+        },
+        {
+                "name": "GEUNA VENESIO, TIAN VALENTINO",
+                "code": "oslo"
+        },
+        {
+                "name": "LAMAS, MIA NAHIARA",
+                "code": "lima"
+        },
+        {
+                "name": "LOGUZZO, JUDITH NICOLE",
+                "code": "quito"
+        },
+        {
+                "name": "MAIBACH, JULIÁN NICOLÁS",
+                "code": "delhi"
+        },
+        {
+                "name": "MARTÍN, CARLA SOLEDAD",
+                "code": "rioja"
+        },
+        {
+                "name": "MONSERRAT, THIAGO",
+                "code": "pampa"
+        },
+        {
+                "name": "OJEDA, PILAR LUCÍA",
+                "code": "nairobi"
+        },
+        {
+                "name": "ORTIZ, DELFINA",
+                "code": "casilda"
+        },
+        {
+                "name": "PRINZI, VALENTINA VICTORIA",
+                "code": "vienna"
+        },
+        {
+                "name": "RIBOLI, VALENTINO",
+                "code": "athens"
+        },
+        {
+                "name": "ROMERO, MILAGROS MARISOL",
+                "code": "manila"
+        },
+        {
+                "name": "RUBIGLIO, AVRIL",
+                "code": "sydney"
+        },
+        {
+                "name": "RUIZ, JOAQUÍN",
+                "code": "ankara"
+        },
+        {
+                "name": "VVB",
+                "code": "ob"
+        },
+        {
+                "name": "PROFE 1",
+                "code": "profe1"
+        },
+        {
+                "name": "PROFE 2",
+                "code": "profe2"
+        }
+];
+
+    const questionBank = [
+        {
+                "q": "¿En qué período se desarrolló aproximadamente la Segunda Revolución Industrial?",
+                "a": [
+                        "1760–1820",
+                        "1870–1914",
+                        "1918–1939",
+                        "1945–1973"
+                ],
+                "c": 1
+        },
+        {
+                "q": "¿Qué conjunto reúne las principales bases energéticas y materiales de la Segunda Revolución Industrial?",
+                "a": [
+                        "Carbón, hierro y vapor",
+                        "Acero, electricidad y petróleo",
+                        "Madera, agua y cobre",
+                        "Gas natural, uranio y silicio"
+                ],
+                "c": 1
+        },
+        {
+                "q": "La Segunda Revolución Industrial impulsó especialmente las industrias química, eléctrica y automotriz.",
+                "a": [
+                        "Verdadero",
+                        "Falso"
+                ],
+                "c": 0
+        },
+        {
+                "q": "¿Qué innovación permitió producir acero a gran escala y a bajo costo?",
+                "a": [
+                        "El proceso Bessemer",
+                        "La máquina de vapor de Watt",
+                        "El telar mecánico",
+                        "El patrón oro"
+                ],
+                "c": 0
+        },
+        {
+                "q": "¿Cuál fue una consecuencia del desarrollo del telégrafo?",
+                "a": [
+                        "Eliminó la producción fabril",
+                        "Permitió comunicar ciudades en segundos",
+                        "Reemplazó completamente al ferrocarril",
+                        "Terminó con el comercio internacional"
+                ],
+                "c": 1
+        },
+        {
+                "q": "¿Qué buscaba principalmente la organización científica del trabajo o taylorismo?",
+                "a": [
+                        "Reducir la especialización",
+                        "Aumentar la productividad mediante tareas divididas y cronometradas",
+                        "Volver al trabajo artesanal",
+                        "Eliminar el control de los ingenieros"
+                ],
+                "c": 1
+        },
+        {
+                "q": "En el taylorismo, los obreros diseñaban el proceso completo y decidían libremente cómo producir.",
+                "a": [
+                        "Verdadero",
+                        "Falso"
+                ],
+                "c": 1
+        },
+        {
+                "q": "¿Qué elemento agregó el fordismo al taylorismo?",
+                "a": [
+                        "La cadena de montaje y la producción en masa",
+                        "La prohibición del uso de máquinas",
+                        "El regreso a los talleres artesanales",
+                        "La eliminación de los salarios"
+                ],
+                "c": 0
+        },
+        {
+                "q": "Según el apunte, Ford pagó salarios algo más altos también para convertir a los trabajadores en consumidores.",
+                "a": [
+                        "Verdadero",
+                        "Falso"
+                ],
+                "c": 0
+        },
+        {
+                "q": "¿Qué es el libre comercio?",
+                "a": [
+                        "Una política que aumenta todas las barreras al intercambio",
+                        "Una política que elimina o reduce aranceles, cuotas y restricciones",
+                        "Un sistema que prohíbe las importaciones",
+                        "Un sistema monetario basado únicamente en plata"
+                ],
+                "c": 1
+        },
+        {
+                "q": "¿Qué sostenía la teoría de la ventaja comparativa de David Ricardo?",
+                "a": [
+                        "Que todos los países debían producir exactamente lo mismo",
+                        "Que cada país debía especializarse en aquello que producía con mayor eficiencia relativa",
+                        "Que solo los países industriales podían comerciar",
+                        "Que el comercio debía ser administrado por un único Estado"
+                ],
+                "c": 1
+        },
+        {
+                "q": "En la división internacional del trabajo del siglo XIX, los países industrializados exportaban principalmente materias primas de bajo precio.",
+                "a": [
+                        "Verdadero",
+                        "Falso"
+                ],
+                "c": 1
+        },
+        {
+                "q": "¿Qué exportaba principalmente Argentina dentro de esa división internacional del trabajo?",
+                "a": [
+                        "Automóviles y productos químicos",
+                        "Carne y cereales",
+                        "Maquinaria pesada y textiles",
+                        "Petróleo refinado y acero"
+                ],
+                "c": 1
+        },
+        {
+                "q": "¿Qué importaba principalmente Argentina?",
+                "a": [
+                        "Textiles, maquinaria y bienes de capital",
+                        "Carne y cereales",
+                        "Oro y alimentos exclusivamente",
+                        "Mano de obra europea únicamente"
+                ],
+                "c": 0
+        },
+        {
+                "q": "La inserción argentina en el mercado mundial generó crecimiento, pero también dependencia estructural y poca diversificación productiva.",
+                "a": [
+                        "Verdadero",
+                        "Falso"
+                ],
+                "c": 0
+        },
+        {
+                "q": "¿Qué era el patrón oro?",
+                "a": [
+                        "Un sistema en el que cada moneda tenía un valor fijo en oro",
+                        "Un impuesto aplicado a la minería",
+                        "Una política que prohibía el uso de monedas nacionales",
+                        "Una forma de trueque entre países"
+                ],
+                "c": 0
+        },
+        {
+                "q": "¿Qué efecto tuvo el capital financiero europeo en los países periféricos?",
+                "a": [
+                        "Financió infraestructura, pero también generó deuda y dependencia",
+                        "Eliminó todas las deudas externas",
+                        "Impulsó únicamente actividades artesanales",
+                        "Terminó con la inversión extranjera"
+                ],
+                "c": 0
+        },
+        {
+                "q": "Las mejoras en ferrocarriles, barcos a vapor y telégrafo redujeron los costos del intercambio internacional.",
+                "a": [
+                        "Verdadero",
+                        "Falso"
+                ],
+                "c": 0
+        },
+        {
+                "q": "¿Dónde comenzó la crisis de 1873?",
+                "a": [
+                        "En la Bolsa de Viena",
+                        "En la Bolsa de Londres",
+                        "En la Bolsa de París",
+                        "En el Banco de Inglaterra"
+                ],
+                "c": 0
+        },
+        {
+                "q": "¿Por qué se considera a la crisis de 1873 una crisis de superproducción?",
+                "a": [
+                        "Porque la demanda creció más que la producción",
+                        "Porque la capacidad productiva superó la demanda efectiva",
+                        "Porque faltaban bienes para vender",
+                        "Porque los salarios eran demasiado altos"
+                ],
+                "c": 1
+        },
+        {
+                "q": "La superproducción significa necesariamente que toda la población tiene satisfechas sus necesidades.",
+                "a": [
+                        "Verdadero",
+                        "Falso"
+                ],
+                "c": 1
+        },
+        {
+                "q": "¿Cuál es el orden correcto de la mecánica de la crisis de 1873?",
+                "a": [
+                        "Alta producción → caída de precios → menos beneficios → despidos → caída del consumo",
+                        "Caída del consumo → aumento de salarios → más beneficios → inflación",
+                        "Despidos → aumento del consumo → subida de precios → recuperación inmediata",
+                        "Baja producción → más competencia → aumento del empleo → caída de precios"
+                ],
+                "c": 0
+        },
+        {
+                "q": "¿Qué ocurrió con muchas empresas pequeñas durante la crisis de 1873?",
+                "a": [
+                        "Absorbieron a las grandes",
+                        "Quebraron o fueron absorbidas por empresas mayores",
+                        "Se transformaron todas en cooperativas",
+                        "Pasaron a controlar sectores completos"
+                ],
+                "c": 1
+        },
+        {
+                "q": "¿Qué estructuras empresariales se fortalecieron con la concentración del capital?",
+                "a": [
+                        "Monopolios y oligopolios",
+                        "Gremios medievales",
+                        "Economías de subsistencia",
+                        "Talleres familiares exclusivamente"
+                ],
+                "c": 0
+        },
+        {
+                "q": "¿Por qué las potencias industriales impulsaron el imperialismo económico?",
+                "a": [
+                        "Para encontrar nuevos mercados y materias primas",
+                        "Para reducir la producción industrial",
+                        "Para abandonar el comercio mundial",
+                        "Para eliminar el capital financiero"
+                ],
+                "c": 0
+        },
+        {
+                "q": "El proteccionismo consiste en aplicar aranceles para defender la industria nacional.",
+                "a": [
+                        "Verdadero",
+                        "Falso"
+                ],
+                "c": 0
+        },
+        {
+                "q": "¿Cuál de estas condiciones caracterizaba a los trabajadores durante la primera fase del capitalismo industrial?",
+                "a": [
+                        "Jornadas de 14 a 16 horas y salarios de subsistencia",
+                        "Vacaciones pagas y jubilación universal",
+                        "Jornadas de seis horas y seguro de desempleo",
+                        "Prohibición del trabajo infantil desde el comienzo"
+                ],
+                "c": 0
+        },
+        {
+                "q": "¿Qué fue el ludismo?",
+                "a": [
+                        "Una resistencia de obreros que destruían máquinas que los reemplazaban",
+                        "Un movimiento de empresarios a favor del libre comercio",
+                        "Una teoría monetaria basada en el oro",
+                        "Una asociación de bancos europeos"
+                ],
+                "c": 0
+        },
+        {
+                "q": "¿Qué reclamaba el cartismo británico?",
+                "a": [
+                        "Derechos políticos y mejoras sociales",
+                        "La restauración de la monarquía absoluta",
+                        "La prohibición de los sindicatos",
+                        "El fin de toda producción industrial"
+                ],
+                "c": 0
+        },
+        {
+                "q": "¿Qué proponían los socialistas utópicos?",
+                "a": [
+                        "Comunidades cooperativas ideales",
+                        "La defensa del capitalismo sin cambios",
+                        "La eliminación de toda forma de cooperación",
+                        "La expansión del imperialismo"
+                ],
+                "c": 0
+        },
+        {
+                "q": "¿Qué proponía el anarquismo según el apunte?",
+                "a": [
+                        "La autogestión directa y el rechazo de toda forma de Estado",
+                        "Un Estado central cada vez más fuerte",
+                        "El dominio de monopolios privados",
+                        "La vuelta al absolutismo"
+                ],
+                "c": 0
+        },
+        {
+                "q": "Los anarquistas consideraban que tomar el Estado podía reproducir la opresión.",
+                "a": [
+                        "Verdadero",
+                        "Falso"
+                ],
+                "c": 0
+        }
+];
+
+    let currentQuestions = [];
+    let userAnswers = [];
+    let currentIdx = 0;
+    let timerInterval;
+    let timeLeft = 15 * 60;
+    let startTime;
+
+    window.onload = () => {
+        const select = document.getElementById('student-select');
+        students.sort((a, b) => a.name.localeCompare(b.name)).forEach(s => {
+            const opt = document.createElement('option');
+            opt.value = s.code;
+            opt.textContent = s.name;
+            select.appendChild(opt);
+        });
+    };
+
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    async function startQuiz() {
+        const studentCode = document.getElementById('student-select').value;
+        const student = students.find(s => s.code === studentCode);
+        const enteredPassword = document.getElementById('student-password').value.trim().toLowerCase();
+
+        if (!studentCode) { alert("Por favor, seleccioná tu nombre."); return; }
+        if (!enteredPassword) { alert("Por favor, ingresá tu palabra clave."); return; }
+        if (enteredPassword !== studentCode.toLowerCase()) {
+            alert("Palabra clave incorrecta. Por favor, verificá y volvé a intentar.");
+            return;
+        }
+
+        // Buscar el código real del alumno en la tabla alumnos
+        let realCode = studentCode;
+        try {
+            const alumnosData = await sbFetch("alumnos", `select=codigo&nombre=eq.${encodeURIComponent(student.name)}`);
+            if (alumnosData && alumnosData.length > 0) realCode = alumnosData[0].codigo;
+        } catch(e) { console.warn("No se pudo obtener código real del alumno:", e); }
+
+        currentQuestions = shuffle([...questionBank]).slice(0, 15);
+        currentQuestions.forEach(q => {
+            const correctAnswerText = q.a[q.c];
+            shuffle(q.a);
+            q.newCorrectIdx = q.a.indexOf(correctAnswerText);
+        });
+
+        userAnswers = new Array(15).fill(null);
+        currentIdx = 0;
+        startTime = Date.now();
+
+        document.getElementById('student-name-display').textContent = student.name;
+        document.getElementById('student-name-display').dataset.code = realCode;
+        document.getElementById('setup-screen').style.display = 'none';
+        document.getElementById('quiz-screen').style.display = 'block';
+
+        renderQuestion();
+        startTimer();
+    }
+
+    function renderQuestion() {
+        const q = currentQuestions[currentIdx];
+        const container = document.getElementById('question-container');
+        const letters = ['A', 'B', 'C', 'D'];
+        let optionsHtml = '';
+
+        q.a.forEach((optText, i) => {
+            const isSelected = userAnswers[currentIdx] === i;
+            optionsHtml += `
+                <div class="option ${isSelected ? 'selected' : ''}" onclick="selectOption(${i})">
+                    <div class="option-bullet">${letters[i]}</div>
+                    <div class="option-text">${optText}</div>
+                </div>
+            `;
+        });
+
+        container.innerHTML = `
+            <div class="question-card">
+                <span class="q-number">Pregunta ${currentIdx + 1} de 15</span>
+                <div class="q-text">${q.q}</div>
+                <div class="options">${optionsHtml}</div>
+            </div>
+        `;
+
+        updateNav();
+    }
+
+    function selectOption(idx) {
+        userAnswers[currentIdx] = idx;
+        renderQuestion();
+        if (currentIdx < 14) {
+            setTimeout(() => {
+                if (userAnswers[currentIdx] === idx) nextQuestion();
+            }, 600);
+        }
+    }
+
+    function updateNav() {
+        document.getElementById('btn-prev').disabled = currentIdx === 0;
+        const isLast = currentIdx === 14;
+        document.getElementById('btn-next').style.display = isLast ? 'none' : 'block';
+        document.getElementById('btn-submit').style.display = isLast ? 'block' : 'none';
+        document.getElementById('progress-bar').style.width = `${((currentIdx + 1) / 15) * 100}%`;
+        document.getElementById('page-indicator').textContent = `${currentIdx + 1} de 15`;
+    }
+
+    function nextQuestion() { if (currentIdx < 14) { currentIdx++; renderQuestion(); } }
+    function prevQuestion() { if (currentIdx > 0) { currentIdx--; renderQuestion(); } }
+
+    function resetQuiz() {
+        clearInterval(timerInterval);
+        timeLeft = 15 * 60;
+        currentQuestions = [];
+        userAnswers = [];
+        currentIdx = 0;
+        document.getElementById('results-screen').style.display = 'none';
+        document.getElementById('quiz-screen').style.display = 'none';
+        document.getElementById('setup-screen').style.display = 'block';
+        document.getElementById('student-password').value = '';
+        document.getElementById('timer-val').textContent = '15:00';
+        document.querySelector('.timer').style.color = '#10B981';
+    }
+
+    function startTimer() {
+        timerInterval = setInterval(() => {
+            timeLeft--;
+            if (timeLeft <= 0) { clearInterval(timerInterval); finishQuiz(true); }
+            const mins = Math.floor(timeLeft / 60);
+            const secs = timeLeft % 60;
+            document.getElementById('timer-val').textContent =
+                `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            if (timeLeft < 60) {
+                document.querySelector('.timer').style.color = '#EF4444';
+                document.querySelector('.timer').style.animation = 'pulse 1s infinite';
+            }
+        }, 1000);
+    }
+
+    async function finishQuiz(auto = false) {
+        if (!auto) {
+            const unanswered = userAnswers.filter(a => a === null).length;
+            if (unanswered > 0) {
+                if (!confirm(`Todavía tenés ${unanswered} preguntas sin responder. ¿Querés entregar igual?`)) return;
+            }
+        }
+
+        clearInterval(timerInterval);
+
+        let score = 0;
+        const processedAnswers = currentQuestions.map((q, i) => {
+            const selectedIdx = userAnswers[i];
+            const isCorrect = selectedIdx === q.newCorrectIdx;
+            if (isCorrect) score++;
+            return {
+                text: selectedIdx !== null ? q.a[selectedIdx] : "Sin respuesta",
+                isCorrect: isCorrect
+            };
+        });
+
+        const timeUsed = 15 * 60 - timeLeft;
+        const mins = Math.floor(timeUsed / 60);
+        const secs = timeUsed % 60;
+        const timeStr = `${mins}:${secs.toString().padStart(2, '0')}`;
+
+        const studentName = document.getElementById('student-name-display').textContent;
+        const studentCode = document.getElementById('student-name-display').dataset.code;
+
+        document.getElementById('result-title').textContent = "Guardando resultados...";
+
+        await sbInsert("progreso", {
+            alumno_codigo: studentCode,
+            materia: "Economía",
+            unidad: "Unidad 2 - Evaluación sin Karl Marx",
+            seccion: "EVALUACION",
+            nota: Math.round((score / 15) * 100),
+            datos: {
+                alumno_nombre: studentName,
+                tiempo_usado: timeStr,
+                respuestas: processedAnswers,
+                preguntas: currentQuestions.map(q => q.q),
+                fecha: new Date().toISOString()
+            }
+        });
+
+        try {
+            await fetch("https://formsubmit.co/ajax/14f4f473357c2cd083f563a355a538de", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    "Evaluación": "Economía · Unidad 2 · Repaso sin Karl Marx",
+                    "Estudiante": studentName,
+                    "Nota": Math.round((score / 15) * 100) + "/100",
+                    "Respuestas Correctas": score + "/15",
+                    "Tiempo Utilizado": timeStr,
+                    "Detalle": currentQuestions.map((q, i) => `${i + 1}. ${q.q} — ${processedAnswers[i].text} — ${processedAnswers[i].isCorrect ? "CORRECTA" : "INCORRECTA"}`).join("\n"),
+                    "_subject": "✅ Resultado de Economía 3°A: " + studentName,
+                    "_captcha": "false"
+                })
+            });
+        } catch (e) {
+            console.error("Error al enviar el correo:", e);
+        }
+
+        alert("✅ Evaluación finalizada y guardada con éxito.");
+
+        document.getElementById('quiz-screen').style.display = 'none';
+        document.getElementById('results-screen').style.display = 'block';
+
+        document.getElementById('score-val').textContent = score;
+        document.getElementById('result-student').textContent = studentName;
+        document.getElementById('summary-time').textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+        document.getElementById('summary-total').textContent = `${userAnswers.filter(a => a !== null).length}/15`;
+
+        const status = document.getElementById('summary-status');
+        if (score >= 9) {
+            status.textContent = "Aprobado";
+            status.style.color = "#F59E0B";
+            document.getElementById('result-emoji').textContent = "🎉";
+            document.getElementById('result-title').textContent = "¡Excelente Trabajo!";
+        } else {
+            status.textContent = "En Proceso";
+            status.style.color = "#F59E0B";
+            document.getElementById('result-emoji').textContent = "📚";
+            document.getElementById('result-title').textContent = "Sigue practicando";
+        }
+    }
+</script>
+
+</body>
+</html>
