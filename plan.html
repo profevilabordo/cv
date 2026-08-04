@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contabilidad — Plan de Cuentas y Variaciones Patrimoniales</title>
+<title>Contabilidad — Cuentas, Resultados y Variaciones Patrimoniales</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -18,91 +18,73 @@
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{
-    margin:0;
-    background:linear-gradient(var(--rule-soft) 1px, transparent 1px) 0 0 / 100% 34px, var(--paper);
-    color:var(--ink); font-family:"Inter",system-ui,sans-serif; line-height:1.5;
-    -webkit-font-smoothing:antialiased;
-  }
+  body{margin:0;background:linear-gradient(var(--rule-soft) 1px, transparent 1px) 0 0 / 100% 34px, var(--paper);color:var(--ink);font-family:"Inter",system-ui,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
   .wrap{max-width:1000px;margin:0 auto;padding:0 20px 80px}
   header.hero{padding:40px 0 10px}
   .eyebrow{font-family:"Space Mono",monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
   h1{font-family:"Archivo",sans-serif;font-weight:800;font-size:clamp(30px,6vw,52px);line-height:1;letter-spacing:-.02em;margin:0 0 12px}
   .lead{font-size:clamp(15px,2.4vw,17.5px);color:var(--muted);max-width:60ch;margin:0}
-
-  /* ---- PESTAÑAS ---- */
   .tabs{display:flex;gap:4px;border-bottom:1.5px solid var(--rule);margin:26px 0 0;overflow-x:auto;position:sticky;top:0;z-index:30;background:var(--paper);padding-top:6px}
-  .tab{
-    font-family:"Archivo",sans-serif;font-weight:600;font-size:14.5px;
-    padding:11px 16px;border:none;background:none;color:var(--muted);cursor:pointer;
-    border-bottom:3px solid transparent;margin-bottom:-1.5px;white-space:nowrap;transition:.12s;
-  }
+  .tab{font-family:"Archivo",sans-serif;font-weight:600;font-size:14px;padding:11px 14px;border:none;background:none;color:var(--muted);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1.5px;white-space:nowrap;transition:.12s}
   .tab:hover{color:var(--ink)}
   .tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--ink)}
   .panel{display:none;padding-top:8px}
   .panel.on{display:block}
-
   h2.sec{font-family:"Archivo",sans-serif;font-weight:700;font-size:clamp(21px,3.5vw,27px);letter-spacing:-.01em;margin:34px 0 10px}
   h3.sub2{font-family:"Archivo",sans-serif;font-weight:600;font-size:17px;margin:26px 0 8px}
   p.txt{font-size:15px;color:var(--muted);max-width:66ch;margin:0 0 12px}
   p.txt strong{color:var(--ink)}
-
-  /* ---- ECUACIÓN ---- */
-  .ecuacion{
-    display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
-    background:var(--panel);border:1.5px solid var(--rule);border-radius:12px;padding:20px 16px;margin:16px 0 6px;
-    font-family:"Archivo",sans-serif;font-weight:700;font-size:clamp(16px,3.4vw,22px);
-  }
+  .ecuacion{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;background:var(--panel);border:1.5px solid var(--rule);border-radius:12px;padding:20px 16px;margin:16px 0 6px;font-family:"Archivo",sans-serif;font-weight:700;font-size:clamp(16px,3.4vw,22px)}
   .ecuacion .t{padding:6px 14px;border-radius:8px;color:#fff}
   .ecuacion .op{color:var(--muted)}
   .cap{font-size:13px;color:var(--muted);text-align:center;margin:0 0 4px;font-style:italic}
-
-  /* ---- TARJETA DE CASO ---- */
+  /* casos con visor de balance */
   .caso{background:var(--panel);border:1.5px solid var(--rule);border-radius:12px;margin:16px 0;overflow:hidden;box-shadow:var(--shadow)}
   .caso-head{padding:14px 18px;border-bottom:1.5px solid var(--rule);display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-  .flechas{font-family:"Archivo",sans-serif;font-weight:800;font-size:15px;letter-spacing:.01em;display:flex;gap:7px;align-items:center;flex-wrap:wrap}
-  .fl{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:7px;color:#fff;font-size:13.5px}
+  .flechas{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+  .fl{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:7px;color:#fff;font-family:"Archivo",sans-serif;font-weight:700;font-size:13px}
   .badge{margin-left:auto;font-family:"Space Mono",monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:.1em;padding:4px 9px;border-radius:6px;border:1.2px solid var(--rule);color:var(--muted);white-space:nowrap}
   .caso-body{padding:16px 18px 18px}
   .operacion{font-size:15.5px;font-weight:600;margin:0 0 4px}
   .asiento{font-family:"Space Mono",monospace;font-size:12.5px;color:var(--muted);margin:0 0 16px}
-
-  /* ---- VISOR DE BALANCE ---- */
   .visor{display:flex;gap:10px;align-items:flex-end;justify-content:center;min-height:230px;padding:8px 0 0}
   .paso{flex:1;max-width:210px;display:flex;flex-direction:column;align-items:center;gap:8px}
   .bars{display:flex;gap:5px;align-items:flex-start;height:210px}
   .col{width:62px;display:flex;flex-direction:column;justify-content:flex-start}
-  .blk{
-    border-radius:4px;display:flex;align-items:center;justify-content:center;text-align:center;
-    color:#fff;font-family:"Space Mono",monospace;font-size:9.5px;letter-spacing:.05em;line-height:1.15;
-    transition:height .45s cubic-bezier(.4,0,.2,1);overflow:hidden;
-  }
-  .blk.a{background:var(--activo)}
-  .blk.p{background:var(--pasivo)}
-  .blk.pn{background:var(--pn);margin-top:3px}
+  .blk{border-radius:4px;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;font-family:"Space Mono",monospace;font-size:9.5px;letter-spacing:.05em;line-height:1.15;transition:height .45s cubic-bezier(.4,0,.2,1);overflow:hidden}
+  .blk.a{background:var(--activo)} .blk.p{background:var(--pasivo)} .blk.pn{background:var(--pn);margin-top:3px}
   .blk.flash{outline:3px solid var(--ink);outline-offset:1px}
   .paso-txt{font-size:11.5px;color:var(--muted);text-align:center;line-height:1.3;min-height:2.6em;padding:0 2px}
   .desbal{font-family:"Space Mono",monospace;font-size:10px;color:var(--bad);text-transform:uppercase;letter-spacing:.08em}
   .conclusion{margin-top:16px;padding:13px 15px;border-left:3px solid var(--ink);background:var(--rule-soft);border-radius:0 8px 8px 0;font-size:14px}
-
-  @media(max-width:640px){
-    .visor{gap:6px}
-    .col{width:44px}
-    .bars{height:170px}
-    .blk{font-size:8px}
-    .paso-txt{font-size:10.5px}
-  }
-
-  /* ---- COMPARACIÓN PERMUTATIVA / MODIFICATIVA ---- */
+  @media(max-width:640px){.visor{gap:6px}.col{width:44px}.bars{height:170px}.blk{font-size:8px}.paso-txt{font-size:10.5px}}
   .dos{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
   @media(max-width:640px){.dos{grid-template-columns:1fr}}
   .box{background:var(--panel);border:1.5px solid var(--rule);border-radius:12px;padding:16px 17px}
   .box h4{font-family:"Archivo",sans-serif;font-weight:700;font-size:16px;margin:0 0 8px}
   .box p{font-size:14px;color:var(--muted);margin:0 0 10px}
-  .box ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--muted)}
-  .box li{margin-bottom:5px}
-
-  /* ---- CONTROLES PLAN DE CUENTAS ---- */
+  .box ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--muted)} .box li{margin-bottom:5px}
+  /* cuentas de resultado */
+  .concepto{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0}
+  @media(max-width:640px){.concepto{grid-template-columns:1fr}}
+  .concepto .c{border:1.5px solid var(--rule);border-left-width:4px;border-radius:10px;padding:13px 15px;background:var(--panel)}
+  .concepto .c b{display:block;font-family:"Archivo",sans-serif;font-size:14.5px;margin-bottom:4px}
+  .concepto .c p{margin:0;font-size:13px;color:var(--muted)}
+  .res-cols{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+  @media(max-width:640px){.res-cols{grid-template-columns:1fr}}
+  .res-panel{border:1.5px solid var(--rule);border-radius:12px;overflow:hidden;background:var(--panel);height:fit-content}
+  .res-panel .rh{color:#fff;padding:13px 16px}
+  .res-panel .rh h3{font-family:"Archivo",sans-serif;font-weight:700;font-size:18px;margin:0}
+  .res-panel .rh span{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.04em;opacity:.92;display:block;margin-top:3px}
+  .res-item{padding:11px 16px;border-top:1px solid var(--rule-soft)}
+  .res-item .n{font-weight:600;font-size:14.5px}
+  .res-item .r{font-size:12.5px;color:var(--muted);margin-top:2px}
+  .cascada{background:var(--panel);border:1.5px solid var(--rule);border-radius:12px;padding:14px 18px;margin:16px 0;font-family:"Space Mono",monospace;font-size:13px}
+  .cascada .l{display:flex;justify-content:space-between;gap:14px;padding:6px 0}
+  .cascada .l .op{color:var(--muted);min-width:16px;display:inline-block}
+  .cascada .l.tot{border-top:1.5px solid var(--rule);margin-top:2px;padding-top:9px;font-weight:700}
+  .cascada .l.fin{border-top:2px solid var(--ink);color:var(--ink);font-weight:700;margin-top:2px;padding-top:9px}
+  /* controles plan de cuentas */
   .controls{position:sticky;top:47px;z-index:20;background:linear-gradient(var(--paper) 84%, rgba(242,244,239,0));padding:14px 0 12px;margin:6px 0}
   .search{position:relative}
   .search input{width:100%;padding:14px 16px 14px 44px;font-size:16px;font-family:inherit;border:1.5px solid var(--rule);border-radius:12px;background:var(--panel);color:var(--ink);box-shadow:var(--shadow);outline:none}
@@ -122,7 +104,7 @@
   .count{font-family:"Space Mono",monospace;font-size:12px;color:var(--muted);margin:14px 0 2px}
   .hint{display:none;font-size:13px;color:var(--muted);font-style:italic;margin:10px 0 0}
   body.study .hint{display:block}
-  .rubro{margin-top:30px;scroll-margin-top:150px}
+  .rubro{margin-top:30px}
   .rubro-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;color:#fff;padding:12px 16px;border-radius:10px 10px 0 0}
   .rubro-head h2{font-family:"Archivo",sans-serif;font-weight:700;font-size:20px;margin:0;letter-spacing:-.01em}
   .rubro-head .saldo{font-family:"Space Mono",monospace;font-size:11.5px;opacity:.9;margin-left:auto}
@@ -134,8 +116,7 @@
   .card .top{display:flex;align-items:center;gap:9px}
   .codigo{font-family:"Space Mono",monospace;font-size:11px;color:var(--muted)}
   .saldo-chip{font-family:"Space Mono",monospace;font-size:10px;font-weight:700;letter-spacing:.06em;padding:2px 7px;border-radius:5px;border:1.2px solid currentColor;text-transform:uppercase}
-  .saldo-chip.debe{color:var(--activo)}
-  .saldo-chip.haber{color:var(--pasivo)}
+  .saldo-chip.debe{color:var(--activo)} .saldo-chip.haber{color:var(--pasivo)}
   .cuenta{font-weight:600;font-size:15.5px;color:var(--ink);border-radius:6px}
   .representa{font-size:13.5px;color:var(--muted)}
   .comun{font-size:13px;color:var(--muted);padding-left:11px;border-left:2px solid var(--rule);margin-top:2px}
@@ -145,12 +126,8 @@
   body.study .cuenta.reveal{background:transparent;color:var(--ink)}
   body.study .cuenta.reveal::after{display:none}
   .no-results{padding:40px 4px;color:var(--muted);font-style:italic;display:none}
-
-  /* ---- EJERCICIOS ---- */
-  .marcador{
-    position:sticky;top:47px;z-index:15;background:var(--paper);padding:12px 0;
-    display:flex;gap:12px;align-items:center;flex-wrap:wrap;border-bottom:1.5px solid var(--rule);margin-bottom:6px;
-  }
+  /* ejercicios */
+  .marcador{position:sticky;top:47px;z-index:15;background:var(--paper);padding:12px 0;display:flex;gap:12px;align-items:center;flex-wrap:wrap;border-bottom:1.5px solid var(--rule);margin-bottom:6px}
   .score{font-family:"Space Mono",monospace;font-size:13px;color:var(--muted)}
   .score b{color:var(--ink);font-size:16px}
   .barra{flex:1;min-width:110px;height:7px;background:var(--rule);border-radius:99px;overflow:hidden}
@@ -162,10 +139,7 @@
   .ej-op{font-size:15.5px;font-weight:600;margin:5px 0 12px}
   .opts{display:grid;grid-template-columns:1fr 1fr;gap:7px}
   @media(max-width:640px){.opts{grid-template-columns:1fr}}
-  .opt{
-    text-align:left;font-family:"Inter",sans-serif;font-size:13.5px;padding:10px 12px;border-radius:9px;
-    border:1.5px solid var(--rule);background:var(--paper);color:var(--ink);cursor:pointer;transition:.12s;
-  }
+  .opt{text-align:left;font-family:"Inter",sans-serif;font-size:13.5px;padding:10px 12px;border-radius:9px;border:1.5px solid var(--rule);background:var(--paper);color:var(--ink);cursor:pointer;transition:.12s}
   .opt:hover:not(:disabled){border-color:var(--ink)}
   .opt:disabled{cursor:default}
   .opt.correcta{border-color:var(--ok);background:rgba(31,110,76,.09);font-weight:600}
@@ -179,7 +153,6 @@
   .final.on{display:block}
   .final h3{font-family:"Archivo",sans-serif;font-size:22px;margin:0 0 6px}
   .final p{color:var(--muted);font-size:14.5px;margin:0 0 14px}
-
   footer{margin-top:50px;padding-top:20px;border-top:1.5px solid var(--rule);font-size:12.5px;color:var(--muted)}
   footer .legend{display:flex;flex-wrap:wrap;gap:14px;margin-bottom:14px}
   footer .legend span{display:flex;align-items:center;gap:6px}
@@ -192,16 +165,18 @@
   <header class="hero">
     <p class="eyebrow">Contabilidad · Argentina</p>
     <h1>Cuentas y Patrimonio</h1>
-    <p class="lead">El plan de cuentas completo, cómo se mueve el patrimonio con cada operación y ejercicios para practicar.</p>
+    <p class="lead">El plan de cuentas, las cuentas de resultado y cómo se mueve el patrimonio con cada operación, con ejercicios para practicar.</p>
   </header>
 
   <div class="tabs" role="tablist">
     <button class="tab" role="tab" aria-selected="true" data-p="plan">Plan de cuentas</button>
-    <button class="tab" role="tab" aria-selected="false" data-p="variaciones">Variaciones permutativas</button>
-    <button class="tab" role="tab" aria-selected="false" data-p="ejercicios">Ejercicios</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="resultado">Cuentas de resultado</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="permutativas">Permutativas</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="modificativas">Modificativas</button>
+    <button class="tab" role="tab" aria-selected="false" data-p="ejercicios">Ejercicios integrados</button>
   </div>
 
-  <!-- ============ PANEL 1: PLAN DE CUENTAS ============ -->
+  <!-- ===== PLAN ===== -->
   <section class="panel on" id="p-plan">
     <div class="controls">
       <div class="search">
@@ -219,64 +194,124 @@
     <p class="no-results" id="noresults">No hay cuentas que coincidan con la búsqueda.</p>
   </section>
 
-  <!-- ============ PANEL 2: VARIACIONES ============ -->
-  <section class="panel" id="p-variaciones">
+  <!-- ===== CUENTAS DE RESULTADO ===== -->
+  <section class="panel" id="p-resultado">
+    <h2 class="sec">Qué son las cuentas de resultado</h2>
+    <p class="txt">A diferencia de las patrimoniales, <strong>no representan bienes, derechos ni deudas</strong>. Miden cómo le fue al ente durante el ejercicio: registran los ingresos y las ganancias por un lado, y los gastos y las pérdidas por el otro. Nacen al empezar el ejercicio y se cierran al terminarlo.</p>
+    <p class="txt">Al cierre, la diferencia entre unas y otras determina el <strong>Resultado del Ejercicio</strong>, que se suma o se resta al Patrimonio Neto. Por eso, cada vez que interviene una cuenta de resultado, el patrimonio cambia de importe.</p>
+
+    <div class="concepto">
+      <div class="c" style="border-left-color:var(--rpos)">
+        <b>Positivos · R.P. · Ganancias</b>
+        <p>Ingresos y ganancias. <strong>Aumentan</strong> el Patrimonio Neto. Su saldo nace en el <strong>Haber</strong> (acreedor).</p>
+      </div>
+      <div class="c" style="border-left-color:var(--rneg)">
+        <b>Negativos · R.N. · Pérdidas</b>
+        <p>Gastos y pérdidas. <strong>Disminuyen</strong> el Patrimonio Neto. Su saldo nace en el <strong>Debe</strong> (deudor).</p>
+      </div>
+    </div>
+
+    <div class="res-cols">
+      <div class="res-panel">
+        <div class="rh" style="background:var(--rpos)"><h3>Positivos (R.P.)</h3><span>Ganancias · aumentan el PN · saldo Haber</span></div>
+        <div id="res-pos"></div>
+      </div>
+      <div class="res-panel">
+        <div class="rh" style="background:var(--rneg)"><h3>Negativos (R.N.)</h3><span>Pérdidas · disminuyen el PN · saldo Debe</span></div>
+        <div id="res-neg"></div>
+      </div>
+    </div>
+
+    <h3 class="sub2">Cómo se arma el resultado del ejercicio</h3>
+    <p class="txt">Al cierre, las cuentas de resultado se ordenan en el <strong>Estado de Resultados</strong>. A grandes rasgos, el camino es este:</p>
+    <div class="cascada">
+      <div class="l"><span>Ventas</span><span></span></div>
+      <div class="l"><span><span class="op">−</span> Costo de Mercaderías Vendidas</span><span></span></div>
+      <div class="l tot"><span>= Resultado bruto</span><span></span></div>
+      <div class="l"><span><span class="op">−</span> Gastos (sueldos, alquileres, fletes, seguros…)</span><span></span></div>
+      <div class="l"><span><span class="op">+</span> Otros ingresos (intereses y alquileres ganados…)</span><span></span></div>
+      <div class="l fin"><span>= Resultado del ejercicio</span><span>ganancia o pérdida</span></div>
+    </div>
+    <p class="txt">Si el resultado es positivo, hay <strong>ganancia</strong> y el Patrimonio Neto crece. Si es negativo, hay <strong>pérdida</strong> y el Patrimonio Neto se achica. Ese movimiento del PN es, justamente, una <strong>variación modificativa</strong>.</p>
+  </section>
+
+  <!-- ===== PERMUTATIVAS ===== -->
+  <section class="panel" id="p-permutativas">
     <h2 class="sec">Qué es una variación patrimonial</h2>
     <p class="txt">Cada operación que hace el ente modifica su patrimonio. Sea cual sea la operación, la <strong>ecuación contable siempre tiene que volver a equilibrarse</strong>: por eso toda operación toca como mínimo dos cuentas.</p>
-
     <div class="ecuacion">
-      <span class="t" style="background:var(--activo)">ACTIVO</span>
-      <span class="op">=</span>
-      <span class="t" style="background:var(--pasivo)">PASIVO</span>
-      <span class="op">+</span>
+      <span class="t" style="background:var(--activo)">ACTIVO</span><span class="op">=</span>
+      <span class="t" style="background:var(--pasivo)">PASIVO</span><span class="op">+</span>
       <span class="t" style="background:var(--pn)">PATRIMONIO NETO</span>
     </div>
     <p class="cap">Lo que el ente tiene = lo que debe + lo que es realmente suyo</p>
-
     <div class="dos">
       <div class="box">
         <h4>Permutativas</h4>
         <p><strong>No cambian el importe del Patrimonio Neto.</strong> Se permutan bienes, derechos u obligaciones entre sí.</p>
-        <ul>
-          <li>Comprar una máquina pagando en efectivo</li>
-          <li>Comprar mercaderías en cuenta corriente</li>
-          <li>Pagarle a un proveedor</li>
-          <li>Documentar una deuda con un pagaré</li>
-        </ul>
+        <ul><li>Comprar una máquina pagando en efectivo</li><li>Comprar mercaderías en cuenta corriente</li><li>Pagarle a un proveedor</li><li>Documentar una deuda con un pagaré</li></ul>
       </div>
       <div class="box">
         <h4>Modificativas</h4>
         <p><strong>Sí cambian el importe del Patrimonio Neto</strong>, porque interviene una cuenta de resultado.</p>
-        <ul>
-          <li>Pagar los sueldos (resultado negativo)</li>
-          <li>Cobrar intereses (resultado positivo)</li>
-          <li>Pagar el alquiler del local</li>
-          <li>Vender mercaderías con ganancia</li>
-        </ul>
+        <ul><li>Pagar los sueldos (resultado negativo)</li><li>Cobrar intereses (resultado positivo)</li><li>Pagar el alquiler del local</li><li>Vender mercaderías con ganancia</li></ul>
       </div>
     </div>
     <p class="txt">La pregunta que resuelve todo: <strong>¿el Patrimonio Neto quedó igual que antes?</strong> Si quedó igual, es permutativa. Si creció o se achicó, es modificativa.</p>
-
     <h3 class="sub2">Cualitativa o cuantitativa</h3>
     <p class="txt">Dentro de las permutativas hay dos formas de moverse. Si el cambio ocurre <strong>dentro de un mismo rubro</strong> (sale una cuenta de Activo y entra otra de Activo), el patrimonio tiene los mismos totales pero distinta composición: es un cambio <strong>cualitativo</strong>. Si en cambio <strong>crecen o se achican dos rubros distintos</strong> a la vez, los totales cambian: es un cambio <strong>cuantitativo</strong>.</p>
-
     <h2 class="sec">Los cinco casos</h2>
-    <p class="txt">Tocá <em>Ver paso a paso</em> en cada caso para ver cómo se desarma y se vuelve a armar la ecuación. En el paso del medio la ecuación queda desbalanceada a propósito: eso es exactamente lo que obliga a registrar la segunda parte del asiento.</p>
+    <p class="txt">Tocá <em>Ver paso a paso</em> en cada caso. En el paso del medio la ecuación queda desbalanceada a propósito: eso es lo que obliga a registrar la segunda parte del asiento.</p>
     <div id="casos"></div>
   </section>
 
-  <!-- ============ PANEL 3: EJERCICIOS ============ -->
+  <!-- ===== MODIFICATIVAS ===== -->
+  <section class="panel" id="p-modificativas">
+    <h2 class="sec">Variaciones modificativas</h2>
+    <p class="txt">Son las que <strong>cambian el importe del Patrimonio Neto</strong>, porque en la operación interviene una cuenta de resultado. Un ingreso o ganancia lo hace crecer; un gasto o pérdida lo achica.</p>
+    <div class="concepto">
+      <div class="c" style="border-left-color:var(--rpos)">
+        <b>Positiva</b>
+        <p>Interviene un resultado positivo. El PN <strong>aumenta</strong>. Ej.: cobrar intereses, cobrar un alquiler ganado.</p>
+      </div>
+      <div class="c" style="border-left-color:var(--rneg)">
+        <b>Negativa</b>
+        <p>Interviene un resultado negativo. El PN <strong>disminuye</strong>. Ej.: pagar sueldos, pagar el alquiler del local.</p>
+      </div>
+    </div>
+    <div class="box" style="margin:6px 0 4px">
+      <h4>Mixtas</h4>
+      <p style="margin:0">Una misma operación puede tener <strong>una parte permutativa y una parte modificativa</strong> a la vez. El caso típico es la <strong>venta de mercaderías con ganancia o pérdida</strong>: entra dinero y sale mercadería (permutativa), y además aparece un resultado (modificativa). También pasa al vender un bien de uso o al cobrar una deuda con intereses.</p>
+    </div>
+    <h2 class="sec">Cómo se ve en la ecuación</h2>
+    <p class="txt">Tocá <em>Ver paso a paso</em>: fijate que ahora el bloque del Patrimonio Neto cambia de altura, cosa que en las permutativas nunca pasaba.</p>
+    <div id="casos-m"></div>
+
+    <h2 class="sec">Ejercicios</h2>
+    <div class="marcador">
+      <span class="score">Aciertos: <b id="sc-m">0</b> / <span id="tot-m">0</span></span>
+      <span class="barra"><i id="bar-m"></i></span>
+      <button class="btn" id="reset-m">Empezar de nuevo</button>
+    </div>
+    <p class="txt" style="margin-top:14px">Para cada operación, decidí qué tipo de variación modificativa produce. Ojo: algunas no son modificativas.</p>
+    <div id="ejercicios-m"></div>
+    <div class="final" id="final-m">
+      <h3 id="final-m-t"></h3><p id="final-m-p"></p>
+      <button class="btn" id="reset-m2">Volver a empezar</button>
+    </div>
+  </section>
+
+  <!-- ===== EJERCICIOS INTEGRADOS ===== -->
   <section class="panel" id="p-ejercicios">
     <div class="marcador">
       <span class="score">Aciertos: <b id="sc">0</b> / <span id="tot">0</span></span>
       <span class="barra"><i id="bar"></i></span>
       <button class="btn" id="reset">Empezar de nuevo</button>
     </div>
-    <p class="txt" style="margin-top:14px">Leé cada operación y decidí qué tipo de variación produce. Cuidado: no todas son permutativas.</p>
+    <p class="txt" style="margin-top:14px">Todo junto: permutativas y modificativas mezcladas. Leé cada operación y clasificá la variación.</p>
     <div id="ejercicios"></div>
     <div class="final" id="final">
-      <h3 id="final-t"></h3>
-      <p id="final-p"></p>
+      <h3 id="final-t"></h3><p id="final-p"></p>
       <button class="btn" id="reset2">Volver a empezar</button>
     </div>
   </section>
@@ -290,11 +325,10 @@
       <span><i style="background:var(--rneg)"></i>Resultado negativo</span>
       <span><i style="background:var(--reg)"></i>Regularizadoras</span>
     </div>
-    Activo, Pasivo y Patrimonio Neto son <strong>cuentas patrimoniales</strong> (van al Estado de Situación Patrimonial). Los resultados positivos y negativos son <strong>cuentas de resultado</strong> (van al Estado de Resultados). Las <strong>regularizadoras</strong> ajustan el valor de otra cuenta y llevan el saldo contrario a la que rectifican.
+    Activo, Pasivo y Patrimonio Neto son <strong>cuentas patrimoniales</strong> (Estado de Situación Patrimonial). Los resultados positivos y negativos son <strong>cuentas de resultado</strong> (Estado de Resultados). Las <strong>regularizadoras</strong> ajustan el valor de otra cuenta y llevan el saldo contrario a la que rectifican.
   </footer>
 </div>
 <script>
-/* ============ DATOS: PLAN DE CUENTAS ============ */
 const RUBROS = {
   activo:{label:"Activo", color:"var(--activo)", saldo:"Saldo deudor (Debe)"},
   pasivo:{label:"Pasivo", color:"var(--pasivo)", saldo:"Saldo acreedor (Haber)"},
@@ -386,7 +420,7 @@ const CUENTAS = [
   ["reg","Del pasivo","2.9.01","Intereses a devengar (pasivo)","d","Intereses incluidos en deudas que todavía no se devengaron. Resta del pasivo.",""],
 ];
 
-/* ============ PESTAÑAS ============ */
+/* ===== PESTAÑAS ===== */
 document.querySelectorAll('.tab').forEach(t=>{
   t.addEventListener('click',()=>{
     document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected', x===t?'true':'false'));
@@ -395,61 +429,45 @@ document.querySelectorAll('.tab').forEach(t=>{
   });
 });
 
-/* ============ PLAN DE CUENTAS ============ */
-const list=document.getElementById('list');
-const chipsEl=document.getElementById('chips');
-const countEl=document.getElementById('count');
-const noResults=document.getElementById('noresults');
-const qInput=document.getElementById('q');
-const studyBtn=document.getElementById('study');
+/* ===== PLAN DE CUENTAS ===== */
+const list=document.getElementById('list'), chipsEl=document.getElementById('chips');
+const countEl=document.getElementById('count'), noResults=document.getElementById('noresults');
+const qInput=document.getElementById('q'), studyBtn=document.getElementById('study');
 let activeRubro="todos";
 const norm=s=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
-
 function buildChips(){
-  const all=document.createElement('button');
-  all.className='chip active'; all.textContent='Todos'; all.dataset.r='todos';
+  const all=document.createElement('button'); all.className='chip active'; all.textContent='Todos'; all.dataset.r='todos';
   chipsEl.appendChild(all);
   Object.entries(RUBROS).forEach(([k,v])=>{
-    const b=document.createElement('button');
-    b.className='chip'; b.dataset.r=k;
-    b.innerHTML='<span class="dot" style="background:'+v.color+'"></span>'+v.label;
-    chipsEl.appendChild(b);
+    const b=document.createElement('button'); b.className='chip'; b.dataset.r=k;
+    b.innerHTML='<span class="dot" style="background:'+v.color+'"></span>'+v.label; chipsEl.appendChild(b);
   });
   chipsEl.addEventListener('click',e=>{
     const btn=e.target.closest('.chip'); if(!btn)return;
     activeRubro=btn.dataset.r;
-    [...chipsEl.children].forEach(c=>c.classList.toggle('active',c===btn));
-    renderPlan();
+    [...chipsEl.children].forEach(c=>c.classList.toggle('active',c===btn)); renderPlan();
   });
 }
 function renderPlan(){
-  const q=norm(qInput.value.trim());
-  list.innerHTML=''; let total=0;
+  const q=norm(qInput.value.trim()); list.innerHTML=''; let total=0;
   Object.keys(RUBROS).forEach(rk=>{
     if(activeRubro!=="todos" && activeRubro!==rk) return;
     const rows=CUENTAS.filter(c=>c[0]===rk).filter(c=>!q||norm(c[3]).includes(q)||norm(c[5]).includes(q)||norm(c[6]).includes(q));
-    if(!rows.length) return;
-    total+=rows.length;
-    const sec=document.createElement('section');
-    sec.className='rubro';
-    const R=RUBROS[rk];
+    if(!rows.length) return; total+=rows.length;
+    const sec=document.createElement('section'); sec.className='rubro'; const R=RUBROS[rk];
     sec.innerHTML='<div class="rubro-head" style="background:'+R.color+'"><h2>'+R.label+'</h2><span class="saldo">'+R.saldo+'</span></div><div class="rubro-note">'+NOTES[rk]+'</div>';
     let currentSub=null, cardsWrap=null;
     rows.forEach(c=>{
-      const sub=c[1], cod=c[2], cuenta=c[3], saldo=c[4], rep=c[5], comun=c[6];
-      if(sub!==currentSub){
-        currentSub=sub;
+      const sub=c[1],cod=c[2],cuenta=c[3],saldo=c[4],rep=c[5],comun=c[6];
+      if(sub!==currentSub){ currentSub=sub;
         if(sub){const h=document.createElement('div');h.className='sub';h.textContent=sub;sec.appendChild(h);}
         cardsWrap=document.createElement('div');cardsWrap.className='cards';sec.appendChild(cardsWrap);
       }
-      const isDebe=saldo==='d';
-      const card=document.createElement('div');
-      card.className='card'; card.style.borderLeftColor=R.color;
+      const isDebe=saldo==='d'; const card=document.createElement('div'); card.className='card'; card.style.borderLeftColor=R.color;
       let html='<div class="top"><span class="codigo">'+cod+'</span><span class="saldo-chip '+(isDebe?'debe':'haber')+'">'+(isDebe?'Debe':'Haber')+'</span></div>';
       html+='<div class="cuenta">'+cuenta+'</div><div class="representa">'+rep+'</div>';
       if(comun) html+='<div class="comun"><b>En lenguaje común</b>'+comun+'</div>';
-      card.innerHTML=html;
-      cardsWrap.appendChild(card);
+      card.innerHTML=html; cardsWrap.appendChild(card);
     });
     list.appendChild(sec);
   });
@@ -458,214 +476,186 @@ function renderPlan(){
 }
 studyBtn.addEventListener('click',toggleStudy);
 studyBtn.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();toggleStudy();}});
-function toggleStudy(){
-  const on=document.body.classList.toggle('study');
-  studyBtn.classList.toggle('on',on);
-  studyBtn.setAttribute('aria-checked',on);
-}
-list.addEventListener('click',e=>{
-  if(!document.body.classList.contains('study'))return;
-  const r=e.target.closest('.cuenta');
-  if(r) r.classList.toggle('reveal');
-});
+function toggleStudy(){const on=document.body.classList.toggle('study');studyBtn.classList.toggle('on',on);studyBtn.setAttribute('aria-checked',on);}
+list.addEventListener('click',e=>{if(!document.body.classList.contains('study'))return;const r=e.target.closest('.cuenta');if(r)r.classList.toggle('reveal');});
 qInput.addEventListener('input',renderPlan);
 buildChips(); renderPlan();
 
-/* ============ VARIACIONES ============ */
-const CASOS = [
-  {
-    fl:[["ACTIVO","up","var(--activo)"],["ACTIVO","down","var(--activo)"]],
-    tipo:"Cualitativa",
-    op:"Se compran muebles en efectivo por $20.000",
-    asiento:"Muebles y Útiles (Debe) a Caja (Haber)",
-    pasos:[
-      {a:100,p:40,pn:60,hl:null,txt:"Situación patrimonial inicial"},
-      {a:120,p:40,pn:60,hl:"a",txt:"Aumenta el activo al ingresar los muebles"},
-      {a:100,p:40,pn:60,hl:"a",txt:"Disminuye el activo por el mismo importe al pagar en efectivo"}
-    ],
-    concl:"La situación patrimonial vuelve al balance inicial. El activo total quedó igual, pero cambió su composición: hay menos dinero y más muebles. No hubo impacto en el Patrimonio Neto."
-  },
-  {
-    fl:[["ACTIVO","up","var(--activo)"],["PASIVO","up","var(--pasivo)"]],
-    tipo:"Cuantitativa",
-    op:"Se compran mercaderías en cuenta corriente por $20.000",
-    asiento:"Mercaderías (Debe) a Proveedores (Haber)",
-    pasos:[
-      {a:100,p:40,pn:60,hl:null,txt:"Situación patrimonial inicial"},
-      {a:120,p:40,pn:60,hl:"a",txt:"Aumenta el activo al ingresar las mercaderías"},
-      {a:120,p:60,pn:60,hl:"p",txt:"Aumenta el pasivo al generarse una deuda con el proveedor"}
-    ],
-    concl:"La situación patrimonial vuelve a balancear con totales más grandes. Aunque hubo variación cuantitativa en el activo y en el pasivo, el Patrimonio Neto quedó igual."
-  },
-  {
-    fl:[["ACTIVO","down","var(--activo)"],["PASIVO","down","var(--pasivo)"]],
-    tipo:"Cuantitativa",
-    op:"Se paga en efectivo una deuda de $20.000",
-    asiento:"Proveedores (Debe) a Caja (Haber)",
-    pasos:[
-      {a:100,p:40,pn:60,hl:null,txt:"Situación patrimonial inicial"},
-      {a:80,p:40,pn:60,hl:"a",txt:"Se entrega efectivo para cancelar la deuda"},
-      {a:80,p:20,pn:60,hl:"p",txt:"Disminuye la deuda por el importe entregado en efectivo"}
-    ],
-    concl:"La situación patrimonial vuelve a balancear con totales más chicos. Hubo variación cuantitativa en el activo y en el pasivo, pero no hubo impacto en el Patrimonio Neto."
-  },
-  {
-    fl:[["PASIVO","down","var(--pasivo)"],["PASIVO","up","var(--pasivo)"]],
-    tipo:"Cualitativa",
-    op:"Se entrega un pagaré para documentar una deuda en cuenta corriente de $20.000",
-    asiento:"Proveedores (Debe) a Documentos a Pagar (Haber)",
-    pasos:[
-      {a:100,p:40,pn:60,hl:null,txt:"Situación patrimonial inicial"},
-      {a:100,p:20,pn:60,hl:"p",txt:"Disminuye la deuda en cuenta corriente"},
-      {a:100,p:40,pn:60,hl:"p",txt:"Aumenta la deuda documentada"}
-    ],
-    concl:"La situación patrimonial vuelve al balance inicial. Se debe exactamente lo mismo, pero ahora la deuda está documentada. El impacto fue cualitativo en el pasivo."
-  },
-  {
-    fl:[["PAT. NETO","down","var(--pn)"],["PAT. NETO","up","var(--pn)"]],
-    tipo:"Cualitativa",
-    op:"Se capitaliza una reserva de $20.000",
-    asiento:"Reservas (Debe) a Capital (Haber)",
-    pasos:[
-      {a:100,p:40,pn:60,hl:null,txt:"Situación patrimonial inicial"},
-      {a:100,p:40,pn:40,hl:"pn",txt:"Disminuye la reserva al desafectarla"},
-      {a:100,p:40,pn:60,hl:"pn",txt:"Aumenta el capital por el mismo importe"}
-    ],
-    concl:"El Patrimonio Neto sigue valiendo lo mismo: solo cambió su composición interna. Por eso también es permutativa, aunque el movimiento ocurra íntegramente dentro del PN."
-  }
-];
+/* ===== CUENTAS DE RESULTADO (render de listas) ===== */
+function renderResultado(){
+  const pos=CUENTAS.filter(c=>c[0]==='rpos' && c[3]!=='Resultado venta de bienes de uso (ganancia)');
+  const neg=CUENTAS.filter(c=>c[0]==='rneg' && ['Costo de Mercaderías Vendidas (CMV)','Alquileres Perdidos','Sueldos y Jornales','Fletes y Acarreos','Descuentos Cedidos','Seguros','Impuestos','Intereses Perdidos','Gastos Generales','Comisiones Perdidas','Publicidad Perdida'].includes(c[3]));
+  const item=c=>'<div class="res-item"><div class="n">'+c[3]+'</div>'+(c[5]?'<div class="r">'+c[5]+'</div>':'')+'</div>';
+  document.getElementById('res-pos').innerHTML=pos.map(item).join('');
+  document.getElementById('res-neg').innerHTML=neg.map(item).join('');
+}
+renderResultado();
 
-function bars(step, flash){
-  const esc = 1.7;
-  const h = v => Math.round(v*esc);
-  const desbal = step.a !== (step.p + step.pn);
-  const fa = flash==='a' ? ' flash':'';
-  const fp = flash==='p' ? ' flash':'';
-  const fpn = flash==='pn' ? ' flash':'';
+/* ===== VISOR DE CASOS (compartido) ===== */
+function barsHTML(step, flash){
+  const esc=1.7, h=v=>Math.round(v*esc);
+  const desbal=step.a!==(step.p+step.pn);
   return '<div class="bars">'
-    + '<div class="col"><div class="blk a'+fa+'" style="height:'+h(step.a)+'px">ACTIVO</div></div>'
-    + '<div class="col"><div class="blk p'+fp+'" style="height:'+h(step.p)+'px">PASIVO</div>'
-    + '<div class="blk pn'+fpn+'" style="height:'+h(step.pn)+'px">PAT.<br>NETO</div></div>'
-    + '</div>'
-    + '<div class="paso-txt">'+step.txt+(desbal?'<br><span class="desbal">sin balancear</span>':'')+'</div>';
+    +'<div class="col"><div class="blk a'+(flash==='a'?' flash':'')+'" style="height:'+h(step.a)+'px">ACTIVO</div></div>'
+    +'<div class="col"><div class="blk p'+(flash==='p'?' flash':'')+'" style="height:'+h(step.p)+'px">PASIVO</div>'
+    +'<div class="blk pn'+(flash==='pn'?' flash':'')+'" style="height:'+h(step.pn)+'px">PAT.<br>NETO</div></div>'
+    +'</div><div class="paso-txt">'+step.txt+(desbal?'<br><span class="desbal">sin balancear</span>':'')+'</div>';
 }
 function arrow(dir){
-  return dir==='up'
-    ? '<svg width="11" height="9" viewBox="0 0 12 10" fill="currentColor"><path d="M6 0l6 10H0z"/></svg>'
-    : '<svg width="11" height="9" viewBox="0 0 12 10" fill="currentColor"><path d="M6 10L0 0h12z"/></svg>';
+  return dir==='up' ? '<svg width="11" height="9" viewBox="0 0 12 10" fill="currentColor"><path d="M6 0l6 10H0z"/></svg>'
+                    : '<svg width="11" height="9" viewBox="0 0 12 10" fill="currentColor"><path d="M6 10L0 0h12z"/></svg>';
 }
-function renderCasos(){
-  const cont=document.getElementById('casos');
-  CASOS.forEach((c,i)=>{
+function pintarCaso(list,mount,i,hasta){
+  const c=list[i], v=document.getElementById(mount+i); let html='';
+  for(let k=0;k<hasta;k++){const p=c.pasos[k]; html+='<div class="paso">'+barsHTML(p,k>0?p.hl:null)+'</div>';}
+  v.innerHTML=html;
+}
+function renderCasos(list, contId, mount){
+  const cont=document.getElementById(contId);
+  list.forEach((c,i)=>{
     const d=document.createElement('div'); d.className='caso';
     const fls=c.fl.map(f=>'<span class="fl" style="background:'+f[2]+'">'+arrow(f[1])+' '+f[0]+'</span>').join('');
     d.innerHTML='<div class="caso-head"><div class="flechas">'+fls+'</div><span class="badge">'+c.tipo+'</span></div>'
-      +'<div class="caso-body">'
-      +'<p class="operacion">'+c.op+'</p>'
-      +'<p class="asiento">'+c.asiento+'</p>'
-      +'<div class="visor" id="v'+i+'"></div>'
-      +'<button class="btn" style="margin-top:14px" data-caso="'+i+'">Ver paso a paso</button>'
-      +'<div class="conclusion">'+c.concl+'</div>'
-      +'</div>';
-    cont.appendChild(d);
-    pintarCaso(i,1);
+      +'<div class="caso-body"><p class="operacion">'+c.op+'</p><p class="asiento">'+c.asiento+'</p>'
+      +'<div class="visor" id="'+mount+i+'"></div>'
+      +'<button class="btn" style="margin-top:14px" data-m="'+mount+'" data-caso="'+i+'">Ver paso a paso</button>'
+      +'<div class="conclusion">'+c.concl+'</div></div>';
+    cont.appendChild(d); pintarCaso(list,mount,i,1);
   });
   cont.addEventListener('click',e=>{
     const b=e.target.closest('[data-caso]'); if(!b)return;
-    const i=+b.dataset.caso;
-    b.disabled=true; b.textContent='Reproduciendo…';
-    pintarCaso(i,1);
-    setTimeout(()=>pintarCaso(i,2),700);
-    setTimeout(()=>pintarCaso(i,3),1700);
+    const i=+b.dataset.caso; b.disabled=true; b.textContent='Reproduciendo…';
+    pintarCaso(list,mount,i,1);
+    setTimeout(()=>pintarCaso(list,mount,i,2),700);
+    setTimeout(()=>pintarCaso(list,mount,i,3),1700);
     setTimeout(()=>{b.disabled=false;b.textContent='Ver de nuevo';},2500);
   });
 }
-function pintarCaso(i,hasta){
-  const c=CASOS[i], v=document.getElementById('v'+i);
-  let html='';
-  for(let k=0;k<hasta;k++){
-    const p=c.pasos[k];
-    html+='<div class="paso">'+bars(p, k>0?p.hl:null)+'</div>';
-  }
-  v.innerHTML=html;
-}
-renderCasos();
 
-/* ============ EJERCICIOS ============ */
-const OPCIONES=[
-  "Activo aumenta / Activo disminuye",
-  "Activo aumenta / Pasivo aumenta",
-  "Activo disminuye / Pasivo disminuye",
-  "Pasivo disminuye / Pasivo aumenta",
-  "Patrimonio Neto: cambia su composición",
-  "No es permutativa: modifica el Patrimonio Neto"
+const CASOS=[
+  {fl:[["ACTIVO","up","var(--activo)"],["ACTIVO","down","var(--activo)"]],tipo:"Cualitativa",op:"Se compran muebles en efectivo por $20.000",asiento:"Muebles y Útiles (Debe) a Caja (Haber)",
+   pasos:[{a:100,p:40,pn:60,hl:null,txt:"Situación patrimonial inicial"},{a:120,p:40,pn:60,hl:"a",txt:"Aumenta el activo al ingresar los muebles"},{a:100,p:40,pn:60,hl:"a",txt:"Disminuye el activo por el mismo importe al pagar en efectivo"}],
+   concl:"El activo total quedó igual, pero cambió su composición: hay menos dinero y más muebles. No hubo impacto en el Patrimonio Neto."},
+  {fl:[["ACTIVO","up","var(--activo)"],["PASIVO","up","var(--pasivo)"]],tipo:"Cuantitativa",op:"Se compran mercaderías en cuenta corriente por $20.000",asiento:"Mercaderías (Debe) a Proveedores (Haber)",
+   pasos:[{a:100,p:40,pn:60,hl:null,txt:"Situación patrimonial inicial"},{a:120,p:40,pn:60,hl:"a",txt:"Aumenta el activo al ingresar las mercaderías"},{a:120,p:60,pn:60,hl:"p",txt:"Aumenta el pasivo al generarse una deuda con el proveedor"}],
+   concl:"Vuelve a balancear con totales más grandes. Hubo variación cuantitativa en el activo y en el pasivo, pero el Patrimonio Neto quedó igual."},
+  {fl:[["ACTIVO","down","var(--activo)"],["PASIVO","down","var(--pasivo)"]],tipo:"Cuantitativa",op:"Se paga en efectivo una deuda de $20.000",asiento:"Proveedores (Debe) a Caja (Haber)",
+   pasos:[{a:100,p:40,pn:60,hl:null,txt:"Situación patrimonial inicial"},{a:80,p:40,pn:60,hl:"a",txt:"Se entrega efectivo para cancelar la deuda"},{a:80,p:20,pn:60,hl:"p",txt:"Disminuye la deuda por el importe entregado"}],
+   concl:"Vuelve a balancear con totales más chicos. Hubo variación cuantitativa en el activo y en el pasivo, pero no hubo impacto en el Patrimonio Neto."},
+  {fl:[["PASIVO","down","var(--pasivo)"],["PASIVO","up","var(--pasivo)"]],tipo:"Cualitativa",op:"Se documenta con un pagaré una deuda en cuenta corriente de $20.000",asiento:"Proveedores (Debe) a Documentos a Pagar (Haber)",
+   pasos:[{a:100,p:40,pn:60,hl:null,txt:"Situación patrimonial inicial"},{a:100,p:20,pn:60,hl:"p",txt:"Disminuye la deuda en cuenta corriente"},{a:100,p:40,pn:60,hl:"p",txt:"Aumenta la deuda documentada"}],
+   concl:"Se debe exactamente lo mismo, pero ahora la deuda está documentada. El impacto fue cualitativo en el pasivo."},
+  {fl:[["PAT. NETO","down","var(--pn)"],["PAT. NETO","up","var(--pn)"]],tipo:"Cualitativa",op:"Se capitaliza una reserva de $20.000",asiento:"Reservas (Debe) a Capital (Haber)",
+   pasos:[{a:100,p:40,pn:60,hl:null,txt:"Situación patrimonial inicial"},{a:100,p:40,pn:40,hl:"pn",txt:"Disminuye la reserva al desafectarla"},{a:100,p:40,pn:60,hl:"pn",txt:"Aumenta el capital por el mismo importe"}],
+   concl:"El Patrimonio Neto sigue valiendo lo mismo: solo cambió su composición interna. Por eso también es permutativa."}
 ];
-const PREGUNTAS=[
-  {op:"Se compra una computadora abonando en efectivo.", r:0, exp:"Entra Equipos de Computación y sale Caja. Los dos movimientos son de activo: el total no cambia, solo su composición."},
-  {op:"Se compran mercaderías en cuenta corriente.", r:1, exp:"Entra Mercaderías (activo) y nace la deuda con Proveedores (pasivo). Crecen los dos lados de la ecuación."},
-  {op:"Se le paga a un proveedor con dinero en efectivo.", r:2, exp:"Sale Caja y se cancela Proveedores. Se achican el activo y el pasivo por igual."},
-  {op:"Se firma un pagaré para documentar una deuda con un proveedor.", r:3, exp:"Sale Proveedores y entra Documentos a Pagar. Se debe lo mismo, pero ahora documentado."},
-  {op:"Se cobra en efectivo a un deudor por ventas.", r:0, exp:"Aumenta Caja y disminuye Deudores por Ventas. Todo ocurre dentro del activo."},
-  {op:"Se abonan los sueldos del mes en efectivo.", r:5, exp:"Sueldos y Jornales es un resultado negativo: sale dinero y el Patrimonio Neto se achica. Es modificativa."},
-  {op:"Se recibe un pagaré de un cliente para documentar su deuda.", r:0, exp:"Entra Documentos a Cobrar y sale Deudores por Ventas. Ambas son de activo."},
-  {op:"Se depositan en la cuenta corriente bancaria $50.000 que estaban en caja.", r:0, exp:"Aumenta Banco «X» c/c y disminuye Caja. El activo total no se mueve."},
-  {op:"Se cobran intereses por un pago fuera de término.", r:5, exp:"Intereses Ganados es un resultado positivo: entra dinero y el Patrimonio Neto crece. Es modificativa."},
-  {op:"Se capitalizan reservas por decisión de la asamblea.", r:4, exp:"Sale Reservas y entra Capital. El Patrimonio Neto vale lo mismo, solo cambió su composición interna."},
-  {op:"Se cancela un documento a pagar entregando un cheque de la cuenta bancaria.", r:2, exp:"Disminuye Banco «X» c/c (activo) y se cancela Documentos a Pagar (pasivo)."},
-  {op:"Se venden mercaderías al costo, cobrando en efectivo.", r:0, exp:"Ojo con esta: al venderse al costo no hay ganancia ni pérdida. Sale Mercaderías y entra Caja por el mismo importe, así que el Patrimonio Neto queda igual."},
-  {op:"Se compran materias primas firmando un pagaré.", r:1, exp:"Entra Materias Primas (activo) y nace Documentos a Pagar (pasivo)."},
-  {op:"El dueño aporta un rodado de su propiedad al negocio.", r:5, exp:"Entra Rodados y aumenta Capital: el Patrimonio Neto crece, así que no es permutativa. No proviene de un resultado, pero igual modifica la cuantía del PN."},
-  {op:"Se paga el alquiler del local del mes en curso.", r:5, exp:"Alquileres Perdidos es un resultado negativo: el Patrimonio Neto se achica. Es modificativa."},
-  {op:"Se solicita un préstamo bancario y se acredita en la cuenta corriente.", r:1, exp:"Aumenta Banco «X» c/c (activo) y nace Préstamos Bancarios (pasivo). Crecen los dos lados."}
-];
-let respondidas=0, aciertos=0;
-const contEj=document.getElementById('ejercicios');
-const scEl=document.getElementById('sc'), totEl=document.getElementById('tot'), barEl=document.getElementById('bar');
-const finalEl=document.getElementById('final');
-totEl.textContent=PREGUNTAS.length;
+renderCasos(CASOS,'casos','v');
 
-function renderEj(){
-  contEj.innerHTML=''; respondidas=0; aciertos=0;
-  scEl.textContent='0'; barEl.style.width='0%';
-  finalEl.classList.remove('on');
-  PREGUNTAS.forEach((p,i)=>{
-    const d=document.createElement('div'); d.className='ej';
-    d.innerHTML='<div class="ej-num">Operación '+(i+1)+'</div>'
-      +'<p class="ej-op">'+p.op+'</p>'
-      +'<div class="opts">'+OPCIONES.map((o,k)=>'<button class="opt" data-q="'+i+'" data-o="'+k+'">'+o+'</button>').join('')+'</div>'
-      +'<div class="feedback" id="fb'+i+'"></div>';
-    contEj.appendChild(d);
-  });
-}
-contEj.addEventListener('click',e=>{
-  const b=e.target.closest('.opt'); if(!b||b.disabled)return;
-  const qi=+b.dataset.q, oi=+b.dataset.o, p=PREGUNTAS[qi];
-  const wrap=b.closest('.ej');
-  wrap.querySelectorAll('.opt').forEach(o=>{
-    o.disabled=true;
-    if(+o.dataset.o===p.r) o.classList.add('correcta');
-  });
-  const bien = oi===p.r;
-  if(!bien) b.classList.add('incorrecta');
-  const fb=document.getElementById('fb'+qi);
-  fb.className='feedback on '+(bien?'bien':'mal');
-  fb.innerHTML='<b>'+(bien?'Correcto':'Respuesta correcta: '+OPCIONES[p.r])+'</b>'+p.exp;
-  respondidas++; if(bien) aciertos++;
-  scEl.textContent=aciertos;
-  barEl.style.width=Math.round(respondidas/PREGUNTAS.length*100)+'%';
-  if(respondidas===PREGUNTAS.length){
-    const pct=Math.round(aciertos/PREGUNTAS.length*100);
-    document.getElementById('final-t').textContent=aciertos+' de '+PREGUNTAS.length+' ('+pct+'%)';
-    document.getElementById('final-p').textContent =
-      pct>=80 ? 'Muy bien: distinguís sin problema cuándo el Patrimonio Neto se mueve y cuándo no.'
-      : pct>=50 ? 'Vas bien. Repasá los casos donde interviene una cuenta de resultado: ahí está la diferencia.'
-      : 'Conviene volver a la pestaña de variaciones y revisar la pregunta clave: ¿el Patrimonio Neto quedó igual que antes?';
-    finalEl.classList.add('on');
+const CASOS_M=[
+  {fl:[["ACTIVO","up","var(--activo)"],["PAT. NETO","up","var(--pn)"]],tipo:"Positiva",op:"Se cobran $5.000 de intereses en efectivo",asiento:"Caja (Debe) a Intereses Ganados (Haber)",
+   pasos:[{a:100,p:40,pn:60,hl:null,txt:"Situación patrimonial inicial"},{a:105,p:40,pn:60,hl:"a",txt:"Entra dinero a Caja"},{a:105,p:40,pn:65,hl:"pn",txt:"El resultado positivo aumenta el Patrimonio Neto"}],
+   concl:"Intervino un resultado positivo (Intereses Ganados). El Patrimonio Neto creció: variación modificativa positiva."},
+  {fl:[["ACTIVO","down","var(--activo)"],["PAT. NETO","down","var(--pn)"]],tipo:"Negativa",op:"Se pagan $5.000 de sueldos en efectivo",asiento:"Sueldos y Jornales (Debe) a Caja (Haber)",
+   pasos:[{a:100,p:40,pn:60,hl:null,txt:"Situación patrimonial inicial"},{a:95,p:40,pn:60,hl:"a",txt:"Sale dinero de Caja"},{a:95,p:40,pn:55,hl:"pn",txt:"El resultado negativo disminuye el Patrimonio Neto"}],
+   concl:"Intervino un resultado negativo (Sueldos y Jornales). El Patrimonio Neto se achicó: variación modificativa negativa."},
+  {fl:[["ACTIVO","up","var(--activo)"],["PAT. NETO","up","var(--pn)"]],tipo:"Mixta",op:"Se vende mercadería que costó $10.000 en $15.000, en efectivo",asiento:"Caja a Mercaderías (costo) y a Resultado por la venta (ganancia)",
+   pasos:[{a:100,p:40,pn:60,hl:null,txt:"Situación patrimonial inicial"},{a:105,p:40,pn:60,hl:"a",txt:"Parte permutativa: entran $15.000 y sale mercadería por $10.000 (neto +$5.000)"},{a:105,p:40,pn:65,hl:"pn",txt:"Parte modificativa: la ganancia de $5.000 aumenta el Patrimonio Neto"}],
+   concl:"Una misma operación con dos partes: la permutativa (dinero por mercadería) y la modificativa (la ganancia). Por eso es una variación mixta."}
+];
+renderCasos(CASOS_M,'casos-m','vm');
+
+/* ===== QUIZ (fábrica reutilizable) ===== */
+function makeQuiz(preguntas, opciones, ids, mensajes){
+  const cont=document.getElementById(ids.cont);
+  const scEl=document.getElementById(ids.sc), totEl=document.getElementById(ids.tot), barEl=document.getElementById(ids.bar);
+  const finalEl=document.getElementById(ids.final), finalT=document.getElementById(ids.finalT), finalP=document.getElementById(ids.finalP);
+  let respondidas=0, aciertos=0;
+  totEl.textContent=preguntas.length;
+  function render(){
+    cont.innerHTML=''; respondidas=0; aciertos=0; scEl.textContent='0'; barEl.style.width='0%'; finalEl.classList.remove('on');
+    preguntas.forEach((p,i)=>{
+      const d=document.createElement('div'); d.className='ej';
+      d.innerHTML='<div class="ej-num">Operación '+(i+1)+'</div><p class="ej-op">'+p.op+'</p>'
+        +'<div class="opts">'+opciones.map((o,k)=>'<button class="opt" data-q="'+i+'" data-o="'+k+'">'+o+'</button>').join('')+'</div>'
+        +'<div class="feedback" id="'+ids.cont+'-fb'+i+'"></div>';
+      cont.appendChild(d);
+    });
   }
-});
-document.getElementById('reset').addEventListener('click',renderEj);
-document.getElementById('reset2').addEventListener('click',()=>{renderEj();window.scrollTo({top:0,behavior:'smooth'});});
-renderEj();
+  cont.addEventListener('click',e=>{
+    const b=e.target.closest('.opt'); if(!b||b.disabled)return;
+    const qi=+b.dataset.q, oi=+b.dataset.o, p=preguntas[qi], wrap=b.closest('.ej');
+    wrap.querySelectorAll('.opt').forEach(o=>{o.disabled=true; if(+o.dataset.o===p.r)o.classList.add('correcta');});
+    const bien=oi===p.r; if(!bien)b.classList.add('incorrecta');
+    const fb=document.getElementById(ids.cont+'-fb'+qi);
+    fb.className='feedback on '+(bien?'bien':'mal');
+    fb.innerHTML='<b>'+(bien?'Correcto':'Respuesta correcta: '+opciones[p.r])+'</b>'+p.exp;
+    respondidas++; if(bien)aciertos++; scEl.textContent=aciertos;
+    barEl.style.width=Math.round(respondidas/preguntas.length*100)+'%';
+    if(respondidas===preguntas.length){
+      const pct=Math.round(aciertos/preguntas.length*100);
+      finalT.textContent=aciertos+' de '+preguntas.length+' ('+pct+'%)';
+      finalP.textContent = pct>=80?mensajes.alto : pct>=50?mensajes.medio : mensajes.bajo;
+      finalEl.classList.add('on');
+    }
+  });
+  render();
+  return render;
+}
+
+const OPC_INT=[
+  "Activo aumenta / Activo disminuye","Activo aumenta / Pasivo aumenta",
+  "Activo disminuye / Pasivo disminuye","Pasivo disminuye / Pasivo aumenta",
+  "Patrimonio Neto: cambia su composición","No es permutativa: modifica el Patrimonio Neto"
+];
+const PREG_INT=[
+  {op:"Se compra una computadora abonando en efectivo.",r:0,exp:"Entra Equipos de Computación y sale Caja. Los dos movimientos son de activo: el total no cambia, solo su composición."},
+  {op:"Se compran mercaderías en cuenta corriente.",r:1,exp:"Entra Mercaderías (activo) y nace la deuda con Proveedores (pasivo). Crecen los dos lados."},
+  {op:"Se le paga a un proveedor con dinero en efectivo.",r:2,exp:"Sale Caja y se cancela Proveedores. Se achican activo y pasivo por igual."},
+  {op:"Se firma un pagaré para documentar una deuda con un proveedor.",r:3,exp:"Sale Proveedores y entra Documentos a Pagar. Se debe lo mismo, ahora documentado."},
+  {op:"Se cobra en efectivo a un deudor por ventas.",r:0,exp:"Aumenta Caja y disminuye Deudores por Ventas. Todo dentro del activo."},
+  {op:"Se abonan los sueldos del mes en efectivo.",r:5,exp:"Sueldos y Jornales es un resultado negativo: el Patrimonio Neto se achica. Es modificativa."},
+  {op:"Se recibe un pagaré de un cliente para documentar su deuda.",r:0,exp:"Entra Documentos a Cobrar y sale Deudores por Ventas. Ambas de activo."},
+  {op:"Se depositan en la cuenta corriente bancaria $50.000 que estaban en caja.",r:0,exp:"Aumenta Banco «X» c/c y disminuye Caja. El activo total no se mueve."},
+  {op:"Se cobran intereses por un pago fuera de término.",r:5,exp:"Intereses Ganados es un resultado positivo: el Patrimonio Neto crece. Es modificativa."},
+  {op:"Se capitalizan reservas por decisión de la asamblea.",r:4,exp:"Sale Reservas y entra Capital. El Patrimonio Neto vale lo mismo, solo cambió su composición interna."},
+  {op:"Se cancela un documento a pagar entregando un cheque de la cuenta bancaria.",r:2,exp:"Disminuye Banco «X» c/c (activo) y se cancela Documentos a Pagar (pasivo)."},
+  {op:"Se venden mercaderías al costo, cobrando en efectivo.",r:0,exp:"Ojo: al venderse al costo no hay ganancia ni pérdida. Sale Mercaderías y entra Caja por el mismo importe, así que el PN queda igual."},
+  {op:"Se compran materias primas firmando un pagaré.",r:1,exp:"Entra Materias Primas (activo) y nace Documentos a Pagar (pasivo)."},
+  {op:"El dueño aporta un rodado de su propiedad al negocio.",r:5,exp:"Entra Rodados y aumenta Capital: el Patrimonio Neto crece, así que no es permutativa."},
+  {op:"Se paga el alquiler del local del mes en curso.",r:5,exp:"Alquileres Perdidos es un resultado negativo: el Patrimonio Neto se achica."},
+  {op:"Se solicita un préstamo bancario y se acredita en la cuenta corriente.",r:1,exp:"Aumenta Banco «X» c/c (activo) y nace Préstamos Bancarios (pasivo)."}
+];
+const quizInt=makeQuiz(PREG_INT, OPC_INT,
+  {cont:'ejercicios',sc:'sc',tot:'tot',bar:'bar',final:'final',finalT:'final-t',finalP:'final-p'},
+  {alto:"Muy bien: distinguís sin problema cuándo el Patrimonio Neto se mueve y cuándo no.",medio:"Vas bien. Repasá los casos donde interviene una cuenta de resultado: ahí está la diferencia.",bajo:"Conviene volver a las pestañas de variaciones y revisar la pregunta clave: ¿el Patrimonio Neto quedó igual que antes?"});
+
+const OPC_MOD=[
+  "Modificativa positiva (aumenta el PN)","Modificativa negativa (disminuye el PN)",
+  "Mixta (permutativa + modificativa)","No es modificativa: es permutativa"
+];
+const PREG_MOD=[
+  {op:"Se cobran $5.000 de intereses por un pago fuera de término.",r:0,exp:"Entra dinero y aparece Intereses Ganados, un resultado positivo: el Patrimonio Neto crece."},
+  {op:"Se pagan los sueldos del mes en efectivo.",r:1,exp:"Sale dinero y se registra Sueldos y Jornales, un resultado negativo: el PN se achica."},
+  {op:"Se vende mercadería que costó $10.000 en $15.000, cobrando en efectivo.",r:2,exp:"Entra $15.000 y sale mercadería por $10.000 (parte permutativa); la ganancia de $5.000 es un resultado positivo (parte modificativa)."},
+  {op:"Se abona el alquiler del local del mes.",r:1,exp:"Alquileres Perdidos es un resultado negativo: disminuye el PN."},
+  {op:"Se cobra el alquiler de un local propio cedido a un tercero.",r:0,exp:"Alquileres Ganados es un resultado positivo: aumenta el PN."},
+  {op:"Se le paga a un proveedor con dinero en efectivo.",r:3,exp:"Solo se permutan activo y pasivo; no interviene ninguna cuenta de resultado, así que el PN no cambia."},
+  {op:"Se abona la factura de electricidad (Gastos Generales).",r:1,exp:"Es un gasto: resultado negativo, disminuye el PN."},
+  {op:"Se vende un rodado cuyo valor de libros es $8.000 en $6.000, en efectivo.",r:2,exp:"Entra $6.000 y sale el rodado por $8.000 (permutativa); la pérdida de $2.000 es un resultado negativo (modificativa). Combinadas, es mixta."},
+  {op:"Se reciben $2.000 en concepto de comisiones por una gestión realizada.",r:0,exp:"Comisiones Ganadas: resultado positivo, aumenta el PN."},
+  {op:"Se pagan fletes por el traslado de mercaderías vendidas.",r:1,exp:"Fletes y Acarreos: resultado negativo, disminuye el PN."},
+  {op:"Se compran mercaderías firmando un pagaré.",r:3,exp:"Entra Mercaderías y nace Documentos a Pagar: crecen activo y pasivo, el PN no se mueve."},
+  {op:"Se cobra a un cliente $10.000 de su deuda más $500 de intereses, en efectivo.",r:2,exp:"El cobro de los $10.000 baja Deudores y sube Caja (permutativa); los $500 de Intereses Ganados aumentan el PN (modificativa)."},
+  {op:"Se concede a un cliente un descuento por pago anticipado (Descuentos Cedidos).",r:1,exp:"Descuentos Cedidos es un resultado negativo: disminuye el PN."}
+];
+const quizMod=makeQuiz(PREG_MOD, OPC_MOD,
+  {cont:'ejercicios-m',sc:'sc-m',tot:'tot-m',bar:'bar-m',final:'final-m',finalT:'final-m-t',finalP:'final-m-p'},
+  {alto:"Excelente: reconocés cuándo el resultado hace crecer o achicar el patrimonio, y detectás las mixtas.",medio:"Bien encaminada. Volvé a las mixtas: son las que combinan una parte permutativa con una ganancia o pérdida.",bajo:"Repasá arriba: modificativa = interviene una cuenta de resultado. Si además hay cambio de bienes o deudas, es mixta."});
+
+document.getElementById('reset').addEventListener('click',()=>quizInt());
+document.getElementById('reset2').addEventListener('click',()=>{quizInt();window.scrollTo({top:0,behavior:'smooth'});});
+document.getElementById('reset-m').addEventListener('click',()=>quizMod());
+document.getElementById('reset-m2').addEventListener('click',()=>{quizMod();window.scrollTo({top:0,behavior:'smooth'});});
 </script>
 </body>
 </html>
