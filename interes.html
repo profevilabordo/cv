@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interés Simple y Compuesto — 6°A Técnicos en Informática</title>
+<style>
+  :root{
+    --azul-900:#1e2a5e;
+    --azul-700:#2d3f8f;
+    --azul-500:#4a5fc7;
+    --azul-100:#e8eaf9;
+    --azul-50:#f4f5fc;
+    --acento:#6c7bdb;
+    --verde:#1f8a5f;
+    --verde-bg:#e6f6ee;
+    --gris-900:#1c1e2b;
+    --gris-600:#565b73;
+    --gris-300:#d7daea;
+    --blanco:#ffffff;
+    --radio:14px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Segoe UI', system-ui, -apple-system, sans-serif;
+    background:var(--azul-50);
+    color:var(--gris-900);
+    line-height:1.55;
+  }
+  header{
+    background:linear-gradient(120deg,var(--azul-900),var(--azul-700));
+    color:#fff;
+    padding:28px 5vw 22px;
+  }
+  header .eyebrow{
+    display:inline-block;
+    background:rgba(255,255,255,.15);
+    padding:4px 12px;
+    border-radius:999px;
+    font-size:.8rem;
+    letter-spacing:.04em;
+    margin-bottom:10px;
+  }
+  header h1{margin:0 0 4px; font-size:clamp(1.6rem,3vw,2.3rem);}
+  header p{margin:0; opacity:.85; font-size:1rem;}
+
+  nav.tabs{
+    position:sticky; top:0; z-index:20;
+    display:flex; flex-wrap:wrap; gap:6px;
+    background:var(--blanco);
+    border-bottom:2px solid var(--azul-100);
+    padding:10px 5vw;
+  }
+  nav.tabs button{
+    border:none; background:var(--azul-50); color:var(--azul-700);
+    padding:11px 18px; border-radius:10px; font-size:.98rem; font-weight:600;
+    cursor:pointer; transition:.15s;
+  }
+  nav.tabs button:hover{background:var(--azul-100);}
+  nav.tabs button.active{background:var(--azul-700); color:#fff;}
+
+  main{padding:28px 5vw 70px; max-width:1100px; margin:0 auto;}
+  section.panel{display:none;}
+  section.panel.active{display:block; animation:fade .25s ease;}
+  @keyframes fade{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+
+  .tema{
+    background:var(--blanco);
+    border:1px solid var(--gris-300);
+    border-radius:var(--radio);
+    padding:26px 28px;
+    margin-bottom:22px;
+    box-shadow:0 2px 10px rgba(30,42,94,.05);
+  }
+  .tema .tag{
+    display:inline-block; background:var(--azul-100); color:var(--azul-700);
+    font-size:.75rem; font-weight:700; letter-spacing:.05em;
+    padding:3px 10px; border-radius:999px; margin-bottom:10px;
+  }
+  .tema h2{margin:2px 0 4px; font-size:1.4rem; color:var(--azul-900);}
+  .tema h3.sub{margin:0 0 14px; font-size:1rem; font-weight:500; color:var(--gris-600);}
+
+  .formula{
+    background:var(--azul-900);
+    color:#fff;
+    font-size:1.35rem;
+    text-align:center;
+    padding:16px;
+    border-radius:10px;
+    margin:16px 0;
+    font-family:'Cambria Math','Georgia',serif;
+    letter-spacing:.02em;
+  }
+  .formula small{display:block; font-size:.7rem; opacity:.7; font-family:inherit; margin-top:6px;}
+
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:14px 0;}
+  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin:14px 0;}
+  @media(max-width:720px){.grid2,.grid3{grid-template-columns:1fr;}}
+
+  .card{
+    background:var(--azul-50); border:1px solid var(--azul-100);
+    border-radius:10px; padding:14px 16px;
+  }
+  .card h4{margin:0 0 6px; color:var(--azul-700); font-size:.95rem;}
+  .card p{margin:0; font-size:.92rem; color:var(--gris-600);}
+
+  table{width:100%; border-collapse:collapse; margin:14px 0; font-size:.93rem;}
+  th,td{padding:9px 10px; border:1px solid var(--gris-300); text-align:center;}
+  th{background:var(--azul-100); color:var(--azul-900);}
+  tr:nth-child(even) td{background:#fafbff;}
+
+  .callout{
+    background:var(--verde-bg); border-left:4px solid var(--verde);
+    padding:12px 16px; border-radius:8px; margin:16px 0; font-size:.93rem;
+  }
+  .callout strong{color:var(--verde);}
+
+  /* Ejercicios */
+  .ejercicio{
+    background:var(--blanco); border:1px solid var(--gris-300);
+    border-radius:var(--radio); padding:20px 24px; margin-bottom:18px;
+  }
+  .ejercicio .num{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:28px; height:28px; border-radius:50%;
+    background:var(--azul-700); color:#fff; font-weight:700; font-size:.85rem;
+    margin-right:8px;
+  }
+  .ejercicio .enunciado{font-size:1rem; margin:10px 0 8px;}
+  details.solucion{
+    margin-top:10px; border-top:1px dashed var(--gris-300); padding-top:10px;
+  }
+  details.solucion summary{
+    cursor:pointer; color:var(--azul-700); font-weight:700; font-size:.92rem;
+    list-style:none; display:inline-flex; align-items:center; gap:6px;
+  }
+  details.solucion summary::-webkit-details-marker{display:none;}
+  details.solucion summary::before{content:"▶"; font-size:.7rem; transition:.15s;}
+  details.solucion[open] summary::before{transform:rotate(90deg);}
+  details.solucion .contenido{
+    background:var(--azul-50); border-radius:8px; padding:14px 16px; margin-top:10px;
+    font-size:.94rem;
+  }
+  details.solucion .contenido .paso{margin:4px 0;}
+  details.solucion .resultado{
+    margin-top:8px; font-weight:700; color:var(--verde);
+    background:var(--verde-bg); display:inline-block; padding:5px 12px; border-radius:6px;
+  }
+  .resuelto .contenido{border-top:none;}
+  .resuelto{background:var(--blanco);}
+  .resuelto .contenido{display:block; background:var(--azul-50); border-radius:8px; padding:14px 16px; margin-top:10px; font-size:.94rem;}
+
+  .badge-simple{background:#eef2ff; color:var(--azul-700); border:1px solid var(--azul-100);}
+  .badge-compuesto{background:#fff4e8; color:#a4590c; border:1px solid #f3d9b8;}
+  .badge{font-size:.72rem; font-weight:700; padding:3px 10px; border-radius:999px; margin-left:8px;}
+
+  footer{text-align:center; padding:22px; color:var(--gris-600); font-size:.85rem;}
+</style>
+</head>
+<body>
+
+<header>
+  <span class="eyebrow">UNIDAD N°2 · BLOQUE 2 · TEMAS 2 A 7</span>
+  <h1>Interés Simple y Compuesto</h1>
+  <p>Organización y Gestión Comercial — 6° "A" Técnicos en Informática — Prof. Verónica Vila Bordó</p>
+</header>
+
+<nav class="tabs">
+  <button class="tab-btn active" data-tab="teoria">📘 Teoría</button>
+  <button class="tab-btn" data-tab="resueltos">✅ Ejercicios resueltos</button>
+  <button class="tab-btn" data-tab="practica-simple">✍️ Practicá: Interés Simple</button>
+  <button class="tab-btn" data-tab="practica-compuesto">✍️ Practicá: Interés Compuesto</button>
+</nav>
+
+<main>
+
+<!-- ===================== TEORÍA ===================== -->
+<section class="panel active" id="teoria">
+
+  <div class="tema">
+    <span class="tag">TEMA 2</span>
+    <h2>El Interés: Concepto y Variables</h2>
+    <h3 class="sub">Capital, tasa, tiempo y monto</h3>
+    <p>El interés es el "precio" que se paga por usar dinero ajeno (o la ganancia que se obtiene por prestar el propio). Es la compensación por el paso del tiempo y los riesgos involucrados.</p>
+    <div class="grid2">
+      <div class="card"><h4>Capital (C)</h4><p>Cantidad de dinero inicial sobre la cual se calculan los intereses. También llamado valor presente o principal.</p></div>
+      <div class="card"><h4>Tasa de interés (i)</h4><p>Porcentaje que se aplica al capital por cada período (mensual, anual, diaria, etc.).</p></div>
+      <div class="card"><h4>Tiempo (n)</h4><p>Cantidad de períodos durante los cuales el capital genera intereses. Debe estar en la misma unidad que la tasa.</p></div>
+      <div class="card"><h4>Monto (M)</h4><p>Resultado final: capital original + intereses generados. M = C + I</p></div>
+    </div>
+    <div class="callout"><strong>Clave:</strong> la tasa y el tiempo siempre deben expresarse en la misma unidad temporal. Mezclar unidades (tasa mensual con tiempo en años, por ejemplo) es el error más común.</div>
+  </div>
+
+  <div class="tema">
+    <span class="tag">TEMA 3</span>
+    <h2>Interés Simple</h2>
+    <h3 class="sub">La base de cálculo nunca cambia</h3>
+    <p>En el régimen de interés simple, los intereses se calculan <strong>siempre sobre el capital original</strong>. Los intereses generados en un período no se suman al capital para el cálculo del siguiente.</p>
+    <div class="formula">I = C × i × n <small>interés generado</small></div>
+    <div class="formula">M = C + I = C × (1 + i × n) <small>monto final</small></div>
+    <p><strong>Ejemplo:</strong> prestás $80.000 al 3% mensual simple durante 4 meses.<br>
+    I = 80.000 × 0,03 × 4 = $9.600 &nbsp;|&nbsp; M = 80.000 + 9.600 = <strong>$89.600</strong><br>
+    El interés mensual es siempre el mismo ($2.400), porque se calcula sobre los $80.000 originales.</p>
+  </div>
+
+  <div class="tema">
+    <span class="tag">TEMA 4</span>
+    <h2>Interés Compuesto</h2>
+    <h3 class="sub">Capitalización: "interés sobre interés"</h3>
+    <p>Los intereses generados en cada período se suman al capital y, desde el período siguiente, también generan intereses.</p>
+    <div class="formula">M = C × (1 + i)<sup>n</sup> <small>monto final</small></div>
+    <div class="formula">I = M − C <small>interés total generado</small></div>
+    <p><strong>Mismo ejemplo con capitalización:</strong> $80.000 al 3% mensual durante 4 meses.</p>
+    <table>
+      <tr><th>Mes</th><th>Capital inicial</th><th>Interés del mes</th><th>Capital final</th><th>Interés acum.</th></tr>
+      <tr><td>1</td><td>$80.000</td><td>$2.400</td><td>$82.400</td><td>$2.400</td></tr>
+      <tr><td>2</td><td>$82.400</td><td>$2.472</td><td>$84.872</td><td>$4.872</td></tr>
+      <tr><td>3</td><td>$84.872</td><td>$2.546</td><td>$87.418</td><td>$7.418</td></tr>
+      <tr><td>4</td><td>$87.418</td><td>$2.623</td><td>$90.041</td><td>$10.041</td></tr>
+    </table>
+    <p>Con interés simple ganábamos $9.600. Con compuesto, $10.041. La diferencia crece cada vez más rápido a medida que pasa el tiempo (crecimiento exponencial).</p>
+  </div>
+
+  <div class="tema">
+    <span class="tag">TEMA 5</span>
+    <h2>Comparación entre Regímenes</h2>
+    <h3 class="sub">¿Cuándo conviene cada uno?</h3>
+    <p>El interés simple crece de forma <strong>lineal</strong> (en línea recta); el compuesto crece de forma <strong>exponencial</strong> (cada vez más rápido). A mayor plazo, mayor la diferencia entre ambos.</p>
+    <div class="grid2">
+      <div class="card"><h4>¿Cuándo "conviene" el simple?</h4><p>Si sos <strong>deudor</strong>: genera menos intereses, tu deuda crece más lento. Rara vez te lo ofrecen, pero es lo que buscás como tomador de crédito.</p></div>
+      <div class="card"><h4>¿Cuándo "conviene" el compuesto?</h4><p>Si sos <strong>inversor o ahorrista</strong>: tus intereses generan más intereses. Cuanto antes empezás, más aprovechás el efecto exponencial.</p></div>
+    </div>
+    <div class="callout"><strong>Conclusión práctica:</strong> como ahorristas queremos interés compuesto a favor. Como deudores, queremos tasas bajas y plazos cortos, porque el compuesto trabaja en contra.</div>
+  </div>
+
+  <div class="tema">
+    <span class="tag">TEMA 6</span>
+    <h2>Tasas de Interés en la Vida Cotidiana</h2>
+    <h3 class="sub">TNA, TEA, tasas nominales y reales</h3>
+    <div class="grid3">
+      <div class="card"><h4>TNA</h4><p>Tasa Nominal Anual. Es la tasa "publicitada", proporcional, sin contemplar capitalización.</p></div>
+      <div class="card"><h4>Tasa del período</h4><p>TNA ÷ cantidad de períodos al año. Ej: TNA 72% ÷ 12 meses = 6% mensual.</p></div>
+      <div class="card"><h4>TEA</h4><p>Tasa Efectiva Anual. Lo que realmente se gana o paga en un año, con capitalización. Siempre mayor que la TNA.</p></div>
+    </div>
+    <div class="formula">TEA = (1 + TNA / m)<sup>m</sup> − 1 <small>m = cantidad de capitalizaciones al año (12 mensual, 365 diaria...)</small></div>
+    <p><strong>Ejemplo:</strong> TNA 60% con capitalización mensual (m=12) → tasa mensual = 5%.<br>
+    TEA = (1 + 0,05)<sup>12</sup> − 1 = 0,7959 → <strong>TEA ≈ 79,59%</strong></p>
+  </div>
+
+  <div class="tema">
+    <span class="tag">TEMA 7</span>
+    <h2>Aplicaciones Financieras Actuales</h2>
+    <h3 class="sub">Plazos fijos, préstamos y tarjetas de crédito</h3>
+    <div class="grid3">
+      <div class="card"><h4>Plazo Fijo</h4><p>Depositás por un período mínimo (30 días) y recibís capital + intereses. Usa interés compuesto si se renueva automáticamente.</p></div>
+      <div class="card"><h4>Préstamos personales</h4><p>Sistema francés (cuotas iguales). El CFT (Costo Financiero Total) incluye comisiones e impuestos: es el dato más importante.</p></div>
+      <div class="card"><h4>Tarjetas de crédito</h4><p>Si pagás el total, no hay interés. Si pagás el mínimo, el resto genera interés compuesto altísimo (TEA frecuentemente &gt;200%).</p></div>
+    </div>
+    <div class="callout"><strong>Dato clave:</strong> antes de contratar cualquier producto financiero, pedí siempre el CFT. Es el único número que refleja el costo real de la operación.</div>
+  </div>
+
+</section>
+
+<!-- ===================== EJERCICIOS RESUELTOS ===================== -->
+<section class="panel" id="resueltos">
+  <p style="margin-bottom:20px; color:var(--gris-600);">Ejercicios ya resueltos para explicar paso a paso en clase, en el mismo orden que la teoría (temas 3 a 7).</p>
+
+  <div class="ejercicio resuelto">
+    <span class="num">1</span><span class="badge badge-simple">Interés simple — Tema 3</span>
+    <p class="enunciado">Un comerciante deposita <strong>$120.000</strong> a una tasa del <strong>3,5% mensual simple</strong> durante <strong>5 meses</strong>. Calculá el interés generado y el monto final.</p>
+    <div class="contenido">
+      <div class="paso">Datos: C = $120.000 &nbsp;·&nbsp; i = 0,035 &nbsp;·&nbsp; n = 5</div>
+      <div class="paso">I = C × i × n = 120.000 × 0,035 × 5 = $21.000</div>
+      <div class="paso">M = C + I = 120.000 + 21.000 = $141.000</div>
+      <span class="resultado">I = $21.000 — M = $141.000</span>
+    </div>
+  </div>
+
+  <div class="ejercicio resuelto">
+    <span class="num">2</span><span class="badge badge-compuesto">Interés compuesto — Tema 4</span>
+    <p class="enunciado">Un ahorrista deposita <strong>$100.000</strong> a una tasa del <strong>4% mensual compuesto</strong> durante <strong>4 meses</strong>. Calculá el monto mes a mes y el interés total.</p>
+    <div class="contenido">
+      <table style="margin:8px 0;">
+        <tr><th>Mes</th><th>Capital inicial</th><th>Interés</th><th>Capital final</th></tr>
+        <tr><td>1</td><td>$100.000</td><td>$4.000</td><td>$104.000</td></tr>
+        <tr><td>2</td><td>$104.000</td><td>$4.160</td><td>$108.160</td></tr>
+        <tr><td>3</td><td>$108.160</td><td>$4.326,40</td><td>$112.486,40</td></tr>
+        <tr><td>4</td><td>$112.486,40</td><td>$4.499,46</td><td>$116.985,86</td></tr>
+      </table>
+      <div class="paso">Verificación con fórmula: M = 100.000 × (1,04)⁴ = 100.000 × 1,169859 = $116.985,86</div>
+      <div class="paso">I = M − C = 116.985,86 − 100.000 = $16.985,86</div>
+      <span class="resultado">M ≈ $116.985,86 — I ≈ $16.985,86</span>
+    </div>
+  </div>
+
+  <div class="ejercicio resuelto">
+    <span class="num">3</span><span class="badge badge-simple">Simple vs. Compuesto — Tema 5</span>
+    <p class="enunciado">Con los datos del ejercicio 1 ($120.000, 3,5% mensual, 5 meses), ¿cuánta diferencia hay si esa tasa se aplica en régimen <strong>compuesto</strong> en vez de simple?</p>
+    <div class="contenido">
+      <div class="paso">Simple (ya calculado): M = $141.000 &nbsp;→&nbsp; I = $21.000</div>
+      <div class="paso">Compuesto: M = 120.000 × (1,035)⁵ = 120.000 × 1,187686 = $142.522,32</div>
+      <div class="paso">I compuesto = 142.522,32 − 120.000 = $22.522,32</div>
+      <div class="paso">Diferencia entre regímenes: 142.522,32 − 141.000 = <strong>$1.522,32</strong> a favor del compuesto</div>
+      <span class="resultado">A igual capital, tasa y tiempo, el compuesto rinde $1.522,32 más</span>
+    </div>
+  </div>
+
+  <div class="ejercicio resuelto">
+    <span class="num">4</span><span class="badge badge-simple">TNA → TEA — Tema 6</span>
+    <p class="enunciado">Un banco publicita una <strong>TNA del 60%</strong> con capitalización mensual. ¿Cuál es la TEA real?</p>
+    <div class="contenido">
+      <div class="paso">m = 12 (capitalización mensual) → tasa del período = 60% ÷ 12 = 5% mensual</div>
+      <div class="paso">TEA = (1 + 0,05)¹² − 1</div>
+      <div class="paso">(1,05)¹² = 1,795856</div>
+      <div class="paso">TEA = 1,795856 − 1 = 0,795856</div>
+      <span class="resultado">TEA ≈ 79,59% anual (bastante más que el 60% publicitado)</span>
+    </div>
+  </div>
+
+  <div class="ejercicio resuelto">
+    <span class="num">5</span><span class="badge badge-compuesto">Aplicación: Plazo Fijo — Tema 7</span>
+    <p class="enunciado">Invertís <strong>$200.000</strong> en un plazo fijo a 30 días con <strong>TNA del 40%</strong> (capitalización mensual). ¿Cuánto retirás al vencimiento?</p>
+    <div class="contenido">
+      <div class="paso">Tasa mensual = 40% ÷ 12 = 3,33% mensual</div>
+      <div class="paso">I = 200.000 × 0,0333 × 1 = $6.666,67</div>
+      <div class="paso">M = 200.000 + 6.666,67 = $206.666,67</div>
+      <span class="resultado">Retirás aproximadamente $206.666,67</span>
+    </div>
+  </div>
+
+</section>
+
+<!-- ===================== PRACTICA SIMPLE ===================== -->
+<section class="panel" id="practica-simple">
+  <p style="margin-bottom:20px; color:var(--gris-600);">Ejercicios para que los alumnos resuelvan. Cada uno tiene la solución oculta debajo — usá "Ver solución" para corregir.</p>
+
+  <div class="ejercicio">
+    <span class="num">1</span><span class="badge badge-simple">Hallar I y M</span>
+    <p class="enunciado">Un capital de <strong>$90.000</strong> se coloca al <strong>2,8% mensual simple</strong> durante <strong>7 meses</strong>. Calculá el interés generado y el monto final.</p>
+    <details class="solucion"><summary>Ver solución</summary>
+      <div class="contenido">
+        <div class="paso">I = 90.000 × 0,028 × 7 = $17.640</div>
+        <div class="paso">M = 90.000 + 17.640 = $107.640</div>
+        <span class="resultado">I = $17.640 — M = $107.640</span>
+      </div>
+    </details>
+  </div>
+
+  <div class="ejercicio">
+    <span class="num">2</span><span class="badge badge-simple">Verificar una tasa</span>
+    <p class="enunciado">Un comerciante presta <strong>$150.000</strong> a una tasa simple del <strong>3% mensual</strong>. A los <strong>6 meses</strong> le devuelven <strong>$177.000</strong>. ¿Es correcto ese monto según la tasa pactada?</p>
+    <details class="solucion"><summary>Ver solución</summary>
+      <div class="contenido">
+        <div class="paso">I esperado = 150.000 × 0,03 × 6 = $27.000</div>
+        <div class="paso">M esperado = 150.000 + 27.000 = $177.000</div>
+        <span class="resultado">Sí, el monto de $177.000 es correcto según la tasa pactada</span>
+      </div>
+    </details>
+  </div>
+
+  <div class="ejercicio">
+    <span class="num">3</span><span class="badge badge-simple">Hallar el tiempo (n)</span>
+    <p class="enunciado">Depositás <strong>$60.000</strong> al <strong>4% mensual simple</strong>. ¿Cuántos meses necesitás para que el monto llegue a <strong>$72.000</strong>?</p>
+    <details class="solucion"><summary>Ver solución</summary>
+      <div class="contenido">
+        <div class="paso">I necesario = 72.000 − 60.000 = $12.000</div>
+        <div class="paso">n = I ÷ (C × i) = 12.000 ÷ (60.000 × 0,04) = 12.000 ÷ 2.400</div>
+        <span class="resultado">n = 5 meses</span>
+      </div>
+    </details>
+  </div>
+
+  <div class="ejercicio">
+    <span class="num">4</span><span class="badge badge-simple">Hallar la tasa (i)</span>
+    <p class="enunciado">Un préstamo de <strong>$200.000</strong> se pactó devolver en <strong>4 meses</strong> por un total de <strong>$224.000</strong>, en régimen simple. ¿Qué tasa mensual se aplicó?</p>
+    <details class="solucion"><summary>Ver solución</summary>
+      <div class="contenido">
+        <div class="paso">I = 224.000 − 200.000 = $24.000</div>
+        <div class="paso">i = I ÷ (C × n) = 24.000 ÷ (200.000 × 4) = 24.000 ÷ 800.000</div>
+        <span class="resultado">i = 0,03 → 3% mensual</span>
+      </div>
+    </details>
+  </div>
+
+  <div class="ejercicio">
+    <span class="num">5</span><span class="badge badge-simple">Hallar M</span>
+    <p class="enunciado">Con un capital de <strong>$45.000</strong> y una tasa del <strong>2,5% mensual simple</strong>, calculá el monto acumulado luego de <strong>10 meses</strong>.</p>
+    <details class="solucion"><summary>Ver solución</summary>
+      <div class="contenido">
+        <div class="paso">I = 45.000 × 0,025 × 10 = $11.250</div>
+        <div class="paso">M = 45.000 + 11.250 = $56.250</div>
+        <span class="resultado">M = $56.250</span>
+      </div>
+    </details>
+  </div>
+
+</section>
+
+<!-- ===================== PRACTICA COMPUESTO ===================== -->
+<section class="panel" id="practica-compuesto">
+  <p style="margin-bottom:20px; color:var(--gris-600);">Ejercicios para que los alumnos resuelvan. Cada uno tiene la solución oculta debajo — usá "Ver solución" para corregir.</p>
+
+  <div class="ejercicio">
+    <span class="num">1</span><span class="badge badge-compuesto">Hallar M e I</span>
+    <p class="enunciado">Un capital de <strong>$80.000</strong> se coloca al <strong>3,5% mensual compuesto</strong> durante <strong>4 meses</strong>. Calculá el monto final y el interés total.</p>
+    <details class="solucion"><summary>Ver solución</summary>
+      <div class="contenido">
+        <div class="paso">M = 80.000 × (1,035)⁴</div>
+        <div class="paso">(1,035)⁴ = 1,147523</div>
+        <div class="paso">M = 80.000 × 1,147523 = $91.801,84</div>
+        <div class="paso">I = M − C = 91.801,84 − 80.000 = $11.801,84</div>
+        <span class="resultado">M ≈ $91.801,84 — I ≈ $11.801,84</span>
+      </div>
+    </details>
+  </div>
+
+  <div class="ejercicio">
+    <span class="num">2</span><span class="badge badge-compuesto">Plazo fijo con capitalización</span>
+    <p class="enunciado">Un ahorrista deposita <strong>$100.000</strong> en un plazo fijo que capitaliza mensualmente al <strong>4%</strong> durante <strong>6 meses</strong>. ¿Cuál es el monto final?</p>
+    <details class="solucion"><summary>Ver solución</summary>
+      <div class="contenido">
+        <div class="paso">M = 100.000 × (1,04)⁶</div>
+        <div class="paso">(1,04)⁶ = 1,265319</div>
+        <span class="resultado">M ≈ $126.531,90</span>
+      </div>
+    </details>
+  </div>
+
+  <div class="ejercicio">
+    <span class="num">3</span><span class="badge badge-compuesto">Hallar el capital inicial (C)</span>
+    <p class="enunciado">¿Qué capital inicial se necesita para obtener <strong>$150.000</strong> dentro de <strong>5 meses</strong>, con una tasa compuesta del <strong>3% mensual</strong>?</p>
+    <details class="solucion"><summary>Ver solución</summary>
+      <div class="contenido">
+        <div class="paso">C = M ÷ (1 + i)ⁿ = 150.000 ÷ (1,03)⁵</div>
+        <div class="paso">(1,03)⁵ = 1,159274</div>
+        <div class="paso">C = 150.000 ÷ 1,159274</div>
+        <span class="resultado">C ≈ $129.390,50</span>
+      </div>
+    </details>
+  </div>
+
+  <div class="ejercicio">
+    <span class="num">4</span><span class="badge badge-compuesto">Comparar contra interés simple</span>
+    <p class="enunciado">Invertís <strong>$70.000</strong> al <strong>2% mensual</strong> durante <strong>12 meses</strong>. ¿Cuánto más ganás con interés compuesto respecto del simple?</p>
+    <details class="solucion"><summary>Ver solución</summary>
+      <div class="contenido">
+        <div class="paso">Simple: I = 70.000 × 0,02 × 12 = $16.800 &nbsp;→&nbsp; M = $86.800</div>
+        <div class="paso">Compuesto: M = 70.000 × (1,02)¹² = 70.000 × 1,268242 = $88.776,94</div>
+        <div class="paso">Diferencia: 88.776,94 − 86.800 = $1.976,94</div>
+        <span class="resultado">Con compuesto ganás $1.976,94 más</span>
+      </div>
+    </details>
+  </div>
+
+  <div class="ejercicio">
+    <span class="num">5</span><span class="badge badge-compuesto">Combinando con TNA (Tema 6)</span>
+    <p class="enunciado">Un banco ofrece una <strong>TNA del 48%</strong> con capitalización mensual. Si depositás <strong>$50.000</strong> durante <strong>3 meses</strong>, ¿cuál es el monto final?</p>
+    <details class="solucion"><summary>Ver solución</summary>
+      <div class="contenido">
+        <div class="paso">Tasa mensual = 48% ÷ 12 = 4% mensual</div>
+        <div class="paso">M = 50.000 × (1,04)³ = 50.000 × 1,124864</div>
+        <span class="resultado">M ≈ $56.243,20</span>
+      </div>
+    </details>
+  </div>
+
+</section>
+
+</main>
+
+<footer>Organización y Gestión Comercial · Unidad 2 · 6° "A" Técnicos en Informática · EETP N°602 "Gral. José de San Martín"</footer>
+
+<script>
+  const buttons = document.querySelectorAll('.tab-btn');
+  const panels = document.querySelectorAll('.panel');
+  buttons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      buttons.forEach(b=>b.classList.remove('active'));
+      panels.forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+  });
+</script>
+
+</body>
+</html>
