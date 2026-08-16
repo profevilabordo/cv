@@ -1,0 +1,852 @@
+{
+  "id": "eeso206_5d_ocl_u3",
+  "materia": "Orientación en Contextos Laborales",
+  "unidad": 3,
+  "titulo": "Trabajo autónomo, liquidación de haberes y monografía",
+  "emoji": "💼",
+  "color_primario": "#0EA5E9",
+  "color_secundario": "#38BDF8",
+
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "🧾",
+        "texto": "Cuando cobres tu primer sueldo, ¿vas a saber leer el recibo y darte cuenta si los descuentos están bien hechos?",
+        "pista": "En ese papel están tu jubilación futura, tu obra social y tu antigüedad..."
+      },
+      {
+        "emoji": "🧑‍💻",
+        "texto": "Si arrancás a trabajar por tu cuenta —diseñando, arreglando cosas, vendiendo—, ¿qué tenés que hacer para estar en regla?",
+        "pista": "Hay un régimen simplificado con categorías que van de la A a la K..."
+      },
+      {
+        "emoji": "🎤",
+        "texto": "¿Serías capaz de explicarle a otra persona, en ocho minutos y sin leer, un tema laboral que estudiaste?",
+        "pista": "Eso es exactamente lo que vas a hacer en la defensa oral de la monografía de esta unidad..."
+      }
+    ],
+    "situaciones_conecta": [
+      {"emoji": "🧾", "label": "Vi el recibo de sueldo de alguien de mi familia"},
+      {"emoji": "🧑‍💼", "label": "Conozco a alguien que trabaja por su cuenta o es monotributista"},
+      {"emoji": "⏰", "label": "Escuché hablar de horas extras, aguinaldo o vacaciones en casa"},
+      {"emoji": "⚖️", "label": "Supe de un caso de despido o de un reclamo laboral"}
+    ],
+    "termometro_pregunta": "¿Cuánto sabés sobre tus derechos laborales y sobre lo que implica trabajar por cuenta propia?"
+  },
+
+  "mapa": {
+    "ruta_paradas": [
+      {"id": 0, "emoji": "🛡️", "title": "Principios y contrato", "desc": "El Derecho del Trabajo protectorio y el contrato de trabajo", "color": "#0EA5E9"},
+      {"id": 1, "emoji": "🧑‍🔧", "title": "Dependiente o autónomo", "desc": "Modalidades de contratación y trabajo por cuenta propia", "color": "#38BDF8"},
+      {"id": 2, "emoji": "💰", "title": "Remuneración y aportes", "desc": "Sueldo, SAC, aportes y contribuciones", "color": "#10B981"},
+      {"id": 3, "emoji": "🛟", "title": "Protección social", "desc": "Jornada, asignaciones familiares, ART y Ley 26.485", "color": "#8B5CF6"},
+      {"id": 4, "emoji": "🧾", "title": "Fin del vínculo y monotributo", "desc": "Despido, liquidación de haberes y régimen de autónomos", "color": "#F59E0B"}
+    ],
+
+    "panoramica_bloques": [
+      {
+        "id": "a",
+        "emoji": "🛡️",
+        "title": "BLOQUE A",
+        "subtitle": "La relación laboral y el contrato de trabajo",
+        "color": "#0EA5E9",
+        "items": [
+          "Principios del Derecho del Trabajo y función protectoria",
+          "El contrato de trabajo: concepto, elementos y caracteres",
+          "Clasificación y formas de contratación",
+          "Trabajo dependiente y trabajo independiente",
+          "Derechos y obligaciones de las partes",
+          "Servicio doméstico: Ley 26.844 de casas particulares"
+        ]
+      },
+      {
+        "id": "b",
+        "emoji": "💰",
+        "title": "BLOQUE B",
+        "subtitle": "Remuneración, jornada y protección social",
+        "color": "#10B981",
+        "items": [
+          "La remuneración: concepto, aportes y contribuciones",
+          "El Sueldo Anual Complementario (SAC)",
+          "Jornada laboral y descansos",
+          "Asignaciones familiares",
+          "Riesgos del trabajo y ART",
+          "Ley 26.485 aplicada al ámbito laboral"
+        ]
+      },
+      {
+        "id": "c",
+        "emoji": "🧾",
+        "title": "BLOQUE C",
+        "subtitle": "Extinción, liquidación de haberes y trabajo autónomo",
+        "color": "#F59E0B",
+        "items": [
+          "Preaviso y extinción del contrato. El despido",
+          "Indemnización por despido sin causa (art. 245 LCT)",
+          "Liquidación de sueldos y recibo de sueldo",
+          "Régimen de autónomos",
+          "Monotributo y sus categorías",
+          "Cuadro comparativo Ley 20.744 y Ley 27.802"
+        ]
+      }
+    ],
+
+    "mapa_mental": {
+      "centro": {"emoji": "💼", "title": "DERECHO LABORAL Y TRABAJO AUTÓNOMO"},
+      "ramas": [
+        {
+          "id": "que",
+          "emoji": "❓",
+          "title": "¿Qué estudiamos?",
+          "color": "#0EA5E9",
+          "items": ["El contrato de trabajo", "La remuneración y el recibo de sueldo", "La protección social", "El trabajo por cuenta propia"]
+        },
+        {
+          "id": "quienes",
+          "emoji": "👥",
+          "title": "¿Quiénes participan?",
+          "color": "#38BDF8",
+          "items": ["Trabajador y empleador", "Asociaciones profesionales", "El Estado como garante", "ANSES, ART, ARCA (ex AFIP)"]
+        },
+        {
+          "id": "como",
+          "emoji": "⚙️",
+          "title": "¿Cómo funciona?",
+          "color": "#10B981",
+          "items": ["Normas de orden público laboral", "Aportes y contribuciones", "Registración de la relación", "Categorías y cuota mensual"]
+        },
+        {
+          "id": "porque",
+          "emoji": "🎯",
+          "title": "¿Por qué es importante?",
+          "color": "#F59E0B",
+          "items": ["Vas a firmar tu primer contrato", "Vas a leer tu primer recibo", "Vas a decidir cómo facturar", "Podés reclamar lo que te corresponde"]
+        }
+      ]
+    }
+  },
+
+  "nucleo_a": {
+    "bloque_info": {
+      "id": "A",
+      "emoji": "🛡️",
+      "titulo": "BLOQUE A: La relación laboral y el contrato de trabajo",
+      "color": "#0EA5E9",
+      "paginas": [3, 4, 5, 6, 7]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená la secuencia lógica de una contratación por tiempo indeterminado, desde el acuerdo hasta la superación del período de prueba.",
+      "paginas_referencia": "4-6",
+      "items": [
+        {"id": 0, "text": "Una persona física se obliga a prestar servicios en favor de otra y bajo su dependencia, mediante el pago de una remuneración (art. 21 LCT)", "emoji": "🤝"},
+        {"id": 1, "text": "El contrato queda perfeccionado con el simple consentimiento de las partes: es consensual", "emoji": "✍️"},
+        {"id": 2, "text": "El empleador cumple su deber de registración e inscribe la relación en los organismos de la seguridad social", "emoji": "📋"},
+        {"id": 3, "text": "Transcurren los primeros tres meses: el contrato se entiende celebrado a prueba", "emoji": "⏳"},
+        {"id": 4, "text": "Superado ese lapso, rige plenamente la presunción de contrato por tiempo indeterminado", "emoji": "♾️"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada deber según corresponda al empleador o al trabajador.",
+      "paginas_referencia": "6",
+      "categorias": [
+        {"name": "Obligaciones del empleador", "emoji": "🏢", "color": "#0EA5E9"},
+        {"name": "Obligaciones del trabajador", "emoji": "🧑‍🔧", "color": "#38BDF8"}
+      ],
+      "items": [
+        {"id": 0, "text": "Pagar la remuneración en tiempo y forma, respetando el salario mínimo, vital y móvil", "categoria_correcta": 0},
+        {"id": 1, "text": "Guardar reserva o secreto de las informaciones a las que accede", "categoria_correcta": 1},
+        {"id": 2, "text": "Adoptar las medidas de higiene y seguridad y contratar la cobertura de ART", "categoria_correcta": 0},
+        {"id": 3, "text": "Prestar el servicio con puntualidad, asistencia regular y dedicación adecuada", "categoria_correcta": 1},
+        {"id": 4, "text": "Inscribir la relación laboral en la seguridad social y entregar recibo de sueldo", "categoria_correcta": 0},
+        {"id": 5, "text": "Abstenerse de hacer negociaciones por cuenta propia que afecten los intereses del empleador", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "3-7",
+      "blanks": [
+        {"id": "b1", "texto_antes": "Ante una duda sobre la interpretación de una norma se aplica la más favorable al trabajador: es la regla in dubio pro ________.", "respuesta_correcta": "operario", "pista": "O_______"},
+        {"id": "b2", "texto_antes": "El elemento que distingue al contrato de trabajo de otras figuras es la ________, que se manifiesta en el plano jurídico, técnico y económico.", "respuesta_correcta": "subordinación", "pista": "S____________"},
+        {"id": "b3", "texto_antes": "El Régimen Especial de Contrato de Trabajo para el Personal de Casas Particulares está regulado por la Ley N° ________.", "respuesta_correcta": "26.844", "pista": "26.___"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "4-6",
+      "afirmaciones": [
+        {"texto": "Puede existir relación de trabajo aun sin un contrato formalmente celebrado, y la ley igualmente reconoce los derechos del trabajador.", "correcto": true, "explicacion": "Verdadero. La relación de trabajo existe cuando alguien presta servicios bajo dependencia y en forma voluntaria, cualquiera sea el acto que le dé origen."},
+        {"texto": "El contrato de trabajo se presume celebrado a plazo fijo, salvo que las partes acuerden lo contrario.", "correcto": false, "explicacion": "Falso. Se presume celebrado por tiempo indeterminado; es una aplicación directa del principio de continuidad de la relación laboral."},
+        {"texto": "El contrato a plazo fijo no puede exceder de cinco años y debe formalizarse por escrito expresando la causa que lo justifica.", "correcto": true, "explicacion": "Verdadero. Además debe preavisarse su finalización con no menos de un mes ni más de dos, salvo que el plazo sea inferior a un mes."},
+        {"texto": "El trabajador independiente goza de la misma protección del Derecho del Trabajo que el trabajador dependiente.", "correcto": false, "explicacion": "Falso. El autónomo no goza de la protección del Derecho del Trabajo, sino del régimen previsional y tributario que le corresponda según su categoría."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "3-7",
+      "pares": [
+        {"izquierda": "Primacía de la realidad", "derecha": "Prevalece lo que ocurre en los hechos por sobre lo declarado en un papel", "emoji": "🔍"},
+        {"izquierda": "Ajenidad", "derecha": "Los frutos y los riesgos de la actividad pertenecen al empleador", "emoji": "🎁"},
+        {"izquierda": "Contrato eventual", "derecha": "Servicios extraordinarios ajenos al giro normal y permanente de la empresa", "emoji": "⏳"},
+        {"izquierda": "Ley 26.844", "derecha": "Régimen especial del personal de casas particulares", "emoji": "🏠"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "3-5",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🛡️",
+          "pregunta": "¿Cuál NO es un principio del Derecho del Trabajo según el apunte?",
+          "paginas": "3",
+          "palabras": [
+            {"text": "Principio protectorio", "es_intrusa": false},
+            {"text": "Principio de irrenunciabilidad", "es_intrusa": false},
+            {"text": "Principio de libre disponibilidad de los derechos", "es_intrusa": true},
+            {"text": "Principio de primacía de la realidad", "es_intrusa": false}
+          ],
+          "explicacion": "Es justo lo contrario: los derechos reconocidos por las leyes laborales son irrenunciables y cualquier acuerdo que implique renunciar a ellos carece de validez."
+        },
+        {
+          "id": 1,
+          "emoji": "📄",
+          "pregunta": "¿Cuál NO es una modalidad de contratación laboral prevista en el apunte?",
+          "paginas": "4-5",
+          "palabras": [
+            {"text": "Contrato a plazo fijo", "es_intrusa": false},
+            {"text": "Contrato de temporada", "es_intrusa": false},
+            {"text": "Contrato de locación de servicios", "es_intrusa": true},
+            {"text": "Contrato de trabajo a tiempo parcial", "es_intrusa": false}
+          ],
+          "explicacion": "La locación de servicios es una figura civil; si encubre una prestación subordinada, se aplica la primacía de la realidad y se configura fraude laboral."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "3-6",
+      "conceptos": [
+        {"termino": "Subordinación", "pista": "¿En qué tres planos depende el trabajador de su empleador?", "palabras_clave": ["jurídica", "técnica", "económica", "órdenes"]},
+        {"termino": "Orden público laboral", "pista": "¿Qué piso de derechos no se puede bajar ni con acuerdo de las partes?", "palabras_clave": ["normas mínimas", "inderogables", "piso", "protección"]},
+        {"termino": "Fraude laboral", "pista": "¿Qué pasa cuando se disfraza de autónoma una relación de dependencia?", "palabras_clave": ["calificación incorrecta", "derechos irrenunciables", "sanciones", "relación encubierta"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "3-7",
+      "causas": [
+        {"id": 0, "text": "El derecho civil clásico parte de la igualdad formal entre las partes de un contrato", "emoji": "📜"},
+        {"id": 1, "text": "Un empleador hace firmar un contrato de locación de servicios a quien en los hechos trabaja subordinado", "emoji": "✍️"},
+        {"id": 2, "text": "El personal de casas particulares fue históricamente un colectivo informal y feminizado", "emoji": "🏠"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "Nace un Derecho del Trabajo protectorio, con normas de orden público que nivelan la relación", "emoji": "🛡️", "causa_id": 0},
+        {"id": 11, "text": "Por primacía de la realidad se reconoce la relación laboral encubierta, con consecuencias indemnizatorias", "emoji": "⚖️", "causa_id": 1},
+        {"id": 12, "text": "Se sanciona la Ley 26.844, con registración en el RECPP y derechos análogos al régimen general", "emoji": "📗", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el razonamiento que sigue el derecho laboral cuando sospecha que una relación de dependencia fue disfrazada de trabajo autónomo.",
+      "paginas_referencia": "5-6",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "Las partes firman un papel que llama autónoma a la prestación", "emoji": "📄"},
+        {"id": 1, "text": "En los hechos, la persona cumple horario, recibe órdenes y usa las herramientas del empleador", "emoji": "🕒"},
+        {"id": 2, "text": "Se verifica la subordinación jurídica, técnica y económica", "emoji": "🔍"},
+        {"id": 3, "text": "Por primacía de la realidad se reconoce judicialmente la relación laboral encubierta", "emoji": "⚖️"},
+        {"id": 4, "text": "El empleador queda expuesto a sanciones y a las consecuencias indemnizatorias correspondientes", "emoji": "💸"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "5-6",
+      "concepto_a": {"nombre": "Trabajo en relación de dependencia", "emoji": "🧑‍🔧", "color": "#0EA5E9"},
+      "concepto_b": {"nombre": "Trabajo independiente o autónomo", "emoji": "🧑‍💼", "color": "#F59E0B"}
+    }
+  },
+
+  "nucleo_b": {
+    "bloque_info": {
+      "id": "B",
+      "emoji": "💰",
+      "titulo": "BLOQUE B: Remuneración, jornada y protección social",
+      "color": "#10B981",
+      "paginas": [7, 8, 9, 10]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená la secuencia de lo que ocurre ante un accidente cubierto por el sistema de riesgos del trabajo.",
+      "paginas_referencia": "9",
+      "items": [
+        {"id": 0, "text": "El empleador se afilia a una ART o se autoasegura cumpliendo los requisitos patrimoniales exigidos", "emoji": "📝"},
+        {"id": 1, "text": "Ocurre un acontecimiento súbito y violento por el hecho o en ocasión del trabajo", "emoji": "⚡"},
+        {"id": 2, "text": "El empleador denuncia el siniestro ante la aseguradora", "emoji": "📞"},
+        {"id": 3, "text": "El trabajador recibe las prestaciones en especie: asistencia médica, prótesis y rehabilitación", "emoji": "🏥"},
+        {"id": 4, "text": "Se liquidan las prestaciones dinerarias que compensan la pérdida de capacidad laboral", "emoji": "💵"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada concepto según lo pague el trabajador con un descuento de su bruto o el empleador con fondos propios.",
+      "paginas_referencia": "7, 9",
+      "categorias": [
+        {"name": "Aporte del trabajador", "emoji": "🧑‍🔧", "color": "#10B981"},
+        {"name": "A cargo del empleador", "emoji": "🏢", "color": "#0EA5E9"}
+      ],
+      "items": [
+        {"id": 0, "text": "11 % con destino al Sistema Integrado Previsional Argentino (SIPA)", "categoria_correcta": 0},
+        {"id": 1, "text": "Contribuciones destinadas al Fondo Nacional de Empleo", "categoria_correcta": 1},
+        {"id": 2, "text": "3 % al INSSJP/PAMI", "categoria_correcta": 0},
+        {"id": 3, "text": "Contratar la cobertura de una ART o autoasegurarse", "categoria_correcta": 1},
+        {"id": 4, "text": "3 % a la obra social", "categoria_correcta": 0},
+        {"id": 5, "text": "Contribuciones destinadas a las asignaciones familiares", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "8-9",
+      "blanks": [
+        {"id": "b1", "texto_antes": "La segunda cuota del SAC tiene vencimiento el 18 de ________.", "respuesta_correcta": "diciembre", "pista": "D________"},
+        {"id": "b2", "texto_antes": "La jornada nocturna es la que se cumple entre las 21 y las 6 horas, con un límite de ________ horas.", "respuesta_correcta": "siete", "pista": "S____"},
+        {"id": "b3", "texto_antes": "Las asignaciones familiares están administradas por la ________.", "respuesta_correcta": "ANSES", "pista": "A____"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "7-10",
+      "afirmaciones": [
+        {"texto": "El SAC se abona en dos cuotas, con vencimiento el 30 de junio y el 18 de diciembre.", "correcto": true, "explicacion": "Verdadero. Cada cuota se calcula sobre la mejor remuneración mensual devengada en el semestre correspondiente."},
+        {"texto": "Las horas extraordinarias trabajadas el sábado después de las trece horas se pagan con un recargo del 50 %.", "correcto": false, "explicacion": "Falso. En sábado después de las 13, domingo y feriados el recargo es del 100 %; el 50 % corresponde a los días hábiles."},
+        {"texto": "El accidente in itinere es el que ocurre en el trayecto entre el domicilio del trabajador y su lugar de trabajo.", "correcto": true, "explicacion": "Verdadero. Está cubierto siempre que no medie interrupción o alteración del trayecto por causas ajenas al trabajo."},
+        {"texto": "Las asignaciones familiares son remunerativas y están sujetas a aportes y contribuciones.", "correcto": false, "explicacion": "Falso. Son prestaciones de la seguridad social no remunerativas, financiadas por el Fondo Nacional de Asignaciones Familiares."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "8-10",
+      "pares": [
+        {"izquierda": "Ley 24.714", "derecha": "Régimen de asignaciones familiares administrado por ANSES", "emoji": "👶"},
+        {"izquierda": "Ley 24.557", "derecha": "Riesgos del trabajo y cobertura obligatoria de las ART", "emoji": "⛑️"},
+        {"izquierda": "Ley 11.544", "derecha": "Jornada de trabajo y sus límites máximos", "emoji": "⏰"},
+        {"izquierda": "Ley 26.485", "derecha": "Protección integral contra la violencia hacia las mujeres", "emoji": "💜"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "7-9",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "💸",
+          "pregunta": "¿Cuál NO es un aporte que se descuenta de la remuneración del trabajador?",
+          "paginas": "7",
+          "palabras": [
+            {"text": "11 % al SIPA", "es_intrusa": false},
+            {"text": "3 % al INSSJP/PAMI", "es_intrusa": false},
+            {"text": "3 % a la obra social", "es_intrusa": false},
+            {"text": "Contribución al Fondo Nacional de Empleo", "es_intrusa": true}
+          ],
+          "explicacion": "El Fondo Nacional de Empleo se financia con contribuciones patronales, que el empleador ingresa con fondos propios y no descuenta del salario."
+        },
+        {
+          "id": 1,
+          "emoji": "⛑️",
+          "pregunta": "¿Cuál NO es una contingencia cubierta por el sistema de riesgos del trabajo?",
+          "paginas": "9",
+          "palabras": [
+            {"text": "Accidente de trabajo", "es_intrusa": false},
+            {"text": "Accidente in itinere", "es_intrusa": false},
+            {"text": "Despido sin causa", "es_intrusa": true},
+            {"text": "Enfermedad profesional del listado", "es_intrusa": false}
+          ],
+          "explicacion": "El despido sin causa se resuelve con las indemnizaciones que prevé la LCT, no con las prestaciones de la ART."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "7-10",
+      "conceptos": [
+        {"termino": "Remuneración", "pista": "¿Qué recibe el trabajador a cambio de su prestación y por qué se protege tanto?", "palabras_clave": ["art. 103", "contraprestación", "alimentario", "dinero"]},
+        {"termino": "Sueldo Anual Complementario", "pista": "¿Cuánto es, sobre qué se calcula y cuándo se cobra?", "palabras_clave": ["50 %", "mejor remuneración", "semestre", "dos cuotas"]},
+        {"termino": "Violencia laboral", "pista": "¿Qué conductas en el trabajo describe la Ley 26.485 como violencia de género?", "palabras_clave": ["discrimina", "acceso al empleo", "test de embarazo", "hostigamiento"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "8-10",
+      "causas": [
+        {"id": 0, "text": "El trabajador ingresó a la empresa a mitad del semestre", "emoji": "📆"},
+        {"id": 1, "text": "Una tarea es declarada insalubre por la autoridad de aplicación", "emoji": "☣️"},
+        {"id": 2, "text": "Una empresa exige un test de embarazo para acceder a un puesto", "emoji": "🚫"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "El SAC se liquida en forma proporcional al tiempo trabajado en ese semestre", "emoji": "➗", "causa_id": 0},
+        {"id": 11, "text": "La jornada no puede exceder de seis horas diarias ni de treinta y seis semanales", "emoji": "⏱️", "causa_id": 1},
+        {"id": 12, "text": "Se configura violencia laboral en los términos de la Ley 26.485", "emoji": "💜", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos para calcular el SAC proporcional de un trabajador que no prestó servicios durante todo el semestre.",
+      "paginas_referencia": "8",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "Identificar el semestre a liquidar: enero-junio o julio-diciembre", "emoji": "📆"},
+        {"id": 1, "text": "Buscar la mayor remuneración mensual devengada por todo concepto en ese semestre", "emoji": "🔍"},
+        {"id": 2, "text": "Dividir esa mejor remuneración por 12", "emoji": "➗"},
+        {"id": 3, "text": "Multiplicar el resultado por los meses efectivamente trabajados en el semestre", "emoji": "✖️"},
+        {"id": 4, "text": "Abonar el SAC al 30 de junio o al 18 de diciembre, con sus aportes y contribuciones", "emoji": "💵"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "7, 9",
+      "concepto_a": {"nombre": "Remuneración", "emoji": "💵", "color": "#10B981"},
+      "concepto_b": {"nombre": "Asignación familiar", "emoji": "👶", "color": "#8B5CF6"}
+    }
+  },
+
+  "nucleo_c": {
+    "bloque_info": {
+      "id": "C",
+      "emoji": "🧾",
+      "titulo": "BLOQUE C: Extinción, liquidación de haberes y trabajo autónomo",
+      "color": "#F59E0B",
+      "paginas": [10, 11, 12, 13, 14]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená la secuencia de un despido sin causa, desde la decisión del empleador hasta la liquidación final.",
+      "paginas_referencia": "10-11",
+      "items": [
+        {"id": 0, "text": "El empleador decide extinguir el contrato por tiempo indeterminado sin invocar incumplimiento del trabajador", "emoji": "✉️"},
+        {"id": 1, "text": "Debe preavisar: un mes si la antigüedad es inferior a cinco años, dos meses si es igual o superior", "emoji": "📅"},
+        {"id": 2, "text": "Si omite el preaviso, abona la indemnización sustitutiva equivalente a los salarios del plazo omitido", "emoji": "💸"},
+        {"id": 3, "text": "Se calcula la indemnización por antigüedad del art. 245: un mes de la mejor remuneración por año o fracción mayor de tres meses", "emoji": "🧮"},
+        {"id": 4, "text": "Se suman los rubros no controvertidos: SAC proporcional, vacaciones no gozadas y salarios pendientes", "emoji": "🧾"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada característica según corresponda al régimen general de autónomos o al monotributo.",
+      "paginas_referencia": "12",
+      "categorias": [
+        {"name": "Régimen de autónomos", "emoji": "🧑‍💼", "color": "#F59E0B"},
+        {"name": "Monotributo", "emoji": "🧾", "color": "#0EA5E9"}
+      ],
+      "items": [
+        {"id": 0, "text": "Emite factura tipo C", "categoria_correcta": 1},
+        {"id": 1, "text": "No tiene límite de facturación anual asociado a la categoría", "categoria_correcta": 0},
+        {"id": 2, "text": "Unifica impuestos y aportes en una cuota fija mensual", "categoria_correcta": 1},
+        {"id": 3, "text": "Debe liquidar y pagar por separado Ganancias, IVA y aportes previsionales", "categoria_correcta": 0},
+        {"id": 4, "text": "Incluye automáticamente un aporte a obra social", "categoria_correcta": 1},
+        {"id": 5, "text": "Aporta sobre una categoría de renta presunta que él mismo elige", "categoria_correcta": 0}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "11-12",
+      "blanks": [
+        {"id": "b1", "texto_antes": "La indemnización por antigüedad del despido sin causa está regulada en el artículo ________ de la LCT.", "respuesta_correcta": "245", "pista": "2__"},
+        {"id": "b2", "texto_antes": "El recibo de sueldo debe emitirse por ________, y un ejemplar queda en poder del trabajador con constancia de su firma.", "respuesta_correcta": "duplicado", "pista": "D________"},
+        {"id": "b3", "texto_antes": "El Régimen Simplificado para Pequeños Contribuyentes se conoce popularmente como ________.", "respuesta_correcta": "monotributo", "pista": "M__________"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "10-14",
+      "afirmaciones": [
+        {"texto": "El monotributo se estructura en categorías que van de la A a la K.", "correcto": true, "explicacion": "Verdadero. Se determinan según los ingresos brutos anuales, la superficie afectada, la energía eléctrica consumida y los alquileres devengados, entre otros parámetros."},
+        {"texto": "La renuncia del trabajador genera derecho a la indemnización por antigüedad.", "correcto": false, "explicacion": "Falso. La renuncia no genera derecho a indemnización y debe expresarse mediante despacho telegráfico o notarial."},
+        {"texto": "La Ley 27.802 prevé una implementación escalonada por etapas que se extiende hasta el año 2028.", "correcto": true, "explicacion": "Verdadero. Los distintos institutos entran en vigencia en fechas diferenciadas según la reglamentación."},
+        {"texto": "Con la Ley 27.802 conviven un régimen viejo y uno nuevo según la fecha de ingreso de cada trabajador.", "correcto": false, "explicacion": "Falso. No existe régimen dual: se aplica la ley vigente al momento del hecho relevante, por ejemplo la fecha del despido."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "10-14",
+      "pares": [
+        {"izquierda": "Despido indirecto", "derecha": "El trabajador se considera despedido por un incumplimiento grave del empleador", "emoji": "🚪"},
+        {"izquierda": "Artículo 140 de la LCT", "derecha": "Contenido obligatorio del recibo de sueldo", "emoji": "🧾"},
+        {"izquierda": "Fondo de Autoseguro Laboral", "derecha": "Aportes patronales periódicos para cubrir la indemnización por despido", "emoji": "🏦"},
+        {"izquierda": "Banco de horas", "derecha": "Compensa horas trabajadas de más con menor carga horaria en otros períodos", "emoji": "⏳"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "11-14",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🧾",
+          "pregunta": "¿Cuál NO es un dato que deba figurar obligatoriamente en el recibo de sueldo?",
+          "paginas": "11",
+          "palabras": [
+            {"text": "CUIT del empleador", "es_intrusa": false},
+            {"text": "Fecha de ingreso del trabajador", "es_intrusa": false},
+            {"text": "Categoría de monotributo del trabajador", "es_intrusa": true},
+            {"text": "Detalle discriminado de los descuentos", "es_intrusa": false}
+          ],
+          "explicacion": "El monotributo corresponde a quienes trabajan por cuenta propia; el recibo de sueldo documenta una relación de dependencia."
+        },
+        {
+          "id": 1,
+          "emoji": "⚖️",
+          "pregunta": "¿Cuál NO es un eje del cuadro comparativo entre la Ley 20.744 y la Ley 27.802?",
+          "paginas": "12-14",
+          "palabras": [
+            {"text": "Fondo de cese laboral (FAL)", "es_intrusa": false},
+            {"text": "Jornada laboral y banco de horas", "es_intrusa": false},
+            {"text": "Categorías del monotributo", "es_intrusa": true},
+            {"text": "Fraccionamiento de vacaciones", "es_intrusa": false}
+          ],
+          "explicacion": "Las categorías del monotributo pertenecen al Régimen Simplificado para Pequeños Contribuyentes, no al cuadro comparativo entre ambas leyes laborales."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "10-12",
+      "conceptos": [
+        {"termino": "Preaviso", "pista": "¿Qué hay que avisar antes de terminar el contrato y qué pasa si no se avisa?", "palabras_clave": ["anticipación", "extinción", "indemnización sustitutiva", "plazos"]},
+        {"termino": "Recibo de sueldo", "pista": "¿Qué documento prueba lo que cobrás y qué tiene que decir sí o sí?", "palabras_clave": ["art. 140", "duplicado", "descuentos", "firma"]},
+        {"termino": "Monotributo", "pista": "¿Qué régimen unifica impuestos y aportes en una sola cuota?", "palabras_clave": ["régimen simplificado", "cuota mensual", "categorías", "obra social"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "10-14",
+      "causas": [
+        {"id": 0, "text": "El empleador despide sin causa a un trabajador con seis años de antigüedad y no lo preavisa", "emoji": "✉️"},
+        {"id": 1, "text": "Un trabajador por cuenta propia supera los límites de facturación del monotributo", "emoji": "📈"},
+        {"id": 2, "text": "La Ley 27.802 crea el Fondo de Autoseguro Laboral con aportes patronales periódicos", "emoji": "🏦"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "Debe abonar una indemnización sustitutiva equivalente a dos meses de salario", "emoji": "💸", "causa_id": 0},
+        {"id": 11, "text": "Debe encuadrarse en el régimen general de trabajadores autónomos", "emoji": "🧑‍💼", "causa_id": 1},
+        {"id": 12, "text": "Parte de las contribuciones al sistema previsional se redistribuye hacia ese fondo", "emoji": "🔄", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos de una liquidación de haberes mensual, del sueldo básico al neto documentado en el recibo.",
+      "paginas_referencia": "11",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "Tomar el sueldo básico que corresponde a la categoría del trabajador", "emoji": "💼"},
+        {"id": 1, "text": "Sumar adicionales, horas extras y comisiones: se obtiene la remuneración bruta", "emoji": "➕"},
+        {"id": 2, "text": "Aplicar los descuentos de ley: 11 % jubilación, 3 % INSSJP y 3 % obra social", "emoji": "➖"},
+        {"id": 3, "text": "Restar, si corresponde, la cuota sindical y otros descuentos autorizados: queda el neto a cobrar", "emoji": "📉"},
+        {"id": 4, "text": "Volcar todo en el recibo por duplicado y entregar un ejemplar firmado al trabajador", "emoji": "🧾"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "11-12",
+      "concepto_a": {"nombre": "Monotributista", "emoji": "🧾", "color": "#F59E0B"},
+      "concepto_b": {"nombre": "Empleado en relación de dependencia", "emoji": "🧑‍🔧", "color": "#0EA5E9"}
+    }
+  },
+
+  "senales": {
+    "conceptos_clave": [
+      {
+        "termino": "Principio protectorio",
+        "emoji": "🛡️",
+        "color": "#0EA5E9",
+        "definicion": "Principio rector del Derecho del Trabajo, que se traduce en tres reglas: in dubio pro operario, norma más favorable y condición más beneficiosa.",
+        "importancia": "Es la respuesta jurídica a la desigualdad estructural entre quien pone su fuerza de trabajo y quien dispone del capital."
+      },
+      {
+        "termino": "Subordinación",
+        "emoji": "🔗",
+        "color": "#38BDF8",
+        "definicion": "Elemento distintivo del contrato de trabajo, que se manifiesta en tres planos: jurídico (órdenes y poder disciplinario), técnico (pautas de ejecución) y económico (dependencia del salario y no asunción del riesgo).",
+        "importancia": "Es lo que define si una persona es empleada o autónoma, más allá del nombre que las partes le pongan al vínculo."
+      },
+      {
+        "termino": "Remuneración",
+        "emoji": "💵",
+        "color": "#10B981",
+        "definicion": "Contraprestación que percibe el trabajador por el contrato de trabajo (art. 103 LCT); tiene carácter alimentario y goza de protección especial.",
+        "importancia": "Sobre ella se calculan los aportes y las contribuciones de los que dependen la jubilación futura y la cobertura de salud."
+      },
+      {
+        "termino": "Monotributo",
+        "emoji": "🧾",
+        "color": "#F59E0B",
+        "definicion": "Régimen Simplificado para Pequeños Contribuyentes que unifica en una cuota mensual el componente impositivo y el previsional, con categorías de la A a la K.",
+        "importancia": "Es la puerta de entrada formal más habitual para quien empieza a trabajar por su cuenta."
+      }
+    ],
+    "semaforo_conceptos": [
+      "Período de prueba",
+      "Sueldo Anual Complementario (SAC)",
+      "Accidente in itinere",
+      "Indemnización por antigüedad",
+      "Fondo de Autoseguro Laboral (FAL)"
+    ],
+    "postits_conceptos": [
+      "Contrato de trabajo",
+      "Recibo de sueldo",
+      "Aportes y contribuciones",
+      "Trabajo autónomo"
+    ]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {
+        "emoji": "🕗",
+        "frente": "La jornada de ocho horas no la regaló nadie: se conquistó después de casi un siglo de huelgas",
+        "dorso": "La consigna 'ocho horas de trabajo, ocho de descanso y ocho de recreación' se hizo mundial tras la huelga de Chicago de mayo de 1886, origen de la conmemoración del 1° de mayo. En la Argentina recién se convirtió en ley con la 11.544, sancionada en 1929.",
+        "color": "#0EA5E9"
+      },
+      {
+        "emoji": "🌍",
+        "frente": "Hay un organismo internacional donde los sindicatos se sientan a negociar con la misma voz que los gobiernos",
+        "dorso": "Es la Organización Internacional del Trabajo, creada en 1919 tras la Primera Guerra Mundial. Funciona de manera tripartita —gobiernos, empleadores y trabajadores— y en 1969 recibió el Premio Nobel de la Paz, único caso entre las agencias de este tipo.",
+        "color": "#10B981"
+      },
+      {
+        "emoji": "🎁",
+        "frente": "El aguinaldo argentino tiene fecha de nacimiento: diciembre de 1945",
+        "dorso": "El Decreto 33.302/45 instituyó el sueldo anual complementario para todos los trabajadores en relación de dependencia. Lo que hoy cobrás en junio y en diciembre es heredero directo de esa norma, que después la Ley de Contrato de Trabajo incorporó en sus artículos 121 a 123.",
+        "color": "#F59E0B"
+      }
+    ],
+
+    "linea_de_tiempo": [
+      {"year": "1886", "text": "Huelga de Chicago por la jornada de ocho horas: nace la conmemoración del 1° de mayo", "emoji": "🔨"},
+      {"year": "1919", "text": "Se crea la Organización Internacional del Trabajo tras la Primera Guerra Mundial", "emoji": "🌍"},
+      {"year": "1929", "text": "Argentina sanciona la Ley 11.544 de jornada de trabajo", "emoji": "⏰"},
+      {"year": "1945", "text": "El Decreto 33.302/45 instituye el aguinaldo para los trabajadores en relación de dependencia", "emoji": "🎁"},
+      {"year": "1974", "text": "Se sanciona la Ley de Contrato de Trabajo N° 20.744", "emoji": "📕"}
+    ],
+
+    "encuesta": {
+      "pregunta": "¿Qué dato te sorprendió más?",
+      "opciones": [
+        {"emoji": "🕗", "text": "Que la jornada de ocho horas se conquistó con huelgas", "votos_iniciales": 44},
+        {"emoji": "🌍", "text": "Que exista un organismo tripartito con Nobel de la Paz", "votos_iniciales": 31},
+        {"emoji": "🎁", "text": "Que el aguinaldo tenga apenas 80 años de historia", "votos_iniciales": 39}
+      ]
+    }
+  },
+
+  "cruces": {
+    "consigna_general": "Elegí uno de estos temas del PDF y preparate para explicárselo a un compañero, en voz alta y sin leer. Explicar es el mejor ensayo posible de la defensa oral: es exactamente lo que la rúbrica evalúa cuando pide dominio del tema y claridad del discurso. Conviene que elijas un tema del bloque donde cae el subtema de tu monografía, así el ensayo te sirve doble.",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "🛡️",
+        "titulo": "BLOQUE A: La relación laboral y el contrato de trabajo",
+        "color": "#0EA5E9",
+        "temas_sugeridos": [
+          "Explicale por qué el Derecho del Trabajo es protectorio y qué significa la regla in dubio pro operario.",
+          "Enseñale cuáles son los elementos esenciales del contrato de trabajo y por qué la subordinación es el que más pesa.",
+          "Contale las diferencias entre el contrato a plazo fijo, el de temporada y el eventual.",
+          "Mostrale cómo se distingue el trabajo en relación de dependencia del trabajo autónomo y qué es el fraude laboral.",
+          "Explicale qué derechos particulares tiene el personal de casas particulares con la Ley 26.844."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      },
+      {
+        "id": "b",
+        "emoji": "💰",
+        "titulo": "BLOQUE B: Remuneración, jornada y protección social",
+        "color": "#10B981",
+        "temas_sugeridos": [
+          "Explicale qué es la remuneración y por qué se dice que tiene carácter alimentario.",
+          "Enseñale cómo se calcula el SAC, cuándo vence cada cuota y qué pasa si no trabajaste todo el semestre.",
+          "Contale cuáles son los límites de la jornada y con qué recargo se pagan las horas extraordinarias.",
+          "Mostrale qué asignaciones familiares existen y por qué no están sujetas a aportes ni contribuciones.",
+          "Explicale qué cubre una ART y qué diferencia hay entre accidente de trabajo, in itinere y enfermedad profesional."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      },
+      {
+        "id": "c",
+        "emoji": "🧾",
+        "titulo": "BLOQUE C: Extinción, liquidación de haberes y trabajo autónomo",
+        "color": "#F59E0B",
+        "temas_sugeridos": [
+          "Explicale qué es el preaviso, cuáles son sus plazos y qué se paga si el empleador lo omite.",
+          "Enseñale cómo se calcula la indemnización del artículo 245 y qué rubros se suman en la liquidación final.",
+          "Contale qué datos debe tener sí o sí un recibo de sueldo y cómo se lee de la remuneración bruta al neto.",
+          "Mostrale las cinco diferencias principales entre el régimen de autónomos y el monotributo.",
+          "Explicale tres ejes del cuadro comparativo entre la Ley 20.744 y la Ley 27.802 de Modernización Laboral."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      }
+    ]
+  },
+
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "El monotributo, ¿es una puerta de entrada al trabajo formal o una forma de esquivar la relación de dependencia?",
+      "contexto": "El apunte muestra las dos caras: el trabajo autónomo permite organizar la propia actividad y facturar por cuenta propia, pero deja afuera de la protección del Derecho del Trabajo (indemnizaciones, ART, licencias pagas, aguinaldo). Al mismo tiempo, calificar como autónoma una relación subordinada es fraude laboral. Discutí, con los argumentos del apunte y del cuadro comparativo de la Ley 27.802, qué se pone en juego en cada opción.",
+      "roles": [
+        {"id": "fiscal", "label": "A favor del trabajo autónomo", "emoji": "🧑‍💼", "color": "#EF4444", "desc": "Defendé la libertad de organizar la propia actividad, la simplicidad del monotributo y la posibilidad de elegir clientes y horarios."},
+        {"id": "defensa", "label": "A favor de la relación de dependencia", "emoji": "🛡️", "color": "#10B981", "desc": "Argumentá por qué la protección del Derecho del Trabajo —estabilidad, indemnizaciones, ART, obra social, SAC y vacaciones— no se reemplaza con una cuota mensual."},
+        {"id": "juez", "label": "Posición equilibrada", "emoji": "⚖️", "color": "#0EA5E9", "desc": "Buscá un criterio que reconozca las nuevas formas de trabajo sin habilitar el fraude laboral ni vaciar el piso de derechos irrenunciables."}
+      ]
+    },
+
+    "tesis": {
+      "consigna": "Formulá la tesis de tu monografía. Elegí tu subtema del banco de la unidad —monotributo y categorías, recibo de sueldo, SAC, aportes y contribuciones, servicio doméstico y Ley 26.844, autónomo frente a relación de dependencia, monotributo social u otro aprobado por la docente—, delimitalo con una pregunta guía propia y escribí en tres o cuatro líneas la idea central que vas a sostener. Es la Etapa 1 del proceso: el subtema y la pregunta guía se entregan para su aprobación antes de empezar a buscar fuentes."
+    },
+
+    "critica": {
+      "consigna": "Anticipá la defensa oral. Escribí los dos contraargumentos más fuertes que podrían hacerle a tu postura y las tres preguntas que creés que te va a hacer la docente al terminar la exposición, con la respuesta que darías en cada caso. Tené presente que la rúbrica evalúa la capacidad de respuesta ante preguntas, el vocabulario técnico y la articulación entre lo que decís y lo que escribiste, y que la instancia dura 8 minutos de exposición más 3 de preguntas."
+    }
+  },
+
+  "emocional": {},
+
+  "autotest": {
+    "banco_respuestas_docente": [
+      "1. B - La regla in dubio pro operario. (p. 3)",
+      "2. A - Que la prestación se realice bajo la dependencia de otra persona y mediante el pago de una remuneración. (p. 4)",
+      "3. D - Tres meses. (p. 5)",
+      "4. B - Ley N° 26.844. (p. 6)",
+      "5. C - 11 %. (p. 7)",
+      "6. A - El 50 % de la mayor remuneración mensual devengada en el semestre. (p. 8)",
+      "7. D - 100 %. (p. 8)",
+      "8. C - La ANSES. (p. 9)",
+      "9. B - Una indemnización sustitutiva equivalente a los salarios del plazo omitido. (p. 10)",
+      "10. D - Factura tipo C. (p. 12)",
+      "11. VERDADERO - El contrato de trabajo se presume celebrado por tiempo indeterminado. (p. 4)",
+      "12. FALSO - Las asignaciones familiares son no remunerativas y no están sujetas a aportes ni contribuciones. (p. 9)",
+      "13. VERDADERO - El accidente in itinere está cubierto por el sistema de riesgos del trabajo. (p. 9)",
+      "14. VERDADERO - El recibo debe emitirse por duplicado y un ejemplar queda en poder del trabajador. (p. 11)",
+      "15. FALSO - No hay régimen dual: rige la ley vigente al momento del hecho relevante. (p. 12)"
+    ],
+
+    "preguntas": [
+      {
+        "pregunta": "Ante una duda sobre cómo interpretar una norma laboral, ¿qué regla del principio protectorio se aplica?",
+        "opciones": [
+          "La regla de la condición más beneficiosa",
+          "La regla in dubio pro operario",
+          "El principio de continuidad de la relación laboral",
+          "El principio de razonabilidad"
+        ],
+        "correcta": 1,
+        "explicacion": "Ante duda sobre la interpretación de una norma se aplica la más favorable al trabajador. Revisá la página 3."
+      },
+      {
+        "pregunta": "Según el artículo 21 de la LCT, ¿qué caracteriza al contrato de trabajo?",
+        "opciones": [
+          "Que una persona física preste servicios en favor de otra, bajo su dependencia y mediante el pago de una remuneración",
+          "Que se firme por escrito ante escribano público",
+          "Que tenga una duración mínima de cinco años",
+          "Que el trabajador aporte sus propias herramientas de trabajo"
+        ],
+        "correcta": 0,
+        "explicacion": "La dependencia y la remuneración son los datos centrales de la definición legal. Revisá la página 4."
+      },
+      {
+        "pregunta": "¿Cuánto dura el período de prueba en el contrato por tiempo indeterminado?",
+        "opciones": ["Un mes", "Dos meses", "Seis meses", "Tres meses"],
+        "correcta": 3,
+        "explicacion": "Durante los primeros tres meses cualquiera de las partes puede extinguir la relación sin causa ni indemnización, pero con obligación de preavisar. Revisá la página 5."
+      },
+      {
+        "pregunta": "¿Qué ley regula el trabajo del personal de casas particulares?",
+        "opciones": [
+          "La Ley N° 20.744",
+          "La Ley N° 26.844",
+          "La Ley N° 24.557",
+          "La Ley N° 26.485"
+        ],
+        "correcta": 1,
+        "explicacion": "Es el Régimen Especial de Contrato de Trabajo para el Personal de Casas Particulares, reglamentado por el Decreto 467/2014. Revisá la página 6."
+      },
+      {
+        "pregunta": "¿Qué porcentaje de la remuneración bruta aporta el trabajador con destino al SIPA?",
+        "opciones": ["3 %", "6 %", "11 %", "17 %"],
+        "correcta": 2,
+        "explicacion": "Del 17 % aproximado que aporta el trabajador, 11 % va al SIPA, 3 % al INSSJP/PAMI y 3 % a la obra social. Revisá la página 7."
+      },
+      {
+        "pregunta": "¿Sobre qué base se calcula cada cuota del Sueldo Anual Complementario?",
+        "opciones": [
+          "El 50 % de la mayor remuneración mensual devengada en el semestre",
+          "El promedio de las doce remuneraciones del año",
+          "El sueldo básico de enero",
+          "El 100 % de la última remuneración cobrada"
+        ],
+        "correcta": 0,
+        "explicacion": "Se toma la mejor remuneración mensual devengada por todo concepto dentro de cada semestre del año calendario. Revisá la página 8."
+      },
+      {
+        "pregunta": "¿Con qué recargo deben abonarse las horas extraordinarias trabajadas un domingo?",
+        "opciones": ["25 %", "50 %", "75 %", "100 %"],
+        "correcta": 3,
+        "explicacion": "El recargo es del 50 % en días hábiles y del 100 % los sábados después de las trece, domingos y feriados. Revisá la página 8."
+      },
+      {
+        "pregunta": "¿Qué organismo administra las asignaciones familiares?",
+        "opciones": [
+          "La Aseguradora de Riesgos del Trabajo",
+          "La Superintendencia de Riesgos del Trabajo",
+          "La ANSES",
+          "El Registro Especial del Personal de Casas Particulares"
+        ],
+        "correcta": 2,
+        "explicacion": "Las administra la ANSES y se financian con el Fondo Nacional de Asignaciones Familiares, en el marco de la Ley 24.714. Revisá la página 9."
+      },
+      {
+        "pregunta": "Si el empleador despide sin causa y omite el preaviso, ¿qué debe abonar además de las demás indemnizaciones?",
+        "opciones": [
+          "Únicamente el SAC proporcional",
+          "Una indemnización sustitutiva equivalente a los salarios del plazo omitido",
+          "El doble de la indemnización por antigüedad",
+          "Nada, porque el preaviso es optativo para el empleador"
+        ],
+        "correcta": 1,
+        "explicacion": "La omisión del preaviso genera la obligación de pagar los salarios correspondientes al plazo que no se avisó. Revisá la página 10."
+      },
+      {
+        "pregunta": "¿Qué tipo de factura emite un monotributista?",
+        "opciones": ["Factura tipo A", "Factura tipo B", "No está obligado a facturar", "Factura tipo C"],
+        "correcta": 3,
+        "explicacion": "El monotributista emite factura tipo C; el autónomo inscripto en IVA emite tipo A o B según su cliente. Revisá la página 12."
+      }
+    ],
+
+    "verdadero_falso": [
+      {"texto": "El contrato de trabajo se presume celebrado por tiempo indeterminado, salvo que su término resulte expresamente determinado.", "correcto": true, "explicacion": "VERDADERO. Es una aplicación directa del principio de continuidad de la relación laboral. Revisá la página 4."},
+      {"texto": "Las asignaciones familiares son remunerativas y están sujetas a aportes y contribuciones.", "correcto": false, "explicacion": "FALSO. Son prestaciones de la seguridad social no remunerativas, financiadas por el Fondo Nacional de Asignaciones Familiares. Revisá la página 9."},
+      {"texto": "El accidente in itinere, ocurrido en el trayecto entre el domicilio y el lugar de trabajo, está cubierto por el sistema de riesgos del trabajo.", "correcto": true, "explicacion": "VERDADERO. Siempre que no medie interrupción o alteración del trayecto por causas ajenas al trabajo. Revisá la página 9."},
+      {"texto": "El recibo de sueldo debe emitirse por duplicado y un ejemplar queda en poder del trabajador con constancia de su firma.", "correcto": true, "explicacion": "VERDADERO. Su contenido mínimo está regulado por el artículo 140 de la LCT. Revisá la página 11."},
+      {"texto": "La Ley 27.802 estableció que se aplica un régimen distinto a cada trabajador según su fecha de ingreso.", "correcto": false, "explicacion": "FALSO. No existe régimen dual: rige la ley vigente al momento del hecho jurídicamente relevante, por ejemplo la fecha del despido. Revisá la página 12."}
+    ]
+  },
+
+  "cierre": {
+    "glosario": [
+      {"termino": "Contrato de trabajo", "emoji": "📄", "definicion": "Acuerdo por el cual una persona física se obliga a prestar servicios en favor de otra y bajo su dependencia, mediante el pago de una remuneración (art. 21 LCT).", "categoria": "Concepto base"},
+      {"termino": "Orden público laboral", "emoji": "🛡️", "definicion": "Conjunto de normas mínimas e inderogables que protegen al trabajador y que ni él ni el empleador pueden modificar en su perjuicio.", "categoria": "Principios"},
+      {"termino": "Subordinación", "emoji": "🔗", "definicion": "Dependencia jurídica, técnica y económica del trabajador respecto del empleador; es el elemento distintivo del contrato de trabajo.", "categoria": "Relación laboral"},
+      {"termino": "Remuneración", "emoji": "💵", "definicion": "Contraprestación de carácter alimentario que percibe el trabajador en virtud del contrato de trabajo (art. 103 LCT).", "categoria": "Remuneración"},
+      {"termino": "SAC", "emoji": "🎁", "definicion": "Sueldo Anual Complementario: 50 % de la mayor remuneración mensual de cada semestre, pagadero al 30 de junio y al 18 de diciembre.", "categoria": "Remuneración"},
+      {"termino": "Preaviso", "emoji": "📅", "definicion": "Obligación de comunicar con anticipación la decisión de extinguir el contrato; si se omite, se abona una indemnización sustitutiva.", "categoria": "Extinción"},
+      {"termino": "Recibo de sueldo", "emoji": "🧾", "definicion": "Documento por duplicado que detalla remuneración, conceptos, descuentos y período abonado, con el contenido mínimo del artículo 140 de la LCT.", "categoria": "Liquidación"},
+      {"termino": "Monotributo", "emoji": "🧑‍💼", "definicion": "Régimen Simplificado para Pequeños Contribuyentes que unifica en una cuota mensual el componente impositivo y el previsional, con categorías de la A a la K.", "categoria": "Trabajo autónomo"}
+    ],
+
+    "recursos": [
+      {"tipo": "📋 Rúbrica", "title": "Rúbrica de defensa oral de la Unidad 3 (apunte, págs. 19 y 20)", "desc": "Diez criterios evaluados en cinco niveles: Excelente 1, Muy bueno 0,75, Bueno 0,50, Regular 0,25 y Deficiente 0. Máximo 10 puntos y mínimo de aprobación 7. La nota final pondera 60 % monografía escrita y 40 % defensa oral.", "nivel": "Obligatorio", "color": "#0EA5E9"},
+      {"tipo": "📐 Pautas", "title": "Pautas de formato de la monografía (apunte, pág. 19)", "desc": "Carátula, índice, introducción, desarrollo, conclusión y bibliografía; entre 4 y 8 páginas, Arial o Calibri 12 (títulos 14), interlineado 1,5 y márgenes de 2,5 cm. Todo dato o cita debe estar referenciado.", "nivel": "Obligatorio", "color": "#38BDF8"},
+      {"tipo": "🌐 Web", "title": "ARCA (ex AFIP) - Régimen Simplificado: Monotributo", "desc": "Sitio oficial para consultar categorías vigentes, requisitos de inscripción, recategorización y pago de la cuota mensual.", "nivel": "Intermedio", "color": "#F59E0B"},
+      {"tipo": "🌐 Web", "title": "argentina.gob.ar/trabajo", "desc": "Guías oficiales sobre derechos laborales, registración del empleo, licencias, jornada y canales de denuncia.", "nivel": "Introductorio", "color": "#10B981"},
+      {"tipo": "🧮 Herramienta", "title": "Simuladores de recibo de sueldo y liquidación final", "desc": "Calculadoras en línea para practicar el paso de la remuneración bruta al neto, los aportes y el SAC proporcional.", "nivel": "Intermedio", "color": "#8B5CF6"}
+    ]
+  }
+}
