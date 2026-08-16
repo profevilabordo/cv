@@ -1,0 +1,872 @@
+{
+  "id": "eetp602_4a_fund_gestion_u3",
+  "materia": "Fundamentos de Gestión",
+  "unidad": 3,
+  "titulo": "Arquitectura y estructura de la empresa",
+  "emoji": "🏗️",
+  "color_primario": "#6366F1",
+  "color_secundario": "#8B5CF6",
+
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "🏢",
+        "texto": "¿Por qué en un taller de 5 personas todos saben qué hacer sin que nadie lo escriba, y en una empresa de 500 hace falta un organigrama colgado en la pared?",
+        "pista": "Pensá qué pasa cuando una sola persona ya no puede controlar todas las actividades..."
+      },
+      {
+        "emoji": "🗣️",
+        "texto": "En la Unidad 2 vimos comunicación, autoridad y liderazgo. ¿Alcanza con tener buenos líderes si nadie sabe quién depende de quién?",
+        "pista": "La estructura puede facilitar o entorpecer la circulación de la información entre áreas..."
+      },
+      {
+        "emoji": "🧩",
+        "texto": "¿Alguna vez estuviste en un trabajo grupal donde dos hacían lo mismo y una parte no la hacía nadie?",
+        "pista": "Eso mismo, en escala grande, se llama superposición de tareas y conflicto de autoridad..."
+      }
+    ],
+    "situaciones_conecta": [
+      {"emoji": "📋", "label": "Vi un organigrama en una empresa o institución"},
+      {"emoji": "👔", "label": "Trabajé o hice una pasantía y tenía un jefe directo"},
+      {"emoji": "💻", "label": "Participé de un proyecto con roles repartidos"},
+      {"emoji": "📖", "label": "Escuché hablar de manuales o procedimientos internos"}
+    ],
+    "termometro_pregunta": "¿Cuánto sabés sobre cómo se organiza por dentro una empresa?"
+  },
+
+  "mapa": {
+    "ruta_paradas": [
+      {"id": 0, "emoji": "🏗️", "title": "Arquitectura de la empresa", "desc": "La metáfora del edificio y por qué toda organización necesita estructura", "color": "#6366F1"},
+      {"id": 1, "emoji": "🧱", "title": "Elementos y características", "desc": "División del trabajo, departamentalización, jerarquía y tramo de control", "color": "#3B82F6"},
+      {"id": 2, "emoji": "📐", "title": "Altas y planas", "desc": "Niveles jerárquicos, ventajas y desventajas de cada modelo", "color": "#10B981"},
+      {"id": 3, "emoji": "🔀", "title": "Nuevas estructuras", "desc": "Estructura por proyecto y estructura matricial", "color": "#F59E0B"},
+      {"id": 4, "emoji": "🗂️", "title": "Instrumentos", "desc": "Pirámide, organigrama, comité, cursograma y manuales", "color": "#EC4899"}
+    ],
+
+    "panoramica_bloques": [
+      {
+        "id": "a",
+        "emoji": "🏗️",
+        "title": "BLOQUE A",
+        "subtitle": "Arquitectura y estructura organizacional",
+        "color": "#6366F1",
+        "items": [
+          "La arquitectura de la empresa como metáfora del edificio",
+          "Por qué toda organización necesita una estructura",
+          "Concepto de estructura organizacional",
+          "Elementos: división del trabajo y departamentalización",
+          "Jerarquía, tramo de control, centralización y formalización",
+          "La estructura sigue a la estrategia (Chandler)"
+        ]
+      },
+      {
+        "id": "b",
+        "emoji": "📐",
+        "title": "BLOQUE B",
+        "subtitle": "Tipos de estructura",
+        "color": "#10B981",
+        "items": [
+          "Estructura alta o piramidal: niveles y control",
+          "Estructura plana u horizontal: agilidad y autonomía",
+          "Ventajas y desventajas de cada modelo",
+          "Estructura por proyecto: equipos temporales",
+          "Estructura matricial: doble dependencia",
+          "Cómo elegir según tamaño, procesos y entorno"
+        ]
+      },
+      {
+        "id": "c",
+        "emoji": "🗂️",
+        "title": "BLOQUE C",
+        "subtitle": "Instrumentos de la estructura",
+        "color": "#EC4899",
+        "items": [
+          "La pirámide organizacional y sus tres niveles",
+          "El organigrama y sus tipos",
+          "El comité como órgano de decisión compartida",
+          "El cursograma y la simbología de procedimientos",
+          "Manuales de organización, procedimientos y puestos",
+          "Síntesis: una estructura documentada y sostenible"
+        ]
+      }
+    ],
+
+    "mapa_mental": {
+      "centro": {"emoji": "🏗️", "title": "ARQUITECTURA Y ESTRUCTURA DE LA EMPRESA"},
+      "ramas": [
+        {
+          "id": "que",
+          "emoji": "❓",
+          "title": "¿Qué estudiamos?",
+          "color": "#6366F1",
+          "items": ["El ordenamiento interno de la organización", "Los elementos de la estructura", "Los tipos de estructura", "Los instrumentos para representarla"]
+        },
+        {
+          "id": "quienes",
+          "emoji": "👥",
+          "title": "¿Quiénes participan?",
+          "color": "#3B82F6",
+          "items": ["Nivel estratégico (dirección)", "Nivel táctico (jefaturas y gerencias)", "Nivel operativo", "Comités y equipos de proyecto"]
+        },
+        {
+          "id": "como",
+          "emoji": "⚙️",
+          "title": "¿Cómo funciona?",
+          "color": "#10B981",
+          "items": ["Dividiendo el trabajo", "Agrupando tareas en áreas", "Estableciendo cadena de mando", "Documentando en manuales y cursogramas"]
+        },
+        {
+          "id": "porque",
+          "emoji": "🎯",
+          "title": "¿Por qué es importante?",
+          "color": "#F59E0B",
+          "items": ["Evita superposición de tareas", "Aclara responsabilidades", "Agiliza la toma de decisiones", "Sostiene la organización aunque cambien las personas"]
+        }
+      ]
+    }
+  },
+
+  "nucleo_a": {
+    "bloque_info": {
+      "id": "A",
+      "emoji": "🏗️",
+      "titulo": "BLOQUE A: Arquitectura y estructura organizacional",
+      "color": "#6366F1",
+      "paginas": [2, 3]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los pasos lógicos del diseño de la estructura de una organización.",
+      "paginas_referencia": "2-3",
+      "items": [
+        {"id": 0, "text": "Definir hacia dónde quiere ir la organización: sus objetivos y su estrategia", "emoji": "🎯"},
+        {"id": 1, "text": "Dividir el trabajo total en tareas más pequeñas y específicas", "emoji": "✂️"},
+        {"id": 2, "text": "Agrupar las tareas y puestos afines en áreas o departamentos", "emoji": "🗃️"},
+        {"id": 3, "text": "Asignar autoridad y responsabilidad estableciendo la cadena de mando", "emoji": "⚖️"},
+        {"id": 4, "text": "Documentar y representar la estructura en manuales y organigramas", "emoji": "📋"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada enunciado según sea un elemento de la estructura organizacional o una característica de la estructura.",
+      "paginas_referencia": "2-3",
+      "categorias": [
+        {"name": "Elemento de la estructura", "emoji": "🧱", "color": "#6366F1"},
+        {"name": "Característica de la estructura", "emoji": "🔎", "color": "#8B5CF6"}
+      ],
+      "items": [
+        {"id": 0, "text": "División del trabajo en actividades más pequeñas y específicas", "categoria_correcta": 0},
+        {"id": 1, "text": "Es formal: se establece de manera deliberada y explícita", "categoria_correcta": 1},
+        {"id": 2, "text": "Departamentalización según función, producto, zona o cliente", "categoria_correcta": 0},
+        {"id": 3, "text": "Es relativamente estable: no cambia constantemente", "categoria_correcta": 1},
+        {"id": 4, "text": "Tramo de control: cantidad de subordinados por jefe", "categoria_correcta": 0},
+        {"id": 5, "text": "Debe adecuarse a los objetivos y a la estrategia", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "2-3",
+      "blanks": [
+        {"id": "b1", "texto_antes": "El fraccionamiento de las tareas totales de la organización en actividades más pequeñas y específicas se llama división del ________.", "respuesta_correcta": "trabajo", "pista": "t______"},
+        {"id": "b2", "texto_antes": "El agrupamiento de tareas y puestos afines en departamentos, áreas o gerencias se denomina ________.", "respuesta_correcta": "departamentalización", "pista": "D___________________"},
+        {"id": "b3", "texto_antes": "Según el principio formulado por Alfred Chandler, la estructura debe seguir a la ________.", "respuesta_correcta": "estrategia", "pista": "E_________"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "2-3",
+      "afirmaciones": [
+        {"texto": "La estructura organizacional es el conjunto de relaciones formales, estables y ordenadas entre puestos, áreas y niveles.", "correcto": true, "explicacion": "Verdadero. Es el esqueleto sobre el cual se organiza la actividad de la empresa para coordinar el trabajo hacia los objetivos comunes."},
+        {"texto": "Un tramo de control reducido genera estructuras más planas.", "correcto": false, "explicacion": "Falso. Un tramo de control reducido genera estructuras más altas; el tramo amplio es el que genera estructuras más planas."},
+        {"texto": "Según Chandler, primero conviene diseñar la estructura y recién después definir la estrategia.", "correcto": false, "explicacion": "Falso. Es al revés: primero se define hacia dónde va la organización y después se diseña la estructura que permite llegar."},
+        {"texto": "La formalización es el grado en que las tareas, los procedimientos y las relaciones están documentados por escrito.", "correcto": true, "explicacion": "Verdadero. Se expresa en manuales, reglamentos y normas internas."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "2-3",
+      "pares": [
+        {"izquierda": "División del trabajo", "derecha": "Fraccionar las tareas totales en actividades específicas", "emoji": "✂️"},
+        {"izquierda": "Departamentalización", "derecha": "Agrupar tareas y puestos afines en unidades mayores", "emoji": "🗃️"},
+        {"izquierda": "Tramo de control", "derecha": "Cantidad de subordinados que un jefe supervisa con eficacia", "emoji": "👥"},
+        {"izquierda": "Centralización", "derecha": "La toma de decisiones se concentra en los niveles superiores", "emoji": "🎩"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "2-3",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🧱",
+          "pregunta": "¿Cuál NO es un elemento de la estructura organizacional?",
+          "paginas": "2",
+          "palabras": [
+            {"text": "División del trabajo", "es_intrusa": false},
+            {"text": "Departamentalización", "es_intrusa": false},
+            {"text": "Tramo de control", "es_intrusa": false},
+            {"text": "Cursograma", "es_intrusa": true}
+          ],
+          "explicacion": "El cursograma no es un elemento de la estructura sino un instrumento para representar procedimientos."
+        },
+        {
+          "id": 1,
+          "emoji": "🔎",
+          "pregunta": "¿Cuál NO es una característica de la estructura organizacional?",
+          "paginas": "2-3",
+          "palabras": [
+            {"text": "Es formal y deliberada", "es_intrusa": false},
+            {"text": "Es relativamente estable", "es_intrusa": false},
+            {"text": "Distribuye autoridad y responsabilidad", "es_intrusa": false},
+            {"text": "Es espontánea e informal", "es_intrusa": true}
+          ],
+          "explicacion": "Las relaciones espontáneas e informales también existen, pero son justamente lo contrario de la estructura formal."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "2-3",
+      "conceptos": [
+        {"termino": "Arquitectura de la empresa", "pista": "¿Con qué se compara a la organización para explicar que necesita algo que la sostenga?", "palabras_clave": ["metáfora", "edificio", "sostiene", "ordena"]},
+        {"termino": "Estructura organizacional", "pista": "¿Qué define quién hace qué y quién depende de quién?", "palabras_clave": ["relaciones formales", "puestos", "áreas", "coordinar"]},
+        {"termino": "Tramo de control", "pista": "¿De qué depende que una estructura sea más alta o más plana?", "palabras_clave": ["subordinados", "jefe", "supervisar", "amplio", "reducido"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "2-3",
+      "causas": [
+        {"id": 0, "text": "La organización crece y una sola persona ya no puede controlar todas las actividades", "emoji": "📈"},
+        {"id": 1, "text": "La arquitectura organizacional está deficientemente diseñada", "emoji": "🧨"},
+        {"id": 2, "text": "Primero se define la estrategia y después se diseña la estructura", "emoji": "🎯"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "Surge la necesidad de dividir el trabajo y asignar responsabilidades específicas", "emoji": "✂️", "causa_id": 0},
+        {"id": 11, "text": "Aparecen superposición de tareas, conflictos de autoridad y lentitud en las decisiones", "emoji": "⚠️", "causa_id": 1},
+        {"id": 12, "text": "La organización queda adaptada a lo que realmente necesita hacer", "emoji": "✅", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el proceso por el cual el crecimiento de una organización termina exigiendo una estructura formal.",
+      "paginas_referencia": "2",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "La organización crece y aumentan las actividades a realizar", "emoji": "📈"},
+        {"id": 1, "text": "Resulta imposible que una sola persona controle todo", "emoji": "🙅"},
+        {"id": 2, "text": "Se divide el trabajo entre distintas personas y áreas", "emoji": "✂️"},
+        {"id": 3, "text": "Se establecen relaciones de dependencia entre los puestos", "emoji": "🔗"},
+        {"id": 4, "text": "La estructura formal coordina el conjunto de manera coherente", "emoji": "🏗️"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "2",
+      "concepto_a": {"nombre": "Centralización", "emoji": "🎩", "color": "#6366F1"},
+      "concepto_b": {"nombre": "Descentralización", "emoji": "🌐", "color": "#8B5CF6"}
+    }
+  },
+
+  "nucleo_b": {
+    "bloque_info": {
+      "id": "B",
+      "emoji": "📐",
+      "titulo": "BLOQUE B: Tipos de estructura",
+      "color": "#10B981",
+      "paginas": [3, 4]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená el razonamiento lógico que sigue una organización para decidir si adopta una estructura alta o plana.",
+      "paginas_referencia": "3-4",
+      "items": [
+        {"id": 0, "text": "Se analiza el tamaño de la organización y la complejidad de sus procesos", "emoji": "🔍"},
+        {"id": 1, "text": "Se evalúa el grado de madurez y autodisciplina de los equipos", "emoji": "🧠"},
+        {"id": 2, "text": "Se define la amplitud del tramo de control en cada nivel", "emoji": "👥"},
+        {"id": 3, "text": "Queda determinada la cantidad de niveles jerárquicos", "emoji": "🪜"},
+        {"id": 4, "text": "La organización adopta una estructura más alta o más plana", "emoji": "📐"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada rasgo según corresponda a una estructura alta o a una estructura plana.",
+      "paginas_referencia": "3-4",
+      "categorias": [
+        {"name": "Estructura alta o piramidal", "emoji": "🔺", "color": "#F59E0B"},
+        {"name": "Estructura plana u horizontal", "emoji": "▬", "color": "#10B981"}
+      ],
+      "items": [
+        {"id": 0, "text": "Numerosos niveles jerárquicos entre la dirección y el nivel operativo", "categoria_correcta": 0},
+        {"id": 1, "text": "Tramo de control amplio: muchos subordinados por jefe", "categoria_correcta": 1},
+        {"id": 2, "text": "Las decisiones son más lentas porque atraviesan muchos niveles", "categoria_correcta": 0},
+        {"id": 3, "text": "Comunicación más directa y fluida entre las personas", "categoria_correcta": 1},
+        {"id": 4, "text": "Mayores costos administrativos de estructura", "categoria_correcta": 0},
+        {"id": 5, "text": "Mayor autonomía y motivación de los equipos de trabajo", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "3-4",
+      "blanks": [
+        {"id": "b1", "texto_antes": "La estructura ________ o piramidal posee numerosos niveles jerárquicos y un tramo de control reducido en cada nivel.", "respuesta_correcta": "alta", "pista": "a___"},
+        {"id": "b2", "texto_antes": "En la estructura ________ cada persona depende al mismo tiempo de un gerente funcional y de un jefe de proyecto.", "respuesta_correcta": "matricial", "pista": "M________"},
+        {"id": "b3", "texto_antes": "La principal desventaja de la estructura por proyecto es la ________, porque el personal no tiene una posición fija y permanente.", "respuesta_correcta": "inestabilidad", "pista": "I____________"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "3-4",
+      "afirmaciones": [
+        {"texto": "La estructura alta ofrece líneas de autoridad muy claras y control detallado sobre cada tarea.", "correcto": true, "explicacion": "Verdadero. Esas son sus ventajas, junto con una especialización precisa de funciones."},
+        {"texto": "La estructura plana funciona bien con cualquier tipo de personal, sin exigir autodisciplina.", "correcto": false, "explicacion": "Falso. Requiere personal con alto grado de autodisciplina y responsabilidad, porque hay menos supervisión directa."},
+        {"texto": "En la estructura por proyecto el equipo se disuelve cuando el proyecto termina.", "correcto": true, "explicacion": "Verdadero. Sus integrantes pasan luego a formar parte de nuevos proyectos."},
+        {"texto": "En la estructura matricial cada persona responde a un solo jefe.", "correcto": false, "explicacion": "Falso. Existe una doble dependencia jerárquica: el gerente funcional y el jefe o director de proyecto."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "3-4",
+      "pares": [
+        {"izquierda": "Estructura alta", "derecha": "Muchos niveles jerárquicos y tramo de control reducido", "emoji": "🔺"},
+        {"izquierda": "Estructura plana", "derecha": "Pocos niveles jerárquicos y tramo de control amplio", "emoji": "▬"},
+        {"izquierda": "Estructura por proyecto", "derecha": "Equipos temporales que se disuelven al cumplir el objetivo", "emoji": "🧩"},
+        {"izquierda": "Estructura matricial", "derecha": "Matriz de doble entrada: funciones en filas, proyectos en columnas", "emoji": "🔀"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "3-4",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "▬",
+          "pregunta": "¿Cuál NO es una ventaja de la estructura plana?",
+          "paginas": "3",
+          "palabras": [
+            {"text": "Comunicación más directa y fluida", "es_intrusa": false},
+            {"text": "Mayor agilidad en la toma de decisiones", "es_intrusa": false},
+            {"text": "Control detallado y supervisión directa sobre cada tarea", "es_intrusa": true},
+            {"text": "Menores costos de estructura administrativa", "es_intrusa": false}
+          ],
+          "explicacion": "El control detallado y la supervisión directa son ventajas de la estructura alta o piramidal."
+        },
+        {
+          "id": 1,
+          "emoji": "🔀",
+          "pregunta": "¿Cuál NO corresponde a la estructura matricial?",
+          "paginas": "4",
+          "palabras": [
+            {"text": "Doble dependencia jerárquica", "es_intrusa": false},
+            {"text": "Filas con funciones y columnas con proyectos", "es_intrusa": false},
+            {"text": "Intercambio de conocimientos entre áreas", "es_intrusa": false},
+            {"text": "La persona no pertenece a ningún área permanente", "es_intrusa": true}
+          ],
+          "explicacion": "Eso pasa en la estructura por proyecto; en la matricial la persona pertenece a la vez a un área funcional permanente y a uno o varios proyectos."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "3-4",
+      "conceptos": [
+        {"termino": "Estructura alta o piramidal", "pista": "¿Qué pasa cuando hay muchos escalones entre la dirección y quien ejecuta?", "palabras_clave": ["niveles jerárquicos", "tramo reducido", "control", "lentitud"]},
+        {"termino": "Estructura por proyecto", "pista": "¿Cómo se organiza una constructora o una productora audiovisual?", "palabras_clave": ["proyectos", "temporal", "equipo", "se disuelve"]},
+        {"termino": "Estructura matricial", "pista": "¿Qué pasa cuando alguien tiene dos jefes al mismo tiempo?", "palabras_clave": ["funcional", "proyecto", "doble dependencia", "matriz"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "3-4",
+      "causas": [
+        {"id": 0, "text": "El tramo de control es reducido en cada nivel de la organización", "emoji": "👤"},
+        {"id": 1, "text": "La información y las decisiones deben atravesar muchos niveles", "emoji": "🪜"},
+        {"id": 2, "text": "Se combina la organización funcional con la organización por proyectos", "emoji": "🔀"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "La estructura se vuelve alta, con numerosos niveles jerárquicos", "emoji": "🔺", "causa_id": 0},
+        {"id": 11, "text": "Aparecen lentitud, mayores costos y distorsión de la información", "emoji": "🐌", "causa_id": 1},
+        {"id": 12, "text": "Cada persona pasa a depender de dos jefes a la vez", "emoji": "⚔️", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el ciclo de trabajo de un equipo dentro de una estructura por proyecto.",
+      "paginas_referencia": "4",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "La organización define un proyecto concreto y temporal", "emoji": "📌"},
+        {"id": 1, "text": "Se arma un equipo con personas de distintas especialidades", "emoji": "👷"},
+        {"id": 2, "text": "El equipo trabaja junto hasta alcanzar el objetivo", "emoji": "🛠️"},
+        {"id": 3, "text": "Finalizado el proyecto, el equipo se disuelve", "emoji": "🔓"},
+        {"id": 4, "text": "Sus integrantes pasan a formar parte de nuevos proyectos", "emoji": "🔄"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "4",
+      "concepto_a": {"nombre": "Estructura por proyecto", "emoji": "🧩", "color": "#10B981"},
+      "concepto_b": {"nombre": "Estructura matricial", "emoji": "🔀", "color": "#F59E0B"}
+    }
+  },
+
+  "nucleo_c": {
+    "bloque_info": {
+      "id": "C",
+      "emoji": "🗂️",
+      "titulo": "BLOQUE C: Instrumentos de la estructura",
+      "color": "#EC4899",
+      "paginas": [5, 6]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená la secuencia lógica con la que una organización documenta y comunica su estructura.",
+      "paginas_referencia": "5-6",
+      "items": [
+        {"id": 0, "text": "Define sus niveles jerárquicos: estratégico, táctico y operativo", "emoji": "🔺"},
+        {"id": 1, "text": "Representa gráficamente sus áreas y dependencias en un organigrama", "emoji": "🗺️"},
+        {"id": 2, "text": "Redacta el manual de organización con objetivos, áreas y funciones", "emoji": "📗"},
+        {"id": 3, "text": "Releva cada procedimiento administrativo en cursogramas", "emoji": "🔄"},
+        {"id": 4, "text": "Detalla las tareas de cada puesto en el manual de puestos y funciones", "emoji": "📘"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada rasgo según corresponda al organigrama o al cursograma.",
+      "paginas_referencia": "5-6",
+      "categorias": [
+        {"name": "Organigrama", "emoji": "🗺️", "color": "#EC4899"},
+        {"name": "Cursograma", "emoji": "🔄", "color": "#6366F1"}
+      ],
+      "items": [
+        {"id": 0, "text": "Representa la estructura formal de la organización", "categoria_correcta": 0},
+        {"id": 1, "text": "Representa la secuencia de pasos de un procedimiento administrativo", "categoria_correcta": 1},
+        {"id": 2, "text": "Usa rectángulos para puestos y líneas de dependencia", "categoria_correcta": 0},
+        {"id": 3, "text": "Usa rombos para las decisiones y flechas para la secuencia", "categoria_correcta": 1},
+        {"id": 4, "text": "Muestra qué áreas existen y quién depende de quién", "categoria_correcta": 0},
+        {"id": 5, "text": "Muestra qué se hace, quién lo hace, con qué documentación y en qué orden", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "5-6",
+      "blanks": [
+        {"id": "b1", "texto_antes": "En el vértice superior de la pirámide organizacional se ubica el nivel ________, es decir, la dirección general.", "respuesta_correcta": "estratégico", "pista": "E__________"},
+        {"id": "b2", "texto_antes": "El ________ es la representación gráfica de la secuencia de pasos que sigue un procedimiento administrativo.", "respuesta_correcta": "cursograma", "pista": "C_________"},
+        {"id": "b3", "texto_antes": "El ________ es la reunión formal de un grupo de personas de distintas áreas, con responsabilidad y autoridad compartidas.", "respuesta_correcta": "comité", "pista": "C_____"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "5-6",
+      "afirmaciones": [
+        {"texto": "El organigrama representa la estructura formal mediante rectángulos y líneas.", "correcto": true, "explicacion": "Verdadero. Los rectángulos representan puestos o unidades y las líneas, relaciones de dependencia y comunicación."},
+        {"texto": "Los instrumentos de la estructura son la estructura misma de la organización.", "correcto": false, "explicacion": "Falso. No son la estructura en sí, sino las herramientas que permiten visualizarla, documentarla y hacerla comprensible."},
+        {"texto": "En el comité la responsabilidad y la autoridad son compartidas entre sus integrantes.", "correcto": true, "explicacion": "Verdadero. Eso lo diferencia de un puesto individual, donde la responsabilidad recae en una sola persona."},
+        {"texto": "El organigrama circular o radial ubica a la autoridad máxima en la parte inferior.", "correcto": false, "explicacion": "Falso. La ubica en el centro, con los distintos niveles en círculos concéntricos alrededor."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "5-6",
+      "pares": [
+        {"izquierda": "Pirámide organizacional", "derecha": "Niveles estratégico, táctico y operativo según autoridad", "emoji": "🔺"},
+        {"izquierda": "Organigrama vertical", "derecha": "Mayor jerarquía arriba y niveles menores hacia abajo", "emoji": "⬇️"},
+        {"izquierda": "Comité", "derecha": "Grupo de distintas áreas con autoridad compartida", "emoji": "🤝"},
+        {"izquierda": "Manual de puestos y funciones", "derecha": "Tareas, responsabilidades y requisitos de cada puesto", "emoji": "📘"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "5-6",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🗺️",
+          "pregunta": "¿Cuál NO es un tipo de organigrama mencionado en el apunte?",
+          "paginas": "5",
+          "palabras": [
+            {"text": "Vertical", "es_intrusa": false},
+            {"text": "Horizontal", "es_intrusa": false},
+            {"text": "Circular o radial", "es_intrusa": false},
+            {"text": "Matricial", "es_intrusa": true}
+          ],
+          "explicacion": "Matricial es un tipo de estructura, no un tipo de organigrama. Los tipos son vertical, horizontal, circular o radial y mixto."
+        },
+        {
+          "id": 1,
+          "emoji": "📚",
+          "pregunta": "¿Cuál NO es uno de los manuales que menciona el apunte?",
+          "paginas": "6",
+          "palabras": [
+            {"text": "Manual de organización", "es_intrusa": false},
+            {"text": "Manual de procedimientos", "es_intrusa": false},
+            {"text": "Manual de tramo de control", "es_intrusa": true},
+            {"text": "Manual de puestos y funciones", "es_intrusa": false}
+          ],
+          "explicacion": "El tramo de control es un elemento de la estructura, no un manual. Los manuales habituales son los de organización, procedimientos y puestos y funciones."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "5-6",
+      "conceptos": [
+        {"termino": "Organigrama", "pista": "¿Cómo se ve de un vistazo quién depende de quién?", "palabras_clave": ["gráfico", "estructura formal", "rectángulos", "dependencia"]},
+        {"termino": "Comité", "pista": "¿Qué se arma cuando un asunto afecta a varias áreas a la vez?", "palabras_clave": ["grupo", "distintas áreas", "responsabilidad compartida", "asesorar"]},
+        {"termino": "Cursograma", "pista": "¿Cómo se dibuja el recorrido de un pedido de compra dentro de la empresa?", "palabras_clave": ["procedimiento", "pasos", "simbología", "documentación"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "5-6",
+      "causas": [
+        {"id": 0, "text": "Se representa gráficamente la estructura formal con rectángulos y líneas", "emoji": "🗺️"},
+        {"id": 1, "text": "Un asunto afecta simultáneamente a varias áreas de la organización", "emoji": "🧭"},
+        {"id": 2, "text": "La organización documenta su funcionamiento en manuales y cursogramas", "emoji": "📚"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "Queda claro qué áreas existen y quién depende de quién", "emoji": "👀", "causa_id": 0},
+        {"id": 11, "text": "Se conforma un comité con responsabilidad y autoridad compartidas", "emoji": "🤝", "causa_id": 1},
+        {"id": 12, "text": "El funcionamiento deja de depender de la memoria o del criterio informal de las personas", "emoji": "🧱", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos para construir el cursograma de un procedimiento administrativo, por ejemplo la recepción de un pedido de compra.",
+      "paginas_referencia": "5-6",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "Elegir el procedimiento administrativo que se quiere representar", "emoji": "📌"},
+        {"id": 1, "text": "Identificar qué se hace y quién lo hace en cada paso", "emoji": "🙋"},
+        {"id": 2, "text": "Determinar qué documentación interviene y en qué orden", "emoji": "🧾"},
+        {"id": 3, "text": "Volcar los pasos con la simbología convencional: rectángulos, rombos y flechas", "emoji": "🔷"},
+        {"id": 4, "text": "Obtener el cursograma que muestra cómo circula la información entre las áreas", "emoji": "🔄"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "5-6",
+      "concepto_a": {"nombre": "Organigrama", "emoji": "🗺️", "color": "#EC4899"},
+      "concepto_b": {"nombre": "Cursograma", "emoji": "🔄", "color": "#6366F1"}
+    }
+  },
+
+  "senales": {
+    "conceptos_clave": [
+      {
+        "termino": "Estructura organizacional",
+        "emoji": "🏗️",
+        "color": "#6366F1",
+        "definicion": "Conjunto de relaciones formales, estables y ordenadas entre los distintos puestos, áreas y niveles de una organización, destinado a coordinar el trabajo hacia los objetivos comunes.",
+        "importancia": "Es el esqueleto de la empresa: define quién hace qué, quién depende de quién y cómo se coordinan las partes."
+      },
+      {
+        "termino": "Tramo de control",
+        "emoji": "👥",
+        "color": "#3B82F6",
+        "definicion": "Cantidad de subordinados que un jefe puede supervisar de manera eficaz.",
+        "importancia": "Es lo que determina que la estructura resulte más alta (tramo reducido) o más plana (tramo amplio)."
+      },
+      {
+        "termino": "Estructura matricial",
+        "emoji": "🔀",
+        "color": "#10B981",
+        "definicion": "Modelo que combina la organización funcional con la organización por proyectos: cada persona depende a la vez de un gerente funcional y de un jefe de proyecto.",
+        "importancia": "Permite aprovechar especialistas en varios proyectos simultáneos, aunque genera doble dependencia y posibles conflictos de autoridad."
+      },
+      {
+        "termino": "Organigrama",
+        "emoji": "🗺️",
+        "color": "#EC4899",
+        "definicion": "Representación gráfica de la estructura formal mediante rectángulos (puestos o unidades) y líneas (relaciones de dependencia y comunicación).",
+        "importancia": "Sintetiza en una sola imagen cómo está organizada la empresa, tanto para quienes la integran como para quienes la miran desde afuera."
+      }
+    ],
+    "semaforo_conceptos": [
+      "Departamentalización",
+      "Jerarquía y cadena de mando",
+      "Estructura plana u horizontal",
+      "Estructura por proyecto",
+      "Cursograma"
+    ],
+    "postits_conceptos": [
+      "Arquitectura de la empresa",
+      "División del trabajo",
+      "Estructura alta",
+      "Manuales"
+    ]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {
+        "emoji": "🚂",
+        "frente": "El primer organigrama del que se tiene registro no se hizo en una oficina: se dibujó en 1855 para un ferrocarril",
+        "dorso": "Lo diseñó Daniel McCallum para la New York and Erie Railroad, que tenía cientos de kilómetros de vías y no sabía quién era responsable de qué. En vez de una pirámide, el dibujo parecía un árbol con la dirección en la raíz y los trenes en las ramas. Es uno de los documentos más famosos de la historia de la administración.",
+        "color": "#6366F1"
+      },
+      {
+        "emoji": "🚀",
+        "frente": "La estructura matricial se hizo famosa gracias a la carrera espacial",
+        "dorso": "La industria aeroespacial estadounidense y la NASA necesitaban coordinar miles de especialistas trabajando a la vez en proyectos gigantescos como el programa Apolo. Ahí se consolidó el esquema de doble jefatura —jefe de área y jefe de proyecto— que después copiaron las empresas de todo el mundo.",
+        "color": "#10B981"
+      },
+      {
+        "emoji": "🎮",
+        "frente": "Valve, la empresa creadora de Steam, publicó un manual del empleado que dice que no hay jefes",
+        "dorso": "En su Handbook for New Employees (2012) explican que los escritorios tienen rueditas: cada persona elige a qué proyecto se suma y literalmente mueve su escritorio hasta ese equipo. Es un caso extremo de estructura plana, y el propio manual admite que exige muchísima autodisciplina, tal como dice el apunte.",
+        "color": "#EC4899"
+      }
+    ],
+
+    "linea_de_tiempo": [
+      {"year": "1855", "text": "Daniel McCallum dibuja el primer organigrama conocido para un ferrocarril de Nueva York", "emoji": "🚂"},
+      {"year": "1911", "text": "Taylor publica 'Principios de la administración científica' y lleva la división del trabajo al extremo", "emoji": "⚙️"},
+      {"year": "1962", "text": "Alfred Chandler publica 'Strategy and Structure': la estructura sigue a la estrategia", "emoji": "📚"},
+      {"year": "Años 60-70", "text": "La estructura matricial se difunde desde la industria aeroespacial al resto de las empresas", "emoji": "🚀"},
+      {"year": "2012", "text": "Valve publica su manual sin jefes y populariza el debate sobre las estructuras planas", "emoji": "🎮"}
+    ],
+
+    "encuesta": {
+      "pregunta": "¿Qué dato te sorprendió más?",
+      "opciones": [
+        {"emoji": "🚂", "text": "Que el primer organigrama fuera de un ferrocarril de 1855", "votos_iniciales": 38},
+        {"emoji": "🚀", "text": "Que la estructura matricial venga de la carrera espacial", "votos_iniciales": 44},
+        {"emoji": "🎮", "text": "Que en Valve los escritorios tengan rueditas", "votos_iniciales": 52}
+      ]
+    }
+  },
+
+  "cruces": {
+    "consigna_general": "Elegí uno de estos temas del PDF y preparate para explicárselo a un compañero. Podés usar ejemplos de empresas que conozcas, dibujos de organigramas o comparaciones entre modelos. La idea es que tu compañero entienda el tema aunque no lo haya leído todavía.",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "🏗️",
+        "titulo": "BLOQUE A: Arquitectura y estructura organizacional",
+        "color": "#6366F1",
+        "temas_sugeridos": [
+          "Explicale por qué se usa la palabra 'arquitectura' para hablar de una empresa y qué pasa cuando está mal diseñada.",
+          "Enseñale qué es la estructura organizacional y por qué aparece cuando la organización crece.",
+          "Contale los seis elementos de la estructura con un ejemplo de cada uno.",
+          "Mostrá la diferencia entre centralización y descentralización en la toma de decisiones.",
+          "Explicale el principio de Chandler: por qué la estructura debe seguir a la estrategia y no al revés."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      },
+      {
+        "id": "b",
+        "emoji": "📐",
+        "titulo": "BLOQUE B: Tipos de estructura",
+        "color": "#10B981",
+        "temas_sugeridos": [
+          "Explicale en qué se diferencian una estructura alta y una plana usando el cuadro comparativo.",
+          "Enseñale las ventajas y desventajas de la estructura piramidal con un ejemplo de empresa grande.",
+          "Contale por qué las empresas de base tecnológica suelen elegir estructuras planas.",
+          "Mostrá cómo funciona la estructura por proyecto en una constructora o una productora audiovisual.",
+          "Explicale qué es la estructura matricial y por qué depender de dos jefes puede traer problemas."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      },
+      {
+        "id": "c",
+        "emoji": "🗂️",
+        "titulo": "BLOQUE C: Instrumentos de la estructura",
+        "color": "#EC4899",
+        "temas_sugeridos": [
+          "Explicale los tres niveles de la pirámide organizacional y qué hace cada uno.",
+          "Enseñale los cuatro tipos de organigrama y en qué caso conviene cada uno.",
+          "Contale qué es un comité y por qué la responsabilidad ahí es compartida.",
+          "Mostrá cómo se lee un cursograma y qué significa cada símbolo.",
+          "Explicale para qué sirven los manuales y por qué la organización no debería depender solo de la memoria de sus integrantes."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      }
+    ]
+  },
+
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "Las estructuras planas son mejores que las piramidales para las empresas de hoy",
+      "contexto": "Cada vez más empresas —sobre todo las tecnológicas— reducen niveles jerárquicos y amplían el tramo de control. Otras, en cambio, sostienen que sin niveles claros se pierde el control y la información se desordena. Analizá, con los argumentos del apunte, cuál modelo conviene y en qué casos.",
+      "roles": [
+        {"id": "fiscal", "label": "A favor de la estructura plana", "emoji": "▬", "color": "#10B981", "desc": "Defendé la comunicación directa, la agilidad en las decisiones, la autonomía de los equipos y los menores costos administrativos."},
+        {"id": "defensa", "label": "A favor de la estructura alta", "emoji": "🔺", "color": "#EF4444", "desc": "Argumentá a favor del control detallado, las líneas de autoridad claras y la especialización precisa de funciones."},
+        {"id": "juez", "label": "Posición equilibrada", "emoji": "⚖️", "color": "#6366F1", "desc": "Sostené que no hay estructura ideal en abstracto: depende del tamaño, la tecnología, los equipos y el entorno de cada organización."}
+      ]
+    },
+
+    "tesis": {
+      "consigna": "Formulá una tesis sobre qué estructura le convendría a una empresa de desarrollo de software de Venado Tuerto que crece de 6 a 40 empleados. Incluí los conceptos del apunte (tramo de control, niveles jerárquicos, departamentalización), argumentos propios y las críticas que podría recibir tu postura."
+    },
+
+    "critica": {
+      "consigna": "Analizá críticamente los instrumentos de la estructura organizacional. ¿Qué aporta cada uno —pirámide, organigrama, comité, cursograma y manuales—? ¿Qué límites tienen? ¿Puede una organización tener organigramas y manuales impecables y funcionar igual de mal? Justificá con ejemplos."
+    }
+  },
+
+  "emocional": {},
+
+  "autotest": {
+    "banco_respuestas_docente": [
+      "1. C - Conjunto de relaciones formales, estables y ordenadas entre puestos, áreas y niveles. (p. 2)",
+      "2. A - Departamentalización. (p. 2)",
+      "3. D - Estructuras más altas. (p. 2)",
+      "4. B - La estructura debe seguir a la estrategia. (p. 3)",
+      "5. C - La lentitud, los mayores costos y la distorsión de la información. (p. 3)",
+      "6. A - Pocos niveles jerárquicos y tramo de control amplio. (p. 3)",
+      "7. D - De un gerente funcional y de un jefe o director de proyecto. (p. 4)",
+      "8. B - La estructura formal: qué áreas existen y quién depende de quién. (p. 5)",
+      "9. C - El nivel estratégico o dirección general. (p. 5)",
+      "10. A - El cursograma. (p. 5-6)",
+      "11. VERDADERO - En el comité la autoridad y la responsabilidad son compartidas. (p. 5)",
+      "12. FALSO - El que ubica la mayor jerarquía arriba es el organigrama vertical. (p. 5)",
+      "13. VERDADERO - El manual de procedimientos detalla paso a paso cada proceso. (p. 6)",
+      "14. FALSO - En la estructura por proyecto el personal no tiene posición fija ni permanente. (p. 4)",
+      "15. VERDADERO - La formalización es el grado de documentación escrita de tareas y procedimientos. (p. 2)"
+    ],
+
+    "preguntas": [
+      {
+        "pregunta": "¿Qué es la estructura organizacional?",
+        "opciones": [
+          "El conjunto de relaciones informales y espontáneas que surgen entre compañeros",
+          "El edificio y las instalaciones donde funciona la empresa",
+          "El conjunto de relaciones formales, estables y ordenadas entre puestos, áreas y niveles",
+          "El listado de productos y servicios que ofrece la organización"
+        ],
+        "correcta": 2,
+        "explicacion": "Es el esqueleto sobre el cual se organiza la actividad de la empresa para coordinar el trabajo hacia los objetivos comunes. Revisá la página 2."
+      },
+      {
+        "pregunta": "¿Cómo se llama el agrupamiento de tareas y puestos afines en departamentos, áreas o gerencias?",
+        "opciones": [
+          "Departamentalización",
+          "Formalización",
+          "División del trabajo",
+          "Descentralización"
+        ],
+        "correcta": 0,
+        "explicacion": "Se agrupa según criterios como la función, el producto, la zona geográfica o el cliente. Revisá la página 2."
+      },
+      {
+        "pregunta": "Un tramo de control reducido en cada nivel genera...",
+        "opciones": [
+          "Estructuras más planas",
+          "Estructuras matriciales",
+          "Estructuras por proyecto",
+          "Estructuras más altas"
+        ],
+        "correcta": 3,
+        "explicacion": "Pocos subordinados por jefe obligan a multiplicar los niveles jerárquicos; el tramo amplio, en cambio, aplana la estructura. Revisá la página 2."
+      },
+      {
+        "pregunta": "¿Qué principio formuló Alfred Chandler?",
+        "opciones": [
+          "Que la autoridad debe estar siempre centralizada",
+          "Que la estructura debe seguir a la estrategia",
+          "Que toda empresa debe adoptar una estructura matricial",
+          "Que el organigrama debe ser siempre vertical"
+        ],
+        "correcta": 1,
+        "explicacion": "Primero se define hacia dónde quiere ir la organización y luego se diseña la estructura que mejor permite alcanzarlo. Revisá la página 3."
+      },
+      {
+        "pregunta": "¿Cuál es una desventaja típica de la estructura alta o piramidal?",
+        "opciones": [
+          "La falta de líneas de autoridad claras",
+          "La imposibilidad de especializar funciones",
+          "La lentitud, los mayores costos administrativos y la distorsión de la información",
+          "La sobrecarga de trabajo sobre los jefes por tener demasiados subordinados"
+        ],
+        "correcta": 2,
+        "explicacion": "La información y las decisiones deben atravesar muchos niveles antes de llegar a destino. Revisá la página 3."
+      },
+      {
+        "pregunta": "¿Qué caracteriza a la estructura plana u horizontal?",
+        "opciones": [
+          "Pocos niveles jerárquicos y un tramo de control amplio",
+          "Muchos niveles jerárquicos y un tramo de control reducido",
+          "Ausencia total de autoridad dentro de la organización",
+          "Dependencia simultánea de dos jefes distintos"
+        ],
+        "correcta": 0,
+        "explicacion": "Es frecuente en organizaciones pequeñas y medianas y en empresas de base tecnológica que necesitan decidir rápido. Revisá la página 3."
+      },
+      {
+        "pregunta": "En la estructura matricial, ¿de quién depende cada persona?",
+        "opciones": [
+          "Solamente del gerente general",
+          "Solamente del jefe de su área funcional",
+          "De un comité que decide colectivamente",
+          "De un gerente funcional y, a la vez, de un jefe o director de proyecto"
+        ],
+        "correcta": 3,
+        "explicacion": "Esa doble dependencia jerárquica es su rasgo distintivo y también su principal fuente de conflictos de autoridad. Revisá la página 4."
+      },
+      {
+        "pregunta": "¿Qué muestra el organigrama?",
+        "opciones": [
+          "La secuencia de pasos de un procedimiento administrativo",
+          "La estructura formal: qué áreas existen, cómo se relacionan y quién depende de quién",
+          "Los resultados económicos de cada área de la empresa",
+          "Las relaciones informales entre los integrantes de la organización"
+        ],
+        "correcta": 1,
+        "explicacion": "Lo hace mediante rectángulos, que representan puestos o unidades, y líneas, que representan relaciones de dependencia y comunicación. Revisá la página 5."
+      },
+      {
+        "pregunta": "En la pirámide organizacional, ¿qué se ubica en el vértice superior?",
+        "opciones": [
+          "El nivel operativo, que ejecuta las tareas diarias",
+          "El nivel táctico, con jefaturas y gerencias intermedias",
+          "El nivel estratégico, es decir la dirección general",
+          "Los comités asesores de la organización"
+        ],
+        "correcta": 2,
+        "explicacion": "Los niveles se ordenan de arriba hacia abajo según su grado de autoridad y responsabilidad. Revisá la página 5."
+      },
+      {
+        "pregunta": "¿Qué instrumento representa gráficamente la secuencia de pasos de un procedimiento administrativo?",
+        "opciones": [
+          "El cursograma o diagrama de flujo",
+          "El organigrama circular",
+          "La pirámide organizacional",
+          "El manual de puestos y funciones"
+        ],
+        "correcta": 0,
+        "explicacion": "Usa una simbología convencional —rectángulos para operaciones, rombos para decisiones, flechas para la secuencia— y muestra qué se hace, quién lo hace y con qué documentación. Revisá las páginas 5 y 6."
+      }
+    ],
+
+    "verdadero_falso": [
+      {"texto": "En el comité la responsabilidad y la autoridad son compartidas entre sus integrantes.", "correcto": true, "explicacion": "VERDADERO. Eso lo diferencia de un puesto individual y lo hace útil para coordinar decisiones que afectan a varias áreas. Revisá la página 5."},
+      {"texto": "El organigrama horizontal ubica el nivel de mayor jerarquía en la parte superior.", "correcto": false, "explicacion": "FALSO. Ese es el organigrama vertical; el horizontal se organiza de izquierda a derecha. Revisá la página 5."},
+      {"texto": "El manual de procedimientos detalla paso a paso cómo se realiza cada proceso administrativo u operativo.", "correcto": true, "explicacion": "VERDADERO. Por ejemplo, el procedimiento de compras o el de atención al cliente. Revisá la página 6."},
+      {"texto": "En la estructura por proyecto el personal conserva una posición fija y permanente dentro de un área.", "correcto": false, "explicacion": "FALSO. Justamente esa inestabilidad es su principal desventaja: el equipo se disuelve al terminar el proyecto. Revisá la página 4."},
+      {"texto": "La formalización es el grado en que las tareas, los procedimientos y las relaciones están documentados por escrito.", "correcto": true, "explicacion": "VERDADERO. Se concreta en manuales, reglamentos y normas internas. Revisá la página 2."}
+    ]
+  },
+
+  "cierre": {
+    "glosario": [
+      {"termino": "Estructura organizacional", "emoji": "🏗️", "definicion": "Conjunto de relaciones formales, estables y ordenadas entre los puestos, áreas y niveles de una organización.", "categoria": "Concepto base"},
+      {"termino": "División del trabajo", "emoji": "✂️", "definicion": "Fraccionamiento de las tareas totales en actividades más pequeñas y específicas asignadas a distintas personas o áreas.", "categoria": "Elementos"},
+      {"termino": "Departamentalización", "emoji": "🗃️", "definicion": "Agrupamiento de tareas y puestos afines en unidades mayores según la función, el producto, la zona o el cliente.", "categoria": "Elementos"},
+      {"termino": "Tramo de control", "emoji": "👥", "definicion": "Cantidad de subordinados que un jefe puede supervisar de manera eficaz.", "categoria": "Elementos"},
+      {"termino": "Estructura plana", "emoji": "▬", "definicion": "Estructura con pocos niveles jerárquicos y tramo de control amplio, con comunicación directa y decisiones ágiles.", "categoria": "Tipos de estructura"},
+      {"termino": "Estructura matricial", "emoji": "🔀", "definicion": "Modelo que combina áreas funcionales y proyectos, generando una doble dependencia jerárquica.", "categoria": "Tipos de estructura"},
+      {"termino": "Organigrama", "emoji": "🗺️", "definicion": "Representación gráfica de la estructura formal mediante rectángulos y líneas de dependencia.", "categoria": "Instrumentos"},
+      {"termino": "Cursograma", "emoji": "🔄", "definicion": "Representación gráfica de la secuencia de pasos de un procedimiento administrativo, con simbología convencional.", "categoria": "Instrumentos"}
+    ],
+
+    "recursos": [
+      {"tipo": "📖 Libro", "title": "Introducción a la Teoría General de la Administración - Idalberto Chiavenato", "desc": "Clásico de la administración con capítulos claros sobre diseño y estructura organizacional.", "nivel": "Intermedio", "color": "#6366F1"},
+      {"tipo": "📖 Libro", "title": "Administración - Stephen Robbins y Mary Coulter", "desc": "Manual universitario muy usado, con ejemplos actuales de estructuras planas, por proyecto y matriciales.", "nivel": "Intermedio", "color": "#3B82F6"},
+      {"tipo": "🌐 Web", "title": "Canva: editor y plantillas gratuitas de organigramas", "desc": "Herramienta online para armar organigramas verticales, horizontales y circulares en pocos minutos.", "nivel": "Introductorio", "color": "#10B981"},
+      {"tipo": "🖥️ Herramienta", "title": "draw.io (diagrams.net)", "desc": "Programa gratuito para dibujar cursogramas y diagramas de flujo con la simbología convencional.", "nivel": "Introductorio", "color": "#F59E0B"},
+      {"tipo": "🎧 Podcast", "title": "Libros para Emprendedores - Luis Ramos", "desc": "Episodios breves en español que resumen libros de gestión, organización y liderazgo.", "nivel": "Introductorio", "color": "#EC4899"}
+    ]
+  }
+}

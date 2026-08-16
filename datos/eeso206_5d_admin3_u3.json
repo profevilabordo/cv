@@ -1,0 +1,867 @@
+{
+  "id": "eeso206_5d_admin3_u3",
+  "materia": "Administración III",
+  "unidad": 3,
+  "titulo": "Producción, costos y calidad",
+  "emoji": "🏭",
+  "color_primario": "#F97316",
+  "color_secundario": "#FB923C",
+
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "🪑",
+        "texto": "Si un taller fabrica 50 sillas por mes, ¿cómo hace para saber cuánto le cuesta cada silla?",
+        "pista": "No alcanza con mirar la madera: también hay sueldos, luz y alquiler que se reparten..."
+      },
+      {
+        "emoji": "🏷️",
+        "texto": "¿Por qué dos productos que parecen iguales pueden tener precios tan distintos?",
+        "pista": "Detrás del precio hay una estructura de costos y una decisión sobre la calidad..."
+      },
+      {
+        "emoji": "✅",
+        "texto": "¿Viste alguna vez el sello 'ISO 9001' en la puerta de una fábrica o en un envase? ¿Qué significa?",
+        "pista": "Alguien de afuera de la empresa vino a revisar cómo hace las cosas y le dio un certificado..."
+      }
+    ],
+    "situaciones_conecta": [
+      {"emoji": "🏭", "label": "Visité una fábrica o vi cómo se produce algo"},
+      {"emoji": "🧮", "label": "Alguna vez calculé cuánto me costaba hacer algo para vender"},
+      {"emoji": "📦", "label": "Devolví un producto porque vino fallado"},
+      {"emoji": "🔖", "label": "Vi sellos o certificaciones de calidad en productos o empresas"}
+    ],
+    "termometro_pregunta": "¿Cuánto sabés sobre cómo una organización produce, calcula sus costos y asegura la calidad?"
+  },
+
+  "mapa": {
+    "ruta_paradas": [
+      {"id": 0, "emoji": "⚙️", "title": "La función de producción", "desc": "Transformar recursos en bienes y servicios", "color": "#F97316"},
+      {"id": 1, "emoji": "🗂️", "title": "El departamento de producción", "desc": "Planear, programar, ejecutar y controlar", "color": "#FB923C"},
+      {"id": 2, "emoji": "📊", "title": "Contabilidad industrial", "desc": "Cuánto cuesta producir cada unidad", "color": "#0EA5E9"},
+      {"id": 3, "emoji": "💵", "title": "Los costos", "desc": "Directos, indirectos, fijos y variables", "color": "#3B82F6"},
+      {"id": 4, "emoji": "🏅", "title": "Calidad y normas ISO", "desc": "Calidad total, ISO 9000 y certificación", "color": "#10B981"}
+    ],
+
+    "panoramica_bloques": [
+      {
+        "id": "a",
+        "emoji": "⚙️",
+        "title": "BLOQUE A",
+        "subtitle": "La función de producción",
+        "color": "#F97316",
+        "items": [
+          "Producción: transformar recursos en bienes y servicios",
+          "Objetivo: cantidad, calidad, tiempo y menor costo",
+          "Relación con comercialización, finanzas y RR.HH.",
+          "El departamento de producción y su misión",
+          "Planeamiento, programación, ejecución y control",
+          "Control de calidad y mantenimiento"
+        ]
+      },
+      {
+        "id": "b",
+        "emoji": "📊",
+        "title": "BLOQUE B",
+        "subtitle": "Contabilidad industrial y costos",
+        "color": "#0EA5E9",
+        "items": [
+          "Contabilidad industrial o de costos",
+          "Diferencias con la contabilidad general",
+          "El costo como valuación de recursos consumidos",
+          "Costos directos e indirectos (carga fabril)",
+          "Costos fijos y variables",
+          "Determinación del costo unitario del producto"
+        ]
+      },
+      {
+        "id": "c",
+        "emoji": "🏅",
+        "title": "BLOQUE C",
+        "subtitle": "Calidad y normas ISO",
+        "color": "#10B981",
+        "items": [
+          "La calidad y su evolución",
+          "Gestión de la Calidad Total (TQM)",
+          "El control de calidad y sus momentos",
+          "Normalización y organismo ISO",
+          "Familia ISO 9000 y norma ISO 9001",
+          "Certificación, auditorías y beneficios"
+        ]
+      }
+    ],
+
+    "mapa_mental": {
+      "centro": {"emoji": "🏭", "title": "PRODUCCIÓN, COSTOS Y CALIDAD"},
+      "ramas": [
+        {
+          "id": "que",
+          "emoji": "❓",
+          "title": "¿Qué estudiamos?",
+          "color": "#F97316",
+          "items": ["La función de producción", "La contabilidad industrial", "La estructura de costos", "La gestión de la calidad"]
+        },
+        {
+          "id": "quienes",
+          "emoji": "👥",
+          "title": "¿Quiénes participan?",
+          "color": "#FB923C",
+          "items": ["Departamento de producción", "Compras y abastecimiento", "Ventas y finanzas", "Organismos certificadores"]
+        },
+        {
+          "id": "como",
+          "emoji": "⚙️",
+          "title": "¿Cómo funciona?",
+          "color": "#0EA5E9",
+          "items": ["Planeamiento y programación", "Registro y prorrateo de costos", "Cálculo del costo unitario", "Control de calidad y auditorías"]
+        },
+        {
+          "id": "porque",
+          "emoji": "🎯",
+          "title": "¿Por qué es importante?",
+          "color": "#10B981",
+          "items": ["Permite fijar precios de venta", "Detecta ineficiencias a tiempo", "Reduce fallas y reprocesos", "Abre mercados que exigen certificación"]
+        }
+      ]
+    }
+  },
+
+  "nucleo_a": {
+    "bloque_info": {
+      "id": "A",
+      "emoji": "⚙️",
+      "titulo": "BLOQUE A: La función de producción",
+      "color": "#F97316",
+      "paginas": [2]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená el circuito lógico que sigue una orden de producción dentro de la organización.",
+      "paginas_referencia": "2",
+      "items": [
+        {"id": 0, "text": "El área comercial informa la demanda proyectada del mercado", "emoji": "📈"},
+        {"id": 1, "text": "Se planifica qué producir, en qué cantidades y en qué plazos", "emoji": "📋"},
+        {"id": 2, "text": "Se programa la producción asignando máquinas, personal e insumos", "emoji": "🗓️"},
+        {"id": 3, "text": "Se ejecuta y se controla el proceso, registrando avances y desvíos", "emoji": "🔧"},
+        {"id": 4, "text": "Se verifica la calidad y se garantiza el producto terminado a ventas", "emoji": "✅"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada tarea según la realice el departamento de producción u otra área de la organización.",
+      "paginas_referencia": "2",
+      "categorias": [
+        {"name": "Departamento de producción", "emoji": "🏭", "color": "#F97316"},
+        {"name": "Otra área de la organización", "emoji": "🏢", "color": "#0EA5E9"}
+      ],
+      "items": [
+        {"id": 0, "text": "Determinar qué se va a producir, en qué cantidades y en qué plazos", "categoria_correcta": 0},
+        {"id": 1, "text": "Informar la demanda proyectada del mercado", "categoria_correcta": 1},
+        {"id": 2, "text": "Asegurar el buen funcionamiento de las instalaciones y la maquinaria", "categoria_correcta": 0},
+        {"id": 3, "text": "Asignar los fondos necesarios para producir", "categoria_correcta": 1},
+        {"id": 4, "text": "Verificar que los productos cumplan las especificaciones técnicas", "categoria_correcta": 0},
+        {"id": 5, "text": "Seleccionar y capacitar al personal", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "2",
+      "blanks": [
+        {"id": "b1", "texto_antes": "La producción transforma materias primas, mano de obra, capital, tecnología e información en ________ o servicios aptos para satisfacer necesidades del mercado.", "respuesta_correcta": "bienes", "pista": "B_____"},
+        {"id": "b2", "texto_antes": "Distribuir en el tiempo las órdenes de fabricación, asignando máquinas, personal e insumos a cada tarea, es la ________ de la producción.", "respuesta_correcta": "programación", "pista": "P___________"},
+        {"id": "b3", "texto_antes": "De la coordinación con el departamento de ________ y abastecimiento depende la disponibilidad oportuna de materias primas e insumos.", "respuesta_correcta": "compras", "pista": "C______"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "2",
+      "afirmaciones": [
+        {"texto": "El objetivo de la función de producción es producir al menor costo posible, aunque haya que resignar la calidad.", "correcto": false, "explicacion": "Falso. El apunte habla del menor costo posible compatible con la calidad especificada, no de bajar la calidad."},
+        {"texto": "La función de producción depende de la información que le suministra el área comercial sobre la demanda proyectada.", "correcto": true, "explicacion": "Verdadero. Con esa proyección se define el volumen a producir; la producción no opera de manera aislada."},
+        {"texto": "El mantenimiento busca prevenir interrupciones no planificadas del proceso productivo.", "correcto": true, "explicacion": "Verdadero. Asegura el buen funcionamiento de instalaciones y maquinaria."},
+        {"texto": "Solo las grandes industrias tienen función de producción: las PyMES y los microemprendimientos, no.", "correcto": false, "explicacion": "Falso. Es una de las áreas básicas de toda organización con fines productivos, sea gran industria, PyME o microemprendimiento."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "2",
+      "pares": [
+        {"izquierda": "Planeamiento de la producción", "derecha": "Definir qué producir, en qué cantidades y en qué plazos", "emoji": "📋"},
+        {"izquierda": "Programación de la producción", "derecha": "Asignar máquinas, personal e insumos a cada tarea concreta", "emoji": "🗓️"},
+        {"izquierda": "Control de calidad", "derecha": "Verificar que el producto cumpla las especificaciones técnicas", "emoji": "🔍"},
+        {"izquierda": "Mantenimiento", "derecha": "Prevenir interrupciones no planificadas del proceso", "emoji": "🔧"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "2",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🧰",
+          "pregunta": "¿Cuál NO es un recurso que la producción transforma, según el apunte?",
+          "paginas": "2",
+          "palabras": [
+            {"text": "Materias primas", "es_intrusa": false},
+            {"text": "Mano de obra", "es_intrusa": false},
+            {"text": "Publicidad", "es_intrusa": true},
+            {"text": "Tecnología", "es_intrusa": false}
+          ],
+          "explicacion": "El apunte enumera materias primas, mano de obra, capital, tecnología e información."
+        },
+        {
+          "id": 1,
+          "emoji": "🏭",
+          "pregunta": "¿Cuál NO es una función del departamento de producción?",
+          "paginas": "2",
+          "palabras": [
+            {"text": "Planeamiento de la producción", "es_intrusa": false},
+            {"text": "Programación de la producción", "es_intrusa": false},
+            {"text": "Mantenimiento", "es_intrusa": false},
+            {"text": "Selección y capacitación del personal", "es_intrusa": true}
+          ],
+          "explicacion": "Seleccionar y capacitar al personal es tarea del área de recursos humanos, con la que producción se articula."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "2",
+      "conceptos": [
+        {"termino": "Función de producción", "pista": "¿Qué transforma y en qué lo transforma?", "palabras_clave": ["transformar", "recursos", "bienes", "servicios", "necesidades"]},
+        {"termino": "Departamento de producción", "pista": "¿Cuál es su misión dentro de la organización?", "palabras_clave": ["planificar", "organizar", "dirigir", "controlar"]},
+        {"termino": "Programación de la producción", "pista": "¿Qué se distribuye en el tiempo y qué se asigna?", "palabras_clave": ["órdenes de fabricación", "máquinas", "personal", "insumos"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "2",
+      "causas": [
+        {"id": 0, "text": "El área comercial proyecta una demanda mayor a la prevista", "emoji": "📈"},
+        {"id": 1, "text": "No se realiza el mantenimiento de las instalaciones y la maquinaria", "emoji": "🔩"},
+        {"id": 2, "text": "El departamento de compras no entrega los insumos en tiempo oportuno", "emoji": "🚚"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "Producción replanifica volúmenes y plazos de fabricación", "emoji": "📋", "causa_id": 0},
+        {"id": 11, "text": "Se producen interrupciones no planificadas del proceso productivo", "emoji": "⛔", "causa_id": 1},
+        {"id": 12, "text": "No puede cumplirse el programa de fabricación previsto", "emoji": "⏱️", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el proceso de transformación productiva, desde los recursos hasta el mercado.",
+      "paginas_referencia": "2",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "Ingresan los recursos: materias primas, mano de obra, capital, tecnología e información", "emoji": "📥"},
+        {"id": 1, "text": "El proceso los transforma según las especificaciones definidas", "emoji": "⚙️"},
+        {"id": 2, "text": "Se obtiene la cantidad de producto requerida en el tiempo previsto", "emoji": "📦"},
+        {"id": 3, "text": "Se verifica que el producto tenga la calidad especificada", "emoji": "🔍"},
+        {"id": 4, "text": "El bien o servicio satisface una necesidad del mercado", "emoji": "🛒"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "2",
+      "concepto_a": {"nombre": "Planeamiento de la producción", "emoji": "📋", "color": "#F97316"},
+      "concepto_b": {"nombre": "Programación de la producción", "emoji": "🗓️", "color": "#FB923C"}
+    }
+  },
+
+  "nucleo_b": {
+    "bloque_info": {
+      "id": "B",
+      "emoji": "📊",
+      "titulo": "BLOQUE B: Contabilidad industrial y costos",
+      "color": "#0EA5E9",
+      "paginas": [2, 3, 4]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los pasos para determinar el costo unitario de un producto, como en el ejemplo del taller de sillas.",
+      "paginas_referencia": "3-4",
+      "items": [
+        {"id": 0, "text": "Identificar la materia prima directa consumida por el lote", "emoji": "🪵"},
+        {"id": 1, "text": "Sumar la mano de obra directa que intervino en la fabricación", "emoji": "👷"},
+        {"id": 2, "text": "Distribuir la carga fabril del período según la base elegida", "emoji": "🏭"},
+        {"id": 3, "text": "Obtener el costo total del lote sumando los tres elementos", "emoji": "🧮"},
+        {"id": 4, "text": "Dividir por la cantidad de unidades y obtener el costo unitario", "emoji": "➗"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada concepto según sea un costo directo o un costo indirecto de fabricación.",
+      "paginas_referencia": "3",
+      "categorias": [
+        {"name": "Costo directo", "emoji": "🎯", "color": "#0EA5E9"},
+        {"name": "Costo indirecto", "emoji": "🌫️", "color": "#F59E0B"}
+      ],
+      "items": [
+        {"id": 0, "text": "La materia prima que se incorpora físicamente al producto", "categoria_correcta": 0},
+        {"id": 1, "text": "La mano de obra del personal que fabrica ese producto de manera identificable", "categoria_correcta": 0},
+        {"id": 2, "text": "La madera utilizada en cada silla del lote", "categoria_correcta": 0},
+        {"id": 3, "text": "La energía eléctrica de la planta", "categoria_correcta": 1},
+        {"id": 4, "text": "Los sueldos del personal de supervisión", "categoria_correcta": 1},
+        {"id": 5, "text": "Los lubricantes de las máquinas", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "3-4",
+      "blanks": [
+        {"id": "b1", "texto_antes": "La contabilidad industrial también se llama contabilidad de ________.", "respuesta_correcta": "costos", "pista": "C_____"},
+        {"id": "b2", "texto_antes": "Los costos indirectos de fabricación reciben también el nombre de carga ________.", "respuesta_correcta": "fabril", "pista": "F_____"},
+        {"id": "b3", "texto_antes": "El procedimiento de distribuir los costos indirectos entre productos o procesos mediante bases razonables se conoce como ________.", "respuesta_correcta": "prorrateo", "pista": "P________"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "3-4",
+      "afirmaciones": [
+        {"texto": "La contabilidad industrial está orientada principalmente a usuarios externos, como accionistas y bancos.", "correcto": false, "explicacion": "Falso. Esa es la contabilidad general; la industrial informa a usuarios internos, sobre todo a la dirección."},
+        {"texto": "Los costos fijos mantienen constante su monto total dentro de un rango razonable de actividad.", "correcto": true, "explicacion": "Verdadero. El alquiler mensual de la planta se paga igual se produzcan pocas o muchas unidades."},
+        {"texto": "La materia prima consumida es un ejemplo de costo variable.", "correcto": true, "explicacion": "Verdadero. Su monto total aumenta en proporción directa a la cantidad producida."},
+        {"texto": "Los costos indirectos pueden asignarse a cada unidad de producto sin recurrir a criterios de distribución.", "correcto": false, "explicacion": "Falso. Precisamente porque no pueden atribuirse de manera directa, se distribuyen por prorrateo."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "3-4",
+      "pares": [
+        {"izquierda": "Costo directo", "derecha": "Se identifica y cuantifica con precisión en una unidad de producto", "emoji": "🎯"},
+        {"izquierda": "Carga fabril", "derecha": "Costos indirectos de fabricación que se distribuyen por prorrateo", "emoji": "🏭"},
+        {"izquierda": "Costo fijo", "derecha": "El alquiler mensual de la planta", "emoji": "🏢"},
+        {"izquierda": "Costo variable", "derecha": "La materia prima consumida según el nivel de producción", "emoji": "📦"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "3-4",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🌫️",
+          "pregunta": "¿Cuál NO es un costo indirecto de fabricación?",
+          "paginas": "3",
+          "palabras": [
+            {"text": "Energía eléctrica de la planta", "es_intrusa": false},
+            {"text": "Materia prima directa", "es_intrusa": true},
+            {"text": "Sueldos del personal de supervisión", "es_intrusa": false},
+            {"text": "Depreciación del edificio y de la maquinaria", "es_intrusa": false}
+          ],
+          "explicacion": "La materia prima directa se identifica con precisión en cada unidad de producto: es el costo directo por excelencia."
+        },
+        {
+          "id": 1,
+          "emoji": "🧮",
+          "pregunta": "¿Cuál NO integra el costo del producto según el apunte?",
+          "paginas": "4",
+          "palabras": [
+            {"text": "Materia prima directa", "es_intrusa": false},
+            {"text": "Mano de obra directa", "es_intrusa": false},
+            {"text": "Carga fabril", "es_intrusa": false},
+            {"text": "Gastos de publicidad", "es_intrusa": true}
+          ],
+          "explicacion": "El costo del producto se integra tradicionalmente por tres elementos: materia prima directa, mano de obra directa y carga fabril."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "3-4",
+      "conceptos": [
+        {"termino": "Costo", "pista": "¿Qué se valúa en dinero cuando producimos algo?", "palabras_clave": ["valuación monetaria", "recursos consumidos", "bien", "servicio"]},
+        {"termino": "Prorrateo", "pista": "¿Qué se hace con lo que no se puede asignar de forma directa?", "palabras_clave": ["distribuir", "bases razonables", "horas máquina", "indirectos"]},
+        {"termino": "Costo unitario de producción", "pista": "¿Qué se obtiene al sumar los tres elementos y referirlos a una unidad?", "palabras_clave": ["materia prima", "mano de obra", "carga fabril", "por unidad"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "3-4",
+      "causas": [
+        {"id": 0, "text": "Aumenta la cantidad de unidades producidas en el período", "emoji": "📈"},
+        {"id": 1, "text": "Un costo no puede atribuirse de manera inequívoca a una unidad de producto", "emoji": "🌫️"},
+        {"id": 2, "text": "Los costos reales del período superan a los presupuestados", "emoji": "🚨"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "Crece el monto total de los costos variables, como la materia prima consumida", "emoji": "📦", "causa_id": 0},
+        {"id": 11, "text": "Debe distribuirse por prorrateo mediante una base razonable", "emoji": "➗", "causa_id": 1},
+        {"id": 12, "text": "Se detecta un desvío y se revisa la eficiencia del proceso productivo", "emoji": "🔎", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el circuito de información de costos que la organización repite período tras período.",
+      "paginas_referencia": "3-4",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "Se registran, clasifican y acumulan los costos del proceso productivo", "emoji": "🗃️"},
+        {"id": 1, "text": "Se determina el costo unitario de cada producto", "emoji": "🧮"},
+        {"id": 2, "text": "Se aplica el margen de utilidad deseado y se fija el precio de venta", "emoji": "🏷️"},
+        {"id": 3, "text": "Se comparan los costos reales con los presupuestados o estándar", "emoji": "⚖️"},
+        {"id": 4, "text": "Se toman decisiones sobre precios, volúmenes y procesos a optimizar", "emoji": "🧭"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "3",
+      "concepto_a": {"nombre": "Costos directos", "emoji": "🎯", "color": "#0EA5E9"},
+      "concepto_b": {"nombre": "Costos indirectos", "emoji": "🌫️", "color": "#F59E0B"}
+    }
+  },
+
+  "nucleo_c": {
+    "bloque_info": {
+      "id": "C",
+      "emoji": "🏅",
+      "titulo": "BLOQUE C: Calidad y normas ISO",
+      "color": "#10B981",
+      "paginas": [4, 5]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená la evolución del concepto de calidad, tal como la presenta el apunte.",
+      "paginas_referencia": "4-5",
+      "items": [
+        {"id": 0, "text": "La calidad se entiende solo como control técnico del producto terminado", "emoji": "🔎"},
+        {"id": 1, "text": "Se detectan y descartan las unidades defectuosas al final del proceso", "emoji": "🚫"},
+        {"id": 2, "text": "Se pasa a una concepción integral: la calidad se construye en todas las etapas", "emoji": "🔁"},
+        {"id": 3, "text": "La calidad compromete a todas las áreas y niveles: Gestión de la Calidad Total", "emoji": "🤝"},
+        {"id": 4, "text": "La organización certifica su sistema de gestión bajo normas internacionales", "emoji": "🏅"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada rasgo según corresponda al control de calidad o a la Gestión de la Calidad Total.",
+      "paginas_referencia": "4-5",
+      "categorias": [
+        {"name": "Control de calidad", "emoji": "🔍", "color": "#F59E0B"},
+        {"name": "Gestión de la Calidad Total", "emoji": "🌐", "color": "#10B981"}
+      ],
+      "items": [
+        {"id": 0, "text": "Inspecciones, mediciones y ensayos sobre el producto o el proceso", "categoria_correcta": 0},
+        {"id": 1, "text": "La calidad se construye desde el diseño hasta el servicio posventa", "categoria_correcta": 1},
+        {"id": 2, "text": "Comprobar que se cumplan las especificaciones técnicas establecidas", "categoria_correcta": 0},
+        {"id": 3, "text": "Compromete a todas las áreas y a todos los niveles de la organización", "categoria_correcta": 1},
+        {"id": 4, "text": "Se aplica sobre la materia prima que ingresa y sobre el producto terminado", "categoria_correcta": 0},
+        {"id": 5, "text": "Abarca la selección de proveedores y la distribución", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "4-5",
+      "blanks": [
+        {"id": "b1", "texto_antes": "La concepción integral que compromete a toda la organización se conoce como Gestión de la Calidad ________.", "respuesta_correcta": "Total", "pista": "T____"},
+        {"id": "b2", "texto_antes": "El proceso por el cual se establecen especificaciones técnicas de aplicación voluntaria y consensuada se llama ________.", "respuesta_correcta": "normalización", "pista": "N____________"},
+        {"id": "b3", "texto_antes": "Dentro de la familia ISO 9000, la norma ISO ________ establece los requisitos que debe cumplir el sistema de gestión de calidad para certificar.", "respuesta_correcta": "9001", "pista": "9___"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "4-5",
+      "afirmaciones": [
+        {"texto": "Las normas ISO son especificaciones técnicas de aplicación voluntaria elaboradas con el consenso de las partes interesadas.", "correcto": true, "explicacion": "Verdadero. Buscan garantizar calidad, seguridad y compatibilidad en productos, procesos y sistemas de gestión."},
+        {"texto": "El certificado ISO 9001 se otorga de por vida y no requiere controles posteriores.", "correcto": false, "explicacion": "Falso. Tiene validez temporal y queda sujeto a auditorías periódicas de mantenimiento."},
+        {"texto": "La norma ISO 9001 solo puede aplicarse a grandes empresas industriales.", "correcto": false, "explicacion": "Falso. Puede certificar cualquier organización, cualquiera sea su rubro o su tamaño."},
+        {"texto": "Una gestión de calidad débil incrementa los costos por devoluciones, reclamos y pérdida de clientes.", "correcto": true, "explicacion": "Verdadero. Además compromete la sustentabilidad de la organización en el mercado."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "4-5",
+      "pares": [
+        {"izquierda": "Normalización", "derecha": "Establecer especificaciones técnicas de aplicación voluntaria", "emoji": "📐"},
+        {"izquierda": "Familia ISO 9000", "derecha": "Normas referidas a los sistemas de gestión de la calidad", "emoji": "📚"},
+        {"izquierda": "Certificación", "derecha": "Un organismo independiente evalúa y otorga el certificado", "emoji": "✅"},
+        {"izquierda": "Mejora continua", "derecha": "Uno de los principios en los que se apoya la norma ISO 9001", "emoji": "🔁"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "5",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "📚",
+          "pregunta": "¿Cuál NO es un principio en el que se apoya la norma ISO 9001?",
+          "paginas": "5",
+          "palabras": [
+            {"text": "Enfoque al cliente", "es_intrusa": false},
+            {"text": "Mejora continua", "es_intrusa": false},
+            {"text": "Maximización del precio de venta", "es_intrusa": true},
+            {"text": "Toma de decisiones basada en evidencia", "es_intrusa": false}
+          ],
+          "explicacion": "El apunte enumera enfoque al cliente, liderazgo de la dirección, participación del personal, enfoque por procesos, mejora continua y decisiones basadas en evidencia."
+        },
+        {
+          "id": 1,
+          "emoji": "🏅",
+          "pregunta": "¿Cuál NO es un beneficio de certificar ISO 9001 según el apunte?",
+          "paginas": "5",
+          "palabras": [
+            {"text": "Mejora de los procesos internos", "es_intrusa": false},
+            {"text": "Reducción de costos por fallas y reprocesos", "es_intrusa": false},
+            {"text": "Exención de impuestos nacionales", "es_intrusa": true},
+            {"text": "Acceso a mercados que exigen la certificación", "es_intrusa": false}
+          ],
+          "explicacion": "Certificar no otorga beneficios impositivos: mejora procesos, reduce fallas, fortalece la confianza y abre mercados."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "4-5",
+      "conceptos": [
+        {"termino": "Calidad", "pista": "¿Con qué tiene que cumplir un producto o servicio?", "palabras_clave": ["requisitos", "expectativas", "usuarios", "grado"]},
+        {"termino": "Gestión de la Calidad Total", "pista": "¿Quiénes y en qué etapas se hacen cargo de la calidad?", "palabras_clave": ["todas las áreas", "todo el proceso", "diseño", "posventa"]},
+        {"termino": "Certificación ISO 9001", "pista": "¿Quién evalúa, qué otorga y por cuánto tiempo?", "palabras_clave": ["organismo certificador", "independiente", "validez temporal", "auditorías"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "4-5",
+      "causas": [
+        {"id": 0, "text": "La organización descuida su gestión de la calidad", "emoji": "⚠️"},
+        {"id": 1, "text": "Un cliente exige la certificación como condición para contratar", "emoji": "🤝"},
+        {"id": 2, "text": "La planificación de la producción es deficiente", "emoji": "📉"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "Aumentan los costos por devoluciones, reclamos y pérdida de clientes", "emoji": "💸", "causa_id": 0},
+        {"id": 11, "text": "La organización decide certificar su sistema bajo la norma ISO 9001", "emoji": "🏅", "causa_id": 1},
+        {"id": 12, "text": "Se generan tiempos ociosos, reprocesos y subutilización de la capacidad instalada", "emoji": "⏳", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos del proceso de certificación de la norma ISO 9001.",
+      "paginas_referencia": "5",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "La organización implementa su sistema de gestión de calidad según los requisitos de la norma", "emoji": "🛠️"},
+        {"id": 1, "text": "Un organismo certificador independiente evalúa ese sistema", "emoji": "🕵️"},
+        {"id": 2, "text": "Se comprueba que el sistema cumple con los requisitos de la ISO 9001", "emoji": "📋"},
+        {"id": 3, "text": "Se otorga un certificado con validez temporal", "emoji": "🏅"},
+        {"id": 4, "text": "Se realizan auditorías periódicas de mantenimiento", "emoji": "🔄"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "5",
+      "concepto_a": {"nombre": "Normalización", "emoji": "📐", "color": "#10B981"},
+      "concepto_b": {"nombre": "Certificación", "emoji": "✅", "color": "#F59E0B"}
+    }
+  },
+
+  "senales": {
+    "conceptos_clave": [
+      {
+        "termino": "Función de producción",
+        "emoji": "⚙️",
+        "color": "#F97316",
+        "definicion": "Función organizacional que transforma recursos —materias primas, mano de obra, capital, tecnología e información— en bienes o servicios aptos para satisfacer necesidades del mercado.",
+        "importancia": "Es una de las áreas básicas de toda organización con fines productivos, desde una gran industria hasta un microemprendimiento."
+      },
+      {
+        "termino": "Contabilidad industrial",
+        "emoji": "📊",
+        "color": "#0EA5E9",
+        "definicion": "Rama de la contabilidad especializada en registrar, clasificar, acumular y analizar los costos de producción, orientada a usuarios internos.",
+        "importancia": "Sin ella la dirección no sabe cuánto cuesta cada unidad ni qué precio conviene fijar."
+      },
+      {
+        "termino": "Costos directos e indirectos",
+        "emoji": "🎯",
+        "color": "#3B82F6",
+        "definicion": "Los directos se identifican con precisión en una unidad de producto (materia prima y mano de obra directa); los indirectos, o carga fabril, requieren prorrateo.",
+        "importancia": "De esta distinción depende que el costo unitario refleje realmente lo que insume producir cada unidad."
+      },
+      {
+        "termino": "Gestión de la Calidad Total",
+        "emoji": "🏅",
+        "color": "#10B981",
+        "definicion": "Concepción integral según la cual la calidad se construye en todas las etapas del proceso y compromete a todas las áreas y niveles de la organización.",
+        "importancia": "Reemplaza la vieja idea de controlar solo el producto terminado y baja los costos de fallas y reprocesos."
+      }
+    ],
+    "semaforo_conceptos": [
+      "Programación de la producción",
+      "Prorrateo",
+      "Costos fijos y variables",
+      "Costo unitario de producción",
+      "Certificación ISO 9001"
+    ],
+    "postits_conceptos": [
+      "Función de producción",
+      "Carga fabril",
+      "Costo unitario",
+      "ISO 9001"
+    ]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {
+        "emoji": "🧵",
+        "frente": "En las fábricas de Toyota, cualquier operario puede frenar toda la línea de montaje tirando de un cordón",
+        "dorso": "Se llama 'andon' y es una de las bases del Sistema de Producción Toyota: si aparece un defecto, se detiene la producción y se resuelve el problema en el momento, en lugar de dejarlo pasar. La lógica es que un error corregido temprano cuesta muchísimo menos que uno detectado al final o, peor, por el cliente.",
+        "color": "#F97316"
+      },
+      {
+        "emoji": "🔤",
+        "frente": "ISO no es la sigla del nombre del organismo: es una palabra elegida a propósito",
+        "dorso": "En inglés la organización se llama International Organization for Standardization (IOS) y en francés, Organisation internationale de normalisation (OIN). Para no tener un nombre distinto en cada idioma, adoptaron 'ISO', del griego 'isos', que significa 'igual'. Bastante coherente para un organismo que se dedica a que las cosas sean iguales en todo el mundo.",
+        "color": "#0EA5E9"
+      },
+      {
+        "emoji": "📄",
+        "frente": "La hoja A4 que usás todos los días está definida por una norma ISO",
+        "dorso": "Es la ISO 216: cada formato tiene una relación entre lados de 1 a raíz de 2, así que si cortás una A4 por la mitad obtenés exactamente dos A5 con las mismas proporciones. Gracias a esa norma, una impresora en Venado Tuerto y una en Tokio usan el mismo papel. La normalización está mucho más cerca tuyo de lo que parece.",
+        "color": "#10B981"
+      }
+    ],
+
+    "linea_de_tiempo": [
+      {"year": "1913", "text": "Ford pone en marcha la línea de montaje móvil y desploma el tiempo de armado del Ford T", "emoji": "🚗"},
+      {"year": "1935", "text": "Se funda el IRAM, el organismo argentino de normalización y certificación", "emoji": "🇦🇷"},
+      {"year": "1947", "text": "Comienza a funcionar la ISO, impulsada por delegados de 25 países", "emoji": "🌐"},
+      {"year": "1950", "text": "Deming dicta en Japón sus conferencias sobre control estadístico de la calidad", "emoji": "📈"},
+      {"year": "1987", "text": "Se publica la primera versión de la familia de normas ISO 9000", "emoji": "🏅"}
+    ],
+
+    "encuesta": {
+      "pregunta": "¿Qué dato te sorprendió más?",
+      "opciones": [
+        {"emoji": "🧵", "text": "Que un operario pueda frenar toda la línea de Toyota", "votos_iniciales": 44},
+        {"emoji": "🔤", "text": "Que 'ISO' venga del griego 'isos', igual", "votos_iniciales": 31},
+        {"emoji": "📄", "text": "Que la hoja A4 sea una norma internacional", "votos_iniciales": 39}
+      ]
+    }
+  },
+
+  "cruces": {
+    "consigna_general": "Elegí uno de estos temas del PDF y preparate para explicárselo a un compañero. Podés usar ejemplos de fábricas o emprendimientos que conozcas, cálculos simples o comparaciones. La idea es que tu compañero entienda el tema aunque no lo haya leído todavía.",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "⚙️",
+        "titulo": "BLOQUE A: La función de producción",
+        "color": "#F97316",
+        "temas_sugeridos": [
+          "Explicale qué transforma la función de producción y en qué lo transforma.",
+          "Contale cuál es el objetivo central de producir y por qué el costo no puede separarse de la calidad.",
+          "Mostrá cómo se relaciona producción con comercialización, finanzas y recursos humanos.",
+          "Enseñale las cinco funciones del departamento de producción con un ejemplo concreto.",
+          "Explicale por qué producción necesita coordinarse con compras y con ventas."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      },
+      {
+        "id": "b",
+        "emoji": "📊",
+        "titulo": "BLOQUE B: Contabilidad industrial y costos",
+        "color": "#0EA5E9",
+        "temas_sugeridos": [
+          "Explicale en qué se diferencia la contabilidad industrial de la contabilidad general.",
+          "Enseñale qué es un costo y por qué hay que asignarlo bien al producto.",
+          "Mostrá la diferencia entre costos directos e indirectos con ejemplos de una fábrica.",
+          "Contale qué son los costos fijos y variables y qué pasa con cada uno si se produce más.",
+          "Resolvé con él el ejemplo del taller de sillas y explicale cómo se llega al costo unitario."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      },
+      {
+        "id": "c",
+        "emoji": "🏅",
+        "titulo": "BLOQUE C: Calidad y normas ISO",
+        "color": "#10B981",
+        "temas_sugeridos": [
+          "Explicale cómo evolucionó el concepto de calidad y qué cambió con la mirada integral.",
+          "Enseñale qué es la Gestión de la Calidad Total y a quiénes compromete.",
+          "Contale en qué momentos del proceso se aplica el control de calidad.",
+          "Mostrá qué es la normalización y qué hace la ISO a nivel internacional.",
+          "Explicale cómo se certifica la ISO 9001 y qué beneficios trae para la organización."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      }
+    ]
+  },
+
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "Certificar normas ISO 9001 vale la pena para una PyME de Venado Tuerto",
+      "contexto": "Certificar un sistema de gestión de calidad exige tiempo, orden documental y el pago de auditorías periódicas, pero mejora procesos, reduce fallas y abre mercados que la exigen como condición para contratar. Analizá, con los argumentos del apunte, si a una PyME local le conviene certificar.",
+      "roles": [
+        {"id": "fiscal", "label": "En contra de certificar", "emoji": "🚫", "color": "#EF4444", "desc": "Sostené que el costo y la burocracia de certificar no se justifican para una organización chica."},
+        {"id": "defensa", "label": "A favor de certificar", "emoji": "🏅", "color": "#10B981", "desc": "Defendé la mejora de procesos, la reducción de fallas y reprocesos y el acceso a nuevos mercados."},
+        {"id": "juez", "label": "Posición equilibrada", "emoji": "⚖️", "color": "#F97316", "desc": "Buscá una postura que combine gestión de calidad real con una decisión razonable sobre la certificación."}
+      ]
+    },
+
+    "tesis": {
+      "consigna": "Formulá una tesis sobre qué debería priorizar una organización productiva argentina hoy: bajar costos o invertir en calidad. Incluí conceptos del apunte, ejemplos propios y las críticas que podría recibir tu postura."
+    },
+
+    "critica": {
+      "consigna": "Analizá críticamente la idea de que producción, costos y calidad forman un sistema integrado. ¿Qué pasa cuando una organización descuida una de las tres dimensiones? Pensá un caso concreto —real o imaginado— y explicá qué efectos en cadena se producen y cómo los corregirías."
+    }
+  },
+
+  "emocional": {},
+
+  "autotest": {
+    "banco_respuestas_docente": [
+      "1. B - Transformar los recursos de manera eficiente, con la calidad especificada y al menor costo compatible con esa calidad. (p. 2)",
+      "2. C - Programación de la producción. (p. 2)",
+      "3. A - El departamento de ventas. (p. 2)",
+      "4. D - A usuarios internos, principalmente la dirección de la organización. (p. 3)",
+      "5. B - La mano de obra directa. (p. 3)",
+      "6. C - Prorrateo. (p. 3-4)",
+      "7. A - Su monto total permanece constante dentro de un rango razonable de actividad. (p. 4)",
+      "8. D - $8.000 por silla. (p. 4)",
+      "9. B - Los requisitos que debe cumplir el sistema de gestión de calidad para certificar. (p. 5)",
+      "10. C - Tiene validez temporal y está sujeto a auditorías periódicas. (p. 5)",
+      "11. VERDADERO - La producción es un área básica de toda organización con fines productivos, sea gran industria, PyME o microemprendimiento. (p. 2)",
+      "12. FALSO - La contabilidad general informa a usuarios externos y la industrial, a usuarios internos. (p. 3)",
+      "13. VERDADERO - La materia prima consumida varía en proporción directa al nivel de producción. (p. 4)",
+      "14. FALSO - El control de calidad se aplica sobre la materia prima que ingresa, sobre el proceso y sobre el producto terminado. (p. 5)",
+      "15. VERDADERO - Las normas ISO son especificaciones técnicas de aplicación voluntaria. (p. 5)"
+    ],
+
+    "preguntas": [
+      {
+        "pregunta": "¿Cuál es el objetivo central de la función de producción?",
+        "opciones": [
+          "Vender la mayor cantidad posible de productos",
+          "Transformar los recursos de manera eficiente: la cantidad requerida, con la calidad especificada, en tiempo y al menor costo compatible con esa calidad",
+          "Reducir el costo al mínimo, sin importar la calidad",
+          "Conseguir financiamiento para la organización"
+        ],
+        "correcta": 1,
+        "explicacion": "La eficiencia productiva combina cantidad, calidad, tiempo y costo; el costo se minimiza siempre que sea compatible con la calidad definida. Revisá la página 2."
+      },
+      {
+        "pregunta": "¿Qué función del departamento de producción distribuye en el tiempo las órdenes de fabricación asignando máquinas, personal e insumos?",
+        "opciones": [
+          "Mantenimiento",
+          "Control de calidad",
+          "Programación de la producción",
+          "Planeamiento de la producción"
+        ],
+        "correcta": 2,
+        "explicacion": "El planeamiento define qué, cuánto y cuándo; la programación baja esa decisión a órdenes concretas con recursos asignados. Revisá la página 2."
+      },
+      {
+        "pregunta": "¿Qué área le provee al departamento de producción la información sobre la demanda con la que planifica el volumen a producir?",
+        "opciones": [
+          "El departamento de ventas",
+          "El departamento de compras y abastecimiento",
+          "El área de mantenimiento",
+          "El organismo certificador"
+        ],
+        "correcta": 0,
+        "explicacion": "Ventas aporta la información de demanda y producción debe garantizarle producto terminado en tiempo y forma. Revisá la página 2."
+      },
+      {
+        "pregunta": "¿A qué usuarios está orientada principalmente la contabilidad industrial?",
+        "opciones": [
+          "A los accionistas y a las entidades financieras",
+          "A los organismos de control estatales",
+          "A los clientes y proveedores de la empresa",
+          "A usuarios internos, principalmente la dirección de la organización"
+        ],
+        "correcta": 3,
+        "explicacion": "La contabilidad general informa hacia afuera; la industrial produce información frecuente para decidir precios, rentabilidad y reducción de costos. Revisá la página 3."
+      },
+      {
+        "pregunta": "¿Cuál de los siguientes es un costo directo?",
+        "opciones": [
+          "La energía eléctrica de la planta",
+          "La mano de obra directa",
+          "Los sueldos del personal de supervisión",
+          "Los lubricantes de las máquinas"
+        ],
+        "correcta": 1,
+        "explicacion": "Junto con la materia prima directa, la mano de obra directa es uno de los dos costos directos por excelencia. Revisá la página 3."
+      },
+      {
+        "pregunta": "¿Cómo se llama el procedimiento de distribuir los costos indirectos entre productos o procesos mediante bases razonables?",
+        "opciones": [
+          "Depreciación",
+          "Presupuestación",
+          "Prorrateo",
+          "Normalización"
+        ],
+        "correcta": 2,
+        "explicacion": "Se puede prorratear en proporción a las horas de mano de obra directa o a las horas máquina utilizadas por cada producto. Revisá las páginas 3 y 4."
+      },
+      {
+        "pregunta": "¿Qué ocurre con los costos fijos cuando aumenta el nivel de producción, dentro de un rango razonable de actividad?",
+        "opciones": [
+          "Su monto total permanece constante",
+          "Su monto total aumenta en proporción directa",
+          "Se convierten en costos directos",
+          "Desaparecen de la estructura de costos"
+        ],
+        "correcta": 0,
+        "explicacion": "El alquiler mensual de la planta se paga igual se produzcan pocas o muchas unidades. Revisá la página 4."
+      },
+      {
+        "pregunta": "En el ejemplo del taller de sillas, con un costo total del lote de $400.000 y 50 unidades producidas, ¿cuál es el costo unitario?",
+        "opciones": ["$180.000", "$70.000", "$50.000", "$8.000"],
+        "correcta": 3,
+        "explicacion": "$180.000 de materia prima + $150.000 de mano de obra directa + $70.000 de costos indirectos = $400.000, dividido 50 unidades. Revisá la página 4."
+      },
+      {
+        "pregunta": "¿Qué establece la norma ISO 9001?",
+        "opciones": [
+          "El tamaño de los formatos de papel",
+          "Los requisitos que debe cumplir el sistema de gestión de calidad de una organización para certificar",
+          "El precio máximo de venta de los productos certificados",
+          "La obligación legal de producir con calidad"
+        ],
+        "correcta": 1,
+        "explicacion": "Pertenece a la familia ISO 9000 y puede aplicarla cualquier organización, sea cual sea su rubro o tamaño. Revisá la página 5."
+      },
+      {
+        "pregunta": "¿Qué característica tiene el certificado que otorga un organismo certificador bajo ISO 9001?",
+        "opciones": [
+          "Es definitivo y no vence nunca",
+          "Solo lo otorga el Estado nacional",
+          "Tiene validez temporal y está sujeto a auditorías periódicas de mantenimiento",
+          "Reemplaza al control de calidad interno de la organización"
+        ],
+        "correcta": 2,
+        "explicacion": "El organismo certificador es independiente, evalúa el sistema de gestión y luego audita periódicamente para mantener el certificado. Revisá la página 5."
+      }
+    ],
+
+    "verdadero_falso": [
+      {"texto": "La producción es una de las áreas básicas de toda organización con fines productivos, sea una gran industria, una PyME o un microemprendimiento.", "correcto": true, "explicacion": "VERDADERO. Junto con comercialización, finanzas, recursos humanos y administración general. Revisá la página 2."},
+      {"texto": "La contabilidad general y la contabilidad industrial persiguen exactamente los mismos objetivos.", "correcto": false, "explicacion": "FALSO. La general informa la situación patrimonial a usuarios externos; la industrial determina costos para decisiones internas. Revisá la página 3."},
+      {"texto": "La materia prima consumida es un costo variable, porque aumenta a medida que aumenta la cantidad producida.", "correcto": true, "explicacion": "VERDADERO. Los costos variables varían en proporción directa al nivel de producción. Revisá la página 4."},
+      {"texto": "El control de calidad solo puede aplicarse sobre el producto terminado, antes de su entrega.", "correcto": false, "explicacion": "FALSO. También se aplica sobre la materia prima que ingresa y sobre el proceso mientras se desarrolla. Revisá la página 5."},
+      {"texto": "Las normas ISO son especificaciones técnicas de aplicación voluntaria elaboradas con el consenso de las partes interesadas.", "correcto": true, "explicacion": "VERDADERO. Buscan garantizar calidad, seguridad y compatibilidad en productos, procesos y sistemas de gestión. Revisá la página 5."}
+    ]
+  },
+
+  "cierre": {
+    "glosario": [
+      {"termino": "Producción", "emoji": "⚙️", "definicion": "Función que transforma materias primas, mano de obra, capital, tecnología e información en bienes o servicios para satisfacer necesidades del mercado.", "categoria": "Concepto base"},
+      {"termino": "Contabilidad industrial", "emoji": "📊", "definicion": "Rama de la contabilidad que registra, clasifica, acumula y analiza los costos de producción para determinar cuánto cuesta producir cada unidad.", "categoria": "Costos"},
+      {"termino": "Costo directo", "emoji": "🎯", "definicion": "Costo que puede identificarse y cuantificarse con precisión en una unidad de producto, como la materia prima y la mano de obra directa.", "categoria": "Costos"},
+      {"termino": "Carga fabril", "emoji": "🏭", "definicion": "Conjunto de costos indirectos de fabricación —energía, alquiler, depreciación, supervisión, materiales indirectos— que no se asignan directamente al producto.", "categoria": "Costos"},
+      {"termino": "Prorrateo", "emoji": "➗", "definicion": "Distribución de los costos indirectos entre productos o procesos mediante bases razonables, como horas de mano de obra directa u horas máquina.", "categoria": "Procesos"},
+      {"termino": "Costo unitario", "emoji": "🧮", "definicion": "Suma de materia prima directa, mano de obra directa y carga fabril referida a una unidad de producto.", "categoria": "Costos"},
+      {"termino": "Gestión de la Calidad Total", "emoji": "🏅", "definicion": "Concepción integral que construye la calidad en todas las etapas del proceso y compromete a todas las áreas y niveles de la organización.", "categoria": "Calidad"},
+      {"termino": "ISO 9001", "emoji": "✅", "definicion": "Norma de la familia ISO 9000 que fija los requisitos del sistema de gestión de calidad que debe cumplir una organización para certificar.", "categoria": "Calidad"}
+    ],
+
+    "recursos": [
+      {"tipo": "🌐 Web", "title": "IRAM (iram.org.ar)", "desc": "Organismo argentino de normalización y certificación: normas, sellos de calidad y guías para PyMES.", "nivel": "Intermedio", "color": "#F97316"},
+      {"tipo": "🌐 Web", "title": "ISO en español (iso.org)", "desc": "Sitio oficial de la Organización Internacional de Normalización, con la familia ISO 9000 explicada.", "nivel": "Intermedio", "color": "#0EA5E9"},
+      {"tipo": "🌐 Web", "title": "INTI (inti.gob.ar)", "desc": "Instituto Nacional de Tecnología Industrial: asistencia técnica, calidad y mejora de procesos productivos en la Argentina.", "nivel": "Introductorio", "color": "#3B82F6"},
+      {"tipo": "🎬 Video", "title": "Serie 'Así se hace' (procesos productivos)", "desc": "Capítulos cortos que muestran, paso a paso, cómo se fabrican objetos cotidianos en plantas industriales.", "nivel": "Introductorio", "color": "#10B981"},
+      {"tipo": "📖 Libro", "title": "Costos para empresarios - Carlos M. Giménez", "desc": "Clásico argentino sobre costos: clasificación, prorrateo y determinación del costo del producto con ejemplos.", "nivel": "Avanzado", "color": "#FB923C"}
+    ]
+  }
+}

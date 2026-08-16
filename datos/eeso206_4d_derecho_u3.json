@@ -1,0 +1,872 @@
+{
+  "id": "eeso206_4d_derecho_u3",
+  "materia": "Derecho",
+  "unidad": 3,
+  "titulo": "Constitución Nacional y Derechos Humanos",
+  "emoji": "⚖️",
+  "color_primario": "#14B8A6",
+  "color_secundario": "#2DD4BF",
+
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "🛡️",
+        "texto": "¿Por qué nadie puede ser castigado sin antes tener la posibilidad de defenderse?",
+        "pista": "Hay un artículo que declara inviolable la defensa en juicio de la persona y de los derechos..."
+      },
+      {
+        "emoji": "📱",
+        "texto": "¿Podés exigirle a una empresa o a un organismo que corrija o borre los datos personales que tiene tuyos?",
+        "pista": "Desde 1994 la Constitución tiene una garantía pensada justamente para los bancos de datos..."
+      },
+      {
+        "emoji": "🗳️",
+        "texto": "Si juntás firmas con tus compañeros, ¿pueden presentar un proyecto de ley en el Congreso?",
+        "pista": "La reforma de 1994 incorporó mecanismos para que la ciudadanía intervenga de manera más directa..."
+      }
+    ],
+    "situaciones_conecta": [
+      {"emoji": "📰", "label": "Escuché hablar de un fallo de la Corte Suprema"},
+      {"emoji": "✊", "label": "Vi o participé de un reclamo por un derecho"},
+      {"emoji": "🗳️", "label": "Alguien de mi casa fue a votar y me contó cómo es"},
+      {"emoji": "🌱", "label": "Escuché discutir sobre ambiente, consumidores o datos personales"}
+    ],
+    "termometro_pregunta": "¿Cuánto sabés sobre lo que la Constitución te garantiza todos los días?"
+  },
+
+  "mapa": {
+    "ruta_paradas": [
+      {"id": 0, "emoji": "📜", "title": "La norma suprema", "desc": "Concepto, funciones y supremacía constitucional", "color": "#F59E0B"},
+      {"id": 1, "emoji": "🕊️", "title": "Derechos humanos", "desc": "Caracteres, fundamento histórico y generaciones", "color": "#FBBF24"},
+      {"id": 2, "emoji": "🏛️", "title": "Estructura de la Constitución", "desc": "Preámbulo, parte dogmática y parte orgánica", "color": "#10B981"},
+      {"id": 3, "emoji": "🛡️", "title": "Derechos y garantías", "desc": "Artículos 14 a 19, 43 y los nuevos derechos de 1994", "color": "#3B82F6"},
+      {"id": 4, "emoji": "⚖️", "title": "Poder y participación", "desc": "Jerarquía normativa, división de poderes y ciudadanía", "color": "#8B5CF6"}
+    ],
+
+    "panoramica_bloques": [
+      {
+        "id": "a",
+        "emoji": "📜",
+        "title": "BLOQUE A",
+        "subtitle": "Constitución y Derechos Humanos",
+        "color": "#F59E0B",
+        "items": [
+          "La Constitución como norma jurídica fundamental",
+          "Supremacía constitucional y artículo 31",
+          "Constitución formal y Constitución material",
+          "Funciones de la Constitución y Estado de Derecho",
+          "Concepto, caracteres y fundamento de los derechos humanos",
+          "Las tres generaciones de derechos"
+        ]
+      },
+      {
+        "id": "b",
+        "emoji": "🏛️",
+        "title": "BLOQUE B",
+        "subtitle": "Estructura de la Constitución y catálogo de derechos",
+        "color": "#10B981",
+        "items": [
+          "El Preámbulo y sus grandes objetivos",
+          "Parte dogmática y parte orgánica",
+          "Los derechos del artículo 14 y del artículo 14 bis",
+          "Igualdad, propiedad y legalidad (arts. 16, 17 y 19)",
+          "Garantías de los artículos 18 y 43",
+          "Nuevos derechos de 1994 y reformas de la Constitución (art. 30)"
+        ]
+      },
+      {
+        "id": "c",
+        "emoji": "⚖️",
+        "title": "BLOQUE C",
+        "subtitle": "Participación, jerarquía normativa y división de poderes",
+        "color": "#8B5CF6",
+        "items": [
+          "Iniciativa popular y consulta popular",
+          "La ciudadanía como derecho y como práctica",
+          "La pirámide normativa de Kelsen",
+          "Control de constitucionalidad judicial y difuso",
+          "Los tres poderes del Estado argentino",
+          "El sistema de frenos y contrapesos"
+        ]
+      }
+    ],
+
+    "mapa_mental": {
+      "centro": {"emoji": "⚖️", "title": "CONSTITUCIÓN NACIONAL Y DERECHOS HUMANOS"},
+      "ramas": [
+        {
+          "id": "que",
+          "emoji": "❓",
+          "title": "¿Qué estudiamos?",
+          "color": "#F59E0B",
+          "items": ["La Constitución como ley suprema", "Los derechos humanos y sus generaciones", "Derechos y garantías constitucionales", "La organización del poder del Estado"]
+        },
+        {
+          "id": "quienes",
+          "emoji": "👥",
+          "title": "¿Quiénes participan?",
+          "color": "#FBBF24",
+          "items": ["Los habitantes y los ciudadanos", "La Convención Constituyente", "Los tres poderes del Estado", "La Corte Suprema de Justicia de la Nación"]
+        },
+        {
+          "id": "como",
+          "emoji": "⚙️",
+          "title": "¿Cómo funciona?",
+          "color": "#10B981",
+          "items": ["Jerarquía de normas (art. 31)", "Garantías: amparo, hábeas data y hábeas corpus", "Reforma por el mecanismo del art. 30", "Frenos y contrapesos entre poderes"]
+        },
+        {
+          "id": "porque",
+          "emoji": "🎯",
+          "title": "¿Por qué es importante?",
+          "color": "#8B5CF6",
+          "items": ["Permite reconocer tus propios derechos", "Pone límites al poder del Estado", "Explica las noticias institucionales", "Es la base de una ciudadanía informada"]
+        }
+      ]
+    }
+  },
+
+  "nucleo_a": {
+    "bloque_info": {
+      "id": "A",
+      "emoji": "📜",
+      "titulo": "BLOQUE A: Constitución y Derechos Humanos",
+      "color": "#F59E0B",
+      "paginas": [2, 3]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená cronológicamente el proceso histórico que dio origen a los derechos humanos tal como los conocemos hoy.",
+      "paginas_referencia": "2-3",
+      "items": [
+        {"id": 0, "text": "Revolución Inglesa: se afirman derechos naturales anteriores al Estado (siglo XVII)", "emoji": "👑"},
+        {"id": 1, "text": "Independencia de los Estados Unidos (siglo XVIII)", "emoji": "🗽"},
+        {"id": 2, "text": "Revolución Francesa (siglo XVIII)", "emoji": "🇫🇷"},
+        {"id": 3, "text": "Segunda Guerra Mundial y los crímenes cometidos por el nazismo", "emoji": "💔"},
+        {"id": 4, "text": "La Asamblea General de las Naciones Unidas adopta la Declaración Universal de los Derechos Humanos (1948)", "emoji": "🌍"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada derecho según pertenezca a la primera o a la segunda generación.",
+      "paginas_referencia": "3",
+      "categorias": [
+        {"name": "1ª generación: civiles y políticos", "emoji": "🗳️", "color": "#F59E0B"},
+        {"name": "2ª generación: económicos, sociales y culturales", "emoji": "🏥", "color": "#10B981"}
+      ],
+      "items": [
+        {"id": 0, "text": "Libertad de expresión, de culto y de reunión", "categoria_correcta": 0},
+        {"id": 1, "text": "Derecho a la seguridad social y a una remuneración justa", "categoria_correcta": 1},
+        {"id": 2, "text": "Derecho a votar y a ser elegido", "categoria_correcta": 0},
+        {"id": 3, "text": "Derecho a la salud, a la vivienda y a la educación", "categoria_correcta": 1},
+        {"id": 4, "text": "Derecho al debido proceso y a la igualdad ante la ley", "categoria_correcta": 0},
+        {"id": 5, "text": "Derecho al trabajo y a participar de la vida cultural", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "2-3",
+      "blanks": [
+        {"id": "b1", "texto_antes": "El principio de supremacía constitucional está consagrado expresamente en el artículo ________ de la Constitución Nacional.", "respuesta_correcta": "31", "pista": "3_"},
+        {"id": "b2", "texto_antes": "La Declaración Universal de los Derechos Humanos fue adoptada por la Asamblea General de las Naciones Unidas en ________.", "respuesta_correcta": "1948", "pista": "19__"},
+        {"id": "b3", "texto_antes": "Los derechos de tercera generación también se llaman derechos de incidencia ________.", "respuesta_correcta": "colectiva", "pista": "C________"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "2-3",
+      "afirmaciones": [
+        {"texto": "La Constitución material es el conjunto de prácticas, costumbres, decisiones judiciales e interpretaciones que efectivamente rigen la vida política de un país.", "correcto": true, "explicacion": "Verdadero. Se distingue de la Constitución formal, que es el texto escrito sancionado por una convención constituyente."},
+        {"texto": "Los derechos humanos son creados por el Estado a través de sus leyes.", "correcto": false, "explicacion": "Falso. El Estado no los crea: los reconoce, porque se consideran previos e inherentes a la dignidad humana."},
+        {"texto": "Los derechos de primera generación exigen del Estado, fundamentalmente, una obligación de abstención.", "correcto": true, "explicacion": "Verdadero. Le piden no interferir en la esfera de libertad de las personas, a diferencia de los de segunda generación."},
+        {"texto": "Una persona puede renunciar a sus derechos humanos si así lo decide.", "correcto": false, "explicacion": "Falso. Son inalienables e irrenunciables: no pueden transferirse ni renunciarse, aunque la persona lo quisiera."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "2-3",
+      "pares": [
+        {"izquierda": "Artículo 31", "derecha": "Consagra el principio de supremacía constitucional", "emoji": "⚖️"},
+        {"izquierda": "Función limitativa", "derecha": "Fija los límites dentro de los cuales debe actuar el poder público", "emoji": "🚧"},
+        {"izquierda": "Derechos imprescriptibles", "derecha": "No se pierden por el paso del tiempo ni por el no ejercicio", "emoji": "⏳"},
+        {"izquierda": "Tercera generación", "derecha": "Ambiente sano, paz, desarrollo y protección de consumidores", "emoji": "🌱"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "2-3",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🏛️",
+          "pregunta": "¿Cuál NO es una de las funciones de la Constitución que enumera el apunte?",
+          "paginas": "2",
+          "palabras": [
+            {"text": "Organizativa", "es_intrusa": false},
+            {"text": "Limitativa", "es_intrusa": false},
+            {"text": "Recaudatoria", "es_intrusa": true},
+            {"text": "Programática", "es_intrusa": false}
+          ],
+          "explicacion": "Las funciones son organizativa, limitativa, de reconocimiento de derechos y programática."
+        },
+        {
+          "id": 1,
+          "emoji": "🕊️",
+          "pregunta": "¿Cuál NO es un carácter de los derechos humanos?",
+          "paginas": "2-3",
+          "palabras": [
+            {"text": "Universales", "es_intrusa": false},
+            {"text": "Imprescriptibles", "es_intrusa": false},
+            {"text": "Progresivos", "es_intrusa": false},
+            {"text": "Transferibles", "es_intrusa": true}
+          ],
+          "explicacion": "Son inalienables e irrenunciables: justamente no pueden transferirse ni renunciarse."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "2-3",
+      "conceptos": [
+        {"termino": "Supremacía constitucional", "pista": "¿Qué le pasa a una ley o a un decreto que contradice a la Constitución?", "palabras_clave": ["ley suprema", "artículo 31", "carece de validez", "ninguna norma puede contradecirla"]},
+        {"termino": "Estado de Derecho", "pista": "¿Alguien puede estar por encima de la norma fundamental?", "palabras_clave": ["poderes públicos", "sometidos a la ley", "Constitución", "nadie por encima"]},
+        {"termino": "Derechos humanos", "pista": "¿Por qué le corresponden a toda persona sin importar su origen o su religión?", "palabras_clave": ["inherentes", "dignidad humana", "toda persona", "el Estado los reconoce"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "2-3",
+      "causas": [
+        {"id": 0, "text": "Las revoluciones liberales afirman la existencia de derechos naturales anteriores al Estado", "emoji": "🗽"},
+        {"id": 1, "text": "El nazismo comete crímenes que conmueven a la comunidad internacional", "emoji": "💔"},
+        {"id": 2, "text": "Un acto de autoridad se opone a la Constitución Nacional", "emoji": "⚠️"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "Se reconocen los derechos civiles y políticos de primera generación", "emoji": "📜", "causa_id": 0},
+        {"id": 11, "text": "Se positivizan los derechos en declaraciones y tratados internacionales", "emoji": "✍️", "causa_id": 1},
+        {"id": 12, "text": "Ese acto carece de validez por el principio de supremacía constitucional", "emoji": "❌", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el razonamiento que explica por qué la Constitución es la norma suprema del ordenamiento jurídico.",
+      "paginas_referencia": "2",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "Una convención constituyente sanciona el texto escrito de la Constitución", "emoji": "📜"},
+        {"id": 1, "text": "La Constitución organiza los poderes públicos y reconoce los derechos de los habitantes", "emoji": "🏛️"},
+        {"id": 2, "text": "El artículo 31 declara ley suprema a la Constitución, las leyes del Congreso y los tratados", "emoji": "⚖️"},
+        {"id": 3, "text": "Las autoridades de cada provincia quedan obligadas a conformarse a ella", "emoji": "🗺️"},
+        {"id": 4, "text": "Toda ley, decreto o acto de autoridad que se le oponga carece de validez", "emoji": "❌"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "2",
+      "concepto_a": {"nombre": "Constitución formal", "emoji": "📄", "color": "#F59E0B"},
+      "concepto_b": {"nombre": "Constitución material", "emoji": "🤝", "color": "#10B981"}
+    }
+  },
+
+  "nucleo_b": {
+    "bloque_info": {
+      "id": "B",
+      "emoji": "🏛️",
+      "titulo": "BLOQUE B: Estructura de la Constitución y catálogo de derechos",
+      "color": "#10B981",
+      "paginas": [4, 5, 6]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená cronológicamente las principales reformas de la Constitución Nacional Argentina.",
+      "paginas_referencia": "6-7",
+      "items": [
+        {"id": 0, "text": "Sanción de la Constitución originaria, tras el Acuerdo de San Nicolás (1853)", "emoji": "📜"},
+        {"id": 1, "text": "Reforma de incorporación de Buenos Aires a la Confederación (1860)", "emoji": "🤝"},
+        {"id": 2, "text": "Reforma de fuerte contenido social, derogada en 1956 por un gobierno de facto (1949)", "emoji": "⚙️"},
+        {"id": 3, "text": "Incorporación del artículo 14 bis, con los derechos del trabajador (1957)", "emoji": "👷"},
+        {"id": 4, "text": "Última reforma integral, en el marco del Pacto de Olivos (1994)", "emoji": "🏛️"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada contenido según pertenezca a la parte dogmática o a la parte orgánica de la Constitución.",
+      "paginas_referencia": "4",
+      "categorias": [
+        {"name": "Parte dogmática", "emoji": "📜", "color": "#10B981"},
+        {"name": "Parte orgánica", "emoji": "🏛️", "color": "#3B82F6"}
+      ],
+      "items": [
+        {"id": 0, "text": "Capítulo Primero: Declaraciones, derechos y garantías (arts. 1 a 35)", "categoria_correcta": 0},
+        {"id": 1, "text": "Regula el Poder Legislativo, el Ejecutivo, el Judicial y el Ministerio Público", "categoria_correcta": 1},
+        {"id": 2, "text": "Capítulo Segundo: Nuevos derechos y garantías (arts. 36 a 43)", "categoria_correcta": 0},
+        {"id": 3, "text": "Título Segundo: Gobiernos de Provincia", "categoria_correcta": 1},
+        {"id": 4, "text": "Responde a la pregunta qué se protege", "categoria_correcta": 0},
+        {"id": 5, "text": "Responde a quién ejerce el poder y cómo", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "4-6",
+      "blanks": [
+        {"id": "b1", "texto_antes": "El artículo ________ ________, incorporado en 1957, reconoce los derechos del trabajador, los gremiales y los de la seguridad social.", "respuesta_correcta": "14 bis", "pista": "1_ b__"},
+        {"id": "b2", "texto_antes": "La acción de ________ es expedita y rápida frente a actos u omisiones que lesionen derechos reconocidos por la Constitución, un tratado o una ley.", "respuesta_correcta": "amparo", "pista": "A_____"},
+        {"id": "b3", "texto_antes": "El artículo ________ exige dos tercios de los votos del total de los miembros del Congreso y una Convención Constituyente para reformar la Constitución.", "respuesta_correcta": "30", "pista": "3_"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "4-6",
+      "afirmaciones": [
+        {"texto": "El artículo 14 reconoce derechos a todos los habitantes de la Nación, y no solamente a los ciudadanos.", "correcto": true, "explicacion": "Verdadero. Enumera derechos civiles de 'todos los habitantes': trabajar, comerciar, peticionar, enseñar y aprender, entre otros."},
+        {"texto": "Según el artículo 18, una persona puede ser obligada a declarar contra sí misma.", "correcto": false, "explicacion": "Falso. El artículo 18 establece que nadie puede ser obligado a declarar contra sí mismo y que la defensa en juicio es inviolable."},
+        {"texto": "El hábeas data permite acceder a los datos personales que consten en registros públicos o privados y exigir su rectificación.", "correcto": true, "explicacion": "Verdadero. Es una variante del amparo, incorporada en el artículo 43 en 1994; también permite pedir supresión, confidencialidad o actualización."},
+        {"texto": "La Constitución Nacional se reforma con el mismo procedimiento con el que se sancionan las leyes ordinarias.", "correcto": false, "explicacion": "Falso. El artículo 30 prevé un mecanismo especial y agravado: por eso se dice que es una Constitución rígida."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "4-6",
+      "pares": [
+        {"izquierda": "Artículo 16", "derecha": "Igualdad ante la ley e idoneidad como única condición para los empleos", "emoji": "⚖️"},
+        {"izquierda": "Artículo 19", "derecha": "Principio de legalidad y reserva de las acciones privadas", "emoji": "🔒"},
+        {"izquierda": "Hábeas corpus", "derecha": "Garantía frente a la privación ilegítima de la libertad física", "emoji": "🔓"},
+        {"izquierda": "Artículo 41", "derecha": "Ambiente sano y deber de recomponer el daño ambiental", "emoji": "🌱"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "4-6",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🛡️",
+          "pregunta": "¿Cuál NO es una de las acciones de garantía que sistematiza el artículo 43?",
+          "paginas": "5",
+          "palabras": [
+            {"text": "Acción de amparo", "es_intrusa": false},
+            {"text": "Juicio político", "es_intrusa": true},
+            {"text": "Hábeas data", "es_intrusa": false},
+            {"text": "Hábeas corpus", "es_intrusa": false}
+          ],
+          "explicacion": "El juicio político es una herramienta de control del Congreso sobre el Presidente y los jueces, no una acción de garantía."
+        },
+        {
+          "id": 1,
+          "emoji": "✨",
+          "pregunta": "¿Cuál NO forma parte de los nuevos derechos y garantías incorporados en 1994 (arts. 36 a 43)?",
+          "paginas": "5-6",
+          "palabras": [
+            {"text": "Defensa del orden constitucional y democrático (art. 36)", "es_intrusa": false},
+            {"text": "Derechos de los partidos políticos (art. 38)", "es_intrusa": false},
+            {"text": "Inviolabilidad de la propiedad privada (art. 17)", "es_intrusa": true},
+            {"text": "Derechos del consumidor y del usuario (art. 42)", "es_intrusa": false}
+          ],
+          "explicacion": "El artículo 17 pertenece al texto histórico de 1853/60, dentro del Capítulo Primero."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "4-6",
+      "conceptos": [
+        {"termino": "Preámbulo", "pista": "¿Qué grandes objetivos enuncia el texto que abre la Constitución?", "palabras_clave": ["unión nacional", "afianzar la justicia", "bienestar general", "libertad"]},
+        {"termino": "Acción de amparo", "pista": "¿Qué podés hacer si un acto de autoridad amenaza un derecho de forma inminente?", "palabras_clave": ["expedita y rápida", "acto u omisión", "lesione o amenace", "no exista otro medio más idóneo"]},
+        {"termino": "Constitución rígida", "pista": "¿Por qué es más difícil reformar la Constitución que sancionar una ley común?", "palabras_clave": ["artículo 30", "dos tercios", "Convención Constituyente", "procedimiento agravado"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "4-6",
+      "causas": [
+        {"id": 0, "text": "La reforma de 1994 incorpora el Capítulo Segundo de la Primera Parte", "emoji": "✨"},
+        {"id": 1, "text": "El artículo 18 prohíbe las comisiones especiales y declara inviolable la defensa en juicio", "emoji": "🛡️"},
+        {"id": 2, "text": "El artículo 30 exige dos tercios del Congreso y una Convención Constituyente", "emoji": "🔐"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "Se suman los nuevos derechos y garantías de los artículos 36 a 43", "emoji": "📚", "causa_id": 0},
+        {"id": 11, "text": "Nadie puede ser sacado de sus jueces naturales ni penado sin juicio previo", "emoji": "👨‍⚖️", "causa_id": 1},
+        {"id": 12, "text": "La Constitución argentina es rígida y refuerza su estabilidad como norma suprema", "emoji": "🗿", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos del procedimiento de reforma constitucional previsto en el artículo 30.",
+      "paginas_referencia": "6-7",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "Surge la necesidad política y social de modificar el texto constitucional", "emoji": "💡"},
+        {"id": 1, "text": "El Congreso declara la necesidad de la reforma con dos tercios del total de sus miembros", "emoji": "🗣️"},
+        {"id": 2, "text": "Se convoca especialmente a una Convención Constituyente", "emoji": "📣"},
+        {"id": 3, "text": "La Convención se reúne y delibera, como en 1994 en Santa Fe y Paraná", "emoji": "🏛️"},
+        {"id": 4, "text": "El nuevo texto se incorpora a la Constitución, como el Capítulo Segundo en 1994", "emoji": "✅"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "4-6",
+      "concepto_a": {"nombre": "Capítulo Primero: Declaraciones, derechos y garantías (1853/60)", "emoji": "📜", "color": "#10B981"},
+      "concepto_b": {"nombre": "Capítulo Segundo: Nuevos derechos y garantías (1994)", "emoji": "✨", "color": "#3B82F6"}
+    }
+  },
+
+  "nucleo_c": {
+    "bloque_info": {
+      "id": "C",
+      "emoji": "⚖️",
+      "titulo": "BLOQUE C: Participación, jerarquía normativa y división de poderes",
+      "color": "#8B5CF6",
+      "paginas": [7, 8, 9]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Acá no hay cronología: ordená la pirámide normativa argentina desde la mayor hasta la menor jerarquía.",
+      "paginas_referencia": "8",
+      "items": [
+        {"id": 0, "text": "Constitución Nacional y tratados de derechos humanos con jerarquía constitucional (art. 75 inc. 22)", "emoji": "⚖️"},
+        {"id": 1, "text": "Otros tratados internacionales y concordatos", "emoji": "🌐"},
+        {"id": 2, "text": "Leyes nacionales sancionadas por el Congreso", "emoji": "📕"},
+        {"id": 3, "text": "Decretos reglamentarios y decretos de necesidad y urgencia", "emoji": "📝"},
+        {"id": 4, "text": "Resoluciones ministeriales y disposiciones de organismos administrativos", "emoji": "🗂️"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada característica según corresponda a la iniciativa popular o a la consulta popular.",
+      "paginas_referencia": "7",
+      "categorias": [
+        {"name": "Iniciativa popular (art. 39)", "emoji": "✍️", "color": "#8B5CF6"},
+        {"name": "Consulta popular (art. 40)", "emoji": "🗳️", "color": "#F59E0B"}
+      ],
+      "items": [
+        {"id": 0, "text": "Los ciudadanos presentan proyectos de ley ante la Cámara de Diputados", "categoria_correcta": 0},
+        {"id": 1, "text": "Somete un proyecto de ley a votación popular", "categoria_correcta": 1},
+        {"id": 2, "text": "Requiere las firmas de un porcentaje mínimo del padrón electoral", "categoria_correcta": 0},
+        {"id": 3, "text": "Puede ser vinculante, con voto obligatorio, o no vinculante", "categoria_correcta": 1},
+        {"id": 4, "text": "El Congreso debe darle tratamiento expreso dentro de los doce meses", "categoria_correcta": 0},
+        {"id": 5, "text": "El Presidente puede convocarla sobre un tema de política general", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "8-9",
+      "blanks": [
+        {"id": "b1", "texto_antes": "En la Argentina el control de constitucionalidad es judicial, ________ y a pedido de parte.", "respuesta_correcta": "difuso", "pista": "D_____"},
+        {"id": "b2", "texto_antes": "La idea del ordenamiento jurídico como una pirámide fue desarrollada por el jurista austríaco Hans ________.", "respuesta_correcta": "Kelsen", "pista": "K_____"},
+        {"id": "b3", "texto_antes": "El sistema de ________ y contrapesos permite que cada poder controle recíprocamente a los otros dos.", "respuesta_correcta": "frenos", "pista": "F_____"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "7-9",
+      "afirmaciones": [
+        {"texto": "Por iniciativa popular se pueden presentar proyectos sobre reforma constitucional y materia penal.", "correcto": false, "explicacion": "Falso. El artículo 39 excluye reforma constitucional, tratados internacionales, tributos, presupuesto y materia penal."},
+        {"texto": "Los tratados internacionales tienen jerarquía superior a las leyes, aunque inferior a la Constitución.", "correcto": true, "explicacion": "Verdadero. Así lo establece el artículo 75 inc. 22, salvo los tratados de derechos humanos con jerarquía constitucional."},
+        {"texto": "El control de constitucionalidad argentino lo ejerce un único tribunal especializado.", "correcto": false, "explicacion": "Falso. Es difuso: lo ejerce cualquier juez, en cualquier instancia, y la Corte Suprema es su intérprete final."},
+        {"texto": "El Senado se integra con tres senadores por cada provincia y por la Ciudad de Buenos Aires.", "correcto": true, "explicacion": "Verdadero. Dos corresponden a la mayoría y uno a la primera minoría."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "7-9",
+      "pares": [
+        {"izquierda": "Iniciativa popular (art. 39)", "derecha": "Presentar proyectos de ley ante la Cámara de Diputados", "emoji": "✍️"},
+        {"izquierda": "Consulta popular vinculante", "derecha": "Voto obligatorio y aprobación que convierte el proyecto en ley", "emoji": "🗳️"},
+        {"izquierda": "Poder Judicial", "derecha": "Administra justicia y ejerce el control de constitucionalidad", "emoji": "⚖️"},
+        {"izquierda": "Jefe de Gabinete de Ministros", "derecha": "Se ocupa de la administración general del país", "emoji": "🗂️"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "7-9",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "✍️",
+          "pregunta": "¿Cuál NO es una materia excluida del mecanismo de iniciativa popular?",
+          "paginas": "7",
+          "palabras": [
+            {"text": "Reforma constitucional", "es_intrusa": false},
+            {"text": "Tratados internacionales", "es_intrusa": false},
+            {"text": "Protección del ambiente", "es_intrusa": true},
+            {"text": "Tributos y presupuesto", "es_intrusa": false}
+          ],
+          "explicacion": "El artículo 39 excluye reforma constitucional, tratados, tributos, presupuesto y materia penal: los demás temas sí pueden proponerse."
+        },
+        {
+          "id": 1,
+          "emoji": "🔁",
+          "pregunta": "¿Cuál NO es una herramienta del sistema de frenos y contrapesos?",
+          "paginas": "9",
+          "palabras": [
+            {"text": "Juicio político al Presidente y a los jueces", "es_intrusa": false},
+            {"text": "Veto total o parcial de las leyes", "es_intrusa": false},
+            {"text": "Declaración de inconstitucionalidad de leyes y decretos", "es_intrusa": false},
+            {"text": "Consulta popular no vinculante", "es_intrusa": true}
+          ],
+          "explicacion": "La consulta popular es un mecanismo de democracia semidirecta (art. 40), no un control entre poderes."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "7-9",
+      "conceptos": [
+        {"termino": "Democracia semidirecta", "pista": "¿Qué mecanismos incorporó 1994 para que la ciudadanía decida más de cerca?", "palabras_clave": ["iniciativa popular", "consulta popular", "arts. 39 y 40", "complementan la representación"]},
+        {"termino": "Jerarquía normativa", "pista": "¿De dónde saca su validez cada norma del ordenamiento?", "palabras_clave": ["pirámide", "Kelsen", "norma superior", "validez"]},
+        {"termino": "División de poderes", "pista": "¿Por qué las funciones del Estado se reparten entre tres órganos?", "palabras_clave": ["Legislativo", "Ejecutivo", "Judicial", "frenos y contrapesos", "evitar la concentración"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "7-9",
+      "causas": [
+        {"id": 0, "text": "Un proyecto de ley reúne las firmas exigidas del padrón electoral", "emoji": "✍️"},
+        {"id": 1, "text": "Un decreto del Poder Ejecutivo contradice a la Constitución Nacional", "emoji": "⚠️"},
+        {"id": 2, "text": "Cada poder cuenta con herramientas para controlar a los otros dos", "emoji": "🔁"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "El Congreso debe darle tratamiento expreso dentro de los doce meses", "emoji": "⏱️", "causa_id": 0},
+        {"id": 11, "text": "Cualquier juez puede declararlo inconstitucional a pedido de parte", "emoji": "👨‍⚖️", "causa_id": 1},
+        {"id": 12, "text": "Ningún poder del Estado puede actuar sin límites", "emoji": "🚧", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el recorrido de una iniciativa popular, desde la idea hasta el tratamiento en el Congreso.",
+      "paginas_referencia": "7",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "Un grupo de ciudadanos redacta un proyecto de ley sobre una materia no excluida", "emoji": "💡"},
+        {"id": 1, "text": "Se juntan las firmas del porcentaje mínimo del padrón electoral que fija la ley", "emoji": "✍️"},
+        {"id": 2, "text": "El proyecto se presenta ante la Cámara de Diputados", "emoji": "🏛️"},
+        {"id": 3, "text": "El Congreso está obligado a darle tratamiento expreso dentro de los doce meses", "emoji": "⏱️"},
+        {"id": 4, "text": "Si el Congreso lo sanciona, el proyecto se convierte en ley", "emoji": "📕"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "7",
+      "concepto_a": {"nombre": "Consulta popular vinculante", "emoji": "🗳️", "color": "#8B5CF6"},
+      "concepto_b": {"nombre": "Consulta popular no vinculante", "emoji": "💬", "color": "#F59E0B"}
+    }
+  },
+
+  "senales": {
+    "conceptos_clave": [
+      {
+        "termino": "Supremacía constitucional",
+        "emoji": "⚖️",
+        "color": "#F59E0B",
+        "definicion": "Principio consagrado en el artículo 31 según el cual la Constitución, las leyes que dicta el Congreso en su consecuencia y los tratados son la ley suprema de la Nación: ninguna otra norma puede contradecirlos.",
+        "importancia": "Es la clave para entender por qué una ley o un decreto pueden ser declarados inválidos por los jueces."
+      },
+      {
+        "termino": "Derechos humanos",
+        "emoji": "🕊️",
+        "color": "#FBBF24",
+        "definicion": "Facultades, atributos y libertades inherentes a toda persona por el solo hecho de serlo, que el Estado no crea sino que reconoce, porque son previos e inherentes a la dignidad humana.",
+        "importancia": "Son universales, inalienables, imprescriptibles y progresivos: en principio no pueden retroceder."
+      },
+      {
+        "termino": "Parte dogmática y parte orgánica",
+        "emoji": "🏛️",
+        "color": "#10B981",
+        "definicion": "La primera parte reúne declaraciones, derechos y garantías (arts. 1 a 43); la segunda organiza las autoridades de la Nación y el régimen federal.",
+        "importancia": "Una responde qué se protege y la otra quién ejerce el poder y cómo: con esas dos preguntas se lee toda la Constitución."
+      },
+      {
+        "termino": "División de poderes",
+        "emoji": "🔁",
+        "color": "#8B5CF6",
+        "definicion": "Principio republicano del artículo 1° por el cual las funciones del Estado se reparten entre Legislativo, Ejecutivo y Judicial, que se controlan mediante frenos y contrapesos.",
+        "importancia": "Es el mecanismo que evita la concentración y el ejercicio arbitrario del poder."
+      }
+    ],
+    "semaforo_conceptos": [
+      "Estado de Derecho",
+      "Generaciones de derechos",
+      "Artículo 14 bis",
+      "Hábeas corpus",
+      "Pirámide de Kelsen"
+    ],
+    "postits_conceptos": [
+      "Supremacía constitucional",
+      "Artículo 43",
+      "Reforma de 1994",
+      "Frenos y contrapesos"
+    ]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {
+        "emoji": "🌍",
+        "frente": "La Declaración Universal de los Derechos Humanos figura en el Guinness como el documento más traducido del mundo",
+        "dorso": "Naciones Unidas la hizo traducir a más de 500 idiomas, entre ellos el quechua, el guaraní y varias lenguas originarias. La lógica es simple: un derecho que no podés leer en tu propia lengua es muchísimo más difícil de reclamar.",
+        "color": "#F59E0B"
+      },
+      {
+        "emoji": "🔓",
+        "frente": "El hábeas corpus que aparece en el artículo 43 tiene más de 800 años de historia",
+        "dorso": "Su antecedente es la Carta Magna inglesa de 1215 y quedó regulado en la Habeas Corpus Act de 1679. La fórmula latina significa literalmente 'que tengas el cuerpo': obliga a llevar ante un juez a la persona detenida para explicar por qué está presa.",
+        "color": "#10B981"
+      },
+      {
+        "emoji": "👶",
+        "frente": "La Convención sobre los Derechos del Niño es el tratado de derechos humanos más ratificado del planeta y en la Argentina tiene jerarquía constitucional",
+        "dorso": "La ratificaron 196 Estados: Estados Unidos es el único país que la firmó y nunca la ratificó. Desde 1994 forma parte del bloque de tratados del artículo 75 inc. 22, así que rige acá con la misma fuerza que la Constitución.",
+        "color": "#8B5CF6"
+      }
+    ],
+
+    "linea_de_tiempo": [
+      {"year": "1215", "text": "La Carta Magna inglesa limita por primera vez el poder del rey", "emoji": "👑"},
+      {"year": "1789", "text": "La Revolución Francesa proclama la Declaración de los Derechos del Hombre y del Ciudadano", "emoji": "🇫🇷"},
+      {"year": "1853", "text": "Se sanciona la Constitución Nacional Argentina en Santa Fe", "emoji": "🇦🇷"},
+      {"year": "1948", "text": "La ONU adopta la Declaración Universal de los Derechos Humanos", "emoji": "🌍"},
+      {"year": "1994", "text": "La reforma otorga jerarquía constitucional a once instrumentos internacionales de derechos humanos", "emoji": "⚖️"}
+    ],
+
+    "encuesta": {
+      "pregunta": "¿Qué dato te sorprendió más?",
+      "opciones": [
+        {"emoji": "🌍", "text": "Que la Declaración Universal esté traducida a más de 500 idiomas", "votos_iniciales": 38},
+        {"emoji": "🔓", "text": "Que el hábeas corpus tenga más de 800 años", "votos_iniciales": 45},
+        {"emoji": "👶", "text": "Que EE.UU. sea el único país que no ratificó los derechos del niño", "votos_iniciales": 42}
+      ]
+    }
+  },
+
+  "cruces": {
+    "consigna_general": "Elegí uno de estos temas del PDF y preparate para explicárselo a un compañero. Podés usar ejemplos, casos de la vida cotidiana o comparaciones con noticias actuales. La idea es que tu compañero entienda el tema aunque no lo haya leído todavía.",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "📜",
+        "titulo": "BLOQUE A: Constitución y Derechos Humanos",
+        "color": "#F59E0B",
+        "temas_sugeridos": [
+          "Explicale qué significa que la Constitución sea la ley suprema y qué dice el artículo 31.",
+          "Mostrá la diferencia entre Constitución formal y Constitución material con un ejemplo propio.",
+          "Contale cuáles son las funciones de la Constitución y por qué existe el Estado de Derecho.",
+          "Enseñale los caracteres de los derechos humanos y por qué no se pueden renunciar.",
+          "Explicale las tres generaciones de derechos y qué le exige cada una al Estado."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      },
+      {
+        "id": "b",
+        "emoji": "🏛️",
+        "titulo": "BLOQUE B: Estructura de la Constitución y catálogo de derechos",
+        "color": "#10B981",
+        "temas_sugeridos": [
+          "Explicale cómo está organizada la Constitución: Preámbulo, parte dogmática y parte orgánica.",
+          "Contale qué derechos reconoce el artículo 14 y qué agregó el artículo 14 bis en 1957.",
+          "Enseñale las garantías del artículo 18 y por qué protegen a cualquiera, no solo a los acusados.",
+          "Mostrá cómo funcionan el amparo, el hábeas data y el hábeas corpus del artículo 43.",
+          "Explicale qué cambió la reforma de 1994 y por qué la Constitución es rígida (art. 30)."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      },
+      {
+        "id": "c",
+        "emoji": "⚖️",
+        "titulo": "BLOQUE C: Participación, jerarquía normativa y división de poderes",
+        "color": "#8B5CF6",
+        "temas_sugeridos": [
+          "Explicale cómo funcionan la iniciativa popular y la consulta popular, y en qué se diferencian.",
+          "Contale qué prácticas cotidianas forman parte del ejercicio pleno de la ciudadanía.",
+          "Enseñale la pirámide normativa argentina y qué pasa cuando una norma inferior contradice a una superior.",
+          "Mostrá cómo es el control de constitucionalidad en la Argentina y qué rol cumple la Corte Suprema.",
+          "Explicale qué hace cada poder del Estado y cómo se controlan entre sí."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      }
+    ]
+  },
+
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "¿Alcanza con que los derechos estén escritos en la Constitución para que se cumplan?",
+      "contexto": "El apunte distingue entre la Constitución formal —el texto escrito— y la Constitución material —las prácticas que efectivamente rigen la vida política—, y aclara que ambas no siempre coinciden. Discutí, con los argumentos del apunte, si el reconocimiento escrito de los derechos es suficiente o si hace falta algo más.",
+      "roles": [
+        {"id": "fiscal", "label": "El texto no alcanza", "emoji": "📢", "color": "#EF4444", "desc": "Defendé que sin prácticas, políticas activas y garantías efectivas muchos derechos quedan en letra muerta."},
+        {"id": "defensa", "label": "El texto es la base", "emoji": "📜", "color": "#10B981", "desc": "Argumentá que sin reconocimiento escrito no habría amparo, hábeas corpus ni control de constitucionalidad para reclamar."},
+        {"id": "juez", "label": "Posición equilibrada", "emoji": "⚖️", "color": "#8B5CF6", "desc": "Buscá una postura que combine el valor del texto constitucional con las condiciones reales que lo hacen efectivo."}
+      ]
+    },
+
+    "tesis": {
+      "consigna": "Formulá una tesis sobre cuál es hoy el derecho constitucional más difícil de garantizar en la Argentina. Incluí artículos concretos del apunte, argumentos propios y las críticas que podría recibir tu postura."
+    },
+
+    "critica": {
+      "consigna": "Analizá críticamente la arquitectura constitucional argentina: la jerarquía de las normas, el catálogo de derechos y el sistema de frenos y contrapesos. ¿Qué resuelve bien? ¿Qué tensiones deja abiertas? ¿Qué cambiarías si fueras convencional constituyente y por qué?"
+    }
+  },
+
+  "emocional": {},
+
+  "autotest": {
+    "banco_respuestas_docente": [
+      "1. A - El artículo 31. (p. 2)",
+      "2. C - Son inalienables e irrenunciables. (p. 2-3)",
+      "3. B - Una obligación de hacer, interviniendo activamente. (p. 3)",
+      "4. D - La organización de las autoridades de la Nación. (p. 4)",
+      "5. A - Los derechos del trabajador, los gremiales y los de la seguridad social. (p. 4-5)",
+      "6. C - El hábeas data. (p. 5)",
+      "7. B - Dos tercios del total de los miembros del Congreso y una Convención Constituyente. (p. 6)",
+      "8. D - Reforma constitucional, tratados, tributos, presupuesto y materia penal. (p. 7)",
+      "9. B - Jerarquía superior a las leyes e inferior a la Constitución. (p. 8)",
+      "10. C - Tres senadores por cada provincia y por la Ciudad de Buenos Aires. (p. 9)",
+      "11. VERDADERO - En el Estado de Derecho todos están sometidos a la ley y a la Constitución. (p. 2)",
+      "12. FALSO - El artículo 14 reconoce derechos a todos los habitantes, no solo a los ciudadanos. (p. 4)",
+      "13. VERDADERO - La reforma de 1994 dio jerarquía constitucional a once instrumentos internacionales. (p. 7)",
+      "14. FALSO - El control de constitucionalidad argentino es difuso: lo ejerce cualquier juez. (p. 8)",
+      "15. VERDADERO - El Poder Ejecutivo puede vetar total o parcialmente las leyes. (p. 9)"
+    ],
+
+    "preguntas": [
+      {
+        "pregunta": "¿En qué artículo está consagrado expresamente el principio de supremacía constitucional?",
+        "opciones": [
+          "En el artículo 31",
+          "En el artículo 14",
+          "En el artículo 43",
+          "En el artículo 30"
+        ],
+        "correcta": 0,
+        "explicacion": "El artículo 31 declara ley suprema de la Nación a la Constitución, a las leyes que en su consecuencia dicte el Congreso y a los tratados. Revisá la página 2."
+      },
+      {
+        "pregunta": "¿Cuál de estos es un carácter de los derechos humanos según el apunte?",
+        "opciones": [
+          "Se adquieren al cumplir la mayoría de edad",
+          "Los crea el Estado mediante leyes",
+          "Son inalienables e irrenunciables",
+          "Se pierden si no se ejercen durante muchos años"
+        ],
+        "correcta": 2,
+        "explicacion": "No pueden transferirse ni renunciarse, y además son imprescriptibles: no se pierden por el paso del tiempo. Revisá las páginas 2 y 3."
+      },
+      {
+        "pregunta": "Los derechos de segunda generación exigen del Estado, fundamentalmente:",
+        "opciones": [
+          "Una obligación de abstención",
+          "Una obligación de hacer, interviniendo activamente",
+          "Ninguna obligación concreta",
+          "Solamente la cooperación con otros Estados"
+        ],
+        "correcta": 1,
+        "explicacion": "Los derechos económicos, sociales y culturales requieren prestaciones estatales: trabajo, salud, educación, vivienda. Revisá la página 3."
+      },
+      {
+        "pregunta": "¿Qué contiene la parte orgánica de la Constitución Nacional?",
+        "opciones": [
+          "El catálogo de derechos civiles del artículo 14",
+          "El Preámbulo y sus objetivos",
+          "Las garantías del debido proceso",
+          "La organización de las autoridades de la Nación"
+        ],
+        "correcta": 3,
+        "explicacion": "La Segunda Parte regula el Gobierno Federal y los Gobiernos de Provincia: responde a quién ejerce el poder y cómo. Revisá la página 4."
+      },
+      {
+        "pregunta": "¿Qué derechos incorporó el artículo 14 bis en la reforma de 1957?",
+        "opciones": [
+          "Los derechos del trabajador, los gremiales y los de la seguridad social",
+          "El derecho a un ambiente sano y equilibrado",
+          "Los derechos del consumidor y del usuario",
+          "El derecho de iniciativa y consulta popular"
+        ],
+        "correcta": 0,
+        "explicacion": "Incluye condiciones dignas de labor, salario mínimo vital y móvil, huelga, jubilaciones y pensiones móviles. Revisá las páginas 4 y 5."
+      },
+      {
+        "pregunta": "¿Qué garantía permite acceder a los datos personales que constan en un banco de datos y exigir su rectificación?",
+        "opciones": [
+          "La acción de amparo",
+          "El hábeas corpus",
+          "El hábeas data",
+          "El juicio político"
+        ],
+        "correcta": 2,
+        "explicacion": "Es una variante del amparo prevista en el artículo 43: permite pedir supresión, rectificación, confidencialidad o actualización. Revisá la página 5."
+      },
+      {
+        "pregunta": "¿Qué exige el artículo 30 para reformar la Constitución Nacional?",
+        "opciones": [
+          "La mayoría simple de una sola cámara",
+          "Dos tercios del total de los miembros del Congreso y una Convención Constituyente",
+          "Un decreto de necesidad y urgencia del Poder Ejecutivo",
+          "Una consulta popular no vinculante"
+        ],
+        "correcta": 1,
+        "explicacion": "Ese procedimiento especial y agravado es lo que hace que la Constitución argentina sea rígida. Revisá la página 6."
+      },
+      {
+        "pregunta": "Según el artículo 39, ¿qué materias quedan excluidas del mecanismo de iniciativa popular?",
+        "opciones": [
+          "El ambiente y la educación",
+          "La salud y la vivienda",
+          "Únicamente los tratados internacionales",
+          "Reforma constitucional, tratados, tributos, presupuesto y materia penal"
+        ],
+        "correcta": 3,
+        "explicacion": "Son los cinco temas que la Constitución reserva al trámite legislativo ordinario. Revisá la página 7."
+      },
+      {
+        "pregunta": "En la pirámide normativa argentina, los tratados internacionales que no tienen jerarquía constitucional:",
+        "opciones": [
+          "Están por debajo de los decretos del Poder Ejecutivo",
+          "Tienen jerarquía superior a las leyes e inferior a la Constitución",
+          "Tienen la misma jerarquía que las ordenanzas municipales",
+          "Están por encima de la Constitución Nacional"
+        ],
+        "correcta": 1,
+        "explicacion": "Así lo establece el artículo 75 inc. 22 para los tratados y concordatos en general. Revisá la página 8."
+      },
+      {
+        "pregunta": "¿Cómo se integra el Senado de la Nación?",
+        "opciones": [
+          "Con representantes elegidos en proporción a la población",
+          "Con un senador por cada provincia",
+          "Con tres senadores por cada provincia y por la Ciudad de Buenos Aires",
+          "Con senadores designados por el Presidente"
+        ],
+        "correcta": 2,
+        "explicacion": "Dos senadores corresponden a la mayoría y uno a la primera minoría de cada distrito. Revisá la página 9."
+      }
+    ],
+
+    "verdadero_falso": [
+      {"texto": "En un Estado de Derecho todos los poderes públicos y todos los habitantes están sometidos a la ley y a la Constitución.", "correcto": true, "explicacion": "VERDADERO. Nadie, ni siquiera quien ejerce el gobierno, está por encima de la norma fundamental. Revisá la página 2."},
+      {"texto": "El artículo 14 reconoce sus derechos únicamente a los ciudadanos argentinos.", "correcto": false, "explicacion": "FALSO. Los reconoce a 'todos los habitantes de la Nación', no solo a los ciudadanos. Revisá la página 4."},
+      {"texto": "La reforma de 1994 otorgó jerarquía constitucional a once instrumentos internacionales de derechos humanos.", "correcto": true, "explicacion": "VERDADERO. Entre ellos la Declaración Universal y el Pacto de San José de Costa Rica (art. 75 inc. 22). Revisá la página 7."},
+      {"texto": "En la Argentina el control de constitucionalidad lo ejerce un tribunal único y especializado.", "correcto": false, "explicacion": "FALSO. Es judicial y difuso: lo ejerce cualquier juez, en cualquier instancia, y la Corte Suprema es su intérprete final. Revisá la página 8."},
+      {"texto": "El Poder Ejecutivo puede vetar total o parcialmente las leyes sancionadas por el Congreso.", "correcto": true, "explicacion": "VERDADERO. Es una de las herramientas del sistema de frenos y contrapesos. Revisá la página 9."}
+    ]
+  },
+
+  "cierre": {
+    "glosario": [
+      {"termino": "Supremacía constitucional", "emoji": "⚖️", "definicion": "Principio del artículo 31 según el cual ninguna norma del ordenamiento puede contradecir a la Constitución Nacional.", "categoria": "Concepto base"},
+      {"termino": "Estado de Derecho", "emoji": "🏛️", "definicion": "Situación en la que todos los poderes públicos y todos los habitantes están sometidos a la ley y, en particular, a la Constitución.", "categoria": "Concepto base"},
+      {"termino": "Derechos humanos", "emoji": "🕊️", "definicion": "Facultades y libertades inherentes a toda persona por el solo hecho de serlo, que el Estado reconoce y no crea.", "categoria": "Derechos"},
+      {"termino": "Generaciones de derechos", "emoji": "📚", "definicion": "Clasificación que agrupa los derechos según el momento histórico de su reconocimiento y el tipo de obligación estatal que generan.", "categoria": "Derechos"},
+      {"termino": "Parte dogmática", "emoji": "📜", "definicion": "Primera parte de la Constitución: declaraciones, derechos y garantías, incluidos los nuevos derechos de 1994.", "categoria": "Estructura"},
+      {"termino": "Acción de amparo", "emoji": "🛡️", "definicion": "Acción expedita y rápida del artículo 43 contra actos u omisiones que lesionen o amenacen derechos constitucionales.", "categoria": "Garantías"},
+      {"termino": "Hábeas corpus", "emoji": "🔓", "definicion": "Garantía frente a la privación ilegítima de la libertad física, que permite requerir de inmediato la intervención judicial.", "categoria": "Garantías"},
+      {"termino": "Control de constitucionalidad", "emoji": "👨‍⚖️", "definicion": "Facultad de los jueces de declarar inválida una norma contraria a la Constitución; en la Argentina es difuso y a pedido de parte.", "categoria": "Poderes"}
+    ],
+
+    "recursos": [
+      {"tipo": "🌐 Web", "title": "InfoLEG (infoleg.gob.ar)", "desc": "Base oficial con el texto completo de la Constitución Nacional y de todas las leyes nacionales.", "nivel": "Introductorio", "color": "#F59E0B"},
+      {"tipo": "🌐 Web", "title": "Argentina.gob.ar — Derechos humanos", "desc": "Información oficial sobre derechos, tratados internacionales y organismos de protección.", "nivel": "Introductorio", "color": "#FBBF24"},
+      {"tipo": "🌐 Web", "title": "Centro de Información Judicial de la CSJN (cij.gov.ar)", "desc": "Fallos y noticias de la Corte Suprema explicados en lenguaje accesible.", "nivel": "Intermedio", "color": "#10B981"},
+      {"tipo": "🎬 Video", "title": "Educ.ar — Recursos sobre la Constitución Nacional", "desc": "Videos y materiales de educación ciudadana sobre derechos, poderes y reforma de 1994.", "nivel": "Introductorio", "color": "#3B82F6"},
+      {"tipo": "📖 Libro", "title": "Manual de la Constitución Reformada - Germán Bidart Campos", "desc": "Obra clásica del derecho constitucional argentino para consultar artículo por artículo.", "nivel": "Avanzado", "color": "#8B5CF6"}
+    ]
+  }
+}
