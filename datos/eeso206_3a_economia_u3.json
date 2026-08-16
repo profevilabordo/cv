@@ -1,0 +1,862 @@
+{
+  "id": "eeso206_3a_economia_u3",
+  "materia": "Economía",
+  "unidad": 3,
+  "titulo": "Economía mundial y Latinoamérica en el siglo XX y XXI",
+  "emoji": "🌍",
+  "color_primario": "#6366F1",
+  "color_secundario": "#8B5CF6",
+
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "📱",
+        "texto": "¿Por qué Argentina exporta soja, carne y minerales, pero los celulares y las computadoras casi siempre vienen de afuera?",
+        "pista": "Pensá en qué produce cada país y quién se queda con la parte más cara del negocio..."
+      },
+      {
+        "emoji": "💵",
+        "texto": "¿Por qué cuando se habla de economía argentina siempre aparecen el dólar y el FMI?",
+        "pista": "Hay decisiones que se tomaron en 1944, muy lejos de acá, que todavía nos afectan..."
+      },
+      {
+        "emoji": "🏭",
+        "texto": "¿Por qué en tu ciudad hay fábricas que cerraron y otras que abrieron según la época?",
+        "pista": "Los modelos económicos cambiaron varias veces en los últimos 80 años..."
+      }
+    ],
+    "situaciones_conecta": [
+      {"emoji": "🛒", "label": "Comparé un producto nacional con uno importado"},
+      {"emoji": "📰", "label": "Escuché hablar de inflación, deuda o dólar en casa"},
+      {"emoji": "👴", "label": "Alguien de mi familia me contó cómo era la economía antes"},
+      {"emoji": "🌎", "label": "Vi noticias sobre acuerdos comerciales entre países"}
+    ],
+    "termometro_pregunta": "¿Cuánto sabés sobre cómo la economía mundial condiciona a la Argentina?"
+  },
+
+  "mapa": {
+    "ruta_paradas": [
+      {"id": 0, "emoji": "💣", "title": "Posguerra y Bretton Woods", "desc": "La Segunda Guerra Mundial y el nuevo orden económico", "color": "#6366F1"},
+      {"id": 1, "emoji": "🧊", "title": "Guerra Fría y petróleo", "desc": "Dos modelos en pugna y las crisis de los 70", "color": "#3B82F6"},
+      {"id": 2, "emoji": "🚢", "title": "Comercio internacional", "desc": "Tipos de economía, centro, periferia y OMC", "color": "#10B981"},
+      {"id": 3, "emoji": "🏗️", "title": "CEPAL y sustitución", "desc": "Prebisch, estructuralismo e industrialización", "color": "#F59E0B"},
+      {"id": 4, "emoji": "🇦🇷", "title": "Argentina reciente", "desc": "Dictadura, los 90 y el siglo XXI", "color": "#EC4899"}
+    ],
+
+    "panoramica_bloques": [
+      {
+        "id": "a",
+        "emoji": "💣",
+        "title": "BLOQUE A",
+        "subtitle": "El mundo después de la guerra",
+        "color": "#6366F1",
+        "items": [
+          "Consecuencias económicas de la Segunda Guerra Mundial",
+          "Bretton Woods, FMI y Banco Mundial",
+          "Plan Marshall",
+          "Guerra Fría: capitalismo y socialismo",
+          "Crisis del petróleo de 1973",
+          "Estanflación y crisis de 1979"
+        ]
+      },
+      {
+        "id": "b",
+        "emoji": "🚢",
+        "title": "BLOQUE B",
+        "subtitle": "Comercio mundial y desigualdad estructural",
+        "color": "#10B981",
+        "items": [
+          "Economía de mercado, planificada y mixta",
+          "Comercio internacional y ventajas comparativas",
+          "Balanza comercial y balanza de pagos",
+          "Países centrales y periféricos",
+          "Organización Mundial del Comercio",
+          "CEPAL, Prebisch y la teoría centro-periferia"
+        ]
+      },
+      {
+        "id": "c",
+        "emoji": "🇦🇷",
+        "title": "BLOQUE C",
+        "subtitle": "Argentina: del ISI al siglo XXI",
+        "color": "#EC4899",
+        "items": [
+          "Modelo de sustitución de importaciones",
+          "Limitaciones del ISI y el 'stop and go'",
+          "Plan económico de la dictadura (1976-1983)",
+          "Consenso de Washington y convertibilidad",
+          "Privatizaciones y desempleo en los 90",
+          "Crisis de 2001 y nuevo rol del Estado"
+        ]
+      }
+    ],
+
+    "mapa_mental": {
+      "centro": {"emoji": "🌍", "title": "ECONOMÍA MUNDIAL Y AMÉRICA LATINA"},
+      "ramas": [
+        {
+          "id": "que",
+          "emoji": "❓",
+          "title": "¿Qué estudiamos?",
+          "color": "#6366F1",
+          "items": ["Orden económico mundial", "Comercio internacional", "Modelos económicos", "Historia económica argentina"]
+        },
+        {
+          "id": "quienes",
+          "emoji": "👥",
+          "title": "¿Quiénes participan?",
+          "color": "#3B82F6",
+          "items": ["Países centrales", "Países periféricos", "FMI, Banco Mundial y OMC", "Estados nacionales"]
+        },
+        {
+          "id": "como",
+          "emoji": "⚙️",
+          "title": "¿Cómo funciona?",
+          "color": "#10B981",
+          "items": ["Exportaciones e importaciones", "Términos de intercambio", "Deuda externa", "Políticas de apertura o protección"]
+        },
+        {
+          "id": "porque",
+          "emoji": "🎯",
+          "title": "¿Por qué es importante?",
+          "color": "#F59E0B",
+          "items": ["Explica el desarrollo y el subdesarrollo", "Condiciona el empleo", "Da sentido a las noticias", "Ayuda a pensar el futuro del país"]
+        }
+      ]
+    }
+  },
+
+  "nucleo_a": {
+    "bloque_info": {
+      "id": "A",
+      "emoji": "💣",
+      "titulo": "BLOQUE A: El mundo después de la guerra",
+      "color": "#6366F1",
+      "paginas": [2, 3, 4]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená cronológicamente los hechos que reorganizaron la economía mundial.",
+      "paginas_referencia": "2-4",
+      "items": [
+        {"id": 0, "text": "Conferencia de Bretton Woods: nacen el FMI y el Banco Mundial (1944)", "emoji": "🏦"},
+        {"id": 1, "text": "Finaliza la Segunda Guerra Mundial (1945)", "emoji": "🕊️"},
+        {"id": 2, "text": "Se pone en marcha el Plan Marshall (1948)", "emoji": "💵"},
+        {"id": 3, "text": "Primera crisis del petróleo: la OPEP cuadruplica el precio del barril (1973)", "emoji": "🛢️"},
+        {"id": 4, "text": "Revolución Iraní y segunda crisis del petróleo (1979)", "emoji": "⛽"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada característica según corresponda al bloque occidental o al bloque oriental durante la Guerra Fría.",
+      "paginas_referencia": "3-4",
+      "categorias": [
+        {"name": "Bloque occidental", "emoji": "🗽", "color": "#3B82F6"},
+        {"name": "Bloque oriental", "emoji": "☭", "color": "#EF4444"}
+      ],
+      "items": [
+        {"id": 0, "text": "Economía de mercado y propiedad privada de los medios de producción", "categoria_correcta": 0},
+        {"id": 1, "text": "Planificación centralizada y propiedad estatal", "categoria_correcta": 1},
+        {"id": 2, "text": "Liderado por Estados Unidos", "categoria_correcta": 0},
+        {"id": 3, "text": "Liderado por la Unión Soviética", "categoria_correcta": 1},
+        {"id": 4, "text": "Integración al FMI y al Banco Mundial", "categoria_correcta": 0},
+        {"id": 5, "text": "Comercio organizado a través del COMECON", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "2-4",
+      "blanks": [
+        {"id": "b1", "texto_antes": "En 1944, en la conferencia de ________ ________ se crearon el FMI y el Banco Internacional de Reconstrucción y Fomento.", "respuesta_correcta": "Bretton Woods", "pista": "B______ W_____"},
+        {"id": "b2", "texto_antes": "La combinación de inflación elevada con estancamiento de la actividad económica se llama ________.", "respuesta_correcta": "estanflación", "pista": "E___________"},
+        {"id": "b3", "texto_antes": "La ________ fue la organización de países exportadores que decidió reducir la producción y subir el precio del crudo en 1973.", "respuesta_correcta": "OPEP", "pista": "O___"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "2-4",
+      "afirmaciones": [
+        {"texto": "Estados Unidos salió de la Segunda Guerra Mundial con su capacidad industrial intacta y ampliada.", "correcto": true, "explicacion": "Verdadero. Su territorio no sufrió combates y fue el principal proveedor de los aliados."},
+        {"texto": "El Plan Marshall tuvo únicamente fines humanitarios.", "correcto": false, "explicacion": "Falso. También buscaba frenar el avance comunista y consolidar a Europa occidental como aliada y mercado de EE.UU."},
+        {"texto": "Durante la Guerra Fría hubo un enfrentamiento bélico directo entre Estados Unidos y la Unión Soviética.", "correcto": false, "explicacion": "Falso. El conflicto duró más de cuatro décadas sin enfrentamiento bélico directo entre las dos superpotencias."},
+        {"texto": "La suba de las tasas de interés internacionales tras 1979 encareció la deuda de los países latinoamericanos.", "correcto": true, "explicacion": "Verdadero. Se habían endeudado en dólares a tasas variables, y así nació la crisis de la deuda de los 80."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "2-4",
+      "pares": [
+        {"izquierda": "Bretton Woods (1944)", "derecha": "Tipos de cambio fijos referenciados al dólar", "emoji": "🏦"},
+        {"izquierda": "Plan Marshall (1948)", "derecha": "Ayuda financiera de EE.UU. a Europa occidental", "emoji": "💵"},
+        {"izquierda": "COMECON", "derecha": "Comercio entre los países del bloque socialista", "emoji": "☭"},
+        {"izquierda": "Estanflación", "derecha": "Inflación alta junto con estancamiento y desempleo", "emoji": "📉"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "2-4",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🏦",
+          "pregunta": "¿Cuál NO surgió de los acuerdos de Bretton Woods?",
+          "paginas": "2",
+          "palabras": [
+            {"text": "Fondo Monetario Internacional", "es_intrusa": false},
+            {"text": "Banco Internacional de Reconstrucción y Fomento", "es_intrusa": false},
+            {"text": "Régimen de tipos de cambio fijos", "es_intrusa": false},
+            {"text": "Organización Mundial del Comercio", "es_intrusa": true}
+          ],
+          "explicacion": "La OMC recién se creó en 1995, como resultado de la Ronda Uruguay."
+        },
+        {
+          "id": 1,
+          "emoji": "🛢️",
+          "pregunta": "¿Cuál NO forma parte de las crisis del petróleo de los años 70?",
+          "paginas": "4",
+          "palabras": [
+            {"text": "OPEP", "es_intrusa": false},
+            {"text": "Guerra del Yom Kippur", "es_intrusa": false},
+            {"text": "Revolución Iraní", "es_intrusa": false},
+            {"text": "Ley de Convertibilidad", "es_intrusa": true}
+          ],
+          "explicacion": "La Ley de Convertibilidad es argentina y se sancionó en 1991."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "2-4",
+      "conceptos": [
+        {"termino": "Bretton Woods", "pista": "¿Qué se decidió en 1944 sobre el sistema monetario mundial?", "palabras_clave": ["1944", "FMI", "dólar", "tipos de cambio"]},
+        {"termino": "Guerra Fría", "pista": "¿Qué dos modelos económicos se enfrentaron durante más de cuatro décadas?", "palabras_clave": ["capitalismo", "socialismo", "bloques", "EE.UU.", "URSS"]},
+        {"termino": "Estanflación", "pista": "¿Qué pasa cuando hay inflación pero la economía no crece?", "palabras_clave": ["inflación", "estancamiento", "desempleo"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "2-4",
+      "causas": [
+        {"id": 0, "text": "La guerra destruye el aparato productivo europeo y asiático", "emoji": "💥"},
+        {"id": 1, "text": "La OPEP reduce la producción y cuadruplica el precio del crudo", "emoji": "🛢️"},
+        {"id": 2, "text": "La Reserva Federal sube fuertemente las tasas de interés", "emoji": "📈"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "Estados Unidos se consolida como potencia hegemónica", "emoji": "🗽", "causa_id": 0},
+        {"id": 11, "text": "Los países industrializados entran en estanflación", "emoji": "📉", "causa_id": 1},
+        {"id": 12, "text": "Se encarece la deuda externa de los países periféricos", "emoji": "⛓️", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená la cadena que llevó de la crisis del petróleo a la crisis de la deuda latinoamericana.",
+      "paginas_referencia": "4",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "Sube abruptamente el precio internacional del petróleo", "emoji": "🛢️"},
+        {"id": 1, "text": "Se dispara la inflación en los países industrializados", "emoji": "📊"},
+        {"id": 2, "text": "Los bancos centrales aplican políticas monetarias restrictivas", "emoji": "🏦"},
+        {"id": 3, "text": "Se elevan las tasas de interés internacionales", "emoji": "📈"},
+        {"id": 4, "text": "Se encarece la deuda latinoamericana tomada a tasa variable", "emoji": "⛓️"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "4",
+      "concepto_a": {"nombre": "Crisis del petróleo de 1973", "emoji": "🛢️", "color": "#6366F1"},
+      "concepto_b": {"nombre": "Crisis del petróleo de 1979", "emoji": "⛽", "color": "#F59E0B"}
+    }
+  },
+
+  "nucleo_b": {
+    "bloque_info": {
+      "id": "B",
+      "emoji": "🚢",
+      "titulo": "BLOQUE B: Comercio mundial y desigualdad estructural",
+      "color": "#10B981",
+      "paginas": [5, 6, 7, 8]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená cronológicamente la construcción de las reglas y las ideas del comercio mundial.",
+      "paginas_referencia": "6-7",
+      "items": [
+        {"id": 0, "text": "Entra en vigencia el GATT, acuerdo sobre aranceles y comercio (1947)", "emoji": "📜"},
+        {"id": 1, "text": "Se crea la CEPAL en el marco de las Naciones Unidas (1948)", "emoji": "🏛️"},
+        {"id": 2, "text": "Prebisch formula la teoría centro-periferia", "emoji": "🧠"},
+        {"id": 3, "text": "Se desarrolla la Ronda Uruguay de negociaciones comerciales", "emoji": "🤝"},
+        {"id": 4, "text": "Nace la Organización Mundial del Comercio, con sede en Ginebra (1995)", "emoji": "🌐"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada rasgo según corresponda a un país central o a un país periférico.",
+      "paginas_referencia": "5-6",
+      "categorias": [
+        {"name": "País central", "emoji": "🏙️", "color": "#10B981"},
+        {"name": "País periférico", "emoji": "🌾", "color": "#F59E0B"}
+      ],
+      "items": [
+        {"id": 0, "text": "Estructura productiva diversificada e industrializada", "categoria_correcta": 0},
+        {"id": 1, "text": "Exporta mayoritariamente commodities agrícolas y minerales", "categoria_correcta": 1},
+        {"id": 2, "text": "Fuerte inversión en ciencia y tecnología", "categoria_correcta": 0},
+        {"id": 3, "text": "Depende de capitales y tecnología externos", "categoria_correcta": 1},
+        {"id": 4, "text": "Produce bienes con alto valor agregado", "categoria_correcta": 0},
+        {"id": 5, "text": "Sufre el deterioro de los términos de intercambio", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "5-8",
+      "blanks": [
+        {"id": "b1", "texto_antes": "La ________ ________ registra la diferencia entre el valor de las exportaciones y el de las importaciones.", "respuesta_correcta": "balanza comercial", "pista": "b______ c________"},
+        {"id": "b2", "texto_antes": "Según la teoría clásica, cada país se especializa en los bienes en los que tiene una ventaja ________.", "respuesta_correcta": "comparativa", "pista": "C__________"},
+        {"id": "b3", "texto_antes": "El economista argentino ________ fue el principal referente del estructuralismo latinoamericano.", "respuesta_correcta": "Prebisch", "pista": "P_______"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "5-8",
+      "afirmaciones": [
+        {"texto": "La mayoría de las economías contemporáneas son economías mixtas.", "correcto": true, "explicacion": "Verdadero. Combinan mecanismos de mercado con distintos grados de intervención estatal."},
+        {"texto": "La balanza de pagos y la balanza comercial son exactamente lo mismo.", "correcto": false, "explicacion": "Falso. La balanza comercial es solo una parte de la balanza de pagos, que además registra capitales, inversiones e intereses."},
+        {"texto": "La OMC fue creada en 1995 y sucedió al GATT.", "correcto": true, "explicacion": "Verdadero. Surgió de la Ronda Uruguay y tiene sede en Ginebra."},
+        {"texto": "Prebisch sostenía que la especialización en materias primas beneficiaba por igual a centro y periferia.", "correcto": false, "explicacion": "Falso. Justamente cuestionó esa idea: para él la periferia sufre un deterioro de sus términos de intercambio."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "5-8",
+      "pares": [
+        {"izquierda": "Economía planificada", "derecha": "El Estado centraliza las decisiones productivas", "emoji": "🏛️"},
+        {"izquierda": "Balanza de pagos", "derecha": "Todas las transacciones de un país con el resto del mundo", "emoji": "📒"},
+        {"izquierda": "OMC", "derecha": "Regula el comercio y resuelve controversias entre países", "emoji": "🌐"},
+        {"izquierda": "CEPAL", "derecha": "Organismo de la ONU creado en 1948 para América Latina", "emoji": "🗺️"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "5-8",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "⚙️",
+          "pregunta": "¿Cuál NO es un tipo de sistema económico según la unidad?",
+          "paginas": "5",
+          "palabras": [
+            {"text": "Economía de mercado", "es_intrusa": false},
+            {"text": "Economía planificada", "es_intrusa": false},
+            {"text": "Economía mixta", "es_intrusa": false},
+            {"text": "Economía marginal", "es_intrusa": true}
+          ],
+          "explicacion": "La unidad clasifica los sistemas en de mercado, planificada y mixta."
+        },
+        {
+          "id": 1,
+          "emoji": "🏙️",
+          "pregunta": "¿Cuál NO es una característica de los países centrales?",
+          "paginas": "5-6",
+          "palabras": [
+            {"text": "Alta industrialización", "es_intrusa": false},
+            {"text": "Elevada productividad", "es_intrusa": false},
+            {"text": "Especialización en materias primas", "es_intrusa": true},
+            {"text": "Bienes con alto valor agregado", "es_intrusa": false}
+          ],
+          "explicacion": "La especialización primario-exportadora caracteriza a los países periféricos."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "5-8",
+      "conceptos": [
+        {"termino": "Comercio internacional", "pista": "¿Qué intercambian los países entre sí?", "palabras_clave": ["intercambio", "bienes", "servicios", "países"]},
+        {"termino": "Deterioro de los términos de intercambio", "pista": "¿Qué pasa con lo que puede comprar la periferia con sus exportaciones?", "palabras_clave": ["materias primas", "manufacturas", "precios", "desigual"]},
+        {"termino": "Teoría centro-periferia", "pista": "¿Cómo describió Prebisch la organización de la economía mundial?", "palabras_clave": ["centro", "periferia", "desigual", "industrialización"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "5-8",
+      "causas": [
+        {"id": 0, "text": "Los precios de las materias primas crecen menos que los de las manufacturas", "emoji": "📉"},
+        {"id": 1, "text": "Bajan los costos de transporte y se firman acuerdos multilaterales", "emoji": "🚢"},
+        {"id": 2, "text": "Se abre el comercio sin proteger a las industrias nacientes", "emoji": "🚪"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "Se deterioran los términos de intercambio de la periferia", "emoji": "⚖️", "causa_id": 0},
+        {"id": 11, "text": "Crece el comercio internacional y avanza la globalización", "emoji": "🌐", "causa_id": 1},
+        {"id": 12, "text": "Las industrias de los países en desarrollo pueden verse perjudicadas", "emoji": "🏭", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el razonamiento de la teoría centro-periferia formulada por Prebisch y la CEPAL.",
+      "paginas_referencia": "7-8",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "La periferia se especializa en exportar bienes primarios", "emoji": "🌾"},
+        {"id": 1, "text": "Los precios de esos bienes crecen menos que los de las manufacturas", "emoji": "📉"},
+        {"id": 2, "text": "Se deterioran los términos de intercambio", "emoji": "⚖️"},
+        {"id": 3, "text": "Hay que exportar cada vez más para importar lo mismo", "emoji": "🔄"},
+        {"id": 4, "text": "La CEPAL propone industrializar para diversificar la estructura productiva", "emoji": "🏗️"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "5",
+      "concepto_a": {"nombre": "Economía de mercado", "emoji": "🛒", "color": "#10B981"},
+      "concepto_b": {"nombre": "Economía planificada", "emoji": "🏛️", "color": "#EF4444"}
+    }
+  },
+
+  "nucleo_c": {
+    "bloque_info": {
+      "id": "C",
+      "emoji": "🇦🇷",
+      "titulo": "BLOQUE C: Argentina, del ISI al siglo XXI",
+      "color": "#EC4899",
+      "paginas": [8, 9, 10, 11]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená cronológicamente los hitos de la historia económica argentina reciente.",
+      "paginas_referencia": "8-11",
+      "items": [
+        {"id": 0, "text": "La crisis mundial de 1930 impulsa la industrialización sustitutiva", "emoji": "🏭"},
+        {"id": 1, "text": "Golpe de Estado y plan económico de Martínez de Hoz (1976)", "emoji": "⚠️"},
+        {"id": 2, "text": "Hiperinflación de 1989-1990", "emoji": "🔥"},
+        {"id": 3, "text": "Ley de Convertibilidad: un peso igual a un dólar (1991)", "emoji": "💵"},
+        {"id": 4, "text": "Crisis, default y fin de la convertibilidad (diciembre de 2001)", "emoji": "💥"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada medida según corresponda al modelo de sustitución de importaciones o al modelo de apertura de los 90.",
+      "paginas_referencia": "8-10",
+      "categorias": [
+        {"name": "Modelo ISI", "emoji": "🏗️", "color": "#F59E0B"},
+        {"name": "Apertura y convertibilidad", "emoji": "🚪", "color": "#EC4899"}
+      ],
+      "items": [
+        {"id": 0, "text": "Aranceles elevados a los productos manufacturados importados", "categoria_correcta": 0},
+        {"id": 1, "text": "Privatización de YPF, ENTel y Aerolíneas Argentinas", "categoria_correcta": 1},
+        {"id": 2, "text": "Creación de empresas estatales en sectores estratégicos", "categoria_correcta": 0},
+        {"id": 3, "text": "Paridad cambiaria fijada por ley", "categoria_correcta": 1},
+        {"id": 4, "text": "Créditos subsidiados a las industrias nacientes", "categoria_correcta": 0},
+        {"id": 5, "text": "Desregulación de los mercados y disciplina fiscal", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "8-11",
+      "blanks": [
+        {"id": "b1", "texto_antes": "El modelo ISI buscaba reemplazar las importaciones de manufacturas por producción ________ nacional.", "respuesta_correcta": "industrial", "pista": "I_________"},
+        {"id": "b2", "texto_antes": "La 'tablita ________' anunciaba de manera anticipada y decreciente la devaluación futura del peso.", "respuesta_correcta": "cambiaria", "pista": "C________"},
+        {"id": "b3", "texto_antes": "El conjunto de reformas de los 90 —privatizaciones, apertura y desregulación— se conoce como Consenso de ________.", "respuesta_correcta": "Washington", "pista": "W_________"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "8-11",
+      "afirmaciones": [
+        {"texto": "El fenómeno de 'stop and go' describe crecimientos interrumpidos por crisis de balanza de pagos.", "correcto": true, "explicacion": "Verdadero. La industria protegida no generaba las divisas necesarias para importar insumos y bienes de capital."},
+        {"texto": "Durante la dictadura la deuda externa argentina se redujo notablemente.", "correcto": false, "explicacion": "Falso. Se multiplicó varias veces entre 1976 y 1983, en buena parte para sostener la fuga de capitales."},
+        {"texto": "La convertibilidad logró frenar de manera abrupta el proceso hiperinflacionario.", "correcto": true, "explicacion": "Verdadero. Consiguió una estabilidad de precios inédita, aunque generó otros desequilibrios."},
+        {"texto": "Tras 2002 el Estado argentino redujo su participación en la economía.", "correcto": false, "explicacion": "Falso. Recuperó un rol más activo: promoción industrial, programas sociales y reestatizaciones."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "8-11",
+      "pares": [
+        {"izquierda": "Modelo ISI", "derecha": "Industrialización orientada al mercado interno", "emoji": "🏗️"},
+        {"izquierda": "Martínez de Hoz", "derecha": "Apertura comercial y valorización financiera", "emoji": "📉"},
+        {"izquierda": "Ley de Convertibilidad", "derecha": "Un peso igual a un dólar por ley", "emoji": "💵"},
+        {"izquierda": "Canje de deuda de 2005", "derecha": "Renegociación con quita sobre el valor de los bonos", "emoji": "🤝"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "8-11",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🏗️",
+          "pregunta": "¿Cuál NO fue una herramienta del modelo de sustitución de importaciones?",
+          "paginas": "8",
+          "palabras": [
+            {"text": "Aranceles altos a las importaciones", "es_intrusa": false},
+            {"text": "Créditos subsidiados a la industria", "es_intrusa": false},
+            {"text": "Empresas estatales en sectores estratégicos", "es_intrusa": false},
+            {"text": "Privatización de servicios públicos", "es_intrusa": true}
+          ],
+          "explicacion": "Las privatizaciones masivas son características de las reformas de los años 90."
+        },
+        {
+          "id": 1,
+          "emoji": "💵",
+          "pregunta": "¿Cuál NO corresponde a las reformas de la década de 1990?",
+          "paginas": "9-10",
+          "palabras": [
+            {"text": "Consenso de Washington", "es_intrusa": false},
+            {"text": "Convertibilidad", "es_intrusa": false},
+            {"text": "Privatizaciones", "es_intrusa": false},
+            {"text": "Plan Marshall", "es_intrusa": true}
+          ],
+          "explicacion": "El Plan Marshall fue la ayuda de EE.UU. a Europa occidental en 1948."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "8-11",
+      "conceptos": [
+        {"termino": "Sustitución de importaciones", "pista": "¿Qué buscaba producir el país en lugar de comprarlo afuera?", "palabras_clave": ["industria", "mercado interno", "aranceles", "Estado"]},
+        {"termino": "Valorización financiera", "pista": "¿Qué pasa cuando conviene más especular que producir?", "palabras_clave": ["especulación", "tasas", "capitales", "desindustrialización"]},
+        {"termino": "Convertibilidad", "pista": "¿Qué se fijó por ley en 1991?", "palabras_clave": ["peso", "dólar", "paridad fija", "inflación"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "8-11",
+      "causas": [
+        {"id": 0, "text": "La industria protegida no logra exportar ni generar divisas", "emoji": "🏭"},
+        {"id": 1, "text": "La tablita cambiaria genera atraso del tipo de cambio", "emoji": "📊"},
+        {"id": 2, "text": "Se abandona la paridad fija peso-dólar en 2002", "emoji": "🔓"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "Aparecen crisis recurrentes de balanza de pagos ('stop and go')", "emoji": "🚦", "causa_id": 0},
+        {"id": 11, "text": "Se abaratan las importaciones y se profundiza la desindustrialización", "emoji": "📉", "causa_id": 1},
+        {"id": 12, "text": "La devaluación impulsa la recuperación productiva y las exportaciones", "emoji": "📈", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el proceso que llevó del auge de la convertibilidad a la crisis de 2001.",
+      "paginas_referencia": "9-11",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "Se sanciona la Ley de Convertibilidad y se frena la hiperinflación", "emoji": "💵"},
+        {"id": 1, "text": "Se privatizan las grandes empresas públicas", "emoji": "🏢"},
+        {"id": 2, "text": "La apertura y el atraso cambiario golpean a la industria nacional", "emoji": "🏭"},
+        {"id": 3, "text": "Crecen el desempleo y el endeudamiento externo", "emoji": "📉"},
+        {"id": 4, "text": "Colapsa la convertibilidad y estalla la crisis de diciembre de 2001", "emoji": "💥"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "9-11",
+      "concepto_a": {"nombre": "Década de 1990", "emoji": "💵", "color": "#EC4899"},
+      "concepto_b": {"nombre": "Post 2002", "emoji": "🔄", "color": "#10B981"}
+    }
+  },
+
+  "senales": {
+    "conceptos_clave": [
+      {
+        "termino": "Bretton Woods",
+        "emoji": "🏦",
+        "color": "#6366F1",
+        "definicion": "Conferencia de 1944 donde 44 países crearon el FMI y el Banco Internacional de Reconstrucción y Fomento, y establecieron tipos de cambio fijos referenciados al dólar.",
+        "importancia": "Definió el orden monetario internacional que todavía condiciona a las economías periféricas."
+      },
+      {
+        "termino": "Centro y periferia",
+        "emoji": "🌍",
+        "color": "#10B981",
+        "definicion": "División del sistema económico mundial entre países industrializados y diversificados y países primario-exportadores y dependientes.",
+        "importancia": "Explica por qué el comercio internacional no beneficia por igual a todos los países."
+      },
+      {
+        "termino": "Sustitución de importaciones",
+        "emoji": "🏗️",
+        "color": "#F59E0B",
+        "definicion": "Estrategia de desarrollo que buscó reemplazar las manufacturas importadas por producción industrial nacional, con fuerte protección y participación del Estado.",
+        "importancia": "Fue el modelo dominante en la Argentina entre 1930 y 1970 y explica buena parte de su industria."
+      },
+      {
+        "termino": "Convertibilidad",
+        "emoji": "💵",
+        "color": "#EC4899",
+        "definicion": "Régimen sancionado por ley en 1991 que fijó la paridad de un peso igual a un dólar respaldada por reservas del Banco Central.",
+        "importancia": "Terminó con la hiperinflación pero dejó a la economía sin política cambiaria frente a shocks externos."
+      }
+    ],
+    "semaforo_conceptos": [
+      "Plan Marshall",
+      "Ventaja comparativa",
+      "Deterioro de los términos de intercambio",
+      "Stop and go",
+      "Consenso de Washington"
+    ],
+    "postits_conceptos": [
+      "Bretton Woods",
+      "Centro-periferia",
+      "Modelo ISI",
+      "Convertibilidad"
+    ]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {
+        "emoji": "🥇",
+        "frente": "Al terminar la Segunda Guerra Mundial, Estados Unidos concentraba cerca de dos tercios de las reservas de oro del mundo",
+        "dorso": "Por eso pudo imponer al dólar como moneda de referencia en Bretton Woods: era el único país que podía prometer convertir su moneda en oro. Ese privilegio sigue dándole hoy una ventaja enorme en el comercio y las finanzas globales.",
+        "color": "#6366F1"
+      },
+      {
+        "emoji": "☕",
+        "frente": "De lo que pagás por un café importado, al país productor le queda apenas una fracción mínima",
+        "dorso": "El grueso del precio se lo llevan el tostado, la marca, el transporte y la venta, todas etapas que ocurren en países centrales. Es el ejemplo más cotidiano del deterioro de los términos de intercambio que describió Prebisch.",
+        "color": "#10B981"
+      },
+      {
+        "emoji": "🇦🇷",
+        "frente": "Raúl Prebisch, el economista argentino que cambió la forma de mirar el desarrollo, fue el primer director de la CEPAL",
+        "dorso": "Sus ideas sobre centro y periferia se estudian en universidades de todo el mundo y son una de las contribuciones latinoamericanas más influyentes a la teoría económica del siglo XX.",
+        "color": "#F59E0B"
+      }
+    ],
+
+    "linea_de_tiempo": [
+      {"year": "1944", "text": "Conferencia de Bretton Woods: nacen el FMI y el Banco Mundial", "emoji": "🏦"},
+      {"year": "1948", "text": "Plan Marshall y creación de la CEPAL", "emoji": "🌎"},
+      {"year": "1973", "text": "Primera crisis del petróleo y estanflación mundial", "emoji": "🛢️"},
+      {"year": "1991", "text": "Ley de Convertibilidad en la Argentina", "emoji": "💵"},
+      {"year": "2001", "text": "Crisis, default y fin del régimen de convertibilidad", "emoji": "💥"}
+    ],
+
+    "encuesta": {
+      "pregunta": "¿Qué dato te sorprendió más?",
+      "opciones": [
+        {"emoji": "🥇", "text": "Las reservas de oro de Estados Unidos en 1945", "votos_iniciales": 41},
+        {"emoji": "☕", "text": "Lo poco que queda en el país que produce la materia prima", "votos_iniciales": 47},
+        {"emoji": "🇦🇷", "text": "Que un argentino haya dirigido la CEPAL", "votos_iniciales": 33}
+      ]
+    }
+  },
+
+  "cruces": {
+    "consigna_general": "Elegí uno de estos temas del PDF y preparate para explicárselo a un compañero. Podés usar ejemplos, líneas de tiempo o comparaciones con la actualidad. La idea es que tu compañero entienda el tema aunque no lo haya leído todavía.",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "💣",
+        "titulo": "BLOQUE A: El mundo después de la guerra",
+        "color": "#6366F1",
+        "temas_sugeridos": [
+          "Explicale por qué la Segunda Guerra Mundial dejó a Estados Unidos como potencia económica hegemónica.",
+          "Enseñale qué se decidió en Bretton Woods y por qué el dólar quedó en el centro del sistema.",
+          "Contale qué fue el Plan Marshall y qué buscaba además de reconstruir Europa.",
+          "Mostrá las diferencias económicas entre el bloque capitalista y el bloque socialista.",
+          "Explicale qué es la estanflación y por qué las crisis del petróleo la provocaron."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      },
+      {
+        "id": "b",
+        "emoji": "🚢",
+        "titulo": "BLOQUE B: Comercio mundial y desigualdad estructural",
+        "color": "#10B981",
+        "temas_sugeridos": [
+          "Explicale la diferencia entre economía de mercado, planificada y mixta con ejemplos.",
+          "Enseñale qué es la balanza comercial y cuándo hay superávit o déficit.",
+          "Contale qué diferencia a un país central de uno periférico y dónde ubicarías a la Argentina.",
+          "Explicale qué hace la OMC y por qué genera debates entre defensores y críticos.",
+          "Mostrá en qué consiste la teoría centro-periferia de Prebisch y la CEPAL."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      },
+      {
+        "id": "c",
+        "emoji": "🇦🇷",
+        "titulo": "BLOQUE C: Argentina, del ISI al siglo XXI",
+        "color": "#EC4899",
+        "temas_sugeridos": [
+          "Explicale qué fue el modelo de sustitución de importaciones y qué papel cumplió el Estado.",
+          "Enseñale por qué el modelo ISI entró en crisis y qué es el 'stop and go'.",
+          "Contale en qué consistió el plan económico de la dictadura y qué dejó como legado.",
+          "Explicale cómo funcionaba la convertibilidad y por qué terminó colapsando.",
+          "Mostrá qué cambió en el rol del Estado a partir de 2002 y qué debate sigue abierto hoy."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      }
+    ]
+  },
+
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "Para desarrollarse, un país periférico debe proteger su industria antes que abrir su economía",
+      "contexto": "La historia económica argentina osciló entre modelos de protección industrial y modelos de apertura. Analizá, con los argumentos del apunte, si conviene proteger la producción nacional o integrarse plenamente al comercio internacional.",
+      "roles": [
+        {"id": "fiscal", "label": "A favor de la apertura", "emoji": "🚪", "color": "#EF4444", "desc": "Defendé que la apertura comercial mejora la eficiencia, baja precios y atrae inversiones."},
+        {"id": "defensa", "label": "A favor de la protección", "emoji": "🏭", "color": "#10B981", "desc": "Argumentá por qué la industria nacional necesita protección para poder desarrollarse y generar empleo."},
+        {"id": "juez", "label": "Posición equilibrada", "emoji": "⚖️", "color": "#6366F1", "desc": "Buscá una postura que combine inserción internacional con desarrollo productivo propio."}
+      ]
+    },
+
+    "tesis": {
+      "consigna": "Formulá una tesis sobre cuál debería ser el lugar de la Argentina en la economía mundial de los próximos años. Incluí ejemplos históricos del apunte, argumentos propios y las críticas que podría recibir tu postura."
+    },
+
+    "critica": {
+      "consigna": "Analizá críticamente los distintos modelos económicos que atravesó la Argentina desde 1930 hasta hoy. ¿Qué logró cada uno? ¿Qué problemas dejó sin resolver? ¿Qué rescatarías y qué cambiarías si tuvieras que diseñar la política económica del país?"
+    }
+  },
+
+  "emocional": {},
+
+  "autotest": {
+    "banco_respuestas_docente": [
+      "1. B - Estados Unidos salió de la guerra con su capacidad industrial intacta y ampliada. (p. 2)",
+      "2. A - El FMI y el Banco Internacional de Reconstrucción y Fomento. (p. 2)",
+      "3. C - Evitar el avance comunista y consolidar a Europa occidental como aliada. (p. 2)",
+      "4. B - Planificación centralizada y propiedad estatal de los medios de producción. (p. 3)",
+      "5. D - Estanflación. (p. 4)",
+      "6. A - La suba de las tasas de interés internacionales. (p. 4)",
+      "7. C - Economía mixta. (p. 5)",
+      "8. B - Exportaciones menos importaciones. (p. 5)",
+      "9. A - Deterioro de los términos de intercambio. (p. 6-7)",
+      "10. C - Reemplazar importaciones de manufacturas por producción industrial nacional. (p. 8)",
+      "11. VERDADERO - La OMC se creó en 1995 y sucedió al GATT. (p. 6)",
+      "12. FALSO - Prebisch cuestionó la teoría de las ventajas comparativas. (p. 7)",
+      "13. VERDADERO - Durante la dictadura la deuda externa se multiplicó varias veces. (p. 8-9)",
+      "14. FALSO - La convertibilidad quitó al Banco Central el manejo de la política cambiaria. (p. 10)",
+      "15. VERDADERO - Después de 2002 el Estado recuperó un rol más activo en la economía. (p. 10-11)"
+    ],
+
+    "preguntas": [
+      {
+        "pregunta": "¿Por qué Estados Unidos se consolidó como potencia hegemónica tras la Segunda Guerra Mundial?",
+        "opciones": [
+          "Porque fue el país con más bajas militares",
+          "Porque su territorio no sufrió combates y amplió su capacidad industrial",
+          "Porque adoptó el modelo de planificación centralizada",
+          "Porque recibió ayuda financiera de Europa"
+        ],
+        "correcta": 1,
+        "explicacion": "Al no sufrir combates en su territorio y proveer a los aliados, terminó la guerra con la industria intacta y ampliada. Revisá la página 2."
+      },
+      {
+        "pregunta": "¿Qué organismos surgieron de la conferencia de Bretton Woods en 1944?",
+        "opciones": [
+          "El FMI y el Banco Internacional de Reconstrucción y Fomento",
+          "La OMC y el GATT",
+          "La CEPAL y la ONU",
+          "La OPEP y el COMECON"
+        ],
+        "correcta": 0,
+        "explicacion": "De Bretton Woods surgieron el Fondo Monetario Internacional y el actual Banco Mundial. Revisá la página 2."
+      },
+      {
+        "pregunta": "Además de reconstruir Europa, ¿qué objetivo estratégico tenía el Plan Marshall?",
+        "opciones": [
+          "Aumentar las reservas de oro europeas",
+          "Financiar la industrialización latinoamericana",
+          "Evitar el avance de los partidos comunistas y consolidar aliados",
+          "Crear una moneda común europea"
+        ],
+        "correcta": 2,
+        "explicacion": "El plan buscaba impedir que la crisis de posguerra favoreciera al comunismo y afianzar a Europa occidental como mercado y aliada de EE.UU. Revisá la página 2."
+      },
+      {
+        "pregunta": "¿Qué caracterizaba económicamente al bloque oriental durante la Guerra Fría?",
+        "opciones": [
+          "Libre competencia y precios determinados por el mercado",
+          "Planificación centralizada y propiedad estatal de los medios de producción",
+          "Integración plena al FMI y al Banco Mundial",
+          "Ausencia total de comercio exterior"
+        ],
+        "correcta": 1,
+        "explicacion": "El bloque liderado por la URSS organizaba la economía mediante planificación estatal y propiedad pública. Revisá la página 3."
+      },
+      {
+        "pregunta": "¿Cómo se llama la combinación de inflación elevada con estancamiento económico?",
+        "opciones": ["Hiperinflación", "Recesión", "Devaluación", "Estanflación"],
+        "correcta": 3,
+        "explicacion": "La estanflación apareció tras la crisis del petróleo de 1973 y puso en crisis el consenso keynesiano. Revisá la página 4."
+      },
+      {
+        "pregunta": "¿Qué consecuencia tuvo para América Latina la respuesta de los bancos centrales a la crisis de 1979?",
+        "opciones": [
+          "La suba de las tasas de interés encareció su deuda externa",
+          "Se cancelaron todas las deudas de la región",
+          "Se prohibió el comercio de materias primas",
+          "Se redujo el precio del petróleo a niveles históricos"
+        ],
+        "correcta": 0,
+        "explicacion": "Los países latinoamericanos se habían endeudado a tasa variable, y la suba de tasas derivó en la crisis de la deuda de los 80. Revisá la página 4."
+      },
+      {
+        "pregunta": "¿Qué tipo de sistema económico predomina hoy en la mayoría de los países?",
+        "opciones": ["Economía de mercado pura", "Economía planificada", "Economía mixta", "Economía de trueque"],
+        "correcta": 2,
+        "explicacion": "En las economías mixtas conviven mecanismos de mercado con distintos grados de intervención estatal. Revisá la página 5."
+      },
+      {
+        "pregunta": "¿Qué registra la balanza comercial?",
+        "opciones": [
+          "Todos los movimientos de capitales de un país",
+          "La diferencia entre exportaciones e importaciones",
+          "El total de impuestos recaudados",
+          "La cantidad de dinero en circulación"
+        ],
+        "correcta": 1,
+        "explicacion": "La balanza comercial compara el valor de exportaciones e importaciones; forma parte de la balanza de pagos. Revisá la página 5."
+      },
+      {
+        "pregunta": "Según Prebisch, ¿qué le ocurre a la periferia a lo largo del tiempo?",
+        "opciones": [
+          "Sufre un deterioro de sus términos de intercambio",
+          "Se industrializa automáticamente por el comercio",
+          "Deja de necesitar importaciones",
+          "Obtiene los mismos beneficios que el centro"
+        ],
+        "correcta": 0,
+        "explicacion": "Debe exportar cantidades cada vez mayores de bienes primarios para importar la misma cantidad de manufacturas. Revisá las páginas 6 y 7."
+      },
+      {
+        "pregunta": "¿Cuál era el objetivo central del modelo de sustitución de importaciones?",
+        "opciones": [
+          "Aumentar las exportaciones de materias primas",
+          "Reducir el gasto público al mínimo",
+          "Reemplazar importaciones de manufacturas por producción industrial nacional",
+          "Fijar el tipo de cambio por ley"
+        ],
+        "correcta": 2,
+        "explicacion": "Buscaba reducir la dependencia externa, generar empleo urbano y diversificar la estructura productiva. Revisá la página 8."
+      }
+    ],
+
+    "verdadero_falso": [
+      {"texto": "La Organización Mundial del Comercio fue creada en 1995 y sucedió al GATT.", "correcto": true, "explicacion": "VERDADERO. Surgió de la Ronda Uruguay y tiene sede en Ginebra. Revisá la página 6."},
+      {"texto": "Prebisch defendió la teoría clásica de las ventajas comparativas.", "correcto": false, "explicacion": "FALSO. Justamente la cuestionó y formuló la teoría centro-periferia. Revisá la página 7."},
+      {"texto": "Durante la dictadura de 1976-1983 la deuda externa argentina se multiplicó varias veces.", "correcto": true, "explicacion": "VERDADERO. Buena parte no fue a inversión productiva sino a fuga de capitales y especulación. Revisá las páginas 8 y 9."},
+      {"texto": "Con la convertibilidad el Banco Central conservaba plena capacidad de usar la política cambiaria.", "correcto": false, "explicacion": "FALSO. Al fijar el tipo de cambio por ley perdió esa herramienta frente a shocks externos. Revisá la página 10."},
+      {"texto": "Después de 2002 el Estado argentino recuperó un rol más activo en la economía.", "correcto": true, "explicacion": "VERDADERO. Hubo promoción industrial, ampliación de programas sociales y reestatizaciones. Revisá las páginas 10 y 11."}
+    ]
+  },
+
+  "cierre": {
+    "glosario": [
+      {"termino": "Bretton Woods", "emoji": "🏦", "definicion": "Conferencia de 1944 que creó el FMI y el Banco Mundial y estableció tipos de cambio fijos referenciados al dólar.", "categoria": "Historia"},
+      {"termino": "Estanflación", "emoji": "📉", "definicion": "Combinación simultánea de inflación elevada y estancamiento de la actividad económica y el empleo.", "categoria": "Indicadores"},
+      {"termino": "Comercio internacional", "emoji": "🚢", "definicion": "Intercambio de bienes, servicios, capitales y tecnología entre distintos países.", "categoria": "Concepto base"},
+      {"termino": "Ventaja comparativa", "emoji": "⚖️", "definicion": "Idea clásica según la cual cada país se especializa en los bienes que produce a un costo relativamente menor.", "categoria": "Pensadores"},
+      {"termino": "Balanza de pagos", "emoji": "📒", "definicion": "Registro del conjunto de transacciones económicas de un país con el resto del mundo.", "categoria": "Indicadores"},
+      {"termino": "Términos de intercambio", "emoji": "🔄", "definicion": "Relación entre los precios de lo que un país exporta y los precios de lo que importa.", "categoria": "Indicadores"},
+      {"termino": "Sustitución de importaciones", "emoji": "🏗️", "definicion": "Modelo que reemplaza manufacturas importadas por producción industrial nacional, con protección estatal.", "categoria": "Procesos"},
+      {"termino": "Convertibilidad", "emoji": "💵", "definicion": "Régimen argentino de 1991 que fijó por ley la paridad de un peso igual a un dólar.", "categoria": "Historia"}
+    ],
+
+    "recursos": [
+      {"tipo": "📖 Libro", "title": "Breve historia económica argentina - Mario Rapoport", "desc": "Recorrido accesible por los grandes modelos económicos del país.", "nivel": "Intermedio", "color": "#6366F1"},
+      {"tipo": "🎬 Video", "title": "Encuentro / Canal Encuentro: historia económica argentina", "desc": "Series documentales sobre industrialización, dictadura, los 90 y la crisis de 2001.", "nivel": "Introductorio", "color": "#3B82F6"},
+      {"tipo": "🌐 Web", "title": "CEPAL (cepal.org)", "desc": "Sitio oficial del organismo fundado en 1948, con informes sobre América Latina.", "nivel": "Avanzado", "color": "#10B981"},
+      {"tipo": "🎧 Podcast", "title": "Economía para todos y todas", "desc": "Episodios breves que explican conceptos económicos con ejemplos argentinos.", "nivel": "Introductorio", "color": "#F59E0B"},
+      {"tipo": "📄 Artículo", "title": "El deterioro de los términos de intercambio, 70 años después", "desc": "Análisis sobre la vigencia actual de la tesis de Prebisch.", "nivel": "Avanzado", "color": "#EC4899"}
+    ]
+  }
+}

@@ -1,0 +1,867 @@
+{
+  "id": "eetp602_6b_economia_u3",
+  "materia": "Economía",
+  "unidad": 3,
+  "titulo": "Macroeconomía",
+  "emoji": "📊",
+  "color_primario": "#8B5CF6",
+  "color_secundario": "#6366F1",
+
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "📈",
+        "texto": "Cuando en las noticias dicen «la economía creció 3%», ¿de dónde sacan ese número?",
+        "pista": "Hay un indicador que resume toda la producción de un país en una sola cifra..."
+      },
+      {
+        "emoji": "🧾",
+        "texto": "Si los precios suben todos los meses, ¿cómo se mide cuánto subieron en realidad?",
+        "pista": "Alguien tiene que ir a mirar los precios de una canasta de productos, uno por uno..."
+      },
+      {
+        "emoji": "🔍",
+        "texto": "¿Una persona que no trabaja y tampoco busca trabajo cuenta como desocupada?",
+        "pista": "La respuesta cambia por completo el número de la tasa de desocupación..."
+      }
+    ],
+    "situaciones_conecta": [
+      {"emoji": "📰", "label": "Escuché hablar del PBI o de la inflación en las noticias"},
+      {"emoji": "🛒", "label": "Noté que lo mismo que compraba antes hoy cuesta más"},
+      {"emoji": "👨‍👩‍👧", "label": "Alguien cercano buscó trabajo y le costó conseguirlo"},
+      {"emoji": "💵", "label": "Escuché a mi familia hablar de la hiperinflación de los 80"}
+    ],
+    "termometro_pregunta": "¿Cuánto sabés sobre cómo se mide la economía de un país en su conjunto?"
+  },
+
+  "mapa": {
+    "ruta_paradas": [
+      {"id": 0, "emoji": "🔭", "title": "Micro y macro", "desc": "Dos miradas distintas de la misma economía", "color": "#8B5CF6"},
+      {"id": 1, "emoji": "📦", "title": "El PBI", "desc": "Concepto, métodos de cálculo, nominal y real", "color": "#6366F1"},
+      {"id": 2, "emoji": "👷", "title": "Empleo y desocupación", "desc": "PEA, tasa de desocupación y sus tipos", "color": "#10B981"},
+      {"id": 3, "emoji": "🇦🇷", "title": "El mercado de trabajo argentino", "desc": "La EPH del INDEC y la evolución del desempleo", "color": "#F59E0B"},
+      {"id": 4, "emoji": "🔥", "title": "Inflación y crecimiento", "desc": "IPC, hiperinflación y crecimiento económico", "color": "#EF4444"}
+    ],
+
+    "panoramica_bloques": [
+      {
+        "id": "a",
+        "emoji": "📦",
+        "title": "BLOQUE A",
+        "subtitle": "Macroeconomía y PBI",
+        "color": "#8B5CF6",
+        "items": [
+          "Microeconomía y macroeconomía: dos niveles de análisis",
+          "Variables y objetivos de la política macroeconómica",
+          "El PBI: bienes y servicios finales",
+          "Doble contabilización y PBI per cápita",
+          "Los tres métodos de cálculo del PBI",
+          "PBI nominal, PBI real y deflactor"
+        ]
+      },
+      {
+        "id": "b",
+        "emoji": "👷",
+        "title": "BLOQUE B",
+        "subtitle": "Empleo y desocupación",
+        "color": "#10B981",
+        "items": [
+          "Los grandes problemas macroeconómicos",
+          "Población económicamente activa e inactiva",
+          "Cálculo de la tasa de desocupación",
+          "Desocupación friccional, estructural y cíclica",
+          "Subocupación",
+          "La EPH del INDEC y la evolución argentina"
+        ]
+      },
+      {
+        "id": "c",
+        "emoji": "🔥",
+        "title": "BLOQUE C",
+        "subtitle": "Inflación, hiperinflación y crecimiento",
+        "color": "#EF4444",
+        "items": [
+          "Inflación: concepto y medición con el IPC",
+          "Causas: de demanda, de costos, inercial y estructural",
+          "Efectos de la inflación sobre la economía",
+          "Hiperinflación y criterio de Cagan",
+          "Los casos argentinos de 1989 y 1990",
+          "Crecimiento económico y desarrollo económico"
+        ]
+      }
+    ],
+
+    "mapa_mental": {
+      "centro": {"emoji": "📊", "title": "MACROECONOMÍA"},
+      "ramas": [
+        {
+          "id": "que",
+          "emoji": "❓",
+          "title": "¿Qué estudiamos?",
+          "color": "#8B5CF6",
+          "items": ["La economía como un todo", "El nivel de producción del país", "El empleo y los precios", "El crecimiento económico"]
+        },
+        {
+          "id": "quienes",
+          "emoji": "👥",
+          "title": "¿Quiénes participan?",
+          "color": "#6366F1",
+          "items": ["Familias, empresas y Estado", "Banco Central", "Ministerio de Economía", "INDEC"]
+        },
+        {
+          "id": "como",
+          "emoji": "⚙️",
+          "title": "¿Cómo se mide?",
+          "color": "#10B981",
+          "items": ["PBI por gasto, valor agregado e ingreso", "PBI real y deflactor", "Tasa de desocupación sobre la PEA", "Índice de Precios al Consumidor"]
+        },
+        {
+          "id": "porque",
+          "emoji": "🎯",
+          "title": "¿Por qué importa?",
+          "color": "#F59E0B",
+          "items": ["Permite interpretar las noticias", "Explica los debates de política económica", "Muestra el contexto de las empresas", "Afecta el salario y el empleo de todos"]
+        }
+      ]
+    }
+  },
+
+  "nucleo_a": {
+    "bloque_info": {
+      "id": "A",
+      "emoji": "📦",
+      "titulo": "BLOQUE A: Macroeconomía y PBI",
+      "color": "#8B5CF6",
+      "paginas": [2, 3, 4]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los pasos del cálculo del PBI por el método del gasto, siguiendo la identidad PBI = C + I + G + (X − M).",
+      "paginas_referencia": "3-4",
+      "items": [
+        {"id": 0, "text": "Sumar el consumo privado: el gasto de las familias en bienes y servicios (C)", "emoji": "🛒"},
+        {"id": 1, "text": "Agregar la inversión: bienes de capital de las empresas más variación de existencias (I)", "emoji": "🏗️"},
+        {"id": 2, "text": "Sumar el gasto público: consumo e inversión del Estado (G)", "emoji": "🏛️"},
+        {"id": 3, "text": "Sumar las exportaciones, lo que el país le vende al resto del mundo (X)", "emoji": "🚢"},
+        {"id": 4, "text": "Restar las importaciones (M) y obtener así el PBI", "emoji": "📦"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada situación según corresponda al análisis microeconómico o al macroeconómico.",
+      "paginas_referencia": "2",
+      "categorias": [
+        {"name": "Microeconomía", "emoji": "🔬", "color": "#6366F1"},
+        {"name": "Macroeconomía", "emoji": "🔭", "color": "#8B5CF6"}
+      ],
+      "items": [
+        {"id": 0, "text": "Analiza el comportamiento de un consumidor individual", "categoria_correcta": 0},
+        {"id": 1, "text": "Estudia el nivel de producción total del país medido por el PBI", "categoria_correcta": 1},
+        {"id": 2, "text": "Estudia cómo se determinan los precios y las cantidades en un mercado específico", "categoria_correcta": 0},
+        {"id": 3, "text": "Analiza el nivel general de precios y su tasa de variación", "categoria_correcta": 1},
+        {"id": 4, "text": "Se ocupa de las decisiones de una empresa en particular", "categoria_correcta": 0},
+        {"id": 5, "text": "Trabaja con variables agregadas como el tipo de cambio y la tasa de interés", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "3-4",
+      "blanks": [
+        {"id": "b1", "texto_antes": "El PBI mide el valor monetario de todos los bienes y servicios ________ producidos dentro del territorio de un país en un período.", "respuesta_correcta": "finales", "pista": "F______"},
+        {"id": "b2", "texto_antes": "El PBI ________ valúa la producción a los precios de un año base y refleja solo cambios en las cantidades producidas.", "respuesta_correcta": "real", "pista": "R___"},
+        {"id": "b3", "texto_antes": "El ________ del PBI se obtiene dividiendo el PBI nominal por el PBI real y multiplicando por cien.", "respuesta_correcta": "deflactor", "pista": "D________"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "3-4",
+      "afirmaciones": [
+        {"texto": "El PBI mide la producción realizada dentro del territorio del país, sin importar la nacionalidad de quien la realiza.", "correcto": true, "explicacion": "Verdadero. Por eso se llama producto 'interno' y no 'nacional': el PBN sí toma en cuenta a los factores de propiedad de residentes, estén donde estén."},
+        {"texto": "Para calcular el PBI hay que sumar tanto los bienes intermedios como los finales.", "correcto": false, "explicacion": "Falso. Solo se cuentan los bienes finales, justamente para evitar la doble contabilización: el valor de la harina ya está incluido en el precio del pan."},
+        {"texto": "El PBI per cápita muestra cómo se distribuye el ingreso entre la población.", "correcto": false, "explicacion": "Falso. Es un promedio: el PBI dividido por la cantidad de habitantes. Es una aproximación limitada, porque no considera la distribución del ingreso."},
+        {"texto": "Los tres métodos de cálculo del PBI deberían arrojar, en teoría, el mismo resultado.", "correcto": true, "explicacion": "Verdadero. Gasto, valor agregado e ingreso miran la misma realidad económica desde tres perspectivas distintas."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "3-4",
+      "pares": [
+        {"izquierda": "Método del gasto", "derecha": "PBI = C + I + G + (X − M)", "emoji": "🛒"},
+        {"izquierda": "Método del valor agregado", "derecha": "Suma del valor agregado en cada etapa productiva", "emoji": "🏭"},
+        {"izquierda": "Método del ingreso", "derecha": "Suma de salarios, ganancias, intereses y rentas", "emoji": "💰"},
+        {"izquierda": "Deflactor del PBI", "derecha": "Cociente entre el PBI nominal y el PBI real", "emoji": "📐"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "2-4",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🎯",
+          "pregunta": "¿Cuál NO es un objetivo habitual de la política macroeconómica?",
+          "paginas": "2",
+          "palabras": [
+            {"text": "Crecimiento sostenido de la producción y el ingreso", "es_intrusa": false},
+            {"text": "Pleno empleo", "es_intrusa": false},
+            {"text": "Maximizar la ganancia de una empresa en particular", "es_intrusa": true},
+            {"text": "Estabilidad del nivel general de precios", "es_intrusa": false}
+          ],
+          "explicacion": "La ganancia de una empresa individual es un problema microeconómico. La macro se ocupa de variables agregadas: crecimiento, pleno empleo, estabilidad de precios y equilibrio externo."
+        },
+        {
+          "id": 1,
+          "emoji": "🧮",
+          "pregunta": "¿Cuál NO es un componente del PBI calculado por el método del gasto?",
+          "paginas": "3-4",
+          "palabras": [
+            {"text": "Consumo privado de las familias", "es_intrusa": false},
+            {"text": "Inversión de las empresas", "es_intrusa": false},
+            {"text": "Gasto público del Estado", "es_intrusa": false},
+            {"text": "Tasa de desocupación", "es_intrusa": true}
+          ],
+          "explicacion": "La identidad es PBI = C + I + G + (X − M). La tasa de desocupación es otra variable macroeconómica, pero no entra en ese cálculo."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "2-4",
+      "conceptos": [
+        {"termino": "Macroeconomía", "pista": "¿Qué mira la economía cuando deja de mirar un solo mercado?", "palabras_clave": ["economía como un todo", "variables agregadas", "PBI", "empleo", "precios"]},
+        {"termino": "Producto Bruto Interno", "pista": "¿Qué mide exactamente, dónde y en qué período?", "palabras_clave": ["bienes y servicios finales", "territorio", "período", "valor monetario"]},
+        {"termino": "PBI real", "pista": "¿Por qué se usan los precios de un año base?", "palabras_clave": ["precios constantes", "año base", "sin inflación", "crecimiento genuino"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "3-4",
+      "causas": [
+        {"id": 0, "text": "Se suma el valor de la harina y también el del pan hecho con esa harina", "emoji": "🍞"},
+        {"id": 1, "text": "Suben los precios pero se produce la misma cantidad de bienes", "emoji": "📈"},
+        {"id": 2, "text": "Se divide el PBI total por la cantidad de habitantes del país", "emoji": "👥"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "Se cae en la doble contabilización y el PBI queda inflado", "emoji": "❌", "causa_id": 0},
+        {"id": 11, "text": "El PBI nominal crece aunque el PBI real no haya aumentado", "emoji": "🎭", "causa_id": 1},
+        {"id": 12, "text": "Se obtiene el PBI per cápita, una aproximación al ingreso promedio", "emoji": "🧍", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el razonamiento que va del PBI nominal al deflactor del PBI.",
+      "paginas_referencia": "4",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "Se valúa la producción del período a los precios corrientes de ese mismo período", "emoji": "🏷️"},
+        {"id": 1, "text": "Se obtiene el PBI nominal, que mezcla cambios de cantidades con cambios de precios", "emoji": "🌀"},
+        {"id": 2, "text": "Se vuelve a valuar esa producción a los precios de un año base fijo", "emoji": "📌"},
+        {"id": 3, "text": "Se obtiene el PBI real, que refleja solo la cantidad física producida", "emoji": "📦"},
+        {"id": 4, "text": "Se divide el PBI nominal por el PBI real y se multiplica por cien: el deflactor", "emoji": "📐"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "4",
+      "concepto_a": {"nombre": "PBI nominal", "emoji": "🏷️", "color": "#8B5CF6"},
+      "concepto_b": {"nombre": "PBI real", "emoji": "📦", "color": "#10B981"}
+    }
+  },
+
+  "nucleo_b": {
+    "bloque_info": {
+      "id": "B",
+      "emoji": "👷",
+      "titulo": "BLOQUE B: Empleo y desocupación",
+      "color": "#10B981",
+      "paginas": [5, 6, 7]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená la clasificación de la población hasta llegar al cálculo de la tasa de desocupación.",
+      "paginas_referencia": "5-6",
+      "items": [
+        {"id": 0, "text": "Se parte de la población total del país", "emoji": "👥"},
+        {"id": 1, "text": "Se separa a la población en edad de trabajar del resto", "emoji": "🧑‍🏭"},
+        {"id": 2, "text": "Dentro de ella se distingue la población económicamente activa de la inactiva", "emoji": "➗"},
+        {"id": 3, "text": "Dentro de la PEA se separa a los ocupados de los desocupados", "emoji": "🔍"},
+        {"id": 4, "text": "Se dividen los desocupados por la PEA y se multiplica por cien", "emoji": "🧮"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada caso según integre la población económicamente activa o la población inactiva.",
+      "paginas_referencia": "5-6",
+      "categorias": [
+        {"name": "Población económicamente activa", "emoji": "💼", "color": "#10B981"},
+        {"name": "Población inactiva", "emoji": "🛋️", "color": "#F59E0B"}
+      ],
+      "items": [
+        {"id": 0, "text": "Una persona que tiene un empleo", "categoria_correcta": 0},
+        {"id": 1, "text": "Un estudiante que no trabaja ni busca trabajo", "categoria_correcta": 1},
+        {"id": 2, "text": "Alguien que no tiene trabajo pero lo está buscando activamente", "categoria_correcta": 0},
+        {"id": 3, "text": "Una persona jubilada", "categoria_correcta": 1},
+        {"id": 4, "text": "Un trabajador subocupado que busca trabajar más horas", "categoria_correcta": 0},
+        {"id": 5, "text": "Alguien que dejó de buscar empleo porque cree que no lo va a encontrar", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "5-7",
+      "blanks": [
+        {"id": "b1", "texto_antes": "La tasa de desocupación se calcula dividiendo la cantidad de desocupados por la ________ y multiplicando por cien.", "respuesta_correcta": "PEA", "pista": "P__"},
+        {"id": "b2", "texto_antes": "La desocupación ________ resulta del desajuste entre las calificaciones que tienen los trabajadores y las que demandan las empresas.", "respuesta_correcta": "estructural", "pista": "E__________"},
+        {"id": "b3", "texto_antes": "En la Argentina el INDEC mide el mercado de trabajo con la Encuesta Permanente de ________, de frecuencia trimestral.", "respuesta_correcta": "Hogares", "pista": "H______"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "5-7",
+      "afirmaciones": [
+        {"texto": "La tasa de desocupación se calcula sobre la población total del país.", "correcto": false, "explicacion": "Falso. Se calcula exclusivamente sobre la población económicamente activa, es decir, sobre quienes trabajan o buscan trabajo."},
+        {"texto": "La desocupación friccional se considera inevitable y hasta saludable para el funcionamiento del mercado de trabajo.", "correcto": true, "explicacion": "Verdadero. Es el tiempo que naturalmente demanda buscar empleo: alguien que deja un trabajo para buscar uno mejor o que recién ingresa al mercado laboral."},
+        {"texto": "La subocupación describe a personas que no tienen ningún empleo.", "correcto": false, "explicacion": "Falso. Los subocupados sí tienen empleo, pero trabajan menos horas de las que estarían dispuestos y buscan activamente trabajar más."},
+        {"texto": "Durante la crisis de 2001-2002 la tasa de desocupación argentina llegó a superar el 20% de la PEA.", "correcto": true, "explicacion": "Verdadero. Fue el punto más crítico, en el marco del colapso de la convertibilidad y de una de las crisis más profundas de la historia argentina."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "5-7",
+      "pares": [
+        {"izquierda": "Desocupación friccional", "derecha": "Tiempo que demanda naturalmente la búsqueda de un empleo", "emoji": "⏳"},
+        {"izquierda": "Desocupación estructural", "derecha": "Desajuste duradero entre las calificaciones disponibles y las demandadas", "emoji": "🔧"},
+        {"izquierda": "Desocupación cíclica", "derecha": "Sube en las recesiones y baja en las expansiones", "emoji": "📉"},
+        {"izquierda": "Subocupación", "derecha": "Trabajar menos horas de las que se está dispuesto a trabajar", "emoji": "⏱️"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "5-6",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "⚠️",
+          "pregunta": "¿Cuál NO es uno de los grandes problemas macroeconómicos que enumera el apunte?",
+          "paginas": "5",
+          "palabras": [
+            {"text": "La desocupación", "es_intrusa": false},
+            {"text": "La inflación", "es_intrusa": false},
+            {"text": "La doble contabilización del PBI", "es_intrusa": true},
+            {"text": "Los desequilibrios en las cuentas externas", "es_intrusa": false}
+          ],
+          "explicacion": "La doble contabilización es un problema de medición del PBI, no un problema macroeconómico de la economía. Los grandes problemas son desocupación, inflación, insuficiente crecimiento o recesión y desequilibrios externos."
+        },
+        {
+          "id": 1,
+          "emoji": "💼",
+          "pregunta": "¿Quién NO integra la población económicamente activa?",
+          "paginas": "6",
+          "palabras": [
+            {"text": "Una persona ocupada", "es_intrusa": false},
+            {"text": "Alguien que busca trabajo activamente", "es_intrusa": false},
+            {"text": "Un trabajador subocupado", "es_intrusa": false},
+            {"text": "Un jubilado que no busca empleo", "es_intrusa": true}
+          ],
+          "explicacion": "La PEA está formada por ocupados y desocupados que buscan trabajo. Los jubilados forman parte de la población económicamente inactiva."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "5-7",
+      "conceptos": [
+        {"termino": "Población económicamente activa", "pista": "¿Quiénes participan realmente del mercado de trabajo?", "palabras_clave": ["ocupados", "desocupados", "buscan trabajo", "edad de trabajar"]},
+        {"termino": "Desocupación cíclica", "pista": "¿Qué le pasa al empleo cuando la economía se enfría?", "palabras_clave": ["recesión", "demanda agregada", "expansión", "ciclo económico"]},
+        {"termino": "Subocupación", "pista": "¿Se puede tener trabajo y aun así estar en problemas?", "palabras_clave": ["menos horas", "empleo", "busca trabajar más", "precariedad"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "5-6",
+      "causas": [
+        {"id": 0, "text": "Cae la demanda agregada y las empresas reducen su producción", "emoji": "📉"},
+        {"id": 1, "text": "Un cambio tecnológico transforma la estructura productiva de la región", "emoji": "🤖"},
+        {"id": 2, "text": "La desocupación se mantiene alta durante mucho tiempo", "emoji": "🕰️"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "Aumenta la desocupación cíclica", "emoji": "🚦", "causa_id": 0},
+        {"id": 11, "text": "Aparece desocupación estructural por desajuste de calificaciones", "emoji": "🔧", "causa_id": 1},
+        {"id": 12, "text": "Se desaprovechan recursos productivos y cae el bienestar de las familias", "emoji": "💔", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená la cadena que une una política monetaria restrictiva con el aumento de la desocupación.",
+      "paginas_referencia": "5",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "El gobierno aplica una política monetaria fuertemente restrictiva para bajar la inflación", "emoji": "🏦"},
+        {"id": 1, "text": "Se encarece el crédito", "emoji": "💳"},
+        {"id": 2, "text": "Se desalientan la inversión y el consumo", "emoji": "🛑"},
+        {"id": 3, "text": "Se enfría la actividad económica", "emoji": "🧊"},
+        {"id": 4, "text": "Aumenta la desocupación, al menos en el corto plazo", "emoji": "📉"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "6",
+      "concepto_a": {"nombre": "Desocupación friccional", "emoji": "⏳", "color": "#10B981"},
+      "concepto_b": {"nombre": "Desocupación estructural", "emoji": "🔧", "color": "#F59E0B"}
+    }
+  },
+
+  "nucleo_c": {
+    "bloque_info": {
+      "id": "C",
+      "emoji": "🔥",
+      "titulo": "BLOQUE C: Inflación, hiperinflación y crecimiento",
+      "color": "#EF4444",
+      "paginas": [7, 8, 9]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená cronológicamente los hechos del episodio hiperinflacionario argentino y su desenlace.",
+      "paginas_referencia": "8",
+      "items": [
+        {"id": 0, "text": "Se desata el proceso hiperinflacionario de 1989, en medio de una crisis económica, fiscal y de confianza", "emoji": "🔥"},
+        {"id": 1, "text": "Se adelanta el traspaso de gobierno de Raúl Alfonsín a Carlos Menem (1989)", "emoji": "🤝"},
+        {"id": 2, "text": "Se registra un nuevo episodio hiperinflacionario a comienzos de 1990", "emoji": "💸"},
+        {"id": 3, "text": "Se sanciona la Ley de Convertibilidad, con fuerte apoyo social (1991)", "emoji": "💵"},
+        {"id": 4, "text": "La hiperinflación termina de manera abrupta, aunque quedan otros desequilibrios de largo plazo", "emoji": "🛑"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada situación según explique una inflación de demanda o una inflación de costos.",
+      "paginas_referencia": "7",
+      "categorias": [
+        {"name": "Inflación de demanda", "emoji": "🛒", "color": "#EF4444"},
+        {"name": "Inflación de costos", "emoji": "🏭", "color": "#F59E0B"}
+      ],
+      "items": [
+        {"id": 0, "text": "La demanda agregada crece a un ritmo mayor que la capacidad de producción", "categoria_correcta": 0},
+        {"id": 1, "text": "Un aumento del tipo de cambio encarece los insumos importados", "categoria_correcta": 1},
+        {"id": 2, "text": "El exceso de demanda genera presión al alza sobre los precios", "categoria_correcta": 0},
+        {"id": 3, "text": "Una suba de salarios que no se corresponde con incrementos de productividad", "categoria_correcta": 1},
+        {"id": 4, "text": "La economía no llega a producir todo lo que se le está demandando", "categoria_correcta": 0},
+        {"id": 5, "text": "Las empresas trasladan a los precios de venta el encarecimiento de sus costos", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "7-9",
+      "blanks": [
+        {"id": "b1", "texto_antes": "La inflación se mide con el Índice de Precios al ________, que sigue el precio de una canasta representativa de los hogares.", "respuesta_correcta": "Consumidor", "pista": "C__________"},
+        {"id": "b2", "texto_antes": "Según el criterio propuesto por el economista ________, hay hiperinflación cuando la inflación mensual supera el 50%.", "respuesta_correcta": "Cagan", "pista": "C____"},
+        {"id": "b3", "texto_antes": "El crecimiento económico se mide como la variación porcentual del PBI ________ entre dos períodos sucesivos.", "respuesta_correcta": "real", "pista": "R___"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "7-9",
+      "afirmaciones": [
+        {"texto": "Para hablar de inflación alcanza con que suba el precio de un producto en particular.", "correcto": false, "explicacion": "Falso. El aumento tiene que ser generalizado —que afecte a la mayoría de los bienes y servicios— y sostenido en el tiempo, no aislado o puntual."},
+        {"texto": "En una hiperinflación la moneda nacional pierde su función de reserva de valor.", "correcto": true, "explicacion": "Verdadero. En los casos más extremos pierde incluso su función de medio de cambio y es reemplazada por otras monedas o por el trueque."},
+        {"texto": "La inflación inercial se explica porque los actores económicos ajustan precios y salarios según la inflación pasada.", "correcto": true, "explicacion": "Verdadero. Trabajadores y empresas ajustan sus expectativas mirando lo que ya pasó, y así la inflación se retroalimenta."},
+        {"texto": "Crecimiento económico y desarrollo económico son conceptos equivalentes.", "correcto": false, "explicacion": "Falso. El crecimiento es el aumento cuantitativo de la producción; el desarrollo incluye además distribución del ingreso, salud, educación, calidad del empleo y sustentabilidad."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "7-9",
+      "pares": [
+        {"izquierda": "Índice de Precios al Consumidor", "derecha": "Sigue el precio de una canasta representativa de los hogares", "emoji": "🛒"},
+        {"izquierda": "Inflación estructural", "derecha": "Insuficiencia de divisas y puja distributiva entre sectores", "emoji": "🧱"},
+        {"izquierda": "Criterio de Cagan", "derecha": "Más del 50% de inflación mensual", "emoji": "🔥"},
+        {"izquierda": "Progreso tecnológico", "derecha": "Fuente de crecimiento que aumenta la productividad de los factores", "emoji": "🤖"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "7-9",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🔥",
+          "pregunta": "¿Cuál NO es un tipo de inflación según sus causas?",
+          "paginas": "7-8",
+          "palabras": [
+            {"text": "Inflación de demanda", "es_intrusa": false},
+            {"text": "Inflación de costos", "es_intrusa": false},
+            {"text": "Inflación friccional", "es_intrusa": true},
+            {"text": "Inflación inercial", "es_intrusa": false}
+          ],
+          "explicacion": "'Friccional' es un tipo de desocupación, no de inflación. Las causas que distingue el apunte son de demanda, de costos, inercial y estructural."
+        },
+        {
+          "id": 1,
+          "emoji": "🌱",
+          "pregunta": "¿Cuál NO es una fuente del crecimiento económico de largo plazo?",
+          "paginas": "9",
+          "palabras": [
+            {"text": "Acumulación de capital físico", "es_intrusa": false},
+            {"text": "Crecimiento de la cantidad de trabajo disponible", "es_intrusa": false},
+            {"text": "Aumento del nivel general de precios", "es_intrusa": true},
+            {"text": "Progreso tecnológico y mejoras en la organización de la producción", "es_intrusa": false}
+          ],
+          "explicacion": "La suba de precios es inflación, no crecimiento: por eso el crecimiento se mide con el PBI real y no con el nominal."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "7-9",
+      "conceptos": [
+        {"termino": "Inflación", "pista": "¿Qué diferencia hay entre que suba un precio y que haya inflación?", "palabras_clave": ["sostenido", "generalizado", "nivel general de precios", "IPC"]},
+        {"termino": "Hiperinflación", "pista": "¿Qué pasa cuando los precios se duplican en poco más de un mes?", "palabras_clave": ["50% mensual", "Cagan", "descontrolada", "reserva de valor"]},
+        {"termino": "Crecimiento económico", "pista": "¿Cómo se sabe si una economía produce más que antes?", "palabras_clave": ["PBI real", "variación porcentual", "sostenido", "cantidades producidas"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "8",
+      "causas": [
+        {"id": 0, "text": "Los precios suben más rápido que los salarios y las jubilaciones", "emoji": "💸"},
+        {"id": 1, "text": "Nadie sabe a qué precios se va a comprar y vender dentro de unos meses", "emoji": "❓"},
+        {"id": 2, "text": "Los comerciantes prefieren retener la mercadería antes que venderla a precios desactualizados", "emoji": "🏪"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "Se erosiona el poder adquisitivo de los ingresos fijos", "emoji": "📉", "causa_id": 0},
+        {"id": 11, "text": "Crece la incertidumbre y se desalienta la inversión de largo plazo", "emoji": "🚧", "causa_id": 1},
+        {"id": 12, "text": "Aparecen situaciones de desabastecimiento en los comercios", "emoji": "🛒", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená la espiral que se genera en un proceso hiperinflacionario.",
+      "paginas_referencia": "8",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "Los precios empiezan a subir de manera acelerada y fuera de control", "emoji": "🔥"},
+        {"id": 1, "text": "Se instala la expectativa de que van a seguir subiendo cada vez más rápido", "emoji": "😰"},
+        {"id": 2, "text": "Las personas y las empresas intentan desprenderse de la moneda nacional", "emoji": "🏃"},
+        {"id": 3, "text": "Gastan los pesos de inmediato o los cambian por moneda extranjera o bienes", "emoji": "💱"},
+        {"id": 4, "text": "Esa carrera acelera todavía más la suba de precios y realimenta la espiral", "emoji": "🌀"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "9",
+      "concepto_a": {"nombre": "Crecimiento económico", "emoji": "📈", "color": "#EF4444"},
+      "concepto_b": {"nombre": "Desarrollo económico", "emoji": "🌱", "color": "#10B981"}
+    }
+  },
+
+  "senales": {
+    "conceptos_clave": [
+      {
+        "termino": "Producto Bruto Interno",
+        "emoji": "📦",
+        "color": "#8B5CF6",
+        "definicion": "Valor monetario de todos los bienes y servicios finales producidos dentro del territorio de un país durante un período determinado, habitualmente un trimestre o un año.",
+        "importancia": "Es el principal indicador del nivel de actividad económica y la base de casi todas las noticias sobre la marcha de la economía."
+      },
+      {
+        "termino": "PBI real",
+        "emoji": "📐",
+        "color": "#6366F1",
+        "definicion": "PBI valuado a los precios constantes de un año base, de modo que sus variaciones reflejen solo cambios en la cantidad física de bienes y servicios producidos.",
+        "importancia": "Es el único indicador que permite saber si la economía creció de verdad o si solo subieron los precios."
+      },
+      {
+        "termino": "Tasa de desocupación",
+        "emoji": "👷",
+        "color": "#10B981",
+        "definicion": "Cociente entre la cantidad de personas desocupadas y la población económicamente activa, multiplicado por cien.",
+        "importancia": "Se calcula sobre la PEA y no sobre la población total: entender eso cambia por completo la lectura del número."
+      },
+      {
+        "termino": "Inflación",
+        "emoji": "🔥",
+        "color": "#EF4444",
+        "definicion": "Aumento sostenido y generalizado del nivel general de precios de una economía a lo largo del tiempo, medido habitualmente con el Índice de Precios al Consumidor.",
+        "importancia": "Erosiona el poder adquisitivo, genera incertidumbre y distorsiona los precios relativos de toda la economía."
+      }
+    ],
+    "semaforo_conceptos": [
+      "Bienes finales y doble contabilización",
+      "Método del gasto: PBI = C + I + G + (X − M)",
+      "Población económicamente activa",
+      "Desocupación friccional, estructural y cíclica",
+      "Criterio de Cagan"
+    ],
+    "postits_conceptos": [
+      "PBI",
+      "PBI real",
+      "Tasa de desocupación",
+      "Inflación"
+    ]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {
+        "emoji": "📐",
+        "frente": "El inventor del PBI avisó desde el primer día que no servía para medir si un país está bien",
+        "dorso": "Simon Kuznets armó las primeras cuentas nacionales para el Congreso de Estados Unidos en 1934 y en ese mismo informe escribió que 'el bienestar de una nación difícilmente puede inferirse de la medición del ingreso nacional'. Años después ganó el Premio Nobel de Economía. Igual, casi 90 años más tarde, el PBI sigue siendo el número que todos miran.",
+        "color": "#8B5CF6"
+      },
+      {
+        "emoji": "💴",
+        "frente": "La peor hiperinflación de la historia hizo que los precios se duplicaran cada 15 horas",
+        "dorso": "Pasó en Hungría en 1946: la inflación diaria llegó al 200% y el gobierno tuvo que imprimir un billete de 100 trillones de pengő, el de mayor denominación jamás emitido. Convenía gastar el sueldo el mismo día que lo cobrabas, porque al día siguiente valía la mitad.",
+        "color": "#EF4444"
+      },
+      {
+        "emoji": "🇦🇷",
+        "frente": "En 1989 la inflación anual argentina superó el 3.000% y en un solo mes rozó el 200%",
+        "dorso": "Julio de 1989 cerró con casi 200% de inflación mensual: los precios cambiaban varias veces en el mismo día y los supermercados directamente sacaban las etiquetas. Ese año la Argentina superó largamente el umbral de 50% mensual que define una hiperinflación según el criterio de Cagan.",
+        "color": "#F59E0B"
+      }
+    ],
+
+    "linea_de_tiempo": [
+      {"year": "1934", "text": "Kuznets presenta las primeras cuentas nacionales y advierte que no miden el bienestar", "emoji": "📐"},
+      {"year": "1946", "text": "Hungría vive la hiperinflación más extrema registrada en la historia", "emoji": "💴"},
+      {"year": "1956", "text": "Phillip Cagan publica su estudio sobre hiperinflaciones y fija el umbral del 50% mensual", "emoji": "🔥"},
+      {"year": "1989", "text": "La Argentina registra una inflación anual de más de 3.000% y adelanta el traspaso presidencial", "emoji": "🇦🇷"},
+      {"year": "2003", "text": "El INDEC pasa a la EPH continua, con relevamiento trimestral en aglomerados urbanos", "emoji": "📊"}
+    ],
+
+    "encuesta": {
+      "pregunta": "¿Qué dato te sorprendió más?",
+      "opciones": [
+        {"emoji": "📐", "text": "Que el propio creador del PBI dijera que no mide el bienestar", "votos_iniciales": 38},
+        {"emoji": "💴", "text": "El billete húngaro de 100 trillones", "votos_iniciales": 52},
+        {"emoji": "🇦🇷", "text": "El 200% de inflación en un solo mes en la Argentina", "votos_iniciales": 44}
+      ]
+    }
+  },
+
+  "cruces": {
+    "consigna_general": "Elegí uno de estos temas del apunte y preparate para explicárselo a un compañero. Podés usar ejemplos de la vida cotidiana, cuentas simples o noticias actuales. La idea es que tu compañero entienda el tema aunque no lo haya leído todavía.",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "📦",
+        "titulo": "BLOQUE A: Macroeconomía y PBI",
+        "color": "#8B5CF6",
+        "temas_sugeridos": [
+          "Explicale la diferencia entre microeconomía y macroeconomía con un ejemplo de cada una.",
+          "Enseñale qué mide el PBI y por qué solo se cuentan los bienes y servicios finales.",
+          "Contale qué es la doble contabilización usando el ejemplo de la harina y el pan.",
+          "Mostrá los tres métodos de cálculo del PBI y por qué deberían dar el mismo resultado.",
+          "Explicale por qué el PBI real sirve para medir el crecimiento y el nominal no."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      },
+      {
+        "id": "b",
+        "emoji": "👷",
+        "titulo": "BLOQUE B: Empleo y desocupación",
+        "color": "#10B981",
+        "temas_sugeridos": [
+          "Explicale cómo se clasifica la población hasta llegar a la tasa de desocupación.",
+          "Enseñale por qué la tasa se calcula sobre la PEA y no sobre la población total.",
+          "Contale las diferencias entre desocupación friccional, estructural y cíclica con ejemplos.",
+          "Mostrá qué es la subocupación y por qué el solo dato de desocupación puede quedarse corto.",
+          "Explicale cómo mide el INDEC el desempleo y qué pasó con la desocupación argentina desde los 90."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      },
+      {
+        "id": "c",
+        "emoji": "🔥",
+        "titulo": "BLOQUE C: Inflación, hiperinflación y crecimiento",
+        "color": "#EF4444",
+        "temas_sugeridos": [
+          "Explicale qué es la inflación y por qué no alcanza con que suba un solo precio.",
+          "Enseñale cómo se construye el IPC y qué es una canasta representativa.",
+          "Contale las cuatro causas de la inflación: de demanda, de costos, inercial y estructural.",
+          "Mostrá qué es una hiperinflación según el criterio de Cagan y qué pasó en la Argentina en 1989-1990.",
+          "Explicale por qué crecimiento económico y desarrollo económico no son lo mismo."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      }
+    ]
+  },
+
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "Bajar la inflación justifica un aumento del desempleo en el corto plazo",
+      "contexto": "El apunte muestra que los objetivos de la política macroeconómica entran en tensión: una política monetaria restrictiva que encarece el crédito puede bajar la inflación, pero también enfriar la actividad y elevar la desocupación. Analizá, con los argumentos del apunte, qué debería priorizar la política económica.",
+      "roles": [
+        {"id": "fiscal", "label": "Priorizar la baja de la inflación", "emoji": "🔥", "color": "#EF4444", "desc": "Defendé que sin estabilidad de precios no hay planificación posible ni inversión de largo plazo, y que el costo en empleo es transitorio."},
+        {"id": "defensa", "label": "Priorizar el empleo", "emoji": "👷", "color": "#10B981", "desc": "Argumentá que la desocupación destruye bienestar y desaprovecha recursos productivos, y que el costo social no se recupera fácilmente."},
+        {"id": "juez", "label": "Posición equilibrada", "emoji": "⚖️", "color": "#8B5CF6", "desc": "Buscá una postura que atienda las dos tensiones y explique cómo combinar estabilidad de precios con cuidado del empleo."}
+      ]
+    },
+
+    "tesis": {
+      "consigna": "Formulá una tesis sobre cuál debería ser el principal objetivo de la política macroeconómica argentina en los próximos años. Incluí datos y conceptos del apunte (PBI real, tasa de desocupación, IPC), argumentos propios y las críticas que podría recibir tu postura."
+    },
+
+    "critica": {
+      "consigna": "Analizá críticamente el uso del PBI como indicador central de la economía. ¿Qué muestra bien? ¿Qué deja afuera? Usá la distinción entre crecimiento y desarrollo económico y proponé qué otros indicadores agregarías si tuvieras que evaluar cómo le va realmente a un país."
+    }
+  },
+
+  "emocional": {},
+
+  "autotest": {
+    "banco_respuestas_docente": [
+      "1. C - El funcionamiento de la economía como un todo, a partir de variables agregadas. (p. 2)",
+      "2. A - El valor de todos los bienes y servicios finales producidos en un país en un período. (p. 3)",
+      "3. D - Para evitar la doble contabilización. (p. 3)",
+      "4. B - PBI = C + I + G + (X − M). (p. 3-4)",
+      "5. C - El cociente entre el PBI nominal y el PBI real, multiplicado por cien. (p. 4)",
+      "6. B - Sobre la población económicamente activa. (p. 5-6)",
+      "7. D - Desocupación cíclica. (p. 6)",
+      "8. A - La Encuesta Permanente de Hogares, sobre 31 aglomerados urbanos. (p. 6)",
+      "9. C - Más del 50% de inflación mensual. (p. 8)",
+      "10. B - El desarrollo incluye dimensiones cualitativas como distribución del ingreso, salud y educación. (p. 9)",
+      "11. VERDADERO - El PBI mide la producción dentro del territorio, sin importar la nacionalidad. (p. 3)",
+      "12. FALSO - El indicador adecuado para medir el crecimiento genuino es el PBI real. (p. 4)",
+      "13. VERDADERO - La desocupación friccional es inevitable y hasta saludable. (p. 6)",
+      "14. FALSO - Los subocupados tienen empleo, pero trabajan menos horas de las que quisieran. (p. 6)",
+      "15. VERDADERO - En una hiperinflación la moneda puede perder incluso su función de medio de cambio. (p. 8)"
+    ],
+
+    "preguntas": [
+      {
+        "pregunta": "¿Qué estudia la macroeconomía?",
+        "opciones": [
+          "El comportamiento de un consumidor individual",
+          "Los precios y las cantidades de un mercado en particular",
+          "El funcionamiento de la economía como un todo, a partir de variables agregadas",
+          "Las decisiones de producción de una única empresa"
+        ],
+        "correcta": 2,
+        "explicacion": "La macro trabaja con variables agregadas: PBI, inflación, desempleo, tasa de interés y tipo de cambio. Lo individual le corresponde a la microeconomía. Revisá la página 2."
+      },
+      {
+        "pregunta": "¿Qué mide el Producto Bruto Interno?",
+        "opciones": [
+          "El valor de todos los bienes y servicios finales producidos en un país en un período",
+          "El valor de todos los bienes intermedios utilizados como insumos",
+          "La cantidad de dinero en circulación en la economía",
+          "El total de exportaciones del país en un año"
+        ],
+        "correcta": 0,
+        "explicacion": "Es el valor monetario de los bienes y servicios finales producidos dentro del territorio durante un período, habitualmente un trimestre o un año. Revisá la página 3."
+      },
+      {
+        "pregunta": "¿Por qué el PBI cuenta solamente bienes y servicios finales?",
+        "opciones": [
+          "Porque los bienes intermedios no tienen valor económico",
+          "Porque los bienes finales son más fáciles de medir",
+          "Porque los bienes intermedios siempre se exportan",
+          "Para evitar la doble contabilización"
+        ],
+        "correcta": 3,
+        "explicacion": "Si se sumara la harina vendida al panadero y además el pan hecho con esa harina, ese valor se contaría dos veces. Revisá la página 3."
+      },
+      {
+        "pregunta": "¿Cuál es la identidad del método del gasto para calcular el PBI?",
+        "opciones": [
+          "PBI = C + I + G",
+          "PBI = C + I + G + (X − M)",
+          "PBI = C + I − G + M",
+          "PBI = C + I + G + (M − X)"
+        ],
+        "correcta": 1,
+        "explicacion": "C es consumo privado, I inversión, G gasto público y (X − M) las exportaciones netas, es decir el saldo del comercio exterior. Revisá las páginas 3 y 4."
+      },
+      {
+        "pregunta": "¿Qué es el deflactor del PBI?",
+        "opciones": [
+          "La diferencia entre el PBI y el Producto Bruto Nacional",
+          "El PBI dividido por la cantidad de habitantes",
+          "El cociente entre el PBI nominal y el PBI real, multiplicado por cien",
+          "La variación porcentual del PBI real entre dos años"
+        ],
+        "correcta": 2,
+        "explicacion": "Es una medida del nivel general de precios, y su variación estima la inflación del período de manera alternativa al IPC. Revisá la página 4."
+      },
+      {
+        "pregunta": "¿Sobre qué población se calcula la tasa de desocupación?",
+        "opciones": [
+          "Sobre la población total del país",
+          "Sobre la población económicamente activa",
+          "Sobre la población en edad de trabajar",
+          "Sobre el total de personas ocupadas"
+        ],
+        "correcta": 1,
+        "explicacion": "Tasa de desocupación = (Desocupados / PEA) × 100. Solo entran quienes participan del mercado de trabajo, trabajando o buscando trabajo. Revisá las páginas 5 y 6."
+      },
+      {
+        "pregunta": "¿Qué tipo de desocupación aumenta durante las recesiones y baja en las expansiones?",
+        "opciones": ["Friccional", "Estructural", "Subocupación", "Cíclica"],
+        "correcta": 3,
+        "explicacion": "La desocupación cíclica se genera por las fluctuaciones del ciclo económico: cuando cae la demanda agregada, las empresas producen y contratan menos. Revisá la página 6."
+      },
+      {
+        "pregunta": "¿Con qué instrumento mide el INDEC la desocupación en la Argentina?",
+        "opciones": [
+          "La Encuesta Permanente de Hogares, sobre 31 aglomerados urbanos",
+          "El Censo Nacional, que se realiza cada diez años",
+          "El Índice de Precios al Consumidor",
+          "El deflactor del PBI"
+        ],
+        "correcta": 0,
+        "explicacion": "La EPH es un relevamiento trimestral que cubre 31 aglomerados urbanos y de ahí salen los indicadores de empleo y desempleo que se difunden. Revisá la página 6."
+      },
+      {
+        "pregunta": "Según el criterio de Cagan, ¿cuándo hay hiperinflación?",
+        "opciones": [
+          "Cuando la inflación supera el 10% anual",
+          "Cuando la inflación mensual supera el 25%",
+          "Cuando la inflación mensual supera el 50%",
+          "Cuando la inflación supera el 100% anual"
+        ],
+        "correcta": 2,
+        "explicacion": "Más del 50% mensual implica que los precios se duplican en poco más de un mes. Revisá la página 8."
+      },
+      {
+        "pregunta": "¿Cuál es la diferencia entre crecimiento y desarrollo económico?",
+        "opciones": [
+          "Son sinónimos, se usan indistintamente",
+          "El desarrollo incluye además dimensiones cualitativas como distribución del ingreso, salud y educación",
+          "El crecimiento se mide con el IPC y el desarrollo con el PBI",
+          "El desarrollo se mide con el PBI nominal y el crecimiento con el real"
+        ],
+        "correcta": 1,
+        "explicacion": "Una economía puede crecer sin que eso mejore las condiciones de vida del conjunto de la población: por eso el desarrollo es un concepto más amplio. Revisá la página 9."
+      }
+    ],
+
+    "verdadero_falso": [
+      {"texto": "El PBI mide la producción realizada dentro del territorio del país, sin importar la nacionalidad de quien la realiza.", "correcto": true, "explicacion": "VERDADERO. Por eso se llama producto 'interno'; el PBN, en cambio, toma los factores de propiedad de residentes estén donde estén. Revisá la página 3."},
+      {"texto": "El PBI nominal es el indicador adecuado para medir el crecimiento genuino de una economía.", "correcto": false, "explicacion": "FALSO. El nominal mezcla cantidades y precios: el que sirve es el PBI real, valuado a precios de un año base. Revisá la página 4."},
+      {"texto": "La desocupación friccional se considera inevitable y hasta saludable para el mercado de trabajo.", "correcto": true, "explicacion": "VERDADERO. Es el tiempo que lleva buscar empleo, incluso en una economía con pleno empleo. Revisá la página 6."},
+      {"texto": "La subocupación describe a personas que no consiguen ningún empleo.", "correcto": false, "explicacion": "FALSO. Los subocupados tienen empleo, pero trabajan menos horas de las que estarían dispuestos y buscan trabajar más. Revisá la página 6."},
+      {"texto": "En una hiperinflación la moneda nacional puede perder incluso su función de medio de cambio.", "correcto": true, "explicacion": "VERDADERO. En los casos extremos es reemplazada por otras monedas o directamente por el trueque de bienes. Revisá la página 8."}
+    ]
+  },
+
+  "cierre": {
+    "glosario": [
+      {"termino": "Macroeconomía", "emoji": "🔭", "definicion": "Rama de la economía que estudia el funcionamiento de la economía como un todo a partir de variables agregadas.", "categoria": "Concepto base"},
+      {"termino": "Producto Bruto Interno", "emoji": "📦", "definicion": "Valor de todos los bienes y servicios finales producidos dentro del territorio de un país durante un período determinado.", "categoria": "Indicadores"},
+      {"termino": "PBI real", "emoji": "📐", "definicion": "PBI valuado a precios constantes de un año base, de modo que sus variaciones reflejen solo cambios en las cantidades producidas.", "categoria": "Indicadores"},
+      {"termino": "Población económicamente activa", "emoji": "💼", "definicion": "Conjunto de personas en edad de trabajar que tienen empleo (ocupados) o que no lo tienen pero lo buscan activamente (desocupados).", "categoria": "Empleo"},
+      {"termino": "Tasa de desocupación", "emoji": "👷", "definicion": "Cociente entre los desocupados y la población económicamente activa, multiplicado por cien.", "categoria": "Empleo"},
+      {"termino": "Subocupación", "emoji": "⏱️", "definicion": "Situación de quienes tienen empleo pero trabajan menos horas de las que desean y buscan activamente trabajar más.", "categoria": "Empleo"},
+      {"termino": "Inflación", "emoji": "🔥", "definicion": "Aumento sostenido y generalizado del nivel general de precios, medido habitualmente con el Índice de Precios al Consumidor.", "categoria": "Precios"},
+      {"termino": "Hiperinflación", "emoji": "💸", "definicion": "Proceso de inflación extremadamente elevada y fuera de control; según el criterio de Cagan, más del 50% mensual.", "categoria": "Procesos"}
+    ],
+
+    "recursos": [
+      {"tipo": "🌐 Web", "title": "INDEC (indec.gob.ar)", "desc": "Datos oficiales de PBI, IPC y Encuesta Permanente de Hogares, con informes técnicos descargables.", "nivel": "Introductorio", "color": "#8B5CF6"},
+      {"tipo": "🎬 Video", "title": "BCRA - Educación Financiera (canal de YouTube)", "desc": "Videos cortos del Banco Central sobre dinero, inflación y política monetaria.", "nivel": "Introductorio", "color": "#6366F1"},
+      {"tipo": "📊 Datos", "title": "Banco Mundial - datos.bancomundial.org", "desc": "PBI, PBI per cápita y desempleo de todos los países, en español y con gráficos comparables.", "nivel": "Intermedio", "color": "#10B981"},
+      {"tipo": "📄 Artículo", "title": "Chequeado - sección Economía", "desc": "Explicadores y verificaciones sobre inflación, empleo y actividad económica en la Argentina.", "nivel": "Intermedio", "color": "#F59E0B"},
+      {"tipo": "📖 Libro", "title": "Macroeconomía - Olivier Blanchard y Daniel Pérez Enrri", "desc": "Manual clásico con adaptación y ejemplos argentinos; ideal para profundizar PBI, empleo e inflación.", "nivel": "Avanzado", "color": "#EF4444"}
+    ]
+  }
+}
