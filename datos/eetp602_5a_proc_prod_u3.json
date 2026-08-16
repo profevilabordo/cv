@@ -1,0 +1,867 @@
+{
+  "id": "eetp602_5a_proc_prod_u3",
+  "materia": "Procesos Productivos",
+  "unidad": 3,
+  "titulo": "Microemprendimiento: producción, costos y control",
+  "emoji": "🏭",
+  "color_primario": "#10B981",
+  "color_secundario": "#34D399",
+
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "🏷️",
+        "texto": "Cuando le ponés precio a lo que produce tu grupo, ¿cómo sabés si ese número te deja ganancia o te hace perder plata?",
+        "pista": "Antes que el precio viene otra cuenta: cuánto cuesta producir una sola unidad..."
+      },
+      {
+        "emoji": "⚡",
+        "texto": "¿Contás la luz que consume la máquina y la hora de trabajo de quien fabrica, o solo el material que comprás?",
+        "pista": "El Paso 4 del proyecto pide justamente eso: el kW/h en Venado Tuerto, el insumo principal y el costo de la hora de trabajo..."
+      },
+      {
+        "emoji": "⏱️",
+        "texto": "¿Por qué un grupo planifica producir cien unidades y termina entregando sesenta?",
+        "pista": "Entre lo planificado y lo ejecutado siempre aparecen desvíos; lo importante es encontrar la causa..."
+      }
+    ],
+    "situaciones_conecta": [
+      {"emoji": "🧁", "label": "Alguna vez vendí algo hecho por mí"},
+      {"emoji": "🧾", "label": "Vi a alguien de mi familia sacar cuentas para poner un precio"},
+      {"emoji": "🏭", "label": "Recorrí un taller o una fábrica y vi el proceso completo"},
+      {"emoji": "📦", "label": "Me quedé sin materiales en la mitad de un trabajo"}
+    ],
+    "termometro_pregunta": "¿Cuánto sabés sobre cómo se planifica, se costea y se controla la producción de un microemprendimiento?"
+  },
+
+  "mapa": {
+    "ruta_paradas": [
+      {"id": 0, "emoji": "📋", "title": "Planificar la producción", "desc": "Qué, cuánto, con qué recursos, con qué método y en qué plazos", "color": "#10B981"},
+      {"id": 1, "emoji": "📐", "title": "Diseño y prototipo", "desc": "Especificaciones técnicas y muestra previa a la producción", "color": "#34D399"},
+      {"id": 2, "emoji": "🧰", "title": "Recursos y proceso", "desc": "Insumos, mano de obra, maquinaria y diagrama de etapas", "color": "#059669"},
+      {"id": 3, "emoji": "💲", "title": "Costos y precio", "desc": "Costo unitario, margen de utilidad y punto de equilibrio", "color": "#F59E0B"},
+      {"id": 4, "emoji": "📊", "title": "Control y mejora", "desc": "Indicadores, desvíos y ciclo de mejora continua", "color": "#3B82F6"}
+    ],
+
+    "panoramica_bloques": [
+      {
+        "id": "a",
+        "emoji": "📋",
+        "title": "BLOQUE A",
+        "subtitle": "Etapa 1: Planificación de la producción",
+        "color": "#10B981",
+        "items": [
+          "Qué, cuánto, con qué recursos, con qué método y en qué plazos",
+          "Diseño del producto y especificaciones técnicas",
+          "Prototipo o muestra antes de producir a mayor escala",
+          "Materias primas e insumos",
+          "Mano de obra y bienes de capital",
+          "Diagrama del proceso, cuellos de botella y tiempos"
+        ]
+      },
+      {
+        "id": "b",
+        "emoji": "💲",
+        "title": "BLOQUE B",
+        "subtitle": "Etapa 2: Costos y precio de venta",
+        "color": "#F59E0B",
+        "items": [
+          "El costo de producción como valuación de los recursos consumidos",
+          "Costos directos e indirectos y su prorrateo",
+          "Costos fijos y costos variables",
+          "Costo total y costo unitario",
+          "Costo más margen (mark-up): el ejemplo de las velas artesanales",
+          "Contraste con la competencia y punto de equilibrio"
+        ]
+      },
+      {
+        "id": "c",
+        "emoji": "📊",
+        "title": "BLOQUE C",
+        "subtitle": "Etapa 3: Control y evaluación de resultados",
+        "color": "#3B82F6",
+        "items": [
+          "Comparar lo producido con lo planificado",
+          "Productividad y eficiencia",
+          "Calidad del producto obtenido",
+          "Cumplimiento de los plazos previstos",
+          "Identificación de desvíos y análisis de causas",
+          "Ciclo de mejora continua: planificar, ejecutar, controlar y ajustar"
+        ]
+      }
+    ],
+
+    "mapa_mental": {
+      "centro": {"emoji": "🏭", "title": "PRODUCCIÓN, COSTOS Y CONTROL EN EL MICROEMPRENDIMIENTO"},
+      "ramas": [
+        {
+          "id": "que",
+          "emoji": "❓",
+          "title": "¿Qué estudiamos?",
+          "color": "#10B981",
+          "items": ["Planificación de la producción", "Recursos productivos", "Costos y precio de venta", "Control de los resultados"]
+        },
+        {
+          "id": "quienes",
+          "emoji": "👥",
+          "title": "¿Quiénes intervienen?",
+          "color": "#34D399",
+          "items": ["El grupo emprendedor", "La mano de obra propia o contratada", "Los proveedores de insumos", "Los clientes del segmento elegido"]
+        },
+        {
+          "id": "como",
+          "emoji": "⚙️",
+          "title": "¿Cómo se hace?",
+          "color": "#F59E0B",
+          "items": ["Diseño y prototipo", "Diagrama del proceso productivo", "Cálculo del costo unitario", "Indicadores y análisis de desvíos"]
+        },
+        {
+          "id": "porque",
+          "emoji": "🎯",
+          "title": "¿Por qué importa?",
+          "color": "#3B82F6",
+          "items": ["Evita la falta y el exceso de recursos", "Permite fijar un precio rentable y competitivo", "Muestra si el proyecto es sustentable", "Cierra el ciclo de mejora continua"]
+        }
+      ]
+    }
+  },
+
+  "nucleo_a": {
+    "bloque_info": {
+      "id": "A",
+      "emoji": "📋",
+      "titulo": "BLOQUE A: Etapa 1 — Planificación de la producción",
+      "color": "#10B981",
+      "paginas": [3, 4]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "No hay fechas acá: ordená la secuencia lógica con la que se planifica la producción, desde la primera decisión hasta el diagrama del proceso.",
+      "paginas_referencia": "3-4",
+      "items": [
+        {"id": 0, "text": "Se define el diseño del producto o servicio con sus especificaciones técnicas: materiales, medidas, funciones y terminaciones", "emoji": "📐"},
+        {"id": 1, "text": "Se elabora un prototipo o muestra para verificar la viabilidad antes de producir a mayor escala", "emoji": "🧪"},
+        {"id": 2, "text": "Se identifican las materias primas e insumos que se van a transformar o incorporar", "emoji": "📦"},
+        {"id": 3, "text": "Se define la mano de obra y la maquinaria, herramientas e instalaciones necesarias", "emoji": "🧰"},
+        {"id": 4, "text": "Se arma el diagrama del proceso productivo y se estiman los tiempos y los cuellos de botella", "emoji": "🗺️"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada tarea según pertenezca al diseño del producto o al diagrama del proceso productivo.",
+      "paginas_referencia": "4",
+      "categorias": [
+        {"name": "Diseño del producto", "emoji": "📐", "color": "#10B981"},
+        {"name": "Diagrama del proceso", "emoji": "🗺️", "color": "#059669"}
+      ],
+      "items": [
+        {"id": 0, "text": "Definir los materiales y las medidas del producto", "categoria_correcta": 0},
+        {"id": 1, "text": "Ordenar las etapas desde la recepción de la materia prima hasta el producto terminado", "categoria_correcta": 1},
+        {"id": 2, "text": "Describir las funciones y las terminaciones que debe tener", "categoria_correcta": 0},
+        {"id": 3, "text": "Detectar en qué etapa se produce un cuello de botella", "categoria_correcta": 1},
+        {"id": 4, "text": "Elaborar un prototipo o muestra para verificar la viabilidad", "categoria_correcta": 0},
+        {"id": 5, "text": "Estimar los tiempos que insume cada paso de la producción", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "3-4",
+      "blanks": [
+        {"id": "b1", "texto_antes": "La planificación de la producción determina con anticipación qué se va a producir, en qué cantidad, con qué recursos, mediante qué ________ y en qué plazos.", "respuesta_correcta": "método", "pista": "M_____"},
+        {"id": "b2", "texto_antes": "Cuando es posible, antes de producir a mayor escala se elabora un ________ o muestra que permite verificar la viabilidad del producto.", "respuesta_correcta": "prototipo", "pista": "P________"},
+        {"id": "b3", "texto_antes": "El diagrama del proceso productivo permite visualizar el flujo de trabajo, estimar los tiempos y detectar los ________ de botella.", "respuesta_correcta": "cuellos", "pista": "C______"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "3-4",
+      "afirmaciones": [
+        {"texto": "La planificación de la producción busca evitar tanto la falta como el exceso de recursos.", "correcto": true, "explicacion": "Verdadero. Su finalidad es que el proceso se desarrolle de manera ordenada, eficiente y con la calidad requerida."},
+        {"texto": "El punto de partida de la planificación de la producción es el cálculo del precio de venta.", "correcto": false, "explicacion": "Falso. El punto de partida es el diseño del producto o servicio; el precio se calcula recién en la etapa siguiente."},
+        {"texto": "La mano de obra puede ser tanto trabajo del propio emprendedor como de personal contratado.", "correcto": true, "explicacion": "Verdadero. El apunte la define como el trabajo humano necesario para llevar adelante el proceso, propio o contratado."},
+        {"texto": "El diagrama del proceso productivo se limita a enumerar los materiales que se van a usar.", "correcto": false, "explicacion": "Falso. Es la secuencia ordenada de etapas: sirve para ver el flujo de trabajo, detectar cuellos de botella y estimar tiempos."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "3-4",
+      "pares": [
+        {"izquierda": "Materias primas e insumos", "derecha": "Materiales que se transforman o se incorporan en el producto final", "emoji": "📦"},
+        {"izquierda": "Mano de obra", "derecha": "Trabajo humano necesario para llevar adelante el proceso", "emoji": "👷"},
+        {"izquierda": "Maquinaria, herramientas e instalaciones", "derecha": "Bienes de capital que transforman los insumos en producto terminado", "emoji": "⚙️"},
+        {"izquierda": "Diagrama del proceso productivo", "derecha": "Secuencia ordenada de etapas que permite detectar cuellos de botella", "emoji": "🗺️"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "3-4",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "📋",
+          "pregunta": "¿Cuál NO es una de las preguntas que responde la planificación de la producción?",
+          "paginas": "3",
+          "palabras": [
+            {"text": "Qué se va a producir", "es_intrusa": false},
+            {"text": "En qué cantidad", "es_intrusa": false},
+            {"text": "Con qué recursos y mediante qué método", "es_intrusa": false},
+            {"text": "Bajo qué tipo societario conviene inscribirse", "es_intrusa": true}
+          ],
+          "explicacion": "La forma jurídica es una decisión del eje legal. La planificación productiva define qué, cuánto, con qué recursos, con qué método y en qué plazos."
+        },
+        {
+          "id": 1,
+          "emoji": "🧰",
+          "pregunta": "¿Cuál NO es uno de los tres recursos productivos que agrupa el apunte?",
+          "paginas": "4",
+          "palabras": [
+            {"text": "Materias primas e insumos", "es_intrusa": false},
+            {"text": "Mano de obra", "es_intrusa": false},
+            {"text": "Maquinaria, herramientas e instalaciones", "es_intrusa": false},
+            {"text": "Nota de crédito", "es_intrusa": true}
+          ],
+          "explicacion": "La nota de crédito es un documento comercial: sirve para corregir una factura, no es un recurso productivo."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "3-4",
+      "conceptos": [
+        {"termino": "Planificación de la producción", "pista": "¿Qué cinco cosas se deciden con anticipación antes de empezar a producir?", "palabras_clave": ["qué", "cantidad", "recursos", "método", "plazos"]},
+        {"termino": "Prototipo", "pista": "¿Para qué sirve hacer una sola muestra antes de fabricar todo el lote?", "palabras_clave": ["muestra", "viabilidad", "antes", "escala"]},
+        {"termino": "Diagrama del proceso productivo", "pista": "¿Cómo se representa el camino que va de la materia prima al producto terminado?", "palabras_clave": ["secuencia", "etapas", "flujo", "cuellos de botella", "tiempos"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "3-4",
+      "causas": [
+        {"id": 0, "text": "El grupo define con precisión las especificaciones técnicas del producto", "emoji": "📐"},
+        {"id": 1, "text": "Se elabora un prototipo antes de producir a mayor escala", "emoji": "🧪"},
+        {"id": 2, "text": "Una etapa del proceso demora mucho más que todas las demás", "emoji": "🐢"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "Se puede saber con exactitud qué materiales e insumos hacen falta", "emoji": "📦", "causa_id": 0},
+        {"id": 11, "text": "Se verifica la viabilidad del producto antes de comprometer toda la producción", "emoji": "✅", "causa_id": 1},
+        {"id": 12, "text": "Aparece un cuello de botella que frena el flujo de trabajo", "emoji": "⛔", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el recorrido que representa un diagrama del proceso productivo, desde el ingreso de los insumos hasta el control de los tiempos.",
+      "paginas_referencia": "4",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "Recepción de la materia prima y de los insumos", "emoji": "📦"},
+        {"id": 1, "text": "Verificación de que los insumos cumplen con las especificaciones definidas en el diseño", "emoji": "🔍"},
+        {"id": 2, "text": "Transformación de los insumos con la maquinaria, las herramientas y la mano de obra", "emoji": "⚙️"},
+        {"id": 3, "text": "Obtención del producto terminado", "emoji": "🎁"},
+        {"id": 4, "text": "Estimación de los tiempos de producción y detección de cuellos de botella", "emoji": "⏱️"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "4",
+      "concepto_a": {"nombre": "Diseño del producto", "emoji": "📐", "color": "#10B981"},
+      "concepto_b": {"nombre": "Prototipo o muestra", "emoji": "🧪", "color": "#34D399"}
+    }
+  },
+
+  "nucleo_b": {
+    "bloque_info": {
+      "id": "B",
+      "emoji": "💲",
+      "titulo": "BLOQUE B: Etapa 2 — Costos y precio de venta",
+      "color": "#F59E0B",
+      "paginas": [2, 6]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los pasos que sigue tu grupo para llegar del relevamiento de precios al precio de venta del producto.",
+      "paginas_referencia": "2 y 6",
+      "items": [
+        {"id": 0, "text": "Paso 4: relevar el precio del kW/h en Venado Tuerto, el del insumo principal y el costo de la hora de trabajo", "emoji": "🔎"},
+        {"id": 1, "text": "Calcular cuánta materia prima lleva cada unidad y cuánto cuesta", "emoji": "📦"},
+        {"id": 2, "text": "Sumar la mano de obra directamente dedicada a fabricar esa unidad", "emoji": "👷"},
+        {"id": 3, "text": "Prorratear entre las unidades producidas los costos indirectos (alquiler, energía, depreciación)", "emoji": "➗"},
+        {"id": 4, "text": "Paso 7: obtener el costo unitario y aplicarle el margen de utilidad para fijar el precio de venta", "emoji": "🏷️"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada costo según pueda asignarse directamente al producto o deba prorratearse entre las unidades.",
+      "paginas_referencia": "6",
+      "categorias": [
+        {"name": "Costo directo", "emoji": "🎯", "color": "#F59E0B"},
+        {"name": "Costo indirecto", "emoji": "➗", "color": "#8B5CF6"}
+      ],
+      "items": [
+        {"id": 0, "text": "La materia prima utilizada en cada unidad", "categoria_correcta": 0},
+        {"id": 1, "text": "El alquiler del local donde se produce", "categoria_correcta": 1},
+        {"id": 2, "text": "La mano de obra dedicada directamente a fabricar el producto", "categoria_correcta": 0},
+        {"id": 3, "text": "La energía eléctrica del taller", "categoria_correcta": 1},
+        {"id": 4, "text": "El insumo que puede asignarse de manera inequívoca a un lote determinado", "categoria_correcta": 0},
+        {"id": 5, "text": "La depreciación de las maquinarias y la supervisión de la producción", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "6",
+      "blanks": [
+        {"id": "b1", "texto_antes": "Los costos ________ no pueden atribuirse a una unidad específica de producto y deben distribuirse entre las unidades mediante un criterio razonable.", "respuesta_correcta": "indirectos", "pista": "I__________"},
+        {"id": "b2", "texto_antes": "El costo total del período dividido por la cantidad de unidades producidas da como resultado el costo ________.", "respuesta_correcta": "unitario", "pista": "U_______"},
+        {"id": "b3", "texto_antes": "El nivel de ventas a partir del cual los ingresos totales igualan a los costos totales se llama punto de ________.", "respuesta_correcta": "equilibrio", "pista": "E_________"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "6",
+      "afirmaciones": [
+        {"texto": "El costo de producción es la valuación monetaria de todos los recursos consumidos para obtener el producto o prestar el servicio.", "correcto": true, "explicacion": "Verdadero. Por eso hay que valorizar la materia prima, la mano de obra y la parte de los costos indirectos que corresponde."},
+        {"texto": "Los costos fijos varían en proporción directa a la cantidad producida.", "correcto": false, "explicacion": "Falso. Los que varían con la producción son los costos variables; los fijos permanecen constantes dentro de un determinado rango."},
+        {"texto": "En el ejemplo de las velas artesanales, un costo unitario de $2.400 con un margen del 60% da un precio de venta de $3.840.", "correcto": true, "explicacion": "Verdadero. $2.400 + (2.400 × 0,60) = $3.840, según el método de costo más margen."},
+        {"texto": "Una vez calculado el precio con el método de costo más margen, ya no hace falta mirar a la competencia.", "correcto": false, "explicacion": "Falso. El precio debe contrastarse con la competencia y con lo que el segmento elegido está dispuesto a pagar."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "6",
+      "pares": [
+        {"izquierda": "Costo directo", "derecha": "Se asigna de manera clara e inequívoca a una unidad o a un lote", "emoji": "🎯"},
+        {"izquierda": "Costo indirecto", "derecha": "Se prorratea entre las unidades producidas con un criterio razonable", "emoji": "➗"},
+        {"izquierda": "Costo variable", "derecha": "Aumenta en proporción directa a la cantidad producida", "emoji": "📈"},
+        {"izquierda": "Punto de equilibrio", "derecha": "Nivel de ventas en el que los ingresos igualan a los costos totales", "emoji": "⚖️"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "6",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "➗",
+          "pregunta": "¿Cuál NO es un costo indirecto según el apunte?",
+          "paginas": "6",
+          "palabras": [
+            {"text": "El alquiler del local", "es_intrusa": false},
+            {"text": "La energía eléctrica", "es_intrusa": false},
+            {"text": "La materia prima utilizada en el producto", "es_intrusa": true},
+            {"text": "La depreciación de las maquinarias", "es_intrusa": false}
+          ],
+          "explicacion": "La materia prima es el costo directo por excelencia: se asigna de manera inequívoca a cada unidad o lote."
+        },
+        {
+          "id": 1,
+          "emoji": "🕯️",
+          "pregunta": "¿Cuál NO forma parte del costo unitario de $2.400 de las velas del ejemplo?",
+          "paginas": "6",
+          "palabras": [
+            {"text": "La materia prima", "es_intrusa": false},
+            {"text": "La mano de obra directa", "es_intrusa": false},
+            {"text": "La proporción de costos indirectos que le corresponde", "es_intrusa": false},
+            {"text": "El margen de utilidad del 60%", "es_intrusa": true}
+          ],
+          "explicacion": "El margen no es un costo: se suma después, sobre el costo unitario ya calculado, para llegar al precio de venta de $3.840."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "6",
+      "conceptos": [
+        {"termino": "Costo unitario", "pista": "¿Qué se hace con el costo total del período y la cantidad de unidades producidas?", "palabras_clave": ["costo total", "dividido", "unidades", "precio"]},
+        {"termino": "Costo más margen (mark-up)", "pista": "¿Qué se le agrega al costo unitario para llegar al precio final?", "palabras_clave": ["costo unitario", "porcentaje", "utilidad", "precio de venta"]},
+        {"termino": "Punto de equilibrio", "pista": "¿Cuándo un emprendimiento no gana ni pierde?", "palabras_clave": ["ingresos", "costos totales", "iguales", "pérdidas"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "6",
+      "causas": [
+        {"id": 0, "text": "Aumenta el precio del insumo principal que relevó el grupo", "emoji": "📈"},
+        {"id": 1, "text": "No se prorratea el alquiler ni la energía entre las unidades producidas", "emoji": "🙈"},
+        {"id": 2, "text": "Se fija el precio sin contrastarlo con la competencia ni con el segmento elegido", "emoji": "🏷️"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "Sube el costo variable y, con él, el costo unitario del producto", "emoji": "💸", "causa_id": 0},
+        {"id": 11, "text": "El costo unitario queda subestimado y el precio no cubre todos los recursos consumidos", "emoji": "⚠️", "causa_id": 1},
+        {"id": 12, "text": "El precio puede quedar fuera de lo que el mercado está dispuesto a pagar", "emoji": "🚫", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el cálculo del precio de venta por el método de costo más margen, siguiendo el ejemplo de las velas artesanales del apunte.",
+      "paginas_referencia": "6",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "Se valoriza la materia prima que lleva cada vela", "emoji": "📦"},
+        {"id": 1, "text": "Se suma la mano de obra directamente dedicada a fabricarla", "emoji": "👷"},
+        {"id": 2, "text": "Se le adiciona la proporción de costos indirectos que le corresponde", "emoji": "➗"},
+        {"id": 3, "text": "Se obtiene el costo unitario: $2.400 por vela", "emoji": "🧮"},
+        {"id": 4, "text": "Se aplica el margen del 60% y se llega al precio de venta de $3.840", "emoji": "🏷️"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "6",
+      "concepto_a": {"nombre": "Costos fijos", "emoji": "🏠", "color": "#F59E0B"},
+      "concepto_b": {"nombre": "Costos variables", "emoji": "📈", "color": "#8B5CF6"}
+    }
+  },
+
+  "nucleo_c": {
+    "bloque_info": {
+      "id": "C",
+      "emoji": "📊",
+      "titulo": "BLOQUE C: Etapa 3 — Control y evaluación de resultados",
+      "color": "#3B82F6",
+      "paginas": [8]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená el ciclo de mejora continua tal como lo recorre el emprendimiento período tras período.",
+      "paginas_referencia": "8",
+      "items": [
+        {"id": 0, "text": "Se planifica qué producir, en qué cantidad, con qué recursos y en qué plazos", "emoji": "📋"},
+        {"id": 1, "text": "Se ejecuta la producción según lo planificado", "emoji": "⚙️"},
+        {"id": 2, "text": "Se controla lo efectivamente producido con los indicadores de producción", "emoji": "📊"},
+        {"id": 3, "text": "Se comparan lo planificado y lo ejecutado, y se identifican los desvíos", "emoji": "🔍"},
+        {"id": 4, "text": "Se ajusta la planificación del período siguiente", "emoji": "🔁"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada enunciado según sea un indicador que se mide en el control de la producción o una posible causa de un desvío.",
+      "paginas_referencia": "8",
+      "categorias": [
+        {"name": "Indicador de control", "emoji": "📊", "color": "#3B82F6"},
+        {"name": "Causa de un desvío", "emoji": "🔎", "color": "#EF4444"}
+      ],
+      "items": [
+        {"id": 0, "text": "Unidades producidas por hora de trabajo", "categoria_correcta": 0},
+        {"id": 1, "text": "Una planificación poco realista", "categoria_correcta": 1},
+        {"id": 2, "text": "Porcentaje de unidades que cumplen con las especificaciones del diseño", "categoria_correcta": 0},
+        {"id": 3, "text": "Fallas en el proceso productivo", "categoria_correcta": 1},
+        {"id": 4, "text": "Comparación entre los tiempos planificados y los realmente insumidos", "categoria_correcta": 0},
+        {"id": 5, "text": "La calidad de los insumos o la falta de capacitación del personal", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "8",
+      "blanks": [
+        {"id": "b1", "texto_antes": "La ________ es la relación entre la cantidad de producto obtenido y la cantidad de recursos empleados para obtenerlo.", "respuesta_correcta": "productividad", "pista": "P____________"},
+        {"id": "b2", "texto_antes": "La ________ es el grado de aprovechamiento de los recursos disponibles, comparando el resultado obtenido con el óptimo teóricamente alcanzable.", "respuesta_correcta": "eficiencia", "pista": "E_________"},
+        {"id": "b3", "texto_antes": "El ciclo de mejora continua se resume en cuatro momentos: planificar, ejecutar, controlar y ________.", "respuesta_correcta": "ajustar", "pista": "A______"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "8",
+      "afirmaciones": [
+        {"texto": "La etapa de evaluación se limita al plano económico-financiero del emprendimiento.", "correcto": false, "explicacion": "Falso. También hay que controlar el desempeño del proceso productivo en sí mismo, comparándolo con lo planificado."},
+        {"texto": "Un desvío puede ser una diferencia positiva o negativa respecto de lo previsto.", "correcto": true, "explicacion": "Verdadero. El apunte define el desvío como diferencia positiva o negativa entre lo planificado y lo ejecutado."},
+        {"texto": "La calidad del producto obtenido se mide por el porcentaje de unidades que cumplen con las especificaciones definidas en el diseño.", "correcto": true, "explicacion": "Verdadero. Se las compara con las que hay que descartar o reprocesar."},
+        {"texto": "Con detectar el desvío alcanza: analizar sus causas no aporta nada nuevo.", "correcto": false, "explicacion": "Falso. Justamente el análisis de las causas es lo que retroalimenta la planificación del período siguiente."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "8",
+      "pares": [
+        {"izquierda": "Productividad", "derecha": "Unidades producidas por hora de trabajo empleada", "emoji": "⚡"},
+        {"izquierda": "Eficiencia", "derecha": "Resultado obtenido comparado con el óptimo teóricamente alcanzable", "emoji": "🎯"},
+        {"izquierda": "Calidad del producto obtenido", "derecha": "Porcentaje de unidades que cumplen las especificaciones del diseño", "emoji": "✅"},
+        {"izquierda": "Cumplimiento de plazos", "derecha": "Tiempos planificados frente a tiempos realmente insumidos", "emoji": "⏱️"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "8",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "📊",
+          "pregunta": "¿Cuál NO es un indicador de control de la producción del apunte?",
+          "paginas": "8",
+          "palabras": [
+            {"text": "La productividad", "es_intrusa": false},
+            {"text": "La eficiencia", "es_intrusa": false},
+            {"text": "El margen de utilidad aplicado al precio", "es_intrusa": true},
+            {"text": "El cumplimiento de los plazos previstos", "es_intrusa": false}
+          ],
+          "explicacion": "El margen de utilidad pertenece a la formación del precio de venta (Etapa 2), no al control del proceso productivo."
+        },
+        {
+          "id": 1,
+          "emoji": "🔁",
+          "pregunta": "¿Cuál NO forma parte del ciclo de mejora continua?",
+          "paginas": "8",
+          "palabras": [
+            {"text": "Planificar", "es_intrusa": false},
+            {"text": "Ejecutar", "es_intrusa": false},
+            {"text": "Controlar", "es_intrusa": false},
+            {"text": "Promocionar", "es_intrusa": true}
+          ],
+          "explicacion": "El ciclo que cierra la gestión productiva es planificar, ejecutar, controlar y ajustar; la promoción es una acción comercial."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "8",
+      "conceptos": [
+        {"termino": "Desvío", "pista": "¿Qué aparece cuando comparás lo que planificaste con lo que realmente hiciste?", "palabras_clave": ["diferencia", "planificado", "ejecutado", "causas"]},
+        {"termino": "Productividad", "pista": "¿Cómo relacionás lo que produjiste con los recursos que usaste?", "palabras_clave": ["producto obtenido", "recursos", "relación", "por hora"]},
+        {"termino": "Mejora continua", "pista": "¿Qué se hace con la información que deja el control para el período siguiente?", "palabras_clave": ["planificar", "ejecutar", "controlar", "ajustar", "retroalimenta"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "8",
+      "causas": [
+        {"id": 0, "text": "Se comparan sistemáticamente los tiempos planificados con los realmente insumidos", "emoji": "⏱️"},
+        {"id": 1, "text": "Un lote de insumos llega con menor calidad que la esperada", "emoji": "📦"},
+        {"id": 2, "text": "El análisis de los desvíos retroalimenta la planificación del período siguiente", "emoji": "🔁"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "Se puede saber si el emprendimiento cumplió con los plazos previstos", "emoji": "📅", "causa_id": 0},
+        {"id": 11, "text": "Crece el porcentaje de unidades que hay que descartar o reprocesar", "emoji": "🗑️", "causa_id": 1},
+        {"id": 12, "text": "Se cierra el ciclo de mejora continua de la gestión productiva", "emoji": "♻️", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el procedimiento de control y evaluación de los resultados productivos del emprendimiento.",
+      "paginas_referencia": "8",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "Se recupera lo que se había planificado en la primera etapa", "emoji": "📋"},
+        {"id": 1, "text": "Se releva lo efectivamente producido con los indicadores de control", "emoji": "📊"},
+        {"id": 2, "text": "Se comparan ambos datos y se identifican los desvíos", "emoji": "🔍"},
+        {"id": 3, "text": "Se analizan las causas de cada desvío", "emoji": "🧠"},
+        {"id": 4, "text": "Se ajusta la planificación del período siguiente", "emoji": "🔁"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "8",
+      "concepto_a": {"nombre": "Productividad", "emoji": "⚡", "color": "#3B82F6"},
+      "concepto_b": {"nombre": "Eficiencia", "emoji": "🎯", "color": "#10B981"}
+    }
+  },
+
+  "senales": {
+    "conceptos_clave": [
+      {
+        "termino": "Planificación de la producción",
+        "emoji": "📋",
+        "color": "#10B981",
+        "definicion": "Proceso por el cual el emprendimiento determina con anticipación qué se va a producir, en qué cantidad, con qué recursos, mediante qué método y en qué plazos.",
+        "importancia": "Es la base sobre la que después se calculan los costos y se controlan los resultados del emprendimiento."
+      },
+      {
+        "termino": "Costo unitario",
+        "emoji": "🧮",
+        "color": "#F59E0B",
+        "definicion": "Resultado de dividir el costo total del período —fijos y variables, directos e indirectos— por la cantidad de unidades producidas en ese período.",
+        "importancia": "Es el dato indispensable para fijar el precio de venta: sin él, el precio es una adivinanza."
+      },
+      {
+        "termino": "Costo más margen (mark-up)",
+        "emoji": "🏷️",
+        "color": "#EF4444",
+        "definicion": "Método de fijación de precios que adiciona al costo unitario un porcentaje de utilidad deseado; en el ejemplo del apunte, $2.400 + 60% = $3.840.",
+        "importancia": "Es el método más habitual en el microemprendimiento, pero el precio siempre debe contrastarse con la competencia y con el segmento elegido."
+      },
+      {
+        "termino": "Mejora continua",
+        "emoji": "🔁",
+        "color": "#3B82F6",
+        "definicion": "Ciclo de gestión productiva que consiste en planificar, ejecutar, controlar y ajustar, retroalimentando cada período con los desvíos del anterior.",
+        "importancia": "Convierte los errores del proyecto en información para producir mejor la próxima vez."
+      }
+    ],
+    "semaforo_conceptos": [
+      "Prototipo o muestra",
+      "Cuello de botella",
+      "Prorrateo de costos indirectos",
+      "Punto de equilibrio",
+      "Desvío"
+    ],
+    "postits_conceptos": [
+      "Recursos productivos",
+      "Costo unitario",
+      "Punto de equilibrio",
+      "Productividad"
+    ]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {
+        "emoji": "🚗",
+        "frente": "Cuando Ford puso en marcha la línea de montaje móvil en 1913, el armado de un auto pasó de más de 12 horas a cerca de una hora y media",
+        "dorso": "Al subir tanto la productividad, el costo unitario se desplomó: el Modelo T bajó de unos 850 dólares a menos de 300 en poco más de una década. Es la prueba más famosa de que el diseño del proceso productivo define el precio final tanto como el material que usás.",
+        "color": "#10B981"
+      },
+      {
+        "emoji": "🛑",
+        "frente": "En las fábricas de Toyota, cualquier operario puede detener la línea de producción entera tirando de una cuerda",
+        "dorso": "Se llama sistema andon y es parte del Toyota Production System que Taiichi Ohno desarrolló en los años 50: es mejor frenar y corregir el desvío en el momento que arrastrar unidades defectuosas hasta el final. De ahí salieron el 'just in time' y la idea de mejora continua (kaizen) que hoy se enseña en todo el mundo.",
+        "color": "#F59E0B"
+      },
+      {
+        "emoji": "🔬",
+        "frente": "En la Argentina existe un organismo público, el INTI, que ayuda a emprendedores y PyMEs a medir sus procesos y calcular sus costos",
+        "dorso": "El Instituto Nacional de Tecnología Industrial funciona desde 1957 y tiene centros en todo el país: hace ensayos de materiales, asistencia en diseño de procesos, capacitación en calidad y acompañamiento en costeo. Para un microemprendimiento real, es un recurso gratuito o de muy bajo costo que casi nadie usa.",
+        "color": "#3B82F6"
+      }
+    ],
+
+    "linea_de_tiempo": [
+      {"year": "1776", "text": "Adam Smith describe la fábrica de alfileres: dividiendo el trabajo en etapas, diez obreros producen miles de veces más que uno solo", "emoji": "📌"},
+      {"year": "1911", "text": "Frederick Taylor publica 'Principios de la administración científica' y nace el estudio de tiempos y movimientos", "emoji": "⏱️"},
+      {"year": "1913", "text": "Ford inaugura la línea de montaje móvil en la planta de Highland Park", "emoji": "🚗"},
+      {"year": "1950", "text": "Edwards Deming difunde en Japón el ciclo planificar-hacer-verificar-actuar (PDCA), base de la mejora continua", "emoji": "🔁"},
+      {"year": "1957", "text": "Se crea el INTI, el organismo argentino de tecnología industrial", "emoji": "🇦🇷"}
+    ],
+
+    "encuesta": {
+      "pregunta": "¿Qué dato te sorprendió más?",
+      "opciones": [
+        {"emoji": "🚗", "text": "Que la línea de montaje bajara el auto de 12 horas a 90 minutos", "votos_iniciales": 44},
+        {"emoji": "🛑", "text": "Que un operario pueda frenar toda la fábrica", "votos_iniciales": 39},
+        {"emoji": "🔬", "text": "Que el INTI asista gratis a emprendedores", "votos_iniciales": 31}
+      ]
+    }
+  },
+
+  "cruces": {
+    "consigna_general": "Elegí uno de estos temas del manual y preparate para explicárselo a un compañero de otro grupo, usando el producto real que están desarrollando como ejemplo. La idea es que entienda el tema aunque todavía no haya leído el apunte.",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "📋",
+        "titulo": "BLOQUE A: Etapa 1 — Planificación de la producción",
+        "color": "#10B981",
+        "temas_sugeridos": [
+          "Explicale qué cinco cosas define la planificación de la producción antes de empezar a fabricar.",
+          "Mostrale las especificaciones técnicas del producto de tu grupo: materiales, medidas, funciones y terminaciones.",
+          "Contale para qué sirve hacer un prototipo o muestra antes de producir a mayor escala.",
+          "Enseñale cómo se agrupan los recursos productivos en insumos, mano de obra y maquinaria, con los de tu emprendimiento.",
+          "Dibujá el diagrama del proceso productivo de tu producto y señalá dónde puede aparecer un cuello de botella."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo se lo vas a explicar a tu compañero/a..."
+      },
+      {
+        "id": "b",
+        "emoji": "💲",
+        "titulo": "BLOQUE B: Etapa 2 — Costos y precio de venta",
+        "color": "#F59E0B",
+        "temas_sugeridos": [
+          "Explicale la diferencia entre costos directos e indirectos con ejemplos de tu propio taller.",
+          "Contale por qué el alquiler es un costo fijo y la materia prima un costo variable.",
+          "Mostrale cómo hiciste el Paso 4: dónde relevaste el precio del kW/h en Venado Tuerto, el del insumo principal y el costo de la hora de trabajo.",
+          "Enseñale el método de costo más margen con el ejemplo de las velas: $2.400 de costo unitario más 60% da $3.840.",
+          "Explicale qué es el punto de equilibrio y cuántas unidades tendría que vender tu grupo para alcanzarlo."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo se lo vas a explicar a tu compañero/a..."
+      },
+      {
+        "id": "c",
+        "emoji": "📊",
+        "titulo": "BLOQUE C: Etapa 3 — Control y evaluación de resultados",
+        "color": "#3B82F6",
+        "temas_sugeridos": [
+          "Explicale por qué la evaluación del emprendimiento no puede quedarse solo en el plano económico-financiero.",
+          "Enseñale la diferencia entre productividad y eficiencia con datos de la producción de tu grupo.",
+          "Contale cómo medirías la calidad del producto obtenido y qué harías con las unidades a reprocesar.",
+          "Mostrale un desvío real que tuvo tu grupo entre lo planificado y lo ejecutado, y analizá su causa.",
+          "Explicale el ciclo de mejora continua —planificar, ejecutar, controlar y ajustar— aplicado al próximo lote."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo se lo vas a explicar a tu compañero/a..."
+      }
+    ]
+  },
+
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "Para fijar el precio, el microemprendimiento debe partir de su costo unitario y no de lo que cobra la competencia",
+      "contexto": "El apunte propone el método de costo más margen, pero también advierte que el precio debe contrastarse con la competencia y con lo que el segmento elegido está dispuesto a pagar. Debatan, con los argumentos del manual y con los números reales de su proyecto, desde dónde conviene fijar el precio.",
+      "roles": [
+        {"id": "fiscal", "label": "Partir del costo", "emoji": "🧮", "color": "#F59E0B", "desc": "Defendé que sin conocer el costo unitario cualquier precio es una adivinanza y el emprendimiento puede vender a pérdida."},
+        {"id": "defensa", "label": "Partir del mercado", "emoji": "🛒", "color": "#EF4444", "desc": "Argumentá que de nada sirve un precio bien calculado si el segmento elegido no está dispuesto a pagarlo o la competencia cobra menos."},
+        {"id": "juez", "label": "Posición equilibrada", "emoji": "⚖️", "color": "#10B981", "desc": "Buscá una postura que combine el costo unitario, el margen deseado y el punto de equilibrio con la realidad del mercado."}
+      ]
+    },
+
+    "tesis": {
+      "consigna": "Formulá una tesis sobre cuál es la decisión productiva más determinante para que un microemprendimiento sea sustentable: el diseño del proceso, el cálculo del costo o el control de los desvíos. Sostenela con contenidos del manual, con datos del proyecto de tu grupo y anticipá las críticas que podría recibir tu postura."
+    },
+
+    "critica": {
+      "consigna": "Analizá críticamente el recorrido productivo de tu propio emprendimiento: ¿qué planificaron al inicio, qué produjeron realmente y qué desvíos aparecieron? ¿El precio que fijaron cubre el costo unitario y el punto de equilibrio? ¿Qué ajustarían del proceso, de los recursos o del costeo si tuvieran que arrancar de nuevo el proyecto?"
+    }
+  },
+
+  "emocional": {},
+
+  "autotest": {
+    "banco_respuestas_docente": [
+      "1. C - Qué se va a producir, en qué cantidad, con qué recursos, con qué método y en qué plazos. (p. 3)",
+      "2. A - El diseño del producto o servicio y sus especificaciones técnicas. (p. 4)",
+      "3. D - Materias primas e insumos, mano de obra, y maquinaria, herramientas e instalaciones. (p. 4)",
+      "4. B - Detectar cuellos de botella y estimar los tiempos de producción. (p. 4)",
+      "5. D - La valuación monetaria de todos los recursos consumidos para obtener el producto. (p. 6)",
+      "6. A - El alquiler del local, porque no puede atribuirse a una unidad específica. (p. 6)",
+      "7. C - Dividiendo el costo total del período por la cantidad de unidades producidas. (p. 6)",
+      "8. B - $3.840. (p. 6)",
+      "9. D - El nivel de ventas en el que los ingresos totales igualan a los costos totales. (p. 6)",
+      "10. A - La relación entre el producto obtenido y los recursos empleados. (p. 8)",
+      "11. VERDADERO - El Paso 4 pide relevar el kW/h, el insumo principal y la hora de trabajo. (p. 2)",
+      "12. FALSO - Los costos fijos permanecen constantes dentro de un rango de producción. (p. 6)",
+      "13. VERDADERO - La calidad se mide por el porcentaje de unidades que cumplen las especificaciones del diseño. (p. 8)",
+      "14. FALSO - La evaluación también controla el desempeño del proceso productivo. (p. 8)",
+      "15. VERDADERO - El ciclo de mejora continua es planificar, ejecutar, controlar y ajustar. (p. 8)"
+    ],
+
+    "preguntas": [
+      {
+        "pregunta": "¿Qué determina con anticipación la planificación de la producción?",
+        "opciones": [
+          "Solamente la cantidad de dinero que se va a ganar",
+          "El tipo societario y la forma jurídica del emprendimiento",
+          "Qué se va a producir, en qué cantidad, con qué recursos, con qué método y en qué plazos",
+          "Los canales de distribución y la campaña publicitaria"
+        ],
+        "correcta": 2,
+        "explicacion": "Su finalidad es que el proceso se desarrolle de manera ordenada, eficiente y con la calidad requerida, evitando tanto la falta como el exceso de recursos. Revisá la página 3."
+      },
+      {
+        "pregunta": "¿Cuál es el punto de partida de la planificación de la producción?",
+        "opciones": [
+          "El diseño del producto o servicio y sus especificaciones técnicas",
+          "El cálculo del punto de equilibrio",
+          "La emisión de la primera factura",
+          "El relevamiento de los precios de la competencia"
+        ],
+        "correcta": 0,
+        "explicacion": "Se definen materiales, medidas, funciones y terminaciones, y cuando es posible se elabora un prototipo. Revisá la página 4."
+      },
+      {
+        "pregunta": "¿En qué tres grandes categorías agrupa el apunte los recursos productivos?",
+        "opciones": [
+          "Costos fijos, costos variables y costos mixtos",
+          "Producto, precio y plaza",
+          "Ingresos, egresos y saldo de caja",
+          "Materias primas e insumos, mano de obra, y maquinaria, herramientas e instalaciones"
+        ],
+        "correcta": 3,
+        "explicacion": "Esos tres grupos se identifican a partir del diseño del producto, antes de armar el diagrama del proceso. Revisá la página 4."
+      },
+      {
+        "pregunta": "Además de mostrar el flujo de trabajo, ¿para qué sirve el diagrama del proceso productivo?",
+        "opciones": [
+          "Para calcular el margen de utilidad del producto",
+          "Para detectar cuellos de botella y estimar los tiempos de producción",
+          "Para inscribir la sociedad en el Registro Público",
+          "Para determinar el stock mínimo de mercadería"
+        ],
+        "correcta": 1,
+        "explicacion": "Es la secuencia ordenada de etapas desde la recepción de la materia prima hasta el producto terminado. Revisá la página 4."
+      },
+      {
+        "pregunta": "¿Qué es el costo de producción?",
+        "opciones": [
+          "El precio que paga el cliente por el producto",
+          "La ganancia que obtiene el emprendedor en cada venta",
+          "El dinero disponible en la caja del emprendimiento",
+          "La valuación monetaria de todos los recursos consumidos para obtener el producto o prestar el servicio"
+        ],
+        "correcta": 3,
+        "explicacion": "Conocerlo con precisión es lo que permite después fijar un precio que no deje al emprendimiento vendiendo a pérdida. Revisá la página 6."
+      },
+      {
+        "pregunta": "¿Cuál de estos es un costo indirecto?",
+        "opciones": [
+          "El alquiler del local, porque no puede atribuirse a una unidad específica",
+          "La materia prima que lleva cada unidad",
+          "La mano de obra dedicada directamente a fabricar el producto",
+          "El insumo asignado de manera inequívoca a un lote determinado"
+        ],
+        "correcta": 0,
+        "explicacion": "Los costos indirectos —alquiler, energía, depreciación, supervisión— deben prorratearse entre las unidades producidas con algún criterio razonable. Revisá la página 6."
+      },
+      {
+        "pregunta": "¿Cómo se obtiene el costo unitario?",
+        "opciones": [
+          "Sumando el margen de utilidad al precio de venta",
+          "Restando los costos variables a los costos fijos",
+          "Dividiendo el costo total del período por la cantidad de unidades producidas en ese período",
+          "Multiplicando el costo de la materia prima por la cantidad de unidades"
+        ],
+        "correcta": 2,
+        "explicacion": "El costo total suma fijos y variables, directos e indirectos, asignados a un período determinado. Revisá la página 6."
+      },
+      {
+        "pregunta": "Si el costo unitario de una vela artesanal es de $2.400 y el emprendedor aplica un margen del 60%, ¿cuál es el precio de venta?",
+        "opciones": ["$2.460", "$3.840", "$1.440", "$4.800"],
+        "correcta": 1,
+        "explicacion": "$2.400 + (2.400 × 0,60) = $3.840, y después ese precio se contrasta con la competencia y con el segmento elegido. Revisá la página 6."
+      },
+      {
+        "pregunta": "¿Qué es el punto de equilibrio?",
+        "opciones": [
+          "El promedio entre el costo fijo y el costo variable",
+          "El momento en que se termina de pagar la maquinaria",
+          "El porcentaje de utilidad que se agrega al costo unitario",
+          "El nivel de ventas a partir del cual los ingresos totales igualan a los costos totales"
+        ],
+        "correcta": 3,
+        "explicacion": "Por debajo de ese nivel el emprendimiento opera con pérdidas, así que el precio fijado debe permitir alcanzarlo. Revisá la página 6."
+      },
+      {
+        "pregunta": "¿Qué mide el indicador de productividad?",
+        "opciones": [
+          "La relación entre la cantidad de producto obtenido y la cantidad de recursos empleados",
+          "El porcentaje de unidades que hay que descartar o reprocesar",
+          "La diferencia entre los ingresos y los egresos de caja",
+          "El grado de cumplimiento de los plazos previstos"
+        ],
+        "correcta": 0,
+        "explicacion": "Por ejemplo, unidades producidas por hora de trabajo. La eficiencia, en cambio, compara el resultado obtenido con el óptimo alcanzable. Revisá la página 8."
+      }
+    ],
+
+    "verdadero_falso": [
+      {"texto": "El Paso 4 del proyecto pide relevar el precio del kW/h en Venado Tuerto, el del insumo o materia prima principal y el costo de la hora de trabajo de un empleado.", "correcto": true, "explicacion": "VERDADERO. Esos datos son los que después se usan en el Paso 7 para calcular el costo del producto y el precio de venta. Revisá la página 2."},
+      {"texto": "Los costos fijos varían en proporción directa a la cantidad producida.", "correcto": false, "explicacion": "FALSO. Permanecen constantes dentro de un determinado rango de producción; los que varían son los costos variables. Revisá la página 6."},
+      {"texto": "La calidad del producto obtenido se mide por el porcentaje de unidades que cumplen con las especificaciones definidas en la etapa de diseño.", "correcto": true, "explicacion": "VERDADERO. Se las compara con las unidades que deben descartarse o reprocesarse. Revisá la página 8."},
+      {"texto": "La etapa de evaluación del emprendimiento se limita al plano económico-financiero.", "correcto": false, "explicacion": "FALSO. También debe controlarse el desempeño del proceso productivo, comparando lo producido con lo planificado. Revisá la página 8."},
+      {"texto": "El ciclo de mejora continua de la gestión productiva consiste en planificar, ejecutar, controlar y ajustar.", "correcto": true, "explicacion": "VERDADERO. El análisis de los desvíos retroalimenta la planificación del período siguiente. Revisá la página 8."}
+    ]
+  },
+
+  "cierre": {
+    "glosario": [
+      {"termino": "Planificación de la producción", "emoji": "📋", "definicion": "Proceso que determina con anticipación qué producir, en qué cantidad, con qué recursos, con qué método y en qué plazos.", "categoria": "Planificación"},
+      {"termino": "Prototipo", "emoji": "🧪", "definicion": "Muestra elaborada antes de la producción a mayor escala para verificar la viabilidad del producto diseñado.", "categoria": "Planificación"},
+      {"termino": "Diagrama del proceso productivo", "emoji": "🗺️", "definicion": "Secuencia ordenada de etapas desde la recepción de la materia prima hasta el producto terminado.", "categoria": "Planificación"},
+      {"termino": "Costos directos e indirectos", "emoji": "➗", "definicion": "Los directos se asignan de manera inequívoca a una unidad o lote; los indirectos son generales y deben prorratearse.", "categoria": "Costos"},
+      {"termino": "Costo unitario", "emoji": "🧮", "definicion": "Costo total de un período dividido por la cantidad de unidades producidas en ese mismo período.", "categoria": "Costos"},
+      {"termino": "Costo más margen (mark-up)", "emoji": "🏷️", "definicion": "Método de fijación del precio que adiciona al costo unitario un porcentaje de utilidad deseado.", "categoria": "Precio"},
+      {"termino": "Punto de equilibrio", "emoji": "⚖️", "definicion": "Nivel de ventas en el que los ingresos totales igualan a los costos totales; por debajo, hay pérdidas.", "categoria": "Precio"},
+      {"termino": "Productividad", "emoji": "⚡", "definicion": "Relación entre la cantidad de producto obtenido y la cantidad de recursos empleados para obtenerlo.", "categoria": "Control"}
+    ],
+
+    "recursos": [
+      {"tipo": "🌐 Web", "title": "INTI - Instituto Nacional de Tecnología Industrial (inti.gob.ar)", "desc": "Asistencia técnica, capacitaciones y guías de procesos, calidad y costos para emprendedores y PyMEs.", "nivel": "Intermedio", "color": "#10B981"},
+      {"tipo": "🌐 Web", "title": "EPE Santa Fe - Cuadro tarifario (epe.santafe.gov.ar)", "desc": "Tarifas oficiales para obtener el precio real del kW/h en Venado Tuerto que pide el Paso 4 del proyecto.", "nivel": "Introductorio", "color": "#F59E0B"},
+      {"tipo": "🎬 Video", "title": "'Así se hace' (How It's Made) - procesos productivos paso a paso", "desc": "Capítulos cortos que muestran el diagrama real de producción de objetos cotidianos, etapa por etapa.", "nivel": "Introductorio", "color": "#3B82F6"},
+      {"tipo": "📊 Planilla", "title": "Planilla de costeo en Excel o Google Sheets", "desc": "Armá una hoja con materia prima, mano de obra directa y prorrateo de indirectos para calcular el costo unitario y aplicar el margen.", "nivel": "Intermedio", "color": "#8B5CF6"},
+      {"tipo": "🌐 Web", "title": "IRAM - Instituto Argentino de Normalización y Certificación (iram.org.ar)", "desc": "Normas de calidad y mejora continua, útiles para definir especificaciones y controlar el producto obtenido.", "nivel": "Avanzado", "color": "#EF4444"}
+    ]
+  }
+}

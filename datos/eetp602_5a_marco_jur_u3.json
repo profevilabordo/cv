@@ -1,0 +1,872 @@
+{
+  "id": "eetp602_5a_marco_jur_u3",
+  "materia": "Marco Jurídico",
+  "unidad": 3,
+  "titulo": "Microemprendimiento: el marco legal del proyecto",
+  "emoji": "⚖️",
+  "color_primario": "#F59E0B",
+  "color_secundario": "#FBBF24",
+
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "📝",
+        "texto": "En el Paso 3 del proyecto tenés que redactar el Contrato de Sociedad de tu grupo. ¿Por qué un papel firmado entre ustedes cambia algo en la vida real del emprendimiento?",
+        "pista": "Pensá qué pasa con las deudas del grupo si el emprendimiento no funciona..."
+      },
+      {
+        "emoji": "🏠",
+        "texto": "En el Paso 6 vas a armar el contrato de alquiler del espacio de trabajo. ¿Qué tiene que decir sí o sí ese contrato para que valga?",
+        "pista": "Todo contrato necesita ciertos elementos esenciales sin los cuales no existe..."
+      },
+      {
+        "emoji": "🧾",
+        "texto": "Si mañana quisieras vender lo que producís, ¿te conviene anotarte como monotributista o armar una sociedad con tus compañeros?",
+        "pista": "La diferencia más grande está en con qué bienes respondés si algo sale mal..."
+      }
+    ],
+    "situaciones_conecta": [
+      {"emoji": "🤝", "label": "Firmé o vi firmar un contrato en mi familia (alquiler, trabajo, compra)"},
+      {"emoji": "🏪", "label": "Conozco un negocio del barrio que es 'SRL' o 'SA' y nunca supe qué significaba"},
+      {"emoji": "💼", "label": "Alguien cercano es monotributista o trabaja por su cuenta"},
+      {"emoji": "🔒", "label": "Escuché hablar de cerrar un negocio y de las deudas que quedaron"}
+    ],
+    "termometro_pregunta": "¿Cuánto sabés sobre las decisiones legales que hay detrás de armar, sostener y cerrar un emprendimiento?"
+  },
+
+  "mapa": {
+    "ruta_paradas": [
+      {"id": 0, "emoji": "📜", "title": "Ley 27.349", "desc": "El marco legal del emprendedorismo argentino", "color": "#F59E0B"},
+      {"id": 1, "emoji": "👤", "title": "Persona humana o jurídica", "desc": "La primera decisión legal del emprendedor", "color": "#FBBF24"},
+      {"id": 2, "emoji": "🤝", "title": "Contratos comerciales", "desc": "Elementos esenciales y contratos más frecuentes", "color": "#10B981"},
+      {"id": 3, "emoji": "🏢", "title": "SRL y SAS", "desc": "Constituir la sociedad del emprendimiento", "color": "#0EA5E9"},
+      {"id": 4, "emoji": "🔚", "title": "Disolución y liquidación", "desc": "Cerrar bien y responder por lo que queda", "color": "#8B5CF6"}
+    ],
+
+    "panoramica_bloques": [
+      {
+        "id": "a",
+        "emoji": "🧭",
+        "title": "BLOQUE A",
+        "subtitle": "Planificación: elegir la forma jurídica",
+        "color": "#F59E0B",
+        "items": [
+          "Ley de Apoyo al Capital Emprendedor N° 27.349 (2017)",
+          "Régimen de fomento a inversores y FONDCE",
+          "Creación de la SAS como nueva figura societaria",
+          "Persona humana: monotributo y responsable inscripto/autónomo",
+          "Persona jurídica: personalidad propia y responsabilidad limitada",
+          "Criterios para elegir la forma jurídica del emprendimiento"
+        ]
+      },
+      {
+        "id": "b",
+        "emoji": "🤝",
+        "title": "BLOQUE B",
+        "subtitle": "Ejecución: contratos y sociedades",
+        "color": "#10B981",
+        "items": [
+          "El contrato comercial y sus elementos esenciales",
+          "Compraventa, locación de obra o de servicios",
+          "Contrato de trabajo, distribución y consignación",
+          "Ley General de Sociedades N° 19.550",
+          "La SRL: cuotas, socios, gerentes y Registro Público",
+          "La SAS como alternativa digital y rápida"
+        ]
+      },
+      {
+        "id": "c",
+        "emoji": "🔚",
+        "title": "BLOQUE C",
+        "subtitle": "Liquidación: cerrar bien el emprendimiento",
+        "color": "#8B5CF6",
+        "items": [
+          "Baja de la persona humana ante la AFIP",
+          "Bajas ante organismos provinciales y municipales",
+          "Causales de disolución de la sociedad",
+          "La liquidación y la personalidad jurídica que subsiste",
+          "Distribución del remanente entre los socios",
+          "Responsabilidades fiscales, laborales y con proveedores"
+        ]
+      }
+    ],
+
+    "mapa_mental": {
+      "centro": {"emoji": "⚖️", "title": "EL MARCO LEGAL DEL MICROEMPRENDIMIENTO"},
+      "ramas": [
+        {
+          "id": "que",
+          "emoji": "❓",
+          "title": "¿Qué estudiamos?",
+          "color": "#F59E0B",
+          "items": ["Marco normativo del emprendedorismo", "Formas jurídicas posibles", "Contratos comerciales", "Cierre legal del emprendimiento"]
+        },
+        {
+          "id": "quienes",
+          "emoji": "👥",
+          "title": "¿Quiénes participan?",
+          "color": "#FBBF24",
+          "items": ["El emprendedor y los socios", "Los gerentes de la sociedad", "La AFIP y los organismos provinciales y municipales", "El Registro Público"]
+        },
+        {
+          "id": "como",
+          "emoji": "⚙️",
+          "title": "¿Cómo funciona?",
+          "color": "#10B981",
+          "items": ["Inscripción como persona humana", "Constitución de una SRL o una SAS", "Celebración de contratos", "Disolución, liquidación y bajas"]
+        },
+        {
+          "id": "porque",
+          "emoji": "🎯",
+          "title": "¿Por qué es importante?",
+          "color": "#8B5CF6",
+          "items": ["Define con qué patrimonio respondés", "Da seguridad a las operaciones", "Permite crecer de manera formal", "Cierra el proyecto sin dejar deudas ocultas"]
+        }
+      ]
+    }
+  },
+
+  "nucleo_a": {
+    "bloque_info": {
+      "id": "A",
+      "emoji": "🧭",
+      "titulo": "BLOQUE A: Etapa 1: Planificación — elegir la forma jurídica",
+      "color": "#F59E0B",
+      "paginas": [2, 4]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los pasos de la hoja de ruta del proyecto tal como los plantea el manual, prestando atención a los dos que son de Marco Jurídico.",
+      "paginas_referencia": "2",
+      "items": [
+        {"id": 0, "text": "Paso 1: se forman los grupos, se elige el nombre y se define el producto o servicio", "emoji": "👥"},
+        {"id": 1, "text": "Paso 2: se diseña el logo de la empresa", "emoji": "🎨"},
+        {"id": 2, "text": "Paso 3: se confecciona el Contrato de Sociedad (SRL) y se arma la carpeta del proyecto", "emoji": "📝"},
+        {"id": 3, "text": "Paso 5: se diseñan la Factura A y la Factura B con el logo incorporado", "emoji": "🧾"},
+        {"id": 4, "text": "Paso 6: se confecciona el contrato de alquiler del espacio de trabajo", "emoji": "🏠"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada característica según corresponda a actuar como persona humana o como persona jurídica.",
+      "paginas_referencia": "4",
+      "categorias": [
+        {"name": "Persona humana", "emoji": "👤", "color": "#F59E0B"},
+        {"name": "Persona jurídica", "emoji": "🏢", "color": "#0EA5E9"}
+      ],
+      "items": [
+        {"id": 0, "text": "El emprendedor actúa a título personal y se inscribe ante la AFIP", "categoria_correcta": 0},
+        {"id": 1, "text": "Adquiere personalidad jurídica propia, distinta de la de sus integrantes", "categoria_correcta": 1},
+        {"id": 2, "text": "No existe separación entre los bienes del emprendimiento y los bienes personales", "categoria_correcta": 0},
+        {"id": 3, "text": "Según el tipo societario elegido, permite limitar la responsabilidad al capital aportado", "categoria_correcta": 1},
+        {"id": 4, "text": "Se inscribe como monotributista o como responsable inscripto/autónomo", "categoria_correcta": 0},
+        {"id": 5, "text": "La constituye un grupo de personas o, en algunos tipos societarios, una sola persona", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "4",
+      "blanks": [
+        {"id": "b1", "texto_antes": "La norma central del emprendedorismo en la Argentina es la Ley de Apoyo al Capital ________ N° 27.349, sancionada en 2017.", "respuesta_correcta": "Emprendedor", "pista": "E__________"},
+        {"id": "b2", "texto_antes": "Entre sus instrumentos, esa ley creó el Fondo Fiduciario para el Desarrollo de Capital Emprendedor, conocido por la sigla ________.", "respuesta_correcta": "FONDCE", "pista": "F_____"},
+        {"id": "b3", "texto_antes": "El emprendedor que actúa como persona humana responde con todo su ________ por las deudas de la actividad.", "respuesta_correcta": "patrimonio", "pista": "P_________"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "4",
+      "afirmaciones": [
+        {"texto": "La Ley 27.349 fue sancionada en 2017 y tiene por objeto apoyar la actividad emprendedora y su expansión.", "correcto": true, "explicacion": "Verdadero. También busca generar capital emprendedor mediante el régimen de fomento a inversores, el FONDCE y la creación de la SAS."},
+        {"texto": "Si el emprendedor se inscribe como monotributista, sus bienes personales quedan separados de los del emprendimiento.", "correcto": false, "explicacion": "Falso. Actuando como persona humana no hay separación patrimonial: responde con todo su patrimonio por las deudas de la actividad."},
+        {"texto": "Una sociedad adquiere personalidad jurídica propia, distinta de la de sus integrantes.", "correcto": true, "explicacion": "Verdadero. Por eso, según el tipo societario, permite limitar la responsabilidad de los socios al capital aportado."},
+        {"texto": "Elegir la forma jurídica depende únicamente del capital disponible.", "correcto": false, "explicacion": "Falso. También pesan la escala proyectada, el riesgo patrimonial que se asume, la cantidad de personas involucradas y las exigencias impositivas y contables."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "2-4",
+      "pares": [
+        {"izquierda": "Ley 27.349", "derecha": "Marco normativo específico del emprendedorismo argentino", "emoji": "📜"},
+        {"izquierda": "FONDCE", "derecha": "Fondo Fiduciario para el Desarrollo de Capital Emprendedor", "emoji": "💰"},
+        {"izquierda": "Monotributo", "derecha": "Inscripción del emprendedor como persona humana ante la AFIP", "emoji": "🧾"},
+        {"izquierda": "Paso 3 del proyecto", "derecha": "Confección del Contrato de Sociedad y de la carpeta de entrega", "emoji": "📝"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "4",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "📜",
+          "pregunta": "¿Cuál NO es un instrumento de la Ley 27.349 mencionado en el apunte?",
+          "paginas": "4",
+          "palabras": [
+            {"text": "Régimen de fomento a inversores", "es_intrusa": false},
+            {"text": "Fondo Fiduciario para el Desarrollo de Capital Emprendedor (FONDCE)", "es_intrusa": false},
+            {"text": "Creación de la Sociedad por Acciones Simplificada", "es_intrusa": false},
+            {"text": "Creación del régimen de monotributo", "es_intrusa": true}
+          ],
+          "explicacion": "El monotributo es una forma de inscripción ante la AFIP para la persona humana, no un instrumento creado por la Ley 27.349."
+        },
+        {
+          "id": 1,
+          "emoji": "👤",
+          "pregunta": "¿Cuál NO corresponde a actuar como persona humana?",
+          "paginas": "4",
+          "palabras": [
+            {"text": "Inscribirse como monotributista", "es_intrusa": false},
+            {"text": "Inscribirse como responsable inscripto/autónomo", "es_intrusa": false},
+            {"text": "Responder con todo el patrimonio personal por las deudas", "es_intrusa": false},
+            {"text": "Limitar la responsabilidad al capital aportado", "es_intrusa": true}
+          ],
+          "explicacion": "La limitación de responsabilidad al capital aportado es propia de la persona jurídica, según el tipo societario elegido."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "2-4",
+      "conceptos": [
+        {"termino": "Microemprendimiento", "pista": "¿Qué escala, qué capital y qué estructura tiene esta iniciativa?", "palabras_clave": ["pequeña escala", "capital propio limitado", "trabajo personal", "estructura simple"]},
+        {"termino": "Ley de Apoyo al Capital Emprendedor", "pista": "¿Qué norma de 2017 apoya al emprendedor y qué creó?", "palabras_clave": ["27.349", "2017", "FONDCE", "SAS"]},
+        {"termino": "Forma jurídica", "pista": "¿Bajo qué figura va a desarrollar el emprendedor su actividad económica?", "palabras_clave": ["persona humana", "persona jurídica", "responsabilidad", "patrimonio"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "4",
+      "causas": [
+        {"id": 0, "text": "El emprendedor se inscribe ante la AFIP y actúa a título personal", "emoji": "👤"},
+        {"id": 1, "text": "Un grupo de personas constituye una sociedad comercial", "emoji": "🏢"},
+        {"id": 2, "text": "La Ley 27.349 incorpora la Sociedad por Acciones Simplificada", "emoji": "📜"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "No hay separación patrimonial: responde con todos sus bienes por las deudas de la actividad", "emoji": "⚠️", "causa_id": 0},
+        {"id": 11, "text": "Nace una personalidad jurídica propia que permite limitar la responsabilidad al capital aportado", "emoji": "🛡️", "causa_id": 1},
+        {"id": 12, "text": "Los emprendimientos cuentan con una figura pensada para facilitar su inicio formal", "emoji": "🚀", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el recorrido que sigue un grupo emprendedor desde la idea hasta la definición de su forma jurídica.",
+      "paginas_referencia": "2-4",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "El grupo define el producto o servicio que va a desarrollar", "emoji": "💡"},
+        {"id": 1, "text": "Estima la escala proyectada y el capital disponible para constituirse", "emoji": "📐"},
+        {"id": 2, "text": "Evalúa cuánto riesgo está dispuesto a asumir con el patrimonio personal", "emoji": "⚠️"},
+        {"id": 3, "text": "Opta entre actuar como persona humana o constituir una persona jurídica", "emoji": "⚖️"},
+        {"id": 4, "text": "Confecciona el Contrato de Sociedad y arma la carpeta del proyecto", "emoji": "📝"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "4",
+      "concepto_a": {"nombre": "Persona humana", "emoji": "👤", "color": "#F59E0B"},
+      "concepto_b": {"nombre": "Persona jurídica", "emoji": "🏢", "color": "#0EA5E9"}
+    }
+  },
+
+  "nucleo_b": {
+    "bloque_info": {
+      "id": "B",
+      "emoji": "🤝",
+      "titulo": "BLOQUE B: Etapa 2: Ejecución — contratos y sociedades",
+      "color": "#10B981",
+      "paginas": [5, 6]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los pasos lógicos para constituir la SRL del emprendimiento, tal como surgen del apunte.",
+      "paginas_referencia": "5",
+      "items": [
+        {"id": 0, "text": "Los socios acuerdan y redactan el contrato social", "emoji": "📝"},
+        {"id": 1, "text": "Definen el capital social dividido en cuotas, expresado en moneda argentina", "emoji": "💰"},
+        {"id": 2, "text": "Designan a uno o más gerentes, socios o no, para administrar y representar", "emoji": "👔"},
+        {"id": 3, "text": "Inscriben el contrato social en el Registro Público de la jurisdicción", "emoji": "🏛️"},
+        {"id": 4, "text": "La sociedad queda constituida y el emprendimiento inicia su actividad", "emoji": "🚀"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada ítem según sea un elemento esencial del contrato o un tipo de contrato que celebra el emprendimiento.",
+      "paginas_referencia": "5",
+      "categorias": [
+        {"name": "Elemento esencial del contrato", "emoji": "🧩", "color": "#10B981"},
+        {"name": "Tipo de contrato comercial", "emoji": "📄", "color": "#0EA5E9"}
+      ],
+      "items": [
+        {"id": 0, "text": "El consentimiento: la voluntad libremente expresada de obligarse", "categoria_correcta": 0},
+        {"id": 1, "text": "Contrato de compraventa", "categoria_correcta": 1},
+        {"id": 2, "text": "El objeto: la prestación concreta y lícita sobre la que versa el acuerdo", "categoria_correcta": 0},
+        {"id": 3, "text": "Contrato de locación de obra o de servicios", "categoria_correcta": 1},
+        {"id": 4, "text": "La causa: la finalidad que las partes persiguen al contratar", "categoria_correcta": 0},
+        {"id": 5, "text": "Contrato de distribución o de consignación", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "5-6",
+      "blanks": [
+        {"id": "b1", "texto_antes": "Los tipos societarios están previstos en la Ley General de Sociedades N° ________.", "respuesta_correcta": "19.550", "pista": "1_.___"},
+        {"id": "b2", "texto_antes": "En la SRL el capital social se divide en ________ y no en acciones.", "respuesta_correcta": "cuotas", "pista": "C_____"},
+        {"id": "b3", "texto_antes": "El contrato social debe inscribirse en el ________ ________ correspondiente a la jurisdicción.", "respuesta_correcta": "Registro Público", "pista": "R_______ P______"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "5-6",
+      "afirmaciones": [
+        {"texto": "Un contrato comercial es un acuerdo de voluntades destinado a crear, modificar o extinguir relaciones jurídicas patrimoniales.", "correcto": true, "explicacion": "Verdadero. Y para ser válido necesita consentimiento, objeto, causa y, en algunos casos, una forma exigida por la ley."},
+        {"texto": "En el contrato de locación de obra o de servicios el tercero trabaja en relación de dependencia.", "correcto": false, "explicacion": "Falso. Justamente se celebra sin que medie relación de dependencia laboral; para eso está el contrato de trabajo."},
+        {"texto": "La SRL puede estar integrada por un mínimo de dos y un máximo de cincuenta socios.", "correcto": true, "explicacion": "Verdadero. Es uno de los rasgos que la Ley 19.550 fija para este tipo societario."},
+        {"texto": "La SAS ofrece menos protección patrimonial que la SRL, porque los socios responden con todos sus bienes.", "correcto": false, "explicacion": "Falso. La SAS tiene la misma limitación de responsabilidad de los socios al capital aportado que ofrece la SRL."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "5",
+      "pares": [
+        {"izquierda": "Contrato de compraventa", "derecha": "Una parte transfiere la propiedad de una cosa y la otra paga un precio en dinero", "emoji": "🛒"},
+        {"izquierda": "Locación de obra o de servicios", "derecha": "Un tercero realiza una obra o presta un servicio sin relación de dependencia", "emoji": "🔧"},
+        {"izquierda": "Contrato de trabajo", "derecha": "Incorporación de personal en relación de dependencia, con obligaciones previsionales", "emoji": "👷"},
+        {"izquierda": "Distribución o consignación", "derecha": "Un tercero comercializa el producto a cambio de una comisión o un margen", "emoji": "🚚"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "5-6",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🧩",
+          "pregunta": "¿Cuál NO es un elemento esencial del contrato comercial según el apunte?",
+          "paginas": "5",
+          "palabras": [
+            {"text": "Consentimiento de las partes", "es_intrusa": false},
+            {"text": "Objeto", "es_intrusa": false},
+            {"text": "Causa", "es_intrusa": false},
+            {"text": "Margen de utilidad", "es_intrusa": true}
+          ],
+          "explicacion": "El apunte enumera consentimiento, objeto, causa y, en algunos casos, una forma determinada exigida por la ley."
+        },
+        {
+          "id": 1,
+          "emoji": "🏢",
+          "pregunta": "¿Cuál NO es una característica de la SRL?",
+          "paginas": "5-6",
+          "palabras": [
+            {"text": "El capital social se divide en cuotas", "es_intrusa": false},
+            {"text": "De dos a cincuenta socios", "es_intrusa": false},
+            {"text": "La administración está a cargo de uno o más gerentes", "es_intrusa": false},
+            {"text": "Se constituye de manera íntegramente digital, incluso en 24 horas", "es_intrusa": true}
+          ],
+          "explicacion": "La constitución digital en plazos muy reducidos es la principal ventaja de la SAS, la figura que introdujo la Ley 27.349."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "5-6",
+      "conceptos": [
+        {"termino": "Contrato comercial", "pista": "¿Qué hacen dos partes cuando se ponen de acuerdo por escrito en la actividad económica?", "palabras_clave": ["acuerdo de voluntades", "partes", "relaciones patrimoniales", "consentimiento"]},
+        {"termino": "Sociedad de Responsabilidad Limitada", "pista": "¿Cómo se divide su capital y hasta dónde responden los socios?", "palabras_clave": ["cuotas", "dos a cincuenta socios", "responsabilidad limitada", "gerentes"]},
+        {"termino": "Sociedad por Acciones Simplificada", "pista": "¿Qué figura permite formalizar un emprendimiento de manera digital y rápida?", "palabras_clave": ["Ley 27.349", "digital", "24 horas", "capital mínimo bajo"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "5-6",
+      "causas": [
+        {"id": 0, "text": "Las partes acuerdan libremente, con un objeto lícito y una causa determinada", "emoji": "🤝"},
+        {"id": 1, "text": "Los socios de la SRL suscriben e integran el capital social", "emoji": "💰"},
+        {"id": 2, "text": "La Ley 27.349 permite constituir la SAS de manera íntegramente digital", "emoji": "💻"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "El contrato reúne sus elementos esenciales y resulta válido para las partes", "emoji": "✅", "causa_id": 0},
+        {"id": 11, "text": "Su patrimonio personal, en principio, queda protegido frente a las deudas sociales", "emoji": "🛡️", "causa_id": 1},
+        {"id": 12, "text": "El emprendimiento puede formalizarse en plazos muy reducidos, incluso en 24 horas con el modelo tipo", "emoji": "⚡", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená la cadena de contratos que atraviesa el emprendimiento en marcha, desde que compra hasta que le llega el producto al cliente.",
+      "paginas_referencia": "5",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "Compra los insumos mediante un contrato de compraventa", "emoji": "🛒"},
+        {"id": 1, "text": "Encarga a un tercero una obra o un servicio por locación de obra o de servicios", "emoji": "🔧"},
+        {"id": 2, "text": "Incorpora personal en relación de dependencia con un contrato de trabajo", "emoji": "👷"},
+        {"id": 3, "text": "Entrega el producto a un distribuidor o consignatario a cambio de una comisión", "emoji": "🚚"},
+        {"id": 4, "text": "El producto llega al cliente final mediante una nueva compraventa", "emoji": "🎁"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "5-6",
+      "concepto_a": {"nombre": "SRL", "emoji": "🏢", "color": "#10B981"},
+      "concepto_b": {"nombre": "SAS", "emoji": "💻", "color": "#0EA5E9"}
+    }
+  },
+
+  "nucleo_c": {
+    "bloque_info": {
+      "id": "C",
+      "emoji": "🔚",
+      "titulo": "BLOQUE C: Etapa 3: Liquidación — cerrar bien el emprendimiento",
+      "color": "#8B5CF6",
+      "paginas": [8, 9]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená las etapas del cierre de una sociedad comercial, tal como las describe el apunte.",
+      "paginas_referencia": "8",
+      "items": [
+        {"id": 0, "text": "Se produce una causal de disolución prevista por la ley o por el contrato social", "emoji": "⏳"},
+        {"id": 1, "text": "La sociedad se disuelve y conserva su personalidad jurídica al solo efecto de liquidarse", "emoji": "🏢"},
+        {"id": 2, "text": "Se cobran los créditos pendientes y se venden los bienes que sea necesario realizar", "emoji": "💵"},
+        {"id": 3, "text": "Se cancelan las deudas con los acreedores", "emoji": "🧾"},
+        {"id": 4, "text": "Se distribuye el remanente entre los socios según su participación en el capital", "emoji": "🤝"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada trámite según corresponda al cierre de una persona humana o al cierre de una sociedad comercial.",
+      "paginas_referencia": "8",
+      "categorias": [
+        {"name": "Cierre como persona humana", "emoji": "👤", "color": "#F59E0B"},
+        {"name": "Cierre como sociedad comercial", "emoji": "🏢", "color": "#8B5CF6"}
+      ],
+      "items": [
+        {"id": 0, "text": "Dar de baja la inscripción ante la AFIP", "categoria_correcta": 0},
+        {"id": 1, "text": "Transitar el proceso formal de disolución y liquidación", "categoria_correcta": 1},
+        {"id": 2, "text": "Dar de baja ante rentas y la habilitación comercial municipal", "categoria_correcta": 0},
+        {"id": 3, "text": "Conservar la personalidad jurídica al solo efecto de concluir los negocios pendientes", "categoria_correcta": 1},
+        {"id": 4, "text": "Regularizar previamente las obligaciones fiscales del monotributista o autónomo", "categoria_correcta": 0},
+        {"id": 5, "text": "Distribuir el remanente entre los socios en proporción al capital social", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "8-9",
+      "blanks": [
+        {"id": "b1", "texto_antes": "Si el emprendimiento funcionó como persona humana, su cierre implica dar de baja la inscripción ante la ________.", "respuesta_correcta": "AFIP", "pista": "A___"},
+        {"id": "b2", "texto_antes": "Durante la ________, la sociedad conserva su personalidad jurídica al solo efecto de concluir los negocios pendientes.", "respuesta_correcta": "liquidación", "pista": "L__________"},
+        {"id": "b3", "texto_antes": "Una vez satisfechas todas las obligaciones frente a terceros, se distribuye el ________ entre los socios.", "respuesta_correcta": "remanente", "pista": "R________"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "8-9",
+      "afirmaciones": [
+        {"texto": "El tratamiento jurídico del cierre depende de la forma jurídica bajo la cual se desarrolló la actividad.", "correcto": true, "explicacion": "Verdadero. No es lo mismo dar de baja a un monotributista que disolver y liquidar una SRL o una SAS."},
+        {"texto": "Durante la liquidación la sociedad pierde de inmediato su personalidad jurídica.", "correcto": false, "explicacion": "Falso. La conserva al solo efecto de concluir los negocios pendientes: cobrar créditos, realizar bienes y cancelar deudas."},
+        {"texto": "El remanente se reparte entre los socios recién después de satisfacer todas las obligaciones frente a terceros.", "correcto": true, "explicacion": "Verdadero. Y se distribuye en proporción a la participación de cada socio en el capital social."},
+        {"texto": "Con el cese de la actividad se extinguen automáticamente todas las obligaciones fiscales y laborales.", "correcto": false, "explicacion": "Falso. Subsisten las obligaciones fiscales devengadas hasta el cierre, las laborales y previsionales y las contraídas con proveedores y terceros."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "8-9",
+      "pares": [
+        {"izquierda": "Disolución", "derecha": "Se produce por una causal prevista por la ley o por el contrato social", "emoji": "⏳"},
+        {"izquierda": "Liquidación", "derecha": "Se cobran créditos, se realizan bienes y se cancelan deudas", "emoji": "🧾"},
+        {"izquierda": "Remanente", "derecha": "Se distribuye entre los socios en proporción al capital social", "emoji": "🤝"},
+        {"izquierda": "Baja del monotributista", "derecha": "Trámite ante la AFIP y ante organismos provinciales y municipales", "emoji": "📋"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "8-9",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "⏳",
+          "pregunta": "¿Cuál NO es una causal de disolución mencionada en el apunte?",
+          "paginas": "8",
+          "palabras": [
+            {"text": "Decisión de los socios", "es_intrusa": false},
+            {"text": "Vencimiento del plazo de duración", "es_intrusa": false},
+            {"text": "Imposibilidad sobreviniente de cumplir el objeto social", "es_intrusa": false},
+            {"text": "Cambio del domicilio de la sede social", "es_intrusa": true}
+          ],
+          "explicacion": "El apunte menciona la decisión de los socios, el vencimiento del plazo, el cumplimiento de la condición a la que se subordinó la existencia y la imposibilidad de cumplir el objeto social."
+        },
+        {
+          "id": 1,
+          "emoji": "⚠️",
+          "pregunta": "¿Cuál NO es una responsabilidad que subsiste después del cierre?",
+          "paginas": "8-9",
+          "palabras": [
+            {"text": "Las obligaciones fiscales devengadas hasta la fecha de cierre", "es_intrusa": false},
+            {"text": "Las obligaciones laborales y previsionales frente al personal", "es_intrusa": false},
+            {"text": "Las obligaciones contraídas frente a proveedores y otros terceros", "es_intrusa": false},
+            {"text": "La obligación de seguir produciendo el bien o el servicio", "es_intrusa": true}
+          ],
+          "explicacion": "Lo que subsiste son obligaciones patrimoniales ya devengadas, no la actividad productiva, que justamente cesa."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "8-9",
+      "conceptos": [
+        {"termino": "Disolución", "pista": "¿Qué hecho pone en marcha el final de la sociedad?", "palabras_clave": ["causal", "ley", "contrato social", "plazo"]},
+        {"termino": "Liquidación", "pista": "¿Qué se hace con los créditos, los bienes y las deudas antes de cerrar?", "palabras_clave": ["personalidad jurídica", "negocios pendientes", "cobrar", "cancelar deudas"]},
+        {"termino": "Distribución del remanente", "pista": "¿Qué pasa con lo que sobra una vez pagadas todas las obligaciones?", "palabras_clave": ["socios", "proporción", "capital social", "terceros"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "8-9",
+      "causas": [
+        {"id": 0, "text": "El emprendimiento funcionó como monotributista y decide discontinuar la actividad", "emoji": "👤"},
+        {"id": 1, "text": "Se configura una causal prevista por la ley o por el contrato social", "emoji": "⏳"},
+        {"id": 2, "text": "La actividad cesa pero quedan obligaciones devengadas hasta la fecha de cierre", "emoji": "📌"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "Debe darse de baja ante la AFIP y ante los organismos provinciales y municipales", "emoji": "📋", "causa_id": 0},
+        {"id": 11, "text": "La sociedad se disuelve y comienza el proceso de liquidación", "emoji": "🏢", "causa_id": 1},
+        {"id": 12, "text": "Subsisten responsabilidades fiscales, laborales y previsionales y frente a proveedores", "emoji": "⚠️", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená el cierre legal de un emprendimiento que funcionó bajo la figura de persona humana.",
+      "paginas_referencia": "8-9",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "Se decide discontinuar la actividad o se cumple el objetivo para el que fue creada", "emoji": "🎯"},
+        {"id": 1, "text": "Se regularizan las obligaciones fiscales pendientes", "emoji": "🧾"},
+        {"id": 2, "text": "Se da de baja la inscripción ante la AFIP", "emoji": "📋"},
+        {"id": 3, "text": "Se dan de baja las inscripciones provinciales y municipales: rentas y habilitación comercial", "emoji": "🏛️"},
+        {"id": 4, "text": "Se responde por las obligaciones laborales, previsionales y con proveedores que subsisten", "emoji": "⚠️"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "8",
+      "concepto_a": {"nombre": "Disolución", "emoji": "⏳", "color": "#8B5CF6"},
+      "concepto_b": {"nombre": "Liquidación", "emoji": "🧾", "color": "#F59E0B"}
+    }
+  },
+
+  "senales": {
+    "conceptos_clave": [
+      {
+        "termino": "Ley 27.349",
+        "emoji": "📜",
+        "color": "#F59E0B",
+        "definicion": "Ley de Apoyo al Capital Emprendedor, sancionada en 2017, que apoya la actividad emprendedora mediante el régimen de fomento a inversores, el FONDCE y la creación de la SAS.",
+        "importancia": "Es el marco normativo específico del emprendedorismo argentino y la puerta de entrada legal de cualquier proyecto nuevo."
+      },
+      {
+        "termino": "Forma jurídica",
+        "emoji": "⚖️",
+        "color": "#FBBF24",
+        "definicion": "Figura bajo la cual el emprendedor desarrolla su actividad: como persona humana (monotributista o responsable inscripto/autónomo) o como persona jurídica constituyendo una sociedad.",
+        "importancia": "Define si el emprendedor responde con todo su patrimonio personal o si su responsabilidad queda limitada al capital aportado."
+      },
+      {
+        "termino": "Contrato comercial",
+        "emoji": "🤝",
+        "color": "#10B981",
+        "definicion": "Acuerdo de voluntades entre dos o más partes destinado a crear, modificar o extinguir relaciones jurídicas patrimoniales vinculadas a la actividad económica.",
+        "importancia": "Es el instrumento por el que pasa casi toda la actividad cotidiana del emprendimiento: comprar, vender, contratar y alquilar."
+      },
+      {
+        "termino": "Disolución y liquidación",
+        "emoji": "🔚",
+        "color": "#8B5CF6",
+        "definicion": "Proceso formal regulado por la Ley General de Sociedades por el cual una sociedad se extingue: se configura una causal, se concluyen los negocios pendientes y se distribuye el remanente.",
+        "importancia": "Cerrar mal deja deudas y responsabilidades vivas; cerrar bien forma parte de una gestión emprendedora responsable."
+      }
+    ],
+    "semaforo_conceptos": [
+      "FONDCE",
+      "Elementos esenciales del contrato",
+      "Ley General de Sociedades N° 19.550",
+      "Registro Público",
+      "Distribución del remanente"
+    ],
+    "postits_conceptos": [
+      "Persona humana o jurídica",
+      "SRL",
+      "SAS",
+      "Liquidación"
+    ]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {
+        "emoji": "🇩🇪",
+        "frente": "La SRL no es un invento argentino: la creó Alemania en 1892",
+        "dorso": "La GmbH alemana fue la primera sociedad del mundo diseñada para negocios chicos que querían limitar su responsabilidad sin la complejidad de una sociedad anónima. El modelo se copió en toda Europa y llegó a la Argentina en 1932, con la Ley 11.645, mucho antes de que la Ley 19.550 la reordenara.",
+        "color": "#F59E0B"
+      },
+      {
+        "emoji": "⚡",
+        "frente": "La SAS se creó en 2017 y en poco tiempo llegó a desplazar a la SRL entre las sociedades nuevas inscriptas en la Ciudad de Buenos Aires",
+        "dorso": "Constituir una sociedad podía llevar semanas o meses de trámites en papel. Con el modelo tipo digital, la SAS bajó ese plazo a un día hábil y se volvió la vía preferida para formalizar emprendimientos, sobre todo tecnológicos.",
+        "color": "#10B981"
+      },
+      {
+        "emoji": "🧾",
+        "frente": "El Monotributo es más joven que casi cualquier estudiante de 5° año: se creó en 1998",
+        "dorso": "La Ley 24.977 armó un régimen simplificado que reemplazó con una sola cuota mensual lo que antes eran tres obligaciones separadas: impuesto a las ganancias, IVA y aportes al sistema previsional y de salud. Antes de eso, trabajar por cuenta propia de manera formal era muchísimo más complicado.",
+        "color": "#8B5CF6"
+      }
+    ],
+
+    "linea_de_tiempo": [
+      {"year": "1892", "text": "Alemania crea la GmbH, la primera sociedad de responsabilidad limitada del mundo", "emoji": "🇩🇪"},
+      {"year": "1932", "text": "La Ley 11.645 incorpora la SRL al derecho argentino", "emoji": "📜"},
+      {"year": "1972", "text": "Se sanciona la Ley 19.550 de Sociedades Comerciales, todavía vigente", "emoji": "⚖️"},
+      {"year": "1998", "text": "Nace el Monotributo con la Ley 24.977", "emoji": "🧾"},
+      {"year": "2017", "text": "La Ley 27.349 crea la SAS y el FONDCE", "emoji": "💻"}
+    ],
+
+    "encuesta": {
+      "pregunta": "¿Qué dato te sorprendió más?",
+      "opciones": [
+        {"emoji": "🇩🇪", "text": "Que la SRL exista desde 1892 y venga de Alemania", "votos_iniciales": 36},
+        {"emoji": "⚡", "text": "Que una sociedad se pueda constituir en 24 horas", "votos_iniciales": 52},
+        {"emoji": "🧾", "text": "Que el Monotributo tenga menos de 30 años", "votos_iniciales": 31}
+      ]
+    }
+  },
+
+  "cruces": {
+    "consigna_general": "Elegí uno de estos temas del manual y preparate para explicárselo a un compañero de otro grupo, usando el emprendimiento que ustedes están armando como ejemplo. La idea es que entienda el tema aunque no haya leído el apunte, y que pueda aplicarlo a su propio proyecto.",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "🧭",
+        "titulo": "BLOQUE A: Etapa 1: Planificación — elegir la forma jurídica",
+        "color": "#F59E0B",
+        "temas_sugeridos": [
+          "Explicale qué es la Ley 27.349 y qué instrumentos creó para apoyar a los emprendedores.",
+          "Enseñale la diferencia entre actuar como persona humana y constituir una persona jurídica.",
+          "Contale por qué el monotributista responde con todo su patrimonio y qué riesgo implica eso.",
+          "Mostrale qué criterios hay que mirar para elegir la forma jurídica de un emprendimiento.",
+          "Explicale por qué el Paso 3 del proyecto (el Contrato de Sociedad) va antes que el diseño de las facturas."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      },
+      {
+        "id": "b",
+        "emoji": "🤝",
+        "titulo": "BLOQUE B: Etapa 2: Ejecución — contratos y sociedades",
+        "color": "#10B981",
+        "temas_sugeridos": [
+          "Explicale cuáles son los elementos esenciales de un contrato usando el contrato de alquiler del Paso 6.",
+          "Enseñale qué contratos celebra un microemprendimiento y para qué sirve cada uno.",
+          "Contale la diferencia entre la locación de servicios y el contrato de trabajo, y por qué importa tanto.",
+          "Mostrale las características de la SRL que ustedes redactaron en el Contrato de Sociedad.",
+          "Explicale qué es la SAS y por qué muchos emprendimientos la eligen en lugar de la SRL."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      },
+      {
+        "id": "c",
+        "emoji": "🔚",
+        "titulo": "BLOQUE C: Etapa 3: Liquidación — cerrar bien el emprendimiento",
+        "color": "#8B5CF6",
+        "temas_sugeridos": [
+          "Explicale qué trámites tiene que hacer un monotributista cuando deja de trabajar por su cuenta.",
+          "Enseñale la diferencia entre disolución y liquidación de una sociedad.",
+          "Contale por qué la sociedad conserva su personalidad jurídica mientras se liquida.",
+          "Mostrale en qué orden se pagan las deudas y recién después se reparte el remanente entre los socios.",
+          "Explicale qué responsabilidades siguen vivas después de cerrar y por qué conviene no ignorarlas."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      }
+    ]
+  },
+
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "Para un microemprendimiento que recién arranca, conviene constituir una sociedad antes que trabajar como persona humana",
+      "contexto": "Su grupo tiene que decidir bajo qué forma jurídica va a funcionar el emprendimiento. Una parte del grupo dice que hay que inscribirse como monotributistas y arrancar rápido; otra sostiene que hay que constituir una SRL o una SAS desde el primer día. Discutan con los argumentos del manual: responsabilidad patrimonial, cantidad de socios, capital disponible y exigencias impositivas y contables.",
+      "roles": [
+        {"id": "fiscal", "label": "A favor de la persona humana", "emoji": "👤", "color": "#F59E0B", "desc": "Defendé arrancar como monotributista: menos costos, menos trámites y menos exigencias contables al inicio."},
+        {"id": "defensa", "label": "A favor de la sociedad", "emoji": "🏢", "color": "#10B981", "desc": "Argumentá por qué conviene la personalidad jurídica propia y la limitación de la responsabilidad al capital aportado."},
+        {"id": "juez", "label": "Posición equilibrada", "emoji": "⚖️", "color": "#8B5CF6", "desc": "Buscá un criterio que combine ambas: qué escala, qué riesgo y qué cantidad de socios justifican pasar de una figura a la otra."}
+      ]
+    },
+
+    "tesis": {
+      "consigna": "Formulá una tesis sobre cuál es la forma jurídica más adecuada para el emprendimiento de tu grupo. Fundamentala con los criterios del manual (escala proyectada, capital disponible, riesgo patrimonial, cantidad de personas y exigencias impositivas y contables), incluí un ejemplo concreto de tu proyecto y anticipá las críticas que podría recibir tu postura."
+    },
+
+    "critica": {
+      "consigna": "Analizá críticamente el recorrido legal completo del emprendimiento, desde la elección de la forma jurídica hasta la liquidación. ¿Qué decisiones jurídicas protegen realmente al emprendedor y cuáles solo agregan trámites? ¿Qué pasaría si el grupo salteara el contrato de sociedad o el contrato de alquiler? ¿Qué cambiarías del marco legal si pudieras?"
+    }
+  },
+
+  "emocional": {},
+
+  "autotest": {
+    "banco_respuestas_docente": [
+      "1. B - La Ley de Apoyo al Capital Emprendedor N° 27.349, sancionada en 2017. (p. 4)",
+      "2. D - La Sociedad por Acciones Simplificada (SAS). (p. 4)",
+      "3. A - No hay separación patrimonial: responde con todo su patrimonio por las deudas. (p. 4)",
+      "4. C - Personalidad jurídica propia y limitación de la responsabilidad al capital aportado. (p. 4)",
+      "5. B - Consentimiento, objeto y causa. (p. 5)",
+      "6. D - Ley General de Sociedades N° 19.550. (p. 5)",
+      "7. C - Un mínimo de dos y un máximo de cincuenta socios. (p. 5)",
+      "8. A - En el Registro Público correspondiente a la jurisdicción. (p. 5)",
+      "9. D - Constituirse de manera íntegramente digital y en plazos muy reducidos. (p. 5-6)",
+      "10. B - Conserva su personalidad jurídica al solo efecto de concluir los negocios pendientes. (p. 8)",
+      "11. VERDADERO - La locación de obra o de servicios se celebra sin relación de dependencia. (p. 5)",
+      "12. FALSO - En la SRL el capital se divide en cuotas, no en acciones. (p. 5)",
+      "13. VERDADERO - La responsabilidad de los socios se limita al capital suscripto e integrado. (p. 5)",
+      "14. FALSO - Las obligaciones fiscales, laborales y previsionales subsisten al cierre. (p. 8-9)",
+      "15. VERDADERO - El remanente se distribuye después de satisfacer las obligaciones con terceros. (p. 8)"
+    ],
+
+    "preguntas": [
+      {
+        "pregunta": "¿Cuál es la norma central del marco normativo del emprendedorismo en la Argentina?",
+        "opciones": [
+          "La Ley General de Sociedades N° 19.550",
+          "La Ley de Apoyo al Capital Emprendedor N° 27.349, sancionada en 2017",
+          "La Ley de Contrato de Trabajo",
+          "El régimen de monotributo"
+        ],
+        "correcta": 1,
+        "explicacion": "La Ley 27.349 tiene por objeto apoyar la actividad emprendedora y su expansión, y la generación de capital emprendedor. Revisá la página 4."
+      },
+      {
+        "pregunta": "¿Qué nueva figura societaria creó la Ley 27.349 para facilitar el inicio formal de emprendimientos?",
+        "opciones": [
+          "La Sociedad de Responsabilidad Limitada",
+          "La Sociedad Colectiva",
+          "El Fondo Fiduciario para el Desarrollo de Capital Emprendedor",
+          "La Sociedad por Acciones Simplificada (SAS)"
+        ],
+        "correcta": 3,
+        "explicacion": "La SAS es la figura pensada especialmente para facilitar el inicio formal de emprendimientos. El FONDCE, en cambio, es un fondo fiduciario, no una sociedad. Revisá la página 4."
+      },
+      {
+        "pregunta": "Si el emprendedor actúa como persona humana inscripta en el monotributo, ¿qué ocurre con su patrimonio?",
+        "opciones": [
+          "No hay separación patrimonial: responde con todo su patrimonio por las deudas de la actividad",
+          "Sus bienes personales quedan totalmente protegidos",
+          "Responde solo hasta el monto de la categoría de monotributo",
+          "El patrimonio queda a cargo del Registro Público"
+        ],
+        "correcta": 0,
+        "explicacion": "Actuando a título personal no existe separación entre los bienes del emprendimiento y los bienes personales del emprendedor. Revisá la página 4."
+      },
+      {
+        "pregunta": "¿Qué obtiene un emprendimiento cuando se constituye como persona jurídica?",
+        "opciones": [
+          "La exención total de impuestos",
+          "La obligación de tener un solo socio",
+          "Personalidad jurídica propia y, según el tipo societario, limitación de la responsabilidad al capital aportado",
+          "La eliminación de las exigencias contables"
+        ],
+        "correcta": 2,
+        "explicacion": "La sociedad adquiere una personalidad distinta de la de sus integrantes, y eso permite limitar la responsabilidad de los socios. Revisá la página 4."
+      },
+      {
+        "pregunta": "¿Cuáles son los elementos esenciales que requiere un contrato comercial para su validez?",
+        "opciones": [
+          "Precio, plazo y garantía",
+          "Consentimiento, objeto y causa (y, en algunos casos, una forma determinada)",
+          "Firma del gerente, sello e inscripción registral",
+          "Capital, cuotas y socios"
+        ],
+        "correcta": 1,
+        "explicacion": "El consentimiento es la voluntad libremente expresada de obligarse; el objeto, la prestación concreta y lícita; la causa, la finalidad perseguida. Revisá la página 5."
+      },
+      {
+        "pregunta": "¿Qué norma prevé los tipos societarios entre los que debe optar el emprendimiento que se constituye como persona jurídica?",
+        "opciones": [
+          "La Ley de Contrato de Trabajo",
+          "La Ley 24.977 de monotributo",
+          "La Ley 27.349 exclusivamente",
+          "La Ley General de Sociedades N° 19.550"
+        ],
+        "correcta": 3,
+        "explicacion": "Los tipos societarios están previstos en la Ley 19.550; la Ley 27.349 sumó después la SAS como alternativa. Revisá la página 5."
+      },
+      {
+        "pregunta": "¿Cuántos socios puede tener una Sociedad de Responsabilidad Limitada?",
+        "opciones": [
+          "Un socio como máximo",
+          "Entre cinco y veinte socios",
+          "Un mínimo de dos y un máximo de cincuenta socios",
+          "No tiene límite de socios"
+        ],
+        "correcta": 2,
+        "explicacion": "Es una de las características que fija la Ley 19.550 para la SRL, junto con la división del capital en cuotas. Revisá la página 5."
+      },
+      {
+        "pregunta": "¿Dónde debe inscribirse el contrato social de una SRL?",
+        "opciones": [
+          "En el Registro Público correspondiente a la jurisdicción",
+          "En la AFIP, junto con el alta del monotributo",
+          "En el municipio donde funciona el local",
+          "En el FONDCE"
+        ],
+        "correcta": 0,
+        "explicacion": "El contrato social debe contener la denominación, el objeto, el capital, la duración y la forma de administración, e inscribirse en el Registro Público. Revisá la página 5."
+      },
+      {
+        "pregunta": "¿Cuál es la principal ventaja de la SAS frente a la SRL?",
+        "opciones": [
+          "Que los socios no responden por ninguna deuda",
+          "Que no necesita contrato ni estatuto",
+          "Que puede tener más de cincuenta socios obligatoriamente",
+          "Que puede constituirse de manera íntegramente digital y en plazos muy reducidos"
+        ],
+        "correcta": 3,
+        "explicacion": "Con el modelo tipo puede constituirse incluso en 24 horas, con capital social mínimo bajo y la misma limitación de responsabilidad que la SRL. Revisá las páginas 5 y 6."
+      },
+      {
+        "pregunta": "Durante la liquidación de una sociedad, ¿qué ocurre con su personalidad jurídica?",
+        "opciones": [
+          "Se extingue de inmediato al declararse la disolución",
+          "La conserva al solo efecto de concluir los negocios pendientes",
+          "Se transfiere al socio con mayor participación",
+          "Pasa automáticamente al Registro Público"
+        ],
+        "correcta": 1,
+        "explicacion": "Mientras se liquida, la sociedad cobra los créditos pendientes, realiza los bienes necesarios y cancela las deudas con los acreedores. Revisá la página 8."
+      }
+    ],
+
+    "verdadero_falso": [
+      {"texto": "El contrato de locación de obra o de servicios se celebra sin que medie relación de dependencia laboral.", "correcto": true, "explicacion": "VERDADERO. Cuando sí hay relación de dependencia corresponde el contrato de trabajo, con sus obligaciones laborales y previsionales. Revisá la página 5."},
+      {"texto": "En la Sociedad de Responsabilidad Limitada el capital social se divide en acciones.", "correcto": false, "explicacion": "FALSO. Se divide en cuotas, cuyo valor debe expresarse en moneda argentina. Revisá la página 5."},
+      {"texto": "La responsabilidad de los socios de una SRL se limita al capital que efectivamente suscriben e integran.", "correcto": true, "explicacion": "VERDADERO. Por eso su patrimonio personal, en principio, queda protegido frente a las deudas sociales. Revisá la página 5."},
+      {"texto": "Una vez cerrado el emprendimiento se extinguen automáticamente todas las obligaciones fiscales y laborales.", "correcto": false, "explicacion": "FALSO. Subsisten las obligaciones fiscales devengadas hasta la fecha de cierre, las laborales y previsionales y las contraídas con proveedores. Revisá las páginas 8 y 9."},
+      {"texto": "El remanente se distribuye entre los socios recién una vez satisfechas todas las obligaciones frente a terceros.", "correcto": true, "explicacion": "VERDADERO. Y se reparte en proporción a la participación de cada socio en el capital social. Revisá la página 8."}
+    ]
+  },
+
+  "cierre": {
+    "glosario": [
+      {"termino": "Ley 27.349", "emoji": "📜", "definicion": "Ley de Apoyo al Capital Emprendedor, de 2017, que creó el régimen de fomento a inversores, el FONDCE y la SAS.", "categoria": "Normativa"},
+      {"termino": "Persona humana", "emoji": "👤", "definicion": "Forma jurídica en la que el emprendedor actúa a título personal como monotributista o responsable inscripto/autónomo, sin separación patrimonial.", "categoria": "Formas jurídicas"},
+      {"termino": "Persona jurídica", "emoji": "🏢", "definicion": "Sociedad con personalidad propia, distinta de la de sus integrantes, que según el tipo societario permite limitar la responsabilidad de los socios.", "categoria": "Formas jurídicas"},
+      {"termino": "Contrato comercial", "emoji": "🤝", "definicion": "Acuerdo de voluntades entre dos o más partes que crea, modifica o extingue relaciones jurídicas patrimoniales de la actividad económica.", "categoria": "Contratos"},
+      {"termino": "Ley 19.550", "emoji": "⚖️", "definicion": "Ley General de Sociedades, que prevé los tipos societarios y regula la disolución y liquidación de las sociedades.", "categoria": "Normativa"},
+      {"termino": "SRL", "emoji": "🏛️", "definicion": "Sociedad de Responsabilidad Limitada: capital dividido en cuotas, de dos a cincuenta socios, administrada por gerentes e inscripta en el Registro Público.", "categoria": "Sociedades"},
+      {"termino": "SAS", "emoji": "💻", "definicion": "Sociedad por Acciones Simplificada: figura creada por la Ley 27.349, de constitución digital y rápida, con capital mínimo bajo y responsabilidad limitada.", "categoria": "Sociedades"},
+      {"termino": "Liquidación", "emoji": "🧾", "definicion": "Etapa posterior a la disolución en la que la sociedad conserva su personalidad jurídica al solo efecto de concluir los negocios pendientes.", "categoria": "Cierre"}
+    ],
+
+    "recursos": [
+      {"tipo": "🌐 Web", "title": "AFIP/ARCA — Monotributo (monotributo.afip.gob.ar)", "desc": "Sitio oficial para inscribirse, recategorizarse y dar de baja el monotributo, con las escalas vigentes.", "nivel": "Introductorio", "color": "#F59E0B"},
+      {"tipo": "🌐 Web", "title": "Argentina.gob.ar — Crear una Sociedad por Acciones Simplificada (SAS)", "desc": "Guía oficial del trámite digital: requisitos, modelo tipo de estatuto y plazos de constitución.", "nivel": "Intermedio", "color": "#10B981"},
+      {"tipo": "📄 Norma", "title": "InfoLEG — Ley General de Sociedades N° 19.550", "desc": "Texto completo y actualizado de la ley que regula los tipos societarios, la SRL y la disolución y liquidación.", "nivel": "Avanzado", "color": "#0EA5E9"},
+      {"tipo": "📄 Norma", "title": "InfoLEG — Ley de Apoyo al Capital Emprendedor N° 27.349", "desc": "Texto oficial de la ley de 2017: régimen de fomento a inversores, FONDCE y creación de la SAS.", "nivel": "Avanzado", "color": "#FBBF24"},
+      {"tipo": "🏛️ Organismo", "title": "Inspección General de Justicia (argentina.gob.ar/justicia/igj)", "desc": "Organismo que lleva el Registro Público en la Ciudad de Buenos Aires: modelos de contrato social y guías de trámites societarios.", "nivel": "Intermedio", "color": "#8B5CF6"}
+    ]
+  }
+}

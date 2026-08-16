@@ -1,0 +1,862 @@
+{
+  "id": "eetp602_5a_org_gestion_u3",
+  "materia": "Organización y Gestión",
+  "unidad": 3,
+  "titulo": "Microemprendimiento: idea de negocio, gestión comercial y resultados",
+  "emoji": "🏢",
+  "color_primario": "#3B82F6",
+  "color_secundario": "#60A5FA",
+
+  "umbral": {
+    "preguntas_disparadoras": [
+      {
+        "emoji": "💡",
+        "texto": "¿Por qué dos grupos pueden tener la misma idea y solo uno termina vendiendo algo de verdad?",
+        "pista": "No alcanza con que la idea guste: alguien tiene que estar dispuesto a pagar por ella..."
+      },
+      {
+        "emoji": "🧾",
+        "texto": "Cuando comprás algo, ¿mirás qué papel te dan? ¿Sabés por qué a veces te entregan factura y otras veces un remito?",
+        "pista": "Cada documento comercial respalda una cosa distinta: la venta, la entrega o el pago..."
+      },
+      {
+        "emoji": "💸",
+        "texto": "¿Cómo puede ser que un emprendimiento venda bien y aun así no le alcance la plata para pagar los sueldos?",
+        "pista": "Vender no es lo mismo que cobrar: hay una herramienta que sigue la plata real, no la prometida..."
+      }
+    ],
+    "situaciones_conecta": [
+      {"emoji": "🛒", "label": "Compré algo y me dieron factura, ticket o recibo"},
+      {"emoji": "🎨", "label": "Diseñé un logo, un afiche o una publicación para redes"},
+      {"emoji": "📦", "label": "Fui a comprar algo y no había stock"},
+      {"emoji": "💰", "label": "Vendí algo hecho por mí o ayudé en un emprendimiento familiar"}
+    ],
+    "termometro_pregunta": "¿Cuánto sabés sobre cómo se planifica, se gestiona y se evalúa un microemprendimiento?"
+  },
+
+  "mapa": {
+    "ruta_paradas": [
+      {"id": 0, "emoji": "💡", "title": "La idea de negocio", "desc": "De la idea suelta a la oportunidad válida", "color": "#3B82F6"},
+      {"id": 1, "emoji": "📋", "title": "El plan de negocio", "desc": "Sus partes y el análisis FODA", "color": "#60A5FA"},
+      {"id": 2, "emoji": "📣", "title": "Marketing y 4 P", "desc": "Producto, precio, plaza y promoción", "color": "#8B5CF6"},
+      {"id": 3, "emoji": "🧾", "title": "Documentos y stock", "desc": "Comprobantes comerciales y control de inventario", "color": "#10B981"},
+      {"id": 4, "emoji": "💰", "title": "Caja y resultado", "desc": "Flujo de caja y estado de resultados", "color": "#F59E0B"}
+    ],
+
+    "panoramica_bloques": [
+      {
+        "id": "a",
+        "emoji": "💡",
+        "title": "BLOQUE A",
+        "subtitle": "La idea de negocio y el plan",
+        "color": "#3B82F6",
+        "items": [
+          "Idea de negocio y oportunidad de negocio válida",
+          "El plan de negocio y sus partes",
+          "Análisis FODA: ámbito interno y externo",
+          "El marketing y el mix comercial",
+          "Las 4 P: producto, precio, plaza y promoción",
+          "Segmentación de mercado y público objetivo"
+        ]
+      },
+      {
+        "id": "b",
+        "emoji": "🧾",
+        "title": "BLOQUE B",
+        "subtitle": "Gestión comercial y administrativa",
+        "color": "#10B981",
+        "items": [
+          "Factura, remito y recibo",
+          "Nota de pedido y notas de crédito y de débito",
+          "El stock: materias primas, productos en proceso y terminados",
+          "Riesgos de la falta y del exceso de stock",
+          "La ficha de stock",
+          "Stock mínimo y punto de pedido"
+        ]
+      },
+      {
+        "id": "c",
+        "emoji": "💰",
+        "title": "BLOQUE C",
+        "subtitle": "Flujo de caja y resultado del período",
+        "color": "#F59E0B",
+        "items": [
+          "Flujo de caja o cash flow",
+          "Movimientos reales de dinero y liquidez",
+          "Ingresos de caja y egresos de caja",
+          "Saldo de caja y saldo acumulado",
+          "Estado de resultados simplificado",
+          "Ganancia, pérdida y sustentabilidad del proyecto"
+        ]
+      }
+    ],
+
+    "mapa_mental": {
+      "centro": {"emoji": "🏢", "title": "GESTIÓN DEL MICROEMPRENDIMIENTO"},
+      "ramas": [
+        {
+          "id": "que",
+          "emoji": "❓",
+          "title": "¿Qué estudiamos?",
+          "color": "#3B82F6",
+          "items": ["La idea y el plan de negocio", "El marketing y las 4 P", "La documentación comercial", "La caja y el resultado del período"]
+        },
+        {
+          "id": "quienes",
+          "emoji": "👥",
+          "title": "¿Quiénes participan?",
+          "color": "#60A5FA",
+          "items": ["El grupo emprendedor", "Los clientes y el público objetivo", "La competencia", "Los proveedores"]
+        },
+        {
+          "id": "como",
+          "emoji": "⚙️",
+          "title": "¿Cómo funciona?",
+          "color": "#10B981",
+          "items": ["Planificar con el FODA y el plan", "Vender y documentar cada operación", "Controlar el stock disponible", "Registrar ingresos y egresos de caja"]
+        },
+        {
+          "id": "porque",
+          "emoji": "🎯",
+          "title": "¿Por qué es importante?",
+          "color": "#F59E0B",
+          "items": ["Evita improvisar", "Da respaldo legal y fiscal a las ventas", "Cuida el capital de trabajo", "Permite saber si el proyecto es sustentable"]
+        }
+      ]
+    }
+  },
+
+  "nucleo_a": {
+    "bloque_info": {
+      "id": "A",
+      "emoji": "💡",
+      "titulo": "BLOQUE A: Etapa 1: La idea de negocio y el plan",
+      "color": "#3B82F6",
+      "paginas": [2, 3]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená la secuencia lógica que va de la idea inicial a la campaña de promoción, tal como la plantea la hoja de ruta del proyecto.",
+      "paginas_referencia": "2-3",
+      "items": [
+        {"id": 0, "text": "Se forma el grupo, se elige el nombre y se define el producto o servicio", "emoji": "👥"},
+        {"id": 1, "text": "Se verifica que la idea sea una oportunidad válida: hay demanda dispuesta a pagar y recursos para producirla", "emoji": "🔎"},
+        {"id": 2, "text": "Se analiza el entorno con una matriz FODA", "emoji": "🧭"},
+        {"id": 3, "text": "Se arma el plan de negocio con todas sus partes", "emoji": "📋"},
+        {"id": 4, "text": "Se diseña el logo y se prepara la campaña de publicidad del producto", "emoji": "🎨"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada elemento del análisis FODA según pertenezca al ámbito interno (lo que el grupo puede controlar) o al ámbito externo (lo que no controla directamente).",
+      "paginas_referencia": "3",
+      "categorias": [
+        {"name": "Ámbito interno", "emoji": "🏠", "color": "#3B82F6"},
+        {"name": "Ámbito externo", "emoji": "🌐", "color": "#F59E0B"}
+      ],
+      "items": [
+        {"id": 0, "text": "Las capacidades y la experiencia del equipo emprendedor", "categoria_correcta": 0},
+        {"id": 1, "text": "La competencia que ya vende un producto parecido", "categoria_correcta": 1},
+        {"id": 2, "text": "Los recursos con los que cuenta el grupo para producir", "categoria_correcta": 0},
+        {"id": 3, "text": "Los cambios en la normativa vigente", "categoria_correcta": 1},
+        {"id": 4, "text": "La falta de práctica del grupo en la técnica de producción elegida", "categoria_correcta": 0},
+        {"id": 5, "text": "Los cambios en los gustos del consumidor y la situación económica", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "3",
+      "blanks": [
+        {"id": "b1", "texto_antes": "Para que una idea sea una oportunidad de negocio válida debe existir una demanda real o ________, dispuesta a pagar por esa solución.", "respuesta_correcta": "potencial", "pista": "P________"},
+        {"id": "b2", "texto_antes": "El documento que organiza la idea y responde qué se va a producir, a quién, cómo y con qué resultado esperado es el ________ de negocio.", "respuesta_correcta": "plan", "pista": "P___"},
+        {"id": "b3", "texto_antes": "Dividir el mercado total en grupos homogéneos de consumidores se llama ________ de mercado.", "respuesta_correcta": "segmentación", "pista": "S___________"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "3",
+      "afirmaciones": [
+        {"texto": "Toda idea de negocio constituye, por sí sola, una oportunidad de negocio válida.", "correcto": false, "explicacion": "Falso. Para serlo tiene que haber una demanda real o potencial dispuesta a pagar, y el emprendedor debe contar —o poder conseguir— los recursos necesarios."},
+        {"texto": "El plan de negocio incluye, entre otras partes, el plan de marketing y el plan económico-financiero.", "correcto": true, "explicacion": "Verdadero. También incluye la descripción del producto o servicio, el análisis del mercado y de la competencia, el plan de operaciones y el plan de organización."},
+        {"texto": "En el análisis FODA, las fortalezas y las debilidades corresponden al contexto externo del emprendimiento.", "correcto": false, "explicacion": "Falso. Fortalezas y debilidades son internas: capacidades, recursos y experiencia. Lo externo son las oportunidades y las amenazas."},
+        {"texto": "El precio debe cubrir los costos y dejar margen, sin alejarse de lo que el mercado está dispuesto a pagar.", "correcto": true, "explicacion": "Verdadero. Así lo define la 'P' de precio dentro del mix de marketing."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "3",
+      "pares": [
+        {"izquierda": "Producto", "derecha": "Atributos, calidad, diseño, marca y valor diferencial", "emoji": "📦"},
+        {"izquierda": "Precio", "derecha": "Valor monetario que paga el cliente, con margen de ganancia", "emoji": "💲"},
+        {"izquierda": "Plaza", "derecha": "Canales por los que el producto llega al consumidor", "emoji": "🚚"},
+        {"izquierda": "Promoción", "derecha": "Comunicación para dar a conocer y persuadir al público objetivo", "emoji": "📣"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "3",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "📋",
+          "pregunta": "¿Cuál NO es una de las partes del plan de negocio según el apunte?",
+          "paginas": "3",
+          "palabras": [
+            {"text": "Análisis del mercado y de la competencia", "es_intrusa": false},
+            {"text": "Plan de operaciones", "es_intrusa": false},
+            {"text": "Ficha de stock", "es_intrusa": true},
+            {"text": "Plan económico-financiero", "es_intrusa": false}
+          ],
+          "explicacion": "La ficha de stock es una herramienta de control del inventario en la etapa de ejecución, no una parte del plan de negocio."
+        },
+        {
+          "id": 1,
+          "emoji": "📣",
+          "pregunta": "¿Cuál NO forma parte del mix de marketing o '4 P'?",
+          "paginas": "3",
+          "palabras": [
+            {"text": "Producto", "es_intrusa": false},
+            {"text": "Precio", "es_intrusa": false},
+            {"text": "Proveedor", "es_intrusa": true},
+            {"text": "Plaza", "es_intrusa": false}
+          ],
+          "explicacion": "Las 4 P son producto, precio, plaza y promoción; el proveedor no integra el mix comercial."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "3",
+      "conceptos": [
+        {"termino": "Oportunidad de negocio válida", "pista": "¿Qué le tiene que pasar a una idea para que valga la pena llevarla adelante?", "palabras_clave": ["demanda", "dispuesta a pagar", "recursos", "necesidad insatisfecha"]},
+        {"termino": "Análisis FODA", "pista": "¿Qué herramienta cruza lo que controlás con lo que no controlás?", "palabras_clave": ["fortalezas", "oportunidades", "debilidades", "amenazas"]},
+        {"termino": "Segmentación de mercado", "pista": "¿Cómo elegís a quién le vas a vender tu producto?", "palabras_clave": ["grupos homogéneos", "variables", "público objetivo", "rentable"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "3",
+      "causas": [
+        {"id": 0, "text": "El grupo detecta una necesidad insatisfecha y comprueba que hay clientes dispuestos a pagar", "emoji": "🔎"},
+        {"id": 1, "text": "El FODA muestra una amenaza en el contexto externo", "emoji": "⚠️"},
+        {"id": 2, "text": "Se define con precisión el público objetivo del emprendimiento", "emoji": "🎯"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "La idea se transforma en una oportunidad de negocio válida", "emoji": "✅", "causa_id": 0},
+        {"id": 11, "text": "El grupo toma decisiones estratégicas para prevenirla o mitigarla", "emoji": "🛡️", "causa_id": 1},
+        {"id": 12, "text": "La oferta y la promoción se dirigen al segmento más rentable y accesible", "emoji": "📣", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos para armar la planificación comercial del emprendimiento a partir del mix de marketing.",
+      "paginas_referencia": "3",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "Segmentar el mercado y elegir el público objetivo", "emoji": "🎯"},
+        {"id": 1, "text": "Definir el producto o servicio, sus atributos y su valor diferencial", "emoji": "📦"},
+        {"id": 2, "text": "Fijar el precio cubriendo los costos y dejando margen de ganancia", "emoji": "💲"},
+        {"id": 3, "text": "Elegir la plaza: los canales por los que el producto llega al cliente", "emoji": "🚚"},
+        {"id": 4, "text": "Diseñar la promoción: afiche, spot y publicación para redes", "emoji": "📣"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "3",
+      "concepto_a": {"nombre": "Idea de negocio", "emoji": "💡", "color": "#3B82F6"},
+      "concepto_b": {"nombre": "Oportunidad de negocio válida", "emoji": "✅", "color": "#10B981"}
+    }
+  },
+
+  "nucleo_b": {
+    "bloque_info": {
+      "id": "B",
+      "emoji": "🧾",
+      "titulo": "BLOQUE B: Etapa 2: Gestión comercial y administrativa",
+      "color": "#10B981",
+      "paginas": [7]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená el circuito de una venta del emprendimiento, desde el pedido del cliente hasta el registro del movimiento.",
+      "paginas_referencia": "7",
+      "items": [
+        {"id": 0, "text": "El cliente solicita formalmente la mercadería con una nota de pedido", "emoji": "📝"},
+        {"id": 1, "text": "Se emite la factura, comprobante fiscal de la operación", "emoji": "🧾"},
+        {"id": 2, "text": "Se despacha la mercadería acompañada del remito", "emoji": "🚚"},
+        {"id": 3, "text": "Se entrega el recibo como constancia del pago percibido", "emoji": "💵"},
+        {"id": 4, "text": "Se registra la salida del artículo en la ficha de stock", "emoji": "📊"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada descripción según corresponda a un documento comercial o a una herramienta de gestión de stock.",
+      "paginas_referencia": "7",
+      "categorias": [
+        {"name": "Documentación comercial", "emoji": "🧾", "color": "#10B981"},
+        {"name": "Gestión de stock", "emoji": "📦", "color": "#F59E0B"}
+      ],
+      "items": [
+        {"id": 0, "text": "Comprobante fiscal que documenta la venta de un bien o la prestación de un servicio", "categoria_correcta": 0},
+        {"id": 1, "text": "Registro cronológico de entradas, salidas y saldo disponible de cada artículo", "categoria_correcta": 1},
+        {"id": 2, "text": "Constancia de haber percibido un pago total o parcial", "categoria_correcta": 0},
+        {"id": 3, "text": "Nivel de seguridad por debajo del cual no conviene descender", "categoria_correcta": 1},
+        {"id": 4, "text": "Documento que corrige el importe de una factura ya emitida", "categoria_correcta": 0},
+        {"id": 5, "text": "Nivel que, al ser alcanzado, dispara la orden de reposición al proveedor", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "7",
+      "blanks": [
+        {"id": "b1", "texto_antes": "El ________ acompaña el traslado físico de la mercadería y certifica su entrega, sin registrar el precio de la operación.", "respuesta_correcta": "remito", "pista": "R_____"},
+        {"id": "b2", "texto_antes": "La nota de ________ se emite para corregir una factura ya emitida disminuyendo su importe.", "respuesta_correcta": "crédito", "pista": "C______"},
+        {"id": "b3", "texto_antes": "El nivel de stock que, al ser alcanzado, dispara la orden de reposición se llama punto de ________.", "respuesta_correcta": "pedido", "pista": "P_____"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "7",
+      "afirmaciones": [
+        {"texto": "El remito registra el precio de la operación, igual que la factura.", "correcto": false, "explicacion": "Falso. El remito acompaña el traslado de la mercadería y certifica su entrega, pero no registra el precio."},
+        {"texto": "La falta de stock impide atender la demanda y genera pérdida de clientes.", "correcto": true, "explicacion": "Verdadero. Es uno de los dos riesgos opuestos que una buena gestión de stock debe evitar."},
+        {"texto": "El exceso de stock no representa ningún problema, porque tarde o temprano se vende.", "correcto": false, "explicacion": "Falso. Inmoviliza capital de trabajo y genera costos de almacenamiento innecesarios."},
+        {"texto": "El stock incluye materias primas, productos en proceso y productos terminados.", "correcto": true, "explicacion": "Verdadero. Es el conjunto de bienes que la organización mantiene disponibles para su transformación o su venta."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "7",
+      "pares": [
+        {"izquierda": "Factura", "derecha": "Comprobante fiscal de la venta de un bien o servicio", "emoji": "🧾"},
+        {"izquierda": "Nota de pedido", "derecha": "Solicitud formal de mercadería que hace el cliente", "emoji": "📝"},
+        {"izquierda": "Nota de débito", "derecha": "Corrige una factura ya emitida aumentando su importe", "emoji": "➕"},
+        {"izquierda": "Ficha de stock", "derecha": "Registro cronológico de entradas, salidas y saldo", "emoji": "📊"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "7",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "🧾",
+          "pregunta": "¿Cuál NO es un documento comercial de los que respaldan las operaciones del emprendimiento?",
+          "paginas": "7",
+          "palabras": [
+            {"text": "Factura", "es_intrusa": false},
+            {"text": "Flujo de caja", "es_intrusa": true},
+            {"text": "Remito", "es_intrusa": false},
+            {"text": "Recibo", "es_intrusa": false}
+          ],
+          "explicacion": "El flujo de caja es una herramienta para registrar y proyectar los movimientos de dinero, no un comprobante de una operación."
+        },
+        {
+          "id": 1,
+          "emoji": "📦",
+          "pregunta": "¿Cuál NO forma parte del stock del emprendimiento?",
+          "paginas": "7",
+          "palabras": [
+            {"text": "Materias primas", "es_intrusa": false},
+            {"text": "Productos en proceso", "es_intrusa": false},
+            {"text": "Productos terminados", "es_intrusa": false},
+            {"text": "Pagos a proveedores", "es_intrusa": true}
+          ],
+          "explicacion": "Los pagos a proveedores son egresos de caja; el stock son bienes disponibles para transformar o vender."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "7",
+      "conceptos": [
+        {"termino": "Factura", "pista": "¿Qué documento respalda fiscalmente una venta?", "palabras_clave": ["venta", "comprobante fiscal", "bien o servicio", "operación"]},
+        {"termino": "Gestión de stock", "pista": "¿Por qué conviene saber siempre cuánto hay disponible?", "palabras_clave": ["inventario", "falta", "exceso", "capital de trabajo"]},
+        {"termino": "Punto de pedido", "pista": "¿En qué momento hay que pedirle mercadería al proveedor?", "palabras_clave": ["reposición", "nivel de stock", "demora del proveedor"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "7",
+      "causas": [
+        {"id": 0, "text": "El emprendimiento se queda sin stock de un artículo muy pedido", "emoji": "📉"},
+        {"id": 1, "text": "Se compra mercadería muy por encima de lo que se vende", "emoji": "📦"},
+        {"id": 2, "text": "Se registran todas las entradas y salidas en la ficha de stock", "emoji": "🗂️"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "No puede atender la demanda y pierde clientes", "emoji": "🚪", "causa_id": 0},
+        {"id": 11, "text": "Se inmoviliza capital de trabajo y crecen los costos de almacenamiento", "emoji": "🧊", "causa_id": 1},
+        {"id": 12, "text": "Se conoce el saldo disponible y se puede fijar el punto de pedido", "emoji": "✅", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos del control de stock de un artículo, desde el registro hasta la reposición.",
+      "paginas_referencia": "7",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "Registrar en la ficha de stock las entradas y las salidas del artículo", "emoji": "🗂️"},
+        {"id": 1, "text": "Obtener el saldo disponible después de cada movimiento", "emoji": "➗"},
+        {"id": 2, "text": "Definir el stock mínimo o nivel de seguridad del artículo", "emoji": "🛟"},
+        {"id": 3, "text": "Fijar el punto de pedido considerando la demora del proveedor", "emoji": "⏱️"},
+        {"id": 4, "text": "Emitir la orden de reposición cuando el saldo alcanza ese nivel", "emoji": "📮"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "7",
+      "concepto_a": {"nombre": "Factura", "emoji": "🧾", "color": "#10B981"},
+      "concepto_b": {"nombre": "Remito", "emoji": "🚚", "color": "#F59E0B"}
+    }
+  },
+
+  "nucleo_c": {
+    "bloque_info": {
+      "id": "C",
+      "emoji": "💰",
+      "titulo": "BLOQUE C: Etapa 3: Flujo de caja y resultado del período",
+      "color": "#F59E0B",
+      "paginas": [7]
+    },
+
+    "n1_ordenar_cronologicamente": {
+      "consigna": "Ordená los pasos que sigue el grupo para cerrar el período y saber si el emprendimiento dio ganancia.",
+      "paginas_referencia": "7",
+      "items": [
+        {"id": 0, "text": "Registrar los ingresos de caja: cobros de ventas, préstamos recibidos y aportes de capital", "emoji": "💵"},
+        {"id": 1, "text": "Registrar los egresos de caja: proveedores, sueldos, servicios e impuestos", "emoji": "💸"},
+        {"id": 2, "text": "Obtener el saldo de caja del período como diferencia entre ingresos y egresos", "emoji": "➗"},
+        {"id": 3, "text": "Sumar ese saldo al del período anterior para conocer el saldo disponible", "emoji": "📈"},
+        {"id": 4, "text": "Elaborar el estado de resultados simplificado y determinar si hubo ganancia o pérdida", "emoji": "📊"}
+      ],
+      "orden_correcto": [0, 1, 2, 3, 4]
+    },
+
+    "n2_clasificador": {
+      "consigna": "Clasificá cada movimiento según sea un ingreso o un egreso de caja del emprendimiento.",
+      "paginas_referencia": "7",
+      "categorias": [
+        {"name": "Ingresos de caja", "emoji": "💵", "color": "#10B981"},
+        {"name": "Egresos de caja", "emoji": "💸", "color": "#EF4444"}
+      ],
+      "items": [
+        {"id": 0, "text": "Cobro de ventas al contado", "categoria_correcta": 0},
+        {"id": 1, "text": "Pago a proveedores", "categoria_correcta": 1},
+        {"id": 2, "text": "Cobro de ventas a crédito ya vencidas", "categoria_correcta": 0},
+        {"id": 3, "text": "Pago de sueldos y cargas sociales", "categoria_correcta": 1},
+        {"id": 4, "text": "Aportes de capital de los socios", "categoria_correcta": 0},
+        {"id": 5, "text": "Pago de cuotas de préstamos", "categoria_correcta": 1}
+      ]
+    },
+
+    "n3_completar_mapa": {
+      "paginas_referencia": "7",
+      "blanks": [
+        {"id": "b1", "texto_antes": "A diferencia del resultado contable, el flujo de caja se concentra exclusivamente en los movimientos ________ de dinero.", "respuesta_correcta": "reales", "pista": "R_____"},
+        {"id": "b2", "texto_antes": "La capacidad concreta del emprendimiento de afrontar los pagos comprometidos en cada momento se llama ________.", "respuesta_correcta": "liquidez", "pista": "L_______"},
+        {"id": "b3", "texto_antes": "El estado de ________ simplificado enfrenta las ventas totales del período con los costos y gastos incurridos.", "respuesta_correcta": "resultados", "pista": "R_________"}
+      ]
+    },
+
+    "n4_verdadero_falso": {
+      "paginas_referencia": "7",
+      "afirmaciones": [
+        {"texto": "El flujo de caja y el resultado contable miden exactamente lo mismo.", "correcto": false, "explicacion": "Falso. El resultado contable puede incluir ingresos y gastos devengados aunque todavía no se hayan cobrado o pagado; el flujo de caja registra solo el dinero que entró y salió."},
+        {"texto": "El saldo de caja de cada período se acumula al saldo del período anterior para obtener el saldo disponible.", "correcto": true, "explicacion": "Verdadero. Así se ve cómo evoluciona la disponibilidad de dinero a lo largo del proyecto."},
+        {"texto": "Si las ventas del período superan a los costos y gastos, el resultado del ejercicio es una ganancia.", "correcto": true, "explicacion": "Verdadero. Si ocurre lo contrario, el resultado del ejercicio es una pérdida."},
+        {"texto": "Controlar la caja y el resultado sirve solo para cumplir un trámite formal.", "correcto": false, "explicacion": "Falso. El control sistemático es lo que permite evaluar con información real, y no con percepciones, si el emprendimiento es sustentable en el tiempo."}
+      ]
+    },
+
+    "n5_relacionar_columnas": {
+      "paginas_referencia": "7",
+      "pares": [
+        {"izquierda": "Flujo de caja", "derecha": "Registro y proyección del dinero que entra y sale", "emoji": "💰"},
+        {"izquierda": "Liquidez", "derecha": "Capacidad de afrontar los pagos comprometidos en cada momento", "emoji": "🚰"},
+        {"izquierda": "Saldo de caja", "derecha": "Diferencia entre ingresos y egresos de un período", "emoji": "➗"},
+        {"izquierda": "Estado de resultados", "derecha": "Ventas totales del período menos costos y gastos incurridos", "emoji": "📊"}
+      ]
+    },
+
+    "n6_palabra_intrusa": {
+      "paginas_referencia": "7",
+      "grupos": [
+        {
+          "id": 0,
+          "emoji": "💸",
+          "pregunta": "¿Cuál NO es un egreso de caja del emprendimiento?",
+          "paginas": "7",
+          "palabras": [
+            {"text": "Pago de sueldos y cargas sociales", "es_intrusa": false},
+            {"text": "Pago de servicios", "es_intrusa": false},
+            {"text": "Cobro de una venta al contado", "es_intrusa": true},
+            {"text": "Pago de impuestos", "es_intrusa": false}
+          ],
+          "explicacion": "El cobro de una venta al contado es un ingreso de caja, no un egreso."
+        },
+        {
+          "id": 1,
+          "emoji": "💰",
+          "pregunta": "¿Cuál NO es una característica del flujo de caja?",
+          "paginas": "7",
+          "palabras": [
+            {"text": "Registra los movimientos reales de dinero", "es_intrusa": false},
+            {"text": "Incluye los ingresos devengados todavía no cobrados", "es_intrusa": true},
+            {"text": "Permite evaluar la liquidez del emprendimiento", "es_intrusa": false},
+            {"text": "Sirve para proyectar cobros y pagos de un período", "es_intrusa": false}
+          ],
+          "explicacion": "Los ingresos devengados y aún no cobrados forman parte del resultado contable, no del flujo de caja."
+        }
+      ]
+    },
+
+    "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "7",
+      "conceptos": [
+        {"termino": "Flujo de caja", "pista": "¿Qué mira: la plata que efectivamente entró y salió, o la que todavía está prometida?", "palabras_clave": ["cash flow", "ingresos", "egresos", "período"]},
+        {"termino": "Liquidez", "pista": "¿Qué necesita el emprendimiento para pagar hoy lo que vence hoy?", "palabras_clave": ["pagos comprometidos", "dinero disponible", "capacidad"]},
+        {"termino": "Estado de resultados simplificado", "pista": "¿Cómo sabés si el proyecto ganó o perdió plata?", "palabras_clave": ["ventas", "costos y gastos", "ganancia", "pérdida"]}
+      ]
+    },
+
+    "n8_causa_efecto": {
+      "paginas_referencia": "7",
+      "causas": [
+        {"id": 0, "text": "El emprendimiento vende mucho pero cobra casi todo a crédito", "emoji": "🕰️"},
+        {"id": 1, "text": "Los egresos de caja del período superan a los ingresos", "emoji": "📉"},
+        {"id": 2, "text": "Se controlan de manera sistemática la caja y el resultado", "emoji": "🧮"}
+      ],
+      "efectos": [
+        {"id": 10, "text": "Puede tener resultado contable positivo y aun así quedarse sin liquidez", "emoji": "⚠️", "causa_id": 0},
+        {"id": 11, "text": "El saldo de caja es negativo y reduce el saldo acumulado", "emoji": "🔻", "causa_id": 1},
+        {"id": 12, "text": "El grupo evalúa con información real si el proyecto es sustentable", "emoji": "✅", "causa_id": 2}
+      ]
+    },
+
+    "n9_ordenar_proceso": {
+      "consigna": "Ordená los pasos para elaborar el estado de resultados simplificado al cierre del proyecto.",
+      "paginas_referencia": "7",
+      "pasos_en_orden_correcto": [
+        {"id": 0, "text": "Sumar las ventas totales del período", "emoji": "🛒"},
+        {"id": 1, "text": "Sumar los costos y gastos incurridos para obtener esas ventas", "emoji": "🧾"},
+        {"id": 2, "text": "Restar los costos y gastos a las ventas del período", "emoji": "➖"},
+        {"id": 3, "text": "Determinar si el resultado del ejercicio es ganancia o pérdida", "emoji": "⚖️"},
+        {"id": 4, "text": "Evaluar, junto con el saldo de caja, si el emprendimiento es sustentable", "emoji": "🌱"}
+      ]
+    },
+
+    "n10_comparador": {
+      "paginas_referencia": "7",
+      "concepto_a": {"nombre": "Flujo de caja", "emoji": "💰", "color": "#F59E0B"},
+      "concepto_b": {"nombre": "Estado de resultados", "emoji": "📊", "color": "#3B82F6"}
+    }
+  },
+
+  "senales": {
+    "conceptos_clave": [
+      {
+        "termino": "Plan de negocio",
+        "emoji": "📋",
+        "color": "#3B82F6",
+        "definicion": "Documento que organiza la idea inicial y define qué se va a producir o vender, a quién, cómo, con qué recursos y con qué resultado económico esperado.",
+        "importancia": "Convierte la intuición del emprendedor en información concreta y comparable, y ordena todas las decisiones del proyecto."
+      },
+      {
+        "termino": "Análisis FODA",
+        "emoji": "🧭",
+        "color": "#60A5FA",
+        "definicion": "Herramienta que confronta la situación interna del emprendimiento —capacidades, recursos, experiencia— con el contexto externo —competencia, situación económica, gustos del consumidor, normativa—.",
+        "importancia": "Orienta decisiones estratégicas: potenciar fortalezas, aprovechar oportunidades, corregir debilidades y mitigar amenazas."
+      },
+      {
+        "termino": "Documentos comerciales",
+        "emoji": "🧾",
+        "color": "#10B981",
+        "definicion": "Comprobantes que respaldan cada operación: factura, remito, recibo, nota de pedido y notas de crédito y de débito.",
+        "importancia": "Sin documentación no hay respaldo fiscal ni prueba de lo entregado y lo cobrado; es la base de la gestión administrativa diaria."
+      },
+      {
+        "termino": "Flujo de caja",
+        "emoji": "💰",
+        "color": "#F59E0B",
+        "definicion": "Herramienta que registra y proyecta el dinero efectivamente ingresado y egresado del emprendimiento en un período determinado.",
+        "importancia": "Permite evaluar la liquidez: la capacidad real de pagar lo que vence, más allá de lo que digan los papeles."
+      }
+    ],
+    "semaforo_conceptos": [
+      "Oportunidad de negocio válida",
+      "Segmentación de mercado",
+      "Punto de pedido",
+      "Saldo acumulado de caja",
+      "Estado de resultados simplificado"
+    ],
+    "postits_conceptos": [
+      "Las 4 P",
+      "Ficha de stock",
+      "Liquidez",
+      "Público objetivo"
+    ]
+  },
+
+  "sabias": {
+    "flip_cards": [
+      {
+        "emoji": "✔️",
+        "frente": "El logo más famoso del mundo se pagó 35 dólares",
+        "dorso": "En 1971 la estudiante de diseño Carolyn Davidson cobró 35 dólares por el 'swoosh' de Nike. Doce años después, Phil Knight le regaló un anillo con el logo y un paquete de acciones de la empresa. Moraleja para tu grupo: un buen logo no depende del presupuesto, sino de la idea.",
+        "color": "#3B82F6"
+      },
+      {
+        "emoji": "🏷️",
+        "frente": "El primer producto vendido con código de barras fue un paquete de chicles",
+        "dorso": "Ocurrió el 26 de junio de 1974 en un supermercado de Troy, Ohio: un paquete de chicles Wrigley's Juicy Fruit. Ese escaneo inauguró la gestión de stock automatizada: desde entonces cada venta descuenta la unidad del inventario en tiempo real, que es exactamente lo que hace a mano una ficha de stock.",
+        "color": "#10B981"
+      },
+      {
+        "emoji": "🥤",
+        "frente": "El logo de Coca-Cola lo escribió a mano un contador en 1886 y casi no cambió desde entonces",
+        "dorso": "Frank Robinson, socio contable de la empresa, eligió el nombre y lo escribió en caligrafía Spencerian, la letra habitual de la contabilidad de la época. La marca se registró en 1893 y esa misma tipografía sigue en uso: una identidad visual sostenida en el tiempo vale más que cambiarla todos los años.",
+        "color": "#F59E0B"
+      }
+    ],
+
+    "linea_de_tiempo": [
+      {"year": "1886", "text": "Frank Robinson escribe a mano el logo de Coca-Cola en caligrafía Spencerian", "emoji": "🥤"},
+      {"year": "1971", "text": "Carolyn Davidson diseña el swoosh de Nike y cobra 35 dólares", "emoji": "✔️"},
+      {"year": "1974", "text": "Se vende el primer producto escaneado con código de barras, en Ohio", "emoji": "🏷️"},
+      {"year": "2015", "text": "La factura electrónica se generaliza para los responsables inscriptos en la Argentina", "emoji": "🧾"},
+      {"year": "2024", "text": "La AFIP se transforma en ARCA, el organismo que hoy regula la facturación", "emoji": "🏛️"}
+    ],
+
+    "encuesta": {
+      "pregunta": "¿Qué dato te sorprendió más?",
+      "opciones": [
+        {"emoji": "✔️", "text": "Que el logo de Nike haya costado 35 dólares", "votos_iniciales": 52},
+        {"emoji": "🏷️", "text": "Que el primer código de barras fuera para unos chicles", "votos_iniciales": 38},
+        {"emoji": "🥤", "text": "Que el logo de Coca-Cola lo haya hecho un contador", "votos_iniciales": 31}
+      ]
+    }
+  },
+
+  "cruces": {
+    "consigna_general": "Elegí uno de estos temas del manual y preparate para explicárselo a un compañero de otro grupo, usando el emprendimiento que están armando como ejemplo. La idea es que entienda el tema aunque no haya leído el apunte.",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "💡",
+        "titulo": "BLOQUE A: Etapa 1: La idea de negocio y el plan",
+        "color": "#3B82F6",
+        "temas_sugeridos": [
+          "Explicale por qué la idea de tu grupo es una oportunidad de negocio válida y no solo una buena idea.",
+          "Enseñale qué partes tiene un plan de negocio y cuál les costó más completar a ustedes.",
+          "Mostrale el FODA de tu emprendimiento y explicale qué es interno y qué es externo.",
+          "Contale cómo aplicaron las 4 P al producto o servicio que eligieron en el Paso 1.",
+          "Explicale a qué público objetivo apunta tu grupo y cómo eso condicionó el logo del Paso 2."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      },
+      {
+        "id": "b",
+        "emoji": "🧾",
+        "titulo": "BLOQUE B: Etapa 2: Gestión comercial y administrativa",
+        "color": "#10B981",
+        "temas_sugeridos": [
+          "Explicale qué documento se emite en cada momento de una venta y para qué sirve cada uno.",
+          "Mostrale la Factura A y la Factura B que diseñaron en el Paso 5 y contale qué respalda cada dato.",
+          "Enseñale para qué sirven la nota de crédito y la nota de débito, con un ejemplo del emprendimiento.",
+          "Contale qué incluye el stock de tu emprendimiento y qué riesgos trae que falte o que sobre.",
+          "Explicale cómo se lleva una ficha de stock y cómo se define el punto de pedido."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      },
+      {
+        "id": "c",
+        "emoji": "💰",
+        "titulo": "BLOQUE C: Etapa 3: Flujo de caja y resultado del período",
+        "color": "#F59E0B",
+        "temas_sugeridos": [
+          "Explicale la diferencia entre el flujo de caja y el resultado contable con un caso concreto.",
+          "Enseñale qué es la liquidez y por qué un emprendimiento rentable puede quedarse sin plata.",
+          "Mostrale cómo se arma el flujo de caja del proyecto: ingresos, egresos, saldo y saldo acumulado.",
+          "Contale cómo se elabora un estado de resultados simplificado al cierre del período.",
+          "Explicale por qué el control de la caja y del resultado es lo que permite decir si el proyecto es sustentable."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      }
+    ]
+  },
+
+  "relectura": {
+    "tribunal": {
+      "titulo_debate": "En un microemprendimiento que recién arranca, lo urgente es vender: el control administrativo puede esperar",
+      "contexto": "Muchos emprendimientos reales empiezan vendiendo sin documentar operaciones, sin ficha de stock y sin flujo de caja. Con los argumentos del manual, analizá si conviene priorizar la venta y la promoción o poner desde el primer día la gestión comercial y administrativa en orden.",
+      "roles": [
+        {"id": "fiscal", "label": "Primero vender", "emoji": "📣", "color": "#EF4444", "desc": "Defendé que sin ventas y sin promoción no hay emprendimiento, y que la administración se ordena después."},
+        {"id": "defensa", "label": "Primero ordenar la gestión", "emoji": "🧾", "color": "#10B981", "desc": "Argumentá por qué documentar cada operación, controlar el stock y llevar el flujo de caja evita quedarse sin liquidez y sin clientes."},
+        {"id": "juez", "label": "Posición equilibrada", "emoji": "⚖️", "color": "#3B82F6", "desc": "Buscá una postura que combine impulso comercial con un mínimo de control administrativo desde el inicio."}
+      ]
+    },
+
+    "tesis": {
+      "consigna": "Formulá una tesis sobre qué necesita un microemprendimiento de Venado Tuerto para sostenerse más allá del primer año. Apoyate en el plan de negocio, en el FODA, en la gestión comercial y en el flujo de caja, y anticipá las críticas que podría recibir tu postura."
+    },
+
+    "critica": {
+      "consigna": "Analizá críticamente la gestión del emprendimiento de tu grupo a lo largo de las tres etapas. ¿Qué decisiones de la planificación se cumplieron y cuáles no? ¿Qué documentación y qué controles les faltaron? ¿Qué dice el resultado del período sobre la sustentabilidad del proyecto y qué cambiarían si volvieran a empezar?"
+    }
+  },
+
+  "emocional": {},
+
+  "autotest": {
+    "banco_respuestas_docente": [
+      "1. C - Existe una demanda real o potencial dispuesta a pagar y se cuenta con los recursos necesarios. (p. 3)",
+      "2. A - El análisis del mercado y de la competencia. (p. 3)",
+      "3. D - La competencia y los cambios en la normativa vigente. (p. 3)",
+      "4. B - Plaza. (p. 3)",
+      "5. D - Dividir el mercado total en grupos homogéneos de consumidores. (p. 3)",
+      "6. A - El remito. (p. 7)",
+      "7. C - Para corregir una factura ya emitida disminuyendo su importe. (p. 7)",
+      "8. B - Inmoviliza capital de trabajo y genera costos de almacenamiento innecesarios. (p. 7)",
+      "9. D - Los movimientos de dinero efectivamente ingresados y egresados. (p. 7)",
+      "10. A - Restando a las ventas totales los costos y gastos del período. (p. 7)",
+      "11. VERDADERO - Las fortalezas y las debilidades pertenecen al ámbito interno. (p. 3)",
+      "12. FALSO - El remito certifica la entrega pero no registra el precio. (p. 7)",
+      "13. VERDADERO - El punto de pedido contempla la demora del proveedor. (p. 7)",
+      "14. FALSO - Los ingresos devengados y no cobrados no integran el flujo de caja. (p. 7)",
+      "15. VERDADERO - El saldo de caja se acumula al saldo del período anterior. (p. 7)"
+    ],
+
+    "preguntas": [
+      {
+        "pregunta": "¿Cuándo una idea se convierte en una oportunidad de negocio válida?",
+        "opciones": [
+          "Cuando el grupo está entusiasmado con ella",
+          "Cuando nadie la tuvo antes",
+          "Cuando existe una demanda real o potencial dispuesta a pagar y se cuenta con los recursos necesarios",
+          "Cuando el producto tiene el precio más bajo del mercado"
+        ],
+        "correcta": 2,
+        "explicacion": "No toda idea es una oportunidad: hace falta demanda dispuesta a pagar y recursos para producirla y ofrecerla. Revisá la página 3."
+      },
+      {
+        "pregunta": "¿Cuál de estas es una de las partes del plan de negocio?",
+        "opciones": [
+          "El análisis del mercado y de la competencia",
+          "La ficha de stock",
+          "El recibo de pago",
+          "El saldo acumulado de caja"
+        ],
+        "correcta": 0,
+        "explicacion": "El plan incluye descripción del producto o servicio, análisis del mercado y la competencia, plan de marketing, de operaciones, de organización y económico-financiero. Revisá la página 3."
+      },
+      {
+        "pregunta": "En el análisis FODA, ¿qué corresponde al contexto externo?",
+        "opciones": [
+          "Las capacidades del equipo emprendedor",
+          "Los recursos disponibles del grupo",
+          "La experiencia acumulada por los socios",
+          "La competencia y los cambios en la normativa vigente"
+        ],
+        "correcta": 3,
+        "explicacion": "Lo externo es lo que el emprendedor no controla directamente: competencia, situación económica, gustos del consumidor y normativa. Revisá la página 3."
+      },
+      {
+        "pregunta": "¿Cuál de las 4 P se refiere a los canales por los que el producto llega al consumidor?",
+        "opciones": ["Producto", "Plaza", "Precio", "Promoción"],
+        "correcta": 1,
+        "explicacion": "La plaza o distribución abarca la venta directa, el punto de venta físico, los canales digitales y los intermediarios. Revisá la página 3."
+      },
+      {
+        "pregunta": "¿En qué consiste la segmentación de mercado?",
+        "opciones": [
+          "En fijar el precio según lo que cobra la competencia",
+          "En dividir el proceso productivo en etapas",
+          "En repartir las ganancias entre los integrantes del grupo",
+          "En dividir el mercado total en grupos homogéneos de consumidores"
+        ],
+        "correcta": 3,
+        "explicacion": "Se segmenta según variables geográficas, demográficas, socioeconómicas o de comportamiento, para elegir el público objetivo más rentable y accesible. Revisá la página 3."
+      },
+      {
+        "pregunta": "¿Qué documento acompaña el traslado físico de la mercadería y certifica su entrega sin registrar el precio?",
+        "opciones": ["El remito", "La factura", "El recibo", "La nota de crédito"],
+        "correcta": 0,
+        "explicacion": "El remito prueba la entrega de la mercadería; el precio queda documentado en la factura. Revisá la página 7."
+      },
+      {
+        "pregunta": "¿Para qué se emite una nota de crédito?",
+        "opciones": [
+          "Para solicitar mercadería al proveedor",
+          "Para dejar constancia de un pago recibido",
+          "Para corregir una factura ya emitida disminuyendo su importe",
+          "Para registrar la entrada de mercadería al depósito"
+        ],
+        "correcta": 2,
+        "explicacion": "La nota de crédito disminuye el importe de una factura ya emitida; la nota de débito lo aumenta. Revisá la página 7."
+      },
+      {
+        "pregunta": "¿Qué problema genera el exceso de stock?",
+        "opciones": [
+          "Impide atender la demanda de los clientes",
+          "Inmoviliza capital de trabajo y genera costos de almacenamiento innecesarios",
+          "Aumenta automáticamente el precio de venta",
+          "Obliga a emitir una nota de débito"
+        ],
+        "correcta": 1,
+        "explicacion": "Es el riesgo opuesto a la falta de stock, que impide atender la demanda y hace perder clientes. Revisá la página 7."
+      },
+      {
+        "pregunta": "¿Qué registra el flujo de caja?",
+        "opciones": [
+          "Las ventas devengadas todavía no cobradas",
+          "El valor del stock disponible en el depósito",
+          "El costo unitario de cada producto",
+          "Los movimientos de dinero efectivamente ingresados y egresados"
+        ],
+        "correcta": 3,
+        "explicacion": "Se concentra en el dinero real, y por eso permite evaluar la liquidez del emprendimiento. Revisá la página 7."
+      },
+      {
+        "pregunta": "¿Cómo se obtiene el resultado del ejercicio en el estado de resultados simplificado?",
+        "opciones": [
+          "Restando a las ventas totales del período los costos y gastos incurridos",
+          "Sumando el saldo de caja de todos los períodos",
+          "Dividiendo el costo total por las unidades producidas",
+          "Restando las compras a los cobros del mes"
+        ],
+        "correcta": 0,
+        "explicacion": "Si las ventas superan a los costos y gastos hay ganancia; en caso contrario, pérdida. Revisá la página 7."
+      }
+    ],
+
+    "verdadero_falso": [
+      {"texto": "En el análisis FODA, las fortalezas y las debilidades pertenecen al ámbito interno del emprendimiento.", "correcto": true, "explicacion": "VERDADERO. Son lo que el grupo puede controlar: capacidades, recursos y experiencia. Revisá la página 3."},
+      {"texto": "El remito registra el precio de la operación.", "correcto": false, "explicacion": "FALSO. Acompaña el traslado de la mercadería y certifica su entrega, sin registrar el precio. Revisá la página 7."},
+      {"texto": "El punto de pedido se fija considerando el tiempo que demora el proveedor en entregar la mercadería.", "correcto": true, "explicacion": "VERDADERO. Es el nivel de stock que dispara la orden de reposición. Revisá la página 7."},
+      {"texto": "El flujo de caja incluye los ingresos devengados aunque todavía no se hayan cobrado.", "correcto": false, "explicacion": "FALSO. Eso forma parte del resultado contable; el flujo de caja solo registra movimientos reales de dinero. Revisá la página 7."},
+      {"texto": "El saldo de caja de un período se acumula al saldo del período anterior para obtener el saldo disponible.", "correcto": true, "explicacion": "VERDADERO. Así se sigue la evolución del dinero disponible del emprendimiento. Revisá la página 7."}
+    ]
+  },
+
+  "cierre": {
+    "glosario": [
+      {"termino": "Plan de negocio", "emoji": "📋", "definicion": "Documento que define qué se va a producir o vender, a quién, cómo, con qué recursos y con qué resultado económico esperado.", "categoria": "Planificación"},
+      {"termino": "Análisis FODA", "emoji": "🧭", "definicion": "Herramienta que cruza fortalezas y debilidades internas con oportunidades y amenazas del contexto externo.", "categoria": "Planificación"},
+      {"termino": "Mix de marketing (4 P)", "emoji": "📣", "definicion": "Combinación de producto, precio, plaza y promoción con la que se organiza la planificación comercial.", "categoria": "Marketing"},
+      {"termino": "Segmentación de mercado", "emoji": "🎯", "definicion": "División del mercado total en grupos homogéneos de consumidores para elegir el público objetivo más rentable y accesible.", "categoria": "Marketing"},
+      {"termino": "Factura", "emoji": "🧾", "definicion": "Documento que respalda la venta de un bien o la prestación de un servicio y constituye el comprobante fiscal de la operación.", "categoria": "Documentación"},
+      {"termino": "Ficha de stock", "emoji": "📊", "definicion": "Registro cronológico de las entradas, las salidas y el saldo disponible de cada artículo del inventario.", "categoria": "Gestión de stock"},
+      {"termino": "Flujo de caja", "emoji": "💰", "definicion": "Registro y proyección del dinero efectivamente ingresado y egresado en un período; permite evaluar la liquidez.", "categoria": "Gestión financiera"},
+      {"termino": "Estado de resultados simplificado", "emoji": "⚖️", "definicion": "Comparación entre las ventas del período y los costos y gastos incurridos, que arroja una ganancia o una pérdida.", "categoria": "Gestión financiera"}
+    ],
+
+    "recursos": [
+      {"tipo": "🎨 Herramienta", "title": "Canva (canva.com)", "desc": "Plantillas gratuitas para diseñar el logo del Paso 2, el afiche y las publicaciones para redes del Paso 8.", "nivel": "Introductorio", "color": "#3B82F6"},
+      {"tipo": "🌐 Web", "title": "ARCA (ex AFIP) — Comprobantes y facturación", "desc": "Sitio oficial donde se explica la diferencia entre Factura A, B y C y cómo se emiten los comprobantes en línea.", "nivel": "Intermedio", "color": "#10B981"},
+      {"tipo": "📊 Plantilla", "title": "Planilla de flujo de caja en Google Sheets o Excel", "desc": "Modelo mensual de ingresos, egresos, saldo del período y saldo acumulado para cargar los datos del emprendimiento.", "nivel": "Intermedio", "color": "#F59E0B"},
+      {"tipo": "🌐 Web", "title": "argentina.gob.ar — Sección Emprendedores", "desc": "Guías oficiales para armar el plan de negocio, inscribirse en el monotributo y acceder a programas de apoyo.", "nivel": "Intermedio", "color": "#60A5FA"},
+      {"tipo": "🎓 Curso", "title": "Google Actívate — Fundamentos del Marketing Digital", "desc": "Curso gratuito y con certificado sobre segmentación, promoción y presencia digital para emprendimientos.", "nivel": "Introductorio", "color": "#8B5CF6"}
+    ]
+  }
+}
