@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Demanda - Economía 4°D</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+  :root{
+    --azul: #1d5fa8;
+    --azul-claro: #eaf2fb;
+    --verde: #1f8a4c;
+    --gris: #f4f5f7;
+    --texto: #23282e;
+    --borde: #d9dee5;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    background: var(--gris);
+    color: var(--texto);
+  }
+  header{
+    background: linear-gradient(135deg, var(--azul), #123f73);
+    color:#fff;
+    padding: 26px 20px 22px;
+    text-align:center;
+  }
+  header h1{
+    margin:0 0 6px;
+    font-size: 1.6rem;
+  }
+  header p{
+    margin:0;
+    opacity:.9;
+    font-size:.95rem;
+  }
+  .tabs{
+    display:flex;
+    max-width: 980px;
+    margin: 18px auto 0;
+    background:#fff;
+    border-radius: 12px 12px 0 0;
+    overflow:hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  }
+  .tab-btn{
+    flex:1;
+    border:none;
+    background:#fff;
+    padding: 15px 8px;
+    font-size: .95rem;
+    font-weight:600;
+    color:#6b7280;
+    cursor:pointer;
+    border-bottom: 3px solid transparent;
+    transition: all .15s;
+  }
+  .tab-btn:hover{ background:#f8fafc; color:var(--azul); }
+  .tab-btn.active{
+    color: var(--azul);
+    border-bottom: 3px solid var(--azul);
+    background: var(--azul-claro);
+  }
+  .container{
+    max-width: 980px;
+    margin: 0 auto 40px;
+    background:#fff;
+    border-radius: 0 0 12px 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    padding: 28px 26px 36px;
+  }
+  .panel{ display:none; }
+  .panel.active{ display:block; animation: fadein .25s ease; }
+  @keyframes fadein{ from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:translateY(0);} }
+
+  h2{ color: var(--azul); border-bottom: 2px solid var(--azul-claro); padding-bottom:8px; }
+  h3{ color:#154a82; margin-top: 26px; }
+
+  .box{
+    background: var(--azul-claro);
+    border-left: 4px solid var(--azul);
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin: 16px 0;
+  }
+  .box.verde{
+    background:#eaf7ef;
+    border-left-color: var(--verde);
+  }
+  .box strong{ color: var(--azul); }
+
+  table{
+    width:100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size:.95rem;
+  }
+  th, td{
+    border:1px solid var(--borde);
+    padding: 9px 10px;
+    text-align:center;
+  }
+  th{
+    background: var(--azul);
+    color:#fff;
+    font-weight:600;
+  }
+  tr:nth-child(even){ background:#f8fafc; }
+  tr.equilibrio{ background:#fff3cd !important; font-weight:700; }
+
+  .chart-wrap{
+    max-width: 620px;
+    margin: 18px auto;
+    background:#fbfcfe;
+    border:1px solid var(--borde);
+    border-radius:10px;
+    padding: 16px;
+  }
+
+  .grid-2{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items:start;
+  }
+  @media(max-width:760px){ .grid-2{ grid-template-columns: 1fr; } }
+
+  .ejercicio{
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 26px;
+    background:#fbfcfe;
+  }
+  .ejercicio h4{
+    margin-top:0;
+    color: var(--azul);
+    font-size: 1.05rem;
+  }
+  .ejercicio-grid{
+    display:grid;
+    grid-template-columns: 1.1fr 1.4fr;
+    gap: 18px;
+    align-items:start;
+  }
+  @media(max-width:700px){ .ejercicio-grid{ grid-template-columns: 1fr; } }
+
+  .lienzo{
+    background:#fff;
+    border:1px solid var(--borde);
+    border-radius:8px;
+  }
+  .instr{
+    font-size:.88rem;
+    color:#5c6773;
+    margin-top:8px;
+  }
+  .badge{
+    display:inline-block;
+    background: var(--azul);
+    color:#fff;
+    border-radius: 20px;
+    font-size:.75rem;
+    padding: 3px 11px;
+    margin-bottom:8px;
+  }
+  ul{ padding-left: 20px; }
+  li{ margin-bottom:6px; }
+  .footer-note{
+    text-align:center;
+    font-size:.8rem;
+    color:#8a94a3;
+    margin-top: 10px;
+  }
+  .btn-reset{
+    background:#fff;
+    border:1px solid var(--azul);
+    color:var(--azul);
+    padding:6px 14px;
+    border-radius: 6px;
+    font-size:.85rem;
+    cursor:pointer;
+    margin-top:8px;
+  }
+  .btn-reset:hover{ background:var(--azul-claro); }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>📉 La Demanda — Economía 4°D</h1>
+  <p>Unidad 2 · Prof. Verónica · EESO N° 206</p>
+</header>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="cambiarTab(0)">📖 Teoría</button>
+  <button class="tab-btn" onclick="cambiarTab(1)">✅ Ejemplo resuelto</button>
+  <button class="tab-btn" onclick="cambiarTab(2)">✏️ Ejercicios para graficar</button>
+</div>
+
+<div class="container">
+
+  <!-- PESTAÑA 1: TEORÍA -->
+  <div class="panel active" id="panel0">
+    <h2>1. ¿Qué es la Demanda?</h2>
+    <div class="box">
+      <strong>Definición:</strong> la demanda es la cantidad de un bien o servicio que los compradores
+      están <strong>dispuestos y pueden</strong> adquirir a los distintos precios posibles, en un período
+      de tiempo determinado y manteniendo constantes los demás factores que influyen sobre ella.
+    </div>
+    <p>No es solo lo que la gente <em>quiere</em> comprar (deseo), sino lo que está dispuesta y puede
+    comprar: deseo + capacidad de pago. La demanda se refiere a un período de tiempo y supone que
+    todo lo demás permanece igual (<strong>ceteris paribus</strong>).</p>
+
+    <h3>2. La Ley de la Demanda</h3>
+    <div class="box verde">
+      Manteniendo constantes los demás factores (ceteris paribus), existe una <strong>relación inversa</strong>
+      entre el precio de un bien y la cantidad demandada del mismo: a mayor precio, menor cantidad
+      demandada; a menor precio, mayor cantidad demandada.
+    </div>
+    <p>Esta ley se cumple por dos razones:</p>
+    <ul>
+      <li><strong>Efecto sustitución:</strong> cuando un bien se encarece, los consumidores tienden a
+      reemplazarlo por otros bienes que cumplan funciones parecidas.</li>
+      <li><strong>Efecto ingreso:</strong> cuando un bien se encarece, con el mismo dinero podemos comprar
+      menos cantidad (baja el poder de compra).</li>
+    </ul>
+
+    <h3>3. La tabla o escala de demanda</h3>
+    <p>Ejemplo: demanda de pizzas a la portuguesa en una pizzería de Venado Tuerto, durante un mes.</p>
+    <table>
+      <thead><tr><th>Precio ($)</th><th>Cantidad demandada (pizzas)</th></tr></thead>
+      <tbody>
+        <tr><td>12.000</td><td>100</td></tr>
+        <tr><td>10.000</td><td>200</td></tr>
+        <tr><td>8.000</td><td>350</td></tr>
+        <tr><td>6.000</td><td>500</td></tr>
+        <tr><td>4.000</td><td>700</td></tr>
+      </tbody>
+    </table>
+
+    <h3>4. La curva de demanda</h3>
+    <p>Al llevar los datos de la tabla a un gráfico (precio en el eje vertical, cantidad en el eje
+    horizontal), la curva tiene <strong>pendiente negativa</strong>: baja de izquierda a derecha.</p>
+    <div class="chart-wrap">
+      <canvas id="chartTeoria" height="260"></canvas>
+    </div>
+
+    <h3>5. Variables que desplazan la curva de demanda</h3>
+    <p>El precio del propio bien mueve un punto <em>sobre</em> la curva. Estas otras variables, en cambio,
+    desplazan <em>toda la curva</em>:</p>
+    <ul>
+      <li><strong>Ingreso de los consumidores:</strong> sube el ingreso → sube la demanda de bienes normales;
+      baja la demanda de bienes inferiores.</li>
+      <li><strong>Precio de bienes relacionados:</strong> sustitutos (té/café) o complementarios (auto/nafta).</li>
+      <li><strong>Gustos y preferencias:</strong> modas, publicidad, tendencias.</li>
+      <li><strong>Expectativas:</strong> si se espera que suba el precio, se compra ahora.</li>
+      <li><strong>Número de consumidores:</strong> más población o más grupo objetivo → más demanda total.</li>
+    </ul>
+    <div class="box">
+      <strong>Ojo con el error clásico de examen:</strong> un cambio en el <em>precio del propio bien</em>
+      mueve un punto sobre la misma curva (cambio en la cantidad demandada). Un cambio en cualquier otra
+      variable desplaza toda la curva (cambio en la demanda).
+    </div>
+  </div>
+
+  <!-- PESTAÑA 2: EJEMPLO RESUELTO -->
+  <div class="panel" id="panel1">
+    <h2>Ejemplo resuelto: demanda de entradas de cine</h2>
+    <p>Una sala de cine en Venado Tuerto releva cuántas entradas semanales se demandan a distintos precios:</p>
+
+    <div class="grid-2">
+      <div>
+        <table>
+          <thead><tr><th>Precio ($)</th><th>Cantidad demandada (entradas/semana)</th></tr></thead>
+          <tbody>
+            <tr><td>3.000</td><td>800</td></tr>
+            <tr><td>4.000</td><td>650</td></tr>
+            <tr><td>5.000</td><td>500</td></tr>
+            <tr><td>6.000</td><td>350</td></tr>
+            <tr><td>7.000</td><td>200</td></tr>
+          </tbody>
+        </table>
+        <p class="instr">Se observa la relación inversa típica de la ley de la demanda: a medida que sube
+        el precio de la entrada, la cantidad demandada baja de forma constante (150 entradas menos por
+        cada $1.000 de aumento).</p>
+      </div>
+      <div class="chart-wrap" style="margin-top:0;">
+        <canvas id="chartResuelto" height="260"></canvas>
+      </div>
+    </div>
+
+    <div class="box verde">
+      <strong>Lectura del gráfico:</strong> la curva tiene pendiente negativa, como corresponde a toda
+      curva de demanda. Cada punto indica cuántas entradas se venderían por semana a ese precio,
+      manteniendo todo lo demás constante (ceteris paribus): ingresos del público, precio de otras salidas,
+      gustos, etc.
+    </div>
+  </div>
+
+  <!-- PESTAÑA 3: EJERCICIOS -->
+  <div class="panel" id="panel2">
+    <h2>Ejercicios para graficar</h2>
+    <p>Con los datos de cada tabla, marcá los puntos sobre el lienzo (hacé clic para ubicar cada par
+    precio-cantidad) y luego unilos para dibujar la curva de demanda. También podés dibujarla a mano
+    si preferís imprimir esta página.</p>
+
+    <!-- Ejercicio 1 -->
+    <div class="ejercicio">
+      <span class="badge">Ejercicio 1</span>
+      <h4>Demanda de helado (verano en Venado Tuerto)</h4>
+      <div class="ejercicio-grid">
+        <table>
+          <thead><tr><th>Precio ($)</th><th>Cantidad (kg/semana)</th></tr></thead>
+          <tbody>
+            <tr><td>2.500</td><td>90</td></tr>
+            <tr><td>2.000</td><td>150</td></tr>
+            <tr><td>1.500</td><td>230</td></tr>
+            <tr><td>1.000</td><td>320</td></tr>
+            <tr><td>500</td><td>430</td></tr>
+          </tbody>
+        </table>
+        <div>
+          <canvas class="lienzo" id="ej1" width="380" height="300"></canvas>
+          <p class="instr">Eje X: cantidad (0 a 450) · Eje Y: precio (0 a 2.700)</p>
+          <button class="btn-reset" onclick="resetCanvas('ej1')">Borrar puntos</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ejercicio 2 -->
+    <div class="ejercicio">
+      <span class="badge">Ejercicio 2</span>
+      <h4>Demanda de nafta súper</h4>
+      <div class="ejercicio-grid">
+        <table>
+          <thead><tr><th>Precio ($/litro)</th><th>Cantidad (litros/mes, por auto)</th></tr></thead>
+          <tbody>
+            <tr><td>1.200</td><td>60</td></tr>
+            <tr><td>1.100</td><td>70</td></tr>
+            <tr><td>1.000</td><td>82</td></tr>
+            <tr><td>900</td><td>95</td></tr>
+            <tr><td>800</td><td>110</td></tr>
+          </tbody>
+        </table>
+        <div>
+          <canvas class="lienzo" id="ej2" width="380" height="300"></canvas>
+          <p class="instr">Eje X: cantidad (0 a 130) · Eje Y: precio (0 a 1.300)</p>
+          <button class="btn-reset" onclick="resetCanvas('ej2')">Borrar puntos</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ejercicio 3 -->
+    <div class="ejercicio">
+      <span class="badge">Ejercicio 3</span>
+      <h4>Demanda de zapatillas deportivas</h4>
+      <div class="ejercicio-grid">
+        <table>
+          <thead><tr><th>Precio ($)</th><th>Cantidad demandada (pares/mes)</th></tr></thead>
+          <tbody>
+            <tr><td>80.000</td><td>40</td></tr>
+            <tr><td>65.000</td><td>65</td></tr>
+            <tr><td>50.000</td><td>95</td></tr>
+            <tr><td>35.000</td><td>130</td></tr>
+            <tr><td>20.000</td><td>175</td></tr>
+          </tbody>
+        </table>
+        <div>
+          <canvas class="lienzo" id="ej3" width="380" height="300"></canvas>
+          <p class="instr">Eje X: cantidad (0 a 200) · Eje Y: precio (0 a 90.000)</p>
+          <button class="btn-reset" onclick="resetCanvas('ej3')">Borrar puntos</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ejercicio 4 -->
+    <div class="ejercicio">
+      <span class="badge">Ejercicio 4</span>
+      <h4>Demanda de datos móviles (GB adicionales)</h4>
+      <div class="ejercicio-grid">
+        <table>
+          <thead><tr><th>Precio ($/GB)</th><th>Cantidad demandada (GB/mes)</th></tr></thead>
+          <tbody>
+            <tr><td>1.800</td><td>3</td></tr>
+            <tr><td>1.400</td><td>6</td></tr>
+            <tr><td>1.000</td><td>10</td></tr>
+            <tr><td>600</td><td>15</td></tr>
+            <tr><td>200</td><td>22</td></tr>
+          </tbody>
+        </table>
+        <div>
+          <canvas class="lienzo" id="ej4" width="380" height="300"></canvas>
+          <p class="instr">Eje X: cantidad (0 a 25) · Eje Y: precio (0 a 2.000)</p>
+          <button class="btn-reset" onclick="resetCanvas('ej4')">Borrar puntos</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ejercicio 5 -->
+    <div class="ejercicio">
+      <span class="badge">Ejercicio 5</span>
+      <h4>Demanda de cortes de pelo en una peluquería</h4>
+      <div class="ejercicio-grid">
+        <table>
+          <thead><tr><th>Precio ($)</th><th>Cantidad demandada (cortes/semana)</th></tr></thead>
+          <tbody>
+            <tr><td>9.000</td><td>15</td></tr>
+            <tr><td>7.500</td><td>25</td></tr>
+            <tr><td>6.000</td><td>38</td></tr>
+            <tr><td>4.500</td><td>52</td></tr>
+            <tr><td>3.000</td><td>70</td></tr>
+          </tbody>
+        </table>
+        <div>
+          <canvas class="lienzo" id="ej5" width="380" height="300"></canvas>
+          <p class="instr">Eje X: cantidad (0 a 80) · Eje Y: precio (0 a 10.000)</p>
+          <button class="btn-reset" onclick="resetCanvas('ej5')">Borrar puntos</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <strong>Consigna:</strong> para cada ejercicio, después de graficar la curva, respondé:
+      ¿se cumple la Ley de la Demanda? ¿Por qué la curva tiene esa pendiente?
+    </div>
+  </div>
+
+</div>
+
+<p class="footer-note">Prof. Verónica · Economía 4°D · EESO N° 206 "Rosa Turner de Estrugamou"</p>
+
+<script>
+function cambiarTab(i){
+  document.querySelectorAll('.tab-btn').forEach((b,idx)=>b.classList.toggle('active', idx===i));
+  document.querySelectorAll('.panel').forEach((p,idx)=>p.classList.toggle('active', idx===i));
+  // Forzar redibujado de los gráficos al mostrar su pestaña (Chart.js no mide bien un canvas oculto)
+  setTimeout(()=>{
+    if(i===0 && chartTeoria) chartTeoria.resize();
+    if(i===1 && chartResuelto) chartResuelto.resize();
+  }, 0);
+}
+
+// ---- Gráfico de teoría ----
+const chartTeoria = new Chart(document.getElementById('chartTeoria'), {
+  type: 'line',
+  data: {
+    labels: [100,200,350,500,700],
+    datasets: [{
+      label: 'Curva de Demanda (pizzas)',
+      data: [12000,10000,8000,6000,4000],
+      borderColor: '#1d5fa8',
+      backgroundColor: 'rgba(29,95,168,0.12)',
+      fill:true,
+      tension:0,
+      pointRadius:5,
+      pointBackgroundColor:'#1d5fa8'
+    }]
+  },
+  options: {
+    responsive:true,
+    plugins:{ legend:{display:true} },
+    scales:{
+      x:{ title:{display:true, text:'Cantidad demandada (pizzas)'} },
+      y:{ title:{display:true, text:'Precio ($)'} }
+    }
+  }
+});
+
+// ---- Gráfico ejemplo resuelto ----
+const chartResuelto = new Chart(document.getElementById('chartResuelto'), {
+  type: 'line',
+  data: {
+    labels: [800,650,500,350,200],
+    datasets: [{
+      label: 'Curva de Demanda (entradas de cine)',
+      data: [3000,4000,5000,6000,7000],
+      borderColor: '#1f8a4c',
+      backgroundColor: 'rgba(31,138,76,0.12)',
+      fill:true,
+      tension:0,
+      pointRadius:5,
+      pointBackgroundColor:'#1f8a4c'
+    }]
+  },
+  options: {
+    responsive:true,
+    plugins:{ legend:{display:true} },
+    scales:{
+      x:{ title:{display:true, text:'Cantidad demandada (entradas/semana)'} },
+      y:{ title:{display:true, text:'Precio ($)'} }
+    }
+  }
+});
+
+// ---- Lienzos interactivos para ejercicios ----
+const ejercicios = {
+  ej1: { xMax: 450, yMax: 2700, xLabel:'Cantidad (kg)', yLabel:'Precio ($)' },
+  ej2: { xMax: 130, yMax: 1300, xLabel:'Cantidad (litros)', yLabel:'Precio ($)' },
+  ej3: { xMax: 200, yMax: 90000, xLabel:'Cantidad (pares)', yLabel:'Precio ($)' },
+  ej4: { xMax: 25, yMax: 2000, xLabel:'Cantidad (GB)', yLabel:'Precio ($)' },
+  ej5: { xMax: 80, yMax: 10000, xLabel:'Cantidad (cortes)', yLabel:'Precio ($)' }
+};
+
+const puntos = {};
+
+function dibujarEjes(ctx, cfg){
+  const w = ctx.canvas.width, h = ctx.canvas.height;
+  const margen = 40;
+  ctx.clearRect(0,0,w,h);
+  ctx.strokeStyle = '#8a94a3';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(margen, 10); ctx.lineTo(margen, h-margen); // eje Y
+  ctx.lineTo(w-10, h-margen); // eje X
+  ctx.stroke();
+
+  ctx.fillStyle = '#5c6773';
+  ctx.font = '11px Arial';
+  ctx.save();
+  ctx.translate(12, h/2);
+  ctx.rotate(-Math.PI/2);
+  ctx.textAlign='center';
+  ctx.fillText(cfg.yLabel, 0, 0);
+  ctx.restore();
+  ctx.textAlign='center';
+  ctx.fillText(cfg.xLabel, w/2, h-8);
+
+  // marcas
+  ctx.strokeStyle = '#e5e9ee';
+  for(let i=1;i<=4;i++){
+    const gy = 10 + (h-margen-10) * (i/5);
+    ctx.beginPath(); ctx.moveTo(margen, gy); ctx.lineTo(w-10, gy); ctx.stroke();
+  }
+}
+
+function coordCanvas(cfg, w, h, valX, valY){
+  const margen = 40;
+  const px = margen + (valX / cfg.xMax) * (w - 10 - margen);
+  const py = (h - margen) - (valY / cfg.yMax) * (h - margen - 10);
+  return [px, py];
+}
+
+function coordValor(cfg, w, h, px, py){
+  const margen = 40;
+  const valX = ((px - margen) / (w - 10 - margen)) * cfg.xMax;
+  const valY = ((h - margen - py) / (h - margen - 10)) * cfg.yMax;
+  return [valX, valY];
+}
+
+function redibujar(id){
+  const canvas = document.getElementById(id);
+  const ctx = canvas.getContext('2d');
+  const cfg = ejercicios[id];
+  dibujarEjes(ctx, cfg);
+
+  const pts = puntos[id] || [];
+  if(pts.length > 0){
+    ctx.strokeStyle = '#c0392b';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    const ordenados = [...pts].sort((a,b)=>a[0]-b[0]);
+    ordenados.forEach((p,i)=>{
+      const [px,py] = coordCanvas(cfg, canvas.width, canvas.height, p[0], p[1]);
+      if(i===0) ctx.moveTo(px,py); else ctx.lineTo(px,py);
+    });
+    ctx.stroke();
+
+    ctx.fillStyle = '#c0392b';
+    pts.forEach(p=>{
+      const [px,py] = coordCanvas(cfg, canvas.width, canvas.height, p[0], p[1]);
+      ctx.beginPath();
+      ctx.arc(px,py,4,0,2*Math.PI);
+      ctx.fill();
+    });
+  }
+}
+
+Object.keys(ejercicios).forEach(id=>{
+  puntos[id] = [];
+  const canvas = document.getElementById(id);
+  redibujar(id);
+  canvas.addEventListener('click', (e)=>{
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    const px = (e.clientX - rect.left) * scaleX;
+    const py = (e.clientY - rect.top) * scaleY;
+    const cfg = ejercicios[id];
+    const [valX, valY] = coordValor(cfg, canvas.width, canvas.height, px, py);
+    if(valX >= 0 && valY >= 0){
+      puntos[id].push([valX, valY]);
+      redibujar(id);
+    }
+  });
+});
+
+function resetCanvas(id){
+  puntos[id] = [];
+  redibujar(id);
+}
+</script>
+
+</body>
+</html>
