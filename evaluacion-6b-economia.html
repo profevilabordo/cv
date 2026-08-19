@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación: Sistemas Económicos y Mercados - 6to B</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4a8b5f;
+            --primary-dark: #3a6f4a;
+            --bg: #0F172A;
+            --card-bg: #1E293B;
+            --text: #F8FAFC;
+            --text-muted: #94A3B8;
+            --accent: #5a6fb0;
+            --success: #2f5e44;
+            --error: #9a5640;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'DM Sans', sans-serif; }
+        body { background-color: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+
+        .orbs { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+        .orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.15; }
+        .orb1 { width: 400px; height: 400px; background: var(--primary); top: -100px; right: -100px; animation: float 15s infinite alternate; }
+        .orb2 { width: 350px; height: 350px; background: var(--accent); bottom: -50px; left: -100px; animation: float 18s infinite alternate-reverse; }
+        @keyframes float { from { transform: translate(0,0); } to { transform: translate(40px, 40px); } }
+
+        .container { position: relative; z-index: 1; max-width: 900px; margin: 40px auto; padding: 0 20px; }
+
+        .header { text-align: center; margin-bottom: 40px; }
+        .header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 32px; background: linear-gradient(135deg, #5a6fb0, #4a8b5f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
+        .header p { color: var(--text-muted); font-size: 16px; }
+
+        .setup-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 40px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.3); }
+        .setup-card h2 { margin-bottom: 24px; font-family: 'Space Grotesk', sans-serif; }
+        .select-wrapper { margin-bottom: 24px; text-align: left; }
+        .select-wrapper label { display: block; margin-bottom: 8px; color: var(--text-muted); font-size: 14px; font-weight: 600; }
+        select, input[type="password"] { width: 100%; padding: 14px; border-radius: 12px; background: var(--bg); border: 2px solid rgba(255,255,255,0.1); color: white; font-size: 16px; cursor: pointer; outline: none; transition: border-color 0.3s; }
+        select:focus, input[type="password"]:focus { border-color: var(--primary); }
+
+        .btn-start { width: 100%; padding: 16px; border-radius: 12px; border: none; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; font-size: 18px; font-weight: 700; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn-start:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(90, 111, 176, 0.3); }
+
+        #quiz-screen { display: none; }
+        .quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; background: rgba(255,255,255,0.05); padding: 15px 25px; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); position: sticky; top: 20px; z-index: 10; }
+        .timer { font-family: 'Space Grotesk', sans-serif; font-size: 20px; font-weight: 700; color: var(--primary); display: flex; align-items: center; gap: 8px; }
+        .progress-container { flex-grow: 1; margin: 0 30px; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px; overflow: hidden; }
+        .progress-bar { height: 100%; background: var(--primary); width: 0%; transition: width 0.3s; }
+
+        .question-card { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 35px; margin-bottom: 20px; animation: slideIn 0.5s ease; }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .q-number { color: var(--primary); font-weight: 800; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; display: block; }
+        .q-text { font-size: 20px; font-weight: 600; line-height: 1.4; margin-bottom: 25px; }
+        .q-type { font-size: 12px; color: var(--text-muted); font-weight: 600; margin-bottom: 16px; padding: 6px 12px; background: rgba(255,255,255,0.05); border-radius: 6px; width: fit-content; }
+
+        .options { display: grid; gap: 12px; }
+        .option { padding: 16px 20px; border-radius: 14px; background: rgba(255,255,255,0.03); border: 2px solid rgba(255,255,255,0.08); cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 15px; }
+        .option:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); transform: translateX(5px); }
+        .option.selected { background: rgba(90, 111, 176, 0.1); border-color: var(--primary); }
+        .option.correct { background: rgba(47, 94, 68, 0.2); border-color: var(--success); }
+        .option.incorrect { background: rgba(154, 86, 64, 0.2); border-color: var(--error); }
+        
+        .option-bullet { width: 20px; height: 20px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.2); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; flex-shrink: 0; }
+        .option.selected .option-bullet { background: var(--primary); border-color: var(--primary); color: white; }
+        .option.correct .option-bullet { background: var(--success); border-color: var(--success); color: white; }
+        .option.incorrect .option-bullet { background: var(--error); border-color: var(--error); color: white; }
+
+        .feedback { padding: 12px 16px; border-radius: 10px; font-size: 14px; font-weight: 600; margin-top: 12px; display: none; }
+        .feedback.show { display: block; }
+        .feedback.correct { background: rgba(47, 94, 68, 0.2); color: #2f5e44; border-left: 4px solid #2f5e44; }
+        .feedback.incorrect { background: rgba(154, 86, 64, 0.2); color: #9a5640; border-left: 4px solid #9a5640; }
+
+        .quiz-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; }
+        .btn-nav { padding: 12px 24px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); background: var(--card-bg); color: white; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+        .btn-nav:hover:not(:disabled) { background: rgba(255,255,255,0.1); }
+        .btn-nav:disabled { opacity: 0.3; cursor: not-allowed; }
+        .btn-submit { padding: 12px 30px; border-radius: 12px; border: none; background: var(--primary); color: white; font-weight: 700; cursor: pointer; display: none; }
+
+        #results-screen { display: none; text-align: center; }
+        .result-card { background: var(--card-bg); border-radius: 24px; padding: 50px; border: 1px solid rgba(255,255,255,0.1); }
+        .score-circle { width: 150px; height: 150px; border-radius: 50%; border: 8px solid var(--primary); margin: 0 auto 30px; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .score-val { font-size: 48px; font-weight: 800; font-family: 'Space Grotesk', sans-serif; }
+        .score-label { font-size: 14px; color: var(--text-muted); text-transform: uppercase; }
+
+        .summary-list { text-align: left; margin: 30px 0; background: rgba(0,0,0,0.2); border-radius: 15px; padding: 20px; }
+        .summary-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .summary-item:last-child { border: none; }
+
+        @media (max-width: 600px) {
+            .quiz-header { flex-wrap: wrap; gap: 10px; }
+            .progress-container { order: 3; width: 100%; margin: 10px 0 0 0; }
+            .header h1 { font-size: 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="orbs"><div class="orb orb1"></div><div class="orb orb2"></div></div>
+
+<div class="container">
+    <div class="header">
+        <h1>⚡ Evaluación: Sistemas Económicos y Mercados</h1>
+        <p>6to Año B · Economía · EETP N°602</p>
+    </div>
+
+    <div id="setup-screen" class="setup-card">
+        <h2>Evaluación de Conocimientos</h2>
+        <p style="margin-bottom: 30px;">Evaluación de 20 preguntas. Tenés tiempo ilimitado. El resultado es inmediato.</p>
+        <p style="margin-bottom: 30px; font-size: 14px; color: var(--text-muted); background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; border-left: 4px solid var(--primary);">
+            📌 Podés hacer esta evaluación <strong>ilimitadas veces</strong>, pero <strong>solo se tendrá en cuenta la nota del primer intento</strong>.
+        </p>
+
+        <div class="select-wrapper">
+            <label for="student-select">Seleccioná tu nombre:</label>
+            <select id="student-select" style="margin-bottom: 16px;">
+                <option value="" disabled selected>Elegí tu nombre de la lista...</option>
+            </select>
+
+            <label for="student-password">Palabra Clave:</label>
+            <input type="password" id="student-password" placeholder="Ingresá tu palabra clave" style="margin-bottom: 30px;">
+        </div>
+
+        <button class="btn-start" onclick="startQuiz()">Comenzar Evaluación 📝</button>
+    </div>
+
+    <div id="quiz-screen">
+        <div class="quiz-header">
+            <div id="student-name-display" style="font-weight: 700; font-size: 14px; max-width: 150px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">Estudiante</div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
+            <div id="page-indicator" style="color: var(--text-muted); font-size: 14px; font-weight: 600;">1 de 20</div>
+        </div>
+
+        <div id="question-container"></div>
+
+        <div class="quiz-footer">
+            <button class="btn-nav" id="btn-prev" onclick="prevQuestion()" disabled>Anterior</button>
+            <button class="btn-nav" id="btn-next" onclick="nextQuestion()">Siguiente</button>
+            <button class="btn-submit" id="btn-submit" onclick="finishQuiz()">Finalizar y Entregar</button>
+        </div>
+    </div>
+
+    <div id="results-screen">
+        <div class="result-card">
+            <div id="result-emoji" style="font-size: 64px; margin-bottom: 20px;">🎉</div>
+            <h2 id="result-title">¡Evaluación Completada!</h2>
+            <p id="result-student" style="color: var(--text-muted); margin-bottom: 30px;">Estudiante</p>
+
+            <div class="score-circle">
+                <span class="score-val" id="score-val">15</span>
+                <span class="score-label">Correctas</span>
+            </div>
+
+            <div class="summary-list">
+                <div class="summary-item">
+                    <span>Preguntas respondidas:</span>
+                    <span id="summary-total">20/20</span>
+                </div>
+                <div class="summary-item">
+                    <span>Porcentaje:</span>
+                    <span id="summary-percentage">75%</span>
+                </div>
+                <div class="summary-item">
+                    <span>Calificación:</span>
+                    <span id="summary-status" style="color: var(--primary); font-weight: 700;">7.5</span>
+                </div>
+            </div>
+
+            <button class="btn-start" onclick="resetQuiz()" style="margin-bottom:12px">Volver a intentar 🔁</button>
+            <button class="btn-nav" onclick="location.reload()" style="width:100%;margin-top:8px">Cerrar sesión</button>
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+    const students = [
+        { name: "CABALLERO, AGUSTIN", code: "milan" },
+        { name: "CHELIA, CANDELA ABIGAIL", code: "florence" },
+        { name: "ECHANIZ ONTIVEROS, LUCAS JEREMÍAS", code: "venice" },
+        { name: "FRETES, YÉSICA", code: "naples" },
+        { name: "POLLINI, JUAN JOSÉ", code: "seattle" },
+        { name: "SANTUCHO, SIMON", code: "houston" },
+        { name: "VALETTI, VÍCTOR ORLANDO", code: "chicago" },
+        { name: "PROFE 1", code: "profe1" },
+        { name: "PROFE 2", code: "profe2" }
+    ];
+
+    const questionBank = [
+        { type: "mc", q: "Si en un sistema económico el Estado fija todos los precios, ¿cuál es la principal consecuencia para la asignación eficiente de recursos?", a: ["Mejora porque no hay especulación", "Se distorsionan las señales de escasez y puede haber desequilibrios entre oferta y demanda", "No hay consecuencias negativas", "Los precios son siempre más justos"], c: 1 },
+        { type: "vf", q: "En competencia monopolística, los productos son diferenciados pero hay libre entrada y salida del mercado.", a: ["Verdadero", "Falso"], c: 0 },
+        { type: "mc", q: "Un oligopolio diferenciado es aquel donde...", a: ["Hay una sola empresa que domina", "Hay pocas empresas con productos diferenciados y considerable poder de mercado", "Hay muchas empresas pequeñas", "No hay competencia"], c: 1 },
+        { type: "vf", q: "En un mercado de competencia perfecta, el costo marginal de cada empresa tiende a igualarse con el precio.", a: ["Verdadero", "Falso"], c: 0 },
+        { type: "mc", q: "¿Cuál es la principal desventaja de una economía de mercado puro sin regulación estatal?", a: ["Genera desempleo permanente", "Puede producir desigualdades y no genera suficientemente bienes públicos", "Aumenta la inflación", "Reduce la productividad"], c: 1 },
+        { type: "vf", q: "Un monopolio natural siempre es perjudicial para los consumidores porque no hay competencia que lo controle.", a: ["Verdadero", "Falso"], c: 1 },
+        { type: "mc", q: "En Argentina, cuando el Estado interviene mediante subsidios a determinados productos, está actuando como...", a: ["Un agente que distorsiona siempre el mercado negativamente", "Un regulador que intenta redistribuir ingresos y proteger ciertos sectores", "Un oferente más en el mercado", "Un consumidor"], c: 1 },
+        { type: "vf", q: "La información perfecta en competencia perfecta significa que todos los actores económicos conocen todos los precios y características de los bienes.", a: ["Verdadero", "Falso"], c: 0 },
+        { type: "mc", q: "¿Qué sucede típicamente cuando existe un oligopsonio (pocos compradores, muchos vendedores)?", a: ["Los vendedores tienen mayor poder de negociación", "Los compradores pueden presionar los precios hacia la baja", "Todos se benefician por igual", "El mercado no funciona"], c: 1 },
+        { type: "vf", q: "En economía mixta, la redistribución de ingresos se hace exclusivamente a través de impuestos progresivos.", a: ["Verdadero", "Falso"], c: 1 },
+        { type: "mc", q: "¿Cuál es el rol del precio como 'mecanismo de coordinación' en una economía de mercado?", a: ["Determinar quién es más rico", "Transmitir información sobre escasez y guiar decisiones de productores y consumidores", "Fijar salarios obligatoriamente", "Ser igual para todos los bienes"], c: 1 },
+        { type: "vf", q: "Un mercado a plazo (futuros) es aquel donde la entrega y el pago ocurren en el momento mismo de la transacción.", a: ["Verdadero", "Falso"], c: 1 },
+        { type: "mc", q: "En competencia perfecta, si el precio de mercado es mayor que el costo promedio de una empresa, ¿qué sucede?", a: ["Nada, el mercado está en equilibrio", "Atraen nuevas empresas al mercado hasta igualar el precio con el costo", "La empresa cierra inmediatamente", "Los consumidores dejan de comprar"], c: 1 },
+        { type: "vf", q: "Las barreras de entrada en un monopolio son siempre tecnológicas o científicas.", a: ["Verdadero", "Falso"], c: 1 },
+        { type: "mc", q: "¿Cuál es la diferencia fundamental entre oligopolio y competencia monopolística en términos de número de empresas?", a: ["Son lo mismo", "Oligopolio tiene pocas empresas, competencia monopolística tiene muchas", "La competencia monopolística tiene pocas empresas", "No hay diferencia"], c: 1 },
+        { type: "vf", q: "En una economía socialista centralizada, los empresarios privados pueden competir libremente por obtener ganancias.", a: ["Verdadero", "Falso"], c: 1 },
+        { type: "mc", q: "¿Por qué se dice que los mercados financieros son más cercanos a la competencia perfecta?", a: ["Porque no hay riesgos", "Porque hay muchos participantes, información disponible, productos estandarizados y baja concentración", "Porque siempre hay ganancias seguras", "Porque no hay precio"], c: 1 },
+        { type: "vf", q: "Una característica de la competencia perfecta es que hay barreras de entrada y salida significativas.", a: ["Verdadero", "Falso"], c: 1 },
+        { type: "mc", q: "Si una empresa en competencia perfecta intenta aumentar su precio un 10% por encima del mercado, probablemente...", a: ["Aumentan sus ganancias porque los clientes son fieles", "Pierde la mayoría de sus clientes hacia competidores", "El Estado interviene para bajar el precio", "La demanda no se ve afectada"], c: 1 },
+        { type: "vf", q: "En Argentina, la combinación de empresas públicas (YPF, Aerolineas) con empresas privadas demuestra que el país tiene un sistema económico mixto.", a: ["Verdadero", "Falso"], c: 0 }
+    ];
+
+    let currentQuestions = [];
+    let userAnswers = [];
+    let currentIdx = 0;
+    let startTime;
+
+    window.onload = () => {
+        const select = document.getElementById('student-select');
+        students.sort((a, b) => a.name.localeCompare(b.name)).forEach(s => {
+            const opt = document.createElement('option');
+            opt.value = s.code;
+            opt.textContent = s.name;
+            select.appendChild(opt);
+        });
+    };
+
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    async function startQuiz() {
+        const studentCode = document.getElementById('student-select').value;
+        const student = students.find(s => s.code === studentCode);
+        const enteredPassword = document.getElementById('student-password').value.trim().toLowerCase();
+
+        if (!studentCode) { alert("Por favor, seleccioná tu nombre."); return; }
+        if (!enteredPassword) { alert("Por favor, ingresá tu palabra clave."); return; }
+        if (enteredPassword !== studentCode.toLowerCase()) {
+            alert("Palabra clave incorrecta. Por favor, verificá y volvé a intentar.");
+            return;
+        }
+
+        currentQuestions = shuffle([...questionBank]).slice(0, 20);
+        currentQuestions.forEach(q => {
+            const correctAnswerText = q.a[q.c];
+            q.shuffledA = [...q.a];
+            shuffle(q.shuffledA);
+            q.newCorrectIdx = q.shuffledA.indexOf(correctAnswerText);
+        });
+
+        userAnswers = new Array(20).fill(null);
+        currentIdx = 0;
+        startTime = Date.now();
+
+        document.getElementById('student-name-display').textContent = student.name;
+        document.getElementById('student-name-display').dataset.code = studentCode;
+        document.getElementById('setup-screen').style.display = 'none';
+        document.getElementById('quiz-screen').style.display = 'block';
+
+        renderQuestion();
+    }
+
+    function renderQuestion() {
+        const q = currentQuestions[currentIdx];
+        const container = document.getElementById('question-container');
+        const letters = ['A', 'B', 'C', 'D'];
+        let optionsHtml = '';
+
+        q.shuffledA.forEach((optText, i) => {
+            const isSelected = userAnswers[currentIdx] === i;
+            const isCorrect = i === q.newCorrectIdx;
+            const answerGiven = userAnswers[currentIdx] !== null;
+            
+            let classList = 'option';
+            if (answerGiven) {
+                if (isCorrect) classList += ' correct';
+                else if (isSelected) classList += ' incorrect';
+            } else if (isSelected) {
+                classList += ' selected';
+            }
+
+            optionsHtml += `
+                <div class="${classList}" onclick="selectOption(${i})">
+                    <div class="option-bullet">${letters[i]}</div>
+                    <div class="option-text">${optText}</div>
+                </div>
+            `;
+        });
+
+        const typeLabel = q.type === 'mc' ? 'Opción Múltiple' : 'Verdadero o Falso';
+        const feedback = userAnswers[currentIdx] !== null ? 
+            `<div class="feedback show ${userAnswers[currentIdx] === q.newCorrectIdx ? 'correct' : 'incorrect'}">
+                ${userAnswers[currentIdx] === q.newCorrectIdx ? '✅ ¡Correcto!' : '❌ Incorrecto'}
+            </div>` : '';
+
+        container.innerHTML = `
+            <div class="question-card">
+                <span class="q-number">Pregunta ${currentIdx + 1} de 20</span>
+                <span class="q-type">${typeLabel}</span>
+                <div class="q-text">${q.q}</div>
+                <div class="options">${optionsHtml}</div>
+                ${feedback}
+            </div>
+        `;
+
+        updateNav();
+    }
+
+    function selectOption(idx) {
+        userAnswers[currentIdx] = idx;
+        renderQuestion();
+    }
+
+    function updateNav() {
+        document.getElementById('btn-prev').disabled = currentIdx === 0;
+        const isLast = currentIdx === 19;
+        document.getElementById('btn-next').style.display = isLast ? 'none' : 'block';
+        document.getElementById('btn-submit').style.display = isLast ? 'block' : 'none';
+        document.getElementById('progress-bar').style.width = `${((currentIdx + 1) / 20) * 100}%`;
+        document.getElementById('page-indicator').textContent = `${currentIdx + 1} de 20`;
+    }
+
+    function nextQuestion() { if (currentIdx < 19) { currentIdx++; renderQuestion(); } }
+    function prevQuestion() { if (currentIdx > 0) { currentIdx--; renderQuestion(); } }
+
+    function resetQuiz() {
+        currentQuestions = [];
+        userAnswers = [];
+        currentIdx = 0;
+        document.getElementById('results-screen').style.display = 'none';
+        document.getElementById('quiz-screen').style.display = 'none';
+        document.getElementById('setup-screen').style.display = 'block';
+        document.getElementById('student-password').value = '';
+    }
+
+    async function finishQuiz() {
+        const unanswered = userAnswers.filter(a => a === null).length;
+        if (unanswered > 0) {
+            if (!confirm(`Todavía tenés ${unanswered} preguntas sin responder. ¿Querés entregar igual?`)) return;
+        }
+
+        let score = 0;
+        currentQuestions.forEach((q, i) => {
+            if (userAnswers[i] === q.newCorrectIdx) score++;
+        });
+
+        const studentName = document.getElementById('student-name-display').textContent;
+        const percentage = Math.round((score / 20) * 100);
+        const calificacion = (percentage / 10).toFixed(1);
+
+        try {
+            await fetch("https://formsubmit.co/ajax/14f4f473357c2cd083f563a355a538de", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    "alumno": studentName,
+                    "materia": "Economía",
+                    "actividad": "Evaluación - Sistemas Económicos y Mercados",
+                    "nota": score + "/20",
+                    "_subject": "[NOTA] Economía 6to B — Evaluación — " + studentName,
+                    "_captcha": "false"
+                })
+            });
+        } catch (e) {
+            console.error("Error al enviar el correo:", e);
+        }
+
+        document.getElementById('quiz-screen').style.display = 'none';
+        document.getElementById('results-screen').style.display = 'block';
+
+        document.getElementById('score-val').textContent = score;
+        document.getElementById('result-student').textContent = studentName;
+        document.getElementById('summary-total').textContent = `20/20`;
+        document.getElementById('summary-percentage').textContent = `${percentage}%`;
+        document.getElementById('summary-status').textContent = calificacion;
+
+        const status = document.getElementById('summary-status');
+        if (score >= 18) {
+            status.style.color = "#2f5e44";
+            document.getElementById('result-emoji').textContent = "🏆";
+            document.getElementById('result-title').textContent = "¡Excelente Desempeño!";
+        } else if (score >= 14) {
+            status.style.color = "#4a8b5f";
+            document.getElementById('result-emoji').textContent = "👏";
+            document.getElementById('result-title').textContent = "¡Muy Bien!";
+        } else if (score >= 10) {
+            status.style.color = "#5a6fb0";
+            document.getElementById('result-emoji').textContent = "📚";
+            document.getElementById('result-title').textContent = "Aprobado";
+        } else {
+            status.style.color = "#9a5640";
+            document.getElementById('result-emoji').textContent = "📖";
+            document.getElementById('result-title').textContent = "Necesitás más estudio";
+        }
+
+        alert("✅ Evaluación guardada y enviada al mail.");
+    }
+</script>
+
+</body>
+</html>
