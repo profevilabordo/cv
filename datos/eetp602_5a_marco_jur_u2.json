@@ -6,7 +6,6 @@
   "emoji": "📜",
   "color_primario": "#1E40AF",
   "color_secundario": "#3B82F6",
-
   "umbral": {
     "preguntas_disparadoras": [
       {
@@ -26,28 +25,75 @@
       }
     ],
     "situaciones_conecta": [
-      {"emoji": "🛒", "label": "Compré algo en cuotas con una tarjeta de crédito"},
-      {"emoji": "🏠", "label": "Firmé o vi firmar un contrato de alquiler"},
-      {"emoji": "🏦", "label": "Abrí una caja de ahorro o cuenta bancaria"},
-      {"emoji": "🍔", "label": "Compré en un local de franquicia (McDonald's, Subway, Grido)"}
+      {
+        "emoji": "🛒",
+        "label": "Compré algo en cuotas con una tarjeta de crédito"
+      },
+      {
+        "emoji": "🏠",
+        "label": "Firmé o vi firmar un contrato de alquiler"
+      },
+      {
+        "emoji": "🏦",
+        "label": "Abrí una caja de ahorro o cuenta bancaria"
+      },
+      {
+        "emoji": "🍔",
+        "label": "Compré en un local de franquicia (McDonald's, Subway, Grido)"
+      }
     ],
     "termometro_pregunta": "¿Cuánto sabés sobre contratos, sociedades y cómo se organizan los negocios en Argentina?"
   },
-
   "mapa": {
     "ruta_paradas": [
-      {"id": 1, "title": "¿Qué es un contrato?", "desc": "Concepto, elementos esenciales y clasificaciones", "emoji": "📝", "color": "#1E40AF"},
-      {"id": 2, "title": "Efectos y extinción", "desc": "Obligaciones que nacen, cómo se cumplen y cómo se terminan", "emoji": "⚖️", "color": "#3B82F6"},
-      {"id": 3, "title": "Contratos en particular", "desc": "Compraventa, locaciones, contratos bancarios", "emoji": "🤝", "color": "#10B981"},
-      {"id": 4, "title": "Contratos modernos", "desc": "Franquicia, distribución, concesión, leasing", "emoji": "💼", "color": "#F59E0B"},
-      {"id": 5, "title": "Sociedades comerciales", "desc": "Personalidad jurídica y tipos societarios (SRL, SA)", "emoji": "🏢", "color": "#EC4899"}
+      {
+        "id": 1,
+        "title": "¿Qué es un contrato?",
+        "desc": "Concepto, elementos esenciales y clasificaciones",
+        "emoji": "📝",
+        "color": "#1E40AF"
+      },
+      {
+        "id": 2,
+        "title": "Efectos y extinción",
+        "desc": "Obligaciones que nacen, cómo se cumplen y cómo se terminan",
+        "emoji": "⚖️",
+        "color": "#3B82F6"
+      },
+      {
+        "id": 3,
+        "title": "Contratos en particular",
+        "desc": "Compraventa, locaciones, contratos bancarios",
+        "emoji": "🤝",
+        "color": "#10B981"
+      },
+      {
+        "id": 4,
+        "title": "Contratos modernos",
+        "desc": "Franquicia, distribución, concesión, leasing",
+        "emoji": "💼",
+        "color": "#F59E0B"
+      },
+      {
+        "id": 5,
+        "title": "Sociedades comerciales",
+        "desc": "Personalidad jurídica y tipos societarios (SRL, SA)",
+        "emoji": "🏢",
+        "color": "#EC4899"
+      }
     ],
     "panoramica_bloques": [
       {
         "id": "A",
         "title": "BLOQUE A",
         "subtitle": "Teoría General del Contrato",
-        "items": ["Definición y elementos esenciales del contrato", "Clasificación: bilateral, oneroso, conmutativo, de adhesión", "Obligaciones que nacen del contrato (dar, hacer, no hacer)", "Efectos entre partes y respecto de terceros", "Modos de extinción: cumplimiento, rescisión, resolución, nulidad"],
+        "items": [
+          "Definición y elementos esenciales del contrato",
+          "Clasificación: bilateral, oneroso, conmutativo, de adhesión",
+          "Obligaciones que nacen del contrato (dar, hacer, no hacer)",
+          "Efectos entre partes y respecto de terceros",
+          "Modos de extinción: cumplimiento, rescisión, resolución, nulidad"
+        ],
         "emoji": "📝",
         "color": "#1E40AF"
       },
@@ -55,7 +101,13 @@
         "id": "B",
         "title": "BLOQUE B",
         "subtitle": "Contratos en Particular",
-        "items": ["Compraventa: caracteres y obligaciones", "Locación de cosas (alquiler)", "Locación de obra vs. locación de servicios", "Contratos bancarios: cuenta corriente, préstamo, tarjeta de crédito", "Contratos empresariales modernos: franquicia, distribución, concesión, leasing"],
+        "items": [
+          "Compraventa: caracteres y obligaciones",
+          "Locación de cosas (alquiler)",
+          "Locación de obra vs. locación de servicios",
+          "Contratos bancarios: cuenta corriente, préstamo, tarjeta de crédito",
+          "Contratos empresariales modernos: franquicia, distribución, concesión, leasing"
+        ],
         "emoji": "🤝",
         "color": "#10B981"
       },
@@ -63,13 +115,22 @@
         "id": "C",
         "title": "BLOQUE C",
         "subtitle": "Sociedades Comerciales",
-        "items": ["Concepto de sociedad y personalidad jurídica", "Requisitos para constituirla", "Tipos societarios: Colectiva, Comandita, SRL, SA", "Diferencias clave entre SRL y SA", "Aplicación a empresas de software y electrónica"],
+        "items": [
+          "Concepto de sociedad y personalidad jurídica",
+          "Requisitos para constituirla",
+          "Tipos societarios: Colectiva, Comandita, SRL, SA",
+          "Diferencias clave entre SRL y SA",
+          "Aplicación a empresas de software y electrónica"
+        ],
         "emoji": "🏢",
         "color": "#EC4899"
       }
     ],
     "mapa_mental": {
-      "centro": {"title": "Contratos y Sociedades Comerciales", "emoji": "📜"},
+      "centro": {
+        "title": "Contratos y Sociedades Comerciales",
+        "emoji": "📜"
+      },
       "ramas": [
         {
           "id": "que",
@@ -122,36 +183,107 @@
       ]
     }
   },
-
   "nucleo_a": {
+    "bloque_info": {
+      "id": "a",
+      "emoji": "📝",
+      "titulo": "BLOQUE A: Teoría General del Contrato",
+      "color": "#1E40AF",
+      "paginas": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
     "n1_ordenar_cronologicamente": {
       "consigna": "Ordená las etapas de un contrato desde que nace hasta que se extingue:",
       "items": [
-        {"id": 0, "text": "Una parte hace una oferta (propone los términos)", "emoji": "💬"},
-        {"id": 1, "text": "La otra parte acepta y se forma el consentimiento", "emoji": "🤝"},
-        {"id": 2, "text": "Se perfecciona el contrato y nacen las obligaciones", "emoji": "📝"},
-        {"id": 3, "text": "Cada parte cumple su prestación (dar, hacer, no hacer)", "emoji": "✅"},
-        {"id": 4, "text": "El contrato se extingue por cumplimiento normal", "emoji": "🏁"}
+        {
+          "id": 0,
+          "text": "Una parte hace una oferta (propone los términos)",
+          "emoji": "💬"
+        },
+        {
+          "id": 1,
+          "text": "La otra parte acepta y se forma el consentimiento",
+          "emoji": "🤝"
+        },
+        {
+          "id": 2,
+          "text": "Se perfecciona el contrato y nacen las obligaciones",
+          "emoji": "📝"
+        },
+        {
+          "id": 3,
+          "text": "Cada parte cumple su prestación (dar, hacer, no hacer)",
+          "emoji": "✅"
+        },
+        {
+          "id": 4,
+          "text": "El contrato se extingue por cumplimiento normal",
+          "emoji": "🏁"
+        }
       ],
-      "orden_correcto": [0, 1, 2, 3, 4]
+      "orden_correcto": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
     },
-
     "n2_clasificador": {
       "consigna": "Clasificá cada contrato según las prestaciones de las partes:",
       "categorias": [
-        {"name": "Bilateral y Oneroso", "emoji": "⚖️", "color": "#1E40AF"},
-        {"name": "Unilateral o Gratuito", "emoji": "🎁", "color": "#10B981"}
+        {
+          "name": "Bilateral y Oneroso",
+          "emoji": "⚖️",
+          "color": "#1E40AF"
+        },
+        {
+          "name": "Unilateral o Gratuito",
+          "emoji": "🎁",
+          "color": "#10B981"
+        }
       ],
       "items": [
-        {"id": 0, "text": "Compraventa de una notebook", "categoria_correcta": 0},
-        {"id": 1, "text": "Donación de un libro a la biblioteca", "categoria_correcta": 1},
-        {"id": 2, "text": "Alquiler de un departamento", "categoria_correcta": 0},
-        {"id": 3, "text": "Comodato (préstamo de uso gratuito)", "categoria_correcta": 1},
-        {"id": 4, "text": "Permuta (intercambio de cosas)", "categoria_correcta": 0},
-        {"id": 5, "text": "Donación pura y simple sin cargo", "categoria_correcta": 1}
+        {
+          "id": 0,
+          "text": "Compraventa de una notebook",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Donación de un libro a la biblioteca",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Alquiler de un departamento",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "Comodato (préstamo de uso gratuito)",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Permuta (intercambio de cosas)",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Donación pura y simple sin cargo",
+          "categoria_correcta": 1
+        }
       ]
     },
-
     "n3_completar_mapa": {
       "consigna": "Completá los conceptos clave sobre la teoría general del contrato:",
       "blanks": [
@@ -181,7 +313,6 @@
         }
       ]
     },
-
     "n4_verdadero_falso": {
       "afirmaciones": [
         {
@@ -206,7 +337,6 @@
         }
       ]
     },
-
     "n5_relacionar_columnas": {
       "pares": [
         {
@@ -231,17 +361,28 @@
         }
       ]
     },
-
     "n6_palabra_intrusa": {
       "grupos": [
         {
           "pregunta": "¿Cuál NO es un elemento esencial del contrato?",
           "emoji": "📝",
           "palabras": [
-            {"text": "Consentimiento", "es_intrusa": false},
-            {"text": "Capacidad", "es_intrusa": false},
-            {"text": "Comisión", "es_intrusa": true},
-            {"text": "Objeto", "es_intrusa": false}
+            {
+              "text": "Consentimiento",
+              "es_intrusa": false
+            },
+            {
+              "text": "Capacidad",
+              "es_intrusa": false
+            },
+            {
+              "text": "Comisión",
+              "es_intrusa": true
+            },
+            {
+              "text": "Objeto",
+              "es_intrusa": false
+            }
           ],
           "explicacion": "Comisión NO es elemento esencial. Los esenciales son: consentimiento, capacidad, objeto y causa."
         },
@@ -249,62 +390,149 @@
           "pregunta": "¿Cuál NO corresponde a la clasificación de contratos por prestaciones?",
           "emoji": "⚖️",
           "palabras": [
-            {"text": "Bilateral", "es_intrusa": false},
-            {"text": "Unilateral", "es_intrusa": false},
-            {"text": "Aleatorio", "es_intrusa": true},
-            {"text": "Las partes obligadas", "es_intrusa": false}
+            {
+              "text": "Bilateral",
+              "es_intrusa": false
+            },
+            {
+              "text": "Unilateral",
+              "es_intrusa": false
+            },
+            {
+              "text": "Aleatorio",
+              "es_intrusa": true
+            },
+            {
+              "text": "Las partes obligadas",
+              "es_intrusa": false
+            }
           ],
           "explicacion": "Aleatorio es otra clasificación (por previsibilidad), no por prestaciones."
         }
       ]
     },
-
     "n7_defini_con_tus_palabras": {
       "conceptos": [
         {
           "termino": "Contrato",
           "pista": "¿Qué es ese acuerdo que crea obligaciones patrimoniales entre dos partes?",
-          "palabras_clave": ["acto", "jurídico", "partes", "consentimiento", "obligaciones", "patrimonial", "acuerdo"]
+          "palabras_clave": [
+            "acto",
+            "jurídico",
+            "partes",
+            "consentimiento",
+            "obligaciones",
+            "patrimonial",
+            "acuerdo"
+          ]
         },
         {
           "termino": "Buena fe contractual",
           "pista": "¿Cómo deben celebrarse, interpretarse y ejecutarse los contratos?",
-          "palabras_clave": ["honestidad", "lealtad", "interpretar", "ejecutar", "celebrar", "razonable", "previsible"]
+          "palabras_clave": [
+            "honestidad",
+            "lealtad",
+            "interpretar",
+            "ejecutar",
+            "celebrar",
+            "razonable",
+            "previsible"
+          ]
         },
         {
           "termino": "Resolución del contrato",
           "pista": "¿Qué pasa cuando una parte no cumple con su obligación?",
-          "palabras_clave": ["incumplimiento", "extinción", "daños", "retroactivo", "perjuicios", "vuelve atrás"]
+          "palabras_clave": [
+            "incumplimiento",
+            "extinción",
+            "daños",
+            "retroactivo",
+            "perjuicios",
+            "vuelve atrás"
+          ]
         }
       ]
     },
-
     "n8_causa_efecto": {
       "causas": [
-        {"id": 0, "text": "Un menor de edad firma un contrato sin autorización", "emoji": "🚫"},
-        {"id": 1, "text": "Una parte no cumple con su obligación", "emoji": "💔"},
-        {"id": 2, "text": "Las dos partes acuerdan dejar sin efecto el contrato", "emoji": "🤝"},
-        {"id": 3, "text": "El contrato tiene objeto ilícito", "emoji": "⚠️"}
+        {
+          "id": 0,
+          "text": "Un menor de edad firma un contrato sin autorización",
+          "emoji": "🚫"
+        },
+        {
+          "id": 1,
+          "text": "Una parte no cumple con su obligación",
+          "emoji": "💔"
+        },
+        {
+          "id": 2,
+          "text": "Las dos partes acuerdan dejar sin efecto el contrato",
+          "emoji": "🤝"
+        },
+        {
+          "id": 3,
+          "text": "El contrato tiene objeto ilícito",
+          "emoji": "⚠️"
+        }
       ],
       "efectos": [
-        {"id": 0, "causa_id": 0, "text": "El contrato es anulable por falta de capacidad", "emoji": "❌"},
-        {"id": 1, "causa_id": 1, "text": "La otra puede resolver el contrato y reclamar daños", "emoji": "⚖️"},
-        {"id": 2, "causa_id": 2, "text": "Se produce la rescisión bilateral (distracto)", "emoji": "📝"},
-        {"id": 3, "causa_id": 3, "text": "El contrato es nulo desde su origen (efecto retroactivo)", "emoji": "🚫"}
+        {
+          "id": 0,
+          "causa_id": 0,
+          "text": "El contrato es anulable por falta de capacidad",
+          "emoji": "❌"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "text": "La otra puede resolver el contrato y reclamar daños",
+          "emoji": "⚖️"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "text": "Se produce la rescisión bilateral (distracto)",
+          "emoji": "📝"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "text": "El contrato es nulo desde su origen (efecto retroactivo)",
+          "emoji": "🚫"
+        }
       ]
     },
-
     "n9_ordenar_proceso": {
       "consigna": "Ordená los pasos para que un contrato sea válido y produzca efectos:",
       "pasos_en_orden_correcto": [
-        {"id": 0, "text": "Las partes deben tener capacidad para contratar", "emoji": "👥"},
-        {"id": 1, "text": "Manifiestan su consentimiento libre y consciente", "emoji": "🤝"},
-        {"id": 2, "text": "Definen un objeto lícito, posible y determinado", "emoji": "📦"},
-        {"id": 3, "text": "Tienen una causa lícita (fin perseguido legítimo)", "emoji": "🎯"},
-        {"id": 4, "text": "El contrato produce efectos obligatorios entre las partes", "emoji": "⚖️"}
+        {
+          "id": 0,
+          "text": "Las partes deben tener capacidad para contratar",
+          "emoji": "👥"
+        },
+        {
+          "id": 1,
+          "text": "Manifiestan su consentimiento libre y consciente",
+          "emoji": "🤝"
+        },
+        {
+          "id": 2,
+          "text": "Definen un objeto lícito, posible y determinado",
+          "emoji": "📦"
+        },
+        {
+          "id": 3,
+          "text": "Tienen una causa lícita (fin perseguido legítimo)",
+          "emoji": "🎯"
+        },
+        {
+          "id": 4,
+          "text": "El contrato produce efectos obligatorios entre las partes",
+          "emoji": "⚖️"
+        }
       ]
     },
-
     "n10_comparador": {
       "concepto_a": {
         "nombre": "Rescisión",
@@ -318,36 +546,106 @@
       }
     }
   },
-
   "nucleo_b": {
+    "bloque_info": {
+      "id": "b",
+      "emoji": "🤝",
+      "titulo": "BLOQUE B: Contratos en Particular",
+      "color": "#10B981",
+      "paginas": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
     "n1_ordenar_cronologicamente": {
       "consigna": "Ordená las etapas de una compraventa con reserva de dominio:",
       "items": [
-        {"id": 0, "text": "Vendedor y comprador acuerdan el precio y forma de pago en cuotas", "emoji": "💬"},
-        {"id": 1, "text": "Se firma el contrato con cláusula de reserva de dominio", "emoji": "📝"},
-        {"id": 2, "text": "El comprador recibe la cosa y comienza a pagar las cuotas", "emoji": "📦"},
-        {"id": 3, "text": "Mientras paga, la propiedad sigue siendo del vendedor", "emoji": "🔒"},
-        {"id": 4, "text": "Al pagar la última cuota, recién se transfiere la propiedad", "emoji": "✅"}
+        {
+          "id": 0,
+          "text": "Vendedor y comprador acuerdan el precio y forma de pago en cuotas",
+          "emoji": "💬"
+        },
+        {
+          "id": 1,
+          "text": "Se firma el contrato con cláusula de reserva de dominio",
+          "emoji": "📝"
+        },
+        {
+          "id": 2,
+          "text": "El comprador recibe la cosa y comienza a pagar las cuotas",
+          "emoji": "📦"
+        },
+        {
+          "id": 3,
+          "text": "Mientras paga, la propiedad sigue siendo del vendedor",
+          "emoji": "🔒"
+        },
+        {
+          "id": 4,
+          "text": "Al pagar la última cuota, recién se transfiere la propiedad",
+          "emoji": "✅"
+        }
       ],
-      "orden_correcto": [0, 1, 2, 3, 4]
+      "orden_correcto": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
     },
-
     "n2_clasificador": {
       "consigna": "Clasificá cada situación según corresponda al tipo de locación:",
       "categorias": [
-        {"name": "Locación de Obra (resultado)", "emoji": "🏗️", "color": "#1E40AF"},
-        {"name": "Locación de Servicios (medios)", "emoji": "🔧", "color": "#10B981"}
+        {
+          "name": "Locación de Obra (resultado)",
+          "emoji": "🏗️",
+          "color": "#1E40AF"
+        },
+        {
+          "name": "Locación de Servicios (medios)",
+          "emoji": "🔧",
+          "color": "#10B981"
+        }
       ],
       "items": [
-        {"id": 0, "text": "Desarrollo de un sistema de gestión a medida", "categoria_correcta": 0},
-        {"id": 1, "text": "Soporte técnico mensual por horas", "categoria_correcta": 1},
-        {"id": 2, "text": "Construcción de una casa", "categoria_correcta": 0},
-        {"id": 3, "text": "Asesoramiento informático continuo", "categoria_correcta": 1},
-        {"id": 4, "text": "Armar y entregar un equipo electrónico", "categoria_correcta": 0},
-        {"id": 5, "text": "Consultoría profesional mensual", "categoria_correcta": 1}
+        {
+          "id": 0,
+          "text": "Desarrollo de un sistema de gestión a medida",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Soporte técnico mensual por horas",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Construcción de una casa",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "Asesoramiento informático continuo",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Armar y entregar un equipo electrónico",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Consultoría profesional mensual",
+          "categoria_correcta": 1
+        }
       ]
     },
-
     "n3_completar_mapa": {
       "consigna": "Completá sobre contratos en particular:",
       "blanks": [
@@ -377,7 +675,6 @@
         }
       ]
     },
-
     "n4_verdadero_falso": {
       "afirmaciones": [
         {
@@ -402,7 +699,6 @@
         }
       ]
     },
-
     "n5_relacionar_columnas": {
       "pares": [
         {
@@ -427,17 +723,28 @@
         }
       ]
     },
-
     "n6_palabra_intrusa": {
       "grupos": [
         {
           "pregunta": "¿Cuál NO es un contrato bancario?",
           "emoji": "🏦",
           "palabras": [
-            {"text": "Cuenta corriente bancaria", "es_intrusa": false},
-            {"text": "Tarjeta de crédito", "es_intrusa": false},
-            {"text": "Donación bancaria", "es_intrusa": true},
-            {"text": "Caja de seguridad", "es_intrusa": false}
+            {
+              "text": "Cuenta corriente bancaria",
+              "es_intrusa": false
+            },
+            {
+              "text": "Tarjeta de crédito",
+              "es_intrusa": false
+            },
+            {
+              "text": "Donación bancaria",
+              "es_intrusa": true
+            },
+            {
+              "text": "Caja de seguridad",
+              "es_intrusa": false
+            }
           ],
           "explicacion": "Donación bancaria no existe como contrato bancario típico. Los principales son: depósito, cuenta corriente, préstamo, tarjeta y caja de seguridad."
         },
@@ -445,62 +752,150 @@
           "pregunta": "¿Cuál NO es un contrato empresarial moderno?",
           "emoji": "💼",
           "palabras": [
-            {"text": "Franquicia", "es_intrusa": false},
-            {"text": "Mandato", "es_intrusa": true},
-            {"text": "Leasing", "es_intrusa": false},
-            {"text": "Concesión", "es_intrusa": false}
+            {
+              "text": "Franquicia",
+              "es_intrusa": false
+            },
+            {
+              "text": "Mandato",
+              "es_intrusa": true
+            },
+            {
+              "text": "Leasing",
+              "es_intrusa": false
+            },
+            {
+              "text": "Concesión",
+              "es_intrusa": false
+            }
           ],
           "explicacion": "Mandato es un contrato clásico de representación, no empresarial moderno. Los modernos son: franquicia, distribución, concesión y leasing."
         }
       ]
     },
-
     "n7_defini_con_tus_palabras": {
       "conceptos": [
         {
           "termino": "Leasing",
           "pista": "¿Cómo se llama el contrato que mezcla alquiler con opción de comprar al final?",
-          "palabras_clave": ["locación", "uso", "canon", "opción", "compra", "valor", "residual"]
+          "palabras_clave": [
+            "locación",
+            "uso",
+            "canon",
+            "opción",
+            "compra",
+            "valor",
+            "residual"
+          ]
         },
         {
           "termino": "Franquicia",
           "pista": "¿Qué contrato permite usar la marca y sistema de negocio de otra empresa?",
-          "palabras_clave": ["marca", "sistema", "know-how", "franquiciante", "franquiciado", "regalías", "probado"]
+          "palabras_clave": [
+            "marca",
+            "sistema",
+            "know-how",
+            "franquiciante",
+            "franquiciado",
+            "regalías",
+            "probado"
+          ]
         },
         {
           "termino": "Vicio redhibitorio",
           "pista": "¿Qué nombre técnico tiene un defecto oculto que tiene la cosa vendida?",
-          "palabras_clave": ["defecto", "oculto", "cosa", "vendedor", "responde", "impropia", "destino"]
+          "palabras_clave": [
+            "defecto",
+            "oculto",
+            "cosa",
+            "vendedor",
+            "responde",
+            "impropia",
+            "destino"
+          ]
         }
       ]
     },
-
     "n8_causa_efecto": {
       "causas": [
-        {"id": 0, "text": "El comprador no paga las cuotas pactadas", "emoji": "💸"},
-        {"id": 1, "text": "El locador no entrega el inmueble en buen estado", "emoji": "🏠"},
-        {"id": 2, "text": "Se descubre que el vendedor sabía de un defecto oculto", "emoji": "🔍"},
-        {"id": 3, "text": "El franquiciado deja de pagar las regalías", "emoji": "📜"}
+        {
+          "id": 0,
+          "text": "El comprador no paga las cuotas pactadas",
+          "emoji": "💸"
+        },
+        {
+          "id": 1,
+          "text": "El locador no entrega el inmueble en buen estado",
+          "emoji": "🏠"
+        },
+        {
+          "id": 2,
+          "text": "Se descubre que el vendedor sabía de un defecto oculto",
+          "emoji": "🔍"
+        },
+        {
+          "id": 3,
+          "text": "El franquiciado deja de pagar las regalías",
+          "emoji": "📜"
+        }
       ],
       "efectos": [
-        {"id": 0, "causa_id": 0, "text": "El vendedor puede resolver el contrato y reclamar daños", "emoji": "⚖️"},
-        {"id": 1, "causa_id": 1, "text": "El locatario puede negarse a pagar (excepción de incumplimiento)", "emoji": "🚫"},
-        {"id": 2, "causa_id": 2, "text": "El comprador puede reclamar por vicios redhibitorios", "emoji": "💰"},
-        {"id": 3, "causa_id": 3, "text": "El franquiciante puede resolver y exigir cese del uso de la marca", "emoji": "❌"}
+        {
+          "id": 0,
+          "causa_id": 0,
+          "text": "El vendedor puede resolver el contrato y reclamar daños",
+          "emoji": "⚖️"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "text": "El locatario puede negarse a pagar (excepción de incumplimiento)",
+          "emoji": "🚫"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "text": "El comprador puede reclamar por vicios redhibitorios",
+          "emoji": "💰"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "text": "El franquiciante puede resolver y exigir cese del uso de la marca",
+          "emoji": "❌"
+        }
       ]
     },
-
     "n9_ordenar_proceso": {
       "consigna": "Ordená cómo funciona un contrato de leasing de equipos informáticos:",
       "pasos_en_orden_correcto": [
-        {"id": 0, "text": "La empresa necesita equipos pero no quiere descapitalizarse", "emoji": "💻"},
-        {"id": 1, "text": "Firma un contrato de leasing con un banco o sociedad de leasing", "emoji": "🏦"},
-        {"id": 2, "text": "El dador adquiere los equipos y los entrega a la empresa (tomador)", "emoji": "📦"},
-        {"id": 3, "text": "La empresa paga un canon mensual durante el plazo pactado", "emoji": "💵"},
-        {"id": 4, "text": "Al final puede comprar los equipos por el valor residual o devolverlos", "emoji": "✅"}
+        {
+          "id": 0,
+          "text": "La empresa necesita equipos pero no quiere descapitalizarse",
+          "emoji": "💻"
+        },
+        {
+          "id": 1,
+          "text": "Firma un contrato de leasing con un banco o sociedad de leasing",
+          "emoji": "🏦"
+        },
+        {
+          "id": 2,
+          "text": "El dador adquiere los equipos y los entrega a la empresa (tomador)",
+          "emoji": "📦"
+        },
+        {
+          "id": 3,
+          "text": "La empresa paga un canon mensual durante el plazo pactado",
+          "emoji": "💵"
+        },
+        {
+          "id": 4,
+          "text": "Al final puede comprar los equipos por el valor residual o devolverlos",
+          "emoji": "✅"
+        }
       ]
     },
-
     "n10_comparador": {
       "concepto_a": {
         "nombre": "Locación de Obra",
@@ -514,38 +909,116 @@
       }
     }
   },
-
   "nucleo_c": {
+    "bloque_info": {
+      "id": "c",
+      "emoji": "🏢",
+      "titulo": "BLOQUE C: Sociedades Comerciales",
+      "color": "#EC4899",
+      "paginas": [
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ]
+    },
     "n1_ordenar_cronologicamente": {
       "consigna": "Ordená los pasos para constituir una SRL en Argentina:",
       "items": [
-        {"id": 0, "text": "Los socios acuerdan formar la sociedad y definen el objeto", "emoji": "🤝"},
-        {"id": 1, "text": "Redactan el contrato social con cláusulas obligatorias", "emoji": "📝"},
-        {"id": 2, "text": "Realizan los aportes de capital comprometidos", "emoji": "💰"},
-        {"id": 3, "text": "Inscriben el contrato en el Registro Público (IGPJ Santa Fe)", "emoji": "🏛️"},
-        {"id": 4, "text": "La sociedad obtiene personalidad jurídica propia", "emoji": "🏢"}
+        {
+          "id": 0,
+          "text": "Los socios acuerdan formar la sociedad y definen el objeto",
+          "emoji": "🤝"
+        },
+        {
+          "id": 1,
+          "text": "Redactan el contrato social con cláusulas obligatorias",
+          "emoji": "📝"
+        },
+        {
+          "id": 2,
+          "text": "Realizan los aportes de capital comprometidos",
+          "emoji": "💰"
+        },
+        {
+          "id": 3,
+          "text": "Inscriben el contrato en el Registro Público (IGPJ Santa Fe)",
+          "emoji": "🏛️"
+        },
+        {
+          "id": 4,
+          "text": "La sociedad obtiene personalidad jurídica propia",
+          "emoji": "🏢"
+        }
       ],
-      "orden_correcto": [0, 1, 2, 3, 4]
+      "orden_correcto": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
     },
-
     "n2_clasificador": {
       "consigna": "Clasificá cada característica según el tipo de sociedad:",
       "categorias": [
-        {"name": "SRL", "emoji": "🏪", "color": "#10B981"},
-        {"name": "SA", "emoji": "🏢", "color": "#3B82F6"}
+        {
+          "name": "SRL",
+          "emoji": "🏪",
+          "color": "#10B981"
+        },
+        {
+          "name": "SA",
+          "emoji": "🏢",
+          "color": "#3B82F6"
+        }
       ],
       "items": [
-        {"id": 0, "text": "Capital dividido en cuotas sociales", "categoria_correcta": 0},
-        {"id": 1, "text": "Capital dividido en acciones", "categoria_correcta": 1},
-        {"id": 2, "text": "Máximo 50 socios", "categoria_correcta": 0},
-        {"id": 3, "text": "Administrada por un Directorio", "categoria_correcta": 1},
-        {"id": 4, "text": "Administrada por uno o más gerentes", "categoria_correcta": 0},
-        {"id": 5, "text": "Las participaciones se transmiten libremente", "categoria_correcta": 1},
-        {"id": 6, "text": "Ideal para PyMEs y empresas familiares", "categoria_correcta": 0},
-        {"id": 7, "text": "Cotiza en la Bolsa de Valores", "categoria_correcta": 1}
+        {
+          "id": 0,
+          "text": "Capital dividido en cuotas sociales",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 1,
+          "text": "Capital dividido en acciones",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 2,
+          "text": "Máximo 50 socios",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 3,
+          "text": "Administrada por un Directorio",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 4,
+          "text": "Administrada por uno o más gerentes",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 5,
+          "text": "Las participaciones se transmiten libremente",
+          "categoria_correcta": 1
+        },
+        {
+          "id": 6,
+          "text": "Ideal para PyMEs y empresas familiares",
+          "categoria_correcta": 0
+        },
+        {
+          "id": 7,
+          "text": "Cotiza en la Bolsa de Valores",
+          "categoria_correcta": 1
+        }
       ]
     },
-
     "n3_completar_mapa": {
       "consigna": "Completá los conceptos clave sobre sociedades:",
       "blanks": [
@@ -575,7 +1048,6 @@
         }
       ]
     },
-
     "n4_verdadero_falso": {
       "afirmaciones": [
         {
@@ -600,7 +1072,6 @@
         }
       ]
     },
-
     "n5_relacionar_columnas": {
       "pares": [
         {
@@ -625,17 +1096,28 @@
         }
       ]
     },
-
     "n6_palabra_intrusa": {
       "grupos": [
         {
           "pregunta": "¿Cuál NO es un tipo societario regulado por la Ley 19.550?",
           "emoji": "🏢",
           "palabras": [
-            {"text": "Sociedad Colectiva", "es_intrusa": false},
-            {"text": "SRL", "es_intrusa": false},
-            {"text": "Fundación", "es_intrusa": true},
-            {"text": "SA", "es_intrusa": false}
+            {
+              "text": "Sociedad Colectiva",
+              "es_intrusa": false
+            },
+            {
+              "text": "SRL",
+              "es_intrusa": false
+            },
+            {
+              "text": "Fundación",
+              "es_intrusa": true
+            },
+            {
+              "text": "SA",
+              "es_intrusa": false
+            }
           ],
           "explicacion": "Fundación es una persona jurídica (CCyC) pero no sociedad comercial. Las sociedades son: Colectiva, Comandita, Capital e Industria, SRL y SA."
         },
@@ -643,62 +1125,150 @@
           "pregunta": "¿Cuál NO es un atributo de la personalidad jurídica de la sociedad?",
           "emoji": "⚖️",
           "palabras": [
-            {"text": "Patrimonio propio", "es_intrusa": false},
-            {"text": "Nombre propio", "es_intrusa": false},
-            {"text": "Edad propia", "es_intrusa": true},
-            {"text": "Domicilio propio", "es_intrusa": false}
+            {
+              "text": "Patrimonio propio",
+              "es_intrusa": false
+            },
+            {
+              "text": "Nombre propio",
+              "es_intrusa": false
+            },
+            {
+              "text": "Edad propia",
+              "es_intrusa": true
+            },
+            {
+              "text": "Domicilio propio",
+              "es_intrusa": false
+            }
           ],
           "explicacion": "Edad no es atributo. Los atributos son: nombre, patrimonio, domicilio y capacidad."
         }
       ]
     },
-
     "n7_defini_con_tus_palabras": {
       "conceptos": [
         {
           "termino": "Personalidad jurídica",
           "pista": "¿Qué atributo hace que la sociedad sea un sujeto distinto de los socios?",
-          "palabras_clave": ["sujeto", "distinto", "socios", "patrimonio", "propio", "obligaciones", "derechos"]
+          "palabras_clave": [
+            "sujeto",
+            "distinto",
+            "socios",
+            "patrimonio",
+            "propio",
+            "obligaciones",
+            "derechos"
+          ]
         },
         {
           "termino": "Inoponibilidad de la personalidad jurídica",
           "pista": "¿Qué pasa cuando los socios usan la sociedad para hacer fraude?",
-          "palabras_clave": ["fraude", "velo", "correr", "socios", "responsables", "abuso", "directamente"]
+          "palabras_clave": [
+            "fraude",
+            "velo",
+            "correr",
+            "socios",
+            "responsables",
+            "abuso",
+            "directamente"
+          ]
         },
         {
           "termino": "Sociedad Anónima",
           "pista": "¿Qué tipo societario tiene su capital dividido en acciones?",
-          "palabras_clave": ["acciones", "accionistas", "limitada", "capital", "directorio", "asamblea", "transmisible"]
+          "palabras_clave": [
+            "acciones",
+            "accionistas",
+            "limitada",
+            "capital",
+            "directorio",
+            "asamblea",
+            "transmisible"
+          ]
         }
       ]
     },
-
     "n8_causa_efecto": {
       "causas": [
-        {"id": 0, "text": "Se constituye regularmente una SRL", "emoji": "🏢"},
-        {"id": 1, "text": "Los socios usan la sociedad para hacer fraude", "emoji": "🚫"},
-        {"id": 2, "text": "La sociedad fracasa y no puede pagar deudas", "emoji": "💸"},
-        {"id": 3, "text": "Una empresa familiar crece y necesita capital de inversores", "emoji": "📈"}
+        {
+          "id": 0,
+          "text": "Se constituye regularmente una SRL",
+          "emoji": "🏢"
+        },
+        {
+          "id": 1,
+          "text": "Los socios usan la sociedad para hacer fraude",
+          "emoji": "🚫"
+        },
+        {
+          "id": 2,
+          "text": "La sociedad fracasa y no puede pagar deudas",
+          "emoji": "💸"
+        },
+        {
+          "id": 3,
+          "text": "Una empresa familiar crece y necesita capital de inversores",
+          "emoji": "📈"
+        }
       ],
       "efectos": [
-        {"id": 0, "causa_id": 0, "text": "Nace una persona jurídica distinta de los socios, con patrimonio propio", "emoji": "✅"},
-        {"id": 1, "causa_id": 1, "text": "El juez 'corre el velo' y atribuye consecuencias a los socios", "emoji": "⚖️"},
-        {"id": 2, "causa_id": 2, "text": "Los socios pierden solo el aporte, su patrimonio personal queda a salvo", "emoji": "🛡️"},
-        {"id": 3, "causa_id": 3, "text": "Conviene transformar la SRL en SA para emitir acciones", "emoji": "🔄"}
+        {
+          "id": 0,
+          "causa_id": 0,
+          "text": "Nace una persona jurídica distinta de los socios, con patrimonio propio",
+          "emoji": "✅"
+        },
+        {
+          "id": 1,
+          "causa_id": 1,
+          "text": "El juez 'corre el velo' y atribuye consecuencias a los socios",
+          "emoji": "⚖️"
+        },
+        {
+          "id": 2,
+          "causa_id": 2,
+          "text": "Los socios pierden solo el aporte, su patrimonio personal queda a salvo",
+          "emoji": "🛡️"
+        },
+        {
+          "id": 3,
+          "causa_id": 3,
+          "text": "Conviene transformar la SRL en SA para emitir acciones",
+          "emoji": "🔄"
+        }
       ]
     },
-
     "n9_ordenar_proceso": {
       "consigna": "Ordená los órganos de la Sociedad Anónima según su jerarquía y función:",
       "pasos_en_orden_correcto": [
-        {"id": 0, "text": "ASAMBLEA DE ACCIONISTAS: órgano de gobierno, toma las decisiones más importantes", "emoji": "👥"},
-        {"id": 1, "text": "Designa al DIRECTORIO en asamblea ordinaria anual", "emoji": "🗳️"},
-        {"id": 2, "text": "DIRECTORIO: órgano de administración, lleva la gestión cotidiana", "emoji": "💼"},
-        {"id": 3, "text": "SINDICATURA: órgano de fiscalización, controla la administración", "emoji": "🔍"},
-        {"id": 4, "text": "Rinde cuentas a la asamblea con el balance anual", "emoji": "📊"}
+        {
+          "id": 0,
+          "text": "ASAMBLEA DE ACCIONISTAS: órgano de gobierno, toma las decisiones más importantes",
+          "emoji": "👥"
+        },
+        {
+          "id": 1,
+          "text": "Designa al DIRECTORIO en asamblea ordinaria anual",
+          "emoji": "🗳️"
+        },
+        {
+          "id": 2,
+          "text": "DIRECTORIO: órgano de administración, lleva la gestión cotidiana",
+          "emoji": "💼"
+        },
+        {
+          "id": 3,
+          "text": "SINDICATURA: órgano de fiscalización, controla la administración",
+          "emoji": "🔍"
+        },
+        {
+          "id": 4,
+          "text": "Rinde cuentas a la asamblea con el balance anual",
+          "emoji": "📊"
+        }
       ]
     },
-
     "n10_comparador": {
       "concepto_a": {
         "nombre": "SRL",
@@ -712,7 +1282,6 @@
       }
     }
   },
-
   "senales": {
     "conceptos_clave": [
       {
@@ -757,7 +1326,6 @@
       "SRL"
     ]
   },
-
   "sabias": {
     "flip_cards": [
       {
@@ -786,22 +1354,53 @@
       }
     ],
     "linea_de_tiempo": [
-      {"year": "1602", "text": "Primera Sociedad Anónima (Compañía Holandesa de las Indias Orientales)", "emoji": "🚢"},
-      {"year": "1869", "text": "Código de Comercio argentino", "emoji": "📜"},
-      {"year": "1972", "text": "Ley General de Sociedades 19.550", "emoji": "⚖️"},
-      {"year": "2015", "text": "Código Civil y Comercial unificado (Ley 26.994)", "emoji": "📚"},
-      {"year": "2017", "text": "Ley 27.349: SAS para emprendedores", "emoji": "💻"}
+      {
+        "year": "1602",
+        "text": "Primera Sociedad Anónima (Compañía Holandesa de las Indias Orientales)",
+        "emoji": "🚢"
+      },
+      {
+        "year": "1869",
+        "text": "Código de Comercio argentino",
+        "emoji": "📜"
+      },
+      {
+        "year": "1972",
+        "text": "Ley General de Sociedades 19.550",
+        "emoji": "⚖️"
+      },
+      {
+        "year": "2015",
+        "text": "Código Civil y Comercial unificado (Ley 26.994)",
+        "emoji": "📚"
+      },
+      {
+        "year": "2017",
+        "text": "Ley 27.349: SAS para emprendedores",
+        "emoji": "💻"
+      }
     ],
     "encuesta": {
       "pregunta": "¿Qué dato te sorprendió más?",
       "opciones": [
-        {"emoji": "🍔", "text": "Que McDonald's gana más alquilando terrenos que vendiendo hamburguesas", "votos_iniciales": 45},
-        {"emoji": "🚢", "text": "Que la primera SA se fundó en 1602 y aún hoy se usa el modelo", "votos_iniciales": 28},
-        {"emoji": "💻", "text": "Que se puede armar una empresa online en 24 horas (SAS)", "votos_iniciales": 27}
+        {
+          "emoji": "🍔",
+          "text": "Que McDonald's gana más alquilando terrenos que vendiendo hamburguesas",
+          "votos_iniciales": 45
+        },
+        {
+          "emoji": "🚢",
+          "text": "Que la primera SA se fundó en 1602 y aún hoy se usa el modelo",
+          "votos_iniciales": 28
+        },
+        {
+          "emoji": "💻",
+          "text": "Que se puede armar una empresa online en 24 horas (SAS)",
+          "votos_iniciales": 27
+        }
       ]
     }
   },
-
   "cruces": {
     "exposicion_estudiantes": {
       "consigna": "Elegí un tema y preparalo para exponer en 5 minutos a tus compañeros.",
@@ -809,7 +1408,10 @@
         {
           "id": 1,
           "titulo": "¿Por qué conviene una SRL para emprendimientos de software?",
-          "materias_vinculadas": ["Administración", "Emprendedorismo"],
+          "materias_vinculadas": [
+            "Administración",
+            "Emprendedorismo"
+          ],
           "emoji": "💻",
           "color": "#1E40AF",
           "guia": "Investigá: ¿cuál es la responsabilidad limitada? ¿Qué pasa si la empresa fracasa? ¿Cuáles son los costos?"
@@ -817,7 +1419,10 @@
         {
           "id": 2,
           "titulo": "Cómo funciona una franquicia: el caso McDonald's o Grido",
-          "materias_vinculadas": ["Marketing", "Economía"],
+          "materias_vinculadas": [
+            "Marketing",
+            "Economía"
+          ],
           "emoji": "🏪",
           "color": "#F59E0B",
           "guia": "Investigá: ¿qué invierte el franquiciado? ¿Cuánto gana? ¿Quién controla la calidad?"
@@ -825,7 +1430,10 @@
         {
           "id": 3,
           "titulo": "Locación de obra vs locación de servicios en tu carrera técnica",
-          "materias_vinculadas": ["Derechos Laborales", "Orientación Vocacional"],
+          "materias_vinculadas": [
+            "Derechos Laborales",
+            "Orientación Vocacional"
+          ],
           "emoji": "🔧",
           "color": "#10B981",
           "guia": "Investigá: ¿cuándo te conviene firmar cada una? ¿Cuáles son tus obligaciones y derechos en cada caso?"
@@ -887,7 +1495,6 @@
       }
     ]
   },
-
   "relectura": {
     "tribunal": {
       "titulo_debate": "Los contratos de adhesión (telefonía, bancos, redes sociales) deberían prohibirse porque el consumidor no negocia nada",
@@ -923,7 +1530,6 @@
       "consigna": "Analizá críticamente el contrato de franquicia. Identificá: 1) Ventajas para el franquiciado (¿qué gana?), 2) Riesgos (¿qué pierde de autonomía?), 3) Ventajas para el franquiciante, 4) Tu propuesta: ¿qué cláusulas mínimas pondrías para proteger al franquiciado argentino?"
     }
   },
-
   "autotest": {
     "preguntas": [
       {
@@ -1135,7 +1741,6 @@
       }
     ]
   },
-
   "cierre": {
     "glosario": [
       {
