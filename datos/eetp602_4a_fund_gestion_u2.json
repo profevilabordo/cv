@@ -1,197 +1,198 @@
 {
-  "id": "eetp602_5a6b_marcojuridico_u2",
-  "materia": "Marco Jurídico",
+  "id": "eetp602_4a_fund_gestion_u2",
+  "materia": "Fundamentos de Gestión",
   "unidad": 2,
-  "titulo": "Contratos y Sociedades Comerciales",
-  "emoji": "📜",
-  "color_primario": "#1E40AF",
-  "color_secundario": "#3B82F6",
+  "titulo": "Comunicación, autoridad, motivación y liderazgo",
+  "emoji": "🧠",
+  "color_primario": "#3B82F6",
+  "color_secundario": "#6366F1",
   "umbral": {
     "preguntas_disparadoras": [
       {
         "emoji": "📱",
-        "texto": "Cuando comprás un celular en cuotas, alquilás un departamento o aceptás los términos de una app, ¿estás firmando un contrato? ¿Qué te obliga a cumplirlo?",
-        "pista": "Pensá que cada vez que dos personas se ponen de acuerdo para intercambiar algo con valor económico, ahí hay un contrato..."
+        "texto": "¿Por qué a veces un mensaje en un grupo termina generando peleas aunque no era la intención?",
+        "pista": "Pensá en cómo cada persona interpreta distinto un mismo mensaje..."
       },
       {
-        "emoji": "💻",
-        "texto": "Si vos y un amigo deciden armar una empresa de desarrollo de software o de servicio técnico electrónico, ¿conviene hacerlo a nombre personal o crear una sociedad? ¿Qué pasaría si la empresa fracasa?",
-        "pista": "Si vendés a nombre personal y tu cliente te demanda, responde tu casa, tu auto y tu sueldo. Si tenés sociedad, no..."
+        "emoji": "👥",
+        "texto": "¿Qué hace que algunas personas sean escuchadas y respetadas aunque no tengan un cargo importante?",
+        "pista": "No toda autoridad viene de un puesto jerárquico..."
       },
       {
-        "emoji": "🤝",
-        "texto": "¿Por qué McDonald's tiene tantos locales pero no es dueña de casi ninguno? ¿Cómo hace una marca para multiplicarse sin invertir su propio capital?",
-        "pista": "El 93% de los locales de McDonald's son franquicias. Existe un contrato moderno que permite esto..."
+        "emoji": "🏫",
+        "texto": "¿Por qué hay cursos o equipos donde todos trabajan motivados y otros donde nadie quiere participar?",
+        "pista": "El clima y la forma de liderar influyen muchísimo..."
       }
     ],
     "situaciones_conecta": [
       {
-        "emoji": "🛒",
-        "label": "Compré algo en cuotas con una tarjeta de crédito"
+        "emoji": "💬",
+        "label": "Malinterpreté un mensaje por WhatsApp"
       },
       {
-        "emoji": "🏠",
-        "label": "Firmé o vi firmar un contrato de alquiler"
+        "emoji": "🎯",
+        "label": "Un profe logró motivar al curso"
       },
       {
-        "emoji": "🏦",
-        "label": "Abrí una caja de ahorro o cuenta bancaria"
+        "emoji": "⚠️",
+        "label": "Hubo rumores y confusión en un grupo"
       },
       {
-        "emoji": "🍔",
-        "label": "Compré en un local de franquicia (McDonald's, Subway, Grido)"
+        "emoji": "🤝",
+        "label": "Tuve que trabajar en equipo para un proyecto"
       }
     ],
-    "termometro_pregunta": "¿Cuánto sabés sobre contratos, sociedades y cómo se organizan los negocios en Argentina?"
+    "termometro_pregunta": "¿Cuánto sabés sobre cómo se comunican y lideran las organizaciones?"
   },
   "mapa": {
     "ruta_paradas": [
       {
-        "id": 1,
-        "title": "¿Qué es un contrato?",
-        "desc": "Concepto, elementos esenciales y clasificaciones",
-        "emoji": "📝",
-        "color": "#1E40AF"
+        "id": 0,
+        "emoji": "💬",
+        "title": "La comunicación",
+        "desc": "Conceptos, esquemas, tipos y barreras",
+        "color": "#6366F1"
       },
       {
-        "id": 2,
-        "title": "Efectos y extinción",
-        "desc": "Obligaciones que nacen, cómo se cumplen y cómo se terminan",
-        "emoji": "⚖️",
+        "id": 1,
+        "emoji": "📡",
+        "title": "Direcciones e indicadores",
+        "desc": "Comunicación ascendente, descendente y medición",
         "color": "#3B82F6"
       },
       {
-        "id": 3,
-        "title": "Contratos en particular",
-        "desc": "Compraventa, locaciones, contratos bancarios",
-        "emoji": "🤝",
+        "id": 2,
+        "emoji": "⚖️",
+        "title": "Autoridad y delegación",
+        "desc": "Fuentes de autoridad y transferencia de tareas",
         "color": "#10B981"
       },
       {
-        "id": 4,
-        "title": "Contratos modernos",
-        "desc": "Franquicia, distribución, concesión, leasing",
-        "emoji": "💼",
+        "id": 3,
+        "emoji": "🔥",
+        "title": "Motivación y clima",
+        "desc": "Teorías motivacionales y ambiente laboral",
         "color": "#F59E0B"
       },
       {
-        "id": 5,
-        "title": "Sociedades comerciales",
-        "desc": "Personalidad jurídica y tipos societarios (SRL, SA)",
-        "emoji": "🏢",
+        "id": 4,
+        "emoji": "👑",
+        "title": "Liderazgo moderno",
+        "desc": "Estilos de liderazgo y diversidad",
         "color": "#EC4899"
       }
     ],
     "panoramica_bloques": [
       {
-        "id": "A",
+        "id": "a",
+        "emoji": "💬",
         "title": "BLOQUE A",
-        "subtitle": "Teoría General del Contrato",
+        "subtitle": "Comunicación organizacional",
+        "color": "#6366F1",
         "items": [
-          "Definición y elementos esenciales del contrato",
-          "Clasificación: bilateral, oneroso, conmutativo, de adhesión",
-          "Obligaciones que nacen del contrato (dar, hacer, no hacer)",
-          "Efectos entre partes y respecto de terceros",
-          "Modos de extinción: cumplimiento, rescisión, resolución, nulidad"
-        ],
-        "emoji": "📝",
-        "color": "#1E40AF"
+          "Concepto de comunicación",
+          "Esquema comunicacional",
+          "Comunicación formal e informal",
+          "Comunicación ascendente y descendente",
+          "Barreras comunicacionales",
+          "Indicadores de performance"
+        ]
       },
       {
-        "id": "B",
+        "id": "b",
+        "emoji": "⚖️",
         "title": "BLOQUE B",
-        "subtitle": "Contratos en Particular",
+        "subtitle": "Autoridad y desempeño",
+        "color": "#10B981",
         "items": [
-          "Compraventa: caracteres y obligaciones",
-          "Locación de cosas (alquiler)",
-          "Locación de obra vs. locación de servicios",
-          "Contratos bancarios: cuenta corriente, préstamo, tarjeta de crédito",
-          "Contratos empresariales modernos: franquicia, distribución, concesión, leasing"
-        ],
-        "emoji": "🤝",
-        "color": "#10B981"
+          "Autoridad formal y personal",
+          "Delegación",
+          "Motivación",
+          "Teoría de Maslow",
+          "Teoría de Herzberg",
+          "Clima organizacional"
+        ]
       },
       {
-        "id": "C",
+        "id": "c",
+        "emoji": "👑",
         "title": "BLOQUE C",
-        "subtitle": "Sociedades Comerciales",
+        "subtitle": "Liderazgo y gestión integral",
+        "color": "#EC4899",
         "items": [
-          "Concepto de sociedad y personalidad jurídica",
-          "Requisitos para constituirla",
-          "Tipos societarios: Colectiva, Comandita, SRL, SA",
-          "Diferencias clave entre SRL y SA",
-          "Aplicación a empresas de software y electrónica"
-        ],
-        "emoji": "🏢",
-        "color": "#EC4899"
+          "Liderazgo autocrático",
+          "Liderazgo democrático",
+          "Liderazgo laissez-faire",
+          "Mujeres en puestos jerárquicos",
+          "Gestión integral",
+          "Liderazgo del futuro"
+        ]
       }
     ],
     "mapa_mental": {
       "centro": {
-        "title": "Contratos y Sociedades Comerciales",
-        "emoji": "📜"
+        "emoji": "🧠",
+        "title": "GESTIÓN EMPRESARIAL"
       },
       "ramas": [
         {
           "id": "que",
-          "title": "¿Qué es un contrato?",
+          "emoji": "❓",
+          "title": "¿Qué incluye?",
+          "color": "#6366F1",
           "items": [
-            "Acto jurídico entre dos o más partes",
-            "Manifestación de consentimiento",
-            "Crea, modifica o extingue obligaciones",
-            "Tiene contenido patrimonial"
-          ],
-          "color": "#1E40AF",
-          "emoji": "📝"
+            "Comunicación",
+            "Autoridad",
+            "Motivación",
+            "Liderazgo"
+          ]
         },
         {
-          "id": "tipos",
-          "title": "¿Qué tipos hay?",
+          "id": "quienes",
+          "emoji": "👥",
+          "title": "¿Quiénes participan?",
+          "color": "#3B82F6",
           "items": [
-            "Compraventa, locación, donación",
-            "Contratos bancarios y financieros",
-            "Franquicia, leasing, concesión",
-            "De consumo (con Ley 24.240)"
-          ],
+            "Líderes",
+            "Equipos",
+            "Empleados",
+            "Directivos"
+          ]
+        },
+        {
+          "id": "como",
+          "emoji": "⚙️",
+          "title": "¿Cómo funciona?",
           "color": "#10B981",
-          "emoji": "🤝"
-        },
-        {
-          "id": "sociedad",
-          "title": "¿Qué es una sociedad?",
           "items": [
-            "Persona jurídica distinta de los socios",
-            "Tiene patrimonio y nombre propio",
-            "Permite limitar la responsabilidad",
-            "Tipos: SRL, SA, Colectiva, Comandita"
-          ],
-          "color": "#EC4899",
-          "emoji": "🏢"
+            "Comunicación clara",
+            "Delegación",
+            "Feedback",
+            "Trabajo colaborativo"
+          ]
         },
         {
           "id": "porque",
+          "emoji": "🎯",
           "title": "¿Por qué es importante?",
-          "items": [
-            "Da seguridad jurídica a los negocios",
-            "Permite emprender protegiendo patrimonio",
-            "Regula el comercio y la actividad económica",
-            "Aplica a software, electrónica y servicios"
-          ],
           "color": "#F59E0B",
-          "emoji": "💡"
+          "items": [
+            "Mejora el desempeño",
+            "Reduce conflictos",
+            "Aumenta motivación",
+            "Logra objetivos"
+          ]
         }
       ]
     }
   },
   "nucleo_a": {
     "bloque_info": {
-      "id": "a",
-      "emoji": "📝",
-      "titulo": "BLOQUE A: Teoría General del Contrato",
-      "color": "#1E40AF",
+      "id": "A",
+      "emoji": "💬",
+      "titulo": "BLOQUE A: Comunicación organizacional",
+      "color": "#6366F1",
       "paginas": [
-        1,
-        2,
         3,
         4,
         5,
@@ -201,32 +202,33 @@
       ]
     },
     "n1_ordenar_cronologicamente": {
-      "consigna": "Ordená las etapas de un contrato desde que nace hasta que se extingue:",
+      "consigna": "Ordená correctamente el proceso de comunicación.",
+      "paginas_referencia": "3-4",
       "items": [
         {
           "id": 0,
-          "text": "Una parte hace una oferta (propone los términos)",
-          "emoji": "💬"
+          "text": "El emisor crea el mensaje",
+          "emoji": "🧠"
         },
         {
           "id": 1,
-          "text": "La otra parte acepta y se forma el consentimiento",
-          "emoji": "🤝"
+          "text": "El mensaje circula por un canal",
+          "emoji": "📡"
         },
         {
           "id": 2,
-          "text": "Se perfecciona el contrato y nacen las obligaciones",
-          "emoji": "📝"
+          "text": "El receptor recibe la información",
+          "emoji": "👂"
         },
         {
           "id": 3,
-          "text": "Cada parte cumple su prestación (dar, hacer, no hacer)",
-          "emoji": "✅"
+          "text": "El receptor interpreta el mensaje",
+          "emoji": "💭"
         },
         {
           "id": 4,
-          "text": "El contrato se extingue por cumplimiento normal",
-          "emoji": "🏁"
+          "text": "Se genera feedback",
+          "emoji": "🔄"
         }
       ],
       "orden_correcto": [
@@ -238,357 +240,355 @@
       ]
     },
     "n2_clasificador": {
-      "consigna": "Clasificá cada contrato según las prestaciones de las partes:",
+      "consigna": "Clasificá ejemplos de comunicación formal e informal.",
+      "paginas_referencia": "5",
       "categorias": [
         {
-          "name": "Bilateral y Oneroso",
-          "emoji": "⚖️",
-          "color": "#1E40AF"
+          "name": "Formal",
+          "emoji": "📋",
+          "color": "#6366F1"
         },
         {
-          "name": "Unilateral o Gratuito",
-          "emoji": "🎁",
-          "color": "#10B981"
+          "name": "Informal",
+          "emoji": "💬",
+          "color": "#EC4899"
         }
       ],
       "items": [
         {
           "id": 0,
-          "text": "Compraventa de una notebook",
+          "text": "Circular interna",
           "categoria_correcta": 0
         },
         {
           "id": 1,
-          "text": "Donación de un libro a la biblioteca",
+          "text": "Rumores de pasillo",
           "categoria_correcta": 1
         },
         {
           "id": 2,
-          "text": "Alquiler de un departamento",
+          "text": "Manual de procedimientos",
           "categoria_correcta": 0
         },
         {
           "id": 3,
-          "text": "Comodato (préstamo de uso gratuito)",
+          "text": "Charla espontánea",
           "categoria_correcta": 1
         },
         {
           "id": 4,
-          "text": "Permuta (intercambio de cosas)",
+          "text": "Informe mensual de resultados",
           "categoria_correcta": 0
         },
         {
           "id": 5,
-          "text": "Donación pura y simple sin cargo",
+          "text": "Comentarios en el almuerzo",
           "categoria_correcta": 1
         }
       ]
     },
     "n3_completar_mapa": {
-      "consigna": "Completá los conceptos clave sobre la teoría general del contrato:",
+      "paginas_referencia": "3-6",
       "blanks": [
         {
           "id": "b1",
-          "texto_antes": "El contrato es un acto jurídico mediante el cual dos o más partes manifiestan su",
-          "respuesta_correcta": "consentimiento",
-          "pista": "C_____________"
+          "texto_antes": "La ________ permite transmitir información dentro de la organización.",
+          "respuesta_correcta": "comunicación",
+          "pista": "C___________"
         },
         {
           "id": "b2",
-          "texto_antes": "Los cuatro elementos esenciales del contrato son: consentimiento, capacidad, objeto y",
-          "respuesta_correcta": "causa",
-          "pista": "C____"
+          "texto_antes": "El ________ es cualquier interferencia que distorsiona el mensaje en algún punto del proceso.",
+          "respuesta_correcta": "ruido",
+          "pista": "R____"
         },
         {
           "id": "b3",
-          "texto_antes": "Cuando una parte hace depender el contrato de un hecho futuro e incierto, está agregando una",
-          "respuesta_correcta": "condición",
-          "pista": "C________"
-        },
-        {
-          "id": "b4",
-          "texto_antes": "El principio latino que significa 'los pactos deben cumplirse' es",
-          "respuesta_correcta": "pacta sunt servanda",
-          "pista": "P____ s___ s_______"
+          "texto_antes": "La comunicación ________ fluye de los empleados hacia la alta gerencia.",
+          "respuesta_correcta": "ascendente",
+          "pista": "A_________"
         }
-      ]
+      ],
+      "consigna": "Completá las oraciones con la palabra correcta:"
     },
     "n4_verdadero_falso": {
+      "paginas_referencia": "3-8",
       "afirmaciones": [
         {
-          "texto": "Un contrato puede celebrarse entre una sola persona consigo misma",
+          "texto": "Toda comunicación organizacional es escrita.",
           "correcto": false,
-          "explicacion": "Falso. El contrato siempre requiere como mínimo dos partes distintas. No puede haber contrato consigo mismo."
+          "explicacion": "Falso. Puede ser oral, escrita, visual o digital."
         },
         {
-          "texto": "Si una persona acepta un contrato bajo amenaza o engaño, el contrato es perfectamente válido",
+          "texto": "La comunicación ascendente fluye de la gerencia hacia los empleados.",
           "correcto": false,
-          "explicacion": "Falso. El consentimiento debe ser libre y consciente. Si fue arrancado por violencia o dolo, el contrato es anulable."
+          "explicacion": "Falso. Esa es la descendente. La ascendente va de los niveles inferiores hacia la gerencia: sugerencias, reportes de problemas, encuestas. Repasá la página 6."
         },
         {
-          "texto": "El principio 'pacta sunt servanda' significa que los pactos deben ser cumplidos",
+          "texto": "Las barreras semánticas surgen cuando se usan jergas técnicas que el receptor no comprende.",
           "correcto": true,
-          "explicacion": "Verdadero. Es la base de la seguridad jurídica en los negocios: lo acordado por las partes es obligatorio."
-        },
-        {
-          "texto": "La rescisión y la resolución son exactamente lo mismo",
-          "correcto": false,
-          "explicacion": "Falso. Rescisión es por acuerdo sin culpa. Resolución es por incumplimiento de una parte."
+          "explicacion": "Verdadero. El lenguaje debe adaptarse al receptor. Revisá la página 7."
         }
       ]
     },
     "n5_relacionar_columnas": {
+      "paginas_referencia": "3-8",
       "pares": [
         {
-          "izquierda": "Consentimiento",
-          "derecha": "Acuerdo de voluntades entre las partes",
-          "emoji": "🤝"
+          "izquierda": "Emisor",
+          "derecha": "Genera el mensaje",
+          "emoji": "🧠"
         },
         {
-          "izquierda": "Capacidad",
-          "derecha": "Aptitud legal para contratar",
-          "emoji": "👤"
+          "izquierda": "Canal",
+          "derecha": "Medio elegido para transmitir: oral, escrito, visual o digital",
+          "emoji": "📡"
         },
         {
-          "izquierda": "Objeto",
-          "derecha": "Lo que se quiere lograr con el contrato (cosa o servicio)",
-          "emoji": "📦"
+          "izquierda": "Receptor",
+          "derecha": "Recibe e interpreta el mensaje según su contexto",
+          "emoji": "👂"
         },
         {
-          "izquierda": "Causa",
-          "derecha": "Fin perseguido por las partes al contratar",
-          "emoji": "🎯"
+          "izquierda": "Feedback",
+          "derecha": "Respuesta que confirma la comprensión del mensaje",
+          "emoji": "🔄"
         }
       ]
     },
     "n6_palabra_intrusa": {
+      "paginas_referencia": "5-8",
       "grupos": [
         {
-          "pregunta": "¿Cuál NO es un elemento esencial del contrato?",
-          "emoji": "📝",
+          "id": 0,
+          "emoji": "💬",
+          "pregunta": "¿Cuál NO corresponde a tipos de comunicación?",
+          "paginas": "5-6",
           "palabras": [
             {
-              "text": "Consentimiento",
+              "text": "Formal",
               "es_intrusa": false
             },
             {
-              "text": "Capacidad",
+              "text": "Informal",
               "es_intrusa": false
             },
             {
-              "text": "Comisión",
+              "text": "Descendente",
+              "es_intrusa": false
+            },
+            {
+              "text": "Inflacionaria",
               "es_intrusa": true
-            },
-            {
-              "text": "Objeto",
-              "es_intrusa": false
             }
           ],
-          "explicacion": "Comisión NO es elemento esencial. Los esenciales son: consentimiento, capacidad, objeto y causa."
+          "explicacion": "Inflacionaria pertenece al campo económico. Formal, informal, ascendente y descendente son formas y direcciones de la comunicación organizacional."
         },
         {
-          "pregunta": "¿Cuál NO corresponde a la clasificación de contratos por prestaciones?",
-          "emoji": "⚖️",
+          "id": 1,
+          "emoji": "🚧",
+          "pregunta": "¿Cuál NO es una barrera de comunicación?",
+          "paginas": "7",
           "palabras": [
             {
-              "text": "Bilateral",
+              "text": "Física",
               "es_intrusa": false
             },
             {
-              "text": "Unilateral",
+              "text": "Semántica",
               "es_intrusa": false
             },
             {
-              "text": "Aleatorio",
+              "text": "Psicológica",
+              "es_intrusa": false
+            },
+            {
+              "text": "Motivacional",
               "es_intrusa": true
-            },
-            {
-              "text": "Las partes obligadas",
-              "es_intrusa": false
             }
           ],
-          "explicacion": "Aleatorio es otra clasificación (por previsibilidad), no por prestaciones."
+          "explicacion": "Las barreras son físicas, semánticas, psicológicas, organizacionales y culturales. La motivación es otro tema de la unidad, no una barrera."
         }
       ]
     },
     "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "3-8",
       "conceptos": [
         {
-          "termino": "Contrato",
-          "pista": "¿Qué es ese acuerdo que crea obligaciones patrimoniales entre dos partes?",
+          "termino": "Comunicación",
+          "pista": "¿Cómo intercambian información las personas?",
           "palabras_clave": [
-            "acto",
-            "jurídico",
-            "partes",
-            "consentimiento",
-            "obligaciones",
-            "patrimonial",
-            "acuerdo"
+            "mensaje",
+            "información",
+            "transmitir",
+            "personas",
+            "emisor",
+            "receptor"
           ]
         },
         {
-          "termino": "Buena fe contractual",
-          "pista": "¿Cómo deben celebrarse, interpretarse y ejecutarse los contratos?",
+          "termino": "Barrera comunicacional",
+          "pista": "¿Qué puede impedir que un mensaje llegue bien a destino?",
           "palabras_clave": [
-            "honestidad",
-            "lealtad",
-            "interpretar",
-            "ejecutar",
-            "celebrar",
-            "razonable",
-            "previsible"
+            "obstáculo",
+            "interferencia",
+            "distorsión",
+            "ruido",
+            "mensaje",
+            "impedir"
           ]
         },
         {
-          "termino": "Resolución del contrato",
-          "pista": "¿Qué pasa cuando una parte no cumple con su obligación?",
+          "termino": "Feedback",
+          "pista": "¿Cómo sabe el emisor que su mensaje fue comprendido?",
           "palabras_clave": [
-            "incumplimiento",
-            "extinción",
-            "daños",
-            "retroactivo",
-            "perjuicios",
-            "vuelve atrás"
+            "respuesta",
+            "receptor",
+            "confirmación",
+            "comprensión",
+            "retroalimentación",
+            "ajustar"
           ]
         }
       ]
     },
     "n8_causa_efecto": {
+      "paginas_referencia": "6-8",
       "causas": [
         {
           "id": 0,
-          "text": "Un menor de edad firma un contrato sin autorización",
-          "emoji": "🚫"
+          "text": "Existe mala comunicación",
+          "emoji": "⚠️"
         },
         {
           "id": 1,
-          "text": "Una parte no cumple con su obligación",
-          "emoji": "💔"
+          "text": "Se usa jerga técnica con quien no la conoce",
+          "emoji": "🔤"
         },
         {
           "id": 2,
-          "text": "Las dos partes acuerdan dejar sin efecto el contrato",
-          "emoji": "🤝"
+          "text": "La empresa fomenta la comunicación ascendente",
+          "emoji": "⬆️"
         },
         {
           "id": 3,
-          "text": "El contrato tiene objeto ilícito",
-          "emoji": "⚠️"
+          "text": "Un rumor circula por los canales informales",
+          "emoji": "🗣️"
         }
       ],
       "efectos": [
         {
-          "id": 0,
-          "causa_id": 0,
-          "text": "El contrato es anulable por falta de capacidad",
-          "emoji": "❌"
+          "id": 10,
+          "text": "Aumentan conflictos",
+          "emoji": "💥",
+          "causa_id": 0
         },
         {
-          "id": 1,
-          "causa_id": 1,
-          "text": "La otra puede resolver el contrato y reclamar daños",
-          "emoji": "⚖️"
+          "id": 11,
+          "text": "El receptor no comprende el mensaje (barrera semántica)",
+          "emoji": "❓",
+          "causa_id": 1
         },
         {
-          "id": 2,
-          "causa_id": 2,
-          "text": "Se produce la rescisión bilateral (distracto)",
-          "emoji": "📝"
+          "id": 12,
+          "text": "La gerencia conoce el pulso real de la organización",
+          "emoji": "💓",
+          "causa_id": 2
         },
         {
-          "id": 3,
-          "causa_id": 3,
-          "text": "El contrato es nulo desde su origen (efecto retroactivo)",
-          "emoji": "🚫"
+          "id": 13,
+          "text": "Los gestores lo corrigen usando los canales formales",
+          "emoji": "📋",
+          "causa_id": 3
         }
       ]
     },
     "n9_ordenar_proceso": {
-      "consigna": "Ordená los pasos para que un contrato sea válido y produzca efectos:",
+      "consigna": "Ordená un proceso de comunicación organizacional.",
+      "paginas_referencia": "3-4",
       "pasos_en_orden_correcto": [
         {
           "id": 0,
-          "text": "Las partes deben tener capacidad para contratar",
-          "emoji": "👥"
+          "text": "Definir mensaje",
+          "emoji": "🧠"
         },
         {
           "id": 1,
-          "text": "Manifiestan su consentimiento libre y consciente",
-          "emoji": "🤝"
+          "text": "Elegir canal",
+          "emoji": "📡"
         },
         {
           "id": 2,
-          "text": "Definen un objeto lícito, posible y determinado",
-          "emoji": "📦"
+          "text": "Transmitir el mensaje por el canal",
+          "emoji": "📨"
         },
         {
           "id": 3,
-          "text": "Tienen una causa lícita (fin perseguido legítimo)",
-          "emoji": "🎯"
+          "text": "El receptor decodifica e interpreta",
+          "emoji": "👂"
         },
         {
           "id": 4,
-          "text": "El contrato produce efectos obligatorios entre las partes",
-          "emoji": "⚖️"
+          "text": "Recibir feedback y verificar comprensión",
+          "emoji": "🔄"
         }
       ]
     },
     "n10_comparador": {
+      "paginas_referencia": "5-7",
       "concepto_a": {
-        "nombre": "Rescisión",
-        "emoji": "🤝",
-        "color": "#10B981"
+        "nombre": "Comunicación Formal",
+        "emoji": "📋",
+        "color": "#6366F1"
       },
       "concepto_b": {
-        "nombre": "Resolución",
-        "emoji": "💔",
-        "color": "#DC2626"
+        "nombre": "Comunicación Informal",
+        "emoji": "💬",
+        "color": "#EC4899"
       }
     }
   },
   "nucleo_b": {
     "bloque_info": {
-      "id": "b",
-      "emoji": "🤝",
-      "titulo": "BLOQUE B: Contratos en Particular",
+      "id": "B",
+      "emoji": "⚖️",
+      "titulo": "BLOQUE B: Autoridad y desempeño",
       "color": "#10B981",
       "paginas": [
         9,
         10,
         11,
-        12,
-        13,
-        14,
-        15
+        12
       ]
     },
     "n1_ordenar_cronologicamente": {
-      "consigna": "Ordená las etapas de una compraventa con reserva de dominio:",
+      "consigna": "Ordená correctamente el proceso de delegación.",
+      "paginas_referencia": "9-10",
       "items": [
         {
           "id": 0,
-          "text": "Vendedor y comprador acuerdan el precio y forma de pago en cuotas",
-          "emoji": "💬"
+          "text": "El directivo define la tarea",
+          "emoji": "🧠"
         },
         {
           "id": 1,
-          "text": "Se firma el contrato con cláusula de reserva de dominio",
-          "emoji": "📝"
+          "text": "Se asigna responsabilidad",
+          "emoji": "📋"
         },
         {
           "id": 2,
-          "text": "El comprador recibe la cosa y comienza a pagar las cuotas",
-          "emoji": "📦"
+          "text": "Se otorga autoridad",
+          "emoji": "⚖️"
         },
         {
           "id": 3,
-          "text": "Mientras paga, la propiedad sigue siendo del vendedor",
-          "emoji": "🔒"
+          "text": "El empleado ejecuta la tarea",
+          "emoji": "👷"
         },
         {
           "id": 4,
-          "text": "Al pagar la última cuota, recién se transfiere la propiedad",
-          "emoji": "✅"
+          "text": "Se evalúan resultados",
+          "emoji": "📊"
         }
       ],
       "orden_correcto": [
@@ -600,358 +600,359 @@
       ]
     },
     "n2_clasificador": {
-      "consigna": "Clasificá cada situación según corresponda al tipo de locación:",
+      "consigna": "Clasificá cada ejemplo según corresponda a autoridad formal o autoridad personal.",
+      "paginas_referencia": "9",
       "categorias": [
         {
-          "name": "Locación de Obra (resultado)",
-          "emoji": "🏗️",
-          "color": "#1E40AF"
+          "name": "Autoridad Formal",
+          "emoji": "🏛️",
+          "color": "#10B981"
         },
         {
-          "name": "Locación de Servicios (medios)",
-          "emoji": "🔧",
-          "color": "#10B981"
+          "name": "Autoridad Personal",
+          "emoji": "🌟",
+          "color": "#F59E0B"
         }
       ],
       "items": [
         {
           "id": 0,
-          "text": "Desarrollo de un sistema de gestión a medida",
+          "text": "Proviene del cargo jerárquico",
           "categoria_correcta": 0
         },
         {
           "id": 1,
-          "text": "Soporte técnico mensual por horas",
+          "text": "Se gana por carisma",
           "categoria_correcta": 1
         },
         {
           "id": 2,
-          "text": "Construcción de una casa",
+          "text": "Figura en el organigrama",
           "categoria_correcta": 0
         },
         {
           "id": 3,
-          "text": "Asesoramiento informático continuo",
+          "text": "Genera admiración y confianza",
           "categoria_correcta": 1
         },
         {
           "id": 4,
-          "text": "Armar y entregar un equipo electrónico",
-          "categoria_correcta": 0
+          "text": "Se basa en experiencia y conocimientos",
+          "categoria_correcta": 1
         },
         {
           "id": 5,
-          "text": "Consultoría profesional mensual",
-          "categoria_correcta": 1
+          "text": "Se establece en el manual de funciones",
+          "categoria_correcta": 0
         }
       ]
     },
     "n3_completar_mapa": {
-      "consigna": "Completá sobre contratos en particular:",
+      "paginas_referencia": "9-12",
       "blanks": [
         {
           "id": "b1",
-          "texto_antes": "En la compraventa, el vendedor se obliga a transferir la propiedad de una cosa y el comprador a pagar un",
-          "respuesta_correcta": "precio",
-          "pista": "P_____"
+          "texto_antes": "La ________ permite transferir tareas y autoridad.",
+          "respuesta_correcta": "delegación",
+          "pista": "D_________"
         },
         {
           "id": "b2",
-          "texto_antes": "En la locación de cosas, el dueño se llama locador y quien usa la cosa se llama",
-          "respuesta_correcta": "locatario",
-          "pista": "L________"
+          "texto_antes": "La teoría de ________ organiza necesidades en forma de pirámide.",
+          "respuesta_correcta": "Maslow",
+          "pista": "M______"
         },
         {
           "id": "b3",
-          "texto_antes": "El contrato que combina locación con opción de compra al final del plazo se llama",
-          "respuesta_correcta": "leasing",
-          "pista": "L______"
-        },
-        {
-          "id": "b4",
-          "texto_antes": "La defensa que permite negarse a cumplir si la otra parte no cumple se llama",
-          "respuesta_correcta": "excepción de incumplimiento",
-          "pista": "E_________ __ i__________"
+          "texto_antes": "Los factores ________ de Herzberg (salario, condiciones de trabajo) no motivan, pero su ausencia genera insatisfacción.",
+          "respuesta_correcta": "higiénicos",
+          "pista": "H________"
         }
-      ]
+      ],
+      "consigna": "Completá las oraciones con la palabra correcta:"
     },
     "n4_verdadero_falso": {
+      "paginas_referencia": "9-12",
       "afirmaciones": [
         {
-          "texto": "La compraventa de un inmueble puede hacerse de forma oral, sin escritura pública",
+          "texto": "Delegar significa perder completamente el control sobre una tarea.",
           "correcto": false,
-          "explicacion": "Falso. La compraventa de inmuebles requiere escritura pública. Solo la compraventa de muebles puede hacerse oralmente."
+          "explicacion": "Falso. La responsabilidad final sigue siendo del directivo."
         },
         {
-          "texto": "Si trabajás como técnico para una sola empresa cumpliendo horarios y recibiendo órdenes, eso es relación laboral, no locación de servicios",
+          "texto": "La motivación influye en el desempeño laboral.",
           "correcto": true,
-          "explicacion": "Verdadero. Hay subordinación: esto es relación laboral, con aportes, vacaciones e indemnización."
+          "explicacion": "Verdadero. Las personas motivadas trabajan con mayor compromiso."
         },
         {
-          "texto": "En la franquicia, el franquiciado y el franquiciante forman una única persona jurídica",
+          "texto": "Según Herzberg, un buen salario alcanza para motivar a los empleados.",
           "correcto": false,
-          "explicacion": "Falso. Son jurídicamente independientes. El franquiciante solo cede marca, know-how y sistema."
-        },
-        {
-          "texto": "El leasing tiene ventajas impositivas: los cánones se deducen como gastos",
-          "correcto": true,
-          "explicacion": "Verdadero. Permite acceder a tecnología cara, renovarla rápido y deducir cánones como gastos."
+          "explicacion": "Falso. El salario es un factor higiénico: su ausencia genera insatisfacción, pero no motiva. Lo que motiva es el reconocimiento, el logro y el crecimiento. Repasá la página 11."
         }
       ]
     },
     "n5_relacionar_columnas": {
+      "paginas_referencia": "10-12",
       "pares": [
         {
-          "izquierda": "Locador",
-          "derecha": "Dueño que da en alquiler la cosa",
-          "emoji": "🏠"
+          "izquierda": "Maslow",
+          "derecha": "Pirámide de necesidades",
+          "emoji": "🔺"
         },
         {
-          "izquierda": "Comitente",
-          "derecha": "Quien encarga la obra o servicio",
-          "emoji": "👤"
+          "izquierda": "Herzberg",
+          "derecha": "Factores higiénicos y motivacionales",
+          "emoji": "⚙️"
         },
         {
-          "izquierda": "Franquiciante",
-          "derecha": "Empresa que cede su marca, know-how y sistema",
-          "emoji": "🏪"
+          "izquierda": "Delegación",
+          "derecha": "Transferencia de tareas",
+          "emoji": "🤝"
         },
         {
-          "izquierda": "Tomador del leasing",
-          "derecha": "Empresa que usa el bien y paga el canon",
-          "emoji": "💻"
+          "izquierda": "McClelland",
+          "derecha": "Necesidades de logro, poder y afiliación",
+          "emoji": "🎯"
         }
       ]
     },
     "n6_palabra_intrusa": {
+      "paginas_referencia": "9-12",
       "grupos": [
         {
-          "pregunta": "¿Cuál NO es un contrato bancario?",
-          "emoji": "🏦",
+          "id": 0,
+          "emoji": "🔥",
+          "pregunta": "¿Cuál NO pertenece a teorías motivacionales?",
+          "paginas": "11-12",
           "palabras": [
             {
-              "text": "Cuenta corriente bancaria",
+              "text": "Maslow",
               "es_intrusa": false
             },
             {
-              "text": "Tarjeta de crédito",
+              "text": "Herzberg",
               "es_intrusa": false
             },
             {
-              "text": "Donación bancaria",
+              "text": "McClelland",
+              "es_intrusa": false
+            },
+            {
+              "text": "Fayol",
               "es_intrusa": true
-            },
-            {
-              "text": "Caja de seguridad",
-              "es_intrusa": false
             }
           ],
-          "explicacion": "Donación bancaria no existe como contrato bancario típico. Los principales son: depósito, cuenta corriente, préstamo, tarjeta y caja de seguridad."
+          "explicacion": "Fayol pertenece a teorías administrativas clásicas."
         },
         {
-          "pregunta": "¿Cuál NO es un contrato empresarial moderno?",
-          "emoji": "💼",
+          "id": 1,
+          "emoji": "🎯",
+          "pregunta": "¿Cuál NO es una necesidad de la teoría de McClelland?",
+          "paginas": "11",
           "palabras": [
             {
-              "text": "Franquicia",
+              "text": "Logro",
               "es_intrusa": false
             },
             {
-              "text": "Mandato",
+              "text": "Poder",
+              "es_intrusa": false
+            },
+            {
+              "text": "Afiliación",
+              "es_intrusa": false
+            },
+            {
+              "text": "Seguridad",
               "es_intrusa": true
-            },
-            {
-              "text": "Leasing",
-              "es_intrusa": false
-            },
-            {
-              "text": "Concesión",
-              "es_intrusa": false
             }
           ],
-          "explicacion": "Mandato es un contrato clásico de representación, no empresarial moderno. Los modernos son: franquicia, distribución, concesión y leasing."
+          "explicacion": "McClelland habla de logro, poder y afiliación. La seguridad es un escalón de la pirámide de Maslow."
         }
       ]
     },
     "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "9-12",
       "conceptos": [
         {
-          "termino": "Leasing",
-          "pista": "¿Cómo se llama el contrato que mezcla alquiler con opción de comprar al final?",
+          "termino": "Autoridad",
+          "pista": "¿Qué permite dirigir y tomar decisiones?",
           "palabras_clave": [
-            "locación",
-            "uso",
-            "canon",
-            "opción",
-            "compra",
-            "valor",
-            "residual"
+            "derecho",
+            "legítimo",
+            "órdenes",
+            "decisiones",
+            "jerarquía",
+            "obediencia"
           ]
         },
         {
-          "termino": "Franquicia",
-          "pista": "¿Qué contrato permite usar la marca y sistema de negocio de otra empresa?",
+          "termino": "Motivación",
+          "pista": "¿Qué impulsa a las personas a actuar?",
           "palabras_clave": [
-            "marca",
-            "sistema",
-            "know-how",
-            "franquiciante",
-            "franquiciado",
-            "regalías",
-            "probado"
+            "fuerzas",
+            "impulso",
+            "actuar",
+            "esfuerzo",
+            "objetivos",
+            "persistir"
           ]
         },
         {
-          "termino": "Vicio redhibitorio",
-          "pista": "¿Qué nombre técnico tiene un defecto oculto que tiene la cosa vendida?",
+          "termino": "Clima organizacional",
+          "pista": "¿Cómo se 'siente' trabajar en un lugar? ¿De quién es esa percepción?",
           "palabras_clave": [
-            "defecto",
-            "oculto",
-            "cosa",
-            "vendedor",
-            "responde",
-            "impropia",
-            "destino"
+            "percepción",
+            "colectiva",
+            "ambiente",
+            "trabajo",
+            "empleados",
+            "sentir"
           ]
         }
       ]
     },
     "n8_causa_efecto": {
+      "paginas_referencia": "10-12",
       "causas": [
         {
           "id": 0,
-          "text": "El comprador no paga las cuotas pactadas",
-          "emoji": "💸"
+          "text": "Los empleados reciben reconocimiento",
+          "emoji": "🏆"
         },
         {
           "id": 1,
-          "text": "El locador no entrega el inmueble en buen estado",
-          "emoji": "🏠"
+          "text": "Existe mala delegación",
+          "emoji": "❌"
         },
         {
           "id": 2,
-          "text": "Se descubre que el vendedor sabía de un defecto oculto",
-          "emoji": "🔍"
+          "text": "El clima organizacional es negativo",
+          "emoji": "🌧️"
         },
         {
           "id": 3,
-          "text": "El franquiciado deja de pagar las regalías",
-          "emoji": "📜"
+          "text": "Se delega la tarea junto con la autoridad necesaria",
+          "emoji": "🤝"
         }
       ],
       "efectos": [
         {
-          "id": 0,
-          "causa_id": 0,
-          "text": "El vendedor puede resolver el contrato y reclamar daños",
-          "emoji": "⚖️"
+          "id": 10,
+          "text": "Aumenta motivación",
+          "emoji": "🔥",
+          "causa_id": 0
         },
         {
-          "id": 1,
-          "causa_id": 1,
-          "text": "El locatario puede negarse a pagar (excepción de incumplimiento)",
-          "emoji": "🚫"
+          "id": 11,
+          "text": "Se producen errores y conflictos",
+          "emoji": "💥",
+          "causa_id": 1
         },
         {
-          "id": 2,
-          "causa_id": 2,
-          "text": "El comprador puede reclamar por vicios redhibitorios",
-          "emoji": "💰"
+          "id": 12,
+          "text": "Aumentan el estrés y la rotación de personal",
+          "emoji": "😰",
+          "causa_id": 2
         },
         {
-          "id": 3,
-          "causa_id": 3,
-          "text": "El franquiciante puede resolver y exigir cese del uso de la marca",
-          "emoji": "❌"
+          "id": 13,
+          "text": "Las decisiones se toman más rápido, sin cuellos de botella",
+          "emoji": "⚡",
+          "causa_id": 3
         }
       ]
     },
     "n9_ordenar_proceso": {
-      "consigna": "Ordená cómo funciona un contrato de leasing de equipos informáticos:",
+      "consigna": "Ordená correctamente la pirámide de Maslow.",
+      "paginas_referencia": "11",
       "pasos_en_orden_correcto": [
         {
           "id": 0,
-          "text": "La empresa necesita equipos pero no quiere descapitalizarse",
-          "emoji": "💻"
+          "text": "Necesidades fisiológicas",
+          "emoji": "🍞"
         },
         {
           "id": 1,
-          "text": "Firma un contrato de leasing con un banco o sociedad de leasing",
-          "emoji": "🏦"
+          "text": "Necesidades de seguridad",
+          "emoji": "🛡️"
         },
         {
           "id": 2,
-          "text": "El dador adquiere los equipos y los entrega a la empresa (tomador)",
-          "emoji": "📦"
+          "text": "Necesidades sociales",
+          "emoji": "👥"
         },
         {
           "id": 3,
-          "text": "La empresa paga un canon mensual durante el plazo pactado",
-          "emoji": "💵"
+          "text": "Reconocimiento",
+          "emoji": "🏆"
         },
         {
           "id": 4,
-          "text": "Al final puede comprar los equipos por el valor residual o devolverlos",
-          "emoji": "✅"
+          "text": "Autorrealización",
+          "emoji": "🌟"
         }
       ]
     },
     "n10_comparador": {
+      "paginas_referencia": "11-12",
       "concepto_a": {
-        "nombre": "Locación de Obra",
-        "emoji": "🏗️",
-        "color": "#1E40AF"
+        "nombre": "Teoría de Maslow",
+        "emoji": "🔺",
+        "color": "#10B981"
       },
       "concepto_b": {
-        "nombre": "Locación de Servicios",
-        "emoji": "🔧",
-        "color": "#10B981"
+        "nombre": "Teoría de Herzberg",
+        "emoji": "⚙️",
+        "color": "#F59E0B"
       }
     }
   },
   "nucleo_c": {
     "bloque_info": {
-      "id": "c",
-      "emoji": "🏢",
-      "titulo": "BLOQUE C: Sociedades Comerciales",
+      "id": "C",
+      "emoji": "👑",
+      "titulo": "BLOQUE C: Liderazgo y gestión integral",
       "color": "#EC4899",
       "paginas": [
+        13,
+        14,
+        15,
         16,
         17,
         18,
         19,
-        20,
-        21,
-        22
+        20
       ]
     },
     "n1_ordenar_cronologicamente": {
-      "consigna": "Ordená los pasos para constituir una SRL en Argentina:",
+      "consigna": "Ordená correctamente el proceso de liderazgo efectivo.",
+      "paginas_referencia": "13",
       "items": [
         {
           "id": 0,
-          "text": "Los socios acuerdan formar la sociedad y definen el objeto",
-          "emoji": "🤝"
+          "text": "El líder define objetivos",
+          "emoji": "🎯"
         },
         {
           "id": 1,
-          "text": "Redactan el contrato social con cláusulas obligatorias",
-          "emoji": "📝"
+          "text": "Comunica metas al equipo",
+          "emoji": "💬"
         },
         {
           "id": 2,
-          "text": "Realizan los aportes de capital comprometidos",
-          "emoji": "💰"
+          "text": "Motiva y guía personas",
+          "emoji": "🔥"
         },
         {
           "id": 3,
-          "text": "Inscriben el contrato en el Registro Público (IGPJ Santa Fe)",
-          "emoji": "🏛️"
+          "text": "El equipo ejecuta tareas",
+          "emoji": "👥"
         },
         {
           "id": 4,
-          "text": "La sociedad obtiene personalidad jurídica propia",
-          "emoji": "🏢"
+          "text": "Se evalúan resultados",
+          "emoji": "📊"
         }
       ],
       "orden_correcto": [
@@ -963,894 +964,809 @@
       ]
     },
     "n2_clasificador": {
-      "consigna": "Clasificá cada característica según el tipo de sociedad:",
+      "consigna": "Clasificá características de liderazgo autocrático y democrático.",
+      "paginas_referencia": "13",
       "categorias": [
         {
-          "name": "SRL",
-          "emoji": "🏪",
-          "color": "#10B981"
+          "name": "Autocrático",
+          "emoji": "👊",
+          "color": "#EF4444"
         },
         {
-          "name": "SA",
-          "emoji": "🏢",
-          "color": "#3B82F6"
+          "name": "Democrático",
+          "emoji": "🤝",
+          "color": "#10B981"
         }
       ],
       "items": [
         {
           "id": 0,
-          "text": "Capital dividido en cuotas sociales",
+          "text": "El líder toma todas las decisiones",
           "categoria_correcta": 0
         },
         {
           "id": 1,
-          "text": "Capital dividido en acciones",
+          "text": "El grupo participa activamente",
           "categoria_correcta": 1
         },
         {
           "id": 2,
-          "text": "Máximo 50 socios",
+          "text": "Existe control rígido",
           "categoria_correcta": 0
         },
         {
           "id": 3,
-          "text": "Administrada por un Directorio",
+          "text": "Se fomenta el diálogo",
           "categoria_correcta": 1
         },
         {
           "id": 4,
-          "text": "Administrada por uno o más gerentes",
-          "categoria_correcta": 0
+          "text": "Consulta al equipo antes de decidir",
+          "categoria_correcta": 1
         },
         {
           "id": 5,
-          "text": "Las participaciones se transmiten libremente",
-          "categoria_correcta": 1
-        },
-        {
-          "id": 6,
-          "text": "Ideal para PyMEs y empresas familiares",
+          "text": "Impone su voluntad sin escuchar opiniones",
           "categoria_correcta": 0
-        },
-        {
-          "id": 7,
-          "text": "Cotiza en la Bolsa de Valores",
-          "categoria_correcta": 1
         }
       ]
     },
     "n3_completar_mapa": {
-      "consigna": "Completá los conceptos clave sobre sociedades:",
+      "paginas_referencia": "13-14",
       "blanks": [
         {
           "id": "b1",
-          "texto_antes": "La sociedad regularmente constituida tiene una personalidad jurídica distinta de los",
-          "respuesta_correcta": "socios",
-          "pista": "S_____"
+          "texto_antes": "El ________ influye sobre otras personas para alcanzar objetivos.",
+          "respuesta_correcta": "líder",
+          "pista": "L_____"
         },
         {
           "id": "b2",
-          "texto_antes": "En la SRL, la responsabilidad de los socios está limitada al",
-          "respuesta_correcta": "aporte",
-          "pista": "A_____"
+          "texto_antes": "El liderazgo ________ promueve participación grupal.",
+          "respuesta_correcta": "democrático",
+          "pista": "D__________"
         },
         {
           "id": "b3",
-          "texto_antes": "El capital de la Sociedad Anónima está dividido en",
-          "respuesta_correcta": "acciones",
-          "pista": "A_______"
-        },
-        {
-          "id": "b4",
-          "texto_antes": "Cuando los socios usan la sociedad para cometer fraude, los jueces aplican la teoría de la",
-          "respuesta_correcta": "inoponibilidad",
-          "pista": "I_____________"
+          "texto_antes": "El liderazgo ________-faire otorga total libertad al equipo y es ideal para expertos motivados.",
+          "respuesta_correcta": "laissez",
+          "pista": "L______"
         }
-      ]
+      ],
+      "consigna": "Completá las oraciones con la palabra correcta:"
     },
     "n4_verdadero_falso": {
+      "paginas_referencia": "13-14",
       "afirmaciones": [
         {
-          "texto": "Si una SRL fracasa, los acreedores pueden ir contra la casa, el auto y el sueldo personal de los socios",
-          "correcto": false,
-          "explicacion": "Falso. En la SRL la responsabilidad está limitada al aporte. El patrimonio personal queda protegido."
-        },
-        {
-          "texto": "Una sociedad regularmente constituida es una persona jurídica distinta de los socios",
+          "texto": "El liderazgo democrático favorece la participación del equipo.",
           "correcto": true,
-          "explicacion": "Verdadero. La sociedad es un nuevo sujeto de derecho con patrimonio, nombre, domicilio y responsabilidad propios."
+          "explicacion": "Verdadero. Promueve diálogo y consenso."
         },
         {
-          "texto": "En la sociedad colectiva los socios responden con todo su patrimonio personal",
-          "correcto": true,
-          "explicacion": "Verdadero. Responden subsidiaria, ilimitada y solidariamente. Por eso casi no se usa hoy."
-        },
-        {
-          "texto": "La SAS (Sociedad por Acciones Simplificada) está pensada especialmente para grandes empresas multinacionales",
+          "texto": "El liderazgo laissez-faire implica control permanente.",
           "correcto": false,
-          "explicacion": "Falso. La SAS está pensada para emprendedores y startups, con constitución online en 24 horas (Ley 27.349)."
+          "explicacion": "Falso. El líder otorga gran libertad al grupo."
+        },
+        {
+          "texto": "El techo de cristal es una barrera invisible que impide a las mujeres acceder a los niveles más altos de la jerarquía.",
+          "correcto": true,
+          "explicacion": "Verdadero. Es invisible pero real: limita el ascenso aunque tengan la preparación y los méritos necesarios. Revisá la página 14."
         }
       ]
     },
     "n5_relacionar_columnas": {
+      "paginas_referencia": "13-14",
       "pares": [
         {
-          "izquierda": "Asamblea",
-          "derecha": "Órgano de gobierno de la SA, reúne a accionistas",
-          "emoji": "👥"
+          "izquierda": "Autocrático",
+          "derecha": "Decisiones centralizadas",
+          "emoji": "👊"
         },
         {
-          "izquierda": "Directorio",
-          "derecha": "Órgano de administración de la SA",
-          "emoji": "💼"
+          "izquierda": "Democrático",
+          "derecha": "Participación grupal",
+          "emoji": "🤝"
         },
         {
-          "izquierda": "Sindicatura",
-          "derecha": "Órgano de fiscalización que controla la administración",
-          "emoji": "🔍"
+          "izquierda": "Laissez-faire",
+          "derecha": "Amplia libertad",
+          "emoji": "🕊️"
         },
         {
-          "izquierda": "Gerencia",
-          "derecha": "Órgano de administración de la SRL",
-          "emoji": "🏪"
+          "izquierda": "Techo de cristal",
+          "derecha": "Barrera invisible en el ascenso jerárquico de las mujeres",
+          "emoji": "🚧"
         }
       ]
     },
     "n6_palabra_intrusa": {
+      "paginas_referencia": "13-14",
       "grupos": [
         {
-          "pregunta": "¿Cuál NO es un tipo societario regulado por la Ley 19.550?",
-          "emoji": "🏢",
+          "id": 0,
+          "emoji": "👑",
+          "pregunta": "¿Cuál NO corresponde a estilos de liderazgo?",
+          "paginas": "13",
           "palabras": [
             {
-              "text": "Sociedad Colectiva",
+              "text": "Autocrático",
               "es_intrusa": false
             },
             {
-              "text": "SRL",
+              "text": "Democrático",
               "es_intrusa": false
             },
             {
-              "text": "Fundación",
+              "text": "Laissez-faire",
+              "es_intrusa": false
+            },
+            {
+              "text": "Patrimonial",
               "es_intrusa": true
-            },
-            {
-              "text": "SA",
-              "es_intrusa": false
             }
           ],
-          "explicacion": "Fundación es una persona jurídica (CCyC) pero no sociedad comercial. Las sociedades son: Colectiva, Comandita, Capital e Industria, SRL y SA."
+          "explicacion": "Patrimonial pertenece al ámbito económico."
         },
         {
-          "pregunta": "¿Cuál NO es un atributo de la personalidad jurídica de la sociedad?",
-          "emoji": "⚖️",
+          "id": 1,
+          "emoji": "🚺",
+          "pregunta": "¿Cuál NO es una barrera que enfrentan las mujeres en el mundo laboral?",
+          "paginas": "14",
           "palabras": [
             {
-              "text": "Patrimonio propio",
+              "text": "Techo de cristal",
               "es_intrusa": false
             },
             {
-              "text": "Nombre propio",
+              "text": "Brecha salarial",
               "es_intrusa": false
             },
             {
-              "text": "Edad propia",
+              "text": "Estereotipos de género",
+              "es_intrusa": false
+            },
+            {
+              "text": "Retroalimentación",
               "es_intrusa": true
-            },
-            {
-              "text": "Domicilio propio",
-              "es_intrusa": false
             }
           ],
-          "explicacion": "Edad no es atributo. Los atributos son: nombre, patrimonio, domicilio y capacidad."
+          "explicacion": "La retroalimentación (feedback) es parte del esquema de comunicación. Las tres barreras documentadas son el techo de cristal, la brecha salarial y los estereotipos de género."
         }
       ]
     },
     "n7_defini_con_tus_palabras": {
+      "paginas_referencia": "13-19",
       "conceptos": [
         {
-          "termino": "Personalidad jurídica",
-          "pista": "¿Qué atributo hace que la sociedad sea un sujeto distinto de los socios?",
+          "termino": "Liderazgo",
+          "pista": "¿Qué hace una persona que guía a otras?",
           "palabras_clave": [
-            "sujeto",
-            "distinto",
-            "socios",
-            "patrimonio",
-            "propio",
-            "obligaciones",
-            "derechos"
+            "influir",
+            "guiar",
+            "grupo",
+            "objetivos",
+            "inspirar",
+            "voluntariamente"
           ]
         },
         {
-          "termino": "Inoponibilidad de la personalidad jurídica",
-          "pista": "¿Qué pasa cuando los socios usan la sociedad para hacer fraude?",
+          "termino": "Gestión integral",
+          "pista": "¿Cómo coordina una organización sus recursos?",
           "palabras_clave": [
-            "fraude",
-            "velo",
-            "correr",
-            "socios",
-            "responsables",
-            "abuso",
-            "directamente"
+            "sistema",
+            "integrado",
+            "comunicación",
+            "autoridad",
+            "motivación",
+            "liderazgo"
           ]
         },
         {
-          "termino": "Sociedad Anónima",
-          "pista": "¿Qué tipo societario tiene su capital dividido en acciones?",
+          "termino": "Techo de cristal",
+          "pista": "¿Por qué hay menos mujeres en la cima de las organizaciones, aun con los mismos méritos?",
           "palabras_clave": [
-            "acciones",
-            "accionistas",
-            "limitada",
-            "capital",
-            "directorio",
-            "asamblea",
-            "transmisible"
+            "barrera",
+            "invisible",
+            "mujeres",
+            "ascenso",
+            "jerarquía",
+            "desigualdad"
           ]
         }
       ]
     },
     "n8_causa_efecto": {
+      "paginas_referencia": "13-18",
       "causas": [
         {
           "id": 0,
-          "text": "Se constituye regularmente una SRL",
-          "emoji": "🏢"
+          "text": "El líder escucha al equipo",
+          "emoji": "👂"
         },
         {
           "id": 1,
-          "text": "Los socios usan la sociedad para hacer fraude",
-          "emoji": "🚫"
+          "text": "Existe liderazgo autoritario extremo",
+          "emoji": "⚠️"
         },
         {
           "id": 2,
-          "text": "La sociedad fracasa y no puede pagar deudas",
-          "emoji": "💸"
+          "text": "El líder es situacional: adapta su estilo al contexto",
+          "emoji": "🔄"
         },
         {
           "id": 3,
-          "text": "Una empresa familiar crece y necesita capital de inversores",
-          "emoji": "📈"
+          "text": "Hay diversidad de género en el equipo directivo",
+          "emoji": "🚻"
         }
       ],
       "efectos": [
         {
-          "id": 0,
-          "causa_id": 0,
-          "text": "Nace una persona jurídica distinta de los socios, con patrimonio propio",
-          "emoji": "✅"
+          "id": 10,
+          "text": "Aumenta compromiso grupal",
+          "emoji": "🤝",
+          "causa_id": 0
         },
         {
-          "id": 1,
-          "causa_id": 1,
-          "text": "El juez 'corre el velo' y atribuye consecuencias a los socios",
-          "emoji": "⚖️"
+          "id": 11,
+          "text": "Aparecen tensiones",
+          "emoji": "💥",
+          "causa_id": 1
         },
         {
-          "id": 2,
-          "causa_id": 2,
-          "text": "Los socios pierden solo el aporte, su patrimonio personal queda a salvo",
-          "emoji": "🛡️"
+          "id": 12,
+          "text": "El equipo rinde bien tanto en crisis como en proyectos creativos",
+          "emoji": "🚀",
+          "causa_id": 2
         },
         {
-          "id": 3,
-          "causa_id": 3,
-          "text": "Conviene transformar la SRL en SA para emitir acciones",
-          "emoji": "🔄"
+          "id": 13,
+          "text": "Se toman mejores decisiones y mejora la rentabilidad",
+          "emoji": "📈",
+          "causa_id": 3
         }
       ]
     },
     "n9_ordenar_proceso": {
-      "consigna": "Ordená los órganos de la Sociedad Anónima según su jerarquía y función:",
+      "consigna": "Ordená las etapas del liderazgo efectivo.",
+      "paginas_referencia": "13",
       "pasos_en_orden_correcto": [
         {
           "id": 0,
-          "text": "ASAMBLEA DE ACCIONISTAS: órgano de gobierno, toma las decisiones más importantes",
-          "emoji": "👥"
+          "text": "Definir metas",
+          "emoji": "🎯"
         },
         {
           "id": 1,
-          "text": "Designa al DIRECTORIO en asamblea ordinaria anual",
-          "emoji": "🗳️"
+          "text": "Comunicar objetivos",
+          "emoji": "💬"
         },
         {
           "id": 2,
-          "text": "DIRECTORIO: órgano de administración, lleva la gestión cotidiana",
-          "emoji": "💼"
+          "text": "Coordinar tareas",
+          "emoji": "⚙️"
         },
         {
           "id": 3,
-          "text": "SINDICATURA: órgano de fiscalización, controla la administración",
-          "emoji": "🔍"
+          "text": "Motivar equipo",
+          "emoji": "🔥"
         },
         {
           "id": 4,
-          "text": "Rinde cuentas a la asamblea con el balance anual",
+          "text": "Evaluar resultados",
           "emoji": "📊"
         }
       ]
     },
     "n10_comparador": {
+      "paginas_referencia": "13",
       "concepto_a": {
-        "nombre": "SRL",
-        "emoji": "🏪",
-        "color": "#10B981"
+        "nombre": "Liderazgo Autocrático",
+        "emoji": "👊",
+        "color": "#EF4444"
       },
       "concepto_b": {
-        "nombre": "SA",
-        "emoji": "🏢",
-        "color": "#3B82F6"
+        "nombre": "Liderazgo Democrático",
+        "emoji": "🤝",
+        "color": "#10B981"
       }
     }
   },
   "senales": {
     "conceptos_clave": [
       {
-        "termino": "Contrato",
-        "emoji": "📝",
-        "color": "#1E40AF",
-        "definicion": "Acto jurídico mediante el cual dos o más partes manifiestan su consentimiento para crear, regular, modificar, transferir o extinguir relaciones jurídicas patrimoniales.",
-        "importancia": "Sin entender qué es un contrato no se puede operar en negocios. Cada compra, alquiler, contratación de servicio o aceptación de app es un contrato. Es la 'gramática' de la economía."
+        "termino": "Comunicación",
+        "emoji": "💬",
+        "color": "#6366F1",
+        "definicion": "Proceso mediante el cual las personas transmiten información, ideas y emociones. Es la base de toda interacción organizacional.",
+        "importancia": "Sin comunicación no hay coordinación, liderazgo ni trabajo en equipo efectivo."
       },
       {
-        "termino": "Leasing",
-        "emoji": "💼",
-        "color": "#F59E0B",
-        "definicion": "Contrato por el cual el dador transfiere al tomador la tenencia de un bien a cambio de un canon, dándole opción de compra al final del plazo.",
-        "importancia": "Herramienta financiera clave para empresas. Permite acceder a equipos caros (servidores, maquinaria SMD) sin descapitalizarse y tiene ventajas impositivas."
-      },
-      {
-        "termino": "Personalidad jurídica",
-        "emoji": "🏢",
-        "color": "#EC4899",
-        "definicion": "Atributo de las sociedades regularmente constituidas por el cual son sujetos de derecho distintos de los socios, con patrimonio, nombre y domicilio propios.",
-        "importancia": "Idea clave para emprender. Con sociedad (SRL/SA), pierden solo lo aportado. A nombre personal, responden con todo. La personalidad jurídica protege el patrimonio personal."
-      },
-      {
-        "termino": "SRL",
-        "emoji": "🏪",
+        "termino": "Autoridad",
+        "emoji": "⚖️",
         "color": "#10B981",
-        "definicion": "Sociedad de Responsabilidad Limitada. Tipo societario donde los socios (mín 2, máx 50) limitan responsabilidad al aporte. Capital en cuotas, administrada por gerentes. Ideal para PyMEs.",
-        "importancia": "Forma jurídica más usada por PyMEs en Argentina. Si arman empresa de software o electrónica con socios, lo más probable es una SRL: protege patrimonio y costos razonables."
+        "definicion": "Derecho legítimo de dar órdenes, tomar decisiones y exigir obediencia dentro de una organización.",
+        "importancia": "Permite organizar tareas y coordinar personas hacia objetivos comunes."
+      },
+      {
+        "termino": "Motivación",
+        "emoji": "🔥",
+        "color": "#F59E0B",
+        "definicion": "Conjunto de fuerzas internas y externas que impulsan a una persona a actuar y esforzarse.",
+        "importancia": "La motivación influye directamente en el desempeño y compromiso de los equipos."
+      },
+      {
+        "termino": "Liderazgo",
+        "emoji": "👑",
+        "color": "#EC4899",
+        "definicion": "Capacidad de influir y guiar personas hacia objetivos comunes mediante confianza y compromiso.",
+        "importancia": "El liderazgo integra todos los elementos de la gestión y orienta al equipo al éxito."
       }
     ],
     "semaforo_conceptos": [
-      "Consentimiento (elemento esencial)",
-      "Obligaciones de medios vs resultado",
-      "Rescisión, resolución y nulidad",
-      "Leasing y franquicia"
+      "Comunicación formal",
+      "Barreras de comunicación",
+      "Delegación",
+      "Clima organizacional",
+      "Liderazgo situacional"
     ],
     "postits_conceptos": [
-      "Contrato",
-      "Leasing",
-      "Personalidad Jurídica",
-      "SRL"
+      "Comunicación",
+      "Autoridad",
+      "Motivación",
+      "Liderazgo"
     ]
   },
   "sabias": {
     "flip_cards": [
       {
-        "emoji": "🍔",
-        "frente": "¿Sabías que McDonald's no es dueña de la mayoría de sus locales?",
-        "dorso": "El 93% de los locales de McDonald's son franquicias. No opera la mayoría directamente. Pero hay un secreto: el verdadero negocio es alquilar a los franquiciados los terrenos donde se instalan. Son uno de los mayores propietarios inmobiliarios del mundo.",
-        "color": "#F59E0B"
+        "emoji": "📡",
+        "frente": "El 70% de los errores laborales se relacionan con mala comunicación",
+        "dorso": "Estudios organizacionales muestran que gran parte de los conflictos y fallas en empresas ocurren porque los mensajes se interpretan mal o nunca llegan correctamente.",
+        "color": "#6366F1"
       },
       {
-        "emoji": "🏢",
-        "frente": "¿Sabías que la primera SA de la historia se fundó en 1602?",
-        "dorso": "La Compañía Holandesa de las Indias Orientales (VOC) fue la primera Sociedad Anónima. Fue la primera que vendió acciones al público (Bolsa de Ámsterdam). Llegó a ser la corporación más valiosa de la historia: 7,9 billones de dólares actuales. Más que Apple, Google, Amazon y Microsoft juntas.",
-        "color": "#3B82F6"
+        "emoji": "👩",
+        "frente": "Las empresas con más mujeres líderes suelen obtener mejores resultados",
+        "dorso": "Investigaciones internacionales encontraron que las organizaciones con diversidad de género en puestos jerárquicos suelen ser más innovadoras y rentables.",
+        "color": "#EC4899"
       },
       {
-        "emoji": "💻",
-        "frente": "¿Sabías que en Argentina podés crear una empresa 100% online en 24 hs?",
-        "dorso": "Desde 2017 existe la SAS (Sociedad por Acciones Simplificada), regulada por la Ley 27.349. Se constituye totalmente online con firma digital en menos de 24 horas. Está pensada para emprendedores y startups, con capital mínimo bajo y flexibilidad.",
+        "emoji": "🧠",
+        "frente": "El cerebro humano puede malinterpretar un mensaje en segundos",
+        "dorso": "El tono, el contexto y las emociones influyen tanto que dos personas pueden entender cosas totalmente distintas leyendo exactamente el mismo mensaje.",
         "color": "#10B981"
-      },
-      {
-        "emoji": "📜",
-        "frente": "'Pacta sunt servanda' tiene más de 2000 años",
-        "dorso": "El principio 'pacta sunt servanda' (los pactos deben cumplirse) viene del Derecho Romano. Sigue siendo la base del Derecho Contractual moderno en todo el mundo. Está en el art. 959 del Código Civil y Comercial argentino: 'Todo contrato válidamente celebrado es obligatorio para las partes'.",
-        "color": "#DC2626"
       }
     ],
     "linea_de_tiempo": [
       {
-        "year": "1602",
-        "text": "Primera Sociedad Anónima (Compañía Holandesa de las Indias Orientales)",
-        "emoji": "🚢"
+        "year": "1943",
+        "text": "Maslow presenta su teoría de jerarquía de necesidades",
+        "emoji": "🔺"
       },
       {
-        "year": "1869",
-        "text": "Código de Comercio argentino",
-        "emoji": "📜"
+        "year": "1959",
+        "text": "Herzberg desarrolla la teoría de factores motivacionales",
+        "emoji": "⚙️"
       },
       {
-        "year": "1972",
-        "text": "Ley General de Sociedades 19.550",
-        "emoji": "⚖️"
+        "year": "1961",
+        "text": "McClelland publica su teoría de necesidades aprendidas",
+        "emoji": "🧠"
       },
       {
-        "year": "2015",
-        "text": "Código Civil y Comercial unificado (Ley 26.994)",
-        "emoji": "📚"
+        "year": "1980",
+        "text": "Las empresas comienzan a medir clima organizacional sistemáticamente",
+        "emoji": "📊"
       },
       {
-        "year": "2017",
-        "text": "Ley 27.349: SAS para emprendedores",
-        "emoji": "💻"
+        "year": "2020",
+        "text": "El liderazgo inclusivo y flexible se vuelve clave en organizaciones modernas",
+        "emoji": "🌍"
       }
     ],
     "encuesta": {
       "pregunta": "¿Qué dato te sorprendió más?",
       "opciones": [
         {
-          "emoji": "🍔",
-          "text": "Que McDonald's gana más alquilando terrenos que vendiendo hamburguesas",
-          "votos_iniciales": 45
+          "emoji": "📡",
+          "text": "Los errores por mala comunicación",
+          "votos_iniciales": 46
         },
         {
-          "emoji": "🚢",
-          "text": "Que la primera SA se fundó en 1602 y aún hoy se usa el modelo",
-          "votos_iniciales": 28
+          "emoji": "👩",
+          "text": "La relación entre diversidad y mejores resultados",
+          "votos_iniciales": 38
         },
         {
-          "emoji": "💻",
-          "text": "Que se puede armar una empresa online en 24 horas (SAS)",
-          "votos_iniciales": 27
+          "emoji": "🧠",
+          "text": "Cómo el cerebro interpreta distinto los mensajes",
+          "votos_iniciales": 29
         }
       ]
     }
   },
   "cruces": {
-    "exposicion_estudiantes": {
-      "consigna": "Elegí un tema y preparalo para exponer en 5 minutos a tus compañeros.",
-      "temas_disponibles": [
-        {
-          "id": 1,
-          "titulo": "¿Por qué conviene una SRL para emprendimientos de software?",
-          "materias_vinculadas": [
-            "Administración",
-            "Emprendedorismo"
-          ],
-          "emoji": "💻",
-          "color": "#1E40AF",
-          "guia": "Investigá: ¿cuál es la responsabilidad limitada? ¿Qué pasa si la empresa fracasa? ¿Cuáles son los costos?"
-        },
-        {
-          "id": 2,
-          "titulo": "Cómo funciona una franquicia: el caso McDonald's o Grido",
-          "materias_vinculadas": [
-            "Marketing",
-            "Economía"
-          ],
-          "emoji": "🏪",
-          "color": "#F59E0B",
-          "guia": "Investigá: ¿qué invierte el franquiciado? ¿Cuánto gana? ¿Quién controla la calidad?"
-        },
-        {
-          "id": 3,
-          "titulo": "Locación de obra vs locación de servicios en tu carrera técnica",
-          "materias_vinculadas": [
-            "Derechos Laborales",
-            "Orientación Vocacional"
-          ],
-          "emoji": "🔧",
-          "color": "#10B981",
-          "guia": "Investigá: ¿cuándo te conviene firmar cada una? ¿Cuáles son tus obligaciones y derechos en cada caso?"
-        }
-      ]
-    },
+    "consigna_general": "Elegí uno de estos temas del PDF y preparate para explicárselo a un compañero. Podés usar ejemplos, esquemas o situaciones reales. La idea es que tu compañero entienda el tema aunque no lo haya leído todavía.",
+    "bloques": [
+      {
+        "id": "a",
+        "emoji": "💬",
+        "titulo": "BLOQUE A: Comunicación organizacional",
+        "color": "#6366F1",
+        "temas_sugeridos": [
+          "Explicale qué es la comunicación y por qué es la base de toda gestión.",
+          "Enseñale el esquema de comunicación: emisor, mensaje, canal, receptor, feedback y ruido.",
+          "Mostrá la diferencia entre comunicación formal e informal con ejemplos de una escuela o empresa.",
+          "Explicale la diferencia entre comunicación ascendente y descendente.",
+          "Contale qué son las barreras de comunicación y cómo pueden afectar el trabajo en equipo."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      },
+      {
+        "id": "b",
+        "emoji": "⚖️",
+        "titulo": "BLOQUE B: Autoridad, delegación, motivación y clima",
+        "color": "#10B981",
+        "temas_sugeridos": [
+          "Explicale la diferencia entre autoridad formal y autoridad personal.",
+          "Enseñale qué significa delegar y por qué no es lo mismo que abandonar la responsabilidad.",
+          "Contale las ideas principales de Maslow, Herzberg y McClelland sobre motivación.",
+          "Explicale qué es el clima organizacional y cómo se nota si es positivo o negativo.",
+          "Mostrá cómo la motivación y el clima influyen en el desempeño de un equipo."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      },
+      {
+        "id": "c",
+        "emoji": "👑",
+        "titulo": "BLOQUE C: Liderazgo y gestión integral",
+        "color": "#EC4899",
+        "temas_sugeridos": [
+          "Explicale qué diferencia hay entre ser jefe y ser líder.",
+          "Enseñale por qué el liderazgo moderno debe adaptarse a cada situación.",
+          "Contale por qué la diversidad de género en puestos jerárquicos mejora las organizaciones.",
+          "Explicale cómo se conectan comunicación, autoridad, delegación, motivación, clima y liderazgo.",
+          "Mostrá qué significa liderar desde la inclusión y la responsabilidad."
+        ],
+        "placeholder": "Escribí acá el tema que elegiste y cómo lo vas a explicar a tu compañero/a..."
+      }
+    ],
     "puentes": [
       {
-        "materia": "Administración",
-        "emoji": "💼",
-        "color": "#1E40AF",
-        "conexion": "La forma legal de la empresa (SRL, SA) determina su estructura organizacional, sus órganos de administración y sus obligaciones.",
-        "pregunta": "¿Cómo afecta la personalidad jurídica a la organización de una empresa?",
-        "vinculo": "La SRL necesita gerentes; la SA necesita directorio, asamblea y sindicatura."
+        "materia": "Marco Jurídico",
+        "emoji": "📜",
+        "color": "#7C3AED",
+        "conexion": "La autoridad formal se apoya en normas: contratos de trabajo, manuales de funciones y organigramas son documentos con valor jurídico.",
+        "pregunta": "¿Qué normas respaldan la autoridad de un gerente sobre su equipo?",
+        "vinculo": "Autoridad formal · pág. 9"
       },
       {
         "materia": "Economía",
-        "emoji": "📊",
+        "emoji": "📈",
+        "color": "#10B981",
+        "conexion": "La motivación impacta en la productividad: los factores higiénicos de Herzberg (salario, condiciones) son variables económicas.",
+        "pregunta": "¿Puede el salario por sí solo motivar a un trabajador?",
+        "vinculo": "Teoría de Herzberg · pág. 11"
+      },
+      {
+        "materia": "Lengua y Literatura",
+        "emoji": "📚",
         "color": "#F59E0B",
-        "conexion": "Los contratos son la base del intercambio económico. Sin seguridad jurídica en los contratos, no hay mercado posible.",
-        "pregunta": "¿Qué pasaría con la economía si no se cumplieran los contratos?",
-        "vinculo": "El principio 'pacta sunt servanda' es fundamental para la confianza en los negocios."
+        "conexion": "El esquema emisor-mensaje-canal-receptor es el mismo que estudiás en Lengua, aplicado a las organizaciones.",
+        "pregunta": "¿Qué cambia cuando el receptor no es una persona sino un equipo de trabajo?",
+        "vinculo": "Esquema comunicacional · pág. 4"
       },
       {
-        "materia": "Programación / Sistemas",
-        "emoji": "💻",
-        "color": "#3B82F6",
-        "conexion": "Cuando desarrollen software, firmarán contratos de obra (si es a medida) o de servicios (si es soporte). La diferencia define qué les pueden exigir.",
-        "pregunta": "¿Qué tipo de contrato deberían firmar para un desarrollo de software 'a medida'?",
-        "vinculo": "Obligación de resultado: el código debe funcionar según las especificaciones, no solo 'se hizo el esfuerzo'."
-      },
-      {
-        "materia": "Electrónica",
-        "emoji": "⚡",
+        "materia": "Formación Ética y Ciudadana",
+        "emoji": "🤝",
         "color": "#EC4899",
-        "conexion": "Las empresas de electrónica usan leasing para maquinaria cara (SMD, medición), franquicias para distribuir productos, y concesiones para servicio técnico.",
-        "pregunta": "¿Qué contrato elegirían para acceder a maquinaria cara que se vuelve obsoleta rápido?",
-        "vinculo": "El leasing permite renovar tecnología sin descapitalizarse y tiene ventajas impositivas."
+        "conexion": "El techo de cristal y la brecha salarial son problemas de igualdad de derechos que también se analizan desde la ciudadanía.",
+        "pregunta": "¿Qué leyes protegen la igualdad de género en el trabajo argentino?",
+        "vinculo": "Mujeres en puestos jerárquicos · pág. 14"
       }
     ],
     "telarana": [
       {
+        "target": "Psicología",
+        "emoji": "🧠",
+        "color": "#6366F1",
+        "desc": "Las teorías de Maslow, Herzberg y McClelland nacen de la psicología aplicada al trabajo."
+      },
+      {
+        "target": "Sociología",
+        "emoji": "👥",
+        "color": "#10B981",
+        "desc": "El clima organizacional es un fenómeno social: la percepción colectiva de un grupo humano."
+      },
+      {
         "target": "Historia",
         "emoji": "📜",
-        "color": "#10B981",
-        "desc": "Origen de las Sociedades Anónimas en el comercio internacional (siglo XVII)"
-      },
-      {
-        "target": "Filosofía",
-        "emoji": "💭",
-        "color": "#6366F1",
-        "desc": "Justicia contractual: ¿es justo obligar a cumplir un contrato firmado bajo presión?"
-      },
-      {
-        "target": "Matemática Financiera",
-        "emoji": "📈",
-        "color": "#3B82F6",
-        "desc": "Cálculo del costo total de un leasing (CFT, TNA, valor residual)"
+        "color": "#F59E0B",
+        "desc": "El liderazgo evolucionó del modelo autocrático de la era industrial al liderazgo inclusivo del siglo XXI."
       }
     ]
   },
   "relectura": {
     "tribunal": {
-      "titulo_debate": "Los contratos de adhesión (telefonía, bancos, redes sociales) deberían prohibirse porque el consumidor no negocia nada",
-      "contexto": "Cuando aceptás WhatsApp, firmás contrato bancario o contratás internet, no podés negociar: o aceptás todo o no usás el servicio. Algunos dicen que vulnera el consentimiento real y debe prohibirse. Otros dicen que son necesarios para que funcione el comercio masivo.",
+      "titulo_debate": "Un líder debería priorizar los resultados antes que el bienestar emocional del equipo",
+      "contexto": "En muchas organizaciones existe tensión entre alcanzar objetivos rápidos y cuidar el clima de trabajo. Analizá si el rendimiento justifica estilos de liderazgo más duros o si el bienestar del equipo debe ser prioridad.",
       "roles": [
         {
           "id": "fiscal",
-          "emoji": "🚫",
-          "label": "A favor de prohibir",
-          "color": "#DC2626",
-          "desc": "Argumentá por qué estos contratos vulneran el consentimiento real y deberían prohibirse o regularse mucho más."
+          "label": "A favor de priorizar resultados",
+          "emoji": "📈",
+          "color": "#EF4444",
+          "desc": "Defendé la idea de que los resultados son lo más importante para una organización."
         },
         {
           "id": "defensa",
-          "emoji": "✅",
-          "label": "A favor de mantenerlos",
+          "label": "A favor del bienestar",
+          "emoji": "🤝",
           "color": "#10B981",
-          "desc": "Argumentá por qué son necesarios para el comercio masivo y la Ley de Defensa del Consumidor ya protege lo suficiente."
+          "desc": "Argumentá por qué el clima y la motivación deben estar primero."
         },
         {
           "id": "juez",
-          "emoji": "🤝",
           "label": "Posición equilibrada",
-          "color": "#3B82F6",
-          "desc": "Proponé qué se debería mejorar manteniendo los contratos de adhesión pero protegiendo más al consumidor."
+          "emoji": "⚖️",
+          "color": "#6366F1",
+          "desc": "Buscá una solución que combine desempeño y bienestar."
         }
       ]
     },
     "tesis": {
-      "consigna": "Redactá una tesis sobre: '¿Conviene constituir una SRL desde el inicio de un emprendimiento técnico o conviene operar a nombre personal y formalizar después?'. Usá ejemplos concretos (limitación de responsabilidad, costos, formalidades). Tu tesis debe tener: 1) Posición clara, 2) Tres argumentos con ejemplos, 3) Consideración de la postura contraria, 4) Conclusión."
+      "consigna": "Formulá una tesis sobre cuál debería ser el estilo de liderazgo más efectivo para los jóvenes de hoy. Incluí ejemplos, argumentos y posibles críticas a tu postura."
     },
     "critica": {
-      "consigna": "Analizá críticamente el contrato de franquicia. Identificá: 1) Ventajas para el franquiciado (¿qué gana?), 2) Riesgos (¿qué pierde de autonomía?), 3) Ventajas para el franquiciante, 4) Tu propuesta: ¿qué cláusulas mínimas pondrías para proteger al franquiciado argentino?"
+      "consigna": "Analizá críticamente cómo se comunican y lideran actualmente muchas organizaciones. ¿Qué fortalezas encontrás? ¿Qué problemas detectás? ¿Qué cambiarías para mejorar el clima y la motivación?"
     }
   },
+  "emocional": {},
   "autotest": {
+    "banco_respuestas_docente": [
+      "1. A - La comunicación transmite información, ideas y emociones entre personas. (p. 3)",
+      "2. C - El ruido. (p. 4)",
+      "3. B - La informal surge espontáneamente entre personas. (p. 5)",
+      "4. A - La descendente va desde la gerencia hacia niveles inferiores. (p. 6)",
+      "5. B - La autoridad personal se basa en carisma y experiencia. (p. 9)",
+      "6. C - Delegar libera tiempo y desarrolla habilidades del equipo. (p. 10)",
+      "7. A - Maslow propuso la jerarquía de necesidades. (p. 11)",
+      "8. D - El clima organizacional es la percepción del ambiente laboral. (p. 12)",
+      "9. B - El liderazgo democrático involucra al grupo en decisiones. (p. 13)",
+      "10. C - La diversidad de género mejora innovación y decisiones. (p. 14-18)",
+      "11. VERDADERO - El feedback confirma la comprensión del mensaje. (p. 4)",
+      "12. FALSO - La comunicación informal puede distorsionarse. (p. 5)",
+      "13. VERDADERO - El líder situacional adapta su estilo según el contexto. (p. 13)",
+      "14. FALSO - Delegar no elimina la responsabilidad final del directivo. (p. 10)",
+      "15. VERDADERO - Un clima positivo mejora productividad y compromiso. (p. 12)"
+    ],
     "preguntas": [
       {
-        "pregunta": "¿Cuáles son los cuatro elementos esenciales del contrato?",
+        "pregunta": "¿Qué es la comunicación según la unidad?",
         "opciones": [
-          "Forma, plazo, condición y cargo",
-          "Consentimiento, capacidad, objeto y causa",
-          "Oferta, aceptación, firma y testigos",
-          "Vendedor, comprador, cosa y precio"
+          "Un proceso de transmisión de información, ideas y emociones",
+          "Un sistema de castigos dentro de la empresa",
+          "Una técnica exclusiva de marketing",
+          "Un método de control financiero"
         ],
-        "correcta": 1,
-        "explicacion": "Los cuatro elementos esenciales son consentimiento, capacidad, objeto y causa. Sin alguno, no hay contrato válido."
+        "correcta": 0,
+        "explicacion": "La comunicación es el proceso mediante el cual se transmiten ideas, emociones e información entre personas. Revisá la página 3 para profundizar."
       },
       {
-        "pregunta": "En la locación de obra, lo que se garantiza es:",
+        "pregunta": "¿Cómo se llama la interferencia que distorsiona un mensaje?",
         "opciones": [
-          "El esfuerzo y la diligencia",
-          "El resultado concreto (la obra terminada)",
-          "El tiempo dedicado",
-          "Solo la calidad de los materiales"
-        ],
-        "correcta": 1,
-        "explicacion": "La locación de obra es obligación de resultado: el contratista garantiza entregar la obra terminada según especificaciones."
-      },
-      {
-        "pregunta": "¿Cuál es la principal diferencia entre rescisión y resolución?",
-        "opciones": [
-          "No hay ninguna diferencia",
-          "Rescisión: por acuerdo sin culpa. Resolución: por incumplimiento",
-          "Rescisión la decide el juez; resolución las partes",
-          "Resolución es voluntaria; rescisión obligatoria"
-        ],
-        "correcta": 1,
-        "explicacion": "Rescisión: extinción por acuerdo o decisión unilateral sin culpa. Resolución: consecuencia del incumplimiento."
-      },
-      {
-        "pregunta": "En la SRL, los socios responden:",
-        "opciones": [
-          "Con todo su patrimonio personal",
-          "Hasta el monto de su aporte",
-          "Solo si son gerentes",
-          "Por las deudas de los otros socios también"
-        ],
-        "correcta": 1,
-        "explicacion": "Responsabilidad limitada al aporte realizado. Patrimonio personal queda protegido. Razón por la que se elige para PyMEs."
-      },
-      {
-        "pregunta": "¿Qué contrato combina locación con opción de compra?",
-        "opciones": [
-          "Franquicia",
-          "Concesión",
-          "Leasing",
-          "Distribución"
+          "Feedback",
+          "Canal",
+          "Ruido",
+          "Jerarquía"
         ],
         "correcta": 2,
-        "explicacion": "Leasing: herramienta financiera que permite usar un bien pagando canon mensual y comprarlo al final por valor residual."
+        "explicacion": "El ruido es cualquier interferencia que dificulta o altera la comunicación. Revisá la página 4 para repasarlo."
       },
       {
-        "pregunta": "La 'inoponibilidad de la personalidad jurídica' significa que:",
+        "pregunta": "¿Qué característica define a la comunicación informal?",
         "opciones": [
-          "La sociedad no puede ser demandada nunca",
-          "Cuando hay fraude, los jueces pueden hacer responsables a los socios directamente",
-          "Los socios siempre responden con su patrimonio",
-          "La sociedad no tiene patrimonio propio"
+          "Es siempre escrita",
+          "Surge espontáneamente entre las personas",
+          "Está regulada por manuales",
+          "Solo ocurre entre gerentes"
         ],
         "correcta": 1,
-        "explicacion": "Cuando hay fraude, los jueces aplican el art. 54 LGS y 'corren el velo': atribuyen consecuencias a los socios."
+        "explicacion": "La comunicación informal surge de manera espontánea entre miembros de la organización. Revisá la página 5."
       },
       {
-        "pregunta": "El capital de una SA está dividido en:",
+        "pregunta": "La comunicación descendente fluye:",
         "opciones": [
-          "Cuotas sociales",
-          "Partes de interés",
-          "Acciones",
-          "Bonos"
+          "Desde la gerencia hacia niveles inferiores",
+          "Desde empleados hacia directivos",
+          "Entre empresas competidoras",
+          "Solo entre clientes"
+        ],
+        "correcta": 0,
+        "explicacion": "La comunicación descendente va desde los niveles superiores hacia los inferiores de la organización. Revisá la página 6."
+      },
+      {
+        "pregunta": "¿Qué caracteriza a la autoridad personal?",
+        "opciones": [
+          "Proviene exclusivamente del organigrama",
+          "Se basa en experiencia, carisma y confianza",
+          "Es obligatoria por ley",
+          "Solo existe en empresas grandes"
+        ],
+        "correcta": 1,
+        "explicacion": "La autoridad personal se gana mediante cualidades individuales y capacidad de inspirar confianza. Revisá la página 9."
+      },
+      {
+        "pregunta": "¿Cuál es una ventaja importante de delegar?",
+        "opciones": [
+          "Eliminar responsabilidades",
+          "Reducir salarios",
+          "Desarrollar habilidades en el equipo",
+          "Evitar el trabajo grupal"
         ],
         "correcta": 2,
-        "explicacion": "Capital en acciones (fácilmente transmisibles). Diferencia más grande con SRL (cuotas sociales, más restringidas)."
+        "explicacion": "Delegar permite desarrollar capacidades y motivar a los colaboradores. Revisá la página 10."
       },
       {
-        "pregunta": "Si encargás un sistema de software 'a medida' a un desarrollador, estás celebrando una:",
+        "pregunta": "¿Qué teoría motivacional organiza las necesidades humanas en forma de pirámide?",
         "opciones": [
-          "Compraventa",
-          "Locación de obra",
-          "Locación de servicios",
-          "Donación"
+          "Maslow",
+          "Herzberg",
+          "McClelland",
+          "Taylor"
         ],
-        "correcta": 1,
-        "explicacion": "Locación de obra: se contrata el resultado (sistema funcionando). Si no funciona, hay incumplimiento aunque se haya trabajado muchas horas."
+        "correcta": 0,
+        "explicacion": "Maslow organizó las necesidades humanas en una jerarquía o pirámide. Revisá la página 11."
       },
       {
-        "pregunta": "¿Qué significa que el consentimiento sea 'libre y consciente'?",
+        "pregunta": "¿Qué es el clima organizacional?",
         "opciones": [
-          "Que ambas partes tengan el mismo dinero",
-          "Que no fue arrancado por violencia, engaño o error",
-          "Que está firmado por un escribano",
-          "Que el contrato está escrito en papelería oficial"
-        ],
-        "correcta": 1,
-        "explicacion": "Consentimiento libre: sin violencia o amenaza. Consciente: sin engaño o error. Si falta, el contrato es anulable."
-      },
-      {
-        "pregunta": "La garantía por vicios redhibitorios en una compraventa significa que:",
-        "opciones": [
-          "El vendedor responde si el comprador es desplazado por un tercero",
-          "El vendedor responde por defectos ocultos que tenga la cosa",
-          "El comprador no puede devolver la cosa",
-          "La venta es nula automáticamente"
-        ],
-        "correcta": 1,
-        "explicacion": "Vicio redhibitorio: defecto oculto que hace la cosa impropia para su destino. El vendedor debe responder."
-      },
-      {
-        "pregunta": "¿Cuántos socios como máximo puede tener una SRL?",
-        "opciones": [
-          "2",
-          "10",
-          "25",
-          "50"
+          "La temperatura física de la oficina",
+          "El sistema de premios económicos",
+          "La estructura jerárquica de la empresa",
+          "La percepción colectiva sobre el ambiente laboral"
         ],
         "correcta": 3,
-        "explicacion": "SRL: mínimo 2, máximo 50 socios. Arriba de 50, pasa a ser SA o debe cambiar de forma."
+        "explicacion": "El clima organizacional es cómo perciben los empleados el ambiente de trabajo. Revisá la página 12."
       },
       {
-        "pregunta": "El contrato de franquicia requiere que el franquiciante pague al franquiciado:",
+        "pregunta": "¿Qué estilo de liderazgo involucra al grupo en las decisiones?",
         "opciones": [
-          "Un salario mensual",
-          "Un canon inicial ('fee') y regalías periódicas ('royalties')",
-          "Solo si la franquicia es exitosa",
-          "El dinero corre por cuenta del banco"
+          "Autocrático",
+          "Democrático",
+          "Laissez-faire",
+          "Autoritario"
         ],
         "correcta": 1,
-        "explicacion": "Franquicia: el franquiciado paga canon inicial (por adquirir derechos) + regalías periódicas (porcentaje de ventas)."
+        "explicacion": "El liderazgo democrático promueve participación y decisiones consensuadas. Revisá la página 13."
       },
       {
-        "pregunta": "Si una persona menor de edad firma un contrato sin autorización, el contrato es:",
+        "pregunta": "¿Por qué la diversidad de género es valiosa en puestos jerárquicos?",
         "opciones": [
-          "Válido, porque la ley presume la intención de las partes",
-          "Anulable, porque falta un elemento esencial (capacidad)",
-          "Nulo desde el origen, sin posibilidad de ratificación",
-          "Válido solo si es por escrito"
-        ],
-        "correcta": 1,
-        "explicacion": "Anulable por falta de capacidad (elemento esencial). El menor puede confirmarlo cuando es mayor, o los padres pueden impugnarlo."
-      },
-      {
-        "pregunta": "¿Cuál es el principio fundamental que soporta toda la teoría del contrato?",
-        "opciones": [
-          "La igualdad de partes ante la ley",
-          "'Pacta sunt servanda': los pactos deben cumplirse",
-          "La protección del consumidor",
-          "El Estado siempre puede anular contratos"
-        ],
-        "correcta": 1,
-        "explicacion": "'Pacta sunt servanda' (Derecho Romano): lo acordado por las partes es obligatorio como si fuera ley. Base de la seguridad jurídica."
-      },
-      {
-        "pregunta": "Una SA tiene un órgano de gobierno (la Asamblea), un órgano de administración (Directorio) y un órgano de fiscalización. ¿Cómo se llama este último?",
-        "opciones": [
-          "Gerencia",
-          "Consejo",
-          "Sindicatura",
-          "Auditoría"
+          "Porque reduce la competencia",
+          "Porque evita reuniones",
+          "Porque mejora innovación y decisiones",
+          "Porque elimina conflictos automáticamente"
         ],
         "correcta": 2,
-        "explicacion": "Sindicatura: órgano de fiscalización de la SA. Controla la administración del directorio y rinde al cuerpo accionario."
+        "explicacion": "La diversidad de género aporta distintas perspectivas y mejora resultados organizacionales. Revisá las páginas 14 y 18."
       }
     ],
-    "banco_respuestas_docente": [
+    "verdadero_falso": [
       {
-        "nucleo": "a",
-        "actividad": "n1_ordenar_cronologicamente",
-        "respuesta_modelo": "Orden correcto: 0→1→2→3→4. El contrato es un proceso: oferta, aceptación, consentimiento, cumplimiento, extinción."
+        "texto": "El feedback sirve para confirmar si el mensaje fue comprendido.",
+        "correcto": true,
+        "explicacion": "VERDADERO. El feedback o retroalimentación permite verificar comprensión del mensaje. Revisá la página 4."
       },
       {
-        "nucleo": "a",
-        "actividad": "n2_clasificador",
-        "respuesta_modelo": "Bilateral/Oneroso: compraventa notebook, alquiler depto, permuta. Unilateral/Gratuito: donación, comodato, donación pura."
+        "texto": "La comunicación informal siempre es precisa y libre de errores.",
+        "correcto": false,
+        "explicacion": "FALSO. La comunicación informal puede distorsionarse y generar rumores. Revisá la página 5."
       },
       {
-        "nucleo": "a",
-        "actividad": "n5_relacionar_columnas",
-        "respuesta_modelo": "Consentimiento↔Acuerdo voluntades. Capacidad↔Aptitud legal. Objeto↔Lo que se busca. Causa↔Fin perseguido."
+        "texto": "Los líderes situacionales adaptan su estilo según el contexto y el equipo.",
+        "correcto": true,
+        "explicacion": "VERDADERO. El liderazgo moderno plantea adaptar estilos según las necesidades. Revisá la página 13."
       },
       {
-        "nucleo": "b",
-        "actividad": "n1_ordenar_cronologicamente",
-        "respuesta_modelo": "Orden correcto: 0→1→2→3→4. En venta a plazos con reserva de dominio: acuerdo, firma, entrega y pago, el vendedor mantiene propiedad hasta última cuota."
+        "texto": "Delegar significa dejar de ser responsable de los resultados.",
+        "correcto": false,
+        "explicacion": "FALSO. La responsabilidad final sigue siendo del directivo que delega. Revisá la página 10."
       },
       {
-        "nucleo": "b",
-        "actividad": "n2_clasificador",
-        "respuesta_modelo": "Obra: desarrollo software a medida, construcción, armar equipo (resultado). Servicios: soporte técnico, asesoramiento, consultoría (medios/actividad)."
-      },
-      {
-        "nucleo": "c",
-        "actividad": "n1_ordenar_cronologicamente",
-        "respuesta_modelo": "Constitución SRL: acuerdo socios→contrato social→aportes→inscripción Registro→nace persona jurídica."
-      },
-      {
-        "nucleo": "c",
-        "actividad": "n2_clasificador",
-        "respuesta_modelo": "SRL: cuotas, máx 50, gerentes, restringida transmisión, PyMEs. SA: acciones, sin límite, directorio, libre transmisión, grandes empresas."
-      },
-      {
-        "nucleo": "c",
-        "actividad": "n10_comparador",
-        "respuesta_modelo": "SRL: responsabilidad limitada, pocos socios, cerrada. SA: responsabilidad limitada, muchos socios, abierta, cotizable. Ambas protegen patrimonio personal."
+        "texto": "Un clima organizacional positivo mejora compromiso y productividad.",
+        "correcto": true,
+        "explicacion": "VERDADERO. Un buen clima favorece desempeño, creatividad y colaboración. Revisá la página 12."
       }
     ]
   },
   "cierre": {
     "glosario": [
       {
-        "termino": "Contrato",
-        "emoji": "📝",
-        "definicion": "Acto jurídico mediante el cual dos o más partes manifiestan su consentimiento para crear, regular, modificar, transferir o extinguir relaciones jurídicas patrimoniales.",
+        "termino": "Comunicación",
+        "emoji": "💬",
+        "definicion": "Proceso de transmisión de información, ideas y emociones entre personas.",
         "categoria": "Concepto base"
       },
       {
-        "termino": "Consentimiento",
-        "emoji": "🤝",
-        "definicion": "Acuerdo de voluntades entre las partes, formado con la oferta de una y la aceptación de la otra. Debe ser libre y consciente.",
-        "categoria": "Elementos esenciales"
+        "termino": "Feedback",
+        "emoji": "🔄",
+        "definicion": "Respuesta del receptor que confirma si el mensaje fue comprendido.",
+        "categoria": "Procesos"
       },
       {
-        "termino": "Pacta sunt servanda",
-        "emoji": "📜",
-        "definicion": "Principio del Derecho Romano según el cual los pactos deben cumplirse. Base de la seguridad jurídica en los negocios.",
-        "categoria": "Principios"
-      },
-      {
-        "termino": "Resolución",
-        "emoji": "💔",
-        "definicion": "Extinción del contrato por incumplimiento de una parte. Sus efectos suelen ser retroactivos.",
-        "categoria": "Extinción"
-      },
-      {
-        "termino": "Vicio redhibitorio",
-        "emoji": "🔍",
-        "definicion": "Defecto oculto de la cosa vendida que la hace impropia para su destino y por el cual el vendedor debe responder.",
-        "categoria": "Compraventa"
-      },
-      {
-        "termino": "Leasing",
-        "emoji": "💼",
-        "definicion": "Contrato por el cual el dador transfiere al tomador la tenencia de un bien a cambio de un canon, dándole opción de compra al final.",
-        "categoria": "Contratos modernos"
-      },
-      {
-        "termino": "Franquicia",
-        "emoji": "🏪",
-        "definicion": "Contrato por el cual el franquiciante otorga al franquiciado el derecho a usar un sistema probado, marca y know-how a cambio de canon + regalías.",
-        "categoria": "Contratos modernos"
-      },
-      {
-        "termino": "Personalidad jurídica",
-        "emoji": "🏢",
-        "definicion": "Atributo por el cual la sociedad regularmente constituida es un sujeto de derecho distinto de los socios, con patrimonio, nombre y domicilio propios.",
-        "categoria": "Sociedades"
-      },
-      {
-        "termino": "SRL",
-        "emoji": "🏪",
-        "definicion": "Sociedad de Responsabilidad Limitada. Capital en cuotas, mín 2 y máx 50 socios, responsabilidad limitada al aporte. Ideal para PyMEs.",
-        "categoria": "Tipos societarios"
-      },
-      {
-        "termino": "SA",
-        "emoji": "🏢",
-        "definicion": "Sociedad Anónima. Capital en acciones (transmisibles libremente), responsabilidad limitada al aporte. Para empresas grandes.",
-        "categoria": "Tipos societarios"
-      },
-      {
-        "termino": "Inoponibilidad",
+        "termino": "Autoridad",
         "emoji": "⚖️",
-        "definicion": "Técnica jurídica por la cual los jueces 'corren el velo societario' y atribuyen consecuencias a los socios cuando se usa la sociedad para fraude.",
-        "categoria": "Sociedades"
+        "definicion": "Derecho legítimo de dirigir, decidir y exigir cumplimiento dentro de una organización.",
+        "categoria": "Gestión"
       },
       {
-        "termino": "SAS",
-        "emoji": "💻",
-        "definicion": "Sociedad por Acciones Simplificada. Regulada por Ley 27.349 (2017). Se constituye 100% online en 24 horas. Para emprendedores.",
-        "categoria": "Tipos societarios"
+        "termino": "Delegación",
+        "emoji": "🤝",
+        "definicion": "Asignación de tareas y autoridad a otras personas para mejorar el trabajo organizacional.",
+        "categoria": "Procesos"
+      },
+      {
+        "termino": "Motivación",
+        "emoji": "🔥",
+        "definicion": "Fuerzas internas y externas que impulsan a actuar y esforzarse.",
+        "categoria": "Psicología"
+      },
+      {
+        "termino": "Clima organizacional",
+        "emoji": "🌤️",
+        "definicion": "Percepción colectiva del ambiente de trabajo dentro de una organización.",
+        "categoria": "Gestión"
+      },
+      {
+        "termino": "Liderazgo",
+        "emoji": "👑",
+        "definicion": "Capacidad de influir y guiar personas hacia objetivos comunes.",
+        "categoria": "Concepto base"
+      },
+      {
+        "termino": "Barreras de comunicación",
+        "emoji": "🚧",
+        "definicion": "Obstáculos físicos, psicológicos, culturales u organizacionales que dificultan la comunicación.",
+        "categoria": "Procesos"
       }
     ],
     "recursos": [
       {
         "tipo": "📖 Libro",
-        "title": "Manual de Contratos Civiles y Comerciales - Ricardo Lorenzetti",
-        "desc": "Manual completo sobre teoría general de contratos y contratos en particular según el nuevo Código Civil y Comercial.",
-        "nivel": "Avanzado",
-        "color": "#1E40AF"
-      },
-      {
-        "tipo": "🌐 Web",
-        "title": "Código Civil y Comercial de la Nación - InfoLEG",
-        "desc": "Texto completo del Código vigente desde 2015 (Ley 26.994). Permite buscar artículos sobre contratos y obligaciones.",
+        "title": "Inteligencia emocional - Daniel Goleman",
+        "desc": "Explica cómo las emociones impactan en liderazgo y relaciones humanas.",
         "nivel": "Intermedio",
-        "color": "#F59E0B"
-      },
-      {
-        "tipo": "🌐 Web",
-        "title": "Ley General de Sociedades 19.550 - InfoLEG",
-        "desc": "Texto completo de la Ley de Sociedades con reformas. Fundamental para profundizar en tipos societarios.",
-        "nivel": "Intermedio",
-        "color": "#EC4899"
+        "color": "#6366F1"
       },
       {
         "tipo": "🎬 Video",
-        "title": "¿Qué es una SRL? Diferencias con SA - Emprender Mejor",
-        "desc": "Video explicativo en lenguaje simple sobre SRL vs SA, con ejemplos argentinos. Ideal para entender cuál conviene.",
+        "title": "Comunicación efectiva - TEDx",
+        "desc": "Charlas breves sobre cómo mejorar la comunicación interpersonal.",
         "nivel": "Introductorio",
+        "color": "#3B82F6"
+      },
+      {
+        "tipo": "🎧 Podcast",
+        "title": "Líderes del siglo XXI",
+        "desc": "Reflexiones sobre liderazgo moderno y trabajo en equipo.",
+        "nivel": "Intermedio",
         "color": "#10B981"
       },
       {
         "tipo": "🌐 Web",
-        "title": "Trámites a Distancia (TAD) - Constitución de SAS",
-        "desc": "Plataforma oficial para constituir SAS en menos de 24 horas. Útil para ver el proceso real de crear empresa.",
+        "title": "Great Place To Work",
+        "desc": "Sitio con investigaciones sobre clima organizacional y liderazgo.",
+        "nivel": "Avanzado",
+        "color": "#F59E0B"
+      },
+      {
+        "tipo": "📄 Artículo",
+        "title": "La importancia de la comunicación interna",
+        "desc": "Análisis sobre cómo la comunicación impacta en organizaciones modernas.",
         "nivel": "Introductorio",
-        "color": "#3B82F6"
+        "color": "#EC4899"
       }
     ]
   }
