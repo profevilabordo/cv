@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evaluación · Cuentas Patrimoniales · 5°A</title>
+<style>
+:root{
+  --bg:#0E1614; --panel:#17221E; --panel2:#1D2B26;
+  --line:rgba(134,239,172,0.14); --line2:rgba(255,255,255,0.08);
+  --txt:#EDF5F0; --muted:#9DB4A9; --dim:#5F7A6E;
+  --verde:#22C55E; --verde-claro:#4ADE80; --verde-osc:#14532D;
+  --rojo:#F87171; --amarillo:#FBBF24;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:"Segoe UI",Roboto,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  background:var(--bg); color:var(--txt); min-height:100vh;
+  display:flex; flex-direction:column; align-items:center;
+}
+.wrap{width:100%; max-width:640px; padding:20px 16px 48px}
+
+/* ---------- Cabecera institucional ---------- */
+.instit{
+  border-left:4px solid var(--verde);
+  padding:14px 16px; margin-bottom:20px;
+  background:var(--panel); border-radius:0 12px 12px 0;
+}
+.instit .esc{font-weight:700; font-size:14px; color:var(--verde-claro); letter-spacing:0.4px}
+.instit .mat{font-size:22px; font-weight:800; margin:4px 0 2px}
+.instit .sub{font-size:13px; color:var(--muted)}
+
+/* ---------- Tarjetas ---------- */
+.card{
+  background:var(--panel); border:1px solid var(--line);
+  border-radius:16px; padding:24px; margin-bottom:16px;
+}
+h2{font-size:18px; margin-bottom:6px}
+p.lead{font-size:14px; color:var(--muted); line-height:1.55; margin-bottom:18px}
+
+label{display:block; font-size:13px; color:var(--muted); margin:14px 0 6px}
+select,input[type=text]{
+  width:100%; padding:13px 14px; border-radius:12px;
+  border:1.5px solid var(--line2); background:var(--bg); color:var(--txt);
+  font-size:16px; outline:none;
+}
+select:focus,input:focus{border-color:var(--verde)}
+.btn{
+  display:block; width:100%; padding:14px; margin-top:20px;
+  border:none; border-radius:12px; cursor:pointer;
+  background:var(--verde); color:#04150B; font-size:16px; font-weight:800;
+}
+.btn:hover{background:var(--verde-claro)}
+.btn:disabled{background:var(--dim); cursor:not-allowed; color:#0E1614}
+.btn.sec{background:transparent; border:1.5px solid var(--line2); color:var(--muted); font-weight:600}
+.btn.sec:hover{border-color:var(--verde); color:var(--txt)}
+.err{color:var(--rojo); font-size:13px; font-weight:600; margin-top:12px; display:none}
+.hint{color:var(--dim); font-size:12px; margin-top:14px; text-align:center}
+
+/* ---------- Barra superior durante la evaluación ---------- */
+.topbar{
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:14px; font-size:13px; color:var(--muted);
+}
+#timer{
+  font-variant-numeric:tabular-nums; font-weight:800; font-size:18px;
+  color:var(--verde-claro); background:var(--panel); border:1px solid var(--line);
+  padding:6px 14px; border-radius:10px;
+}
+#timer.alerta{color:var(--amarillo)}
+#timer.critico{color:var(--rojo); animation:pulso 1s infinite}
+@keyframes pulso{50%{opacity:0.55}}
+.progreso{height:6px; background:var(--panel2); border-radius:3px; overflow:hidden; margin-bottom:18px}
+.progreso > div{height:100%; background:var(--verde); width:0%; transition:width 0.25s}
+
+/* ---------- Pregunta ---------- */
+.qnum{font-size:13px; color:var(--dim); margin-bottom:10px}
+.cuenta{
+  font-size:26px; font-weight:800; text-align:center;
+  background:var(--panel2); border:1px solid var(--line);
+  border-radius:14px; padding:26px 16px; margin-bottom:18px;
+}
+.cuenta.calc{font-size:17px; font-weight:600; line-height:1.6; text-align:left; padding:20px 18px}
+.consigna{font-size:14px; color:var(--muted); text-align:center; margin-bottom:16px}
+.opts{display:grid; gap:10px}
+.opt{
+  padding:15px; border-radius:12px; border:1.5px solid var(--line2);
+  background:var(--bg); color:var(--txt); font-size:16px; font-weight:600;
+  cursor:pointer; text-align:center; transition:border-color .15s, background .15s;
+}
+.opt:hover{border-color:var(--verde)}
+.opt.sel{border-color:var(--verde); background:var(--verde-osc); color:var(--verde-claro)}
+.nav{display:flex; gap:10px; margin-top:20px}
+.nav .btn{margin-top:0}
+
+/* ---------- Resultado ---------- */
+.notaBig{
+  text-align:center; padding:10px 0 4px;
+}
+.notaBig .n{font-size:56px; font-weight:900; color:var(--verde-claro)}
+.notaBig .n.mal{color:var(--rojo)}
+.notaBig .d{font-size:14px; color:var(--muted); margin-top:4px}
+.detalle{margin-top:18px; border-top:1px solid var(--line2); padding-top:14px}
+.fila{
+  display:flex; justify-content:space-between; align-items:center; gap:10px;
+  padding:9px 4px; border-bottom:1px solid var(--line2); font-size:14px;
+}
+.fila .c{font-weight:700}
+.fila .r{font-size:13px; color:var(--muted); text-align:right}
+.fila.ok .r::before{content:"✔ "; color:var(--verde-claro)}
+.fila.no .r::before{content:"✘ "; color:var(--rojo)}
+.envio{margin-top:18px; font-size:13px; text-align:center; padding:12px; border-radius:10px}
+.envio.ok{background:var(--verde-osc); color:var(--verde-claro)}
+.envio.fail{background:rgba(248,113,113,0.12); color:var(--rojo)}
+.envio.enviando{background:var(--panel2); color:var(--muted)}
+.oculto{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="instit">
+    <div class="esc">E.E.T.P. N° 602 "Gral. José de San Martín" · Venado Tuerto</div>
+    <div class="mat">Cuentas Patrimoniales</div>
+    <div class="sub">Organización y Gestión · 5° Año "A" · Prof. Verónica Vila Bordó</div>
+  </div>
+
+  <!-- ================= LOGIN ================= -->
+  <div class="card" id="pantLogin">
+    <h2>Ingresá con tu nombre y tu clave</h2>
+    <p class="lead">Evaluación de 40 preguntas: 20 para clasificar cuentas en <b>Activo</b>, <b>Pasivo</b> o <b>Patrimonio Neto</b>, 15 para <b>identificar la cuenta</b> a partir de su descripción, y 5 de cálculo aplicando la ecuación patrimonial (<b>A = P + PN</b>). Tenés <b>20 minutos</b> desde que empezás. Podés hacerla las veces que quieras, pero la nota que vale es la del <b>primer intento</b>. Al entregar, tu resultado se envía automáticamente a la profe.</p>
+    <label for="selAlumno">Alumno/a</label>
+    <select id="selAlumno"><option value="">— Elegí tu nombre —</option></select>
+    <label for="inpClave">Clave personal</label>
+    <input type="text" id="inpClave" placeholder="Escribí tu clave..." autocomplete="off">
+    <p class="err" id="errLogin"></p>
+    <button class="btn" id="btnEntrar">Comenzar la evaluación</button>
+    <p class="hint">Si te equivocás 3 veces con la clave, el acceso se bloquea. Cualquier problema, avisale a la profe.</p>
+  </div>
+
+  <!-- ================= EVALUACIÓN ================= -->
+  <div class="oculto" id="pantEval">
+    <div class="topbar">
+      <span id="lblAlumno"></span>
+      <span id="timer">20:00</span>
+    </div>
+    <div class="progreso"><div id="barProg"></div></div>
+    <div class="card">
+      <div class="qnum" id="qnum"></div>
+      <div class="cuenta" id="qcuenta"></div>
+      <div class="consigna" id="qconsigna"></div>
+      <div class="opts" id="qopts"></div>
+      <div class="nav">
+        <button class="btn sec" id="btnAnt">← Anterior</button>
+        <button class="btn" id="btnSig">Siguiente →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= RESULTADO ================= -->
+  <div class="card oculto" id="pantFin">
+    <div class="notaBig">
+      <div class="n" id="notaFinal"></div>
+      <div class="d" id="notaDet"></div>
+    </div>
+    <div class="envio enviando" id="estadoEnvio">Enviando tu resultado a la profe...</div>
+    <button class="btn sec oculto" id="btnReintentar">Reintentar envío 📤</button>
+    <div class="detalle" id="detalleFilas"></div>
+  </div>
+
+</div>
+
+<script>
+/* ============================================================
+   EVALUACIÓN — CUENTAS PATRIMONIALES · 5°A · O. y Gestión
+   EETP N°602 · FormSubmit → profevilabordo@gmail.com
+   Regla: intentos ilimitados, cuenta la nota del PRIMER intento.
+   PROFE1 / PROFE2 = cuentas de prueba (se marcan para excluir).
+   ============================================================ */
+
+const CONFIG = {
+  escuela: 'EETP N°602 "Gral. José de San Martín"',
+  curso: '5° "A"',
+  asignatura: 'Organización y Gestión',
+  evaluacion: 'Cuentas Patrimoniales (Activo / Pasivo / PN)',
+  trimestre: '3°',
+  mail: 'https://formsubmit.co/ajax/profevilabordo@gmail.com',
+  minutos: 20,
+  storagePrefix: 'cp5a_'
+};
+
+const ALUMNOS = [
+  {n:'ALBORNOZ, ROMÁN JAVIER', c:'krakow'},
+  {n:'ALBORUA, JOCABED NAHIR', c:'salvador'},
+  {n:'ALI, SAÍD BAUTISTA', c:'recife'},
+  {n:'BANEGAS, BRIAN AQUILES', c:'guadalajara'},
+  {n:'BONFIGLIO, ZAIRA ARACELI', c:'monterrey'},
+  {n:'BUSTOS, IGNACIO', c:'toronto'},
+  {n:'CASTILLO, LUDMILA SOLEDAD', c:'montreal'},
+  {n:'CEJAS, MELANI TATIANA', c:'vancouver'},
+  {n:'CLERICO, MÁXIMO EMANUEL', c:'casablanca'},
+  {n:'CORONEL, UZIEL EXEQUIEL', c:'capetown'},
+  {n:'DELLOSA, VALENTÍN SEBASTIÁN', c:'lagos'},
+  {n:'FERREYRA, JORGE AGUSTÍN', c:'amazonas'},
+  {n:'GRAGLIA, VALENTINA ANAHÍ', c:'nilo'},
+  {n:'LEALI, ISABEL', c:'ganges'},
+  {n:'MONTIVERO, ROMÁN MARTÍN', c:'danubio'},
+  {n:'MORENO, THIAGO NICOLÁS', c:'volga'},
+  {n:'MOYA GUZMAN, MIQUEAS', c:'misisipi'},
+  {n:'PROFE1', c:'profe1', profe:true},
+  {n:'PROFE2', c:'profe2', profe:true},
+  {n:'RODRIGUEZ, JOSEFINA ABRIL', c:'yangtsé'},
+  {n:'TORRILLA, LOURDES AIMÉ', c:'orinoco'},
+  {n:'ZUVIRIA, AGUSTINA', c:'parana'}
+];
+
+/* Banco: 20 cuentas con su elemento patrimonial */
+const BANCO = [
+  {q:'Caja', r:'Activo'},
+  {q:'Banco Nación Cuenta Corriente', r:'Activo'},
+  {q:'Deudores por Ventas', r:'Activo'},
+  {q:'Documentos a Cobrar', r:'Activo'},
+  {q:'Valores Diferidos a Depositar', r:'Activo'},
+  {q:'Mercaderías', r:'Activo'},
+  {q:'Rodados', r:'Activo'},
+  {q:'Muebles y Útiles', r:'Activo'},
+  {q:'Inmuebles', r:'Activo'},
+  {q:'Proveedores', r:'Pasivo'},
+  {q:'Documentos a Pagar', r:'Pasivo'},
+  {q:'Valores Diferidos a Pagar', r:'Pasivo'},
+  {q:'Acreedores Varios', r:'Pasivo'},
+  {q:'Sueldos a Pagar', r:'Pasivo'},
+  {q:'Tarjeta de Crédito', r:'Pasivo'},
+  {q:'Impuestos a Pagar', r:'Pasivo'},
+  {q:'Hipotecas a Pagar', r:'Pasivo'},
+  {q:'Capital', r:'Patrimonio Neto'},
+  {q:'Reservas', r:'Patrimonio Neto'},
+  {q:'Resultados Acumulados', r:'Patrimonio Neto'},
+  /* --- Identificar la cuenta a partir de su descripción --- */
+  {desc:true, q:'Dinero en efectivo que tiene la empresa.', opts:['Caja','Banco Nación Cuenta Corriente','Mercaderías'], r:'Caja'},
+  {desc:true, q:'Dinero depositado en el banco, que se usa mediante cheques o transferencias.', opts:['Banco Nación Cuenta Corriente','Caja','Documentos a Cobrar'], r:'Banco Nación Cuenta Corriente'},
+  {desc:true, q:'Personas que nos deben dinero por ventas realizadas en cuenta corriente, sin documento firmado.', opts:['Deudores por Ventas','Proveedores','Documentos a Cobrar'], r:'Deudores por Ventas'},
+  {desc:true, q:'Pagarés firmados por clientes a favor de la empresa.', opts:['Documentos a Cobrar','Documentos a Pagar','Deudores por Ventas'], r:'Documentos a Cobrar'},
+  {desc:true, q:'Cheques de pago diferido recibidos de clientes, que todavía no se depositaron.', opts:['Valores Diferidos a Depositar','Valores Diferidos a Pagar','Caja'], r:'Valores Diferidos a Depositar'},
+  {desc:true, q:'Bienes que la empresa compra con la intención de revenderlos.', opts:['Mercaderías','Muebles y Útiles','Rodados'], r:'Mercaderías'},
+  {desc:true, q:'Vehículos de la empresa: autos, camionetas, motos.', opts:['Rodados','Inmuebles','Muebles y Útiles'], r:'Rodados'},
+  {desc:true, q:'Escritorios, sillas, estanterías y computadoras que usa la empresa.', opts:['Muebles y Útiles','Mercaderías','Rodados'], r:'Muebles y Útiles'},
+  {desc:true, q:'Edificios y terrenos que son propiedad de la empresa.', opts:['Inmuebles','Rodados','Mercaderías'], r:'Inmuebles'},
+  {desc:true, q:'Personas o empresas a las que les debemos por compras de mercaderías en cuenta corriente.', opts:['Proveedores','Deudores por Ventas','Acreedores Varios'], r:'Proveedores'},
+  {desc:true, q:'Pagarés firmados por la empresa a favor de terceros.', opts:['Documentos a Pagar','Documentos a Cobrar','Proveedores'], r:'Documentos a Pagar'},
+  {desc:true, q:'Cheques de pago diferido entregados por la empresa, que el beneficiario todavía no cobró.', opts:['Valores Diferidos a Pagar','Valores Diferidos a Depositar','Documentos a Pagar'], r:'Valores Diferidos a Pagar'},
+  {desc:true, q:'Deudas por compras en cuenta corriente de bienes que NO son mercaderías (por ejemplo, un escritorio).', opts:['Acreedores Varios','Proveedores','Documentos a Pagar'], r:'Acreedores Varios'},
+  {desc:true, q:'Aportes realizados por el o los dueños al iniciar la actividad de la empresa.', opts:['Capital','Reservas','Caja'], r:'Capital'},
+  {desc:true, q:'Ganancias de ejercicios anteriores que quedaron en la empresa sin distribuir.', opts:['Resultados Acumulados','Capital','Reservas'], r:'Resultados Acumulados'},
+  /* --- Cálculo con la ecuación patrimonial: A = P + PN --- */
+  {calc:true, q:'El Activo de una empresa es de $200.000 y su Pasivo es de $52.000. ¿Cuánto vale el Patrimonio Neto?', opts:['$148.000','$252.000','$158.000'], r:'$148.000'},
+  {calc:true, q:'Una empresa tiene un Pasivo de $80.000 y un Patrimonio Neto de $120.000. ¿Cuánto vale su Activo?', opts:['$200.000','$40.000','$180.000'], r:'$200.000'},
+  {calc:true, q:'El Activo es de $500.000 y el Patrimonio Neto es de $350.000. ¿Cuánto vale el Pasivo?', opts:['$150.000','$850.000','$250.000'], r:'$150.000'},
+  {calc:true, q:'El Activo de un comercio es de $1.200.000 y sus deudas totales (Pasivo) suman $450.000. ¿Cuánto vale el Patrimonio Neto?', opts:['$750.000','$1.650.000','$650.000'], r:'$750.000'},
+  {calc:true, q:'Una empresa debe $95.000 a terceros (Pasivo) y su Patrimonio Neto es de $205.000. ¿Cuánto vale su Activo?', opts:['$300.000','$110.000','$290.000'], r:'$300.000'}
+];
+
+/* ---------- Estado ---------- */
+let alumno=null, preguntas=[], respuestas=[], idx=0;
+let segundosRestantes=CONFIG.minutos*60, timerInt=null, inicioTs=null;
+let payloadPendiente=null;
+
+/* ---------- Utilidades ---------- */
+const $=id=>document.getElementById(id);
+const norm=s=>s.trim().toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+function shuffle(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[b[i],b[j]]=[b[j],b[i]];}return b;}
+const lsKey=k=>CONFIG.storagePrefix+k;
+
+/* ---------- Login ---------- */
+const sel=$('selAlumno');
+ALUMNOS.forEach((a,i)=>{const o=document.createElement('option');o.value=i;o.textContent=a.n;sel.appendChild(o);});
+
+function fallosLogin(){return parseInt(localStorage.getItem(lsKey('fallos'))||'0');}
+
+$('btnEntrar').addEventListener('click',()=>{
+  const err=$('errLogin');
+  if(localStorage.getItem(lsKey('bloqueado'))==='1'){
+    err.textContent='❌ Acceso bloqueado por intentos fallidos. Avisale a la profe para desbloquearte.';
+    err.style.display='block'; return;
+  }
+  const i=sel.value, clave=$('inpClave').value;
+  if(i===''){err.textContent='Elegí tu nombre de la lista.';err.style.display='block';return;}
+  const a=ALUMNOS[i];
+  if(norm(clave)!==norm(a.c)){
+    const f=fallosLogin()+1;
+    localStorage.setItem(lsKey('fallos'),f);
+    if(f>=3){
+      localStorage.setItem(lsKey('bloqueado'),'1');
+      err.textContent='❌ Tercera clave incorrecta: acceso bloqueado. Avisale a la profe.';
+    }else{
+      err.textContent='❌ Clave incorrecta. Te quedan '+(3-f)+' intento(s).';
+    }
+    err.style.display='block'; return;
+  }
+  localStorage.setItem(lsKey('fallos'),'0');
+  alumno=a;
+  iniciarEvaluacion();
+});
+
+/* ---------- Evaluación ---------- */
+function iniciarEvaluacion(){
+  preguntas=shuffle(BANCO).map(p=>p.opts?{...p,opts:shuffle(p.opts)}:p);
+  respuestas=new Array(preguntas.length).fill(null);
+  idx=0; inicioTs=Date.now();
+  $('pantLogin').classList.add('oculto');
+  $('pantEval').classList.remove('oculto');
+  $('lblAlumno').textContent=alumno.n.split(',')[0];
+  renderPregunta();
+  timerInt=setInterval(tick,1000);
+}
+
+function tick(){
+  segundosRestantes--;
+  const m=Math.floor(segundosRestantes/60), s=segundosRestantes%60;
+  const t=$('timer');
+  t.textContent=m+':'+String(s).padStart(2,'0');
+  if(segundosRestantes<=60){t.className='critico';}
+  else if(segundosRestantes<=180){t.className='alerta';}
+  if(segundosRestantes<=0){clearInterval(timerInt);entregar(true);}
+}
+
+function renderPregunta(){
+  const p=preguntas[idx];
+  $('qnum').textContent='Pregunta '+(idx+1)+' de '+preguntas.length;
+  const qc=$('qcuenta');
+  qc.textContent=p.q;
+  qc.classList.toggle('calc',!!(p.calc||p.desc));
+  $('qconsigna').textContent=p.calc
+    ? 'Aplicá la ecuación patrimonial: Activo = Pasivo + Patrimonio Neto'
+    : p.desc
+      ? '¿Qué cuenta corresponde a esta descripción?'
+      : '¿A qué elemento del patrimonio pertenece esta cuenta?';
+  const cont=$('qopts');
+  cont.innerHTML='';
+  const opciones=p.opts||['Activo','Pasivo','Patrimonio Neto'];
+  opciones.forEach(v=>{
+    const b=document.createElement('button');
+    b.className='opt'+(respuestas[idx]===v?' sel':'');
+    b.textContent=v;
+    b.addEventListener('click',()=>{
+      respuestas[idx]=v;
+      renderPregunta();
+      if(idx<preguntas.length-1){setTimeout(()=>{idx++;renderPregunta();},180);}
+    });
+    cont.appendChild(b);
+  });
+  $('barProg').style.width=(respuestas.filter(r=>r!==null).length/preguntas.length*100)+'%';
+  $('btnAnt').disabled=(idx===0);
+  $('btnSig').textContent=(idx===preguntas.length-1)?'Entregar ✅':'Siguiente →';
+}
+
+$('btnAnt').addEventListener('click',()=>{if(idx>0){idx--;renderPregunta();}});
+$('btnSig').addEventListener('click',()=>{
+  if(idx<preguntas.length-1){idx++;renderPregunta();return;}
+  const sin=respuestas.filter(r=>r===null).length;
+  if(sin>0 && !confirm('Te quedan '+sin+' pregunta(s) sin responder. ¿Entregar igual?'))return;
+  entregar(false);
+});
+
+/* ---------- Entrega y envío ---------- */
+function entregar(porTiempo){
+  clearInterval(timerInt);
+  $('pantEval').classList.add('oculto');
+  $('pantFin').classList.remove('oculto');
+
+  let aciertos=0;
+  const filas=$('detalleFilas');
+  let detalleTxt='';
+  preguntas.forEach((p,i)=>{
+    const resp=respuestas[i]||'(sin responder)';
+    const ok=resp===p.r;
+    if(ok)aciertos++;
+    detalleTxt+=(i+1)+'. '+p.q+' → correcta: '+p.r+' | respondió: '+resp+(ok?' ✔':' ✘')+'\n';
+    const div=document.createElement('div');
+    div.className='fila '+(ok?'ok':'no');
+    div.innerHTML='<span class="c">'+p.q+'</span><span class="r">'+resp+(ok?'':' · era '+p.r)+'</span>';
+    filas.appendChild(div);
+  });
+
+  const nota=Math.round(aciertos/preguntas.length*100)/10;
+  $('notaFinal').textContent=nota.toFixed(1);
+  if(nota<6)$('notaFinal').classList.add('mal');
+  $('notaDet').textContent=aciertos+' de '+preguntas.length+' correctas'+(porTiempo?' · entregada por fin del tiempo':'');
+
+  const kInt=lsKey('int_'+norm(alumno.c));
+  const intento=parseInt(localStorage.getItem(kInt)||'0')+1;
+  localStorage.setItem(kInt,intento);
+
+  const segsUsados=Math.min(CONFIG.minutos*60, Math.round((Date.now()-inicioTs)/1000));
+  const mm=Math.floor(segsUsados/60), ss=segsUsados%60;
+
+  payloadPendiente={
+    _subject:'[5°A OyG] Cuentas Patrimoniales — '+alumno.n+' — Nota: '+nota.toFixed(1)+(alumno.profe?' [PRUEBA]':''),
+    'Escuela':CONFIG.escuela,
+    'Curso':CONFIG.curso,
+    'Asignatura':CONFIG.asignatura,
+    'Evaluación':CONFIG.evaluacion,
+    'Trimestre':CONFIG.trimestre,
+    'Alumno':alumno.n,
+    'Clave':alumno.c,
+    'Tipo de cuenta':alumno.profe?'CUENTA DE PRUEBA — EXCLUIR DE NOTAS':'Alumno regular',
+    'Intento':intento,
+    'Cuenta para la nota (primer intento)':(intento===1 && !alumno.profe)?'SÍ':'NO',
+    'Nota':nota.toFixed(1),
+    'Aciertos':aciertos+' / '+preguntas.length,
+    'Tiempo utilizado':mm+' min '+String(ss).padStart(2,'0')+' seg'+(porTiempo?' (se acabó el tiempo)':''),
+    'Detalle':detalleTxt
+  };
+  enviar();
+}
+
+function enviar(){
+  const est=$('estadoEnvio');
+  est.className='envio enviando';
+  est.textContent='Enviando tu resultado a la profe...';
+  $('btnReintentar').classList.add('oculto');
+  fetch(CONFIG.mail,{
+    method:'POST',
+    headers:{'Content-Type':'application/json','Accept':'application/json'},
+    body:JSON.stringify(payloadPendiente)
+  }).then(r=>{
+    if(!r.ok)throw new Error('HTTP '+r.status);
+    return r.json();
+  }).then(()=>{
+    est.className='envio ok';
+    est.textContent='✅ Resultado enviado a la profe. Ya podés cerrar la página.';
+  }).catch(()=>{
+    est.className='envio fail';
+    est.textContent='⚠️ No se pudo enviar el resultado. Verificá tu conexión y tocá "Reintentar envío". Si sigue fallando, sacale captura a esta pantalla y mandásela a la profe.';
+    $('btnReintentar').classList.remove('oculto');
+  });
+}
+$('btnReintentar').addEventListener('click',enviar);
+</script>
+</body>
+</html>
