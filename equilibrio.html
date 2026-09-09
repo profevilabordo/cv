@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oferta, Demanda y Elasticidad</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,300&family=Inter:wght@400;500;600&display=swap');
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --verde:       #1B5E20;
+    --verde-med:   #2E7D32;
+    --verde-claro: #E8F5E9;
+    --verde-borde: #A5D6A7;
+    --amarillo:    #FFF9C4;
+    --amarillo-borde: #F9A825;
+    --azul:        #0D47A1;
+    --azul-claro:  #E3F2FD;
+    --rojo:        #B71C1C;
+    --gris-fondo:  #F7F7F5;
+    --gris-borde:  #E0E0E0;
+    --texto:       #1A1A1A;
+    --texto-suave: #555;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--gris-fondo);
+    color: var(--texto);
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--verde);
+    color: #fff;
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+  }
+  header .materia {
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.75;
+    margin-bottom: 0.5rem;
+  }
+  header h1 {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    line-height: 1.25;
+    margin-bottom: 0.6rem;
+  }
+  header p {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--verde-med);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0;
+  }
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.65rem 1.2rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: background 0.2s;
+  }
+  nav a:hover { background: rgba(255,255,255,0.15); }
+
+  /* MAIN */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+  }
+
+  /* SECCIÓN */
+  section {
+    margin-bottom: 3rem;
+  }
+  .sec-titulo {
+    font-family: 'Merriweather', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--verde);
+    border-left: 4px solid var(--verde);
+    padding-left: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  /* DEFINICIÓN */
+  .definicion {
+    background: var(--verde-claro);
+    border: 1px solid var(--verde-borde);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+  }
+  .definicion strong { color: var(--verde); }
+
+  /* TABLA */
+  .tabla-wrap { overflow-x: auto; margin: 1.25rem 0; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  thead th {
+    background: var(--verde);
+    color: #fff;
+    padding: 0.7rem 1rem;
+    text-align: center;
+    font-weight: 600;
+  }
+  tbody td {
+    padding: 0.6rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid var(--gris-borde);
+  }
+  tbody tr:nth-child(even) td { background: #F0F4F0; }
+  .fila-eq td {
+    background: var(--amarillo) !important;
+    font-weight: 700;
+    color: var(--verde);
+    border-top: 2px solid var(--amarillo-borde);
+    border-bottom: 2px solid var(--amarillo-borde);
+  }
+  .badge {
+    display: inline-block;
+    padding: 0.15rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+  .badge-exc { background: #FFECB3; color: #E65100; }
+  .badge-esc { background: #FFCDD2; color: #B71C1C; }
+  .badge-eq  { background: #C8E6C9; color: #1B5E20; }
+
+  /* GRÁFICO */
+  .grafico-box {
+    background: #fff;
+    border: 1px solid var(--gris-borde);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin: 1.25rem 0;
+  }
+  .grafico-box h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--texto-suave);
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  /* LEYENDA */
+  .leyenda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 0.75rem;
+    font-size: 0.82rem;
+    color: var(--texto-suave);
+  }
+  .leyenda span { display: flex; align-items: center; gap: 6px; }
+  .dot-line { width: 24px; height: 3px; border-radius: 2px; display: inline-block; }
+
+  /* GRID ELASTICIDAD */
+  .grid-elasticidad {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+    margin: 1.25rem 0;
+  }
+  .card-elast {
+    background: #fff;
+    border: 1px solid var(--gris-borde);
+    border-radius: 10px;
+    padding: 10px;
+  }
+  .card-elast .card-titulo {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--verde);
+    margin-bottom: 2px;
+  }
+  .card-elast .card-sub {
+    font-size: 0.72rem;
+    color: var(--texto-suave);
+    margin-bottom: 8px;
+  }
+
+  /* FÓRMULA */
+  .formula-box {
+    background: #fff;
+    border: 1px solid var(--gris-borde);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin: 1.25rem 0;
+    text-align: center;
+  }
+  .formula {
+    font-size: 1.1rem;
+    font-family: 'Merriweather', serif;
+    font-style: italic;
+    color: var(--verde);
+    margin: 0.5rem 0;
+  }
+
+  /* CALCULADORA */
+  .calc-box {
+    background: #fff;
+    border: 1px solid var(--gris-borde);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin: 1.25rem 0;
+  }
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .calc-grid label { font-size: 0.8rem; color: var(--texto-suave); display: block; margin-bottom: 3px; }
+  .calc-grid input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--gris-borde);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
+  }
+  .calc-grid input:focus { outline: 2px solid var(--verde-med); border-color: transparent; }
+  .tabs { display: flex; gap: 8px; margin-bottom: 12px; }
+  .tab {
+    padding: 0.4rem 1rem;
+    border: 1px solid var(--gris-borde);
+    border-radius: 6px;
+    font-size: 0.82rem;
+    cursor: pointer;
+    background: #fff;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.15s;
+  }
+  .tab.activo { background: var(--verde); color: #fff; border-color: var(--verde); }
+  .btn-calc {
+    width: 100%;
+    background: var(--verde);
+    color: #fff;
+    border: none;
+    padding: 0.65rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: background 0.2s;
+  }
+  .btn-calc:hover { background: var(--verde-med); }
+  .resultado-calc {
+    display: none;
+    margin-top: 14px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--gris-borde);
+  }
+  .res-pasos {
+    background: #F7F7F5;
+    padding: 0.9rem 1rem;
+    font-size: 0.83rem;
+    color: var(--texto-suave);
+    line-height: 1.9;
+    border-bottom: 1px solid var(--gris-borde);
+  }
+  .res-pasos strong { color: var(--texto); }
+  .res-tipo {
+    padding: 0.9rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .res-ed {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Merriweather', serif;
+    min-width: 70px;
+    text-align: center;
+  }
+  .res-desc { font-size: 0.87rem; }
+  .res-desc strong { display: block; font-size: 1rem; margin-bottom: 2px; }
+
+  /* TABLA TIPOS */
+  .tabla-tipos thead th:first-child { text-align: left; }
+  .tabla-tipos tbody td:first-child { text-align: left; font-weight: 600; }
+
+  /* NOTA */
+  .nota {
+    background: #FFF8E1;
+    border-left: 3px solid #F9A825;
+    padding: 0.75rem 1rem;
+    border-radius: 0 6px 6px 0;
+    font-size: 0.85rem;
+    color: #555;
+    margin: 1rem 0;
+  }
+
+  /* ACTIVIDAD */
+  .actividad {
+    background: var(--azul-claro);
+    border: 1px solid #90CAF9;
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+    margin-top: 1.25rem;
+  }
+  .actividad h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--azul);
+    margin-bottom: 0.75rem;
+  }
+  .actividad ol { padding-left: 1.2rem; font-size: 0.9rem; color: var(--texto-suave); }
+  .actividad ol li { margin-bottom: 0.5rem; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.8rem;
+    color: #aaa;
+    border-top: 1px solid var(--gris-borde);
+  }
+
+  @media (max-width: 540px) {
+    .calc-grid { grid-template-columns: 1fr; }
+    .tabs { flex-wrap: wrap; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="materia">Economía · Secundario</p>
+  <h1>Oferta, Demanda<br>y Elasticidad</h1>
+  <p>Conceptos fundamentales del mercado y cómo los precios determinan las decisiones</p>
+</header>
+
+<nav>
+  <a href="#demanda">Demanda</a>
+  <a href="#oferta">Oferta</a>
+  <a href="#equilibrio">Equilibrio</a>
+  <a href="#elasticidad-d">Elast. Demanda</a>
+  <a href="#elasticidad-o">Elast. Oferta</a>
+  <a href="#calculadora">Calculadora</a>
+</nav>
+
+<main>
+
+  <!-- =================== DEMANDA =================== -->
+  <section id="demanda">
+    <h2 class="sec-titulo">Curva de Demanda</h2>
+
+    <div class="definicion">
+      La <strong>demanda</strong> indica la cantidad de un bien que los consumidores están dispuestos a comprar a cada nivel de precio. Cuando el precio sube, la cantidad demandada baja — y viceversa.
+    </div>
+
+    <div class="tabla-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Precio</th>
+            <th>Cantidad demandada (pizzas)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>$ 12.000</td><td>100</td></tr>
+          <tr><td>$ 10.000</td><td>200</td></tr>
+          <tr><td>$ 8.000</td><td>350</td></tr>
+          <tr><td>$ 6.000</td><td>500</td></tr>
+          <tr><td>$ 4.000</td><td>700</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grafico-box">
+      <h3>Curva de Demanda de Pizzas</h3>
+      <div style="position:relative;height:260px;">
+        <canvas id="grafDemanda"></canvas>
+      </div>
+      <div class="leyenda">
+        <span><span class="dot-line" style="background:#1565C0;"></span>Demanda</span>
+      </div>
+    </div>
+
+    <div class="nota">
+      📌 La curva de demanda tiene <strong>pendiente negativa</strong>: baja de izquierda a derecha. A mayor precio, los consumidores compran menos.
+    </div>
+  </section>
+
+  <!-- =================== OFERTA =================== -->
+  <section id="oferta">
+    <h2 class="sec-titulo">Curva de Oferta</h2>
+
+    <div class="definicion">
+      La <strong>oferta</strong> indica la cantidad de un bien que los productores están dispuestos a vender a cada nivel de precio. Cuando el precio sube, los productores quieren vender más.
+    </div>
+
+    <div class="tabla-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Precio</th>
+            <th>Cantidad ofrecida (pizzas)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>$ 12.000</td><td>700</td></tr>
+          <tr><td>$ 10.000</td><td>550</td></tr>
+          <tr><td>$ 8.000</td><td>350</td></tr>
+          <tr><td>$ 6.000</td><td>200</td></tr>
+          <tr><td>$ 4.000</td><td>100</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grafico-box">
+      <h3>Curva de Oferta de Pizzas</h3>
+      <div style="position:relative;height:260px;">
+        <canvas id="grafOferta"></canvas>
+      </div>
+      <div class="leyenda">
+        <span><span class="dot-line" style="background:#2E7D32;"></span>Oferta</span>
+      </div>
+    </div>
+
+    <div class="nota">
+      📌 La curva de oferta tiene <strong>pendiente positiva</strong>: sube de izquierda a derecha. A mayor precio, los productores ofrecen más.
+    </div>
+  </section>
+
+  <!-- =================== EQUILIBRIO =================== -->
+  <section id="equilibrio">
+    <h2 class="sec-titulo">Punto de Equilibrio</h2>
+
+    <div class="definicion">
+      El <strong>equilibrio de mercado</strong> es el punto donde la cantidad demandada y la cantidad ofrecida son iguales. Allí se fija el <strong>precio de equilibrio</strong> y la <strong>cantidad de equilibrio</strong>.
+    </div>
+
+    <div class="tabla-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Precio</th>
+            <th>Cant. demandada</th>
+            <th>Cant. ofrecida</th>
+            <th>Situación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>$ 12.000</td><td>100</td><td>700</td>
+            <td><span class="badge badge-exc">Excedente</span></td>
+          </tr>
+          <tr>
+            <td>$ 10.000</td><td>200</td><td>550</td>
+            <td><span class="badge badge-exc">Excedente</span></td>
+          </tr>
+          <tr class="fila-eq">
+            <td>$ 8.000</td><td>350</td><td>350</td>
+            <td><span class="badge badge-eq">⚖ EQUILIBRIO</span></td>
+          </tr>
+          <tr>
+            <td>$ 6.000</td><td>500</td><td>200</td>
+            <td><span class="badge badge-esc">Escasez</span></td>
+          </tr>
+          <tr>
+            <td>$ 4.000</td><td>700</td><td>100</td>
+            <td><span class="badge badge-esc">Escasez</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grafico-box">
+      <h3>Oferta, Demanda y Punto de Equilibrio</h3>
+      <div style="position:relative;height:300px;">
+        <canvas id="grafEquilibrio"></canvas>
+      </div>
+      <div class="leyenda">
+        <span><span class="dot-line" style="background:#1565C0;"></span>Demanda</span>
+        <span><span class="dot-line" style="background:#2E7D32;"></span>Oferta</span>
+        <span><span style="width:12px;height:12px;border-radius:50%;background:#D84315;display:inline-block;"></span>Equilibrio</span>
+      </div>
+    </div>
+
+    <div class="nota">
+      ⚡ Por <strong>encima</strong> del precio de equilibrio hay <strong>excedente</strong> (sobra oferta). Por <strong>debajo</strong> hay <strong>escasez</strong> (falta oferta). El mercado tiende naturalmente al equilibrio.
+    </div>
+  </section>
+
+  <!-- =================== ELASTICIDAD DEMANDA =================== -->
+  <section id="elasticidad-d">
+    <h2 class="sec-titulo">Elasticidad de la Demanda</h2>
+
+    <div class="definicion">
+      La <strong>elasticidad-precio de la demanda (Ed)</strong> mide cuánto cambia la cantidad demandada cuando cambia el precio. Indica si los consumidores son muy o poco sensibles al precio.
+    </div>
+
+    <div class="formula-box">
+      <p style="font-size:0.85rem;color:var(--texto-suave);margin-bottom:4px;">Fórmula</p>
+      <p class="formula">Ed = |% Δ Cantidad demandada ÷ % Δ Precio|</p>
+      <p style="font-size:0.8rem;color:var(--texto-suave);margin-top:6px;">Se usa valor absoluto porque la relación precio-cantidad es siempre negativa</p>
+    </div>
+
+    <div class="tabla-wrap">
+      <table class="tabla-tipos">
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Valor</th>
+            <th>Significado</th>
+            <th>Ejemplo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Elástica</td><td>Ed &gt; 1</td><td>Cant. cambia más que el precio</td><td>Bienes de lujo</td></tr>
+          <tr><td>Inelástica</td><td>Ed &lt; 1</td><td>Cant. cambia menos que el precio</td><td>Medicamentos, sal</td></tr>
+          <tr><td>Unitaria</td><td>Ed = 1</td><td>Cambia igual que el precio</td><td>—</td></tr>
+          <tr><td>Perf. elástica</td><td>Ed = ∞</td><td>A un precio fijo: cualquier cantidad</td><td>Caso teórico</td></tr>
+          <tr><td>Perf. inelástica</td><td>Ed = 0</td><td>Cantidad no cambia con el precio</td><td>Insulina (teórico)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grafico-box">
+      <h3>Tipos de curva según elasticidad de la demanda</h3>
+      <div class="grid-elasticidad">
+        <div class="card-elast">
+          <p class="card-titulo">Elástica (Ed &gt; 1)</p>
+          <p class="card-sub">Bienes de lujo</p>
+          <div style="position:relative;height:110px;"><canvas id="ed1"></canvas></div>
+        </div>
+        <div class="card-elast">
+          <p class="card-titulo">Inelástica (Ed &lt; 1)</p>
+          <p class="card-sub">Medicamentos</p>
+          <div style="position:relative;height:110px;"><canvas id="ed2"></canvas></div>
+        </div>
+        <div class="card-elast">
+          <p class="card-titulo">Unitaria (Ed = 1)</p>
+          <p class="card-sub">Cambio proporcional</p>
+          <div style="position:relative;height:110px;"><canvas id="ed3"></canvas></div>
+        </div>
+        <div class="card-elast">
+          <p class="card-titulo">Perf. elástica (Ed = ∞)</p>
+          <p class="card-sub">Horizontal</p>
+          <div style="position:relative;height:110px;"><canvas id="ed4"></canvas></div>
+        </div>
+        <div class="card-elast">
+          <p class="card-titulo">Perf. inelástica (Ed = 0)</p>
+          <p class="card-sub">Insulina (teórico)</p>
+          <div style="position:relative;height:110px;"><canvas id="ed5"></canvas></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== ELASTICIDAD OFERTA =================== -->
+  <section id="elasticidad-o">
+    <h2 class="sec-titulo">Elasticidad de la Oferta</h2>
+
+    <div class="definicion">
+      La <strong>elasticidad-precio de la oferta (Eo)</strong> mide cuánto cambia la cantidad ofrecida cuando cambia el precio. El resultado es <strong>positivo</strong> porque precio y cantidad ofrecida se mueven en el mismo sentido.
+    </div>
+
+    <div class="formula-box">
+      <p style="font-size:0.85rem;color:var(--texto-suave);margin-bottom:4px;">Fórmula</p>
+      <p class="formula">Eo = % Δ Cantidad ofrecida ÷ % Δ Precio</p>
+    </div>
+
+    <div class="tabla-wrap">
+      <table class="tabla-tipos">
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Valor</th>
+            <th>Significado</th>
+            <th>Ejemplo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Elástica</td><td>Eo &gt; 1</td><td>Productores reaccionan mucho</td><td>Bienes industriales</td></tr>
+          <tr><td>Inelástica</td><td>Eo &lt; 1</td><td>Productores reaccionan poco</td><td>Productos agrícolas</td></tr>
+          <tr><td>Unitaria</td><td>Eo = 1</td><td>Cambia igual que el precio</td><td>—</td></tr>
+          <tr><td>Perf. elástica</td><td>Eo = ∞</td><td>A un precio fijo: cualquier cantidad</td><td>Caso teórico</td></tr>
+          <tr><td>Perf. inelástica</td><td>Eo = 0</td><td>Cantidad fija sin importar el precio</td><td>Cuadros de pintor fallecido</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="grafico-box">
+      <h3>Tipos de curva según elasticidad de la oferta</h3>
+      <div class="grid-elasticidad">
+        <div class="card-elast">
+          <p class="card-titulo">Elástica (Eo &gt; 1)</p>
+          <p class="card-sub">Bienes industriales</p>
+          <div style="position:relative;height:110px;"><canvas id="eo1"></canvas></div>
+        </div>
+        <div class="card-elast">
+          <p class="card-titulo">Inelástica (Eo &lt; 1)</p>
+          <p class="card-sub">Productos agrícolas</p>
+          <div style="position:relative;height:110px;"><canvas id="eo2"></canvas></div>
+        </div>
+        <div class="card-elast">
+          <p class="card-titulo">Unitaria (Eo = 1)</p>
+          <p class="card-sub">Cambio proporcional</p>
+          <div style="position:relative;height:110px;"><canvas id="eo3"></canvas></div>
+        </div>
+        <div class="card-elast">
+          <p class="card-titulo">Perf. elástica (Eo = ∞)</p>
+          <p class="card-sub">Horizontal</p>
+          <div style="position:relative;height:110px;"><canvas id="eo4"></canvas></div>
+        </div>
+        <div class="card-elast">
+          <p class="card-titulo">Perf. inelástica (Eo = 0)</p>
+          <p class="card-sub">Cuadros de pintor fallecido</p>
+          <div style="position:relative;height:110px;"><canvas id="eo5"></canvas></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================== CALCULADORA =================== -->
+  <section id="calculadora">
+    <h2 class="sec-titulo">Calculadora de Elasticidad</h2>
+
+    <div class="calc-box">
+      <div class="tabs">
+        <button class="tab activo" onclick="setTab('demanda')">Elasticidad Demanda</button>
+        <button class="tab" onclick="setTab('oferta')">Elasticidad Oferta</button>
+      </div>
+
+      <div class="calc-grid">
+        <div>
+          <label>Precio inicial (P1)</label>
+          <input type="number" id="p1" placeholder="ej: 10000">
+        </div>
+        <div>
+          <label>Precio final (P2)</label>
+          <input type="number" id="p2" placeholder="ej: 8000">
+        </div>
+        <div>
+          <label>Cantidad inicial (Q1)</label>
+          <input type="number" id="q1" placeholder="ej: 200">
+        </div>
+        <div>
+          <label>Cantidad final (Q2)</label>
+          <input type="number" id="q2" placeholder="ej: 350">
+        </div>
+      </div>
+
+      <button class="btn-calc" onclick="calcular()">Calcular</button>
+
+      <div class="resultado-calc" id="resultadoCalc">
+        <div class="res-pasos" id="pasos"></div>
+        <div class="res-tipo" id="resBloque">
+          <div class="res-ed" id="edNum"></div>
+          <div class="res-desc" id="resDesc"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="actividad">
+      <h3>✏️ Actividad práctica — Calculá vos</h3>
+      <ol>
+        <li>El precio de las entradas al cine sube de $5.000 a $6.000. Los espectadores bajan de 400 a 300 por semana. ¿Es elástica o inelástica?</li>
+        <li>El precio del trigo sube de $20.000 a $22.000 por tonelada. La producción pasa de 1.000 a 1.050 toneladas. ¿Qué tipo de oferta es?</li>
+        <li>El precio de un viaje al exterior sube de $200.000 a $250.000. Los viajeros bajan de 1.000 a 600. ¿Cómo es la elasticidad?</li>
+      </ol>
+    </div>
+  </section>
+
+</main>
+
+<footer>Material de estudio — Economía · Secundario</footer>
+
+<script>
+// ===================== CHARTS =====================
+
+const scatterOpts = (color) => ({
+  responsive: true,
+  maintainAspectRatio: false,
+  animation: false,
+  plugins: { legend: { display: false }, tooltip: { enabled: false } },
+  scales: {
+    x: {
+      title: { display: true, text: 'Cantidad', color: '#888', font: { size: 10 } },
+      min: 0, max: 800,
+      ticks: { color: '#888', font: { size: 9 } },
+      grid: { color: 'rgba(0,0,0,0.06)' }
+    },
+    y: {
+      title: { display: true, text: 'Precio ($)', color: '#888', font: { size: 10 } },
+      min: 0, max: 14000,
+      ticks: { color: '#888', font: { size: 9 }, callback: v => '$' + v.toLocaleString('es-AR') },
+      grid: { color: 'rgba(0,0,0,0.06)' }
+    }
+  }
+});
+
+const mkDs = (data, color) => ({
+  datasets: [{
+    data,
+    showLine: true,
+    borderColor: color,
+    borderWidth: 2,
+    pointRadius: 4,
+    pointBackgroundColor: color,
+    pointBorderColor: '#fff',
+    pointBorderWidth: 1.5,
+    tension: 0,
+    fill: false
+  }]
+});
+
+// Demanda
+new Chart(document.getElementById('grafDemanda'), {
+  type: 'scatter',
+  data: mkDs([{x:100,y:12000},{x:200,y:10000},{x:350,y:8000},{x:500,y:6000},{x:700,y:4000}], '#1565C0'),
+  options: scatterOpts('#1565C0')
+});
+
+// Oferta
+new Chart(document.getElementById('grafOferta'), {
+  type: 'scatter',
+  data: mkDs([{x:100,y:4000},{x:200,y:6000},{x:350,y:8000},{x:550,y:10000},{x:700,y:12000}], '#2E7D32'),
+  options: scatterOpts('#2E7D32')
+});
+
+// Equilibrio
+new Chart(document.getElementById('grafEquilibrio'), {
+  type: 'scatter',
+  data: {
+    datasets: [
+      { label:'Demanda', data:[{x:100,y:12000},{x:200,y:10000},{x:350,y:8000},{x:500,y:6000},{x:700,y:4000}],
+        showLine:true, borderColor:'#1565C0', borderWidth:2, pointRadius:3, pointBackgroundColor:'#1565C0', tension:0, fill:false },
+      { label:'Oferta', data:[{x:100,y:4000},{x:200,y:6000},{x:350,y:8000},{x:550,y:10000},{x:700,y:12000}],
+        showLine:true, borderColor:'#2E7D32', borderWidth:2, pointRadius:3, pointBackgroundColor:'#2E7D32', tension:0, fill:false },
+      { label:'Equilibrio', data:[{x:350,y:8000}],
+        showLine:false, pointRadius:8, pointBackgroundColor:'#D84315', pointBorderColor:'#fff', pointBorderWidth:2 }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false, animation: false,
+    plugins: { legend:{ display:false }, tooltip:{ callbacks:{ label: ctx => ctx.dataset.label === 'Equilibrio' ? 'Equilibrio: Q=350 | P=$8.000' : ctx.dataset.label + ': Q=' + ctx.parsed.x + ' | P=$' + ctx.parsed.y.toLocaleString('es-AR') }}},
+    scales: {
+      x: { title:{display:true,text:'Cantidad',color:'#888',font:{size:10}}, min:0, max:800, ticks:{color:'#888',font:{size:9}}, grid:{color:'rgba(0,0,0,0.06)'} },
+      y: { title:{display:true,text:'Precio ($)',color:'#888',font:{size:10}}, min:0, max:14000, ticks:{color:'#888',font:{size:9},callback:v=>'$'+v.toLocaleString('es-AR')}, grid:{color:'rgba(0,0,0,0.06)'} }
+    }
+  },
+  plugins: [{
+    id:'eqLines',
+    afterDraw(chart){
+      const ctx=chart.ctx, xs=chart.scales.x, ys=chart.scales.y;
+      const ex=xs.getPixelForValue(350), ey=ys.getPixelForValue(8000);
+      ctx.save(); ctx.setLineDash([5,4]); ctx.strokeStyle='rgba(216,67,21,0.5)'; ctx.lineWidth=1.5;
+      ctx.beginPath(); ctx.moveTo(xs.getPixelForValue(0),ey); ctx.lineTo(ex,ey); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(ex,ys.getPixelForValue(0)); ctx.lineTo(ex,ey); ctx.stroke();
+      ctx.restore();
+      ctx.save(); ctx.fillStyle='#D84315'; ctx.font='bold 11px Inter,sans-serif';
+      ctx.fillText('E ($8.000, 350)', ex+8, ey-8); ctx.restore();
+    }
+  }]
+});
+
+// ---- Elasticidad mini charts ----
+const miniOpts = () => ({
+  responsive: true, maintainAspectRatio: false, animation: false,
+  plugins: { legend:{ display:false }, tooltip:{ enabled:false } },
+  scales: {
+    x: { title:{display:true,text:'Cantidad',color:'#888',font:{size:9}}, min:0, max:10, ticks:{display:false}, grid:{color:'rgba(0,0,0,0.07)'} },
+    y: { title:{display:true,text:'Precio',color:'#888',font:{size:9}}, min:0, max:10, ticks:{display:false}, grid:{color:'rgba(0,0,0,0.07)'} }
+  }
+});
+const miniDs = (data, color) => ({
+  datasets: [{ data, showLine:true, borderColor:color, borderWidth:2, pointRadius:0, tension:0, fill:false }]
+});
+
+// Demanda
+new Chart(document.getElementById('ed1'), { type:'scatter', data: miniDs([{x:1,y:8},{x:9,y:2}],'#1565C0'), options: miniOpts() });
+new Chart(document.getElementById('ed2'), { type:'scatter', data: miniDs([{x:4,y:9},{x:6,y:1}],'#1565C0'), options: miniOpts() });
+new Chart(document.getElementById('ed3'), { type:'scatter', data: miniDs([{x:1,y:9},{x:9,y:1}],'#1565C0'), options: miniOpts() });
+new Chart(document.getElementById('ed4'), { type:'scatter', data: miniDs([{x:1,y:5},{x:9,y:5}],'#1565C0'), options: miniOpts() });
+new Chart(document.getElementById('ed5'), { type:'scatter', data: miniDs([{x:5,y:9},{x:5,y:1}],'#1565C0'), options: miniOpts() });
+
+// Oferta
+new Chart(document.getElementById('eo1'), { type:'scatter', data: miniDs([{x:1,y:2},{x:9,y:8}],'#2E7D32'), options: miniOpts() });
+new Chart(document.getElementById('eo2'), { type:'scatter', data: miniDs([{x:4,y:1},{x:6,y:9}],'#2E7D32'), options: miniOpts() });
+new Chart(document.getElementById('eo3'), { type:'scatter', data: miniDs([{x:1,y:1},{x:9,y:9}],'#2E7D32'), options: miniOpts() });
+new Chart(document.getElementById('eo4'), { type:'scatter', data: miniDs([{x:1,y:5},{x:9,y:5}],'#2E7D32'), options: miniOpts() });
+new Chart(document.getElementById('eo5'), { type:'scatter', data: miniDs([{x:5,y:1},{x:5,y:9}],'#2E7D32'), options: miniOpts() });
+
+// ===================== CALCULADORA =====================
+let modoActual = 'demanda';
+
+function setTab(modo) {
+  modoActual = modo;
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('activo'));
+  event.target.classList.add('activo');
+  document.getElementById('resultadoCalc').style.display = 'none';
+}
+
+function calcular() {
+  const p1 = parseFloat(document.getElementById('p1').value);
+  const p2 = parseFloat(document.getElementById('p2').value);
+  const q1 = parseFloat(document.getElementById('q1').value);
+  const q2 = parseFloat(document.getElementById('q2').value);
+
+  if ([p1,p2,q1,q2].some(v => isNaN(v) || v <= 0)) {
+    alert('Ingresá todos los valores mayores a cero.'); return;
+  }
+
+  const varQ = ((q2 - q1) / q1) * 100;
+  const varP = ((p2 - p1) / p1) * 100;
+  const ed = modoActual === 'demanda' ? Math.abs(varQ / varP) : varQ / varP;
+  const etiqueta = modoActual === 'demanda' ? 'Ed' : 'Eo';
+
+  document.getElementById('pasos').innerHTML =
+    `<strong>Paso 1 — % cambio en cantidad:</strong><br>
+    (${q2} − ${q1}) / ${q1} × 100 = <strong>${varQ.toFixed(1)}%</strong><br>
+    <strong>Paso 2 — % cambio en precio:</strong><br>
+    (${p2} − ${p1}) / ${p1} × 100 = <strong>${varP.toFixed(1)}%</strong><br>
+    <strong>Paso 3 — ${etiqueta}:</strong> ${modoActual === 'demanda' ? '|' : ''}${varQ.toFixed(1)}% / ${varP.toFixed(1)}%${modoActual === 'demanda' ? '|' : ''} = <strong>${ed.toFixed(2)}</strong>`;
+
+  document.getElementById('edNum').textContent = ed.toFixed(2);
+
+  const bloque = document.getElementById('resBloque');
+  const desc = document.getElementById('resDesc');
+  const absEd = Math.abs(ed);
+
+  let tipo, explicacion, bg, color;
+  if (absEd > 1) {
+    tipo = `${etiqueta} elástica (${etiqueta} > 1)`;
+    explicacion = modoActual === 'demanda'
+      ? 'La cantidad reacciona más que el precio. Consumidores muy sensibles al precio.'
+      : 'Los productores reaccionan mucho ante cambios de precio.';
+    bg = '#E3F2FD'; color = '#0D47A1';
+  } else if (absEd < 1) {
+    tipo = `${etiqueta} inelástica (${etiqueta} < 1)`;
+    explicacion = modoActual === 'demanda'
+      ? 'La cantidad reacciona menos que el precio. Consumidores poco sensibles.'
+      : 'Los productores reaccionan poco ante cambios de precio.';
+    bg = '#FBE9E7'; color = '#BF360C';
+  } else {
+    tipo = `${etiqueta} unitaria (${etiqueta} = 1)`;
+    explicacion = 'La cantidad cambia en la misma proporción que el precio.';
+    bg = '#E8F5E9'; color = '#1B5E20';
+  }
+
+  bloque.style.background = bg;
+  document.getElementById('edNum').style.color = color;
+  desc.innerHTML = `<strong style="color:${color}">${tipo}</strong>${explicacion}`;
+  document.getElementById('resultadoCalc').style.display = 'block';
+}
+</script>
+</body>
+</html>
