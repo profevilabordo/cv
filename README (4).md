@@ -872,6 +872,79 @@ function rU1() {  // Actividad específica
 
 ---
 
+## 📋 Notas extra del docente (panel) y agente de notas
+
+Además de las notas que el campus manda solas (Núcleos, Autotest, secciones completadas),
+la profe puede cargar **notas extra** (prácticos, evaluaciones escritas, trabajo en clase,
+participación, tareas) desde `panel-docente.html` → pestaña **📋 Notas extra**.
+
+### Cómo se carga
+1. Elegir **Curso** (la lista de estudiantes sale de la tabla `alumnos` de Supabase).
+2. Completar **Asignatura**, **Título** (ej: "TP N°2 Oferta y demanda"), **Tipo**
+   (Práctico / Evaluación / Trabajo en clase / Participación / Tarea / Otro), **Trimestre**,
+   **Peso en la nota final (%)**, **Escala** (sobre 10 o sobre 100) y **Fecha**.
+3. Cargar la nota de cada estudiante (Enter salta al siguiente). Observación opcional.
+4. **📧 Guardar y enviar**: manda **un mail por estudiante** a `profevilabordo@gmail.com`
+   (vía FormSubmit, igual que el campus). Los estudiantes sin nota no generan mail.
+5. **💾 Solo guardar**: queda en el navegador (localStorage `cv_notas_extra`) para terminar después.
+6. **✏️ Editar** una nota ya enviada y **🔄 Actualizar y reenviar**: manda los mails de nuevo
+   con `Estado: Actualización` y `Versión` incrementada. **La última versión del mismo
+   `ID nota` reemplaza a las anteriores.**
+
+### Formato del mail (para el agente que lee el correo)
+Asunto: `📋 [Curso-Asignatura-T2] Práctico TP N°2: Nombre Apellido`
+(🔄 en lugar de 📋 cuando es una actualización).
+
+| Campo | Ejemplo | Uso |
+|-------|---------|-----|
+| Evaluación | T2 Práctico — TP N°2 Oferta y demanda | Resumen |
+| Origen | Nota extra cargada por la docente (panel docente) | Distingue de las notas automáticas del campus |
+| Curso / Asignatura / Trimestre | 4°D / Economía / T2 | Agrupar por materia y trimestre |
+| Tipo | Práctico | Categoría |
+| Título | TP N°2 Oferta y demanda | Identifica la instancia |
+| Peso en nota final | 20% | Ponderación (o "sin definir") |
+| Estudiante / Código | Lucía Martínez / tokyo | El **Código** es la clave única del alumno |
+| Nota | 8/10 | Nota en la escala elegida |
+| Nota sobre 100 | 80/100 | Nota normalizada, comparable con las del campus |
+| Observación | entregó tarde | Comentario libre |
+| Fecha | 15/06/2026 | Fecha de la instancia |
+| Estado | Nueva / Actualización — reemplaza la nota anterior con el mismo ID | Ver regla de reemplazo |
+| ID nota | ne_lx3k9a2b | Mismo ID = misma instancia; queda la mayor **Versión** |
+| Versión | 2 | Contador de reenvíos |
+
+### Regla para calcular la nota final del estudiante
+1. Agrupar los mails por **Código** de estudiante, **Asignatura** y **Trimestre**.
+2. Para las notas extra, quedarse con la **mayor Versión de cada ID nota** (descartar las anteriores).
+3. Usar siempre **Nota sobre 100** para operar; las notas del campus ya vienen en /100.
+4. Nota final = suma de (nota × peso) de las notas extra con peso definido. Si los pesos
+   no suman 100, el resto se completa con el promedio de las notas automáticas del campus
+   (Núcleos + Autotest). Las notas extra "sin definir" se promedian con las del campus.
+5. Informar también el detalle: cada instancia con su nota, peso y observación.
+
+### Persistencia en la nube (opcional)
+Las notas extra se guardan en el navegador. Si además querés tenerlas en Supabase
+(para verlas desde otra compu), creá esta tabla; el panel la usa solo si existe:
+```sql
+CREATE TABLE notas_extra (
+  id TEXT PRIMARY KEY,
+  curso TEXT,
+  materia TEXT,
+  titulo TEXT,
+  tipo TEXT,
+  trimestre TEXT,
+  peso NUMERIC,
+  escala INTEGER,
+  fecha DATE,
+  notas JSONB,          -- { "codigo": { "nota": 8, "obs": "..." } }
+  version INTEGER,
+  actualizado TIMESTAMPTZ
+);
+ALTER TABLE notas_extra ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "anon_all_notas_extra" ON notas_extra FOR ALL TO anon USING (true) WITH CHECK (true);
+```
+
+---
+
 ## 📞 Contacto
 
 **Desarrolladora:** Prof. Verónica  
@@ -886,6 +959,7 @@ function rU1() {  // Actividad específica
 ### Última actualización: Marzo 2026
 
 **Cambios recientes:**
+- ✅ Panel docente: pestaña **📋 Notas extra** (prácticos, evaluaciones, trabajo en clase) con peso, escala y envío por mail por estudiante
 - ✅ Núcleos divididos en A/B/C (organización pedagógica)
 - ✅ CRUCES: agregada sección de exposición entre estudiantes
 - ✅ AUTOTEST: expandido de 6 a 15 preguntas

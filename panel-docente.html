@@ -89,6 +89,24 @@ body{background:#0F172A;color:#E2E8F0;min-height:100vh}
 .del-btn:hover{background:#EF444415}
 
 .empty-state{text-align:center;padding:40px;color:#64748B;font-size:14px}
+/* NOTAS EXTRA */
+.ne-form{background:#1E293B;border-radius:16px;border:1px solid rgba(255,255,255,0.07);padding:20px;margin-bottom:20px}
+.ne-form h3{font-size:15px;font-weight:700;color:#F8FAFC;margin-bottom:14px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.ne-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:12px}
+.ne-form select.form-input{cursor:pointer}
+.ne-nota{width:80px;padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);background:#0F172A;color:#F8FAFC;font-size:14px;font-weight:700;text-align:center;outline:none}
+.ne-nota:focus{border-color:#6366F1}
+.ne-nota.bad{border-color:#EF4444}
+.ne-obs{width:100%;min-width:160px;padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);background:#0F172A;color:#E2E8F0;font-size:12px;outline:none}
+.ne-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.ne-status{font-size:12px;color:#94A3B8;margin-top:10px;min-height:16px}
+.ne-list-item{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.04);flex-wrap:wrap}
+.ne-list-item:last-child{border-bottom:none}
+.ne-list-item .ne-t{font-weight:700;color:#F8FAFC;font-size:14px}
+.ne-list-item .ne-m{font-size:12px;color:#64748B;margin-top:2px}
+.ne-mini{padding:6px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.12);background:transparent;color:#94A3B8;font-size:12px;font-weight:600;cursor:pointer}
+.ne-mini:hover{border-color:#6366F1;color:#A78BFA}
+.ne-editing{border-color:#F59E0B80!important;box-shadow:0 0 0 3px rgba(245,158,11,.12)}
 .loading{text-align:center;padding:40px;color:#64748B}
 .refresh-btn{padding:8px 16px;border-radius:10px;border:1px solid rgba(255,255,255,0.1);background:transparent;color:#94A3B8;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s}
 .refresh-btn:hover{border-color:#6366F1;color:#A78BFA}
@@ -226,6 +244,7 @@ body{background:#0F172A;color:#E2E8F0;min-height:100vh}
       <button class="tab" id="tabHeatmap" onclick="switchTab(4,this)">🗺️ Mapa de Calor</button>
       <button class="tab" onclick="switchTab(5,this)">📝 Evaluaciones</button>
       <button class="tab" onclick="switchTab(2,this)">📝 Autotests</button>
+      <button class="tab" onclick="switchTab(6,this)">📋 Notas extra</button>
       <button class="tab" onclick="switchTab(3,this)">⚙️ Gestionar</button>
     </div>
 
@@ -512,6 +531,7 @@ function renderTab(){
   else if(currentTab===4) renderHeatmap();
   else if(currentTab===5) renderEvaluaciones();
   else if(currentTab===2) renderAutotests();
+  else if(currentTab===6) renderNotasExtra();
   else renderGestionar();
 }
 
@@ -1989,6 +2009,309 @@ async function guardarFeedbackAvance(codigo, materia, unidad, seccion, texto){
     if(res && res.length) allProgreso.push(res[0]);
   }
   console.log("Feedback guardado para " + seccion);
+}
+
+// ============================================================
+// ----- TAB 6: NOTAS EXTRA (prácticos, evaluaciones, trabajo en clase) -----
+// Cada nota se guarda localmente (y en Supabase si existe la tabla
+// "notas_extra") y se envía por mail a la profe, un mail por estudiante,
+// con el mismo formato que las notas del campus para que el agente que
+// lee el correo pueda calcular la nota final.
+// ============================================================
+var FORMSUBMIT_EMAIL_DOCENTE = "profevilabordo@gmail.com";
+var NE_TIPOS = ["Práctico","Evaluación","Trabajo en clase","Participación","Tarea","Otro"];
+var NE_MATERIAS = ["Economía","Derecho","Administración III","Orientación en Contextos Laborales",
+  "Fundamentos de Gestión","Marco Jurídico","Organización y Gestión","Procesos Productivos",
+  "Organización y Gestión Comercial"];
+var neEditId = null;
+
+function neLoad(){
+  try{ return JSON.parse(localStorage.getItem("cv_notas_extra")||"[]"); }catch(e){ return []; }
+}
+function neSave(list){
+  try{ localStorage.setItem("cv_notas_extra", JSON.stringify(list)); }catch(e){}
+}
+function neEsc(t){
+  return String(t==null?"":t).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+function neHoy(){
+  var d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+}
+function neFecha(iso){
+  if(!iso) return "";
+  var p=iso.split("-"); return p.length===3 ? p[2]+"/"+p[1]+"/"+p[0] : iso;
+}
+function neTrimestreActual(){
+  var m = new Date().getMonth()+1; // marzo-mayo T1, junio-agosto T2, resto T3
+  return m<=5 ? "T1" : (m<=8 ? "T2" : "T3");
+}
+function neAlumnosCurso(curso){
+  var nc = normalizeString(curso||"");
+  return allAlumnos.filter(function(a){ return normalizeString(a.curso)===nc && a.codigo; })
+    .sort(function(a,b){ return String(a.nombre).localeCompare(String(b.nombre)); });
+}
+
+function renderNotasExtra(){
+  var cursos = [...new Set(allAlumnos.map(function(a){return a.curso}))].filter(Boolean).sort();
+  var cursoSel = (document.getElementById("neCurso")||{}).value || (cursos[0]||"");
+  var edit = neEditId ? neLoad().find(function(n){return n.id===neEditId}) : null;
+  var v = edit || {curso:cursoSel, materia:"", titulo:"", tipo:"Práctico", trimestre:neTrimestreActual(), peso:"", escala:"10", fecha:neHoy(), notas:{}};
+
+  var h = '<div class="ne-form'+(edit?' ne-editing':'')+'">';
+  h += '<h3>'+(edit?'✏️ Editando: '+neEsc(edit.titulo)+' <span class="badge badge-yellow">se enviará como actualización</span>':'📋 Nueva nota extra')+'</h3>';
+  h += '<div class="ne-grid">';
+  h += '<div class="form-group"><label>Curso</label><select class="form-input" id="neCurso" onchange="neCambiarCurso()">';
+  cursos.forEach(function(c){ h += '<option value="'+neEsc(c)+'"'+(c===v.curso?' selected':'')+'>'+neEsc(c)+'</option>'; });
+  h += '</select></div>';
+  h += '<div class="form-group"><label>Asignatura</label><input class="form-input" id="neMateria" list="neMateriasList" placeholder="Ej: Economía" value="'+neEsc(v.materia)+'"><datalist id="neMateriasList">';
+  NE_MATERIAS.forEach(function(m){ h += '<option value="'+neEsc(m)+'">'; });
+  h += '</datalist></div>';
+  h += '<div class="form-group"><label>Título</label><input class="form-input" id="neTitulo" placeholder="Ej: TP N°2 Oferta y demanda" value="'+neEsc(v.titulo)+'"></div>';
+  h += '<div class="form-group"><label>Tipo</label><select class="form-input" id="neTipo">';
+  NE_TIPOS.forEach(function(t){ h += '<option'+(t===v.tipo?' selected':'')+'>'+t+'</option>'; });
+  h += '</select></div>';
+  h += '<div class="form-group"><label>Trimestre</label><select class="form-input" id="neTrimestre">';
+  ["T1","T2","T3"].forEach(function(t){ h += '<option'+(t===v.trimestre?' selected':'')+'>'+t+'</option>'; });
+  h += '</select></div>';
+  h += '<div class="form-group"><label>Peso en la nota final (%)</label><input class="form-input" id="nePeso" type="number" min="0" max="100" step="1" placeholder="Ej: 20" value="'+neEsc(v.peso)+'"></div>';
+  h += '<div class="form-group"><label>Escala</label><select class="form-input" id="neEscala" onchange="neValidarTodas()">';
+  h += '<option value="10"'+(v.escala==="10"?' selected':'')+'>Sobre 10</option><option value="100"'+(v.escala==="100"?' selected':'')+'>Sobre 100</option>';
+  h += '</select></div>';
+  h += '<div class="form-group"><label>Fecha</label><input class="form-input" id="neFecha" type="date" value="'+neEsc(v.fecha)+'"></div>';
+  h += '</div>';
+
+  h += '<div class="table-wrap" id="neTablaWrap">'+neTablaAlumnos(v.curso, v.notas)+'</div>';
+
+  h += '<div class="ne-actions">';
+  h += '<button class="add-btn" id="neBtnEnviar" onclick="neEnviar()">'+(edit?'🔄 Actualizar y reenviar':'📧 Guardar y enviar')+'</button>';
+  h += '<button class="refresh-btn" onclick="neGuardar(false)">💾 Solo guardar (sin mail)</button>';
+  if(edit) h += '<button class="refresh-btn" onclick="neCancelarEdicion()">✖ Cancelar edición</button>';
+  h += '<span style="font-size:12px;color:#64748B">Se envía un mail por estudiante con nota cargada. Los que quedan vacíos no se envían.</span>';
+  h += '</div><div class="ne-status" id="neStatus"></div></div>';
+
+  h += neListaGuardadas();
+  document.getElementById("tabContent").innerHTML = h;
+}
+
+function neTablaAlumnos(curso, notas){
+  var al = neAlumnosCurso(curso);
+  notas = notas || {};
+  var h = '<table><thead><tr><th>#</th><th>Estudiante</th><th>Clave</th><th>Nota</th><th>Observación (opcional)</th></tr></thead><tbody>';
+  if(!al.length){ h += '<tr><td colspan="5" style="text-align:center;color:#64748B;padding:24px">No hay alumnos registrados en este curso. Cargalos en ⚙️ Gestionar.</td></tr>'; }
+  al.forEach(function(a,i){
+    var n = notas[a.codigo] || {};
+    h += '<tr data-codigo="'+neEsc(a.codigo)+'">';
+    h += '<td style="color:#64748B">'+(i+1)+'</td>';
+    h += '<td><strong>'+neEsc(a.nombre)+'</strong></td>';
+    h += '<td><code style="background:#0F172A;padding:3px 8px;border-radius:6px;font-size:12px;color:#A78BFA">'+neEsc(a.codigo)+'</code></td>';
+    h += '<td><input class="ne-nota" inputmode="decimal" placeholder="—" value="'+neEsc(n.nota==null?"":n.nota)+'" oninput="neValidar(this)" onkeydown="neSaltar(event,this)"></td>';
+    h += '<td><input class="ne-obs" placeholder="Ej: entregó tarde" value="'+neEsc(n.obs||"")+'"></td>';
+    h += '</tr>';
+  });
+  h += '</tbody></table>';
+  return h;
+}
+
+function neCambiarCurso(){
+  var curso = document.getElementById("neCurso").value;
+  document.getElementById("neTablaWrap").innerHTML = neTablaAlumnos(curso, {});
+}
+function neSaltar(e, inp){
+  if(e.key!=="Enter") return;
+  e.preventDefault();
+  var all = Array.from(document.querySelectorAll("#neTablaWrap .ne-nota"));
+  var i = all.indexOf(inp);
+  if(i>=0 && i<all.length-1){ all[i+1].focus(); all[i+1].select(); }
+}
+function neMax(){ return document.getElementById("neEscala").value==="100" ? 100 : 10; }
+function neValidar(inp){
+  var t = inp.value.trim().replace(",",".");
+  if(t===""){ inp.classList.remove("bad"); return true; }
+  var n = parseFloat(t);
+  var ok = !isNaN(n) && n>=0 && n<=neMax();
+  inp.classList.toggle("bad", !ok);
+  return ok;
+}
+function neValidarTodas(){
+  var ok = true;
+  document.querySelectorAll("#neTablaWrap .ne-nota").forEach(function(i){ if(!neValidar(i)) ok=false; });
+  return ok;
+}
+
+function neLeerFormulario(){
+  var titulo = document.getElementById("neTitulo").value.trim();
+  var materia = document.getElementById("neMateria").value.trim();
+  var peso = document.getElementById("nePeso").value.trim();
+  if(!titulo){ alert("Poné un título para la nota (ej: TP N°2)."); return null; }
+  if(!materia){ alert("Indicá la asignatura."); return null; }
+  if(peso!=="" && (isNaN(parseFloat(peso)) || parseFloat(peso)<0 || parseFloat(peso)>100)){ alert("El peso debe ser un número entre 0 y 100."); return null; }
+  if(!neValidarTodas()){ alert("Hay notas fuera de la escala elegida (marcadas en rojo)."); return null; }
+  var notas = {};
+  document.querySelectorAll("#neTablaWrap tr[data-codigo]").forEach(function(tr){
+    var cod = tr.getAttribute("data-codigo");
+    var nota = tr.querySelector(".ne-nota").value.trim().replace(",",".");
+    var obs = tr.querySelector(".ne-obs").value.trim();
+    if(nota!=="" || obs) notas[cod] = {nota: nota===""?null:parseFloat(nota), obs: obs};
+  });
+  return {
+    id: neEditId || ("ne_"+Date.now().toString(36)+Math.random().toString(36).slice(2,6)),
+    curso: document.getElementById("neCurso").value,
+    materia: materia,
+    titulo: titulo,
+    tipo: document.getElementById("neTipo").value,
+    trimestre: document.getElementById("neTrimestre").value,
+    peso: peso,
+    escala: document.getElementById("neEscala").value,
+    fecha: document.getElementById("neFecha").value || neHoy(),
+    notas: notas,
+    version: 1,
+    actualizado: new Date().toISOString()
+  };
+}
+
+function neGuardar(silencioso){
+  var reg = neLeerFormulario();
+  if(!reg) return null;
+  var list = neLoad();
+  var idx = list.findIndex(function(n){return n.id===reg.id});
+  if(idx>=0){ reg.version = (list[idx].version||1)+1; reg.enviado = list[idx].enviado||null; list[idx]=reg; }
+  else list.unshift(reg);
+  neSave(list);
+  neGuardarSupabase(reg);
+  if(silencioso===false){
+    neEditId = reg.id;
+    renderNotasExtra();
+    neSetStatus("💾 Guardado localmente ("+Object.keys(reg.notas).length+" estudiantes). Podés seguir editando y enviar cuando quieras.");
+  }
+  return reg;
+}
+
+// Persistencia en la nube (opcional): requiere la tabla "notas_extra" en Supabase.
+async function neGuardarSupabase(reg){
+  try{
+    await fetch(SUPABASE_URL + "/rest/v1/notas_extra?on_conflict=id", {
+      method: "POST",
+      headers: {
+        "apikey": SUPABASE_KEY, "Authorization": "Bearer " + SUPABASE_KEY,
+        "Content-Type": "application/json", "Prefer": "resolution=merge-duplicates,return=minimal"
+      },
+      body: JSON.stringify({ id: reg.id, curso: reg.curso, materia: reg.materia, titulo: reg.titulo, tipo: reg.tipo,
+        trimestre: reg.trimestre, peso: reg.peso===""?null:parseFloat(reg.peso), escala: parseInt(reg.escala,10),
+        fecha: reg.fecha, notas: reg.notas, version: reg.version, actualizado: reg.actualizado })
+    });
+  }catch(e){ /* si la tabla no existe, queda solo en este navegador */ }
+}
+
+function neSetStatus(msg){ var s=document.getElementById("neStatus"); if(s) s.textContent = msg; }
+
+function neMailPayload(reg, a, n, esActualizacion){
+  var escala = parseInt(reg.escala,10);
+  var sobre100 = Math.round((n.nota/escala)*100);
+  var pesoTxt = reg.peso===""||reg.peso==null ? "sin definir" : reg.peso+"%";
+  var estado = esActualizacion ? "Actualización — reemplaza la nota anterior con el mismo ID" : "Nueva";
+  var subjEmoji = esActualizacion ? "🔄" : "📋";
+  return {
+    "Evaluación": reg.trimestre+" "+reg.tipo+" — "+reg.titulo,
+    "Origen": "Nota extra cargada por la docente (panel docente)",
+    "Curso": reg.curso,
+    "Asignatura": reg.materia,
+    "Trimestre": reg.trimestre,
+    "Tipo": reg.tipo,
+    "Título": reg.titulo,
+    "Peso en nota final": pesoTxt,
+    "Estudiante": a.nombre,
+    "Código": a.codigo,
+    "Nota": n.nota+"/"+escala,
+    "Nota sobre 100": sobre100+"/100",
+    "Observación": n.obs || "—",
+    "Fecha": neFecha(reg.fecha),
+    "Estado": estado,
+    "ID nota": reg.id,
+    "Versión": String(reg.version||1),
+    "_subject": subjEmoji+" ["+reg.curso+"-"+reg.materia+"-"+reg.trimestre+"] "+reg.tipo+" "+reg.titulo+": "+a.nombre,
+    "_captcha": "false"
+  };
+}
+
+function nePostMail(data){
+  return fetch("https://formsubmit.co/ajax/"+FORMSUBMIT_EMAIL_DOCENTE, {
+    method:"POST",
+    headers:{"Content-Type":"application/json","Accept":"application/json"},
+    body: JSON.stringify(data)
+  }).then(function(r){ if(!r.ok) throw new Error("HTTP "+r.status); return true; });
+}
+
+async function neEnviar(){
+  var esActualizacion = !!(neEditId && (neLoad().find(function(n){return n.id===neEditId})||{}).enviado);
+  var reg = neGuardar(true);
+  if(!reg) return;
+  var al = neAlumnosCurso(reg.curso);
+  var pendientes = al.filter(function(a){ var n=reg.notas[a.codigo]; return n && n.nota!=null; });
+  if(!pendientes.length){ alert("No cargaste ninguna nota todavía."); return; }
+  if(!confirm("Se van a enviar "+pendientes.length+" mails ("+reg.tipo+" \""+reg.titulo+"\", "+reg.curso+" - "+reg.materia+").\n¿Continuar?")) return;
+
+  var btn = document.getElementById("neBtnEnviar");
+  btn.disabled = true; btn.style.opacity = .6;
+  var ok = 0, fallos = [];
+  for(var i=0;i<pendientes.length;i++){
+    var a = pendientes[i];
+    neSetStatus("📤 Enviando "+(i+1)+"/"+pendientes.length+": "+a.nombre+"…");
+    try{ await nePostMail(neMailPayload(reg, a, reg.notas[a.codigo], esActualizacion)); ok++; }
+    catch(e){ fallos.push(a.nombre); }
+    await new Promise(function(r){ setTimeout(r, 400); });
+  }
+  var list = neLoad();
+  var idx = list.findIndex(function(n){return n.id===reg.id});
+  if(idx>=0){ list[idx].enviado = new Date().toISOString(); list[idx].enviadosOk = ok; neSave(list); }
+  btn.disabled = false; btn.style.opacity = 1;
+  if(fallos.length){
+    neEditId = reg.id;
+    neSetStatus("⚠️ Enviados "+ok+"/"+pendientes.length+". Fallaron: "+fallos.join(", ")+". Volvé a intentar con 🔄 Actualizar y reenviar.");
+  } else {
+    neSetStatus("✅ Enviados "+ok+" mails a "+FORMSUBMIT_EMAIL_DOCENTE+".");
+    neEditId = null;
+    setTimeout(renderNotasExtra, 1500);
+  }
+}
+
+function neListaGuardadas(){
+  var list = neLoad();
+  var h = '<div class="table-wrap"><div style="padding:14px 16px;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">';
+  h += '<strong style="color:#F8FAFC;font-size:14px">🗂 Notas cargadas ('+list.length+')</strong>';
+  h += '<span style="font-size:12px;color:#64748B">Guardadas en este navegador. Editá para corregir y reenviar como actualización.</span></div>';
+  if(!list.length) h += '<div class="empty-state">Todavía no cargaste ninguna nota extra.</div>';
+  list.forEach(function(n){
+    var cant = Object.keys(n.notas||{}).filter(function(k){return n.notas[k].nota!=null}).length;
+    var env = n.enviado ? '<span class="badge badge-green">📧 enviado '+new Date(n.enviado).toLocaleDateString("es-AR")+'</span>' : '<span class="badge badge-yellow">sin enviar</span>';
+    h += '<div class="ne-list-item"><div>';
+    h += '<div class="ne-t">'+neEsc(n.titulo)+' <span class="badge badge-blue">'+neEsc(n.tipo)+'</span> '+env+'</div>';
+    h += '<div class="ne-m">'+neEsc(n.curso)+' · '+neEsc(n.materia)+' · '+neEsc(n.trimestre)+' · peso '+(n.peso===""||n.peso==null?"—":neEsc(n.peso)+'%')+' · '+cant+' notas · '+neFecha(n.fecha)+' · v'+(n.version||1)+'</div>';
+    h += '</div><div style="display:flex;gap:6px">';
+    h += '<button class="ne-mini" onclick="neEditar(\''+n.id+'\')">✏️ Editar</button>';
+    h += '<button class="ne-mini" onclick="neCopiar(\''+n.id+'\')">📋 Copiar</button>';
+    h += '<button class="del-btn" onclick="neBorrar(\''+n.id+'\')" title="Borrar">🗑</button>';
+    h += '</div></div>';
+  });
+  h += '</div>';
+  return h;
+}
+function neEditar(id){ neEditId = id; renderNotasExtra(); window.scrollTo({top:0,behavior:"smooth"}); }
+function neCancelarEdicion(){ neEditId = null; renderNotasExtra(); }
+function neBorrar(id){
+  var n = neLoad().find(function(x){return x.id===id});
+  if(!n) return;
+  if(!confirm("¿Borrar \""+n.titulo+"\" de este navegador? (los mails ya enviados no se borran)")) return;
+  neSave(neLoad().filter(function(x){return x.id!==id}));
+  if(neEditId===id) neEditId = null;
+  renderNotasExtra();
+}
+function neCopiar(id){
+  var n = neLoad().find(function(x){return x.id===id});
+  if(!n) return;
+  var al = neAlumnosCurso(n.curso);
+  var t = "Estudiante\tClave\tNota\tObservación\n";
+  al.forEach(function(a){ var x=n.notas[a.codigo]||{}; t += a.nombre+"\t"+a.codigo+"\t"+(x.nota==null?"":x.nota)+"\t"+(x.obs||"")+"\n"; });
+  navigator.clipboard.writeText(t).then(function(){ alert("Tabla copiada. Pegala en Excel o Google Sheets."); });
 }
 
 </script>
